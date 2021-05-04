@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:paddingBottom="@dimen/messageBlockPaddingVert"
+    tools:paddingEnd="@dimen/messageBlockPaddingHorz"
+    tools:paddingStart="@dimen/messageBlockPaddingHorz"
+    tools:paddingTop="@dimen/messageBlockPaddingVert"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <TextView
+        android:id="@+id/messageBlockTitle"
+        style="@style/MessageBlockTitleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/messageBlockDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Deny reason" />
+
+    <TextView
+        android:id="@+id/messageBlockDescription"
+        style="@style/MessageBlockDescriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/messageBlockDescriptionMarginTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messageBlockTitle"
+        tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo."
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/messageBlockSignatureImage"
+        android:layout_width="@dimen/messageBlockSignatureDrawableSize"
+        android:layout_height="@dimen/messageBlockSignatureDrawableSize"
+        android:layout_marginTop="@dimen/messageBlockSignatureMarginTop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/messageBlockSignatureImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/messageBlockDescription"
+        tools:src="@drawable/ic_request_type_single_purchase" />
+
+    <TextView
+        android:id="@+id/messageBlockSignatureText"
+        style="@style/MessageBlockSignatureText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/messageBlockSignatureTextMarginStart"
+        android:layout_marginTop="@dimen/messageBlockSignatureMarginTop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/messageBlockSignatureImage"
+        app:layout_constraintTop_toBottomOf="@id/messageBlockDescription"
+        tools:text="Jean-Michel Octane" />
+</merge>

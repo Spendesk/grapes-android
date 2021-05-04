@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="partialContentBlockTitleRightText" />
+
+    <TextView
+        android:id="@+id/partialContentBlockTitleText"
+        style="@style/PartialContentBlockTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/barrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="title is here and also there but finally long and long" />
+
+    <TextView
+        android:id="@+id/partialContentBlockTitleRightText"
+        style="@style/PartialContentBlockTitleEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/partialContentBlockEndImage"
+        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="subtitle" />
+
+    <ImageView
+        android:id="@+id/partialContentBlockEndImage"
+        style="@style/PartialContentBlockEndImage"
+        android:layout_width="@dimen/partialContentBlockEndImageSize"
+        android:layout_height="@dimen/partialContentBlockEndImageSize"
+        android:layout_marginStart="@dimen/partialContentBlockEndImageMarginStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/partialContentBlockTitleRightText"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</androidx.constraintlayout.widget.ConstraintLayout>

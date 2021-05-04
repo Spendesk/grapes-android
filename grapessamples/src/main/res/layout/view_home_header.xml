@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <View
+        android:id="@+id/homeGenericHeaderBackground"
+        style="@style/HomeGenericHeaderView"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/homeGenericHeaderTitleHeight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/homeGenericHeaderTitle"
+        style="@style/HomeGenericHeaderText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/homeGenericHeaderTitleMarginHorz"
+        android:layout_marginEnd="@dimen/homeGenericHeaderTitleMarginHorz"
+        app:layout_constraintBottom_toBottomOf="@id/homeGenericHeaderBackground"
+        app:layout_constraintEnd_toEndOf="@id/homeGenericHeaderBackground"
+        app:layout_constraintStart_toStartOf="@id/homeGenericHeaderBackground"
+        app:layout_constraintTop_toTopOf="@id/homeGenericHeaderBackground"
+        tools:text="Buttons" />
+</merge>

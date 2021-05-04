@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ResponsibilityCenterGaugeLegendImageContainerCardView">
+        <item name="cardCornerRadius">@dimen/responsibilityCenterGaugeLegendImageContainerCardViewRadius</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="SummaryBlockContentResponsibilityCenterLegendFlow">
+        <item name="android:visibility">gone</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ResponsibilityCenterGaugeLegendTitle">
+        <item name="android:textSize">@dimen/responsibilityCenterGaugeLegendTitleSize</item>
+        <item name="android:textColor">@color/responsibilityCenterGaugeLegendTitleColor</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+    </style>
+
+    <style name="ResponsibilityCenterGaugeLegendSubtitle">
+        <item name="android:textSize">@dimen/responsibilityCenterGaugeLegendSubtitleSize</item>
+        <item name="android:textColor">@color/responsibilityCenterGaugeLegendSubtitleColor</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+    </style>
+</resources>

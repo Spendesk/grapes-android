@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="title" format="string" />
+    <attr name="subtitle" format="string" />
+
+    <!-- region Button -->
+    <declare-styleable name="Button">
+        <attr name="android:text" />
+        <attr name="android:drawableStart" />
+        <attr name="grapesButtonStyle" format="enum|reference">
+            <enum name="primary" value="0" />
+            <enum name="secondary" value="1" />
+            <enum name="alert" value="2" />
+            <enum name="warning" value="3" />
+        </attr>
+        <attr name="grapesButtonSize" format="enum|reference">
+            <enum name="normal" value="0" />
+            <enum name="small" value="1" />
+        </attr>
+    </declare-styleable>
+    <!-- endregion Button -->
+
+    <!-- region MessageInlineView & MessageBlockView -->
+    <attr name="messageStyle" format="enum|reference">
+        <enum name="neutral" value="0" />
+        <enum name="success" value="1" />
+        <enum name="alert" value="2" />
+        <enum name="warning" value="3" />
+        <enum name="info" value="4" />
+    </attr>
+
+    <declare-styleable name="MessageInlineView">
+        <attr name="android:text" />
+        <attr name="android:drawableStart" />
+        <attr name="messageStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="MessageBlockView">
+        <attr name="title" />
+        <attr name="android:drawableStart" />
+        <attr name="messageStyle" />
+        <attr name="description" format="string" />
+        <attr name="signatureText" format="string" />
+        <attr name="signatureDrawable" format="reference" />
+    </declare-styleable>
+    <!-- endregion MessageInlineView & MessageBlockView -->
+
+    <!-- region UserSupplierInline -->
+    <declare-styleable name="UserSupplierInlineView">
+        <attr name="title" />
+        <attr name="subtitle" />
+        <attr name="bigImageDrawable" format="reference" />
+        <attr name="shouldShowSmallImage" format="boolean" />
+        <attr name="smallImageDrawable" format="reference" />
+    </declare-styleable>
+    <!-- endregion UserSupplierInline -->
+
+</resources>

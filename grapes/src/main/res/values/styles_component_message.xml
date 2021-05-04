@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region MessageBlockView -->
+    <style name="MessageBlockTitleText">
+        <item name="android:textSize">@dimen/messageBlockTextSize</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:drawablePadding">@dimen/messageBlockTextDrawablePadding</item>
+    </style>
+
+    <style name="MessageBlockDescriptionText">
+        <item name="android:textSize">@dimen/messageBlockDescriptionSize</item>
+        <item name="android:textColor">@color/messageBlockDescription</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="MessageBlockSignatureImage"></style>
+
+    <style name="MessageBlockSignatureText">
+        <item name="android:textSize">@dimen/messageBlockSignatureTextSize</item>
+        <item name="android:textColor">@color/messageBlockSignatureText</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!-- endregion MessageBlockView -->
+
+</resources>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region Default -->
+    <dimen name="tinyMargin">4dp</dimen>
+    <dimen name="smallMargin">8dp</dimen>
+    <dimen name="middleMargin">12dp</dimen>
+    <dimen name="normalMargin">16dp</dimen>
+    <dimen name="bigMargin">24dp</dimen>
+    <dimen name="hugeMargin">32dp</dimen>
+
+    <dimen name="bigElevation">42dp</dimen> <!-- A big elevation to ensure it's always above any other elevation -->
+
+    <dimen name="cardViewRadius">@dimen/cardview_default_radius</dimen>
+    <dimen name="cardViewBigRadius">8dp</dimen>
+    <dimen name="cardViewElevation">@dimen/cardview_default_elevation</dimen>
+    <dimen name="cardViewNoElevation">0dp</dimen>
+    <!-- endregion Default -->
+
+    <!-- region Button -->
+    <dimen name="buttonHeight">48dp</dimen>
+    <dimen name="buttonSmallHeight">32dp</dimen>
+    <dimen name="buttonSmallPaddingStart">@dimen/bigMargin</dimen>
+    <dimen name="buttonSmallPaddingEnd">@dimen/bigMargin</dimen>
+
+    <dimen name="buttonNormalTextSize">16sp</dimen>
+    <dimen name="buttonSmallTextSize">14sp</dimen>
+    <dimen name="buttonPaddingVert">12dp</dimen>
+    <dimen name="buttonPaddingHorz">16dp</dimen>
+    <dimen name="buttonDrawablePadding">16dp</dimen>
+    <dimen name="buttonDrawableStartSize">16dp</dimen>
+    <dimen name="buttonRadius">8dp</dimen>
+    <dimen name="buttonSecondaryBackgroundStroke">1dp</dimen>
+    <dimen name="buttonAlertBackgroundStroke">1dp</dimen>
+    <!-- endregion Button -->
+
+    <!-- region BadgeView -->
+    <dimen name="badgeViewTextSize">14sp</dimen>
+    <dimen name="badgeViewBackgroundPaddingVert">2dp</dimen>
+    <dimen name="badgeViewBackgroundPaddingHorz">8dp</dimen>
+    <dimen name="badgeViewBackgroundRadius">30dp</dimen>
+    <!-- endregion BadgeView -->
+
+    <!-- region Bucket -->
+    <dimen name="bucketPadding">16dp</dimen>
+    <dimen name="bucketCardRadius">8dp</dimen>
+    <dimen name="bucketCardElevation">4dp</dimen>
+
+    <dimen name="deepBlueBucketContainerPadding">@dimen/normalMargin</dimen>
+    <dimen name="deepBlueBucketTitleTextSize">18sp</dimen>
+    <dimen name="deepBlueBucketDescriptionTextSize">16sp</dimen>
+    <dimen name="deepBlueBucketTitleMarginTop">@dimen/normalMargin</dimen>
+    <dimen name="deepBlueBucketDescriptionMarginTop">@dimen/middleMargin</dimen>
+    <dimen name="deepBlueBucketButtonMarginTop">32dp</dimen>
+
+    <dimen name="actionInformativeTitleTextSize">32dp</dimen>
+    <dimen name="actionInformativeSubtitleTextSize">14dp</dimen>
+    <dimen name="actionInformationSubtitleTextMarginEnd">@dimen/smallMargin</dimen>
+    <dimen name="actionInformativeContainerPadding">@dimen/normalMargin</dimen>
+    <!-- endregion Bucket -->
+
+    <!-- region Chip -->
+    <dimen name="chipDrawableSize">16dp</dimen>
+    <dimen name="chipDrawablePadding">@dimen/smallMargin</dimen>
+    <dimen name="chipPaddingVert">@dimen/smallMargin</dimen>
+    <dimen name="chipPaddingHorz">@dimen/middleMargin</dimen>
+    <dimen name="chipTextSize">14sp</dimen>
+    <dimen name="chipRadius">4dp</dimen>
+
+    <!-- endregion Chip -->
+
+    <!-- region Security Code Validation CardView -->
+
+    <dimen name="registrationCodeViewContainerHeight">56dp</dimen>
+    <dimen name="registrationCodeViewCardRadius">12dp</dimen>
+    <dimen name="registrationCodeViewCardElevation">0dp</dimen>
+    <dimen name="registrationCodeViewTextLetterSpacing">0.35</dimen>
+    <dimen name="registrationCodeViewTextSize">24dp</dimen>
+
+    <dimen name="registrationCodeSeparatorWidth">8dp</dimen>
+    <dimen name="registrationCodeSeparatorHeight">2dp</dimen>
+    <dimen name="registrationCodeMarginHorz">8dp</dimen>
+
+    <!-- endregion Security Code Validation CardView -->
+
+    <!-- Verification Code View -->
+
+    <dimen name="pinCodeDotViewItemSize">16dp</dimen>
+
+    <!-- Verification Code View -->
+
+    <!-- Custom Number Keyboard -->
+
+    <dimen name="customNumberKeyboardMinHeight">248dp</dimen>
+    <dimen name="customNumberKeyboardTextSize">32sp</dimen>
+
+    <!-- Custom Number Keyboard-->
+
+    <!-- region Blocks -->
+
+    <!-- region ContentBlock -->
+    <dimen name="contentBlockCardRadius">8dp</dimen>
+    <dimen name="contentBlockElevation">@dimen/cardViewElevation</dimen>
+    <dimen name="buttonContentBlockMarginHorz">@dimen/normalMargin</dimen>
+
+    <dimen name="inlineBlockContentListMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="inlineBlockContentListMarginVert">@dimen/normalMargin</dimen>
+    <dimen name="inlineBlockContentListItemDecorationMarginVert">@dimen/normalMargin</dimen>
+    <!-- endregion ContentBlock -->
+
+    <!-- region InlineBlockView -->
+    <dimen name="partialContentBlockTitleMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="partialContentBlockTitleMarginVert">@dimen/normalMargin</dimen>
+    <dimen name="partialContentBlockOptionalTextSize">14dp</dimen>
+    <dimen name="partialContentBlockTitleTextSize">14dp</dimen>
+    <dimen name="partialContentBlockEndImageSize">32dp</dimen>
+    <dimen name="partialContentBlockEndImageMarginStart">@dimen/smallMargin</dimen>
+
+    <dimen name="inlineBlockTitleActionTextSize">14dp</dimen>
+    <dimen name="inlineBlockViewTextMarginVert">@dimen/smallMargin</dimen>
+    <dimen name="inlineBlockViewKeyTextSize">16dp</dimen>
+    <dimen name="partialContentBlockTitleEndTextTextSize">16dp</dimen>
+
+    <dimen name="summaryBlockContentApproverImageSize">32dp</dimen>
+    <!-- endregion InlineBlockView -->
+
+    <dimen name="itemBlockApproverTitleTextSize">16dp</dimen>
+    <dimen name="itemBlockApproverStatusTextMarginHorz">@dimen/smallMargin</dimen>
+
+    <dimen name="summaryBlockContentResponsibilityCenterDescriptionMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterDescriptionMarginVert">@dimen/normalMargin</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterGaugeViewMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterGaugeViewMarginTop">@dimen/smallMargin</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterGaugeViewMarginBottom">@dimen/normalMargin</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterDescriptionTextSize">16dp</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterLegendFlowMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterLegendFlowMarginVert">@dimen/normalMargin</dimen>
+
+    <dimen name="responsibilityCenterGaugeViewHeight">24dp</dimen>
+    <dimen name="responsibilityCenterGaugeViewCardBackgroundHeight">16dp</dimen>
+    <dimen name="responsibilityCenterGaugeViewCardElevation">0dp</dimen>
+    <dimen name="responsibilityCenterGaugeViewCardRadius">4dp</dimen>
+    <dimen name="responsibilityCenterGaugeMarginHorz">1dp</dimen>
+
+    <dimen name="responsibilityCenterGaugeLimitRadius">4dp</dimen>
+    <dimen name="responsibilityCenterGaugeViewLimitWidth">3dp</dimen>
+    <dimen name="responsibilityCenterGaugeViewLimitHeight">24dp</dimen>
+
+    <dimen name="responsibilityCenterGaugeLegendImageContainerSize">8dp</dimen>
+    <dimen name="responsibilityCenterGaugeLegendTitleMarginHorz">8dp</dimen>
+    <dimen name="responsibilityCenterGaugeLegendSubtitleMarginHorz">8dp</dimen>
+
+    <!-- endregion Blocks -->
+
+    <!-- region UserSupplierInline -->
+    <dimen name="userSupplierInlineBigImageSize">40dp</dimen>
+    <dimen name="userSupplierInlineBigImageCornerRadius">6dp</dimen>
+    <dimen name="userSupplierInlineSmallImageSize">28dp</dimen>
+    <dimen name="userSupplierInlineSmallImagePadding">2dp</dimen>
+    <dimen name="userSupplierInlineSmallImageCornerRadius">4dp</dimen>
+    <dimen name="userSupplierInlineSmallImageOverlapMargin">-5dp</dimen>
+    <dimen name="userSupplierInlineTextsMarginStart">8dp</dimen>
+    <dimen name="userSupplierInlineTitleText">16sp</dimen>
+    <dimen name="userSupplierInlineSubtitleText">14sp</dimen>
+    <!-- endregion UserSupplierInline -->
+
+    <!-- region Toaster -->
+    <dimen name="toasterLayoutPadding">@dimen/normalMargin</dimen>
+    <dimen name="toasterContainerPadding">@dimen/normalMargin</dimen>
+    <dimen name="toasterText">14sp</dimen>
+    <!-- endregion Toaster -->
+
+    <!-- Action Message Bottom Sheet -->
+    <dimen name="actionMessageBottomSheetContainerPaddingBottom">20dp</dimen>
+    <dimen name="actionMessageBottomSheetPullViewHeight">4dp</dimen>
+    <dimen name="actionMessageBottomSheetPullViewWidth">24dp</dimen>
+    <dimen name="actionMessageBottomSheetPullMarginTop">@dimen/smallMargin</dimen>
+    <dimen name="actionMessageBottomSheetImageSize">80dp</dimen>
+    <dimen name="actionMessageBottomSheetImageMarginTop">36dp</dimen>
+    <dimen name="actionMessageBottomSheetTitleMarginVert">@dimen/hugeMargin</dimen>
+    <dimen name="actionMessageBottomSheetTitleMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="actionMessageBottomSheetTitleTextSize">18dp</dimen>
+    <dimen name="actionMessageBottomSheetDescriptionTextSize">16dp</dimen>
+    <dimen name="actionMessageBottomSheetDescriptionMarginVert">@dimen/normalMargin</dimen>
+    <dimen name="actionMessageBottomSheetDescriptionMarginHorz">@dimen/normalMargin</dimen>
+
+    <dimen name="actionMessageBottomSheetPrimaryButtonMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="actionMessageBottomSheetPrimaryButtonMarginTop">@dimen/normalMargin</dimen>
+    <dimen name="actionMessageBottomSheetSecondaryButtonMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="actionMessageBottomSheetSecondaryButtonMarginTop">@dimen/smallMargin</dimen>
+
+</resources>

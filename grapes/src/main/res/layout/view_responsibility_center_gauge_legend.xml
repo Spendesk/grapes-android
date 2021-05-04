@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/responsibilityCenterGaugeLegendImageContainerCardView"
+        style="@style/ResponsibilityCenterGaugeLegendImageContainerCardView"
+        android:layout_width="@dimen/responsibilityCenterGaugeLegendImageContainerSize"
+        android:layout_height="@dimen/responsibilityCenterGaugeLegendImageContainerSize"
+        app:layout_constraintBottom_toBottomOf="@+id/responsibilityCenterGaugeLegendTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/responsibilityCenterGaugeLegendTitle">
+
+        <ImageView
+            android:id="@+id/responsibilityCenterGaugeLegendImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@null"
+            tools:background="@drawable/ic_status_error" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/responsibilityCenterGaugeLegendTitle"
+        style="@style/ResponsibilityCenterGaugeLegendTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/responsibilityCenterGaugeLegendTitleMarginHorz"
+        android:layout_marginEnd="@dimen/responsibilityCenterGaugeLegendTitleMarginHorz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/responsibilityCenterGaugeLegendImageContainerCardView"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title Here" />
+
+    <TextView
+        android:id="@+id/responsibilityCenterGaugeLegendSubtitle"
+        style="@style/ResponsibilityCenterGaugeLegendSubtitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/responsibilityCenterGaugeLegendSubtitleMarginHorz"
+        android:layout_marginEnd="@dimen/responsibilityCenterGaugeLegendSubtitleMarginHorz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/responsibilityCenterGaugeLegendImageContainerCardView"
+        app:layout_constraintTop_toBottomOf="@id/responsibilityCenterGaugeLegendTitle"
+        tools:text="Subtitle there" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:parentTag="com.spendesk.grapes.BucketView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/deepBlueBucketContainer"
+        style="@style/DeepBlueBucketContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/deepBlueBucketTitle"
+            style="@style/DeepBlueBucketTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deepBlueBucketTitleMarginTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Roses are Red" />
+
+        <TextView
+            android:id="@+id/deepBlueBucketDescription"
+            style="@style/DeepBlueBucketDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deepBlueBucketDescriptionMarginTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deepBlueBucketTitle"
+            tools:text="Violets are Blue" />
+
+        <com.spendesk.grapes.Button
+            android:id="@+id/deepBlueBucketButton"
+            style="@style/DeepBlueBucketButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/deepBlueBucketButtonMarginTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/deepBlueBucketDescription"
+            tools:text="I will never give you up, especially you" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

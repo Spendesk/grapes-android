@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/mainPrimaryNormal</color>
+    <color name="colorPrimaryDark">@color/mainPrimaryDark</color>
+    <color name="colorAccent">@color/mainPrimaryLight</color>
+
+    <!-- region Default -->
+
+    <color name="mainPrimaryDark">#421896</color>
+    <color name="mainPrimaryNormal">#5D21D2</color>
+    <color name="mainPrimaryNormalAlpha26">#385D21D2</color>
+
+    <color name="mainPrimaryLight">#7542D9</color>
+    <color name="mainPrimaryLighter">#DBD1F4</color>
+    <color name="mainPrimaryLightest">#F4EFFC</color>
+
+    <color name="mainComplementary">#17114E</color>
+    <color name="mainNeutralDarkest">#48465E</color>
+    <color name="mainNeutralDarker">#706F81</color>
+    <color name="mainNeutralDark">#B4B3BD</color>
+    <color name="mainNeutralNormal">#CFCFD5</color>
+    <color name="mainNeutralLight">#E6E6E9</color>
+    <color name="mainNeutralLighter">#F5F5F6</color>
+    <color name="mainBackground">#F7F7F8</color>
+
+    <color name="mainInfoNormal">#01799D</color>
+    <color name="mainInfoLighter">#B3D7E2</color>
+    <color name="mainInfoLightest">#E8F8FD</color>
+
+    <color name="mainSuccessNormal">#0B831B</color>
+    <color name="mainSuccessLighter">#B6DABB</color>
+    <color name="mainSuccessLightest">#DEFCEE</color>
+
+    <color name="mainWarningDark">#7F4608</color>
+    <color name="mainWarningNormal">#A85D00</color>
+    <color name="mainWarningLighter">#E5CEB3</color>
+    <color name="mainWarningLightest">#FFF3E5</color>
+
+    <color name="mainAlertDark">#9E2208</color>
+    <color name="mainAlertNormal">#D12D00</color>
+    <color name="mainAlertLighter">#F1C0B3</color>
+    <color name="mainAlertLightest">#FDEDE8</color>
+
+    <!-- Alpha colors -->
+    <color name="mainAlertNormalAlpha20">#33D12D00</color>
+    <color name="mainAlertNormalAlpha5">#0DD12D00</color>
+    <color name="whiteAlpha20">#33FFFFFF</color>
+    <color name="whiteAlpha80">#CCFFFFFF</color>
+    <color name="mainNeutralDarkAlpha10">#1AB4B3BD</color>
+
+    <!-- Misc -->
+    <color name="midnightPurple">@color/mainPrimaryDark</color>
+    <color name="mainBrandPeach">#FECBBE</color> <!-- TODO: Not in the palette. Also check for drawables what to replace -->
+    <color name="mainYellow">#FFB620</color> <!-- TODO: Not in the palette. Also check for drawables what to replace -->
+    <color name="white">#FFF</color>
+
+    <color name="colorPrimaryDarkForDarkToolbar">#020003</color>
+    <color name="activityBackground">@color/mainBackground</color>
+    <color name="ripple">#E9E9E9</color>
+    <color name="mainBrandPurpleRipple">#2C077C</color>
+    <color name="maskView">@color/mainNeutralDarkest</color>
+    <color name="toolbarBackground">@color/white</color>
+    <color name="toolbarBackgroundDark">@color/mainComplementary</color>
+    <color name="placeholdersColor">@color/mainNeutralNormal</color>
+
+    <!-- endregion Default -->
+
+    <!-- region BadgeView -->
+    <color name="badgeViewTextColor">@color/white</color>
+
+    <!-- region Button -->
+    <color name="buttonPrimaryBackground">@color/mainPrimaryNormal</color>
+    <color name="buttonPrimaryBackgroundPressed">@color/mainPrimaryDark</color>
+    <color name="buttonPrimaryBackgroundDisabled">@color/mainNeutralLight</color>
+    <color name="buttonPrimaryContent">@color/white</color>
+    <color name="buttonPrimaryContentPressed">@color/white</color>
+    <color name="buttonPrimaryContentDisabled">@color/white</color>
+
+    <color name="buttonSecondaryBackground">@color/white</color>
+    <color name="buttonSecondaryBackgroundPressed">@color/mainNeutralLighter</color>
+    <color name="buttonSecondaryBackgroundDisabled">@color/mainNeutralNormal</color>
+    <color name="buttonSecondaryBackgroundStroke">@color/mainNeutralLight</color>
+    <color name="buttonSecondaryContent">@color/mainNeutralDarkest</color>
+    <color name="buttonSecondaryContentPressed">@color/mainNeutralDarkest</color>
+    <color name="buttonSecondaryContentDisabled">@color/white</color>
+
+    <color name="buttonAlertBackground">@color/mainAlertNormal</color>
+    <color name="buttonAlertBackgroundPressed">@color/mainAlertDark</color>
+    <color name="buttonAlertBackgroundDisabled">@color/mainNeutralNormal</color>
+    <color name="buttonAlertBackgroundStroke">@color/mainNeutralLight</color>
+    <color name="buttonAlertContent">@color/white</color>
+    <color name="buttonAlertContentPressed">@color/white</color>
+    <color name="buttonAlertContentDisabled">@color/white</color>
+
+    <color name="buttonWarningBackground">@color/mainWarningNormal</color>
+    <color name="buttonWarningBackgroundPressed">@color/mainWarningDark</color>
+    <color name="buttonWarningBackgroundDisabled">@color/mainNeutralDark</color>
+    <color name="buttonWarningBackgroundStroke">@color/mainNeutralLight</color>
+    <color name="buttonWarningContent">@color/white</color>
+    <color name="buttonWarningContentPressed">@color/white</color>
+    <color name="buttonWarningContentDisabled">@color/white</color>
+    <!-- endregion Button -->
+
+    <!-- region Bucket -->
+    <color name="deepBlueBucketTitleText">@color/white</color>
+    <color name="deepBlueBucketDescriptionText">@color/mainNeutralLight</color>
+    <color name="actionInformativeTitleTextColor">@color/mainComplementary</color>
+    <color name="actionInformativeSubtitleTextColor">@color/mainNeutralDarker</color>
+    <!-- endregion Bucket -->
+
+    <!-- region Blocks -->
+    <color name="partialContentBlockTitleTextColor">@color/mainComplementary</color>
+    <color name="partialContentBlockOptionalTextColor">@color/mainNeutralDarker</color>
+    <color name="inlineBlockTitleActionTextColor">@color/mainPrimaryNormal</color>
+    <color name="inlineBlockViewKeyTextColor">@color/mainNeutralDarker</color>
+    <color name="partialContentBlockTitleEndTextColor">@color/mainComplementary</color>
+
+
+    <color name="responsibilityCenterGaugeViewContainerBackgroundColor">@color/white</color>
+    <color name="responsibilityCenterGaugeViewCardBackgroundColor">@color/white</color>
+    <color name="summaryBlockResponsibilityCenterDescriptionTextColor">@color/mainNeutralDarkest</color>
+    <color name="responsibilityCenterGaugeViewBackground">@color/mainNeutralLight</color>
+    <color name="responsibilityCenterGaugeViewLimitBackground">@color/colorPrimaryDark</color>
+    <!-- endregion Blocks -->
+
+    <!-- region UserSupplierInline -->
+    <color name="userSupplierInlineSmallImageBackground">@color/white</color>
+    <color name="userSupplierInlineTitleText">@color/mainComplementary</color>
+    <color name="userSupplierInlineSubtitleText">@color/mainNeutralDarker</color>
+    <!-- endregion UserSupplierInline -->
+
+    <!-- region Toaster -->
+    <color name="toasterBackground">@color/mainNeutralDarkest</color>
+    <color name="toasterText">@color/white</color>
+    <!-- endregion Toaster -->
+
+    <!-- region Security Code Validation CardView -->
+
+    <color name="registrationCodeViewBackground">@color/colorPrimaryDark</color>
+    <color name="registrationCodeViewTextColor">@color/white</color>
+    <color name="registrationCodeViewSeparatorViewBackground">@color/white</color>
+
+    <!-- endregion Security Code Validation CardView -->
+
+    <!-- region CustomNumberKeyboardText -->
+
+    <color name="customNumberKeyboardTextColor">@color/white</color>
+
+    <!-- endregion CustomNumberKeyboardText -->
+
+    <!-- region Action Message Bottom Sheet -->
+
+    <color name="actionMessageBottomSheetTitleTextColor">@color/mainComplementary</color>
+    <color name="actionMessageBottomSheetDescriptionTextColor">@color/mainNeutralDarker</color>
+    <!-- endregion Action Message Bottom Sheet -->
+</resources>

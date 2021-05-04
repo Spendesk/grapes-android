@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region MessageBlockView -->
+    <color name="messageBlockDescription">@color/mainComplementary</color>
+
+    <color name="messageBlockSignatureText">@color/mainComplementary</color>
+    <!-- region MessageBlockView -->
+
+</resources>

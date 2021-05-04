@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region MessageInlineView -->
+    <dimen name="messageInlinePaddingVert">@dimen/smallMargin</dimen>
+    <dimen name="messageInlinePaddingHorz">@dimen/normalMargin</dimen>
+    <dimen name="messageInlineRadius">8dp</dimen>
+    <dimen name="messageInlineStrokeSize">1dp</dimen>
+
+    <dimen name="messageInlineTextSize">14sp</dimen>
+    <dimen name="messageInlineTextDrawableSize">16dp</dimen>
+    <dimen name="messageInlineTextDrawablePadding">@dimen/smallMargin</dimen>
+    <!-- endregion MessageInlineView -->
+
+    <!-- region MessageBlockView -->
+    <dimen name="messageBlockPaddingVert">@dimen/normalMargin</dimen>
+    <dimen name="messageBlockPaddingHorz">@dimen/normalMargin</dimen>
+    <dimen name="messageBlockRadius">8dp</dimen>
+    <dimen name="messageBlockStrokeSize">1dp</dimen>
+
+    <dimen name="messageBlockTextSize">14sp</dimen>
+    <dimen name="messageBlockTextDrawableSize">16dp</dimen>
+    <dimen name="messageBlockTextDrawablePadding">@dimen/smallMargin</dimen>
+
+    <dimen name="messageBlockDescriptionMarginTop">16dp</dimen>
+    <dimen name="messageBlockDescriptionSize">14sp</dimen>
+
+    <dimen name="messageBlockSignatureMarginTop">16dp</dimen>
+    <dimen name="messageBlockSignatureDrawableSize">32dp</dimen>
+    <dimen name="messageBlockSignatureTextMarginStart">8dp</dimen>
+    <dimen name="messageBlockSignatureTextSize">14sp</dimen>
+    <!-- region MessageBlockView -->
+
+</resources>

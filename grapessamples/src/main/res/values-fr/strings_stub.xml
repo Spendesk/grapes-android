@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="stubButton">Ceci est un bouton</string>
+
+    <string name="homePushSectionOnTheWayDeepBlueBucketViewTitle">🎁 Votre carte est en chemin !</string>
+    <string name="homePushSectionOnTheWayDeepBlueBucketViewDescription">Vous devriez la recevoir d\'ici le 14/06.</string>
+    <string name="homePushSectionOnTheWayDeepBlueBucketViewButtonText">J\'ai reçu ma carte</string>
+
+    <string name="homePushSectionRecardDeepBlueBucketViewTitle">💳 Votre nouvelle carte est prête à être expédiée</string>
+    <string name="homePushSectionRecardDeepBlueBucketViewDescription">Il ne vous reste plus qu\'à vérifier vos informations</string>
+    <string name="homePushSectionRecardDeepBlueBucketViewButtonText">Confirmer ma commande</string>
+
+    <string name="homePushSectionPlasticCardNormalInformativeActionBucketViewTitle">54,99 €</string>
+    <string name="homePushSectionPlasticCardNormalInformativeActionBucketViewSmallButtonText">Charger</string>
+    <string name="homePushSectionPlasticCardNormalInformativeActionBucketViewSubtitleText">Available on your card</string>
+
+    <string name="homePushSectionPlasticCardWarningInformativeActionBucketViewTitle">2 424,42 €</string>
+    <string name="homePushSectionPlasticCardWarningInformativeActionBucketViewSmallButtonText">Voir ma carte</string>
+    <string name="homePushSectionPlasticCardWarningInformativeActionBucketViewSubtitleText">Carte limitée</string>
+
+    <string name="homePushSectionPlasticCardAlertInformativeActionBucketViewTitle">42,42 €</string>
+    <string name="homePushSectionPlasticCardAlertInformativeActionBucketViewSmallButtonText">Voir ma carte</string>
+    <string name="homePushSectionPlasticCardAlertInformativeActionBucketViewSubtitleText">Carte bloquée</string>
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="stubButton">This is a button</string>
+
+    <!-- Pushs -->
+    <string name="homePushSectionOnTheWayDeepBlueBucketViewTitle">🎁 Your card is on its way!</string>
+    <string name="homePushSectionOnTheWayDeepBlueBucketViewDescription">You should receive it by the 14/06.</string>
+    <string name="homePushSectionOnTheWayDeepBlueBucketViewButtonText">I received my card</string>
+
+    <string name="homePushSectionRecardDeepBlueBucketViewTitle">💳 Your new card is ready to be shipped</string>
+    <string name="homePushSectionRecardDeepBlueBucketViewDescription">Now all you need to do is verify your information.</string>
+    <string name="homePushSectionRecardDeepBlueBucketViewButtonText">Confirm my order</string>
+
+    <string name="homePushSectionPlasticCardNormalInformativeActionBucketViewTitle">54,99 €</string>
+    <string name="homePushSectionPlasticCardNormalInformativeActionBucketViewSmallButtonText">Top up</string>
+    <string name="homePushSectionPlasticCardNormalInformativeActionBucketViewSubtitleText">Available on your card</string>
+
+    <string name="homePushSectionPlasticCardWarningInformativeActionBucketViewTitle">2 424,42 €</string>
+    <string name="homePushSectionPlasticCardWarningInformativeActionBucketViewSmallButtonText">View Card</string>
+    <string name="homePushSectionPlasticCardWarningInformativeActionBucketViewSubtitleText">Card limited</string>
+
+    <string name="homePushSectionPlasticCardAlertInformativeActionBucketViewTitle">42,42 €</string>
+    <string name="homePushSectionPlasticCardAlertInformativeActionBucketViewSmallButtonText">View card</string>
+    <string name="homePushSectionPlasticCardAlertInformativeActionBucketViewSubtitleText">Card blocked</string>
+</resources>

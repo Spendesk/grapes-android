@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HomeGenericScrollViewContainer">
+        <item name="android:clipToPadding">false</item>
+        <item name="android:fillViewport">true</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="HomeGenericHeaderText">
+        <item name="android:maxLines">2</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textSize">@dimen/homeGenericHeaderTextSize</item>
+        <item name="android:textColor">@color/homeGenericHeaderTextColor</item>
+    </style>
+
+    <style name="HomeGenericTitle">
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textSize">@dimen/homeGenericTitleSize</item>
+        <item name="android:textColor">@color/homeGenericTitleColor</item>
+    </style>
+
+    <style name="HomeGenericSubtitle">
+        <item name="android:maxLines">2</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textSize">@dimen/homeGenericSubtitleSize</item>
+        <item name="android:textColor">@color/homeGenericSubtitleColor</item>
+    </style>
+</resources>

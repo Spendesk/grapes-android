@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name" translatable="false">GrapesSamples</string>
+
+    <string name="buttons" translatable="false">Buttons</string>
+    <string name="pushs" translatable="false">Pushs</string>
+
+    <!-- Buttons -->
+    <string name="buttonNormal" translatable="false">Normal</string>
+    <string name="buttonDisabled" translatable="false">Disabled</string>
+    <string name="buttonPrimary" translatable="false">Primary</string>
+    <string name="buttonPrimaryWithIcon" translatable="false">Primary with icon</string>
+    <string name="buttonSecondary" translatable="false">Secondary</string>
+    <string name="buttonSecondaryWithIcon" translatable="false">Secondary with icon</string>
+    <string name="buttonAlert" translatable="false">Alert</string>
+    <string name="buttonWarning" translatable="false">Warning</string>
+
+    <!-- Pushs -->
+    <string name="pushPurple" translatable="false">Purple Push</string>
+    <string name="pushPlasticCard" translatable="false">Plastic Card</string>
+    <string name="pushOnTheWay" translatable="false">On The Way</string>
+    <string name="pushRecard" translatable="false">Recard</string>
+    <string name="pushNormal" translatable="false">Normal</string>
+    <string name="pushWarning" translatable="false">Warning</string>
+    <string name="pushAlert" translatable="false">Alert</string>
+</resources>

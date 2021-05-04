@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/responsibilityCenterGaugeViewHeight"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/responsibilityCenterGaugeLimitGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_constraintGuide_percent="0.75" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/responsibilityCenterGaugeContainer"
+        style="@style/ResponsibilityCenterGaugeContainer"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/responsibilityCenterGaugeViewCardBackgroundHeight"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/responsibilityCenterGaugePrimaryGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/responsibilityCenterGaugeSecondaryGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_constraintGuide_percent="0.75" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/responsibilityCenterGaugeTertiaryGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_constraintGuide_percent="1" />
+
+            <View
+                android:id="@+id/responsibilityCenterGaugeTertiaryView"
+                style="@style/ResponsibilityCenterGaugeBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/responsibilityCenterGaugeMarginHorz"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/responsibilityCenterGaugeTertiaryGuideline"
+                app:layout_constraintStart_toEndOf="@id/responsibilityCenterGaugeSecondaryGuideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/ic_gauge_warning"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/responsibilityCenterGaugeSecondaryView"
+                style="@style/ResponsibilityCenterGaugeBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/responsibilityCenterGaugeMarginHorz"
+                android:layout_marginEnd="@dimen/responsibilityCenterGaugeMarginHorz"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/responsibilityCenterGaugeSecondaryGuideline"
+                app:layout_constraintStart_toEndOf="@id/responsibilityCenterGaugePrimaryGuideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@drawable/ic_gauge_normal"
+                tools:visibility="visible" />
+
+            <View
+                android:id="@+id/responsibilityCenterGaugePrimaryView"
+                style="@style/ResponsibilityCenterGaugeBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginEnd="@dimen/responsibilityCenterGaugeMarginHorz"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/responsibilityCenterGaugePrimaryGuideline"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:background="@color/mainPrimaryNormal"
+                tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <View
+        android:id="@+id/responsibilityCenterGaugeLimitView"
+        style="@style/ResponsibilityCenterGaugeLimitView"
+        android:layout_width="@dimen/responsibilityCenterGaugeViewLimitWidth"
+        android:layout_height="@dimen/responsibilityCenterGaugeViewLimitHeight"
+        android:layout_marginEnd="@dimen/responsibilityCenterGaugeMarginHorz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/responsibilityCenterGaugeLimitGuideline"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+</merge>

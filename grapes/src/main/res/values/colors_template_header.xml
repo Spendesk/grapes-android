@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region Header Expense -->
+    <color name="templateHeaderExpenseBackground">@color/white</color>
+
+    <color name="templateHeaderExpenseAmountTitleText">@color/mainComplementary</color>
+    <color name="templateHeaderExpenseAmountSubtitleText">@color/mainNeutralDarker</color>
+
+    <color name="templateHeaderExpenseDescriptionTitleText">@color/mainComplementary</color>
+    <color name="templateHeaderExpenseDescriptionSubtitleText">@color/mainNeutralDarker</color>
+
+    <color name="templateHeaderExpenseBottomSeparator">@color/mainNeutralLight</color>
+    <!-- endregion Header Expense -->
+</resources>

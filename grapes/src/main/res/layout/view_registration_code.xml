@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/registrationCodeViewContainerHeight"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/registrationCodeContainer"
+        android:layout_width="match_parent"
+        android:focusable="true"
+        android:clickable="true"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="@+id/registrationCodeSecondText"
+        app:layout_constraintTop_toBottomOf="@+id/registrationCodeSecondText">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/registrationCodeFirstText"
+            style="@style/RegistrationCodeViewText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/registrationCodeMarginHorz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/registrationCodeFirstSeparator"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4242" />
+
+        <View
+            android:id="@+id/registrationCodeFirstSeparator"
+            style="@style/RegistrationCodeViewSeparatorView"
+            android:layout_width="@dimen/registrationCodeSeparatorWidth"
+            android:layout_height="@dimen/registrationCodeSeparatorHeight"
+            android:layout_margin="@dimen/registrationCodeMarginHorz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/registrationCodeSecondText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/registrationCodeFirstText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/registrationCodeSecondText"
+            style="@style/RegistrationCodeViewText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/registrationCodeSecondSeparator"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/registrationCodeFirstSeparator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4242" />
+
+        <TextView
+            android:id="@+id/registrationCodeSecondSeparator"
+            style="@style/RegistrationCodeViewSeparatorView"
+            android:layout_width="@dimen/registrationCodeSeparatorWidth"
+            android:layout_height="@dimen/registrationCodeSeparatorHeight"
+            android:layout_margin="@dimen/registrationCodeMarginHorz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/registrationCodeThirdText"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/registrationCodeSecondText"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/registrationCodeThirdText"
+            style="@style/RegistrationCodeViewText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/registrationCodeMarginHorz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/registrationCodeSecondSeparator"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4242" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>

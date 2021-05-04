@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include
+        android:id="@+id/summaryBlockContentResponsibilityCenterTitle"
+        layout="@layout/partial_content_block_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
+        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginBottom="@dimen/partialContentBlockTitleMarginVert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/summaryBlockContentResponsibilityCenterDescription"
+        style="@style/summaryBlockResponsibilityCenterDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/summaryBlockContentResponsibilityCenterDescriptionMarginHorz"
+        android:layout_marginTop="@dimen/summaryBlockContentResponsibilityCenterDescriptionMarginVert"
+        android:layout_marginEnd="@dimen/summaryBlockContentResponsibilityCenterDescriptionMarginHorz"
+        android:layout_marginBottom="@dimen/partialContentBlockTitleMarginVert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentResponsibilityCenterTitle"
+        tools:text="12 234,89E available of 39 000,00E" />
+
+    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeView
+        android:id="@+id/summaryBlockContentResponsibilityCenterGaugeView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/summaryBlockContentResponsibilityCenterGaugeViewMarginHorz"
+        android:layout_marginTop="@dimen/summaryBlockContentResponsibilityCenterGaugeViewMarginTop"
+        android:layout_marginEnd="@dimen/summaryBlockContentResponsibilityCenterGaugeViewMarginHorz"
+        android:layout_marginBottom="@dimen/summaryBlockContentResponsibilityCenterGaugeViewMarginBottom"
+        app:layout_constraintBottom_toTopOf="@+id/summaryBlockContentResponsibilityCenterLegendFlow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentResponsibilityCenterDescription" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlow"
+        style="@style/SummaryBlockContentResponsibilityCenterLegendFlow"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/summaryBlockContentResponsibilityCenterLegendFlowMarginHorz"
+        android:layout_marginEnd="@dimen/summaryBlockContentResponsibilityCenterLegendFlowMarginHorz"
+        android:layout_marginBottom="@dimen/summaryBlockContentResponsibilityCenterLegendFlowMarginVert"
+        app:flow_verticalGap="@dimen/normalMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentResponsibilityCenterGaugeView"
+        tools:visibility="visible" />
+
+    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeLegendView
+        android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlowPrimary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:ignore="missingConstraints" />
+
+    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeLegendView
+        android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlowSecondary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:ignore="missingConstraints" />
+
+    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeLegendView
+        android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlowTertiary"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:ignore="missingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

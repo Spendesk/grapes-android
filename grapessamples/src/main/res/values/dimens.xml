@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="homeGenericHeaderTitleHeight">120dp</dimen>
+    <dimen name="homeGenericHeaderTextSize">32dp</dimen>
+    <dimen name="homeGenericHeaderTitleMarginHorz">24dp</dimen>
+
+    <dimen name="homeGenericTitleSize">18dp</dimen>
+    <dimen name="homeGenericSubtitleSize">14dp</dimen>
+
+    <dimen name="homeSectionTitleMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="homeSectionTitleMarginVert">@dimen/normalMargin</dimen>
+    <dimen name="homeSectionSubtitleMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="homeSectionSubtitleMarginVert">@dimen/bigMargin</dimen>
+    <dimen name="homeSectionComponentMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="homeSectionComponentMarginVert">@dimen/normalMargin</dimen>
+
+    <dimen name="homeSectionBucketViewMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="homeSectionBucketViewMarginVert">@dimen/normalMargin</dimen>
+</resources>

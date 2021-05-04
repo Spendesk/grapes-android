@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/actionMessageBottomSheetContainerPaddingBottom">
+
+    <View
+        android:id="@+id/actionMessageBottomSheetPullView"
+        style="@style/ActionMessageBottomSheetPullView"
+        android:layout_width="@dimen/actionMessageBottomSheetPullViewWidth"
+        android:layout_height="@dimen/actionMessageBottomSheetPullViewHeight"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetPullMarginTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/actionMessageBottomSheetImage"
+        android:layout_width="@dimen/actionMessageBottomSheetImageSize"
+        android:layout_height="@dimen/actionMessageBottomSheetImageSize"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetImageMarginTop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionMessageBottomSheetPullView" />
+
+    <TextView
+        android:id="@+id/actionMessageBottomSheetTitleText"
+        style="@style/ActionMessageBottomSheetTitleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/actionMessageBottomSheetTitleMarginHorz"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetTitleMarginVert"
+        android:layout_marginEnd="@dimen/actionMessageBottomSheetTitleMarginHorz"
+        android:layout_marginBottom="@dimen/actionMessageBottomSheetTitleMarginVert"
+        app:layout_constraintBottom_toTopOf="@id/actionMessageBottomSheetDescriptionText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionMessageBottomSheetImage"
+        tools:text="This is me ... Title." />
+
+    <TextView
+        android:id="@+id/actionMessageBottomSheetDescriptionText"
+        style="@style/ActionMessageBottomSheetDescriptionText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/actionMessageBottomSheetDescriptionMarginHorz"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetDescriptionMarginVert"
+        android:layout_marginEnd="@dimen/actionMessageBottomSheetDescriptionMarginHorz"
+        android:layout_marginBottom="@dimen/actionMessageBottomSheetDescriptionMarginVert"
+        app:layout_constraintBottom_toTopOf="@id/actionMessageBottomSheetPrimaryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionMessageBottomSheetTitleText"
+        tools:text="This is me ... Description... Or maybe I could be more, YES I will become a paragraph !!!" />
+
+    <com.spendesk.grapes.Button
+        android:id="@+id/actionMessageBottomSheetPrimaryButton"
+        style="@style/ActionMessageBottomSheetPrimaryButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/actionMessageBottomSheetPrimaryButtonMarginHorz"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetPrimaryButtonMarginTop"
+        android:layout_marginEnd="@dimen/actionMessageBottomSheetPrimaryButtonMarginHorz"
+        app:layout_constraintBottom_toTopOf="@id/actionMessageBottomSheetSecondaryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionMessageBottomSheetDescriptionText"
+        tools:text="Primary Button" />
+
+    <com.spendesk.grapes.Button
+        android:id="@+id/actionMessageBottomSheetSecondaryButton"
+        style="@style/ActionMessageBottomSheetSecondaryButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/actionMessageBottomSheetSecondaryButtonMarginHorz"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetSecondaryButtonMarginTop"
+        android:layout_marginEnd="@dimen/actionMessageBottomSheetSecondaryButtonMarginHorz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/actionMessageBottomSheetPrimaryButton"
+        tools:text="Secondary Button" />
+</androidx.constraintlayout.widget.ConstraintLayout>
