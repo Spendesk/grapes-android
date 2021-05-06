@@ -1,17 +1,19 @@
 package com.spendesk.grapes.samples.home
 
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
 import com.spendesk.grapes.samples.entity.HomeTabItem
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
+import javax.inject.Inject
 
 /**
  * @author danyboucanova
  * @since 12/29/20
  */
-class HomeActivityViewModel @ViewModelInject constructor() : ViewModel() {
+@HiltViewModel
+class HomeActivityViewModel @Inject constructor() : ViewModel() {
 
     //region observable properties
     private val updateHomeTabItem = PublishSubject.create<List<HomeTabItem>>()
