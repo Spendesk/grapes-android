@@ -1,0 +1,188 @@
+version: 2.1
+
+references:
+
+  workspace_root: &workspace_root
+                    ~/grapes-android
+
+  # Container environment
+
+  container_config: &container_config
+    docker:
+      - image: circleci/android:api-29
+
+    working_directory: *workspace_root
+
+    environment:
+      _JVM_OPTS: -Xmx1536m
+      GRADLE_OPTS: -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.daemon=false -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
+
+  gradle_checksum_cache_key: &gradle_checksum_cache_key
+    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "grapes/build.gradle" }}-{{ checksum "grapessamples/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
+
+  # Branching
+
+  branch_rc_only: &branch_rc_only
+    filters:
+      branches:
+        only:
+          - /^release.*$/
+          - /^hotfix.*$/
+
+  branch_dev_only: &branch_dev_only
+    filters:
+      branches:
+        ignore:
+          - master
+          - /^release.*$/
+          - /^hotfix.*$/
+
+##
+## COMMANDS
+##
+
+commands:
+
+  restore-gradle-cache:
+    description: Restore the cache of ~/.gradle based on the Gradle files.
+    steps:
+      - restore_cache:
+          <<: *gradle_checksum_cache_key
+
+  save-gradle-cache:
+    description: Cache the content of ~/.gradle based on the Gradle files.
+    steps:
+      - save_cache:
+          <<: *gradle_checksum_cache_key
+          paths:
+            - ~/.gradle
+
+  attach-workspace-distribution:
+    steps:
+      - attach_workspace:
+          at: app
+
+  download-keystore:
+    steps:
+      - run:
+          name: Download keystore file from another place
+          command: |
+            echo "Downloading keystore..."
+
+            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o app/spendesk.keystore -L ${GITHUB_KEYSTORE_URI}
+            ls -l app/
+
+  store-apk-as-artifact:
+    steps:
+      - store_artifacts:
+          path: app/build/outputs/apk
+          destination: apk
+
+##
+## JOBS
+##
+
+jobs:
+
+  update_dependency_cache:
+    <<: *container_config
+    steps:
+      - checkout
+      - restore-gradle-cache
+      - run:
+          name: Download Dependencies
+          command: ./gradlew androidDependencies
+      - save-gradle-cache
+
+
+  build_rc:
+    <<: *container_config
+    description: Build the APK for Release Candidate on Prod
+    steps:
+      - checkout
+      - restore-gradle-cache
+      - download-keystore
+      - run:
+          name: Build the Prod APK
+          command: ./gradlew assembleRelease --no-daemon
+      - store-apk-as-artifact
+      - persist_to_workspace:
+          root: app
+          paths:
+            - build/outputs/apk/prod/release
+            - build/generated/res/google-services/prod/release/values
+
+
+  build_developement:
+    <<: *container_config
+    description: Build the Mock Staging APK
+    steps:
+      - checkout
+      - restore-gradle-cache
+      - download-keystore
+      - run:
+          name: Build the debug developement APK
+          command: ./gradlew assembleDebug --no-daemon
+      - store-apk-as-artifact
+      - persist_to_workspace:
+          root: app
+          paths:
+            - build/outputs/apk/mockStaging/release
+            - build/generated/res/google-services/mockStaging/release/values
+
+  deploy_app_distribution_rc:
+    <<: *container_config
+    description: Send the release app through Firebase App Distribution
+    steps:
+      - checkout
+      - restore-gradle-cache
+      - download-keystore
+      - attach-workspace-distribution
+      - run:
+          name: App Distribution Production Deployment
+          command: ./gradlew appDistributionUploadRelease
+
+  deploy_app_distribution_debug:
+    <<: *container_config
+    description: Send the debug app through Firebase App Distribution
+    steps:
+      - checkout
+      - restore-gradle-cache
+      - download-keystore
+      - attach-workspace-distribution
+      - run:
+          name: App Distribution Deployment
+          command: ./gradlew appDistributionUploadDebug
+
+##
+## Workflow
+##
+
+workflows:
+  version: 2
+
+  release_candidate:
+    jobs:
+      - update_dependency_cache:
+          <<: *branch_rc_only
+      - build_rc:
+          <<: *branch_rc_only
+          requires:
+            - update_dependency_cache
+      - deploy_app_distribution_rc:
+          <<: *branch_rc_only
+          requires:
+            - build_rc
+
+  developement:
+    jobs:
+      - update_dependency_cache:
+          <<: *branch_dev_only
+      - build_developement:
+          <<: *branch_dev_only
+          requires:
+            - update_dependency_cache
+      - deploy_app_distribution_debug:
+          <<: *branch_dev_only
+          requires:
+            - build_developement
