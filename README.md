@@ -1,7 +1,7 @@
 # Grapes-Android 🍇
 [![Grapes-Android](https://jitpack.io/v/Spendesk/grapes-android.svg)](https://jitpack.io/#Spendesk/grapes-android)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Spendesk/grapes-android/graphs/commit-activity)
-[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/badges.svg)](https://GitHub.com/Spendesk/grapes-android/badges/graphs/contributors/)
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/badges.svg)](https://GitHub.com/Spendesk/grapes-android/graphs/contributors/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![GitHub Issues](https://img.shields.io/github/issues/Spendesk/grapes-android.svg)](https://Github.com/Spendesk/grapes-android/issues)
 [![GitHub stars](https://img.shields.io/github/stars/Spendesk/grapes-android.svg?style=social&label=Star&maxAge=2592000)](https://GitHub.com/Spendesk/grapes-android/stargazers/)
