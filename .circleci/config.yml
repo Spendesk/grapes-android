@@ -75,7 +75,7 @@ commands:
   store-apk-as-artifact:
     steps:
       - store_artifacts:
-          path: grapessamples/build/outputs/apk
+          path: grapessamples/build/outputs/apk/
           destination: apk
 
 ##
@@ -110,8 +110,6 @@ jobs:
           root: grapessamples
           paths:
             - build/outputs/apk/release
-            - build/generated/res/google-services/release/values
-
 
   build_developement:
     <<: *container_config
@@ -128,7 +126,6 @@ jobs:
           root: grapessamples
           paths:
             - build/outputs/apk/debug
-            - build/generated/res/google-services/debug/values
 
   deploy_app_distribution_rc:
     <<: *container_config
