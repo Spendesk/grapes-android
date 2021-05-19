@@ -109,8 +109,8 @@ jobs:
       - persist_to_workspace:
           root: grapessamples
           paths:
-            - build/outputs/apk/prod/release
-            - build/generated/res/google-services/prod/release/values
+            - build/outputs/apk/release
+            - build/generated/res/google-services/release/values
 
 
   build_developement:
@@ -127,8 +127,8 @@ jobs:
       - persist_to_workspace:
           root: grapessamples
           paths:
-            - build/outputs/apk/mockStaging/release
-            - build/generated/res/google-services/mockStaging/release/values
+            - build/outputs/apk/debug
+            - build/generated/res/google-services/debug/values
 
   deploy_app_distribution_rc:
     <<: *container_config
