@@ -22,13 +22,11 @@ references:
 
   # Branching
 
-  branch_rc_only: &branch_rc_only
+  branch_internal_release_only: &branch_internal_release_only
     filters:
       branches:
         only:
-          - master
-          - /^release.*$/
-          - /^hotfix.*$/
+          - main
 
 ##
 ## COMMANDS
@@ -87,15 +85,15 @@ jobs:
           command: ./gradlew androidDependencies
       - save-gradle-cache
 
-  build_rc:
+  build:
     <<: *container_config
-    description: Build the APK for Release
+    description: Build the APK for release buildType
     steps:
       - checkout
       - restore-gradle-cache
       - download-keystore
       - run:
-          name: Build the Release APK
+          name: Build the release APK
           command: ./gradlew assembleRelease --no-daemon
       - store-apk-as-artifact
       - persist_to_workspace:
@@ -103,7 +101,7 @@ jobs:
           paths:
             - build/outputs/apk/release
 
-  deploy_app_distribution_rc:
+  deploy_app_distribution_internal_release:
     <<: *container_config
     description: Send the release app through Firebase App Distribution
     steps:
@@ -112,7 +110,7 @@ jobs:
       - download-keystore
       - attach-workspace-distribution
       - run:
-          name: App Distribution Production Deployment
+          name: App Distribution Internal Release Deployment
           command: ./gradlew appDistributionUploadRelease
 
 ##
@@ -122,15 +120,13 @@ jobs:
 workflows:
   version: 2
 
-  release_candidate:
+  internal_release:
     jobs:
-      - update_dependency_cache:
-          <<: *branch_rc_only
-      - build_rc:
-          <<: *branch_rc_only
+      - update_dependency_cache
+      - build:
           requires:
             - update_dependency_cache
-      - deploy_app_distribution_rc:
-          <<: *branch_rc_only
+      - deploy_app_distribution_internal_release:
+          <<: *branch_internal_release_only
           requires:
             - build_rc
