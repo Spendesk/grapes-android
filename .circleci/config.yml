@@ -129,4 +129,4 @@ workflows:
       - deploy_app_distribution_internal_release:
           <<: *branch_internal_release_only
           requires:
-            - build_rc
+            - build
