@@ -18,7 +18,7 @@ references:
       GRADLE_OPTS: -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.daemon=false -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
 
   gradle_checksum_cache_key: &gradle_checksum_cache_key
-    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "grapes/build.gradle" }}-{{ checksum "grapessamples/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
+    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "grapes/build.gradle" }}-{{ checksum "sample/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
 
   # Branching
 
@@ -51,7 +51,7 @@ commands:
   attach-workspace-distribution:
     steps:
       - attach_workspace:
-          at: grapessamples
+          at: sample
 
   download-keystore:
     steps:
@@ -60,13 +60,13 @@ commands:
           command: |
             echo "Downloading keystore..."
 
-            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o grapessamples/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
-            ls -l grapessamples/
+            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o sample/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
+            ls -l sample/
 
   store-apk-as-artifact:
     steps:
       - store_artifacts:
-          path: grapessamples/build/outputs/apk
+          path: sample/build/outputs/apk
           destination: apk
 
 ##
@@ -97,7 +97,7 @@ jobs:
           command: ./gradlew assembleRelease --no-daemon
       - store-apk-as-artifact
       - persist_to_workspace:
-          root: grapessamples
+          root: sample
           paths:
             - build/outputs/apk/release
 
