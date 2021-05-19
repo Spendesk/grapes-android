@@ -26,13 +26,6 @@ references:
     filters:
       branches:
         only:
-          - /^release.*$/
-          - /^hotfix.*$/
-
-  branch_dev_only: &branch_dev_only
-    filters:
-      branches:
-        ignore:
           - master
           - /^release.*$/
           - /^hotfix.*$/
@@ -94,38 +87,21 @@ jobs:
           command: ./gradlew androidDependencies
       - save-gradle-cache
 
-
   build_rc:
     <<: *container_config
-    description: Build the APK for Release Candidate on Prod
+    description: Build the APK for Release
     steps:
       - checkout
       - restore-gradle-cache
       - download-keystore
       - run:
-          name: Build the Prod APK
+          name: Build the Release APK
           command: ./gradlew assembleRelease --no-daemon
       - store-apk-as-artifact
       - persist_to_workspace:
           root: grapessamples
           paths:
             - build/outputs/apk/release
-
-  build_developement:
-    <<: *container_config
-    description: Build the Mock Staging APK
-    steps:
-      - checkout
-      - restore-gradle-cache
-      - download-keystore
-      - run:
-          name: Build the debug developement APK
-          command: ./gradlew assembleDebug --no-daemon
-      - store-apk-as-artifact
-      - persist_to_workspace:
-          root: grapessamples
-          paths:
-            - build/outputs/apk/debug
 
   deploy_app_distribution_rc:
     <<: *container_config
@@ -138,18 +114,6 @@ jobs:
       - run:
           name: App Distribution Production Deployment
           command: ./gradlew appDistributionUploadRelease
-
-  deploy_app_distribution_debug:
-    <<: *container_config
-    description: Send the debug app through Firebase App Distribution
-    steps:
-      - checkout
-      - restore-gradle-cache
-      - download-keystore
-      - attach-workspace-distribution
-      - run:
-          name: App Distribution Deployment
-          command: ./gradlew appDistributionUploadDebug
 
 ##
 ## Workflow
@@ -170,16 +134,3 @@ workflows:
           <<: *branch_rc_only
           requires:
             - build_rc
-
-  developement:
-    jobs:
-      - update_dependency_cache:
-          <<: *branch_dev_only
-      - build_developement:
-          <<: *branch_dev_only
-          requires:
-            - update_dependency_cache
-      - deploy_app_distribution_debug:
-          <<: *branch_dev_only
-          requires:
-            - build_developement
