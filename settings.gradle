@@ -1,2 +1,2 @@
-include ':GrapesSamples'
-include ':grapes'
+include ':sample'
+include ':library'
