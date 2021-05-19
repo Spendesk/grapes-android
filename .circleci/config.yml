@@ -69,7 +69,7 @@ commands:
           command: |
             echo "Downloading keystore..."
 
-            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o app/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
+            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o grapessamples/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
             ls -l app/
 
   store-apk-as-artifact:
