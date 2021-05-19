@@ -60,7 +60,7 @@ commands:
   attach-workspace-distribution:
     steps:
       - attach_workspace:
-          at: app
+          at: grapessamples
 
   download-keystore:
     steps:
@@ -70,12 +70,12 @@ commands:
             echo "Downloading keystore..."
 
             sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o grapessamples/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
-            ls -l app/
+            ls -l grapessamples/
 
   store-apk-as-artifact:
     steps:
       - store_artifacts:
-          path: app/build/outputs/apk
+          path: grapessamples/build/outputs/apk
           destination: apk
 
 ##
@@ -107,7 +107,7 @@ jobs:
           command: ./gradlew assembleRelease --no-daemon
       - store-apk-as-artifact
       - persist_to_workspace:
-          root: app
+          root: grapessamples
           paths:
             - build/outputs/apk/prod/release
             - build/generated/res/google-services/prod/release/values
@@ -125,7 +125,7 @@ jobs:
           command: ./gradlew assembleDebug --no-daemon
       - store-apk-as-artifact
       - persist_to_workspace:
-          root: app
+          root: grapessamples
           paths:
             - build/outputs/apk/mockStaging/release
             - build/generated/res/google-services/mockStaging/release/values
