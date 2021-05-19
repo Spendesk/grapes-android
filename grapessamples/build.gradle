@@ -28,6 +28,10 @@ android {
             keyAlias System.getenv("KEY_ALIAS")
             keyPassword System.getenv("KEY_PASSWORD")
         }
+
+        debug {
+            storeFile file('debug.keystore')
+        }
     }
 
     buildTypes {
