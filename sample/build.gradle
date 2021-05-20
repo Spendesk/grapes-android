@@ -50,6 +50,7 @@ android {
 
             firebaseAppDistribution {
                 artifactType = "APK"
+                serviceCredentialsFile = "sample/spendesk-grapes-mobile-firebase-app-distribution.json"
                 groups = "release-candidate"
             }
         }

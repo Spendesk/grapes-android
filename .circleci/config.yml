@@ -110,6 +110,11 @@ jobs:
       - download-keystore
       - attach-workspace-distribution
       - run:
+          name: Retrieve Firebase App distribution key from CI env
+          command: |
+            ls
+            echo $FIREBASE_APP_DISTRIBUTION_PRIVATE_KEY > ./sample/spendesk-grapes-mobile-firebase-app-distribution.json
+      - run:
           name: App Distribution Internal Release Deployment
           command: ./gradlew appDistributionUploadRelease
 

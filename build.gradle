@@ -3,7 +3,7 @@ buildscript {
 
     ext.kotlin_version = '1.4.21'
 
-    ext.firebase_app_distribution_version = '2.1.1'
+    ext.firebase_app_distribution_version = '2.1.2'
     ext.hilt_version = '2.35'
     ext.google_play_services_version = '4.3.8'
 
