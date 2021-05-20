@@ -47,6 +47,11 @@ android {
             minifyEnabled false
             signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            firebaseAppDistribution {
+                artifactType = "APK"
+                groups = "release-candidate"
+            }
         }
 
         debug {
