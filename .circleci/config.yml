@@ -18,24 +18,15 @@ references:
       GRADLE_OPTS: -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.daemon=false -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
 
   gradle_checksum_cache_key: &gradle_checksum_cache_key
-    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "grapes/build.gradle" }}-{{ checksum "grapessamples/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
+    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "library/build.gradle" }}-{{ checksum "sample/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
 
   # Branching
 
-  branch_rc_only: &branch_rc_only
+  branch_internal_release_only: &branch_internal_release_only
     filters:
       branches:
         only:
-          - /^release.*$/
-          - /^hotfix.*$/
-
-  branch_dev_only: &branch_dev_only
-    filters:
-      branches:
-        ignore:
-          - master
-          - /^release.*$/
-          - /^hotfix.*$/
+          - main
 
 ##
 ## COMMANDS
@@ -60,7 +51,7 @@ commands:
   attach-workspace-distribution:
     steps:
       - attach_workspace:
-          at: grapessamples
+          at: sample
 
   download-keystore:
     steps:
@@ -69,13 +60,13 @@ commands:
           command: |
             echo "Downloading keystore..."
 
-            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o grapessamples/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
-            ls -l grapessamples/
+            sudo curl -H "Authorization: token ${GITHUB_KEYSTORE_URI_TOKEN}" -H "Accept: application/vnd.github.v3.raw" -o sample/spendesk-grapes.keystore -L ${GITHUB_KEYSTORE_URI}
+            ls -l sample/
 
   store-apk-as-artifact:
     steps:
       - store_artifacts:
-          path: grapessamples/build/outputs/apk/
+          path: sample/build/outputs/apk
           destination: apk
 
 ##
@@ -94,40 +85,23 @@ jobs:
           command: ./gradlew androidDependencies
       - save-gradle-cache
 
-
-  build_rc:
+  build:
     <<: *container_config
-    description: Build the APK for Release Candidate on Prod
+    description: Build the APK for release buildType
     steps:
       - checkout
       - restore-gradle-cache
       - download-keystore
       - run:
-          name: Build the Prod APK
+          name: Build the release APK
           command: ./gradlew assembleRelease --no-daemon
       - store-apk-as-artifact
       - persist_to_workspace:
-          root: grapessamples
+          root: sample
           paths:
             - build/outputs/apk/release
 
-  build_developement:
-    <<: *container_config
-    description: Build the Mock Staging APK
-    steps:
-      - checkout
-      - restore-gradle-cache
-      - download-keystore
-      - run:
-          name: Build the debug developement APK
-          command: ./gradlew assembleDebug --no-daemon
-      - store-apk-as-artifact
-      - persist_to_workspace:
-          root: grapessamples
-          paths:
-            - build/outputs/apk/debug
-
-  deploy_app_distribution_rc:
+  deploy_app_distribution_internal_release:
     <<: *container_config
     description: Send the release app through Firebase App Distribution
     steps:
@@ -136,20 +110,8 @@ jobs:
       - download-keystore
       - attach-workspace-distribution
       - run:
-          name: App Distribution Production Deployment
+          name: App Distribution Internal Release Deployment
           command: ./gradlew appDistributionUploadRelease
-
-  deploy_app_distribution_debug:
-    <<: *container_config
-    description: Send the debug app through Firebase App Distribution
-    steps:
-      - checkout
-      - restore-gradle-cache
-      - download-keystore
-      - attach-workspace-distribution
-      - run:
-          name: App Distribution Deployment
-          command: ./gradlew appDistributionUploadDebug
 
 ##
 ## Workflow
@@ -158,28 +120,13 @@ jobs:
 workflows:
   version: 2
 
-  release_candidate:
+  internal_release:
     jobs:
-      - update_dependency_cache:
-          <<: *branch_rc_only
-      - build_rc:
-          <<: *branch_rc_only
+      - update_dependency_cache
+      - build:
           requires:
             - update_dependency_cache
-      - deploy_app_distribution_rc:
-          <<: *branch_rc_only
+      - deploy_app_distribution_internal_release:
+          <<: *branch_internal_release_only
           requires:
-            - build_rc
-
-  developement:
-    jobs:
-      - update_dependency_cache:
-          <<: *branch_dev_only
-      - build_developement:
-          <<: *branch_dev_only
-          requires:
-            - update_dependency_cache
-      - deploy_app_distribution_debug:
-          <<: *branch_dev_only
-          requires:
-            - build_developement
+            - build
