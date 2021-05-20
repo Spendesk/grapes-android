@@ -49,9 +49,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
             firebaseAppDistribution {
-                artifactType = "APK"
                 serviceCredentialsFile = "sample/spendesk-grapes-mobile-firebase-app-distribution.json"
                 groups = "release-candidate"
+                artifactPath = "sample/build/outputs/apk/release/sample-release.apk"
             }
         }
 
