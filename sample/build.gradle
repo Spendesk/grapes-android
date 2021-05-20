@@ -50,13 +50,13 @@ android {
 
             firebaseAppDistribution {
                 groups = "release-candidate"
-                appId = "1:1044115290075:android:0ab502faa6ab13f24b59fe"
                 serviceCredentialsFile = "sample/spendesk-grapes-mobile-firebase-app-distribution.json"
             }
         }
 
         debug {
             applicationIdSuffix ".debug"
+            signingConfig signingConfigs.debug
             minifyEnabled false
         }
     }
@@ -92,8 +92,9 @@ dependencies {
     kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
     implementation "androidx.fragment:fragment-ktx:1.3.3"
-    compile "com.google.android.gms:play-services:8.3.0"
 
     // REFLECTION
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
 }
+
+apply plugin: 'com.google.gms.google-services'
