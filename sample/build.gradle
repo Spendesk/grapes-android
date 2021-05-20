@@ -50,6 +50,7 @@ android {
 
             firebaseAppDistribution {
                 groups = "release-candidate"
+                appId = "1:1044115290075:android:0ab502faa6ab13f24b59fe"
                 serviceCredentialsFile = "sample/spendesk-grapes-mobile-firebase-app-distribution.json"
             }
         }
@@ -96,5 +97,3 @@ dependencies {
     // REFLECTION
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
 }
-
-apply plugin: 'com.google.gms.google-services'
