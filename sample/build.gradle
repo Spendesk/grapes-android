@@ -95,3 +95,5 @@ dependencies {
     // REFLECTION
     implementation "org.jetbrains.kotlin:kotlin-reflect:1.4.21"
 }
+
+apply plugin: 'com.google.gms.google-services'
