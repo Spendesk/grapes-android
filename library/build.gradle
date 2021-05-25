@@ -6,6 +6,8 @@ plugins {
     id 'maven-publish'
 }
 
+def library_version = '1.0.0'
+
 android {
     compileSdkVersion 29
 
@@ -13,7 +15,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName library_version
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -47,7 +49,7 @@ afterEvaluate {
 
                 group = 'com.github.Spendesk'
                 artifactId = 'grapes-android'
-                version = '1.0'
+                version = library_version
             }
         }
     }

@@ -2,9 +2,9 @@
 buildscript {
 
     ext.kotlin_version = '1.4.21'
-
     ext.firebase_app_distribution_version = '2.1.2'
     ext.hilt_version = '2.35'
+    ext.grapes_version = '1.0.0'
 
     repositories {
         google()
@@ -23,6 +23,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://jitpack.io' }
+        mavenLocal()
     }
 }
 
