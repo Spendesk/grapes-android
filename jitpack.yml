@@ -1,0 +1,3 @@
+install:
+  - echo "Build only the library in release mode"
+  - ./gradlew :library:clean :library:build :library:publishReleasePublicationToMavenLocal -xtest -xlint
