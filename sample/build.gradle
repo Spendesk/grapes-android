@@ -69,7 +69,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-//    implementation "com.github.Spendesk:grapes-android:$grapes_version"
     implementation project(path: ':library')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
