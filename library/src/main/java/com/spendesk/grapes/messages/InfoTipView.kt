@@ -16,6 +16,7 @@ import com.spendesk.grapes.R
  * @author Vivien Mahe
  * @since 2020-01-22
  */
+@Deprecated("This component is deprecated. Please use the newer one MessageInlineView")
 class InfoTipView : AppCompatTextView {
 
     // region constructor
