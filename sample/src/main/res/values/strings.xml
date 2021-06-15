@@ -2,7 +2,9 @@
     <string name="app_name" translatable="false">GrapesSamples</string>
 
     <string name="buttons" translatable="false">Buttons</string>
-    <string name="pushs" translatable="false">Pushs</string>
+    <string name="cards" translatable="false">Cards</string>
+    <string name="selectors" translatable="false">Selectors</string>
+    <string name="inputs" translatable="false">Inputs</string>
 
     <!-- Buttons -->
     <string name="buttonNormal" translatable="false">Normal</string>
@@ -14,12 +16,20 @@
     <string name="buttonAlert" translatable="false">Alert</string>
     <string name="buttonWarning" translatable="false">Warning</string>
 
-    <!-- Pushs -->
-    <string name="pushPurple" translatable="false">Purple Push</string>
-    <string name="pushPlasticCard" translatable="false">Plastic Card</string>
-    <string name="pushOnTheWay" translatable="false">On The Way</string>
-    <string name="pushRecard" translatable="false">Recard</string>
-    <string name="pushNormal" translatable="false">Normal</string>
-    <string name="pushWarning" translatable="false">Warning</string>
-    <string name="pushAlert" translatable="false">Alert</string>
+    <!-- Card -->
+    <string name="cardPurple" translatable="false">Purple Card</string>
+    <string name="cardPlasticCard" translatable="false">Plastic Card</string>
+    <string name="cardOnTheWay" translatable="false">On The Way</string>
+    <string name="cardRecard" translatable="false">Recard</string>
+    <string name="cardNormal" translatable="false">Normal</string>
+    <string name="cardWarning" translatable="false">Warning</string>
+    <string name="cardAlert" translatable="false">Alert</string>
+
+    <!-- Selectors -->
+    <string name="selectorsPickerListView" translatable="false">Picker list</string>
+    <string name="selectorsPickerCardView" translatable="false">Picker Card</string>
+
+    <!-- Inputs -->
+    <string name="inputSearchInputMain" translatable="false">Search Input Main</string>
+
 </resources>

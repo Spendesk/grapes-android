@@ -12,9 +12,11 @@ import kotlinx.android.synthetic.main.bucket_deep_blue.view.*
 open class DeepBlueBucketView : BucketView {
 
     //region constructors
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
     //endregion constructors
 
     class Configuration(

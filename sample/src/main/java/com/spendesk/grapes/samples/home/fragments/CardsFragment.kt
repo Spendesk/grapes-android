@@ -5,38 +5,38 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.DeepBlueBucketView
 import com.spendesk.grapes.InformativeActionBucketView
-import com.spendesk.grapes.MessageInlineView
+import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_push.*
+import kotlinx.android.synthetic.main.fragment_home_cards.*
 import kotlinx.android.synthetic.main.view_home_header.*
 
 /**
  * @author danyboucanova
  * @since 1/6/21
  */
-class PushFragment : Fragment(R.layout.fragment_home_push) {
+class CardsFragment : Fragment(R.layout.fragment_home_cards) {
 
     companion object {
-        fun newInstance() = PushFragment()
+        fun newInstance() = CardsFragment()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.pushs)
+        homeGenericHeaderTitle.text = context?.getString(R.string.cards)
 
         bindView()
     }
 
     private fun bindView() {
-        homePushSectionOnTheWayDeepBlueBucketView.updateData(
+        homeCardSectionOnTheWayDeepBlueBucketView.updateData(
             DeepBlueBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewTitle),
                 description = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewDescription),
                 buttonText = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewButtonText)
             )
         )
-        homePushSectionRecardDeepBlueBucketView.updateData(
+        homeCardSectionRecardDeepBlueBucketView.updateData(
             DeepBlueBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionRecardDeepBlueBucketViewTitle),
                 description = requireContext().getString(R.string.homePushSectionRecardDeepBlueBucketViewDescription),
@@ -44,7 +44,7 @@ class PushFragment : Fragment(R.layout.fragment_home_push) {
             )
         )
 
-        homePushSectionPlasticCardNormalInformativeActionBucketView.updateData(
+        homeCardSectionPlasticCardNormalInformativeActionBucketView.updateData(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewSmallButtonText),
@@ -54,7 +54,7 @@ class PushFragment : Fragment(R.layout.fragment_home_push) {
             )
         )
 
-        homePushSectionPlasticCardWarningInformativeActionBucketView.updateData(
+        homeCardSectionPlasticCardWarningInformativeActionBucketView.updateData(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewSmallButtonText),
@@ -64,7 +64,7 @@ class PushFragment : Fragment(R.layout.fragment_home_push) {
             )
         )
 
-        homePushSectionPlasticCardAlertInformativeActionBucketView.updateData(
+        homeCardSectionPlasticCardAlertInformativeActionBucketView.updateData(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewSmallButtonText),

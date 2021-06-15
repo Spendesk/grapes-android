@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/HomeGenericScrollViewContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <include layout="@layout/view_home_header" />
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionPickerListTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsPickerListView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeGenericHeaderBackground" />
+
+        <com.spendesk.grapes.selectors.PickerListView
+            android:id="@+id/homeSelectorsSectionPickerListView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionPickerListTitleText" />
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionPickerCardViewTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsPickerCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionPickerListView" />
+
+        <com.spendesk.grapes.selectors.PickerCardView
+            android:id="@+id/homeSelectorsSectionPickerCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionPickerCardViewTitleText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

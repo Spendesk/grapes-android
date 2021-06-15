@@ -24,7 +24,7 @@ class HomeActivityViewModel @Inject constructor() : ViewModel() {
         when (lifecycle) {
             Lifecycle.State.INITIALIZED -> {
                 updateHomeTabItem.onNext(
-                    listOf(HomeTabItem.Buttons, HomeTabItem.Cards)
+                    listOf(HomeTabItem.Buttons, HomeTabItem.Cards, HomeTabItem.Selectors)
                 )
                 // At some point, the whole list should be sent when handling all the views in the app.
                 // *HomeTabItem::class.nestedClasses.map { it.objectInstance as HomeTabItem }.toTypedArray()

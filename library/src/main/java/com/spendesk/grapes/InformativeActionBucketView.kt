@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
+import com.spendesk.grapes.messages.MessageInlineView
 import kotlinx.android.synthetic.main.bucket_action_informative.view.*
 
 /**
