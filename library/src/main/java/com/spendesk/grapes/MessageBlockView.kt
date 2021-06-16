@@ -27,6 +27,7 @@ import kotlinx.android.synthetic.main.message_block_view.view.*
 class MessageBlockView : ConstraintLayout {
 
     //region constructors
+
     constructor(context: Context) : super(context) {
         initView(null)
     }
@@ -38,6 +39,7 @@ class MessageBlockView : ConstraintLayout {
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initView(attrs)
     }
+
     //endregion constructors
 
     init {

@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.user_supplier_inline_view.view.*
 class UserSupplierInlineView : ConstraintLayout {
 
     //region constructors
+
     constructor(context: Context) : super(context) {
         initView(null)
     }
@@ -31,6 +32,7 @@ class UserSupplierInlineView : ConstraintLayout {
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initView(attrs)
     }
+
     //endregion constructors
 
     class Configuration(

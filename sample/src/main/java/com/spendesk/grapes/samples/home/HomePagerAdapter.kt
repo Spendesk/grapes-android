@@ -40,15 +40,5 @@ class HomePagerAdapter(
     }
 
     fun getTabText(position: Int): String =
-        when (val item = itemList[position]) {
-            is HomeTabItem.Avatars,
-            is HomeTabItem.Buttons,
-            is HomeTabItem.CheckBox,
-            is HomeTabItem.Contents,
-            is HomeTabItem.Inputs,
-            is HomeTabItem.Lists,
-            is HomeTabItem.Messages,
-            is HomeTabItem.Modals,
-            is HomeTabItem.Cards -> item::class.java.simpleName
-        }
+        itemList[position]::class.java.simpleName
 }
