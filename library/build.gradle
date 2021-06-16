@@ -6,14 +6,14 @@ plugins {
     id 'maven-publish'
 }
 
-def library_version = '1.0.0'
+def library_version = '1.0.2'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
         versionCode 1
         versionName library_version
 
