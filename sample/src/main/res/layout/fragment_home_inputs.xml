@@ -24,5 +24,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeGenericHeaderBackground" />
 
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeInputsSectionSearchInputMainBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchInputMainTitleText">
+
+            <com.spendesk.grapes.inputs.SearchInputMain
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

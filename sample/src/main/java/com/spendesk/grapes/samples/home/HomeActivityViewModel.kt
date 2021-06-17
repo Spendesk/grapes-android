@@ -16,15 +16,17 @@ import javax.inject.Inject
 class HomeActivityViewModel @Inject constructor() : ViewModel() {
 
     //region observable properties
+
     private val updateHomeTabItem = PublishSubject.create<List<HomeTabItem>>()
     fun updateHomeTabItem(): Observable<List<HomeTabItem>> = updateHomeTabItem
+
     //endregion observable properties
 
     fun onLifecycleStateChange(lifecycle: Lifecycle.State) =
         when (lifecycle) {
             Lifecycle.State.INITIALIZED -> {
                 updateHomeTabItem.onNext(
-                    listOf(HomeTabItem.Buttons, HomeTabItem.Cards, HomeTabItem.Selectors)
+                    listOf(HomeTabItem.Buttons, HomeTabItem.Cards, HomeTabItem.Selectors, HomeTabItem.Inputs)
                 )
                 // At some point, the whole list should be sent when handling all the views in the app.
                 // *HomeTabItem::class.nestedClasses.map { it.objectInstance as HomeTabItem }.toTypedArray()

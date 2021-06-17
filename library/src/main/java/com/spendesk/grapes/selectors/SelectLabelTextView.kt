@@ -26,7 +26,7 @@ open class SelectLabelTextView : AppCompatTextView, Checkable {
         // Add ripple effect
         val outValue = TypedValue()
         context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-        foreground = ContextCompat.getDrawable(context, outValue.resourceId)
+//        foreground = ContextCompat.getDrawable(context, outValue.resourceId)
 
         isClickable = true
         isFocusable = true
