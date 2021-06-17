@@ -114,8 +114,8 @@
     <color name="partialContentBlockOptionalTextColor">@color/mainNeutralDarker</color>
     <color name="inlineBlockTitleActionTextColor">@color/mainPrimaryNormal</color>
     <color name="inlineBlockViewKeyTextColor">@color/mainNeutralDarker</color>
+    <color name="mapBlockAddressTextColor">@color/mainComplementary</color>
     <color name="partialContentBlockTitleEndTextColor">@color/mainComplementary</color>
-
 
     <color name="responsibilityCenterGaugeViewContainerBackgroundColor">@color/white</color>
     <color name="responsibilityCenterGaugeViewCardBackgroundColor">@color/white</color>
