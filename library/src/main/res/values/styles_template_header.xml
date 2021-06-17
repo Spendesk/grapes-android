@@ -2,6 +2,10 @@
 <resources>
 
     <!-- region Header Expense -->
+    <style name="TemplateHeaderExpenseUserSupplier">
+        <item name="android:visibility">gone</item>
+    </style>
+
     <style name="TemplateHeaderExpenseAmountTitleText">
         <item name="android:textColor">@color/templateHeaderExpenseAmountTitleText</item>
         <item name="android:textSize">@dimen/templateHeaderExpenseAmountTitleTextSize</item>
