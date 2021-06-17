@@ -16,9 +16,11 @@ import com.spendesk.grapes.extensions.setDrawable
 class PinCodeDotView : LinearLayout {
 
     //region constructors
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet, 0)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
     //endregion constructors
 
     class Configuration(

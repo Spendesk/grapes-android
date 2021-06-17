@@ -18,4 +18,7 @@ class SearchInputMain : AppCompatEditText {
 
     //endregion constructors
 
+    init {
+
+    }
 }

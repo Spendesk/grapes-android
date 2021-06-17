@@ -41,5 +41,6 @@ class HomePagerAdapter(
         notifyDataSetChanged()
     }
 
-    fun getTabText(position: Int): String = itemList[position]::class.java.simpleName
+    fun getTabText(position: Int): String =
+        itemList[position]::class.java.simpleName
 }

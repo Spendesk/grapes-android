@@ -6,7 +6,7 @@ plugins {
     id 'maven-publish'
 }
 
-def library_version = '1.0.1'
+def library_version = '1.0.3'
 
 android {
     compileSdkVersion 30

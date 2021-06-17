@@ -24,6 +24,7 @@ import com.spendesk.grapes.extensions.setDrawableLeft
 class MessageInlineView : AppCompatTextView {
 
     //region constructors
+
     constructor(context: Context) : super(context) {
         initView(null)
     }
@@ -35,6 +36,7 @@ class MessageInlineView : AppCompatTextView {
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
         initView(attrs)
     }
+
     //endregion constructors
 
     init {

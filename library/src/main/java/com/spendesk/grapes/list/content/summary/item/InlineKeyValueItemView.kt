@@ -14,9 +14,12 @@ import kotlinx.android.synthetic.main.item_inline_key_value.view.*
 class InlineKeyValueItemView : ConstraintLayout {
 
     //region constructors
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet, 0)
-    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)    //endregion constructors
+    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
+    //endregion constructors
 
     class Configuration(
         val key: CharSequence,

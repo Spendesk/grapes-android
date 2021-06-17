@@ -15,9 +15,11 @@ import kotlinx.android.synthetic.main.bucket_action_informative.view.*
 class InformativeActionBucketView : BucketView {
 
     //region constructors
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
     //endregion constructors
 
     var onButtonClick: (() -> Unit)? = null
