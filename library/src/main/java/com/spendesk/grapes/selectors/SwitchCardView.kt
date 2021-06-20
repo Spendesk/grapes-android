@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.cardview.widget.CardView
 import com.spendesk.grapes.R
-import kotlinx.android.synthetic.main.selector_switch_cardview.view.*
+import kotlinx.android.synthetic.main.selector_switch_card.view.*
 
 /**
  * @author danyboucanova
@@ -21,7 +21,7 @@ class SwitchCardView : CardView {
 
     //endregion constructors
 
-    var onViewChecked: ((Boolean) -> Unit)? = null
+    var onChecked: ((Boolean) -> Unit)? = null
 
     class Configuration(
         val text: CharSequence,
@@ -29,13 +29,13 @@ class SwitchCardView : CardView {
     )
 
     init {
-        View.inflate(context, R.layout.selector_switch_cardview, this)
+        View.inflate(context, R.layout.selector_switch_card, this)
 
-        radius = resources.getDimensionPixelOffset(R.dimen.selectorsSwitchCardRadius).toFloat()
-        elevation = resources.getDimensionPixelOffset(R.dimen.selectorsSwitchCardElevation).toFloat()
+        radius = resources.getDimensionPixelOffset(R.dimen.switchCardRadius).toFloat()
+        elevation = resources.getDimensionPixelOffset(R.dimen.switchCardElevation).toFloat()
 
         setOnClickListener { switchCardSwitch.isChecked = !switchCardSwitch.isChecked }
-        switchCardSwitch.setOnCheckedChangeListener { _, isChecked -> onViewChecked?.invoke(isChecked) }
+        switchCardSwitch.setOnCheckedChangeListener { _, isChecked -> onChecked?.invoke(isChecked) }
     }
 
     fun updateConfiguration(configuration: Configuration) {

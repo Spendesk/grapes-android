@@ -275,7 +275,7 @@
     <!-- endregion CustomNumberKeyboardText -->
 
     <!-- TODO: This should not exist and a Light and Dark Grapes App Theme should be put in place-->
-    <style name="SwitchBlockTextSwitch">
+    <style name="SwitchCardTextSwitch">
         <item name="colorControlActivated">@color/mainPrimaryNormal</item>
     </style>
 

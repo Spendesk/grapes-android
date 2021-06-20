@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/selectorsSwitchCardPaddingConstraintLayout">
+        android:padding="@dimen/switchCardPaddingConstraintLayout">
 
         <TextView
             android:id="@+id/switchCardText"
@@ -22,7 +22,7 @@
             app:layout_constraintEnd_toStartOf="@id/switchCardSwitch"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Je suis la déscription du switch" />
+            tools:text="Je suis la description du switch" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/switchCardSwitch"
@@ -31,6 +31,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:theme="@style/SwitchBlockTextSwitch" />
+            app:theme="@style/SwitchCardTextSwitch" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

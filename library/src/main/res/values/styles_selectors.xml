@@ -2,7 +2,7 @@
 <resources>
 
     <style name="SelectorsHeaderStatusIndicatorFlow">
-        <item name="flow_horizontalGap">@dimen/selectorsHeaderStatusIndicatorFlowHorizontalGap</item>
+        <item name="flow_horizontalGap">@dimen/headerStatusIndicatorFlowHorizontalGap</item>
         <item name="flow_wrapMode">chain</item>
     </style>
 </resources>

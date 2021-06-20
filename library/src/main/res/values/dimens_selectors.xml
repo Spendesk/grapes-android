@@ -9,11 +9,11 @@
 
     <dimen name="pickerBlockIconCardViewSize">104dp</dimen>
 
-    <dimen name="selectorsHeaderStatusIndicatorFlowHorizontalGap">2dp</dimen>
+    <dimen name="headerStatusIndicatorFlowHorizontalGap">2dp</dimen>
 
-    <dimen name="selectorsSwitchCardRadius">@dimen/cardViewBigRadius</dimen>
-    <dimen name="selectorsSwitchCardElevation">@dimen/cardViewElevation</dimen>
-    <dimen name="selectorsSwitchCardPaddingConstraintLayout">16dp</dimen>
+    <dimen name="switchCardRadius">@dimen/cardViewBigRadius</dimen>
+    <dimen name="switchCardElevation">@dimen/cardViewElevation</dimen>
+    <dimen name="switchCardPaddingConstraintLayout">16dp</dimen>
     <dimen name="switchCardTextMarginEnd">@dimen/normalMargin</dimen>
     <dimen name="switchCardHeight">28dp</dimen>
     <dimen name="switchCardTextSize">16sp</dimen>
