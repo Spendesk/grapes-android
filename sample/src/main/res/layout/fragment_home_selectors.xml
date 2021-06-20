@@ -58,5 +58,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionPickerCardViewTitleText" />
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionSwitchCardTitle"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsSwitchCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionPickerCardView" />
+
+        <com.spendesk.grapes.selectors.SwitchCardView
+            android:id="@+id/homeSelectorsSectionSwitchCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSwitchCardTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

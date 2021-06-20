@@ -50,5 +50,8 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
                 )
             )
         )
+
+        // SwitchCard
+        homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))
     }
 }

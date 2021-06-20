@@ -31,6 +31,7 @@
     <!-- Selectors -->
     <string name="selectorsPickerListView" translatable="false">Picker list</string>
     <string name="selectorsPickerCardView" translatable="false">Picker Card</string>
+    <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
 
     <!-- Inputs -->
     <string name="inputSearchInputMain" translatable="false">Search Input Main</string>

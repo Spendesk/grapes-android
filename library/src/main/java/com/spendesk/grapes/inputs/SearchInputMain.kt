@@ -77,7 +77,7 @@ class SearchInputMain : CardView {
                 recycle()
             }
         }
-        
+
         configureEditText(attributeSet)
     }
 

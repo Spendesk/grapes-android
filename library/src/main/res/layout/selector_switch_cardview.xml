@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_height="100dp"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/selectorsSwitchCardPaddingConstraintLayout">
+
+        <TextView
+            android:id="@+id/switchCardText"
+            style="@style/SwitchCardText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/switchCardTextMarginEnd"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/switchCardSwitch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Je suis la déscription du switch" />
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switchCardSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/switchCardHeight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:theme="@style/SwitchBlockTextSwitch" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</merge>
