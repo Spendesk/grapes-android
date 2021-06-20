@@ -6,6 +6,9 @@
     <string name="selectors" translatable="false">Selectors</string>
     <string name="inputs" translatable="false">Inputs</string>
 
+    <string name="primary" translatable="false">Primary</string>
+    <string name="secondary" translatable="false">Secondary</string>
+
     <!-- Buttons -->
     <string name="buttonNormal" translatable="false">Normal</string>
     <string name="buttonDisabled" translatable="false">Disabled</string>
@@ -31,5 +34,4 @@
 
     <!-- Inputs -->
     <string name="inputSearchInputMain" translatable="false">Search Input Main</string>
-
 </resources>

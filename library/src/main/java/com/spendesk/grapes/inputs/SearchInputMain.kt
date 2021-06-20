@@ -1,46 +1,111 @@
 package com.spendesk.grapes.inputs
 
 import android.content.Context
+import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.util.AttributeSet
-import android.view.MotionEvent
+import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.core.widget.doAfterTextChanged
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
+import androidx.core.view.setPadding
 import com.spendesk.grapes.R
-import com.spendesk.grapes.extensions.empty
+import com.spendesk.grapes.extensions.setupClearButtonWithAction
 
 /**
  * @author danyboucanova
  * @since 15/06/2021
  */
-class SearchInputMain : AppCompatEditText {
+class SearchInputMain : CardView {
 
     //region constructors
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
-    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+    constructor(context: Context) : super(context) {
+        setupView(null)
+    }
+
+    constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet) {
+        setupView(attributeSet)
+    }
+
+    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr) {
+        setupView(attributeSet)
+    }
 
     //endregion constructors
 
-    init {
-        setupClearButtonWithAction()
-        setSingleLine()
-    }
-}
+    enum class Style(val position: Int) {
+        PRIMARY(0),
+        SECONDARY(1);
 
-fun AppCompatEditText.setupClearButtonWithAction() {
+        companion object {
+            fun fromPosition(position: Int): Style {
+                return try {
+                    values().first { it.position == position }
+                } catch (exception: NoSuchElementException) {
+                    getDefault()
+                }
+            }
 
-    doAfterTextChanged { editable ->
-        val clearIcon = if (editable?.isNotEmpty() == true) R.drawable.ic_clear_round else 0
-        setCompoundDrawablesWithIntrinsicBounds(0, 0, clearIcon, 0)
-    }
-
-    setOnTouchListener OnTouchListener@{ _, event ->
-        if (event.action == MotionEvent.ACTION_UP && event.rawX >= (right - compoundPaddingRight)) {
-            setText(String.empty())
-            performClick()
-            return@OnTouchListener true
+            fun getDefault() = PRIMARY
         }
-        return@OnTouchListener false
+    }
+
+    private var style = Style.getDefault()
+
+    fun setStyle(style: Style) {
+        when (style) {
+            Style.PRIMARY -> {
+                radius = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryCardRadius).toFloat()
+                elevation = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryCardElevation).toFloat()
+            }
+            Style.SECONDARY -> {
+                radius = resources.getDimensionPixelOffset(R.dimen.searchInputMainSecondaryCardRadius).toFloat()
+                elevation = resources.getDimensionPixelOffset(R.dimen.searchInputMainSecondaryCardElevation).toFloat()
+
+                setBackgroundResource(R.drawable.shape_rect_solidbackground_stroke5neutrallight_radius8)
+            }
+        }
+    }
+
+    private fun setupView(attributeSet: AttributeSet?) {
+        attributeSet?.let {
+            with(context.obtainStyledAttributes(it, R.styleable.SearchInputMain)) {
+                style = Style.fromPosition(getInt(R.styleable.SearchInputMain_searchInputMainStyle, Style.getDefault().position))
+
+                setStyle(style)
+                recycle()
+            }
+        }
+        
+        configureEditText(attributeSet)
+    }
+
+    private fun configureEditText(attributeSet: AttributeSet?) {
+        val editText = AppCompatEditText(context, attributeSet)
+
+        with(editText) {
+            setSingleLine()
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimensionPixelOffset(R.dimen.searchInputMainTextSize).toFloat())
+            setTextColor(ContextCompat.getColor(context, R.color.searchInputMainPrimaryTextColor))
+            setPadding(resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryPadding))
+            background = ContextCompat.getDrawable(context, android.R.color.transparent) // remove underline bar
+
+            // compound drawables
+            compoundDrawablePadding = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryDrawableCompoundPadding)
+            setupClearButtonWithAction(ContextCompat.getDrawable(context, R.drawable.ic_clear_round))
+
+            // add the according style tint for compound drawables except for clear icon
+            val color = when (style) {
+                Style.PRIMARY -> R.color.searchInputMainPrimaryTintColor
+                Style.SECONDARY -> R.color.searchInputMainSecondaryTintColor
+            }
+
+            compoundDrawablesRelative.forEachIndexed { index, drawable ->
+                if (drawable != null && index != 3) {
+                    drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
+                }
+            }
+        }.also { addView(editText) }
     }
 }
