@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/summaryBlockContentMapImage"
+        style="@style/MapBlockImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_height="240dp"
+        tools:src="@drawable/img_mileage_map_example" />
+
+    <TextView
+        android:id="@+id/summaryBlockContentMapTitle"
+        style="@style/PartialContentBlockTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
+        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapDepartureTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapImage"
+        tools:text="My name is title, Head Title" />
+
+    <TextView
+        android:id="@+id/summaryBlockContentMapDepartureTitle"
+        style="@style/MapBlockDepartureAddressText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
+        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapTitle"
+        tools:text="Address of departure" />
+
+    <TextView
+        android:id="@+id/summaryBlockContentMapArrivalTitle"
+        style="@style/MapBlockArrivalAddressText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
+        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapDepartureTitle"
+        tools:text="Address of arrival" />
+
+    <com.spendesk.grapes.list.content.summary.SummaryBlockRecyclerView
+        android:id="@+id/summaryBlockContentMapList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
+        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentViewMoreButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapArrivalTitle"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_inline_key_value" />
+
+    <com.spendesk.grapes.Button
+        android:id="@+id/summaryBlockContentViewMoreButton"
+        style="@style/MapBlockViewMoreButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
+        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginBottom="@dimen/partialContentBlockTitleMarginVert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapList"
+        tools:text="View more" />
+</androidx.constraintlayout.widget.ConstraintLayout>

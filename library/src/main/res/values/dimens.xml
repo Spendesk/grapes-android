@@ -124,6 +124,11 @@
     <dimen name="summaryBlockContentApproverImageSize">32dp</dimen>
     <!-- endregion InlineBlockView -->
 
+    <!-- region MapBlock -->
+    <dimen name="mapBlockAddressTextSize">16dp</dimen>
+    <dimen name="mapBlockAddressDrawablePadding">@dimen/smallMargin</dimen>
+    <!-- endregion MapBlock -->
+
     <dimen name="itemBlockApproverTitleTextSize">16dp</dimen>
     <dimen name="itemBlockApproverStatusTextMarginHorz">@dimen/smallMargin</dimen>
 
