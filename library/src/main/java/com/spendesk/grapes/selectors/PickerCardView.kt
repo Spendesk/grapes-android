@@ -25,6 +25,7 @@ class PickerCardView : CardView {
 
     //endregion constructors
 
+    var onItemSelected: ((Int) -> Unit)? = null
     private val adapter = PickerAdapter()
 
     init {
@@ -34,6 +35,8 @@ class PickerCardView : CardView {
 
         cardElevation = context.resources.getDimension(R.dimen.pickerCardViewElevation)
         radius = context.resources.getDimension(R.dimen.pickerCardViewRadius)
+
+        onItemSelected = adapter.onItemSelected
     }
 
     fun updateConfiguration(configuration: Configuration) {

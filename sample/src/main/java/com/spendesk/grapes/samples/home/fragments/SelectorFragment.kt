@@ -27,6 +27,16 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
     }
 
     private fun bindView() {
+        // Header Pager Indicator
+        homeSelectorsSectionHeaderStatusIndicatorFirstHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
+        homeSelectorsSectionHeaderStatusIndicatorFirstHeaderStatusIndicator.updateStatusIndex(0)
+
+        homeSelectorsSectionHeaderStatusIndicatorSecondHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
+        homeSelectorsSectionHeaderStatusIndicatorSecondHeaderStatusIndicator.updateStatusIndex(2)
+
+        homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
+        homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator.updateStatusIndex(5)
+
         // Picker List
         val pickerListViewAdapter = PickerAdapter()
         val pickerListModelAdapter = listOf<PickerModel>(

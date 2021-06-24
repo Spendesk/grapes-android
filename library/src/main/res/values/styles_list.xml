@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ListItemPrimaryImage">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="ListItemSecondaryImage">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="ListItemTitleStart">
+        <item name="android:textColor">@color/listItemTitleStartColor</item>
+        <item name="android:textSize">@dimen/titleMSize</item>
+    </style>
+
+    <style name="ListItemDescriptionStart">
+        <item name="android:textColor">@color/listItemDescriptionStartColor</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+
+    <style name="ListItemTitleEnd">
+        <item name="android:textColor">@color/listItemTitleEndColor</item>
+        <item name="android:textSize">@dimen/titleMSize</item>
+    </style>
+
+    <style name="ListItemDescriptionEnd">
+        <item name="android:textColor">@color/listItemDescriptionEndColor</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+</resources>

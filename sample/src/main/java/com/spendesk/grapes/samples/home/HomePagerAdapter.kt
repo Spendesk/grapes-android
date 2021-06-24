@@ -4,10 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.spendesk.grapes.samples.entity.HomeTabItem
-import com.spendesk.grapes.samples.home.fragments.ButtonsFragment
-import com.spendesk.grapes.samples.home.fragments.CardsFragment
-import com.spendesk.grapes.samples.home.fragments.InputsFragment
-import com.spendesk.grapes.samples.home.fragments.SelectorFragment
+import com.spendesk.grapes.samples.home.fragments.*
 
 /**
  * @author danyboucanova
@@ -25,9 +22,9 @@ class HomePagerAdapter(
             is HomeTabItem.Cards -> CardsFragment.newInstance()
             is HomeTabItem.Selectors -> SelectorFragment.newInstance()
             is HomeTabItem.Inputs -> InputsFragment.newInstance()
+            is HomeTabItem.Lists -> ListsFragment.newInstance()
             is HomeTabItem.Avatars,
             is HomeTabItem.Contents,
-            is HomeTabItem.Lists,
             is HomeTabItem.Messages,
             is HomeTabItem.Modals -> throw IllegalStateException("Cannot resolve the item (name: ${item::class.java.simpleName}. This item is not yet resolved is not handled")
         }

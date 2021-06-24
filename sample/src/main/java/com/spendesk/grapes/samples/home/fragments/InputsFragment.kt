@@ -20,11 +20,5 @@ class InputsFragment : Fragment(R.layout.fragment_home_inputs) {
         super.onViewCreated(view, savedInstanceState)
 
         homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
-
-        bindView()
-    }
-
-    private fun bindView() {
-
     }
 }

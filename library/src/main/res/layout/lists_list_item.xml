@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/listItemPrimaryImageVerticalHalfGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/listItemPrimaryImageVerticalHalfGuidelineBegin" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/listItemPrimaryImageHorizontalHalfGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/listItemPrimaryImageHorizontalHalfGuidelineBegin" />
+
+    <ImageView
+        android:id="@+id/listItemPrimaryImage"
+        style="@style/ListItemPrimaryImage"
+        android:layout_width="@dimen/listItemPrimaryImageSize"
+        android:layout_height="@dimen/listItemPrimaryImageSize"
+        android:layout_marginStart="@dimen/normalMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/listItemSecondaryImage"
+        style="@style/ListItemSecondaryImage"
+        android:layout_width="@dimen/listItemSecondaryImageSize"
+        android:layout_height="@dimen/listItemSecondaryImageSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/listItemPrimaryImageVerticalHalfGuideline"
+        app:layout_constraintTop_toBottomOf="@id/listItemPrimaryImageHorizontalHalfGuideline"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/listItemTitleStart"
+        style="@style/ListItemTitleStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/listItemTitleStartmarginHorz"
+        android:layout_marginEnd="@dimen/listItemTitleStartmarginHorz"
+        app:layout_constraintBottom_toTopOf="@+id/listItemDescriptionStart"
+        app:layout_constraintEnd_toStartOf="@id/listItemBarrierEnd"
+        app:layout_constraintStart_toEndOf="@+id/listItemPrimaryImage"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Title start here" />
+
+    <TextView
+        android:id="@+id/listItemDescriptionStart"
+        style="@style/ListItemDescriptionStart"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/listItemTitleStartmarginHorz"
+        android:layout_marginEnd="@dimen/listItemTitleStartmarginHorz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/listItemBarrierEnd"
+        app:layout_constraintStart_toEndOf="@id/listItemPrimaryImage"
+        app:layout_constraintTop_toBottomOf="@+id/listItemTitleStart"
+        tools:text="Employee name • Description"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/listItemBarrierEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="listItemTitleEnd,listItemDescriptionEnd" />
+
+    <TextView
+        android:id="@+id/listItemTitleEnd"
+        style="@style/ListItemTitleEnd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/listItemDescriptionEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="71,03 €" />
+
+    <TextView
+        android:id="@+id/listItemDescriptionEnd"
+        style="@style/ListItemDescriptionEnd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listItemTitleEnd"
+        tools:text="12 Sept." />
+</merge>

@@ -5,6 +5,7 @@
     <string name="cards" translatable="false">Cards</string>
     <string name="selectors" translatable="false">Selectors</string>
     <string name="inputs" translatable="false">Inputs</string>
+    <string name="lists" translatable="false">Lists</string>
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>
@@ -29,10 +30,24 @@
     <string name="cardAlert" translatable="false">Alert</string>
 
     <!-- Selectors -->
+    <string name="selectorsHeaderStatusIndicatorFirst" translatable="false">One item</string>
+    <string name="selectorsHeaderStatusIndicatorSecond" translatable="false">Three items</string>
+    <string name="selectorsHeaderStatusIndicatorThird" translatable="false">Full items</string>
     <string name="selectorsPickerListView" translatable="false">Picker list</string>
     <string name="selectorsPickerCardView" translatable="false">Picker Card</string>
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
 
     <!-- Inputs -->
     <string name="inputSearchInputMain" translatable="false">Search Input Main</string>
+
+    <!-- Lists -->
+    <string name="listItem" translatable="false">List item</string>
+    <string name="listItemOne" translatable="false">item #1</string>
+    <string name="listItemTwo" translatable="false">item #2</string>
+    <string name="listItemThree" translatable="false">item #3</string>
+    <string name="listItemFour" translatable="false">item #4</string>
+    <string name="listItemFive" translatable="false">item #5</string>
+    <string name="listItemSix" translatable="false">item #6</string>
+    <string name="listItemSeven" translatable="false">item #7</string>
+
 </resources>
