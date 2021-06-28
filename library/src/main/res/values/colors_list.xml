@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- region List Item -->
     <color name="listItemTitleStartColor">@color/mainComplementary</color>
     <color name="listItemDescriptionStartColor">@color/mainNeutralDarker</color>
     <color name="listItemTitleEndColor">@color/mainComplementary</color>
     <color name="listItemDescriptionEndColor">@color/mainNeutralDarker</color>
+    <!-- endregion List Item -->
+
+    <!-- region Section Item -->
+    <color name="listSectionItemStartImageTintColor">@color/mainNeutralDarker</color>
+    <color name="listSectionItemStartTextColor">@color/mainNeutralDarker</color>
+    <color name="listSectionItemEndTextColor">@color/mainNeutralDarker</color>
+    <!-- endregion Section Item -->
 </resources>

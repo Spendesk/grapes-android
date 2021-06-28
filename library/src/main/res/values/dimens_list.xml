@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- region List Item -->
     <dimen name="listItemPaddingStart">0dp</dimen>
     <dimen name="listItemPaddingEnd">16dp</dimen>
     <dimen name="listItemPaddingVert">12dp</dimen>
@@ -10,4 +11,10 @@
     <dimen name="listItemTitleStartmarginHorz">@dimen/normalMargin</dimen>
     <dimen name="listItemPrimaryImageVerticalHalfGuidelineBegin">36dp</dimen>
     <dimen name="listItemPrimaryImageHorizontalHalfGuidelineBegin">22dp</dimen>
+    <!-- endregion List Item -->
+
+    <!-- region Section Item -->
+    <dimen name="listSectionItemPadding">16dp</dimen>
+    <dimen name="listSectionItemStartImageSize">20dp</dimen>
+    <!-- endregion Section Item -->
 </resources>
