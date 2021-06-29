@@ -20,13 +20,13 @@ open class SelectBlockCardView : CardView, Checkable {
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
 
+    //endregion constructors
+
     init {
         background = ContextCompat.getDrawable(context, R.drawable.selector_select_block)
 
         addRippleEffect()
     }
-
-    //endregion constructors
 
     private var isChecked: Boolean = false
 

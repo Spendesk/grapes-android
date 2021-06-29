@@ -16,23 +16,23 @@ import kotlinx.android.synthetic.main.selectors_header_status_indicator.view.*
  */
 class HeaderStatusIndicator : ConstraintLayout {
 
-    class Configuration(
-        val pagerNumber: Int
-    )
-
     // region constructor
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
+    // endregion constructor
+
+    class Configuration(
+        val pagerNumber: Int
+    )
+
+    private val progressBarIds = mutableListOf<Int>()
+
     init {
         View.inflate(context, R.layout.selectors_header_status_indicator, this)
     }
-
-    // endregion constructor
-
-    private val progressBarIds = mutableListOf<Int>()
 
     fun updateConfiguration(configuration: Configuration) {
         for (i in 1..configuration.pagerNumber) {

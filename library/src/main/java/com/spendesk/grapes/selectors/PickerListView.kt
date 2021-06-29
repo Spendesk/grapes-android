@@ -13,11 +13,13 @@ import com.spendesk.spendesk.presentation.view.itemdecoration.MarginDecoration
  */
 class PickerListView : RecyclerView {
 
-    //region Constructors
+    //region constructors
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+    //endregion constructors
 
     init {
         layoutManager = WrapContentLinearLayoutManager(context, HORIZONTAL, false)
@@ -26,6 +28,4 @@ class PickerListView : RecyclerView {
         val itemDecoration = MarginDecoration(margin, 0, margin, margin)
         addItemDecoration(itemDecoration)
     }
-
-    //endregion Constructors
 }

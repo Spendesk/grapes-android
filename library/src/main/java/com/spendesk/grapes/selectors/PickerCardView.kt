@@ -13,10 +13,6 @@ import kotlinx.android.synthetic.main.selector_picker_card.view.*
  */
 class PickerCardView : CardView {
 
-    class Configuration(
-        val pickerModelList: List<PickerModel>
-    )
-
     //region constructors
 
     constructor(context: Context) : super(context)
@@ -24,6 +20,10 @@ class PickerCardView : CardView {
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
     //endregion constructors
+
+    class Configuration(
+        val pickerModelList: List<PickerModel>
+    )
 
     var onItemSelected: ((Int) -> Unit)? = null
     private val adapter = PickerAdapter()

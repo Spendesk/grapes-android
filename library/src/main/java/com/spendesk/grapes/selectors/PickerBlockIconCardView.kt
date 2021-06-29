@@ -14,16 +14,18 @@ import kotlinx.android.synthetic.main.selector_picker_block_icon.view.*
  */
 class PickerBlockIconCardView : SelectBlockCardView {
 
-    data class Configuration(
-        val isSelected: Boolean,
-        @DrawableRes val icon: Int
-    )
-
     //region constructors
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
+    //endregion constructors
+
+    data class Configuration(
+        val isSelected: Boolean,
+        @DrawableRes val icon: Int
+    )
 
     init {
         View.inflate(context, R.layout.selector_picker_block_icon, this)
@@ -34,8 +36,6 @@ class PickerBlockIconCardView : SelectBlockCardView {
         minimumHeight = resources.getDimensionPixelOffset(R.dimen.pickerBlockIconCardViewSize)
         minimumWidth = resources.getDimensionPixelOffset(R.dimen.pickerBlockIconCardViewSize)
     }
-
-    //endregion constructors
 
     fun updateConfiguration(configuration: Configuration) {
         isChecked = configuration.isSelected

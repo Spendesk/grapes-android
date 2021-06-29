@@ -22,6 +22,8 @@ class PickerLabelTextView : SelectLabelTextView {
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
 
+    //endregion constructors
+
     init {
         with(resources.getDimensionPixelOffset(R.dimen.pickerLabelPadding)) { setPadding(this) }
 
@@ -31,8 +33,6 @@ class PickerLabelTextView : SelectLabelTextView {
         setTypeface(ResourcesCompat.getFont(context, R.font.gt_america), Typeface.NORMAL)
         setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimensionPixelSize(R.dimen.pickerLabelTextSize).toFloat())
     }
-
-    //endregion constructors
 
     data class Configuration(
         val isSelected: Boolean,

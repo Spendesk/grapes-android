@@ -101,6 +101,7 @@ class SearchInputMain : CardView {
                 Style.SECONDARY -> R.color.searchInputMainSecondaryTintColor
             }
 
+            // the index 3 corresponds to the right compound drawable, the clear icon that we should not tint
             compoundDrawablesRelative.forEachIndexed { index, drawable ->
                 if (drawable != null && index != 3) {
                     drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)

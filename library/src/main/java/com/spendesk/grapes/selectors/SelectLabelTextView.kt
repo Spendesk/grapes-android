@@ -2,11 +2,11 @@ package com.spendesk.grapes.selectors
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.TypedValue
 import android.widget.Checkable
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.extensions.addRippleEffect
 
 /**
  * @author danyboucanova
@@ -20,19 +20,13 @@ open class SelectLabelTextView : AppCompatTextView, Checkable {
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
 
+    //endregion constructors
+
     init {
         background = ContextCompat.getDrawable(context, R.drawable.selector_select_label)
 
-        // Add ripple effect
-        val outValue = TypedValue()
-        context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-//        foreground = ContextCompat.getDrawable(context, outValue.resourceId)
-
-        isClickable = true
-        isFocusable = true
+        addRippleEffect()
     }
-
-    //endregion constructors
 
     private var isChecked: Boolean = false
 
