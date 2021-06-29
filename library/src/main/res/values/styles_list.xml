@@ -33,8 +33,8 @@
 
     <!-- region Section List -->
     <style name="ListSectionItemStartImage">
+        <item name="android:visibility">gone</item>
         <item name="android:backgroundTint">@color/listSectionItemStartImageTintColor</item>
-
     </style>
 
     <style name="ListSectionItemStartText">

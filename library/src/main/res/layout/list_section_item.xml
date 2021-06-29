@@ -9,6 +9,7 @@
 
     <ImageView
         android:id="@+id/listSectionItemStartImage"
+        style="@style/ListSectionItemStartImage"
         android:layout_width="@dimen/listSectionItemStartImageSize"
         android:layout_height="@dimen/listSectionItemStartImageSize"
         android:layout_marginEnd="@dimen/normalMargin"
@@ -17,7 +18,8 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        tools:background="@drawable/ic_crop"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/listSectionItemStartText"

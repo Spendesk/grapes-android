@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.list.item.ListItemView
+import com.spendesk.grapes.list.item.SectionListItemView
 import com.spendesk.grapes.samples.R
 import kotlinx.android.synthetic.main.fragment_home_lists.*
 import kotlinx.android.synthetic.main.view_home_header.*
@@ -51,5 +52,17 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         )
 
         homeListsSectionItemThreeListItem.updateConfiguration(ListItemView.Configuration(titleStart = "51 Rue de Londres. 75007, Paris"))
+
+        homeListsSectionItemListOne.updateConfiguration(
+            SectionListItemView.Configuration(
+                iconStart = R.drawable.ic_crop,
+                startText = "This is right",
+                endText = "This is Left"
+            )
+        )
+
+        homeListsSectionItemListTwo.updateConfiguration(
+            SectionListItemView.Configuration(startText = "This is right")
+        )
     }
 }

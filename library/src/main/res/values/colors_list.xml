@@ -9,6 +9,8 @@
     <!-- endregion List Item -->
 
     <!-- region Section Item -->
+    <color name="listSectionListItemViewPrimaryBackgroundColor">@android:color/transparent</color>
+    <color name="listSectionListItemViewSecondaryBackgroundColor">@color/mainNeutralLighter</color>
     <color name="listSectionItemStartImageTintColor">@color/mainNeutralDarker</color>
     <color name="listSectionItemStartTextColor">@color/mainNeutralDarker</color>
     <color name="listSectionItemEndTextColor">@color/mainNeutralDarker</color>

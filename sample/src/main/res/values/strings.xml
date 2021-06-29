@@ -49,5 +49,8 @@
     <string name="listItemFive" translatable="false">item #5</string>
     <string name="listItemSix" translatable="false">item #6</string>
     <string name="listItemSeven" translatable="false">item #7</string>
+    <string name="listSectionItem" translatable="false">List Section item</string>
+    <string name="listSectionItemOne" translatable="false">primary section #1</string>
+    <string name="listSectionItemTwo" translatable="false">secondary section #2</string>
 
 </resources>
