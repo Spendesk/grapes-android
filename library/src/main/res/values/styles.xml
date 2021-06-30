@@ -180,6 +180,32 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="MapBlockImage">
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="MapBlockViewMoreButton">
+        <item name="grapesButtonStyle">secondary</item>
+        <item name="grapesButtonSize">small</item>
+    </style>
+
+    <style name="MapBlockAddressText">
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textColor">@color/mapBlockAddressTextColor</item>
+        <item name="android:textSize">@dimen/mapBlockAddressTextSize</item>
+        <item name="android:drawablePadding">@dimen/mapBlockAddressDrawablePadding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="MapBlockDepartureAddressText" parent="@style/MapBlockAddressText">
+        <item name="android:drawableStart">@drawable/ic_address_departure</item>
+    </style>
+
+    <style name="MapBlockArrivalAddressText" parent="@style/MapBlockAddressText">
+        <item name="android:drawableStart">@drawable/ic_address_arrival</item>
+    </style>
+
     <!-- endregion blocks -->
 
     <!-- region UserSupplierInline -->
