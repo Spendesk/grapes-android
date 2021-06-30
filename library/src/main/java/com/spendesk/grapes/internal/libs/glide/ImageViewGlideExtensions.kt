@@ -28,17 +28,49 @@ import java.io.File
  * @param circleCrop loads the image as a circle and adds a border (Pair of borderwidth and border color)
  */
 
-fun ImageView.loadFromUrl(url: String?, errorResId: Int? = 0, circleCrop: Pair<Int, Int>? = null, roundedCorners: Int = 0, thumbnailSizeMultiplier: Float = 0f, errorConsumer: (() -> Unit)? = null) =
-    loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, errorConsumer)
+fun ImageView.loadFromUrl(
+    url: String?,
+    errorResId: Int? = 0,
+    circleCrop: Pair<Int, Int>? = null,
+    roundedCorners: Int = 0,
+    thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
+    errorConsumer: (() -> Unit)? = null
+) =
+    loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
-fun ImageView.loadFromUrl(url: String?, errorResId: Int? = 0, shouldCircleCrop: Boolean, roundedCorners: Int = 0, thumbnailSizeMultiplier: Float = 0f, errorConsumer: (() -> Unit)? = null) =
-    loadRequest(GlideApp.with(context).load(url), errorResId, shouldCircleCrop, roundedCorners, thumbnailSizeMultiplier, errorConsumer)
+fun ImageView.loadFromUrl(
+    url: String?,
+    errorResId: Int? = 0,
+    shouldCircleCrop: Boolean,
+    roundedCorners: Int = 0,
+    thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
+    errorConsumer: (() -> Unit)? = null
+) =
+    loadRequest(GlideApp.with(context).load(url), errorResId, shouldCircleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
-fun ImageView.loadFromUrl(url: GlideUrl?, errorResId: Int? = 0, circleCrop: Pair<Int, Int>? = null, roundedCorners: Int = 0, thumbnailSizeMultiplier: Float = 0f, errorConsumer: (() -> Unit)? = null) =
-    loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, errorConsumer)
+fun ImageView.loadFromUrl(
+    url: GlideUrl?,
+    errorResId: Int? = 0,
+    circleCrop: Pair<Int, Int>? = null,
+    roundedCorners: Int = 0,
+    thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
+    errorConsumer: (() -> Unit)? = null
+) =
+    loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
-fun ImageView.loadFromFile(file: File?, errorResId: Int? = 0, circleCrop: Pair<Int, Int>? = null, roundedCorners: Int = 0, thumbnailSizeMultiplier: Float = 0f, errorConsumer: (() -> Unit)? = null) =
-    loadRequest(GlideApp.with(context).asDrawable().load(file), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, errorConsumer)
+fun ImageView.loadFromFile(
+    file: File?,
+    errorResId: Int? = 0,
+    circleCrop: Pair<Int, Int>? = null,
+    roundedCorners: Int = 0,
+    thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
+    errorConsumer: (() -> Unit)? = null
+) =
+    loadRequest(GlideApp.with(context).asDrawable().load(file), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
 private fun ImageView.loadRequest(
     request: GlideRequest<Drawable>,
@@ -46,6 +78,7 @@ private fun ImageView.loadRequest(
     shouldCircleCrop: Boolean = false,
     roundedCorners: Int = 0,
     thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) = loadRequest(
     request = request,
@@ -63,6 +96,7 @@ private fun ImageView.loadRequest(
     circleCrop: Pair<Int, Int>? = null,
     roundedCorners: Int = 0,
     thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) = loadRequest(
     request = request,
@@ -71,6 +105,7 @@ private fun ImageView.loadRequest(
     circleCrop = circleCrop,
     roundedCorners = roundedCorners,
     thumbnailSizeMultiplier = thumbnailSizeMultiplier,
+    size = size,
     errorConsumer = errorConsumer
 )
 
@@ -81,10 +116,13 @@ private fun ImageView.loadRequest(
     circleCrop: Pair<Int, Int>? = null,
     roundedCorners: Int = 0,
     thumbnailSizeMultiplier: Float = 0f,
+    size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) =
     request
         .apply {
+            size?.let { override(it.first, it.second) }
+
             // Apply the size multiplier if we are loading a thumbnail
             if (thumbnailSizeMultiplier > 0f) thumbnail(thumbnailSizeMultiplier)
 
