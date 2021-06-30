@@ -1,9 +1,13 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
 
-    ext.kotlin_version = '1.4.21'
-    ext.firebase_app_distribution_version = '2.1.2'
-    ext.hilt_version = '2.35'
+    ext {
+        grapes_version = '1.0.4'
+
+        kotlin_version = '1.4.21'
+        firebase_app_distribution_version = '2.1.2'
+        hilt_version = '2.35'
+    }
 
     repositories {
         google()
