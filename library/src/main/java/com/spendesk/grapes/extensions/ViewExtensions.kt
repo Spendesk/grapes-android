@@ -6,6 +6,7 @@ import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
 import android.graphics.drawable.StateListDrawable
 import android.view.View
+import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
@@ -99,6 +100,11 @@ fun View.visibleOrInvisible(show: Boolean) {
 }
 
 /**
+ * Whether or not this view is visible.
+ */
+fun View.isVisible() = visibility == View.VISIBLE
+
+/**
  * Shows the soft keyboard once this view gained focus.
  */
 fun View.showSoftKeyboard() {
@@ -114,4 +120,30 @@ fun View.showSoftKeyboard() {
 fun View.hideKeyboard() {
     val imm = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+}
+
+/**
+ * Forces the soft keyboard to hide.
+ */
+fun View.forceHideKeyboard() {
+    val imm = this.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(windowToken, 0)
+}
+
+/**
+ * Executes the given function after the view has been measured.
+ */
+inline fun View.afterMeasured(crossinline func: View.() -> Unit) {
+    viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
+        override fun onGlobalLayout() {
+            if (measuredWidth > 0 && measuredHeight > 0) {
+                viewTreeObserver.removeOnGlobalLayoutListener(this)
+                func()
+            }
+        }
+    })
+}
+
+fun View.setPaddingTop(paddingTop: Int) {
+    setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
 }
