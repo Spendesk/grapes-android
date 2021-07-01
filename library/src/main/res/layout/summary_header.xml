@@ -6,6 +6,7 @@
 
     <com.spendesk.grapes.UserSupplierInlineView
         android:id="@+id/summaryHeaderExpenseAmountUserSupplier"
+        style="@style/TemplateHeaderExpenseUserSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/templateHeaderExpenseMarginHorz"
@@ -16,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:bigImageDrawable="@drawable/ic_avatar_placeholder"
         tools:shouldShowSmallImage="true"
-        tools:smallImageDrawable="@drawable/ic_supplier_placeholder" />
+        tools:smallImageDrawable="@drawable/ic_supplier_placeholder"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/summaryHeaderExpenseAmountTitle"
