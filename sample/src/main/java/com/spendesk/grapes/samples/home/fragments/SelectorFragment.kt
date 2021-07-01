@@ -40,9 +40,9 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         // Picker List
         val pickerListViewAdapter = PickerAdapter()
         val pickerListModelAdapter = listOf<PickerModel>(
-            PickerModel.Block(PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_previous)),
-            PickerModel.Block(PickerBlockIconCardView.Configuration(isSelected = true, android.R.drawable.ic_media_play)),
-            PickerModel.Block(PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_next))
+            PickerModel.Block(id = "lel", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_previous)),
+            PickerModel.Block(id = "lol", configuration = PickerBlockIconCardView.Configuration(isSelected = true, android.R.drawable.ic_media_play)),
+            PickerModel.Block(id = "lille", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_next))
         )
 
         homeSelectorsSectionPickerListView.adapter = pickerListViewAdapter
@@ -53,10 +53,10 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         homeSelectorsSectionPickerCardView.updateConfiguration(
             PickerCardView.Configuration(
                 listOf<PickerModel>(
-                    PickerModel.Label(PickerLabelTextView.Configuration(isSelected = false, "level 1")),
-                    PickerModel.Label(PickerLabelTextView.Configuration(isSelected = false, "level 2")),
-                    PickerModel.Label(PickerLabelTextView.Configuration(isSelected = false, "level 3")),
-                    PickerModel.Label(PickerLabelTextView.Configuration(isSelected = false, "level 4")),
+                    PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1")),
+                    PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2")),
+                    PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3")),
+                    PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4")),
                 )
             )
         )

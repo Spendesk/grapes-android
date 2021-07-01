@@ -16,7 +16,7 @@ class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
         class Block(val view: PickerBlockIconCardView) : PickerViewHolder(view)
     }
 
-    var onItemSelected: ((Int) -> Unit)? = null
+    var onItemSelected: ((itemViewPosition: Int, itemId: String) -> Unit)? = null
 
     private val listItems: MutableList<PickerModel> = ArrayList()
     private var selectedPosition by Delegates.observable(RecyclerView.NO_POSITION) { _, oldPos, newPos ->
@@ -43,13 +43,13 @@ class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
                 val data = listItems[position] as PickerModel.Label
 
                 holder.view.updateConfiguration(data.configuration.copy(isSelected = position == selectedPosition))
-                handleOnClicklistener(holder.itemView, position)
+                handleOnClickListener(holder.itemView, position, data.id)
             }
             is PickerViewHolder.Block -> {
                 val data = listItems[position] as PickerModel.Block
 
                 holder.view.updateConfiguration(data.configuration.copy(isSelected = position == selectedPosition))
-                handleOnClicklistener(holder.itemView, position)
+                handleOnClickListener(holder.itemView, position, data.id)
             }
         }
 
@@ -74,10 +74,10 @@ class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
     private fun getViewTypeAtPosition(position: Int): PickerViewType =
         listItems[position].viewType
 
-    private fun handleOnClicklistener(itemView: View, ItemViewPosition: Int) {
+    private fun handleOnClickListener(itemView: View, itemViewPosition: Int, itemId: String) {
         itemView.setOnClickListener {
-            selectedPosition = ItemViewPosition
-            onItemSelected?.invoke(selectedPosition)
+            selectedPosition = itemViewPosition
+            onItemSelected?.invoke(selectedPosition, itemId)
         }
     }
 }

@@ -6,6 +6,6 @@ package com.spendesk.grapes.selectors
  */
 sealed class PickerModel(val viewType: PickerViewType) {
 
-    class Label(val configuration: PickerLabelTextView.Configuration) : PickerModel(PickerViewType.LABEL)
-    class Block(val configuration: PickerBlockIconCardView.Configuration) : PickerModel(PickerViewType.BLOCK)
+    class Label(val id: String, val configuration: PickerLabelTextView.Configuration) : PickerModel(PickerViewType.LABEL)
+    class Block(val id: String, val configuration: PickerBlockIconCardView.Configuration) : PickerModel(PickerViewType.BLOCK)
 }

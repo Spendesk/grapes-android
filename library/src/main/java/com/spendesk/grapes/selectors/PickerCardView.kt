@@ -25,7 +25,7 @@ class PickerCardView : CardView {
         val pickerModelList: List<PickerModel>
     )
 
-    var onItemSelected: ((Int) -> Unit)? = null
+    var onItemSelected: ((itemViewPosition: Int, itemId: String) -> Unit)? = null
     private val adapter = PickerAdapter()
 
     init {
