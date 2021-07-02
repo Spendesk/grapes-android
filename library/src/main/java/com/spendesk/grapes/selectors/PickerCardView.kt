@@ -26,17 +26,17 @@ class PickerCardView : CardView {
     )
 
     var onItemSelected: ((itemViewPosition: Int, itemId: String) -> Unit)? = null
+
     private val adapter = PickerAdapter()
 
     init {
         View.inflate(context, R.layout.selector_picker_card, this)
 
         selectorPickerCardViewList.adapter = adapter
+        adapter.onItemSelected = { pos, id -> onItemSelected?.invoke(pos, id) }
 
         cardElevation = context.resources.getDimension(R.dimen.pickerCardViewElevation)
         radius = context.resources.getDimension(R.dimen.pickerCardViewRadius)
-
-        onItemSelected = adapter.onItemSelected
     }
 
     fun updateConfiguration(configuration: Configuration) {

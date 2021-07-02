@@ -3,6 +3,7 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.spendesk.grapes.extensions.longToaster
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.selectors.*
 import kotlinx.android.synthetic.main.fragment_home_selectors.*
@@ -60,6 +61,8 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
                 )
             )
         )
+
+        homeSelectorsSectionPickerCardView.onItemSelected = { _, _ -> activity?.longToaster("Checked !")}
 
         // SwitchCard
         homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))
