@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- InfoTipView -->
+    <dimen name="infoTipViewTextSize">14sp</dimen>
+    <dimen name="infoTipViewCornerRadius">12dp</dimen>
+    <dimen name="infoTipViewPaddingVert">6dp</dimen>
+    <dimen name="infoTipViewPaddingHorz">12dp</dimen>
+</resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pickerCardViewRadius">@dimen/cardViewBigRadius</dimen>
+    <dimen name="pickerCardViewElevation">@dimen/cardViewElevation</dimen>
+
+    <dimen name="pickerLabelPadding">16dp</dimen>
+    <dimen name="pickerLabelTextSize">16sp</dimen>
+    <dimen name="pickerListViewMargin">16dp</dimen>
+
+    <dimen name="pickerBlockIconCardViewSize">104dp</dimen>
+
+    <dimen name="headerStatusIndicatorFlowHorizontalGap">2dp</dimen>
+
+    <dimen name="switchCardRadius">@dimen/cardViewBigRadius</dimen>
+    <dimen name="switchCardElevation">@dimen/cardViewElevation</dimen>
+    <dimen name="switchCardPaddingConstraintLayout">16dp</dimen>
+    <dimen name="switchCardTextMarginEnd">@dimen/normalMargin</dimen>
+    <dimen name="switchCardHeight">28dp</dimen>
+    <dimen name="switchCardTextSize">16sp</dimen>
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region MessageInlineView & MessageBlockView -->
+    <attr name="messageStyle" format="enum|reference">
+        <enum name="neutral" value="0" />
+        <enum name="success" value="1" />
+        <enum name="alert" value="2" />
+        <enum name="warning" value="3" />
+        <enum name="info" value="4" />
+    </attr>
+
+    <declare-styleable name="MessageInlineView">
+        <attr name="android:text" />
+        <attr name="android:drawableStart" />
+        <attr name="messageStyle" />
+    </declare-styleable>
+
+    <declare-styleable name="MessageBlockView">
+        <attr name="title" />
+        <attr name="android:drawableStart" />
+        <attr name="messageStyle" />
+        <attr name="description" format="string" />
+        <attr name="signatureText" format="string" />
+        <attr name="signatureDrawable" format="reference" />
+    </declare-styleable>
+    <!-- endregion MessageInlineView & MessageBlockView -->
+
+    <declare-styleable name="InfoTipView">
+        <attr name="style" format="enum">
+            <enum name="brand" value="0" />
+            <enum name="success" value="1" />
+            <enum name="warning" value="2" />
+            <enum name="warning_opaque" value="3" />
+            <enum name="info" value="4" />
+            <enum name="info_opaque" value="5" />
+            <enum name="info_neutral" value="6" />
+            <enum name="error" value="7" />
+            <enum name="error_opaque" value="8" />
+        </attr>
+    </declare-styleable>
+</resources>

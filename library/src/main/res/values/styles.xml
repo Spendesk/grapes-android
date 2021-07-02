@@ -299,4 +299,16 @@
     </style>
 
     <!-- endregion CustomNumberKeyboardText -->
+
+    <!-- TODO: This should not exist and a Light and Dark Grapes App Theme should be put in place-->
+    <style name="SwitchCardTextSwitch">
+        <item name="colorControlActivated">@color/mainPrimaryNormal</item>
+    </style>
+
+    <style name="SwitchCardText">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textColor">@color/switchCardTextColor</item>
+        <item name="android:textSize">@dimen/switchCardTextSize</item>
+    </style>
 </resources>

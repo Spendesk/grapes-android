@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import com.spendesk.grapes.MessageBlockView
-import com.spendesk.grapes.MessageInlineView
+import com.spendesk.grapes.messages.MessageBlockView
+import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.UserSupplierInlineView
 import com.spendesk.grapes.extensions.gone

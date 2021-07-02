@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region List Item -->
+    <style name="ListItemPrimaryImage">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="ListItemSecondaryImage">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="ListItemTitleStart">
+        <item name="android:textColor">@color/listItemTitleStartColor</item>
+        <item name="android:textSize">@dimen/titleMSize</item>
+    </style>
+
+    <style name="ListItemDescriptionStart">
+        <item name="android:textColor">@color/listItemDescriptionStartColor</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+
+    <style name="ListItemTitleEnd">
+        <item name="android:textColor">@color/listItemTitleEndColor</item>
+        <item name="android:textSize">@dimen/titleMSize</item>
+    </style>
+
+    <style name="ListItemDescriptionEnd">
+        <item name="android:textColor">@color/listItemDescriptionEndColor</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+    <!-- endregion List Item -->
+
+    <!-- region Section List -->
+    <style name="ListSectionItemStartImage">
+        <item name="android:visibility">gone</item>
+        <item name="android:backgroundTint">@color/listSectionItemStartImageTintColor</item>
+    </style>
+
+    <style name="ListSectionItemStartText">
+        <item name="android:textColor">@color/listSectionItemStartTextColor</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textSize">@dimen/titleSSize</item>
+    </style>
+
+    <style name="ListSectionItemEndText">
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/listSectionItemEndTextColor</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+    <!-- endregion Section List -->
+</resources>

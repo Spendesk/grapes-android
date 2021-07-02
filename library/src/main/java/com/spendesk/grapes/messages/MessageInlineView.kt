@@ -1,4 +1,4 @@
-package com.spendesk.grapes
+package com.spendesk.grapes.messages
 
 import android.content.Context
 import android.graphics.Typeface
@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
+import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.setDrawable
 import com.spendesk.grapes.extensions.setDrawableLeft
 

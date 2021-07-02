@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:padding="@dimen/listSectionItemPadding"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+    <ImageView
+        android:id="@+id/listSectionItemStartImage"
+        style="@style/ListSectionItemStartImage"
+        android:layout_width="@dimen/listSectionItemStartImageSize"
+        android:layout_height="@dimen/listSectionItemStartImageSize"
+        android:layout_marginEnd="@dimen/normalMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/listSectionItemStartText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@drawable/ic_crop"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/listSectionItemStartText"
+        style="@style/ListSectionItemStartText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/listSectionItemEndText"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/listSectionItemStartImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Left Text" />
+
+    <TextView
+        android:id="@+id/listSectionItemEndText"
+        style="@style/ListSectionItemEndText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Right Text" />
+</merge>

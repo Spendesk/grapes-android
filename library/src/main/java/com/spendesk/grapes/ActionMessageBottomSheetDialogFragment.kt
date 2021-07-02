@@ -19,6 +19,10 @@ import kotlinx.android.synthetic.main.fragment_bottom_sheet_info.*
  */
 open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
+    companion object {
+        fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
+    }
+
     class Configuration(
         @DrawableRes val imageResourceId: Int,
         val title: CharSequence,
@@ -62,7 +66,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         return R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
     }
 
-    protected fun updateConfiguration(configuration: Configuration) {
+    fun updateConfiguration(configuration: Configuration) {
         actionMessageBottomSheetImage.setBackgroundResource(configuration.imageResourceId)
         actionMessageBottomSheetTitleText.text = configuration.title
 
