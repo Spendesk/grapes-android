@@ -10,7 +10,15 @@ import com.spendesk.grapes.selectors.PickerCardGridView.Constants.GRIDVIEW_SPAN_
  * @author danyboucanova
  * @since 07/06/2021
  */
-class PickerCardGridView(context: Context, attributeSet: AttributeSet?) : RecyclerView(context, attributeSet) {
+class PickerCardGridView : RecyclerView {
+
+    //region constructors
+
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
+    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
+    //endregion constructors
 
     private object Constants {
         const val GRIDVIEW_SPAN_COUNT = 4

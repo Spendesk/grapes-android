@@ -1,16 +1,18 @@
 package com.spendesk.grapes.extensions
 
-import android.graphics.drawable.Drawable
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatEditText
+import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
+import com.spendesk.grapes.R
 
 /**
  * @author danyboucanova
  * @since 17/06/2021
  */
 
-fun AppCompatEditText.setupClearButtonWithAction(drawable: Drawable?) {
+fun AppCompatEditText.setupClearButtonWithAction() {
+    val drawable = ContextCompat.getDrawable(context, R.drawable.ic_clear_round)
 
     doAfterTextChanged { editable ->
         val clearIcon = if (editable?.isNotEmpty() == true) drawable else null

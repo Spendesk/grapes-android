@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.list.WrapContentLinearLayoutManager
-import com.spendesk.spendesk.presentation.view.itemdecoration.MarginDecoration
+import com.spendesk.grapes.internal.itemdecoration.MarginDecoration
 
 /**
  * @author danyboucanova

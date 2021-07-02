@@ -38,13 +38,15 @@ class HeaderStatusIndicator : ConstraintLayout {
         for (i in 1..configuration.pagerNumber) {
             val progressBar = ProgressBar(context, null, android.R.attr.progressBarStyleHorizontal)
 
-            progressBar.progressDrawable = ContextCompat.getDrawable(context, R.drawable.layer_list_header_status_indicator)
-            progressBar.layoutParams = ViewGroup.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT)
-            progressBar.id = View.generateViewId()
-            progressBar.progress = 0
-            progressBarIds.add(progressBar.id)
-
+            with(progressBar) {
+                progressDrawable = ContextCompat.getDrawable(context, R.drawable.layer_list_header_status_indicator)
+                layoutParams = ViewGroup.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT)
+                id = View.generateViewId()
+                progress = 0
+            }
             addView(progressBar)
+
+            progressBarIds.add(progressBar.id)
         }
 
         selectorsHeaderStatusIndicatorFlow.referencedIds = progressBarIds.toIntArray()

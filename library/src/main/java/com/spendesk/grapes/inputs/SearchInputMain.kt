@@ -91,17 +91,17 @@ class SearchInputMain : CardView {
             setPadding(resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryPadding))
             background = ContextCompat.getDrawable(context, android.R.color.transparent) // remove underline bar
 
-            // compound drawables
+            // Compound drawables
             compoundDrawablePadding = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryDrawableCompoundPadding)
-            setupClearButtonWithAction(ContextCompat.getDrawable(context, R.drawable.ic_clear_round))
+            setupClearButtonWithAction()
 
-            // add the according style tint for compound drawables except for clear icon
+            // Add the according style tint for compound drawables except for clear icon
             val color = when (style) {
                 Style.PRIMARY -> R.color.searchInputMainPrimaryTintColor
                 Style.SECONDARY -> R.color.searchInputMainSecondaryTintColor
             }
 
-            // the index 3 corresponds to the right compound drawable, the clear icon that we should not tint
+            // The index 3 corresponds to the right compound drawable, the clear icon that we should not tint
             compoundDrawablesRelative.forEachIndexed { index, drawable ->
                 if (drawable != null && index != 3) {
                     drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
