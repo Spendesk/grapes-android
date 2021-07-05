@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/HomeGenericScrollViewContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <include layout="@layout/view_home_header" />
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsPickerListView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeGenericHeaderBackground" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionHeaderStatusIndicatorTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorFirstSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/selectorsHeaderStatusIndicatorFirst"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.selectors.HeaderStatusIndicator
+                    android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorFirstHeaderStatusIndicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionHeaderStatusIndicatorFirstSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorSecondSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/selectorsHeaderStatusIndicatorSecond"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionHeaderStatusIndicatorFirstHeaderStatusIndicator" />
+
+                <com.spendesk.grapes.selectors.HeaderStatusIndicator
+                    android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorSecondHeaderStatusIndicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionHeaderStatusIndicatorSecondSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorThirdSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/selectorsHeaderStatusIndicatorThird"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionHeaderStatusIndicatorSecondHeaderStatusIndicator" />
+
+                <com.spendesk.grapes.selectors.HeaderStatusIndicator
+                    android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionHeaderStatusIndicatorThirdSubtitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionPickerListTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsPickerListView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionHeaderStatusIndicatorBucketView" />
+
+        <com.spendesk.grapes.selectors.PickerListView
+            android:id="@+id/homeSelectorsSectionPickerListView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionPickerListTitleText" />
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionPickerCardViewTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsPickerCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionPickerListView" />
+
+        <com.spendesk.grapes.selectors.PickerCardView
+            android:id="@+id/homeSelectorsSectionPickerCardView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionPickerCardViewTitleText" />
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionSwitchCardTitle"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/selectorsSwitchCardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionPickerCardView" />
+
+        <com.spendesk.grapes.selectors.SwitchCardView
+            android:id="@+id/homeSelectorsSectionSwitchCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSwitchCardTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

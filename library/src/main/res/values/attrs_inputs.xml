@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region SearchInputMain -->
+    <attr name="searchInputMainStyle" format="enum|reference">
+        <enum name="primary" value="0" />
+        <enum name="secondary" value="1" />
+    </attr>
+
+    <declare-styleable name="SearchInputMain">
+        <attr name="searchInputMainStyle" />
+    </declare-styleable>
+    <!-- endregion SearchInputMain -->
+
+</resources>

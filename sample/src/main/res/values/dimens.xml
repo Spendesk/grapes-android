@@ -15,6 +15,8 @@
     <dimen name="homeSectionComponentMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="homeSectionComponentMarginVert">@dimen/normalMargin</dimen>
 
+    <dimen name="homeSectionMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="homeSectionMarginVert">@dimen/normalMargin</dimen>
     <dimen name="homeSectionBucketViewMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="homeSectionBucketViewMarginVert">@dimen/normalMargin</dimen>
 </resources>

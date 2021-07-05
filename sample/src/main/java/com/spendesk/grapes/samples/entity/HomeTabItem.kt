@@ -19,7 +19,7 @@ sealed class HomeTabItem : Parcelable {
     object Inputs : HomeTabItem()
     
     @Parcelize
-    object CheckBox : HomeTabItem()
+    object Selectors : HomeTabItem()
     
     @Parcelize
     object Avatars : HomeTabItem()

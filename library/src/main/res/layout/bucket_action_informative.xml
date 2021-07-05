@@ -31,7 +31,7 @@
             app:layout_constraintTop_toBottomOf="@id/actionInformativeTitleText"
             tools:visibility="visible" />
 
-        <com.spendesk.grapes.MessageInlineView
+        <com.spendesk.grapes.messages.MessageInlineView
             android:id="@+id/actionInformativeMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

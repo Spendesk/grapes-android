@@ -13,20 +13,20 @@
 
         <!-- region purple-->
         <TextView
-            android:id="@+id/homePushSectionPurpleTitleText"
+            android:id="@+id/homeCardSectionPurpleTitleText"
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
             android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
             android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/pushPurple"
+            android:text="@string/cardPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeGenericHeaderBackground" />
 
         <com.spendesk.grapes.BucketView
-            android:id="@+id/homePushSectionPurpleBucketView"
+            android:id="@+id/homeCardSectionPurpleBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -34,27 +34,27 @@
             android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homePushSectionPurpleTitleText">
+            app:layout_constraintTop_toBottomOf="@id/homeCardSectionPurpleTitleText">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/homePushSectionOnTheWayNormalSubtitle"
+                    android:id="@+id/homeCardSectionOnTheWayNormalSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/pushOnTheWay"
+                    android:text="@string/cardOnTheWay"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.spendesk.grapes.DeepBlueBucketView
-                    android:id="@+id/homePushSectionOnTheWayDeepBlueBucketView"
+                    android:id="@+id/homeCardSectionOnTheWayDeepBlueBucketView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -63,23 +63,23 @@
                     android:layout_marginBottom="@dimen/homeSectionBucketViewMarginHorz"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionOnTheWayNormalSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionOnTheWayNormalSubtitle" />
 
                 <TextView
-                    android:id="@+id/homePushSectionRecardSubtitle"
+                    android:id="@+id/homeCardSectionRecardSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/pushRecard"
+                    android:text="@string/cardRecard"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionOnTheWayDeepBlueBucketView" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionOnTheWayDeepBlueBucketView" />
 
                 <com.spendesk.grapes.DeepBlueBucketView
-                    android:id="@+id/homePushSectionRecardDeepBlueBucketView"
+                    android:id="@+id/homeCardSectionRecardDeepBlueBucketView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -89,27 +89,27 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionRecardSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionRecardSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
         <!-- endregion purple -->
 
         <!-- region plastic card -->
         <TextView
-            android:id="@+id/homePushSectionPlasticCardTitleText"
+            android:id="@+id/homeCardSectionPlasticCardTitleText"
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
             android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
             android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/pushPlasticCard"
+            android:text="@string/cardPlasticCard"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homePushSectionPurpleBucketView" />
+            app:layout_constraintTop_toBottomOf="@+id/homeCardSectionPurpleBucketView" />
 
         <com.spendesk.grapes.BucketView
-            android:id="@+id/homePushSectionPlasticCardBucketView"
+            android:id="@+id/homeCardSectionPlasticCardBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -119,27 +119,27 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homePushSectionPlasticCardTitleText">
+            app:layout_constraintTop_toBottomOf="@id/homeCardSectionPlasticCardTitleText">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/homePushSectionPlasticCardNormalSubtitle"
+                    android:id="@+id/homeCardSectionPlasticCardNormalSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/pushNormal"
+                    android:text="@string/cardNormal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.spendesk.grapes.InformativeActionBucketView
-                    android:id="@+id/homePushSectionPlasticCardNormalInformativeActionBucketView"
+                    android:id="@+id/homeCardSectionPlasticCardNormalInformativeActionBucketView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -148,23 +148,23 @@
                     android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionPlasticCardNormalSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionPlasticCardNormalSubtitle" />
 
                 <TextView
-                    android:id="@+id/homePushSectionPlasticCardWarningSubtitle"
+                    android:id="@+id/homeCardSectionPlasticCardWarningSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/pushWarning"
+                    android:text="@string/cardWarning"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionPlasticCardNormalInformativeActionBucketView" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionPlasticCardNormalInformativeActionBucketView" />
 
                 <com.spendesk.grapes.InformativeActionBucketView
-                    android:id="@+id/homePushSectionPlasticCardWarningInformativeActionBucketView"
+                    android:id="@+id/homeCardSectionPlasticCardWarningInformativeActionBucketView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -173,23 +173,23 @@
                     android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionPlasticCardWarningSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionPlasticCardWarningSubtitle" />
 
                 <TextView
-                    android:id="@+id/homePushSectionPlasticCardAlertSubtitle"
+                    android:id="@+id/homeCardSectionPlasticCardAlertSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/pushAlert"
+                    android:text="@string/cardAlert"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionPlasticCardWarningInformativeActionBucketView" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionPlasticCardWarningInformativeActionBucketView" />
 
                 <com.spendesk.grapes.InformativeActionBucketView
-                    android:id="@+id/homePushSectionPlasticCardAlertInformativeActionBucketView"
+                    android:id="@+id/homeCardSectionPlasticCardAlertInformativeActionBucketView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -199,7 +199,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homePushSectionPlasticCardAlertSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionPlasticCardAlertSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
         <!-- endregion plastic card -->

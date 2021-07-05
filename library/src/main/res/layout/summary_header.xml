@@ -6,6 +6,7 @@
 
     <com.spendesk.grapes.UserSupplierInlineView
         android:id="@+id/summaryHeaderExpenseAmountUserSupplier"
+        style="@style/TemplateHeaderExpenseUserSupplier"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/templateHeaderExpenseMarginHorz"
@@ -16,7 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:bigImageDrawable="@drawable/ic_avatar_placeholder"
         tools:shouldShowSmallImage="true"
-        tools:smallImageDrawable="@drawable/ic_supplier_placeholder" />
+        tools:smallImageDrawable="@drawable/ic_supplier_placeholder"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/summaryHeaderExpenseAmountTitle"
@@ -72,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/summaryHeaderExpenseDescriptionTitle"
         tools:text="As discussed with you during our 1:1 🙏" />
 
-    <com.spendesk.grapes.MessageInlineView
+    <com.spendesk.grapes.messages.MessageInlineView
         android:id="@+id/summaryHeaderExpenseTypeMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -86,7 +88,7 @@
         tools:messageStyle="neutral"
         tools:text="Virtual Card" />
 
-    <com.spendesk.grapes.MessageBlockView
+    <com.spendesk.grapes.messages.MessageBlockView
         android:id="@+id/summaryHeaderExpenseDenyReasonBlock"
         style="@style/TemplateHeaderExpenseDenyReasonMessage"
         android:layout_width="0dp"

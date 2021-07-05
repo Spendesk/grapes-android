@@ -2,6 +2,7 @@ package com.spendesk.grapes.extensions
 
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat
@@ -65,3 +66,13 @@ fun TextView.visibleWithTextOrGone(text: CharSequence?) =
             this.text = text
         }
     }
+
+fun TextView.addRippleEffect() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+        foreground = ContextCompat.getDrawable(context, outValue.resourceId)
+    }
+    isClickable = true
+    isFocusable = true
+}

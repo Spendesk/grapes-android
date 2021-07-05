@@ -5,7 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.spendesk.grapes.MessageInlineView
+import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import kotlinx.android.synthetic.main.item_approver_status.view.*
