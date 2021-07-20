@@ -3,8 +3,8 @@ package com.spendesk.grapes.list.simple
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.spendesk.grapes.list.simple.item.ItemListItemView
-import com.spendesk.grapes.list.simple.item.SectionListItemView
+import com.spendesk.grapes.list.simple.item.SimpleEntryItemView
+import com.spendesk.grapes.list.simple.item.SimpleSectionItemView
 
 /**
  * @author danyboucanova
@@ -13,8 +13,8 @@ import com.spendesk.grapes.list.simple.item.SectionListItemView
 class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapterViewHolder>() {
 
     sealed class SimpleListAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        class Item(val view: ItemListItemView) : SimpleListAdapterViewHolder(view)
-        class Section(val view: SectionListItemView) : SimpleListAdapterViewHolder(view)
+        class Entry(val view: SimpleEntryItemView) : SimpleListAdapterViewHolder(view)
+        class Section(val view: SimpleSectionItemView) : SimpleListAdapterViewHolder(view)
     }
 
     var onItemSelected: ((itemViewPosition: Int, itemId: String) -> Unit)? = null
@@ -23,8 +23,8 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleListAdapterViewHolder =
         when (SimpleListViewType.values()[viewType]) {
-            SimpleListViewType.ITEM -> SimpleListAdapterViewHolder.Item(ItemListItemView(parent.context))
-            SimpleListViewType.SECTION -> SimpleListAdapterViewHolder.Section(SectionListItemView(parent.context))
+            SimpleListViewType.ITEM -> SimpleListAdapterViewHolder.Entry(SimpleEntryItemView(parent.context))
+            SimpleListViewType.SECTION -> SimpleListAdapterViewHolder.Section(SimpleSectionItemView(parent.context))
         }.apply {
             this.itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
@@ -32,7 +32,7 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
 
     override fun onBindViewHolder(holder: SimpleListAdapterViewHolder, position: Int) =
         when (holder) {
-            is SimpleListAdapterViewHolder.Item -> {
+            is SimpleListAdapterViewHolder.Entry -> {
                 val data = (listItems[position] as SimpleListModel.Item)
 
                 holder.view.updateConfiguration(data.configuration)

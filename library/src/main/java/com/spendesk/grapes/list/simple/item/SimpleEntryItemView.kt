@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.lists_list_item.view.*
  * @author danyboucanova
  * @since 22/06/2021
  */
-class ItemListItemView : ConstraintLayout {
+class SimpleEntryItemView : ConstraintLayout {
 
     //region constructors
 

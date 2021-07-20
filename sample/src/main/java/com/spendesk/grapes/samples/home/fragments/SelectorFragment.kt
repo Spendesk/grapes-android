@@ -40,7 +40,7 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
 
         // Picker Cards List
         val pickerCardListViewAdapter = PickerAdapter()
-        val pickerCardListModelAdapter = listOf<PickerModel>(
+        val pickerCardListModel = listOf<PickerModel>(
             PickerModel.Block(id = "lel", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_previous)),
             PickerModel.Block(id = "lol", configuration = PickerBlockIconCardView.Configuration(isSelected = true, android.R.drawable.ic_media_play)),
             PickerModel.Block(id = "lille", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_next))
@@ -48,12 +48,12 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
 
         homeSelectorsSectionPickerListView.adapter = pickerCardListViewAdapter
         pickerCardListViewAdapter.onItemSelected = { _, _ -> activity?.shortToaster("Picker Card Item List Checked !") }
-        pickerCardListViewAdapter.updateList(pickerCardListModelAdapter)
+        pickerCardListViewAdapter.updateList(pickerCardListModel)
 
 
         // Picker Texts List
         val pickerTextListViewAdapter = PickerAdapter()
-        val pickerTextListModelAdapter = listOf<PickerModel>(
+        val pickerTextListModel = listOf<PickerModel>(
             PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1")),
             PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2")),
             PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3")),
@@ -61,7 +61,7 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         )
         homeSelectorsSectionPickerTextListView.adapter = pickerTextListViewAdapter
         pickerTextListViewAdapter.onItemSelected = { _, _ -> activity?.shortToaster("Picker Card Item List Checked !") }
-        pickerTextListViewAdapter.updateList(pickerTextListModelAdapter)
+        pickerTextListViewAdapter.updateList(pickerTextListModel)
 
         // SwitchCard
         homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))

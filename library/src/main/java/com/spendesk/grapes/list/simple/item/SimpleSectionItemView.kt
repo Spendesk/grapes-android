@@ -11,13 +11,13 @@ import androidx.core.view.setPadding
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
-import kotlinx.android.synthetic.main.list_section_item.view.*
+import kotlinx.android.synthetic.main.list_simple_section_item.view.*
 
 /**
  * @author danyboucanova
  * @since 24/06/2021
  */
-class SectionListItemView : ConstraintLayout {
+class SimpleSectionItemView : ConstraintLayout {
 
     //region constructors
 
@@ -59,7 +59,7 @@ class SectionListItemView : ConstraintLayout {
     }
 
     init {
-        View.inflate(context, R.layout.list_section_item, this)
+        View.inflate(context, R.layout.list_simple_section_item, this)
 
         setPadding(resources.getDimensionPixelOffset(R.dimen.listSectionItemPadding))
     }
@@ -81,8 +81,8 @@ class SectionListItemView : ConstraintLayout {
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
-            with(context.obtainStyledAttributes(it, R.styleable.SectionListItemView)) {
-                val style = Style.fromPosition(getInt(R.styleable.SectionListItemView_sectionListItemViewStyle, Style.getDefault().position))
+            with(context.obtainStyledAttributes(it, R.styleable.SimpleSectionItemView)) {
+                val style = Style.fromPosition(getInt(R.styleable.SimpleSectionItemView_sectionItemViewStyle, Style.getDefault().position))
                 recycle()
 
                 setStyle(style)
