@@ -3,8 +3,8 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.spendesk.grapes.list.simple.item.SimpleEntryItemView
-import com.spendesk.grapes.list.simple.item.SimpleSectionItemView
+import com.spendesk.grapes.component.SimpleEntryItemView
+import com.spendesk.grapes.component.SimpleSectionItemView
 import com.spendesk.grapes.samples.R
 import kotlinx.android.synthetic.main.fragment_home_lists.*
 import kotlinx.android.synthetic.main.view_home_header.*

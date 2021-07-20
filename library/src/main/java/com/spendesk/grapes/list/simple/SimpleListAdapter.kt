@@ -3,8 +3,8 @@ package com.spendesk.grapes.list.simple
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.spendesk.grapes.list.simple.item.SimpleEntryItemView
-import com.spendesk.grapes.list.simple.item.SimpleSectionItemView
+import com.spendesk.grapes.component.SimpleEntryItemView
+import com.spendesk.grapes.component.SimpleSectionItemView
 
 /**
  * @author danyboucanova

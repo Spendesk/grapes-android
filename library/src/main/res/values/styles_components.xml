@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Simple Entry Item -->
+    <style name="SimpleEntryItemPrimaryImage">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="SimpleEntryItemSecondaryImage">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="SimpleEntryItemTitleStart">
+        <item name="android:textColor">@color/simpleEntryItemTitleStartColor</item>
+        <item name="android:textSize">@dimen/titleMSize</item>
+    </style>
+
+    <style name="SimpleEntryItemDescriptionStart">
+        <item name="android:textColor">@color/simpleEntryItemDescriptionStartColor</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+
+    <style name="SimpleEntryItemTitleEnd">
+        <item name="android:textColor">@color/simpleEntryItemTitleEndColor</item>
+        <item name="android:textSize">@dimen/titleMSize</item>
+    </style>
+
+    <style name="SimpleEntryItemDescriptionEnd">
+        <item name="android:textColor">@color/simpleEntryItemDescriptionEndColor</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+    <!-- endregion Simple Entry Item -->
+
+    <!-- region Simple Section Item -->
+    <style name="SimpleSectionItemStartImage">
+        <item name="android:visibility">gone</item>
+        <item name="android:backgroundTint">@color/simpleSectionItemStartImageTintColor</item>
+    </style>
+
+    <style name="SimpleSectionItemStartText">
+        <item name="android:textColor">@color/simpleSectionItemStartTextColor</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textSize">@dimen/titleSSize</item>
+    </style>
+
+    <style name="SimpleSectionItemEndText">
+        <item name="android:gravity">end</item>
+        <item name="android:textColor">@color/simpleSectionItemEndTextColor</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textSize">@dimen/bodySSize</item>
+    </style>
+    <!-- endregion Simple Section Item -->
+</resources>
