@@ -32,6 +32,8 @@ class HeaderStatusIndicator : ConstraintLayout {
 
     init {
         View.inflate(context, R.layout.selectors_header_status_indicator, this)
+
+        setBackgroundColor(ContextCompat.getColor(context, R.color.headerStatusIndicatorBackgroundColor))
     }
 
     fun updateConfiguration(configuration: Configuration) {

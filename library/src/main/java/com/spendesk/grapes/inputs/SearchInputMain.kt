@@ -51,6 +51,7 @@ class SearchInputMain : CardView {
         }
     }
 
+    private lateinit var editText: AppCompatEditText
     private var style = Style.getDefault()
 
     fun setStyle(style: Style) {
@@ -82,7 +83,7 @@ class SearchInputMain : CardView {
     }
 
     private fun configureEditText(attributeSet: AttributeSet?) {
-        val editText = AppCompatEditText(context, attributeSet)
+        editText = AppCompatEditText(context, attributeSet)
 
         with(editText) {
             setSingleLine()

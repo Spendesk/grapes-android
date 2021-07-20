@@ -33,8 +33,8 @@
     <string name="selectorsHeaderStatusIndicatorFirst" translatable="false">One item</string>
     <string name="selectorsHeaderStatusIndicatorSecond" translatable="false">Three items</string>
     <string name="selectorsHeaderStatusIndicatorThird" translatable="false">Full items</string>
-    <string name="selectorsPickerListView" translatable="false">Picker list</string>
-    <string name="selectorsPickerCardView" translatable="false">Picker Card</string>
+    <string name="selectorsPickerCardsListView" translatable="false">Picker cards list</string>
+    <string name="selectorsPickerTextListView" translatable="false">Picker texts list</string>
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
 
     <!-- Inputs -->

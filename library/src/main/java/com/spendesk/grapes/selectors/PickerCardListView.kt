@@ -11,7 +11,7 @@ import com.spendesk.grapes.internal.itemdecoration.MarginDecoration
  * @author danyboucanova
  * @since 14/06/2021
  */
-class PickerListView : RecyclerView {
+class PickerCardListView : RecyclerView {
 
     //region constructors
 
@@ -23,6 +23,7 @@ class PickerListView : RecyclerView {
 
     init {
         layoutManager = WrapContentLinearLayoutManager(context, HORIZONTAL, false)
+        overScrollMode = OVER_SCROLL_IF_CONTENT_SCROLLS
 
         val margin = context.resources.getDimensionPixelOffset(R.dimen.pickerListViewMargin)
         val itemDecoration = MarginDecoration(margin, 0, margin, margin)

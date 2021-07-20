@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="simpleListListItemSeparator">@color/mainNeutralLight</color>
+
     <!-- region List Item -->
     <color name="listItemTitleStartColor">@color/mainComplementary</color>
     <color name="listItemDescriptionStartColor">@color/mainNeutralDarker</color>

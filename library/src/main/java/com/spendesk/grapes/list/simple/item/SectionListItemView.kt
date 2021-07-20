@@ -1,4 +1,4 @@
-package com.spendesk.grapes.list.item
+package com.spendesk.grapes.list.simple.item
 
 import android.content.Context
 import android.util.AttributeSet

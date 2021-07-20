@@ -1,4 +1,4 @@
-package com.spendesk.grapes.list.item
+package com.spendesk.grapes.list.simple.item
 
 import android.content.Context
 import android.util.AttributeSet
@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.lists_list_item.view.*
  * @author danyboucanova
  * @since 22/06/2021
  */
-class ListItemView : ConstraintLayout {
+class ItemListItemView : ConstraintLayout {
 
     //region constructors
 

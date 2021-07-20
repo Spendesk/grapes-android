@@ -64,7 +64,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionItemOneSubtitle">
 
-                    <com.spendesk.grapes.list.item.ListItemView
+                    <com.spendesk.grapes.list.simple.item.ItemListItemView
                         android:id="@+id/homeListsSectionItemOneListItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -95,7 +95,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionItemTwoSubtitle">
 
-                    <com.spendesk.grapes.list.item.ListItemView
+                    <com.spendesk.grapes.list.simple.item.ItemListItemView
                         android:id="@+id/homeListsSectionItemTwoListItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -127,7 +127,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionItemThreeSubtitle">
 
-                    <com.spendesk.grapes.list.item.ListItemView
+                    <com.spendesk.grapes.list.simple.item.ItemListItemView
                         android:id="@+id/homeListsSectionItemThreeListItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -190,7 +190,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionSectionItemOneSubtitle">
 
-                    <com.spendesk.grapes.list.item.SectionListItemView
+                    <com.spendesk.grapes.list.simple.item.SectionListItemView
                         android:id="@+id/homeListsSectionItemListOne"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionSectionItemTwoSubtitle">
 
-                    <com.spendesk.grapes.list.item.SectionListItemView
+                    <com.spendesk.grapes.list.simple.item.SectionListItemView
                         android:id="@+id/homeListsSectionItemListTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

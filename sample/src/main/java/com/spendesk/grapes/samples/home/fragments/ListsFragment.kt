@@ -3,8 +3,8 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.spendesk.grapes.list.item.ListItemView
-import com.spendesk.grapes.list.item.SectionListItemView
+import com.spendesk.grapes.list.simple.item.ItemListItemView
+import com.spendesk.grapes.list.simple.item.SectionListItemView
 import com.spendesk.grapes.samples.R
 import kotlinx.android.synthetic.main.fragment_home_lists.*
 import kotlinx.android.synthetic.main.view_home_header.*
@@ -29,7 +29,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
     private fun setupView() {
         homeListsSectionItemOneListItem.updateConfiguration(
-            ListItemView.Configuration(
+            ItemListItemView.Configuration(
                 primaryImage = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
                 placeholderPrimaryImage = R.drawable.ic_launcher_background,
                 secondaryImage = "https://avatars.githubusercontent.com/u/596985?v=4",
@@ -43,7 +43,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         )
 
         homeListsSectionItemTwoListItem.updateConfiguration(
-            ListItemView.Configuration(
+            ItemListItemView.Configuration(
                 primaryImage = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
                 placeholderPrimaryImage = R.drawable.ic_launcher_background,
                 shouldCircleCropPrimaryImage = true,
@@ -51,7 +51,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             )
         )
 
-        homeListsSectionItemThreeListItem.updateConfiguration(ListItemView.Configuration(titleStart = "51 Rue de Londres. 75007, Paris"))
+        homeListsSectionItemThreeListItem.updateConfiguration(ItemListItemView.Configuration(titleStart = "51 Rue de Londres. 75007, Paris"))
 
         homeListsSectionItemListOne.updateConfiguration(
             SectionListItemView.Configuration(
