@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="pickerCardViewRadius">@dimen/cardViewBigRadius</dimen>
-    <dimen name="pickerCardViewElevation">@dimen/cardViewElevation</dimen>
+
+    <dimen name="pickerTextListViewItemDecorationMarginVert">@dimen/normalMargin</dimen>
 
     <dimen name="pickerLabelPadding">16dp</dimen>
     <dimen name="pickerLabelTextSize">16sp</dimen>
     <dimen name="pickerListViewMargin">16dp</dimen>
+    <dimen name="pickerTextListViewMarginHorz">16dp</dimen>
 
     <dimen name="pickerBlockIconCardViewSize">104dp</dimen>
 

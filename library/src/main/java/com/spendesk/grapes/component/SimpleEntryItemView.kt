@@ -1,4 +1,4 @@
-package com.spendesk.grapes.list.item
+package com.spendesk.grapes.component
 
 import android.content.Context
 import android.util.AttributeSet
@@ -11,13 +11,13 @@ import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
-import kotlinx.android.synthetic.main.lists_list_item.view.*
+import kotlinx.android.synthetic.main.component_simple_entry_item.view.*
 
 /**
  * @author danyboucanova
  * @since 22/06/2021
  */
-class ListItemView : ConstraintLayout {
+class SimpleEntryItemView : ConstraintLayout {
 
     //region constructors
 
@@ -41,7 +41,7 @@ class ListItemView : ConstraintLayout {
     )
 
     init {
-        View.inflate(context, R.layout.lists_list_item, this)
+        View.inflate(context, R.layout.component_simple_entry_item, this)
 
         val paddingStart = resources.getDimensionPixelOffset(R.dimen.listItemPaddingStart)
         val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listItemPaddingEnd)
@@ -52,23 +52,23 @@ class ListItemView : ConstraintLayout {
 
     fun updateConfiguration(configuration: Configuration) {
         configuration.primaryImage?.let {
-            listItemPrimaryImage.visible()
-            listItemPrimaryImage.loadFromUrl(url = configuration.primaryImage, errorResId = configuration.placeholderPrimaryImage, shouldCircleCrop = configuration.shouldCircleCropPrimaryImage)
+            simpleEnryItemPrimaryImage.visible()
+            simpleEnryItemPrimaryImage.loadFromUrl(url = configuration.primaryImage, errorResId = configuration.placeholderPrimaryImage, shouldCircleCrop = configuration.shouldCircleCropPrimaryImage)
         } ?: run {
-            listItemPrimaryImage.gone()
+            simpleEnryItemPrimaryImage.gone()
         }
 
         configuration.secondaryImage?.let {
-            listItemSecondaryImage.visible()
-            listItemSecondaryImage
+            simpleEntryItemSecondaryImage.visible()
+            simpleEntryItemSecondaryImage
                 .loadFromUrl(url = configuration.secondaryImage, errorResId = configuration.placeholderSecondaryImage, shouldCircleCrop = configuration.shouldCircleCropSecondaryImage)
         } ?: run {
-            listItemSecondaryImage.gone()
+            simpleEntryItemSecondaryImage.gone()
         }
 
-        listItemTitleStart.visibleWithTextOrGone(configuration.titleStart)
-        listItemDescriptionStart.visibleWithTextOrGone(configuration.descriptionStart)
-        listItemTitleEnd.visibleWithTextOrGone(configuration.titleEnd)
-        listItemDescriptionEnd.visibleWithTextOrGone(configuration.descriptionEnd)
+        simpleEntryItemTitleStart.visibleWithTextOrGone(configuration.titleStart)
+        simpleEntryItemDescriptionStart.visibleWithTextOrGone(configuration.descriptionStart)
+        simpleEntryItemTitleEnd.visibleWithTextOrGone(configuration.titleEnd)
+        simpleEntryItemDescriptionEnd.visibleWithTextOrGone(configuration.descriptionEnd)
     }
 }

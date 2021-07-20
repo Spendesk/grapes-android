@@ -3,7 +3,7 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.spendesk.grapes.extensions.longToaster
+import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.selectors.*
 import kotlinx.android.synthetic.main.fragment_home_selectors.*
@@ -38,31 +38,30 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
         homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator.updateStatusIndex(5)
 
-        // Picker List
-        val pickerListViewAdapter = PickerAdapter()
-        val pickerListModelAdapter = listOf<PickerModel>(
+        // Picker Cards List
+        val pickerCardListViewAdapter = PickerAdapter()
+        val pickerCardListModel = listOf<PickerModel>(
             PickerModel.Block(id = "lel", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_previous)),
             PickerModel.Block(id = "lol", configuration = PickerBlockIconCardView.Configuration(isSelected = true, android.R.drawable.ic_media_play)),
             PickerModel.Block(id = "lille", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_next))
         )
 
-        homeSelectorsSectionPickerListView.adapter = pickerListViewAdapter
-        pickerListViewAdapter.updateList(pickerListModelAdapter)
+        homeSelectorsSectionPickerListView.adapter = pickerCardListViewAdapter
+        pickerCardListViewAdapter.onItemSelected = { _, _ -> activity?.shortToaster("Picker Card Item List Checked !") }
+        pickerCardListViewAdapter.updateList(pickerCardListModel)
 
 
-        // Picker Card
-        homeSelectorsSectionPickerCardView.updateConfiguration(
-            PickerCardView.Configuration(
-                listOf<PickerModel>(
-                    PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1")),
-                    PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2")),
-                    PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3")),
-                    PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4")),
-                )
-            )
+        // Picker Texts List
+        val pickerTextListViewAdapter = PickerAdapter()
+        val pickerTextListModel = listOf<PickerModel>(
+            PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1")),
+            PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2")),
+            PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3")),
+            PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4"))
         )
-
-        homeSelectorsSectionPickerCardView.onItemSelected = { _, _ -> activity?.longToaster("Checked !")}
+        homeSelectorsSectionPickerTextListView.adapter = pickerTextListViewAdapter
+        pickerTextListViewAdapter.onItemSelected = { _, _ -> activity?.shortToaster("Picker Card Item List Checked !") }
+        pickerTextListViewAdapter.updateList(pickerTextListModel)
 
         // SwitchCard
         homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))

@@ -1,4 +1,4 @@
-package com.spendesk.grapes.list.item
+package com.spendesk.grapes.component
 
 import android.content.Context
 import android.util.AttributeSet
@@ -11,13 +11,13 @@ import androidx.core.view.setPadding
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
-import kotlinx.android.synthetic.main.list_section_item.view.*
+import kotlinx.android.synthetic.main.component_simple_section_item.view.*
 
 /**
  * @author danyboucanova
  * @since 24/06/2021
  */
-class SectionListItemView : ConstraintLayout {
+class SimpleSectionItemView : ConstraintLayout {
 
     //region constructors
 
@@ -59,30 +59,30 @@ class SectionListItemView : ConstraintLayout {
     }
 
     init {
-        View.inflate(context, R.layout.list_section_item, this)
+        View.inflate(context, R.layout.component_simple_section_item, this)
 
         setPadding(resources.getDimensionPixelOffset(R.dimen.listSectionItemPadding))
     }
 
     fun updateConfiguration(configuration: Configuration) {
         if (configuration.iconStart != ResourcesCompat.ID_NULL) {
-            listSectionItemStartImage.visible()
-            listSectionItemStartImage.setBackgroundResource(configuration.iconStart)
+            simpleSectionItemStartImage.visible()
+            simpleSectionItemStartImage.setBackgroundResource(configuration.iconStart)
         }
-        listSectionItemStartText.visibleWithTextOrGone(configuration.startText)
-        listSectionItemEndText.visibleWithTextOrGone(configuration.endText)
+        simpleSectionItemStartText.visibleWithTextOrGone(configuration.startText)
+        simpleSectionItemEndText.visibleWithTextOrGone(configuration.endText)
     }
 
     fun setStyle(style: Style) =
         when (style) {
-            Style.PRIMARY -> setBackgroundColor(ContextCompat.getColor(context, R.color.listSectionListItemViewPrimaryBackgroundColor))
-            Style.SECONDARY -> setBackgroundColor(ContextCompat.getColor(context, R.color.listSectionListItemViewSecondaryBackgroundColor))
+            Style.PRIMARY -> setBackgroundColor(ContextCompat.getColor(context, R.color.simpleSectionItemPrimaryBackgroundColor))
+            Style.SECONDARY -> setBackgroundColor(ContextCompat.getColor(context, R.color.simpleSectionItemSecondaryBackgroundColor))
         }
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
-            with(context.obtainStyledAttributes(it, R.styleable.SectionListItemView)) {
-                val style = Style.fromPosition(getInt(R.styleable.SectionListItemView_sectionListItemViewStyle, Style.getDefault().position))
+            with(context.obtainStyledAttributes(it, R.styleable.SimpleSectionItemView)) {
+                val style = Style.fromPosition(getInt(R.styleable.SimpleSectionItemView_simpleSectionItemStyle, Style.getDefault().position))
                 recycle()
 
                 setStyle(style)
