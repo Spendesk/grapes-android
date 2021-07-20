@@ -51,7 +51,7 @@ class SearchInputMain : CardView {
         }
     }
 
-    private lateinit var editText: AppCompatEditText
+    lateinit var editText: AppCompatEditText
     private var style = Style.getDefault()
 
     fun setStyle(style: Style) {
