@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <declare-styleable name="SummaryBlockRecyclerView">
+        <attr name="itemDecorationMarginTop" format="dimension" />
+        <attr name="itemDecorationMarginBottom" format="dimension" />
+        <attr name="itemDecorationMarginStart" format="dimension" />
+        <attr name="itemDecorationMarginEnd" format="dimension" />
+    </declare-styleable>
+
 </resources>

@@ -65,6 +65,7 @@
         android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
         android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
         android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        app:itemDecorationMarginBottom="@dimen/inlineBlockContentListItemDecorationMarginVert"
         app:layout_constraintBottom_toTopOf="@id/summaryBlockContentViewMoreButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
