@@ -62,9 +62,6 @@ class SimpleSectionItemView : ConstraintLayout {
         View.inflate(context, R.layout.component_simple_section_item, this)
 
         setPadding(resources.getDimensionPixelOffset(R.dimen.listSectionItemPadding))
-
-        isClickable = true
-        isFocusable = true
     }
 
     fun updateConfiguration(configuration: Configuration) {
