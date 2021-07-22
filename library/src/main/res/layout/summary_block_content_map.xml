@@ -86,5 +86,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapList"
-        tools:text="View more" />
+        tools:text="View more"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

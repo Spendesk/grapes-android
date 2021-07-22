@@ -8,7 +8,6 @@ import com.spendesk.grapes.R
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.extensions.afterMeasured
 import com.spendesk.grapes.extensions.gone
-import com.spendesk.grapes.extensions.safeLet
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
@@ -60,9 +59,9 @@ class SummaryBlockContentMapView : SummaryBlockView {
         summaryBlockContentMapArrivalTitle.text = configuration.arrivalAddress
         adapter.updateList(configuration.items)
 
-        safeLet(buttonCollapsedText, buttonExpandedText) { collapsedText, _ ->
+        if (shouldDisplayViewMoreButton()) {
             summaryBlockContentViewMoreButton.visible()
-            summaryBlockContentViewMoreButton.text = collapsedText
+            summaryBlockContentViewMoreButton.text = buttonCollapsedText
         }
 
         afterMeasured {
@@ -84,7 +83,12 @@ class SummaryBlockContentMapView : SummaryBlockView {
     }
 
     private fun setupView() {
-        summaryBlockContentMapList.gone()
+        // When the VieMore button is displayed, we hide the list first to get a "collapsed" version of the block.
+        // If not, we display the list.
+        if (shouldDisplayViewMoreButton()) {
+            summaryBlockContentMapList.gone()
+        }
+
         summaryBlockContentMapList.adapter = adapter
 
         summaryBlockContentViewMoreButton.setOnClickListener {
@@ -101,4 +105,6 @@ class SummaryBlockContentMapView : SummaryBlockView {
             }
         }
     }
+
+    private fun shouldDisplayViewMoreButton() = buttonCollapsedText != null && buttonExpandedText != null
 }
