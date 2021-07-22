@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="searchInputMainTextSize">14dp</dimen>
+    <dimen name="searchInputMainTextSize">16dp</dimen>
     <dimen name="searchInputMainPrimaryPadding">16dp</dimen>
-    <dimen name="searchInputMainPrimaryDrawableCompoundPadding">16dp</dimen>
+    <dimen name="searchInputMainPrimaryDrawableCompoundPadding">8dp</dimen>
 
     <dimen name="searchInputMainPrimaryCardElevation">4dp</dimen>
     <dimen name="searchInputMainPrimaryCardRadius">8dp</dimen>
