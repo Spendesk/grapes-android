@@ -62,6 +62,8 @@ class SummaryBlockContentMapView : SummaryBlockView {
         if (shouldDisplayViewMoreButton()) {
             summaryBlockContentViewMoreButton.visible()
             summaryBlockContentViewMoreButton.text = buttonCollapsedText
+        } else {
+            summaryBlockContentMapList.visible()
         }
 
         afterMeasured {
@@ -83,12 +85,7 @@ class SummaryBlockContentMapView : SummaryBlockView {
     }
 
     private fun setupView() {
-        // When the VieMore button is displayed, we hide the list first to get a "collapsed" version of the block.
-        // If not, we display the list.
-        if (shouldDisplayViewMoreButton()) {
-            summaryBlockContentMapList.gone()
-        }
-
+        summaryBlockContentMapList.gone()
         summaryBlockContentMapList.adapter = adapter
 
         summaryBlockContentViewMoreButton.setOnClickListener {
