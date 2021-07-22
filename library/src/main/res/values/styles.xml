@@ -187,6 +187,7 @@
     <style name="MapBlockViewMoreButton">
         <item name="grapesButtonStyle">secondary</item>
         <item name="grapesButtonSize">small</item>
+        <item name="android:visibility">gone</item>
     </style>
 
     <style name="MapBlockAddressText">

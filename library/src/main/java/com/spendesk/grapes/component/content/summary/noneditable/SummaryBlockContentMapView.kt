@@ -8,6 +8,7 @@ import com.spendesk.grapes.R
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.extensions.afterMeasured
 import com.spendesk.grapes.extensions.gone
+import com.spendesk.grapes.extensions.safeLet
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
@@ -36,13 +37,13 @@ class SummaryBlockContentMapView : SummaryBlockView {
         val departureAddress: CharSequence,
         val arrivalAddress: CharSequence,
         val items: List<SummaryBlockContentModel.InlineKeyValue>,
-        val buttonCollapsedText: CharSequence, // Text appearing when the bloc is collapsed
-        val buttonExpandedText: CharSequence // Text appearing when the bloc is expanded
+        val buttonCollapsedText: CharSequence? = null, // Text appearing when the block is collapsed
+        val buttonExpandedText: CharSequence? = null // Text appearing when the block is expanded
     )
 
     private val adapter = SummaryBlockContentAdapter()
-    private lateinit var buttonCollapsedText: CharSequence
-    private lateinit var buttonExpandedText: CharSequence
+    private var buttonCollapsedText: CharSequence? = null
+    private var buttonExpandedText: CharSequence? = null
 
     init {
         View.inflate(context, R.layout.summary_block_content_map, this)
@@ -58,7 +59,11 @@ class SummaryBlockContentMapView : SummaryBlockView {
         summaryBlockContentMapDepartureTitle.text = configuration.departureAddress
         summaryBlockContentMapArrivalTitle.text = configuration.arrivalAddress
         adapter.updateList(configuration.items)
-        summaryBlockContentViewMoreButton.text = configuration.buttonCollapsedText
+
+        safeLet(buttonCollapsedText, buttonExpandedText) { collapsedText, _ ->
+            summaryBlockContentViewMoreButton.visible()
+            summaryBlockContentViewMoreButton.text = collapsedText
+        }
 
         afterMeasured {
             // Wait for this view to be measured, because we need the dimensions of the imageView to use with Glide.
