@@ -1,4 +1,4 @@
-package com.spendesk.spendesk.presentation.view.itemdecoration
+package com.spendesk.grapes.internal.itemdecoration
 
 import android.content.Context
 import android.graphics.Canvas

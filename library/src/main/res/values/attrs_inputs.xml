@@ -2,6 +2,7 @@
 <resources>
 
     <!-- region SearchInputMain -->
+
     <attr name="searchInputMainStyle" format="enum|reference">
         <enum name="primary" value="0" />
         <enum name="secondary" value="1" />
@@ -9,7 +10,8 @@
 
     <declare-styleable name="SearchInputMain">
         <attr name="searchInputMainStyle" />
+        <attr name="searchInputMainClearButton" format="boolean" />
     </declare-styleable>
-    <!-- endregion SearchInputMain -->
 
+    <!-- endregion SearchInputMain -->
 </resources>

@@ -3,6 +3,7 @@ package com.spendesk.grapes.selectors
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.spendesk.grapes.R
 import kotlin.properties.Delegates
 
 /**
@@ -32,7 +33,7 @@ class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
             PickerViewType.BLOCK -> PickerViewHolder.Block(PickerBlockIconCardView(parent.context))
         }.apply {
             this.itemView.layoutParams = when (this) {
-                is PickerViewHolder.Label -> RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                is PickerViewHolder.Label -> RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
                 is PickerViewHolder.Block -> RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             }
         }

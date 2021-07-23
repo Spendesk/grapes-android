@@ -30,7 +30,7 @@ class InlineKeyValueItemView : ConstraintLayout {
         View.inflate(context, R.layout.item_inline_key_value, this)
     }
 
-    fun updateData(configuration: Configuration) {
+    fun updateConfiguration(configuration: Configuration) {
         inlineBlockViewKeyText.text = configuration.key
         inlineBlockViewValueText.text = configuration.value
     }

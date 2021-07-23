@@ -8,13 +8,13 @@
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <ImageView
-        android:id="@+id/listSectionItemStartImage"
-        style="@style/ListSectionItemStartImage"
+        android:id="@+id/simpleSectionItemStartImage"
+        style="@style/SimpleSectionItemStartImage"
         android:layout_width="@dimen/listSectionItemStartImageSize"
         android:layout_height="@dimen/listSectionItemStartImageSize"
         android:layout_marginEnd="@dimen/normalMargin"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/listSectionItemStartText"
+        app:layout_constraintEnd_toStartOf="@+id/simpleSectionItemStartText"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,20 +22,20 @@
         tools:visibility="visible" />
 
     <TextView
-        android:id="@+id/listSectionItemStartText"
-        style="@style/ListSectionItemStartText"
+        android:id="@+id/simpleSectionItemStartText"
+        style="@style/SimpleSectionItemStartText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/listSectionItemEndText"
+        app:layout_constraintEnd_toStartOf="@+id/simpleSectionItemEndText"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/listSectionItemStartImage"
+        app:layout_constraintStart_toEndOf="@+id/simpleSectionItemStartImage"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Left Text" />
 
     <TextView
-        android:id="@+id/listSectionItemEndText"
-        style="@style/ListSectionItemEndText"
+        android:id="@+id/simpleSectionItemEndText"
+        style="@style/SimpleSectionItemEndText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -64,7 +64,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionItemOneSubtitle">
 
-                    <com.spendesk.grapes.list.item.ListItemView
+                    <com.spendesk.grapes.component.SimpleEntryItemView
                         android:id="@+id/homeListsSectionItemOneListItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -95,7 +95,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionItemTwoSubtitle">
 
-                    <com.spendesk.grapes.list.item.ListItemView
+                    <com.spendesk.grapes.component.SimpleEntryItemView
                         android:id="@+id/homeListsSectionItemTwoListItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -127,7 +127,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionItemThreeSubtitle">
 
-                    <com.spendesk.grapes.list.item.ListItemView
+                    <com.spendesk.grapes.component.SimpleEntryItemView
                         android:id="@+id/homeListsSectionItemThreeListItem"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
@@ -190,11 +190,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionSectionItemOneSubtitle">
 
-                    <com.spendesk.grapes.list.item.SectionListItemView
+                    <com.spendesk.grapes.component.SimpleSectionItemView
                         android:id="@+id/homeListsSectionItemListOne"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:sectionListItemViewStyle="primary" />
+                        app:simpleSectionItemStyle="primary" />
                 </androidx.cardview.widget.CardView>
 
                 <TextView
@@ -223,11 +223,11 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeListsSectionSectionItemTwoSubtitle">
 
-                    <com.spendesk.grapes.list.item.SectionListItemView
+                    <com.spendesk.grapes.component.SimpleSectionItemView
                         android:id="@+id/homeListsSectionItemListTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:sectionListItemViewStyle="secondary" />
+                        app:simpleSectionItemStyle="secondary" />
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>

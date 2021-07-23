@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- region Simple Entry Item -->
+    <color name="simpleEntryItemTitleStartColor">@color/mainComplementary</color>
+    <color name="simpleEntryItemDescriptionStartColor">@color/mainNeutralDarker</color>
+    <color name="simpleEntryItemTitleEndColor">@color/mainComplementary</color>
+    <color name="simpleEntryItemDescriptionEndColor">@color/mainNeutralDarker</color>
+    <!-- endregion Simple Entry Item -->
+
+    <!-- region Simple Section Item -->
+    <color name="simpleSectionItemPrimaryBackgroundColor">@android:color/transparent</color>
+    <color name="simpleSectionItemSecondaryBackgroundColor">@color/mainNeutralLighter</color>
+    <color name="simpleSectionItemStartImageTintColor">@color/mainNeutralDarker</color>
+    <color name="simpleSectionItemStartTextColor">@color/mainNeutralDarker</color>
+    <color name="simpleSectionItemEndTextColor">@color/mainNeutralDarker</color>
+    <!-- endregion Simple Section Item -->
+</resources>

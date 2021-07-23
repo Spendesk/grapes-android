@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.setupClearButtonWithAction
+import java.util.*
 
 /**
  * @author danyboucanova
@@ -51,6 +52,7 @@ class SearchInputMain : CardView {
         }
     }
 
+    lateinit var editText: AppCompatEditText
     private var style = Style.getDefault()
 
     fun setStyle(style: Style) {
@@ -71,18 +73,18 @@ class SearchInputMain : CardView {
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
             with(context.obtainStyledAttributes(it, R.styleable.SearchInputMain)) {
+                val shouldUseClearButton = getBoolean(R.styleable.SearchInputMain_searchInputMainClearButton, true)
                 style = Style.fromPosition(getInt(R.styleable.SearchInputMain_searchInputMainStyle, Style.getDefault().position))
 
                 setStyle(style)
+                configureEditText(attributeSet, shouldUseClearButton)
                 recycle()
             }
         }
-
-        configureEditText(attributeSet)
     }
 
-    private fun configureEditText(attributeSet: AttributeSet?) {
-        val editText = AppCompatEditText(context, attributeSet)
+    private fun configureEditText(attributeSet: AttributeSet?, shouldUseClearButton: Boolean) {
+        editText = AppCompatEditText(context, attributeSet)
 
         with(editText) {
             setSingleLine()
@@ -93,7 +95,10 @@ class SearchInputMain : CardView {
 
             // Compound drawables
             compoundDrawablePadding = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryDrawableCompoundPadding)
-            setupClearButtonWithAction()
+
+            if (shouldUseClearButton) {
+                setupClearButtonWithAction()
+            }
 
             // Add the according style tint for compound drawables except for clear icon
             val color = when (style) {
@@ -107,6 +112,8 @@ class SearchInputMain : CardView {
                     drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
                 }
             }
-        }.also { addView(editText) }
+        }.also {
+            addView(editText)
+        }
     }
 }

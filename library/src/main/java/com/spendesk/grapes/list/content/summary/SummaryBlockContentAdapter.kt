@@ -17,6 +17,8 @@ class SummaryBlockContentAdapter : RecyclerView.Adapter<SummaryBlockContentAdapt
         class InlineKeyValue(val view: InlineKeyValueItemView) : SummaryBlockContentViewHolder(view)
     }
 
+    var onItemSelected: ((itemViewPosition: Int, itemId: String) -> Unit)? = null
+
     private val listItems: MutableList<SummaryBlockContentModel> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SummaryBlockContentViewHolder =
@@ -30,8 +32,18 @@ class SummaryBlockContentAdapter : RecyclerView.Adapter<SummaryBlockContentAdapt
 
     override fun onBindViewHolder(holder: SummaryBlockContentViewHolder, position: Int) =
         when (holder) {
-            is SummaryBlockContentViewHolder.ApproverStatus -> holder.view.updateConfiguration((listItems[position] as SummaryBlockContentModel.ApproverStatus).configuration)
-            is SummaryBlockContentViewHolder.InlineKeyValue -> holder.view.updateData((listItems[position] as SummaryBlockContentModel.InlineKeyValue).configuration)
+            is SummaryBlockContentViewHolder.ApproverStatus -> {
+                val data = (listItems[position] as SummaryBlockContentModel.ApproverStatus)
+
+                holder.view.updateConfiguration(data.configuration)
+                holder.view.setOnClickListener { onItemSelected?.invoke(position, data.id) }
+            }
+            is SummaryBlockContentViewHolder.InlineKeyValue -> {
+                val data = (listItems[position] as SummaryBlockContentModel.InlineKeyValue)
+
+                holder.view.updateConfiguration(data.configuration)
+                holder.view.setOnClickListener { onItemSelected?.invoke(position, data.id) }
+            }
         }
 
     override fun getItemCount(): Int = listItems.size

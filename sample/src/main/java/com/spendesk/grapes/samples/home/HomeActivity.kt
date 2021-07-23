@@ -61,6 +61,8 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home) {
     private fun setupView() {
         homeAdapter = HomePagerAdapter(this)
         homeViewPager.adapter = homeAdapter
+        homeViewPager.isUserInputEnabled = false
+
     }
 
     private fun updateHomeTabs(expenseItemList: List<HomeTabItem>) {

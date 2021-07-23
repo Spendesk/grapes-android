@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- region SectionListItemView -->
-    <attr name="sectionListItemViewStyle" format="enum|reference">
-        <enum name="primary" value="0" />
-        <enum name="secondary" value="1" />
-    </attr>
-
-    <declare-styleable name="SectionListItemView">
-        <attr name="sectionListItemViewStyle" />
+    <declare-styleable name="SummaryBlockRecyclerView">
+        <attr name="itemDecorationMarginTop" format="dimension" />
+        <attr name="itemDecorationMarginBottom" format="dimension" />
+        <attr name="itemDecorationMarginStart" format="dimension" />
+        <attr name="itemDecorationMarginEnd" format="dimension" />
     </declare-styleable>
-    <!-- endregion SectionListItemView -->
+
 </resources>

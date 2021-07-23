@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
  * @since 02/04/2019
  */
 class MarginDecoration(
-    @IntRange(from = 0) val marginTop: Int,
-    @IntRange(from = 0) val marginEnd: Int,
-    @IntRange(from = 0) val marginBottom: Int,
-    @IntRange(from = 0) val marginStart: Int
+    @IntRange(from = 0) private val marginTop: Int,
+    @IntRange(from = 0) private val marginEnd: Int,
+    @IntRange(from = 0) private val marginBottom: Int,
+    @IntRange(from = 0) private val marginStart: Int
 ) : RecyclerView.ItemDecoration() {
 
     override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {

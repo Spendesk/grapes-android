@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region SimpleSectionItemView -->
+
+    <attr name="simpleSectionItemStyle" format="enum|reference">
+        <enum name="primary" value="0" />
+        <enum name="secondary" value="1" />
+    </attr>
+
+    <declare-styleable name="SimpleSectionItemView">
+        <attr name="simpleSectionItemStyle" />
+    </declare-styleable>
+
+    <!-- endregion SimpleSectionItemView -->
+</resources>
