@@ -112,8 +112,6 @@ class SearchInputMain : CardView {
                     drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
                 }
             }
-
-            setOnClickListener { this@SearchInputMain.performClick() }
         }.also {
             addView(editText)
         }

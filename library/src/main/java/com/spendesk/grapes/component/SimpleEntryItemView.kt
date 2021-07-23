@@ -47,9 +47,6 @@ class SimpleEntryItemView : ConstraintLayout {
         val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listItemPaddingEnd)
         val paddingVert = resources.getDimensionPixelOffset(R.dimen.listItemPaddingVert)
         setPadding(paddingStart, paddingVert, paddingEnd, paddingVert)
-
-        isClickable = true
-        isFocusable = true
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
