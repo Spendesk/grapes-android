@@ -52,6 +52,7 @@
         android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
         android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
         android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        android:layout_marginBottom="@dimen/partialContentBlockTitleMarginVert"
         app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,7 +64,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
         android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
         app:itemDecorationMarginBottom="@dimen/inlineBlockContentListItemDecorationMarginVert"
         app:layout_constraintBottom_toTopOf="@id/summaryBlockContentViewMoreButton"
@@ -71,7 +71,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapArrivalTitle"
         tools:itemCount="3"
-        tools:listitem="@layout/item_inline_key_value" />
+        tools:listitem="@layout/item_inline_key_value"
+        tools:visibility="visible" />
 
     <com.spendesk.grapes.Button
         android:id="@+id/summaryBlockContentViewMoreButton"
@@ -79,7 +80,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
         android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
         android:layout_marginBottom="@dimen/partialContentBlockTitleMarginVert"
         app:layout_constraintBottom_toBottomOf="parent"
