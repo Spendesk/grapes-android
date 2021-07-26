@@ -46,11 +46,23 @@ class SimpleEntryItemView : ConstraintLayout {
         val paddingStart = resources.getDimensionPixelOffset(R.dimen.listItemPaddingStart)
         val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listItemPaddingEnd)
         val paddingVert = resources.getDimensionPixelOffset(R.dimen.listItemPaddingVert)
-
         setPadding(paddingStart, paddingVert, paddingEnd, paddingVert)
     }
 
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val desiredHeight = resources.getDimensionPixelSize(R.dimen.simpleEntryItemViewHeight)
+        val desiredWidth = MeasureSpec.getSize(widthMeasureSpec)
+
+        super.onMeasure(
+            MeasureSpec.makeMeasureSpec(desiredWidth, MeasureSpec.EXACTLY),
+            MeasureSpec.makeMeasureSpec(desiredHeight, MeasureSpec.EXACTLY)
+        )
+    }
+
     fun updateConfiguration(configuration: Configuration) {
+        // Add ripple to the view
+        setBackgroundResource(R.drawable.shape_ripple_rect_solidwhite)
+
         configuration.primaryImage?.let {
             simpleEnryItemPrimaryImage.visible()
             simpleEnryItemPrimaryImage.loadFromUrl(url = configuration.primaryImage, errorResId = configuration.placeholderPrimaryImage, shouldCircleCrop = configuration.shouldCircleCropPrimaryImage)
