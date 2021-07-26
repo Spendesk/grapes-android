@@ -10,6 +10,7 @@ import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleOrGone
+import com.spendesk.grapes.extensions.visibleOrInvisible
 import kotlinx.android.synthetic.main.summary_block_content_title.view.*
 
 /**
@@ -60,8 +61,8 @@ class SummaryBlockTitleView : ConstraintLayout {
     }
 
     fun setTitleMiddleText(text: CharSequence?) {
-//        summaryBlockContentTitleEndText.visibleOrGone(text != null)
-//        summaryBlockContentTitleEndText.text = text
+        summaryBlockContentTitleMiddleText.visibleOrInvisible(text != null)
+        summaryBlockContentTitleMiddleText.text = text
     }
 
     fun setTitleEndText(text: CharSequence?) {

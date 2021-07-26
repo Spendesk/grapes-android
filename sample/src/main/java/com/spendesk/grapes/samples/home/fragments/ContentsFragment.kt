@@ -38,7 +38,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                 configuration = SummaryBlockContentMapView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
                         startTitle = "Trip details",
-                        middleTitle = "Optional",
+                        middleTitle = " • Optional",
                         endTitle = "Action",
                     ),
                     mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox

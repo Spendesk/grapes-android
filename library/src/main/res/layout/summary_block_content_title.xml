@@ -8,13 +8,32 @@
     <TextView
         android:id="@+id/summaryBlockContentTitleStartText"
         style="@style/SummaryBlockContentTitleStartText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndText"
+        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleMiddleText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="This is a title" />
+
+    <TextView
+        android:id="@+id/summaryBlockContentTitleMiddleText"
+        style="@style/SummaryBlockContentTitleMiddleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndBarrier"
+        app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleStartText"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text=" • Optional"
+        tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/summaryBlockContentTitleEndBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="summaryBlockContentTitleEndText,summaryBlockContentTitleEndImage" />
 
     <TextView
         android:id="@+id/summaryBlockContentTitleEndText"
@@ -24,7 +43,7 @@
         android:layout_marginStart="@dimen/inlineBlockViewTextMarginHorz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndImage"
-        app:layout_constraintStart_toEndOf="@+id/summaryBlockContentTitleStartText"
+        app:layout_constraintStart_toEndOf="@+id/summaryBlockContentTitleEndBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Action"
         tools:visibility="visible" />
