@@ -5,34 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="partialContentBlockTitleRightText" />
-
     <TextView
         android:id="@+id/partialContentBlockTitleText"
         style="@style/PartialContentBlockTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/barrier"
+        app:layout_constraintEnd_toStartOf="@id/partialContentBlockTitleEndText"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="title is here and also there but finally long and long" />
+        tools:text="Title is here and also there but finally long and long" />
 
     <TextView
-        android:id="@+id/partialContentBlockTitleRightText"
+        android:id="@+id/partialContentBlockTitleEndText"
         style="@style/PartialContentBlockTitleEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/partialContentBlockEndImage"
-        app:layout_constraintStart_toEndOf="@id/barrier"
+        app:layout_constraintStart_toEndOf="@id/partialContentBlockTitleText"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="subtitle" />
+        tools:text="End text" />
 
     <ImageView
         android:id="@+id/partialContentBlockEndImage"
@@ -42,7 +35,7 @@
         android:layout_marginStart="@dimen/partialContentBlockEndImageMarginStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/partialContentBlockTitleRightText"
+        app:layout_constraintStart_toEndOf="@id/partialContentBlockTitleEndText"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

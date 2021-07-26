@@ -114,29 +114,6 @@
         <item name="android:ellipsize">marquee</item>
     </style>
 
-    <style name="PartialContentBlockOptional">
-        <item name="android:visibility">gone</item>
-        <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:textColor">@color/partialContentBlockOptionalTextColor</item>
-        <item name="android:textSize">@dimen/partialContentBlockOptionalTextSize</item>
-    </style>
-
-    <style name="PartialContentBlockTitleActionText">
-        <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:textColor">@color/inlineBlockTitleActionTextColor</item>
-        <item name="android:textSize">@dimen/inlineBlockTitleActionTextSize</item>
-    </style>
-    <!-- endregion partial block -->
-
-    <style name="InlineBlockViewKey">
-        <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:gravity">start</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:textColor">@color/inlineBlockViewKeyTextColor</item>
-        <item name="android:textSize">@dimen/inlineBlockViewKeyTextSize</item>
-    </style>
-
     <style name="PartialContentBlockTitleEnd">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:gravity">end</item>
@@ -150,13 +127,53 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <!-- endregion partial block -->
+
+    <style name="SummaryBlockContentTitleStartText">
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textColor">@color/partialContentBlockTitleTextColor</item>
+        <item name="android:textSize">@dimen/partialContentBlockTitleTextSize</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="SummaryBlockContentTitleMiddleText">
+        <item name="android:visibility">gone</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textColor">@color/summaryBlockContentMiddleTextColor</item>
+        <item name="android:textSize">@dimen/summaryBlockContentMiddleTextSize</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="SummaryBlockContentTitleEndText">
+        <item name="android:visibility">gone</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textColor">@color/summary_block_content_title_end_text</item>
+        <item name="android:textSize">@dimen/summaryBlockContentEndTitleTextSize</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">end</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <style name="InlineBlockViewKey">
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:gravity">start</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:textColor">@color/inlineBlockViewKeyTextColor</item>
+        <item name="android:textSize">@dimen/inlineBlockViewKeyTextSize</item>
+    </style>
+
     <style name="ItemApproverStatusText">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textColor">@color/mainComplementary</item>
         <item name="android:textSize">@dimen/itemBlockApproverTitleTextSize</item>
     </style>
 
-    <style name="summaryBlockResponsibilityCenterDescription">
+    <style name="SummaryBlockResponsibilityCenterDescription">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textColor">@color/summaryBlockResponsibilityCenterDescriptionTextColor</item>
         <item name="android:textSize">@dimen/summaryBlockContentResponsibilityCenterDescriptionTextSize</item>

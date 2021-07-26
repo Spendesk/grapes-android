@@ -68,8 +68,8 @@
     <dimen name="deepBlueBucketDescriptionMarginTop">@dimen/middleMargin</dimen>
     <dimen name="deepBlueBucketButtonMarginTop">32dp</dimen>
 
-    <dimen name="actionInformativeTitleTextSize">32dp</dimen>
-    <dimen name="actionInformativeSubtitleTextSize">14dp</dimen>
+    <dimen name="actionInformativeTitleTextSize">32sp</dimen>
+    <dimen name="actionInformativeSubtitleTextSize">14sp</dimen>
     <dimen name="actionInformationSubtitleTextMarginEnd">@dimen/smallMargin</dimen>
     <dimen name="actionInformativeContainerPadding">@dimen/normalMargin</dimen>
     <!-- endregion Bucket -->
@@ -90,7 +90,7 @@
     <dimen name="registrationCodeViewCardRadius">12dp</dimen>
     <dimen name="registrationCodeViewCardElevation">0dp</dimen>
     <dimen name="registrationCodeViewTextLetterSpacing">0.35</dimen>
-    <dimen name="registrationCodeViewTextSize">24dp</dimen>
+    <dimen name="registrationCodeViewTextSize">24sp</dimen>
 
     <dimen name="registrationCodeSeparatorWidth">8dp</dimen>
     <dimen name="registrationCodeSeparatorHeight">2dp</dimen>
@@ -114,6 +114,9 @@
     <!-- region Blocks -->
 
     <!-- region ContentBlock -->
+    <dimen name="summaryBlockContentMiddleTextSize">14sp</dimen>
+    <dimen name="summaryBlockContentEndTitleTextSize">14sp</dimen>
+
     <dimen name="contentBlockCardRadius">8dp</dimen>
     <dimen name="contentBlockElevation">@dimen/cardViewElevation</dimen>
     <dimen name="buttonContentBlockMarginHorz">@dimen/normalMargin</dimen>
@@ -126,25 +129,23 @@
     <!-- region InlineBlockView -->
     <dimen name="partialContentBlockTitleMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="partialContentBlockTitleMarginVert">@dimen/normalMargin</dimen>
-    <dimen name="partialContentBlockOptionalTextSize">14dp</dimen>
-    <dimen name="partialContentBlockTitleTextSize">14dp</dimen>
+    <dimen name="partialContentBlockTitleTextSize">14sp</dimen>
     <dimen name="partialContentBlockEndImageSize">32dp</dimen>
     <dimen name="partialContentBlockEndImageMarginStart">@dimen/smallMargin</dimen>
 
-    <dimen name="inlineBlockTitleActionTextSize">14dp</dimen>
-    <dimen name="inlineBlockViewTextMarginVert">@dimen/smallMargin</dimen>
-    <dimen name="inlineBlockViewKeyTextSize">16dp</dimen>
-    <dimen name="partialContentBlockTitleEndTextTextSize">16dp</dimen>
+    <dimen name="inlineBlockViewTextMarginHorz">@dimen/bigMargin</dimen>
+    <dimen name="inlineBlockViewKeyTextSize">16sp</dimen>
+    <dimen name="partialContentBlockTitleEndTextTextSize">16sp</dimen>
 
     <dimen name="summaryBlockContentApproverImageSize">32dp</dimen>
     <!-- endregion InlineBlockView -->
 
     <!-- region MapBlock -->
-    <dimen name="mapBlockAddressTextSize">16dp</dimen>
+    <dimen name="mapBlockAddressTextSize">16sp</dimen>
     <dimen name="mapBlockAddressDrawablePadding">@dimen/smallMargin</dimen>
     <!-- endregion MapBlock -->
 
-    <dimen name="itemBlockApproverTitleTextSize">16dp</dimen>
+    <dimen name="itemBlockApproverTitleTextSize">16sp</dimen>
     <dimen name="itemBlockApproverStatusTextMarginHorz">@dimen/smallMargin</dimen>
 
     <dimen name="summaryBlockContentResponsibilityCenterDescriptionMarginHorz">@dimen/normalMargin</dimen>
@@ -152,7 +153,7 @@
     <dimen name="summaryBlockContentResponsibilityCenterGaugeViewMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="summaryBlockContentResponsibilityCenterGaugeViewMarginTop">@dimen/smallMargin</dimen>
     <dimen name="summaryBlockContentResponsibilityCenterGaugeViewMarginBottom">@dimen/normalMargin</dimen>
-    <dimen name="summaryBlockContentResponsibilityCenterDescriptionTextSize">16dp</dimen>
+    <dimen name="summaryBlockContentResponsibilityCenterDescriptionTextSize">16sp</dimen>
     <dimen name="summaryBlockContentResponsibilityCenterLegendFlowMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="summaryBlockContentResponsibilityCenterLegendFlowMarginVert">@dimen/normalMargin</dimen>
 
@@ -199,8 +200,8 @@
     <dimen name="actionMessageBottomSheetImageMarginTop">36dp</dimen>
     <dimen name="actionMessageBottomSheetTitleMarginVert">@dimen/hugeMargin</dimen>
     <dimen name="actionMessageBottomSheetTitleMarginHorz">@dimen/normalMargin</dimen>
-    <dimen name="actionMessageBottomSheetTitleTextSize">18dp</dimen>
-    <dimen name="actionMessageBottomSheetDescriptionTextSize">16dp</dimen>
+    <dimen name="actionMessageBottomSheetTitleTextSize">18sp</dimen>
+    <dimen name="actionMessageBottomSheetDescriptionTextSize">16sp</dimen>
     <dimen name="actionMessageBottomSheetDescriptionMarginVert">@dimen/normalMargin</dimen>
     <dimen name="actionMessageBottomSheetDescriptionMarginHorz">@dimen/normalMargin</dimen>
 

@@ -20,7 +20,7 @@
 
     <TextView
         android:id="@+id/summaryBlockContentResponsibilityCenterDescription"
-        style="@style/summaryBlockResponsibilityCenterDescription"
+        style="@style/SummaryBlockResponsibilityCenterDescription"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/summaryBlockContentResponsibilityCenterDescriptionMarginHorz"

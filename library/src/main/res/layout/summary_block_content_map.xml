@@ -10,26 +10,27 @@
         style="@style/MapBlockImage"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapTitle"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_height="240dp"
         tools:src="@drawable/img_mileage_map_example" />
 
-    <TextView
-        android:id="@+id/summaryBlockContentMapTitle"
-        style="@style/PartialContentBlockTitle"
+    <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
+        android:id="@+id/summaryBlockContentTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
-        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
+        android:paddingStart="@dimen/partialContentBlockTitleMarginHorz"
+        android:paddingTop="@dimen/partialContentBlockTitleMarginVert"
+        android:paddingEnd="@dimen/partialContentBlockTitleMarginHorz"
+        android:paddingBottom="@dimen/partialContentBlockTitleMarginVert"
         app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapDepartureTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapImage"
-        tools:text="My name is title, Head Title" />
+        tools:titleEnd="Action"
+        tools:titleStart="My name is title, Head Title" />
 
     <TextView
         android:id="@+id/summaryBlockContentMapDepartureTitle"
@@ -37,11 +38,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
         android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapTitle"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentTitle"
         tools:text="Address of departure" />
 
     <TextView

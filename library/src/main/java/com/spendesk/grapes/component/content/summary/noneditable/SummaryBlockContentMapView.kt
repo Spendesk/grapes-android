@@ -31,7 +31,9 @@ class SummaryBlockContentMapView : SummaryBlockView {
     //endregion constructors
 
     class Configuration(
-        val title: CharSequence,
+        val startTitle: CharSequence,
+        val middleTitle: CharSequence? = null,
+        val endTitle: CharSequence? = null,
         val mapImageUrl: String,
         val departureAddress: CharSequence,
         val arrivalAddress: CharSequence,
@@ -39,6 +41,12 @@ class SummaryBlockContentMapView : SummaryBlockView {
         val buttonCollapsedText: CharSequence? = null, // Text appearing when the block is collapsed
         val buttonExpandedText: CharSequence? = null // Text appearing when the block is expanded
     )
+
+    var onEndTitleTextClicked: (() -> Unit)? = null
+        set(onEndTitleTextClicked) {
+            field = onEndTitleTextClicked
+            summaryBlockContentTitle.onEndTitleTextClicked = field
+        }
 
     private val adapter = SummaryBlockContentAdapter()
     private var buttonCollapsedText: CharSequence? = null
@@ -54,7 +62,10 @@ class SummaryBlockContentMapView : SummaryBlockView {
         this.buttonCollapsedText = configuration.buttonCollapsedText
         this.buttonExpandedText = configuration.buttonExpandedText
 
-        summaryBlockContentMapTitle.text = configuration.title
+        summaryBlockContentTitle.setTitleStart(configuration.startTitle)
+        summaryBlockContentTitle.setTitleMiddle(configuration.middleTitle)
+        summaryBlockContentTitle.setTitleEnd(configuration.endTitle)
+
         summaryBlockContentMapDepartureTitle.text = configuration.departureAddress
         summaryBlockContentMapArrivalTitle.text = configuration.arrivalAddress
         adapter.updateList(configuration.items)

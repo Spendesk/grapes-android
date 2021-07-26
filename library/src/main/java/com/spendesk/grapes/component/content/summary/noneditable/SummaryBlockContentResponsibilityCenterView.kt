@@ -45,7 +45,7 @@ class SummaryBlockContentResponsibilityCenterView : SummaryBlockView {
 
     fun updateConfiguration(configuration: Configuration) {
         summaryBlockContentResponsibilityCenterTitle.partialContentBlockTitleText.text = configuration.titleStart
-        summaryBlockContentResponsibilityCenterTitle.partialContentBlockTitleRightText.text = configuration.titleEnd
+        summaryBlockContentResponsibilityCenterTitle.partialContentBlockTitleEndText.text = configuration.titleEnd
         summaryBlockContentResponsibilityCenterDescription.text = configuration.description
 
         // Handle drawable end title
