@@ -135,7 +135,7 @@
 
     <dimen name="inlineBlockViewTextMarginHorz">@dimen/bigMargin</dimen>
     <dimen name="inlineBlockViewKeyTextSize">16sp</dimen>
-    <dimen name="partialContentBlockTitleEndTextTextSize">16sp</dimen>
+    <dimen name="inlineBlockViewValueTextSize">16sp</dimen>
 
     <dimen name="summaryBlockContentApproverImageSize">32dp</dimen>
     <!-- endregion InlineBlockView -->

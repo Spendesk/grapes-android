@@ -105,29 +105,13 @@
 
     <!-- region blocks -->
 
-    <!-- region partial block -->
-    <style name="PartialContentBlockTitle">
-        <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textColor">@color/partialContentBlockTitleTextColor</item>
-        <item name="android:textSize">@dimen/partialContentBlockTitleTextSize</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
+    <!-- region Summary Block Content -->
+    <style name="SummaryBlockContentTitleLayout">
+        <item name="android:paddingStart">@dimen/partialContentBlockTitleMarginHorz</item>
+        <item name="android:paddingEnd">@dimen/partialContentBlockTitleMarginHorz</item>
+        <item name="android:paddingTop">@dimen/partialContentBlockTitleMarginVert</item>
+        <item name="android:paddingBottom">@dimen/partialContentBlockTitleMarginVert</item>
     </style>
-
-    <style name="PartialContentBlockTitleEnd">
-        <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:gravity">end</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:textColor">@color/partialContentBlockTitleEndTextColor</item>
-        <item name="android:textSize">@dimen/partialContentBlockTitleEndTextTextSize</item>
-    </style>
-
-    <style name="PartialContentBlockEndImage">
-        <item name="android:visibility">gone</item>
-    </style>
-
-    <!-- endregion partial block -->
 
     <style name="SummaryBlockContentTitleStartText">
         <item name="android:fontFamily">@font/gt_america_bold</item>
@@ -158,6 +142,12 @@
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
+    <style name="SummaryBlockContentTitleEndImage">
+        <item name="android:visibility">gone</item>
+    </style>
+    <!-- endregion Summary Block Content -->
+
+    <!-- region Inline Block -->
     <style name="InlineBlockViewKey">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:gravity">start</item>
@@ -166,6 +156,16 @@
         <item name="android:textColor">@color/inlineBlockViewKeyTextColor</item>
         <item name="android:textSize">@dimen/inlineBlockViewKeyTextSize</item>
     </style>
+
+    <style name="InlineBlockViewValue">
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:gravity">end</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/inlineBlockViewValueTextColor</item>
+        <item name="android:textSize">@dimen/inlineBlockViewValueTextSize</item>
+    </style>
+    <!-- endregion Inline Block -->
 
     <style name="ItemApproverStatusText">
         <item name="android:fontFamily">@font/gt_america</item>

@@ -3,14 +3,11 @@ package com.spendesk.grapes.component.content.summary.noneditable
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
-import androidx.annotation.DrawableRes
-import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeView.Constants.MAX_GAUGES
-import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleOrGone
-import kotlinx.android.synthetic.main.partial_content_block_title.view.*
 import kotlinx.android.synthetic.main.summary_block_content_responsibility_center.view.*
 
 /**
@@ -29,30 +26,24 @@ class SummaryBlockContentResponsibilityCenterView : SummaryBlockView {
         const val MAX_LEGENDS = MAX_GAUGES
     }
 
-    data class Configuration(
-        val titleStart: CharSequence,
-        val titleEnd: CharSequence,
-        @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
+    class Configuration(
+        titleConfiguration: SummaryBlockTitleView.Configuration,
         val description: CharSequence,
         val gaugeViewConfiguration: SummaryBlockContentResponsibilityCenterGaugeView.Configuration,
         val legendConfiguration: List<SummaryBlockContentResponsibilityCenterGaugeLegendView.Configuration> = ArrayList(),
         val showLegend: Boolean = false
-    )
+    ) : SummaryBlockView.Configuration(titleConfiguration)
 
     init {
         View.inflate(context, R.layout.summary_block_content_responsibility_center, this)
     }
 
-    fun updateConfiguration(configuration: Configuration) {
-        summaryBlockContentResponsibilityCenterTitle.partialContentBlockTitleText.text = configuration.titleStart
-        summaryBlockContentResponsibilityCenterTitle.partialContentBlockTitleEndText.text = configuration.titleEnd
-        summaryBlockContentResponsibilityCenterDescription.text = configuration.description
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentResponsibilityCenterTitle
 
-        // Handle drawable end title
-        if (configuration.drawableEnd != ResourcesCompat.ID_NULL) {
-            summaryBlockContentResponsibilityCenterTitle.partialContentBlockEndImage.visible()
-            summaryBlockContentResponsibilityCenterTitle.partialContentBlockEndImage.setBackgroundResource(configuration.drawableEnd)
-        }
+    fun updateConfiguration(configuration: Configuration) {
+        super.updateConfiguration(configuration)
+
+        summaryBlockContentResponsibilityCenterDescription.text = configuration.description
 
         // Handle Gauges
         summaryBlockContentResponsibilityCenterGaugeView.updateConfiguration(configuration.gaugeViewConfiguration)

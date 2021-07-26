@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.view.isVisible
 import com.spendesk.grapes.R
+import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.extensions.afterMeasured
 import com.spendesk.grapes.extensions.gone
@@ -31,22 +32,14 @@ class SummaryBlockContentMapView : SummaryBlockView {
     //endregion constructors
 
     class Configuration(
-        val startTitle: CharSequence,
-        val middleTitle: CharSequence? = null,
-        val endTitle: CharSequence? = null,
+        titleConfiguration: SummaryBlockTitleView.Configuration,
         val mapImageUrl: String,
         val departureAddress: CharSequence,
         val arrivalAddress: CharSequence,
         val items: List<SummaryBlockContentModel.InlineKeyValue>,
         val buttonCollapsedText: CharSequence? = null, // Text appearing when the block is collapsed
         val buttonExpandedText: CharSequence? = null // Text appearing when the block is expanded
-    )
-
-    var onEndTitleTextClicked: (() -> Unit)? = null
-        set(onEndTitleTextClicked) {
-            field = onEndTitleTextClicked
-            summaryBlockContentTitle.onEndTitleTextClicked = field
-        }
+    ) : SummaryBlockView.Configuration(titleConfiguration)
 
     private val adapter = SummaryBlockContentAdapter()
     private var buttonCollapsedText: CharSequence? = null
@@ -58,16 +51,17 @@ class SummaryBlockContentMapView : SummaryBlockView {
         setupView()
     }
 
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentMapTitle
+
     fun updateConfiguration(configuration: Configuration) {
+        super.updateConfiguration(configuration)
+
         this.buttonCollapsedText = configuration.buttonCollapsedText
         this.buttonExpandedText = configuration.buttonExpandedText
 
-        summaryBlockContentTitle.setTitleStart(configuration.startTitle)
-        summaryBlockContentTitle.setTitleMiddle(configuration.middleTitle)
-        summaryBlockContentTitle.setTitleEnd(configuration.endTitle)
-
         summaryBlockContentMapDepartureTitle.text = configuration.departureAddress
         summaryBlockContentMapArrivalTitle.text = configuration.arrivalAddress
+
         adapter.updateList(configuration.items)
 
         if (shouldDisplayViewMoreButton()) {

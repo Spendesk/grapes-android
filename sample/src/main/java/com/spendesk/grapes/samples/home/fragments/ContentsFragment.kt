@@ -3,6 +3,7 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentMapView
 import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
@@ -35,9 +36,11 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         with(homeButtonSectionMapExtendedBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentMapView.Configuration(
-                    startTitle = "Trip details",
-                    middleTitle = "Optional",
-                    endTitle = "Action",
+                    titleConfiguration = SummaryBlockTitleView.Configuration(
+                        startTitle = "Trip details",
+                        middleTitle = "Optional",
+                        endTitle = "Action",
+                    ),
                     mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
                     departureAddress = "Ca part de là mais c'est assez long quand même",
                     arrivalAddress = "Et ça fini ici !",
@@ -59,7 +62,9 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         // Map compact
         homeButtonSectionMapCompactBlock.updateConfiguration(
             configuration = SummaryBlockContentMapView.Configuration(
-                startTitle = "Route",
+                titleConfiguration = SummaryBlockTitleView.Configuration(
+                    startTitle = "Route",
+                ),
                 mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
                 departureAddress = "Ca part de là mais c'est assez long quand même",
                 arrivalAddress = "Et ça fini ici !",

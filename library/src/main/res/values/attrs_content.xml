@@ -2,9 +2,10 @@
 <resources>
 
     <declare-styleable name="SummaryBlockTitleView">
-        <attr name="titleStart" format="string" />
-        <attr name="titleMiddle" format="string" />
-        <attr name="titleEnd" format="string" />
+        <attr name="titleStartText" format="string" />
+        <attr name="titleMiddleText" format="string" />
+        <attr name="titleEndText" format="string" />
+        <attr name="titleEndDrawable" format="reference" />
     </declare-styleable>
 
 </resources>
