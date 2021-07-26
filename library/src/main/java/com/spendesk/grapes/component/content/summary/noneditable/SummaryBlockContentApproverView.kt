@@ -9,7 +9,6 @@ import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
 import kotlinx.android.synthetic.main.summary_block_content_approver.view.*
-import kotlinx.android.synthetic.main.summary_block_content_map.view.*
 
 /**
  * @author Vivien Mahe
@@ -36,7 +35,7 @@ class SummaryBlockContentApproverView : SummaryBlockView {
         summaryBlockContentApproverList.adapter = adapter
     }
 
-    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentMapTitle
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentApproverTitle
 
     fun updateConfiguration(configuration: Configuration) {
         super.updateConfiguration(configuration)
