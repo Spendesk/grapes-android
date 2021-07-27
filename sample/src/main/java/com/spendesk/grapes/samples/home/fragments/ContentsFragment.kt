@@ -40,6 +40,8 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                         startTitle = "Trip details",
                         middleTitle = " • Optional",
                         endTitle = "Action",
+                        drawableEnd = R.drawable.ic_warning_circle_stroke,
+                        isActivated = true
                     ),
                     mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
                     departureAddress = "Ca part de là mais c'est assez long quand même",
@@ -63,7 +65,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         homeButtonSectionMapCompactBlock.updateConfiguration(
             configuration = SummaryBlockContentMapView.Configuration(
                 titleConfiguration = SummaryBlockTitleView.Configuration(
-                    startTitle = "Route",
+                    startTitle = "Route"
                 ),
                 mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
                 departureAddress = "Ca part de là mais c'est assez long quand même",
