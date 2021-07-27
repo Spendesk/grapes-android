@@ -17,19 +17,17 @@
         tools:layout_height="240dp"
         tools:src="@drawable/img_mileage_map_example" />
 
-    <TextView
+    <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
         android:id="@+id/summaryBlockContentMapTitle"
-        style="@style/PartialContentBlockTitle"
+        style="@style/SummaryBlockContentTitleLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
-        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
         app:layout_constraintBottom_toTopOf="@id/summaryBlockContentMapDepartureTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapImage"
-        tools:text="My name is title, Head Title" />
+        tools:titleEnd="Action"
+        tools:titleStart="My name is title, Head Title" />
 
     <TextView
         android:id="@+id/summaryBlockContentMapDepartureTitle"
@@ -37,7 +35,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
         android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,5 +83,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentMapList"
-        tools:text="View more" />
+        tools:text="View more"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

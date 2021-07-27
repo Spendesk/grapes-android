@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import com.spendesk.grapes.R
+import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
@@ -22,9 +23,9 @@ class SummaryBlockContentInlineView : SummaryBlockView {
     //endregion constructors
 
     class Configuration(
-        val title: CharSequence,
+        titleConfiguration: SummaryBlockTitleView.Configuration,
         val items: List<SummaryBlockContentModel.InlineKeyValue>
-    )
+    ) : SummaryBlockView.Configuration(titleConfiguration)
 
     private val adapter = SummaryBlockContentAdapter()
 
@@ -34,8 +35,11 @@ class SummaryBlockContentInlineView : SummaryBlockView {
         summaryBlockContentInlineList.adapter = adapter
     }
 
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentInlineTitle
+
     fun updateConfiguration(configuration: Configuration) {
-        summaryBlockContentInlineTitle.text = configuration.title
+        super.updateConfiguration(configuration)
+
         adapter.updateList(configuration.items)
     }
 }

@@ -5,14 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="right"
-        app:barrierMargin="@dimen/inlineKeyValueItemBarrierMargin"
-        app:constraint_referenced_ids="inlineBlockViewKeyText" />
-
     <TextView
         android:id="@+id/inlineBlockViewKeyText"
         style="@style/InlineBlockViewKey"
@@ -21,16 +13,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="key is here" />
+        tools:text="Key is here" />
 
     <TextView
         android:id="@+id/inlineBlockViewValueText"
-        style="@style/PartialContentBlockTitleEnd"
+        style="@style/InlineBlockViewValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/inlineBlockViewTextMarginHorz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/barrier"
+        app:layout_constraintStart_toEndOf="@+id/inlineBlockViewKeyText"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="value is there but it can be here or even whatever you want, that is not an issue here." />
+        tools:text="Value is there but it can be here or even whatever you want, that is not an issue here." />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -105,8 +105,15 @@
 
     <!-- region blocks -->
 
-    <!-- region partial block -->
-    <style name="PartialContentBlockTitle">
+    <!-- region Summary Block Content -->
+    <style name="SummaryBlockContentTitleLayout">
+        <item name="android:paddingStart">@dimen/partialContentBlockTitleMarginHorz</item>
+        <item name="android:paddingEnd">@dimen/partialContentBlockTitleMarginHorz</item>
+        <item name="android:paddingTop">@dimen/partialContentBlockTitleMarginVert</item>
+        <item name="android:paddingBottom">@dimen/partialContentBlockTitleMarginVert</item>
+    </style>
+
+    <style name="SummaryBlockContentTitleStartText">
         <item name="android:fontFamily">@font/gt_america_bold</item>
         <item name="android:textColor">@color/partialContentBlockTitleTextColor</item>
         <item name="android:textSize">@dimen/partialContentBlockTitleTextSize</item>
@@ -114,20 +121,33 @@
         <item name="android:ellipsize">marquee</item>
     </style>
 
-    <style name="PartialContentBlockOptional">
+    <style name="SummaryBlockContentTitleMiddleText">
         <item name="android:visibility">gone</item>
         <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:textColor">@color/partialContentBlockOptionalTextColor</item>
-        <item name="android:textSize">@dimen/partialContentBlockOptionalTextSize</item>
+        <item name="android:textColor">@color/summaryBlockContentMiddleTextColor</item>
+        <item name="android:textSize">@dimen/summaryBlockContentMiddleTextSize</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
     </style>
 
-    <style name="PartialContentBlockTitleActionText">
-        <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:textColor">@color/inlineBlockTitleActionTextColor</item>
-        <item name="android:textSize">@dimen/inlineBlockTitleActionTextSize</item>
+    <style name="SummaryBlockContentTitleEndText">
+        <item name="android:visibility">gone</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textColor">@color/summary_block_content_title_end_text</item>
+        <item name="android:textSize">@dimen/summaryBlockContentEndTitleTextSize</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">end</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
-    <!-- endregion partial block -->
 
+    <style name="SummaryBlockContentTitleEndImage">
+        <item name="android:visibility">gone</item>
+    </style>
+    <!-- endregion Summary Block Content -->
+
+    <!-- region Inline Block -->
     <style name="InlineBlockViewKey">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:gravity">start</item>
@@ -137,18 +157,15 @@
         <item name="android:textSize">@dimen/inlineBlockViewKeyTextSize</item>
     </style>
 
-    <style name="PartialContentBlockTitleEnd">
+    <style name="InlineBlockViewValue">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:gravity">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:textColor">@color/partialContentBlockTitleEndTextColor</item>
-        <item name="android:textSize">@dimen/partialContentBlockTitleEndTextTextSize</item>
+        <item name="android:textColor">@color/inlineBlockViewValueTextColor</item>
+        <item name="android:textSize">@dimen/inlineBlockViewValueTextSize</item>
     </style>
-
-    <style name="PartialContentBlockEndImage">
-        <item name="android:visibility">gone</item>
-    </style>
+    <!-- endregion Inline Block -->
 
     <style name="ItemApproverStatusText">
         <item name="android:fontFamily">@font/gt_america</item>
@@ -156,7 +173,7 @@
         <item name="android:textSize">@dimen/itemBlockApproverTitleTextSize</item>
     </style>
 
-    <style name="summaryBlockResponsibilityCenterDescription">
+    <style name="SummaryBlockResponsibilityCenterDescription">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textColor">@color/summaryBlockResponsibilityCenterDescriptionTextColor</item>
         <item name="android:textSize">@dimen/summaryBlockContentResponsibilityCenterDescriptionTextSize</item>
@@ -187,6 +204,7 @@
     <style name="MapBlockViewMoreButton">
         <item name="grapesButtonStyle">secondary</item>
         <item name="grapesButtonSize">small</item>
+        <item name="android:visibility">gone</item>
     </style>
 
     <style name="MapBlockAddressText">
