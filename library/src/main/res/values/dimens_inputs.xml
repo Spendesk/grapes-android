@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="searchInputMainTextSize">16dp</dimen>
-    <dimen name="searchInputMainPrimaryPadding">16dp</dimen>
-    <dimen name="searchInputMainPrimaryDrawableCompoundPadding">8dp</dimen>
+    <dimen name="inputSearchMainTextSize">16dp</dimen>
+    <dimen name="inputSearchMainPrimaryPadding">16dp</dimen>
+    <dimen name="inputSearchMainPrimaryPaddingBottom">12dp</dimen>
+    <dimen name="inputSearchMainPrimaryDrawableCompoundPadding">8dp</dimen>
+    <dimen name="inputSearchMainProgressBarHeight">4dp</dimen>
 
-    <dimen name="searchInputMainPrimaryCardElevation">4dp</dimen>
-    <dimen name="searchInputMainPrimaryCardRadius">8dp</dimen>
-    <dimen name="searchInputMainSecondaryCardRadius">8dp</dimen>
-    <dimen name="searchInputMainSecondaryCardElevation">0dp</dimen>
+    <dimen name="inputSearchMainPrimaryCardElevation">4dp</dimen>
+    <dimen name="inputSearchMainPrimaryCardRadius">8dp</dimen>
+    <dimen name="inputSearchMainSecondaryCardRadius">8dp</dimen>
+    <dimen name="inputSearchMainSecondaryCardElevation">0dp</dimen>
 </resources>

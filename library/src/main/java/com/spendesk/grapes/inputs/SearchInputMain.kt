@@ -4,13 +4,15 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.util.AttributeSet
-import android.util.TypedValue
+import android.view.View
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
-import androidx.core.view.setPadding
+import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.setupClearButtonWithAction
+import com.spendesk.grapes.extensions.visibleOrInvisible
+import kotlinx.android.synthetic.main.input_search_main.view.*
 import java.util.*
 
 /**
@@ -52,50 +54,68 @@ class SearchInputMain : CardView {
         }
     }
 
-    lateinit var editText: AppCompatEditText
-    private var style = Style.getDefault()
-
     fun setStyle(style: Style) {
         when (style) {
             Style.PRIMARY -> {
-                radius = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryCardRadius).toFloat()
-                elevation = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryCardElevation).toFloat()
+                radius = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryCardRadius).toFloat()
+                elevation = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryCardElevation).toFloat()
             }
             Style.SECONDARY -> {
-                radius = resources.getDimensionPixelOffset(R.dimen.searchInputMainSecondaryCardRadius).toFloat()
-                elevation = resources.getDimensionPixelOffset(R.dimen.searchInputMainSecondaryCardElevation).toFloat()
+                radius = resources.getDimensionPixelOffset(R.dimen.inputSearchMainSecondaryCardRadius).toFloat()
+                elevation = resources.getDimensionPixelOffset(R.dimen.inputSearchMainSecondaryCardElevation).toFloat()
 
                 setBackgroundResource(R.drawable.shape_rect_solidbackground_stroke5neutrallight_radius8)
             }
         }
     }
 
+    init {
+        View.inflate(context, R.layout.input_search_main, this)
+
+        val padding = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryPadding)
+        val paddingBottom = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryPaddingBottom)
+        setPadding(padding, padding, padding, paddingBottom)
+    }
+
+    fun showProgressBar(visibility: Boolean) =
+        inputSearchMainProgressBar.visibleOrInvisible(visibility)
+
+    fun getEditText(): AppCompatEditText = inputSearchMainEditText
+
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
             with(context.obtainStyledAttributes(it, R.styleable.SearchInputMain)) {
-                val shouldUseClearButton = getBoolean(R.styleable.SearchInputMain_searchInputMainClearButton, true)
-                style = Style.fromPosition(getInt(R.styleable.SearchInputMain_searchInputMainStyle, Style.getDefault().position))
+                val focusable = getBoolean(R.styleable.SearchInputMain_android_focusable, true)
+                val hint = getResourceId(R.styleable.SearchInputMain_android_hint, ResourcesCompat.ID_NULL)
+                val drawableStart = getResourceId(R.styleable.SearchInputMain_android_drawableStart, ResourcesCompat.ID_NULL)
 
+                val shouldUseClearButton = getBoolean(R.styleable.SearchInputMain_searchInputMainClearButton, true)
+                val style = Style.fromPosition(getInt(R.styleable.SearchInputMain_searchInputMainStyle, Style.getDefault().position))
+
+                inputSearchMainProgressBar.progressDrawable = ContextCompat.getDrawable(context, R.drawable.layer_list_header_status_indicator)
                 setStyle(style)
-                configureEditText(attributeSet, shouldUseClearButton)
+                configureEditText(focusable, hint, drawableStart, style, shouldUseClearButton)
                 recycle()
             }
         }
     }
 
-    private fun configureEditText(attributeSet: AttributeSet?, shouldUseClearButton: Boolean) {
-        editText = AppCompatEditText(context, attributeSet)
+    private fun configureEditText(focusable: Boolean, hint: Int, drawableStart: Int, style: Style, shouldUseClearButton: Boolean) {
+        with(inputSearchMainEditText) {
 
-        with(editText) {
-            setSingleLine()
-            setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimensionPixelOffset(R.dimen.searchInputMainTextSize).toFloat())
-            setTextColor(ContextCompat.getColor(context, R.color.searchInputMainPrimaryTextColor))
-            setPadding(resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryPadding))
-            background = ContextCompat.getDrawable(context, android.R.color.transparent) // remove underline bar
+            // set basic properties
+            isFocusable = focusable
+            if (hint != ResourcesCompat.ID_NULL) setHint(hint)
 
-            // Compound drawables
-            compoundDrawablePadding = resources.getDimensionPixelOffset(R.dimen.searchInputMainPrimaryDrawableCompoundPadding)
+            if (drawableStart != ResourcesCompat.ID_NULL)
+                setCompoundDrawablesRelativeWithIntrinsicBounds(
+                    ContextCompat.getDrawable(context, drawableStart),
+                    compoundDrawablesRelative[1],
+                    compoundDrawablesRelative[1],
+                    compoundDrawablesRelative[3]
+                )
 
+            // Add clear drawableEnd button
             if (shouldUseClearButton) {
                 setupClearButtonWithAction()
             }
@@ -112,8 +132,9 @@ class SearchInputMain : CardView {
                     drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
                 }
             }
-        }.also {
-            addView(editText)
+
+            // Handle click
+            setOnClickListener { this@SearchInputMain.performClick() }
         }
     }
 }

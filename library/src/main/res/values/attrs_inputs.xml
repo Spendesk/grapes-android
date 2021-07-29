@@ -11,6 +11,9 @@
     <declare-styleable name="SearchInputMain">
         <attr name="searchInputMainStyle" />
         <attr name="searchInputMainClearButton" format="boolean" />
+        <attr name="android:focusable" />
+        <attr name="android:hint" />
+        <attr name="android:drawableStart" />
     </declare-styleable>
 
     <!-- endregion SearchInputMain -->

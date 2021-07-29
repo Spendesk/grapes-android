@@ -2,7 +2,7 @@
 buildscript {
 
     ext {
-        grapes_version = '1.0.6'
+        grapes_version = 'task~AA-1200-mileage-creation-review-mileage-block-SNAPSHOT'
 
         kotlin_version = '1.5.10'
         firebase_app_distribution_version = '2.1.2'

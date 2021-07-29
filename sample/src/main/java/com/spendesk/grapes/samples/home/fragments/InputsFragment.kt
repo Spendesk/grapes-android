@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.samples.R
+import kotlinx.android.synthetic.main.fragment_home_inputs.*
 import kotlinx.android.synthetic.main.view_home_header.*
 
 /**
@@ -20,5 +21,7 @@ class InputsFragment : Fragment(R.layout.fragment_home_inputs) {
         super.onViewCreated(view, savedInstanceState)
 
         homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
+
+        homeInputsSectionSearchInputMainPrimary.showProgressBar(true)
     }
 }
