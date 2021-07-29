@@ -36,12 +36,7 @@ abstract class SummaryBlockView : CardView {
     }
 
     protected fun updateConfiguration(configuration: Configuration) {
-        with(getSummaryBlockTitleView()) {
-            setTitleStartText(configuration.titleConfiguration.startTitle)
-            setTitleMiddleText(configuration.titleConfiguration.middleTitle)
-            setTitleEndText(configuration.titleConfiguration.endTitle)
-            setTitleEndDrawable(configuration.titleConfiguration.drawableEnd)
-        }
+        getSummaryBlockTitleView().updateConfiguration(configuration = configuration.titleConfiguration)
     }
 
     private fun setupView() {
