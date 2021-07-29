@@ -40,18 +40,5 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline" />
-
-<!--                <ProgressBar-->
-<!--                    android:id="@+id/inputSearchMainProgressBar"-->
-<!--                    style="?android:attr/progressBarStyleHorizontal"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:visibility="visible"-->
-<!--                    android:minHeight="4dp"-->
-<!--                    android:maxHeight="4dp"-->
-<!--                    android:layout_height="4dp"-->
-<!--                    android:indeterminate="true"-->
-<!--                    app:layout_constraintEnd_toEndOf="parent"-->
-<!--                    app:layout_constraintStart_toStartOf="parent"-->
-<!--                    app:layout_constraintTop_toBottomOf="@id/inputSearchMainEditText" />-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

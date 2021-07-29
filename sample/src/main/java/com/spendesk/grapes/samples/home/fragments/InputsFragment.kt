@@ -22,6 +22,7 @@ class InputsFragment : Fragment(R.layout.fragment_home_inputs) {
 
         homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
 
-        homeInputsSectionSearchInputMainPrimary.showProgressBar(true)
+        homeInputsSectionSearchInputMainPrimaryLoading.showProgressBar(true)
+        homeInputsSectionSearchInputMainSecondaryLoading.showProgressBar(true)
     }
 }
