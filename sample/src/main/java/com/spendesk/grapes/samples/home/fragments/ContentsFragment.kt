@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentMapView
+import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentTextView
 import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
@@ -32,6 +33,11 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
     }
 
     private fun setupView() {
+        setupBlockMap()
+        setupBlockText()
+    }
+
+    private fun setupBlockMap() {
         // Map extended
         with(homeButtonSectionMapExtendedBlock) {
             updateConfiguration(
@@ -40,6 +46,8 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                         startTitle = "Trip details",
                         middleTitle = " • Optional",
                         endTitle = "Action",
+                        drawableEnd = R.drawable.ic_warning_circle_stroke,
+                        isActivated = true
                     ),
                     mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
                     departureAddress = "Ca part de là mais c'est assez long quand même",
@@ -56,14 +64,14 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                     buttonExpandedText = "View less"
                 )
             )
-            onEndTitleTextClicked = { requireActivity().shortToaster("Extended action clicked!") }
+            onEndTitleTextClicked = { requireActivity().shortToaster("Edit Map extended") }
         }
 
         // Map compact
         homeButtonSectionMapCompactBlock.updateConfiguration(
             configuration = SummaryBlockContentMapView.Configuration(
                 titleConfiguration = SummaryBlockTitleView.Configuration(
-                    startTitle = "Route",
+                    startTitle = "Route"
                 ),
                 mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
                 departureAddress = "Ca part de là mais c'est assez long quand même",
@@ -74,5 +82,35 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                 )
             )
         )
+    }
+
+    private fun setupBlockText() {
+        // Text with value
+        with(homeButtonSectionTextWithValueBlock) {
+            updateConfiguration(
+                configuration = SummaryBlockContentTextView.Configuration(
+                    titleConfiguration = SummaryBlockTitleView.Configuration(
+                        startTitle = "Description",
+                        endTitle = "Edit"
+                    ),
+                    value = "Room booked in Lyon for 3 days to Le Progrès and organize a team building with Lyon’s team"
+                )
+            )
+            onEndTitleTextClicked = { requireActivity().shortToaster("Edit Text with value") }
+        }
+
+        // Text without value
+        with(homeButtonSectionTextWithoutValueBlock) {
+            updateConfiguration(
+                configuration = SummaryBlockContentTextView.Configuration(
+                    titleConfiguration = SummaryBlockTitleView.Configuration(
+                        startTitle = "Description",
+                        endTitle = "Add",
+                        isActivated = true
+                    )
+                )
+            )
+            onEndTitleTextClicked = { requireActivity().shortToaster("Add Text without value") }
+        }
     }
 }

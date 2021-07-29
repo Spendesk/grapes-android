@@ -85,30 +85,30 @@
                     android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginBottom="@dimen/bigMargin"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionMapCompactSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
         <!-- endregion Map -->
 
-        <!-- region primary with icon -->
+        <!-- region Text -->
         <TextView
-            android:id="@+id/homeButtonSectionPrimaryWithIconTitleText"
+            android:id="@+id/homeButtonSectionTextTitleText"
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
             android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
             android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/buttonPrimaryWithIcon"
+            android:text="@string/contentText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeButtonSectionMapBucketView" />
 
         <com.spendesk.grapes.BucketView
-            android:id="@+id/homeButtonSectionPrimaryWithIconBucketView"
+            android:id="@+id/homeButtonSectionTextBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -116,432 +116,63 @@
             android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconTitleText">
+            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionTextTitleText">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/homeButtonSectionPrimaryWithIconNormalSubtitle"
+                    android:id="@+id/homeButtonSectionTextWithValueSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonNormal"
+                    android:text="@string/contentTextWithValue"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionPrimaryWithIconNormalButton"
+                <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentTextView
+                    android:id="@+id/homeButtonSectionTextWithValueBlock"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:drawableStart="@drawable/ic_crop"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="primary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconNormalSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionTextWithValueSubtitle" />
 
                 <TextView
-                    android:id="@+id/homeButtonSectionPrimaryWithIconDisabledSubtitle"
+                    android:id="@+id/homeButtonSectionTextWithoutValueSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonDisabled"
+                    android:text="@string/contentTextWithoutValue"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionTextWithValueBlock" />
 
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionPrimaryWithIconDisabledButton"
+                <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentTextView
+                    android:id="@+id/homeButtonSectionTextWithoutValueBlock"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginBottom="@dimen/bigMargin"
-                    android:drawableStart="@drawable/ic_crop"
-                    android:enabled="false"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="primary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconDisabledSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionTextWithoutValueSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
-        <!-- endregion primary with icon -->
-
-        <!-- region secondary -->
-        <TextView
-            android:id="@+id/homeButtonSectionSecondaryTitleText"
-            style="@style/HomeGenericTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/buttonSecondary"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconBucketView" />
-
-        <com.spendesk.grapes.BucketView
-            android:id="@+id/homeButtonSectionSecondaryBucketView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryTitleText">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/homeButtonSectionSecondaryNormalSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonNormal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionSecondaryNormalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="secondary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryNormalSubtitle" />
-
-                <TextView
-                    android:id="@+id/homeButtonSectionSecondaryDisabledSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonDisabled"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryNormalButton" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionSecondaryDisabledButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginBottom="@dimen/bigMargin"
-                    android:enabled="false"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="secondary"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryDisabledSubtitle" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.spendesk.grapes.BucketView>
-        <!-- endregion secondary -->
-
-        <!-- region secondary with icon -->
-        <TextView
-            android:id="@+id/homeButtonSectionSecondaryWithIconTitleText"
-            style="@style/HomeGenericTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/buttonSecondaryWithIcon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryBucketView" />
-
-        <com.spendesk.grapes.BucketView
-            android:id="@+id/homeButtonSectionSecondaryWithIconBucketView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconTitleText">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/homeButtonSectionSecondaryWithIconNormalSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonNormal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionSecondaryWithIconNormalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:drawableStart="@drawable/ic_crop"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="secondary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconNormalSubtitle" />
-
-                <TextView
-                    android:id="@+id/homeButtonSectionSecondaryWithIconDisabledSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonDisabled"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconNormalButton" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionSecondaryWithIconDisabledButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginBottom="@dimen/bigMargin"
-                    android:drawableStart="@drawable/ic_crop"
-                    android:enabled="false"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="secondary"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconDisabledSubtitle" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.spendesk.grapes.BucketView>
-        <!-- endregion secondary with icon -->
-
-        <!-- region alert -->
-        <TextView
-            android:id="@+id/homeButtonSectionAlertTitleText"
-            style="@style/HomeGenericTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/buttonAlert"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconBucketView" />
-
-        <com.spendesk.grapes.BucketView
-            android:id="@+id/homeButtonSectionAlertBucketView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertTitleText">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/homeButtonSectionAlertNormalSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonNormal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionAlertNormalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="alert"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertNormalSubtitle" />
-
-                <TextView
-                    android:id="@+id/homeButtonSectionAlertDisabledSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonDisabled"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertNormalButton" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionAlertDisabledButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginBottom="@dimen/bigMargin"
-                    android:enabled="false"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="alert"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertDisabledSubtitle" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.spendesk.grapes.BucketView>
-        <!-- endregion alert -->
-
-        <!-- region warning -->
-        <TextView
-            android:id="@+id/homeButtonSectionWarningTitleText"
-            style="@style/HomeGenericTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/buttonWarning"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertBucketView" />
-
-        <com.spendesk.grapes.BucketView
-            android:id="@+id/homeButtonSectionWarningBucketView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningTitleText">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/homeButtonSectionWarningNormalSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonNormal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionWarningNormalButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="warning"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningNormalSubtitle" />
-
-                <TextView
-                    android:id="@+id/homeButtonSectionWarningDisabledSubtitle"
-                    style="@style/HomeGenericSubtitle"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/buttonDisabled"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningNormalButton" />
-
-                <com.spendesk.grapes.Button
-                    android:id="@+id/homeButtonSectionWarningDisabledButton"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
-                    android:layout_marginBottom="@dimen/bigMargin"
-                    android:enabled="false"
-                    android:text="@string/stubButton"
-                    app:grapesButtonSize="normal"
-                    app:grapesButtonStyle="warning"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningDisabledSubtitle" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </com.spendesk.grapes.BucketView>
-        <!-- endregion warning -->
+        <!-- endregion Text -->
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

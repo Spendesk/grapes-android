@@ -224,6 +224,12 @@
         <item name="android:drawableStart">@drawable/ic_address_arrival</item>
     </style>
 
+    <style name="TextValue">
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:textColor">@color/inlineBlockViewValueTextColor</item>
+        <item name="android:textSize">@dimen/inlineBlockViewValueTextSize</item>
+    </style>
+
     <!-- endregion blocks -->
 
     <!-- region UserSupplierInline -->

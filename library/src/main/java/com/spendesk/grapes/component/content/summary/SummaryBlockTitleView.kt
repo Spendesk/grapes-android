@@ -38,6 +38,7 @@ class SummaryBlockTitleView : ConstraintLayout {
         var middleTitle: CharSequence? = null,
         var endTitle: CharSequence? = null,
         @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
+        var isActivated: Boolean = false
     )
 
     var onEndTitleTextClicked: (() -> Unit)? = null
@@ -50,10 +51,19 @@ class SummaryBlockTitleView : ConstraintLayout {
         View.inflate(context, R.layout.summary_block_content_title, this)
     }
 
+    override fun setActivated(activated: Boolean) {
+        super.setActivated(activated)
+
+        // Toggle endTitle text style
+        summaryBlockContentTitleEndText.isActivated = activated
+    }
+
     fun updateConfiguration(configuration: Configuration) {
         setTitleStartText(configuration.startTitle)
         setTitleMiddleText(configuration.middleTitle)
         setTitleEndText(configuration.endTitle)
+        setTitleEndDrawable(configuration.drawableEnd)
+        isActivated = configuration.isActivated
     }
 
     fun setTitleStartText(text: CharSequence?) {
