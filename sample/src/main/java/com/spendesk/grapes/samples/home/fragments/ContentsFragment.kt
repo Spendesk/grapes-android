@@ -39,7 +39,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
 
     private fun setupBlockMap() {
         // Map extended
-        kotlin.with(homeButtonSectionMapExtendedBlock) {
+        with(homeButtonSectionMapExtendedBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentMapView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
