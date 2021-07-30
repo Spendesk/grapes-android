@@ -1,3 +1,8 @@
+jdk:
+  - openjdk11
+before_install:
+  - sdk install java 11.0.10-open
+  - sdk use java 11.0.10-open
 install:
-  - echo "Build only the library in release mode"
+  - java -version
   - ./gradlew :library:clean :library:build :library:publishReleasePublicationToMavenLocal -xtest -xlint
