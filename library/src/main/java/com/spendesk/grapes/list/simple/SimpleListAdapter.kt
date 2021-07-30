@@ -17,7 +17,7 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
         class Section(val view: SimpleSectionItemView) : SimpleListAdapterViewHolder(view)
     }
 
-    var onItemSelected: ((itemViewPosition: Int, itemId: String) -> Unit)? = null
+    var onItemSelected: ((SimpleListModel) -> Unit)? = null
 
     private val listItems: MutableList<SimpleListModel> = ArrayList()
 
@@ -36,13 +36,13 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
                 val data = (listItems[position] as SimpleListModel.Item)
 
                 holder.view.updateConfiguration(data.configuration)
-                holder.view.setOnClickListener { onItemSelected?.invoke(position, data.id) }
+                holder.view.setOnClickListener { onItemSelected?.invoke(data) }
             }
             is SimpleListAdapterViewHolder.Section -> {
                 val data = (listItems[position] as SimpleListModel.Section)
 
                 holder.view.updateConfiguration(data.configuration)
-                holder.view.setOnClickListener { onItemSelected?.invoke(position, data.id) }
+                holder.view.setOnClickListener { onItemSelected?.invoke(data) }
             }
         }
 
