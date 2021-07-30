@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- region Simple Entry Item -->
+
     <style name="SimpleEntryItemPrimaryImage">
         <item name="android:visibility">gone</item>
     </style>
@@ -29,9 +31,11 @@
         <item name="android:textColor">@color/simpleEntryItemDescriptionEndColor</item>
         <item name="android:textSize">@dimen/bodySSize</item>
     </style>
+
     <!-- endregion Simple Entry Item -->
 
     <!-- region Simple Section Item -->
+
     <style name="SimpleSectionItemStartImage">
         <item name="android:visibility">gone</item>
         <item name="android:backgroundTint">@color/simpleSectionItemStartImageTintColor</item>
@@ -49,5 +53,6 @@
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textSize">@dimen/bodySSize</item>
     </style>
+
     <!-- endregion Simple Section Item -->
 </resources>
