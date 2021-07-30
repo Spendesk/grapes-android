@@ -92,7 +92,6 @@ class SearchInputMain : CardView {
                 val shouldUseClearButton = getBoolean(R.styleable.SearchInputMain_searchInputMainClearButton, true)
                 val style = Style.fromPosition(getInt(R.styleable.SearchInputMain_searchInputMainStyle, Style.getDefault().position))
 
-                inputSearchMainProgressBar.progressDrawable = ContextCompat.getDrawable(context, R.drawable.layer_list_header_status_indicator)
                 setStyle(style)
                 configureEditText(focusable, hint, drawableStart, style, shouldUseClearButton)
                 recycle()
