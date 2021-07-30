@@ -19,7 +19,7 @@ import java.util.*
  * @author danyboucanova
  * @since 15/06/2021
  */
-class SearchInputMain : CardView {
+class InputSearchMain : CardView {
 
     //region constructors
 
@@ -71,10 +71,6 @@ class SearchInputMain : CardView {
 
     init {
         View.inflate(context, R.layout.input_search_main, this)
-
-        val padding = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryPadding)
-        val paddingBottom = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryPaddingBottom)
-        setPadding(padding, padding, padding, paddingBottom)
     }
 
     fun showProgressBar(visibility: Boolean) =
@@ -84,13 +80,13 @@ class SearchInputMain : CardView {
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
-            with(context.obtainStyledAttributes(it, R.styleable.SearchInputMain)) {
-                val focusable = getBoolean(R.styleable.SearchInputMain_android_focusable, true)
-                val hint = getResourceId(R.styleable.SearchInputMain_android_hint, ResourcesCompat.ID_NULL)
-                val drawableStart = getResourceId(R.styleable.SearchInputMain_android_drawableStart, ResourcesCompat.ID_NULL)
+            with(context.obtainStyledAttributes(it, R.styleable.InputSearchMain)) {
+                val focusable = getBoolean(R.styleable.InputSearchMain_android_focusable, true)
+                val hint = getResourceId(R.styleable.InputSearchMain_android_hint, ResourcesCompat.ID_NULL)
+                val drawableStart = getResourceId(R.styleable.InputSearchMain_android_drawableStart, ResourcesCompat.ID_NULL)
 
-                val shouldUseClearButton = getBoolean(R.styleable.SearchInputMain_searchInputMainClearButton, true)
-                val style = Style.fromPosition(getInt(R.styleable.SearchInputMain_searchInputMainStyle, Style.getDefault().position))
+                val shouldUseClearButton = getBoolean(R.styleable.InputSearchMain_inputSearchMainClearButton, true)
+                val style = Style.fromPosition(getInt(R.styleable.InputSearchMain_inputSearchMainStyle, Style.getDefault().position))
 
                 setStyle(style)
                 configureEditText(focusable, hint, drawableStart, style, shouldUseClearButton)
@@ -121,8 +117,8 @@ class SearchInputMain : CardView {
 
             // Add the according style tint for compound drawables except for clear icon
             val color = when (style) {
-                Style.PRIMARY -> R.color.searchInputMainPrimaryTintColor
-                Style.SECONDARY -> R.color.searchInputMainSecondaryTintColor
+                Style.PRIMARY -> R.color.inputSearchMainPrimaryTintColor
+                Style.SECONDARY -> R.color.inputSearchMainSecondaryTintColor
             }
 
             // The index 3 corresponds to the right compound drawable, the clear icon that we should not tint
@@ -133,7 +129,7 @@ class SearchInputMain : CardView {
             }
 
             // Handle click
-            setOnClickListener { this@SearchInputMain.performClick() }
+            setOnClickListener { this@InputSearchMain.performClick() }
         }
     }
 }

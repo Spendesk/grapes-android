@@ -2,10 +2,14 @@
 <resources>
 
     <style name="InputSearchMainEditText">
+        <item name="android:paddingTop">@dimen/inputSearchMainEditTextPadding</item>
+        <item name="android:paddingBottom">@dimen/inputSearchMainEditTextPaddingBottom</item>
+        <item name="android:paddingStart">@dimen/inputSearchMainEditTextPadding</item>
+        <item name="android:paddingEnd">@dimen/inputSearchMainEditTextPadding</item>
         <item name="android:drawablePadding">@dimen/inputSearchMainPrimaryDrawableCompoundPadding</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textSize">@dimen/inputSearchMainTextSize</item>
-        <item name="android:textColor">@color/searchInputMainPrimaryTextColor</item>
+        <item name="android:textColor">@color/inputSearchMainPrimaryTextColor</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>

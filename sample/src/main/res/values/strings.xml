@@ -39,7 +39,7 @@
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
 
     <!-- Inputs -->
-    <string name="inputSearchInputMain" translatable="false">Search Input Main</string>
+    <string name="inputSearchMain" translatable="false">Search Input Main</string>
     <string name="withLoader" translatable="false">With loader</string>
 
     <!-- Lists -->

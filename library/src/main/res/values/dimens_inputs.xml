@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="inputSearchMainTextSize">16dp</dimen>
-    <dimen name="inputSearchMainPrimaryPadding">16dp</dimen>
-    <dimen name="inputSearchMainPrimaryPaddingBottom">12dp</dimen>
+    <dimen name="inputSearchMainEditTextPadding">16dp</dimen>
+    <dimen name="inputSearchMainEditTextPaddingBottom">12dp</dimen>
     <dimen name="inputSearchMainPrimaryDrawableCompoundPadding">8dp</dimen>
     <dimen name="inputSearchMainProgressBarHeight">4dp</dimen>
 
