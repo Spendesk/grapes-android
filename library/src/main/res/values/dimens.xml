@@ -114,8 +114,8 @@
     <!-- region Blocks -->
 
     <!-- region ContentBlock -->
-    <dimen name="summaryBlockContentMiddleTextSize">14sp</dimen>
-    <dimen name="summaryBlockContentMiddleTextMarginStart">4dp</dimen>
+    <dimen name="summaryBlockContentMiddleTitleTextSize">14sp</dimen>
+    <dimen name="summaryBlockContentMiddleTitleTextMarginStart">4dp</dimen>
     <dimen name="summaryBlockContentEndTitleTextSize">14sp</dimen>
 
     <dimen name="contentBlockCardRadius">8dp</dimen>
