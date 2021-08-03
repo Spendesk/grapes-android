@@ -54,6 +54,10 @@ class InputSearchMain : CardView {
         }
     }
 
+    init {
+        View.inflate(context, R.layout.input_search_main, this)
+    }
+
     fun setStyle(style: Style) {
         when (style) {
             Style.PRIMARY -> {
@@ -69,12 +73,8 @@ class InputSearchMain : CardView {
         }
     }
 
-    init {
-        View.inflate(context, R.layout.input_search_main, this)
-    }
-
-    fun showProgressBar(visibility: Boolean) =
-        inputSearchMainProgressBar.visibleOrInvisible(visibility)
+    fun showProgressBar(visible: Boolean) =
+        inputSearchMainProgressBar.visibleOrInvisible(visible)
 
     fun getEditText(): AppCompatEditText = inputSearchMainEditText
 

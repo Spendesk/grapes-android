@@ -124,8 +124,8 @@
     <style name="SummaryBlockContentTitleMiddleText">
         <item name="android:visibility">gone</item>
         <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:textColor">@color/summaryBlockContentMiddleTextColor</item>
-        <item name="android:textSize">@dimen/summaryBlockContentMiddleTextSize</item>
+        <item name="android:textColor">@color/summaryBlockContentMiddleTitleTextColor</item>
+        <item name="android:textSize">@dimen/summaryBlockContentMiddleTitleTextSize</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
     </style>

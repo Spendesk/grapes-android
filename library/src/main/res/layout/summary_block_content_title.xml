@@ -21,11 +21,12 @@
         style="@style/SummaryBlockContentTitleMiddleText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/summaryBlockContentMiddleTitleTextMarginStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndBarrier"
         app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleStartText"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text=" • Optional"
+        tools:text="• Optional"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Barrier

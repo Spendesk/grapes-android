@@ -110,7 +110,7 @@
     <!-- endregion Bucket -->
 
     <!-- region Blocks -->
-    <color name="summaryBlockContentMiddleTextColor">@color/mainNeutralDarker</color>
+    <color name="summaryBlockContentMiddleTitleTextColor">@color/mainNeutralDarker</color>
 
     <color name="partialContentBlockTitleTextColor">@color/mainComplementary</color>
     <color name="inlineBlockTitleActionTextColorEnabled">@color/mainPrimaryNormal</color>
