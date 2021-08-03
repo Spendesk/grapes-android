@@ -54,6 +54,10 @@ class InputSearchMain : CardView {
         }
     }
 
+    init {
+        View.inflate(context, R.layout.input_search_main, this)
+    }
+
     fun setStyle(style: Style) {
         when (style) {
             Style.PRIMARY -> {
@@ -67,10 +71,6 @@ class InputSearchMain : CardView {
                 setBackgroundResource(R.drawable.shape_rect_solidbackground_stroke5neutrallight_radius8)
             }
         }
-    }
-
-    init {
-        View.inflate(context, R.layout.input_search_main, this)
     }
 
     fun showProgressBar(visible: Boolean) =
