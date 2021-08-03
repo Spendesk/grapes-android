@@ -73,8 +73,8 @@ class InputSearchMain : CardView {
         View.inflate(context, R.layout.input_search_main, this)
     }
 
-    fun showProgressBar(visibility: Boolean) =
-        inputSearchMainProgressBar.visibleOrInvisible(visibility)
+    fun showProgressBar(visible: Boolean) =
+        inputSearchMainProgressBar.visibleOrInvisible(visible)
 
     fun getEditText(): AppCompatEditText = inputSearchMainEditText
 
