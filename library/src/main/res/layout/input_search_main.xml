@@ -34,9 +34,9 @@
             style="@style/InputSearchMainProgressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/inputSearchMainProgressBarGuideline"
+            app:layout_constraintBottom_toTopOf="@id/inputSearchMainProgressBarGuideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/inputSearchMainProgressBarGuideline" />
+            app:layout_constraintTop_toTopOf="@id/inputSearchMainProgressBarGuideline" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
