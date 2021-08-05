@@ -5,9 +5,10 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.R
+import com.spendesk.grapes.extensions.visibleWithTextOrGone
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
+import com.spendesk.grapes.messages.MessageInlineView
 import kotlinx.android.synthetic.main.item_approver_status.view.*
 
 /**
@@ -26,8 +27,8 @@ class ApproverStatusItemView : ConstraintLayout {
         val imageUrl: String? = null,
         @DrawableRes val placeholderResId: Int = 0,
         val title: CharSequence,
-        val messageInlineStatusText: CharSequence,
-        val messageInlineStatusStyle: MessageInlineView.Style
+        val messageInlineStatusText: CharSequence?,
+        val messageInlineStatusStyle: MessageInlineView.Style?
     )
 
     init {
@@ -38,7 +39,7 @@ class ApproverStatusItemView : ConstraintLayout {
         itemApproverStatusText.text = configuration.title
         itemApproverStatusImage.loadFromUrl(url = configuration.imageUrl, errorResId = configuration.placeholderResId, shouldCircleCrop = true)
 
-        itemApproverStatusMessageInline.setTitle(configuration.messageInlineStatusText)
-        itemApproverStatusMessageInline.setStyle(configuration.messageInlineStatusStyle)
+        itemApproverStatusMessageInline.visibleWithTextOrGone(configuration.messageInlineStatusText)
+        configuration.messageInlineStatusStyle?.let { itemApproverStatusMessageInline.setStyle(it) }
     }
 }
