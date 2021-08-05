@@ -27,8 +27,8 @@ class ApproverStatusItemView : ConstraintLayout {
         val imageUrl: String? = null,
         @DrawableRes val placeholderResId: Int = 0,
         val title: CharSequence,
-        val messageInlineStatusText: CharSequence?,
-        val messageInlineStatusStyle: MessageInlineView.Style?
+        val messageInlineStatusText: CharSequence? = null,
+        val messageInlineStatusStyle: MessageInlineView.Style? = null
     )
 
     init {
