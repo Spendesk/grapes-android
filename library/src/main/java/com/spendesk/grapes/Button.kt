@@ -41,7 +41,8 @@ class Button : AppCompatTextView {
 
     class Configuration(
         val text: CharSequence,
-        val style: Style
+        val style: Style,
+        val isEnabled: Boolean = true
     )
 
     enum class Style(val position: Int) {
@@ -108,6 +109,7 @@ class Button : AppCompatTextView {
     fun updateConfiguration(configuration: Configuration) {
         text = configuration.text
         setStyle(configuration.style)
+        isEnabled = configuration.isEnabled
     }
 
     /**
