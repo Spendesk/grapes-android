@@ -30,9 +30,9 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
     private fun setupView() {
         homeListsSectionItemOneListItem.updateConfiguration(
             SimpleEntryItemView.Configuration(
-                primaryImage = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
+                primaryImageUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
                 placeholderPrimaryImage = R.drawable.ic_launcher_background,
-                secondaryImage = "https://avatars.githubusercontent.com/u/596985?v=4",
+                secondaryImageUrl = "https://avatars.githubusercontent.com/u/596985?v=4",
                 placeholderSecondaryImage = R.drawable.ic_launcher_background,
                 shouldCircleCropSecondaryImage = true,
                 titleStart = "Supplier",
@@ -44,7 +44,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
         homeListsSectionItemTwoListItem.updateConfiguration(
             SimpleEntryItemView.Configuration(
-                primaryImage = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
+                primaryImageUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
                 placeholderPrimaryImage = R.drawable.ic_launcher_background,
                 shouldCircleCropPrimaryImage = true,
                 titleStart = "Dany Bouca Nova",

@@ -28,10 +28,10 @@ class SimpleEntryItemView : ConstraintLayout {
     //endregion constructors
 
     class Configuration(
-        val primaryImage: String? = null,
+        val primaryImageUrl: String? = null,
         val shouldCircleCropPrimaryImage: Boolean = false,
         @DrawableRes val placeholderPrimaryImage: Int = ResourcesCompat.ID_NULL,
-        val secondaryImage: String? = null,
+        val secondaryImageUrl: String? = null,
         val shouldCircleCropSecondaryImage: Boolean = false,
         @DrawableRes val placeholderSecondaryImage: Int = ResourcesCompat.ID_NULL,
         val titleStart: CharSequence,
@@ -63,20 +63,43 @@ class SimpleEntryItemView : ConstraintLayout {
         // Add ripple to the view
         setBackgroundResource(R.drawable.shape_ripple_rect_solidwhite)
 
-        configuration.primaryImage?.let {
-            simpleEnryItemPrimaryImage.visible()
-            simpleEnryItemPrimaryImage.loadFromUrl(url = configuration.primaryImage, errorResId = configuration.placeholderPrimaryImage, shouldCircleCrop = configuration.shouldCircleCropPrimaryImage)
-        } ?: run {
-            simpleEnryItemPrimaryImage.gone()
-        }
+        configuration.primaryImageUrl
+            ?.let {
+                simpleEnryItemPrimaryImage.visible()
+                simpleEnryItemPrimaryImage.loadFromUrl(
+                    url = configuration.primaryImageUrl,
+                    errorResId = configuration.placeholderPrimaryImage,
+                    shouldCircleCrop = configuration.shouldCircleCropPrimaryImage
+                )
+            }
+            ?: run {
+                when (configuration.placeholderPrimaryImage != ResourcesCompat.ID_NULL) {
+                    true -> {
+                        simpleEnryItemPrimaryImage.visible()
+                        simpleEnryItemPrimaryImage.setImageResource(configuration.placeholderPrimaryImage)
+                    }
+                    false -> simpleEnryItemPrimaryImage.gone()
+                }
+            }
 
-        configuration.secondaryImage?.let {
-            simpleEntryItemSecondaryImage.visible()
-            simpleEntryItemSecondaryImage
-                .loadFromUrl(url = configuration.secondaryImage, errorResId = configuration.placeholderSecondaryImage, shouldCircleCrop = configuration.shouldCircleCropSecondaryImage)
-        } ?: run {
-            simpleEntryItemSecondaryImage.gone()
-        }
+        configuration.secondaryImageUrl
+            ?.let {
+                simpleEntryItemSecondaryImage.visible()
+                simpleEntryItemSecondaryImage.loadFromUrl(
+                    url = configuration.secondaryImageUrl,
+                    errorResId = configuration.placeholderSecondaryImage,
+                    shouldCircleCrop = configuration.shouldCircleCropSecondaryImage
+                )
+            }
+            ?: run {
+                when (configuration.placeholderSecondaryImage != ResourcesCompat.ID_NULL) {
+                    true -> {
+                        simpleEntryItemSecondaryImage.visible()
+                        simpleEntryItemSecondaryImage.setImageResource(configuration.placeholderSecondaryImage)
+                    }
+                    false -> simpleEntryItemSecondaryImage.gone()
+                }
+            }
 
         simpleEntryItemTitleStart.visibleWithTextOrGone(configuration.titleStart)
         simpleEntryItemDescriptionStart.visibleWithTextOrGone(configuration.descriptionStart)
