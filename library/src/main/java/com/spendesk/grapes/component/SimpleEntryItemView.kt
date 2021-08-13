@@ -51,16 +51,6 @@ class SimpleEntryItemView : ConstraintLayout {
         setPadding(paddingStart, paddingVert, paddingEnd, paddingVert)
     }
 
-    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val desiredHeight = resources.getDimensionPixelSize(R.dimen.simpleEntryItemViewHeight)
-        val desiredWidth = MeasureSpec.getSize(widthMeasureSpec)
-
-        super.onMeasure(
-            MeasureSpec.makeMeasureSpec(desiredWidth, MeasureSpec.EXACTLY),
-            MeasureSpec.makeMeasureSpec(desiredHeight, MeasureSpec.EXACTLY)
-        )
-    }
-
     fun updateConfiguration(configuration: Configuration) {
         // Add ripple to the view
         setBackgroundResource(R.drawable.shape_ripple_rect_solidwhite)

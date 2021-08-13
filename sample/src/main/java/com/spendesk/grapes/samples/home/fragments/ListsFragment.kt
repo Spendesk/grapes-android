@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.component.SimpleSectionItemView
+import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.samples.R
 import kotlinx.android.synthetic.main.fragment_home_lists.*
 import kotlinx.android.synthetic.main.view_home_header.*
@@ -38,7 +39,12 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 titleStart = "Supplier",
                 descriptionStart = "Employee name • Description",
                 titleEnd = "71,03 €",
-                descriptionEnd = "14 June"
+                descriptionEnd = "14 June",
+                messageConfiguration = MessageInlineView.Configuration(
+                    style = MessageInlineView.Style.WARNING,
+                    title = "Missing receipt",
+                    drawableStartId = R.drawable.ic_warning
+                )
             )
         )
 
@@ -62,7 +68,10 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         )
 
         homeListsSectionItemListTwo.updateConfiguration(
-            SimpleSectionItemView.Configuration(startText = "This is right")
+            SimpleSectionItemView.Configuration(
+                startText = "This is right",
+                style = SimpleSectionItemView.Style.SECONDARY
+            )
         )
     }
 }

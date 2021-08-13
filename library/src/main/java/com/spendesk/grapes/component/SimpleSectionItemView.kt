@@ -39,6 +39,7 @@ class SimpleSectionItemView : ConstraintLayout {
         @DrawableRes val iconStart: Int = ResourcesCompat.ID_NULL,
         val startText: CharSequence? = null,
         val endText: CharSequence? = null,
+        val style: Style? = null
     )
 
     enum class Style(val position: Int) {
@@ -71,6 +72,7 @@ class SimpleSectionItemView : ConstraintLayout {
         }
         simpleSectionItemStartText.visibleWithTextOrGone(configuration.startText)
         simpleSectionItemEndText.visibleWithTextOrGone(configuration.endText)
+        configuration.style?.let { setStyle(style = it) }
     }
 
     fun setStyle(style: Style) =
