@@ -11,6 +11,7 @@ import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
+import com.spendesk.grapes.messages.MessageInlineView
 import kotlinx.android.synthetic.main.component_simple_entry_item.view.*
 
 /**
@@ -37,7 +38,8 @@ class SimpleEntryItemView : ConstraintLayout {
         val titleStart: CharSequence,
         val descriptionStart: CharSequence? = null,
         val titleEnd: CharSequence? = null,
-        val descriptionEnd: CharSequence? = null
+        val descriptionEnd: CharSequence? = null,
+        val messageConfiguration: MessageInlineView.Configuration? = null
     )
 
     init {
@@ -65,8 +67,8 @@ class SimpleEntryItemView : ConstraintLayout {
 
         configuration.primaryImageUrl
             ?.let {
-                simpleEnryItemPrimaryImage.visible()
-                simpleEnryItemPrimaryImage.loadFromUrl(
+                simpleEntryItemPrimaryImage.visible()
+                simpleEntryItemPrimaryImage.loadFromUrl(
                     url = configuration.primaryImageUrl,
                     errorResId = configuration.placeholderPrimaryImage,
                     shouldCircleCrop = configuration.shouldCircleCropPrimaryImage
@@ -75,10 +77,10 @@ class SimpleEntryItemView : ConstraintLayout {
             ?: run {
                 when (configuration.placeholderPrimaryImage != ResourcesCompat.ID_NULL) {
                     true -> {
-                        simpleEnryItemPrimaryImage.visible()
-                        simpleEnryItemPrimaryImage.setImageResource(configuration.placeholderPrimaryImage)
+                        simpleEntryItemPrimaryImage.visible()
+                        simpleEntryItemPrimaryImage.setImageResource(configuration.placeholderPrimaryImage)
                     }
-                    false -> simpleEnryItemPrimaryImage.gone()
+                    false -> simpleEntryItemPrimaryImage.gone()
                 }
             }
 
@@ -105,5 +107,14 @@ class SimpleEntryItemView : ConstraintLayout {
         simpleEntryItemDescriptionStart.visibleWithTextOrGone(configuration.descriptionStart)
         simpleEntryItemTitleEnd.visibleWithTextOrGone(configuration.titleEnd)
         simpleEntryItemDescriptionEnd.visibleWithTextOrGone(configuration.descriptionEnd)
+
+        configuration.messageConfiguration
+            ?.let {
+                simpleEntryItemMessage.visible()
+                simpleEntryItemMessage.updateConfiguration(configuration = it)
+            }
+            ?: run {
+                simpleEntryItemMessage.gone()
+            }
     }
 }
