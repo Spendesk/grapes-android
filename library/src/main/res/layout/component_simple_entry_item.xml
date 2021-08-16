@@ -65,7 +65,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage" />
+        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText" />
 
     <TextView
         android:id="@+id/simpleEntryItemTitleStart"
