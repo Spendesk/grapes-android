@@ -35,6 +35,7 @@ class SimpleEntryItemView : ConstraintLayout {
         val secondaryImageUrl: String? = null,
         val shouldCircleCropSecondaryImage: Boolean = false,
         @DrawableRes val placeholderSecondaryImage: Int = ResourcesCompat.ID_NULL,
+        val imageAltText: CharSequence? = null,
         val titleStart: CharSequence,
         val descriptionStart: CharSequence? = null,
         val titleEnd: CharSequence? = null,
@@ -70,7 +71,10 @@ class SimpleEntryItemView : ConstraintLayout {
                         simpleEntryItemPrimaryImage.visible()
                         simpleEntryItemPrimaryImage.setImageResource(configuration.placeholderPrimaryImage)
                     }
-                    false -> simpleEntryItemPrimaryImage.gone()
+                    false -> {
+                        simpleEntryItemPrimaryImage.gone()
+                        simpleEntryItemImageAltText.visibleWithTextOrGone(configuration.imageAltText)
+                    }
                 }
             }
 

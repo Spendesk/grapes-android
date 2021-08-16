@@ -11,6 +11,15 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <style name="SimpleEntryItemImageAltText">
+        <item name="android:visibility">gone</item>
+        <item name="android:background">@drawable/background_component_simple_entry_item_image_alt_text</item>
+        <item name="android:textColor">@color/simpleEntryItemImageAltTextColor</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
     <style name="SimpleEntryItemTitleStart">
         <item name="android:fontFamily">@font/gt_america_bold</item>
         <item name="android:textColor">@color/simpleEntryItemTitleStartColor</item>

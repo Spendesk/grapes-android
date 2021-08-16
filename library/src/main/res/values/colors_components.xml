@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- region Simple Entry Item -->
+    <color name="simpleEntryItemImageAltTextBackgroundColor">@color/mainInfoNormal</color>
+    <color name="simpleEntryItemImageAltTextColor">@color/white</color>
     <color name="simpleEntryItemTitleStartColor">@color/mainComplementary</color>
     <color name="simpleEntryItemDescriptionStartColor">@color/mainNeutralDarker</color>
     <color name="simpleEntryItemTitleEndColor">@color/mainComplementary</color>

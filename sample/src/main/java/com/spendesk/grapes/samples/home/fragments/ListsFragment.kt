@@ -59,6 +59,13 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
         homeListsSectionItemThreeListItem.updateConfiguration(SimpleEntryItemView.Configuration(titleStart = "51 Rue de Londres. 75007, Paris"))
 
+        homeListsSectionItemFourListItem.updateConfiguration(
+            SimpleEntryItemView.Configuration(
+                titleStart = "Number of kebabs per game",
+                imageAltText = "10"
+            )
+        )
+
         homeListsSectionItemListOne.updateConfiguration(
             SimpleSectionItemView.Configuration(
                 iconStart = R.drawable.ic_crop,

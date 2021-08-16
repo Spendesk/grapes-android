@@ -45,6 +45,21 @@
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemPrimaryImageHorizontalHalfGuideline"
         tools:visibility="visible" />
 
+    <TextView
+        android:id="@+id/simpleEntryItemImageAltText"
+        style="@style/SimpleEntryItemImageAltText"
+        android:layout_width="@dimen/listItemPrimaryImageSize"
+        android:layout_height="@dimen/listItemPrimaryImageSize"
+        android:layout_marginStart="@dimen/normalMargin"
+        android:layout_marginEnd="@dimen/smallMargin"
+        android:layout_marginBottom="@dimen/smallMargin"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierStart"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="10"
+        tools:visibility="visible" />
+
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemBarrierStart"
         android:layout_width="wrap_content"
@@ -119,8 +134,8 @@
         style="@style/SimpleEntryItemMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/smallMargin"
         android:layout_marginStart="@dimen/listItemTitleStartMarginHorz"
+        android:layout_marginTop="@dimen/smallMargin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentEndBarrier"

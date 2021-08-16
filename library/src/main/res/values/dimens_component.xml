@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- region Simple Entry Item -->
+    <dimen name="simpleEntryItemImageAltTextCornerRadius">30dp</dimen>
+    <!-- endregion Simple Entry Item -->
+</resources>
