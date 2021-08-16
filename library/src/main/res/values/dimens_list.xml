@@ -8,7 +8,7 @@
     <dimen name="listItemPrimaryImageSize">40dp</dimen>
     <dimen name="listItemSecondaryImageSize">24dp</dimen>
     <dimen name="listItemDescriptionStartmarginHorz">@dimen/normalMargin</dimen>
-    <dimen name="listItemTitleStartMarginHorz">@dimen/normalMargin</dimen>
+    <dimen name="listItemTitleStartMarginHorz">@dimen/smallMargin</dimen>
     <dimen name="listItemPrimaryImageVerticalHalfGuidelineBegin">36dp</dimen>
     <dimen name="listItemPrimaryImageHorizontalHalfGuidelineBegin">22dp</dimen>
     <!-- endregion List Item -->

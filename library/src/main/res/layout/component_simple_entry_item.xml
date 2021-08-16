@@ -76,7 +76,7 @@
         android:layout_marginEnd="@dimen/listItemTitleStartMarginHorz"
         app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionStart"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierEnd"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemPrimaryImage"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemBarrierStart"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Title start here" />
@@ -90,7 +90,7 @@
         android:layout_marginEnd="@dimen/listItemTitleStartMarginHorz"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierEnd"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemPrimaryImage"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemBarrierStart"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleStart"
         tools:text="Employee name • Description"
         tools:visibility="visible" />
