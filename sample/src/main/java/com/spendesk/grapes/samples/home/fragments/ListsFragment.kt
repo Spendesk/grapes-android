@@ -40,6 +40,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 descriptionStart = "Employee name • Description",
                 titleEnd = "71,03 €",
                 descriptionEnd = "14 June",
+                titleEndOptional = "$68,34",
                 messageConfiguration = MessageInlineView.Configuration(
                     style = MessageInlineView.Style.WARNING,
                     title = "Missing receipt",

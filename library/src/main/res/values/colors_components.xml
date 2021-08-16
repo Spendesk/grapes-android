@@ -8,6 +8,7 @@
     <color name="simpleEntryItemDescriptionStartColor">@color/mainNeutralDarker</color>
     <color name="simpleEntryItemTitleEndColorDefault">@color/mainComplementary</color>
     <color name="simpleEntryItemTitleEndColorDisabled">@color/mainNeutralDarker</color>
+    <color name="simpleEntryItemTitleEndOptionalColor">@color/mainNeutralDarker</color>
     <color name="simpleEntryItemDescriptionEndColor">@color/mainNeutralDarker</color>
     <!-- endregion Simple Entry Item -->
 

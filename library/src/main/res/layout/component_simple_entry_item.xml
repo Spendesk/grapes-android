@@ -26,6 +26,7 @@
         android:layout_width="@dimen/listItemPrimaryImageSize"
         android:layout_height="@dimen/listItemPrimaryImageSize"
         android:layout_marginStart="@dimen/normalMargin"
+        android:layout_marginTop="@dimen/smallMargin"
         android:layout_marginEnd="@dimen/smallMargin"
         android:layout_marginBottom="@dimen/smallMargin"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
@@ -51,6 +52,7 @@
         android:layout_width="@dimen/listItemPrimaryImageSize"
         android:layout_height="@dimen/listItemPrimaryImageSize"
         android:layout_marginStart="@dimen/normalMargin"
+        android:layout_marginTop="@dimen/smallMargin"
         android:layout_marginEnd="@dimen/smallMargin"
         android:layout_marginBottom="@dimen/smallMargin"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
@@ -86,12 +88,13 @@
     <TextView
         android:id="@+id/simpleEntryItemDescriptionStart"
         style="@style/SimpleEntryItemDescriptionStart"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/listItemTitleStartMarginHorz"
         android:layout_marginEnd="@dimen/listItemTitleStartMarginHorz"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierEnd"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemBarrierStart"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleStart"
         tools:text="Employee name • Description"
@@ -102,12 +105,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemTitleEnd,simpleEntryItemDescriptionEnd" />
+        app:constraint_referenced_ids="simpleEntryItemTitleEnd,simpleEntryItemDescriptionEnd,simpleEntryItemTitleEndOptional" />
+
+    <TextView
+        android:id="@+id/simpleEntryItemTitleEndOptional"
+        style="@style/SimpleEntryItemTitleEndOptional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionEnd"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="$68,34 • "
+        tools:visibility="visible"/>
 
     <TextView
         android:id="@+id/simpleEntryItemTitleEnd"
         style="@style/SimpleEntryItemTitleEnd"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toEndOf="parent"
@@ -117,7 +131,7 @@
     <TextView
         android:id="@+id/simpleEntryItemDescriptionEnd"
         style="@style/SimpleEntryItemDescriptionEnd"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
         app:layout_constraintEnd_toEndOf="parent"

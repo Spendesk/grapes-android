@@ -45,7 +45,8 @@ class SimpleEntryItemView : ConstraintLayout {
         val descriptionEnd: CharSequence? = null,
         val messageConfiguration: MessageInlineView.Configuration? = null,
         val isEnabled: Boolean = true,
-        @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL
+        @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
+        val titleEndOptional: CharSequence? = null
     )
 
     init {
@@ -131,5 +132,12 @@ class SimpleEntryItemView : ConstraintLayout {
             true -> simpleEntryItemTitleStart.setDrawableRight(configuration.titleStartDrawable)
             false -> simpleEntryItemTitleStart.removeDrawables()
         }
+
+        configuration.titleEndOptional
+            ?.let {
+                simpleEntryItemTitleEndOptional.text = String.format(context.getString(R.string.simpleEntryItemTitleEndOptionalFormat), it)
+                simpleEntryItemTitleEndOptional.visible()
+            }
+            ?: run { simpleEntryItemTitleEndOptional.gone() }
     }
 }
