@@ -7,9 +7,7 @@ import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
-import com.spendesk.grapes.extensions.gone
-import com.spendesk.grapes.extensions.visible
-import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import com.spendesk.grapes.extensions.*
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import com.spendesk.grapes.messages.MessageInlineView
 import kotlinx.android.synthetic.main.component_simple_entry_item.view.*
@@ -28,6 +26,11 @@ class SimpleEntryItemView : ConstraintLayout {
 
     //endregion constructors
 
+    companion object {
+        private const val IMAGE_ALPHA_DEFAULT = 1f
+        private const val IMAGE_ALPHA_REDUCED = 0.6f
+    }
+
     class Configuration(
         val primaryImageUrl: String? = null,
         val shouldCircleCropPrimaryImage: Boolean = false,
@@ -40,7 +43,9 @@ class SimpleEntryItemView : ConstraintLayout {
         val descriptionStart: CharSequence? = null,
         val titleEnd: CharSequence? = null,
         val descriptionEnd: CharSequence? = null,
-        val messageConfiguration: MessageInlineView.Configuration? = null
+        val messageConfiguration: MessageInlineView.Configuration? = null,
+        val isEnabled: Boolean = true,
+        @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL
     )
 
     init {
@@ -50,6 +55,15 @@ class SimpleEntryItemView : ConstraintLayout {
         val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listItemPaddingEnd)
         val paddingVert = resources.getDimensionPixelOffset(R.dimen.listItemPaddingVert)
         setPadding(paddingStart, paddingVert, paddingEnd, paddingVert)
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+
+        simpleEntryItemPrimaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
+        simpleEntryItemSecondaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
+        simpleEntryItemTitleStart.isEnabled = enabled
+        simpleEntryItemTitleEnd.isEnabled = enabled
     }
 
     fun updateConfiguration(configuration: Configuration) {
@@ -110,5 +124,12 @@ class SimpleEntryItemView : ConstraintLayout {
             ?: run {
                 simpleEntryItemMessage.gone()
             }
+
+        isEnabled = configuration.isEnabled
+
+        when (configuration.titleStartDrawable != ResourcesCompat.ID_NULL) {
+            true -> simpleEntryItemTitleStart.setDrawableRight(configuration.titleStartDrawable)
+            false -> simpleEntryItemTitleStart.removeDrawables()
+        }
     }
 }

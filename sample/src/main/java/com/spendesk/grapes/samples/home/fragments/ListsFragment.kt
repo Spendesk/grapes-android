@@ -54,6 +54,8 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 placeholderPrimaryImage = R.drawable.ic_launcher_background,
                 shouldCircleCropPrimaryImage = true,
                 titleStart = "Dany Bouca Nova",
+                isEnabled = false,
+                titleStartDrawable = R.drawable.ic_clock
             )
         )
 

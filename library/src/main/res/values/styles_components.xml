@@ -22,10 +22,11 @@
 
     <style name="SimpleEntryItemTitleStart">
         <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textColor">@color/simpleEntryItemTitleStartColor</item>
+        <item name="android:textColor">@color/component_simple_entry_item_title_start_text</item>
         <item name="android:textSize">@dimen/titleMSize</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
+        <item name="android:drawablePadding">@dimen/middleMargin</item>
     </style>
 
     <style name="SimpleEntryItemDescriptionStart">
@@ -36,7 +37,8 @@
     </style>
 
     <style name="SimpleEntryItemTitleEnd">
-        <item name="android:textColor">@color/simpleEntryItemTitleEndColor</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textColor">@color/component_simple_entry_item_title_end_text</item>
         <item name="android:textSize">@dimen/titleMSize</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>

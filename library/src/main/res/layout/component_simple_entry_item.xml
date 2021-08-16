@@ -70,15 +70,17 @@
     <TextView
         android:id="@+id/simpleEntryItemTitleStart"
         style="@style/SimpleEntryItemTitleStart"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/listItemTitleStartMarginHorz"
         android:layout_marginEnd="@dimen/listItemTitleStartMarginHorz"
         app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionStart"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierEnd"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemBarrierStart"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
+        tools:drawableEnd="@drawable/ic_clear_round"
         tools:text="Title start here" />
 
     <TextView
