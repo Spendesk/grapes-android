@@ -59,8 +59,6 @@ class SimpleEntryItemView : ConstraintLayout {
     }
 
     override fun setEnabled(enabled: Boolean) {
-        super.setEnabled(enabled)
-
         simpleEntryItemPrimaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
         simpleEntryItemSecondaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
         simpleEntryItemTitleStart.isEnabled = enabled
