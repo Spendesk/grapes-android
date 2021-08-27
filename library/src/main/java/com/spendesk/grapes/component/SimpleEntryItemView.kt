@@ -52,9 +52,9 @@ class SimpleEntryItemView : ConstraintLayout {
     init {
         View.inflate(context, R.layout.component_simple_entry_item, this)
 
-        val paddingStart = resources.getDimensionPixelOffset(R.dimen.listItemPaddingStart)
-        val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listItemPaddingEnd)
-        val paddingVert = resources.getDimensionPixelOffset(R.dimen.listItemPaddingVert)
+        val paddingStart = resources.getDimensionPixelOffset(R.dimen.listEntryItemPaddingStart)
+        val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listEntryItemPaddingEnd)
+        val paddingVert = resources.getDimensionPixelOffset(R.dimen.listEntryItemPaddingVert)
         setPadding(paddingStart, paddingVert, paddingEnd, paddingVert)
     }
 
