@@ -11,56 +11,25 @@
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="SimpleEntryItemImageAltText">
-        <item name="android:visibility">gone</item>
-        <item name="android:background">@drawable/background_component_simple_entry_item_image_alt_text</item>
-        <item name="android:textColor">@color/simpleEntryItemImageAltTextColor</item>
-        <item name="android:gravity">center</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-
     <style name="SimpleEntryItemTitleStart">
         <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textColor">@color/component_simple_entry_item_title_start_text</item>
+        <item name="android:textColor">@color/simpleEntryItemTitleStartColor</item>
         <item name="android:textSize">@dimen/titleMSize</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:drawablePadding">@dimen/middleMargin</item>
     </style>
 
     <style name="SimpleEntryItemDescriptionStart">
         <item name="android:textColor">@color/simpleEntryItemDescriptionStartColor</item>
         <item name="android:textSize">@dimen/bodySSize</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
     </style>
 
     <style name="SimpleEntryItemTitleEnd">
-        <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textColor">@color/component_simple_entry_item_title_end_text</item>
+        <item name="android:textColor">@color/simpleEntryItemTitleEndColor</item>
         <item name="android:textSize">@dimen/titleMSize</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-
-    <style name="SimpleEntryItemTitleEndOptional">
-        <item name="android:visibility">gone</item>
-        <item name="android:textColor">@color/simpleEntryItemTitleEndOptionalColor</item>
-        <item name="android:textSize">@dimen/titleMSize</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
     </style>
 
     <style name="SimpleEntryItemDescriptionEnd">
         <item name="android:textColor">@color/simpleEntryItemDescriptionEndColor</item>
         <item name="android:textSize">@dimen/bodySSize</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:ellipsize">marquee</item>
-    </style>
-
-    <style name="SimpleEntryItemMessage">
-        <item name="android:visibility">gone</item>
     </style>
 
     <!-- endregion Simple Entry Item -->

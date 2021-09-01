@@ -20,20 +20,24 @@ import androidx.core.graphics.drawable.DrawableCompat
  */
 fun TextView.setDrawableLeft(drawable: Drawable?) = this.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
 
+
 /**
  * Sets a drawable on the left of this [TextView].
  */
 fun TextView.setDrawableLeft(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(drawableResId, 0, 0, 0)
+
 
 /**
  * Sets a drawable on the top of this [TextView].
  */
 fun TextView.setDrawableTop(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, drawableResId, 0, 0)
 
+
 /**
  * Sets a drawable on the right of this [TextView].
  */
 fun TextView.setDrawableRight(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableResId, 0)
+
 
 /**
  * Sets a drawable on the bottom of this [TextView].

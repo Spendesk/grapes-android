@@ -42,7 +42,6 @@ captures/
 *.iml
 .idea/workspace.xml
 .idea/misc.xml
-.idea/deploymentTargetDropDown.xml
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
