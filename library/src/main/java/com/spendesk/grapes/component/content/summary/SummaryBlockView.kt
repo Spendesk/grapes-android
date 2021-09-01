@@ -11,7 +11,7 @@ import com.spendesk.grapes.R
  * @author Vivien Mahe
  * @since 06/01/2021
  */
-open class SummaryBlockView : CardView {
+abstract class SummaryBlockView : CardView {
 
     //region constructors
     constructor(context: Context) : super(context)
@@ -19,8 +19,24 @@ open class SummaryBlockView : CardView {
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
     //endregion constructors
 
+    open class Configuration(
+        val titleConfiguration: SummaryBlockTitleView.Configuration
+    )
+
+    protected abstract fun getSummaryBlockTitleView(): SummaryBlockTitleView
+
+    var onEndTitleTextClicked: (() -> Unit)? = null
+        set(onEndTitleTextClicked) {
+            field = onEndTitleTextClicked
+            getSummaryBlockTitleView().onEndTitleTextClicked = field
+        }
+
     init {
         setupView()
+    }
+
+    protected fun updateConfiguration(configuration: Configuration) {
+        getSummaryBlockTitleView().updateConfiguration(configuration = configuration.titleConfiguration)
     }
 
     private fun setupView() {

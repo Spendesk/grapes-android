@@ -5,26 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
+    <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
         android:id="@+id/summaryBlockContentApproverTitle"
-        style="@style/PartialContentBlockTitle"
+        style="@style/SummaryBlockContentTitleLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginTop="@dimen/partialContentBlockTitleMarginVert"
-        android:layout_marginEnd="@dimen/partialContentBlockTitleMarginHorz"
-        android:layout_marginBottom="@dimen/partialContentBlockTitleMarginVert"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentApproverList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="My name is title, Head Title" />
+        tools:titleEnd="Action"
+        tools:titleStart="My name is title, Head Title" />
 
     <com.spendesk.grapes.list.content.summary.SummaryBlockRecyclerView
         android:id="@+id/summaryBlockContentApproverList"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/inlineBlockContentListMarginHorz"
-        android:layout_marginTop="@dimen/inlineBlockContentListMarginVert"
         android:layout_marginEnd="@dimen/inlineBlockContentListMarginHorz"
         app:itemDecorationMarginBottom="@dimen/inlineBlockContentListItemDecorationMarginVert"
         app:layout_constraintBottom_toBottomOf="parent"

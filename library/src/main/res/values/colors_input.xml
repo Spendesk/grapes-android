@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="searchInputMainPrimaryTextColor">@color/mainNeutralDarkest</color>
-    <color name="searchInputMainPrimaryTintColor">@color/mainNeutralDarkest</color>
-    <color name="searchInputMainSecondaryTintColor">@color/mainNeutralNormal</color>
+    <color name="inputSearchMainPrimaryTextColor">@color/mainNeutralDarkest</color>
+    <color name="inputSearchMainPrimaryTintColor">@color/mainNeutralDarkest</color>
+    <color name="inputSearchMainSecondaryTintColor">@color/mainNeutralNormal</color>
 </resources>

@@ -6,6 +6,7 @@
     <string name="selectors" translatable="false">Selectors</string>
     <string name="inputs" translatable="false">Inputs</string>
     <string name="lists" translatable="false">Lists</string>
+    <string name="contents" translatable="false">Contents</string>
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>
@@ -38,7 +39,8 @@
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
 
     <!-- Inputs -->
-    <string name="inputSearchInputMain" translatable="false">Search Input Main</string>
+    <string name="inputSearchMain" translatable="false">Search Input Main</string>
+    <string name="withLoader" translatable="false">With loader</string>
 
     <!-- Lists -->
     <string name="listItem" translatable="false">List item</string>
@@ -52,5 +54,13 @@
     <string name="listSectionItem" translatable="false">List Section item</string>
     <string name="listSectionItemOne" translatable="false">primary section #1</string>
     <string name="listSectionItemTwo" translatable="false">secondary section #2</string>
+
+    <!-- Contents -->
+    <string name="contentMap" translatable="false">Map</string>
+    <string name="contentMapExtended" translatable="false">Extended</string>
+    <string name="contentMapCompact" translatable="false">Compact</string>
+    <string name="contentText" translatable="false">Text</string>
+    <string name="contentTextWithValue" translatable="false">With value</string>
+    <string name="contentTextWithoutValue" translatable="false">Without value</string>
 
 </resources>

@@ -6,15 +6,14 @@ import android.view.View
 import com.spendesk.grapes.R
 import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
-import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
-import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
-import kotlinx.android.synthetic.main.summary_block_content_approver.view.*
+import com.spendesk.grapes.extensions.visibleOrGone
+import kotlinx.android.synthetic.main.summary_block_content_text.view.*
 
 /**
  * @author Vivien Mahe
  * @since 07/01/2021
  */
-class SummaryBlockContentApproverView : SummaryBlockView {
+class SummaryBlockContentTextView : SummaryBlockView {
 
     //region constructors
     constructor(context: Context) : super(context)
@@ -24,22 +23,19 @@ class SummaryBlockContentApproverView : SummaryBlockView {
 
     class Configuration(
         titleConfiguration: SummaryBlockTitleView.Configuration,
-        val items: List<SummaryBlockContentModel.ApproverStatus>
+        val value: CharSequence? = null
     ) : SummaryBlockView.Configuration(titleConfiguration)
 
-    private val adapter = SummaryBlockContentAdapter()
-
     init {
-        View.inflate(context, R.layout.summary_block_content_approver, this)
-
-        summaryBlockContentApproverList.adapter = adapter
+        View.inflate(context, R.layout.summary_block_content_text, this)
     }
 
-    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentApproverTitle
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentTextTitle
 
     fun updateConfiguration(configuration: Configuration) {
         super.updateConfiguration(configuration)
 
-        adapter.updateList(configuration.items)
+        summaryBlockContentValueText.visibleOrGone(configuration.value != null)
+        configuration.value?.let { summaryBlockContentValueText.text = it }
     }
 }

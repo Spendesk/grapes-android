@@ -2,8 +2,11 @@ package com.spendesk.grapes.samples.home.fragments
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
+import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
+import kotlinx.android.synthetic.main.fragment_home_inputs.*
 import kotlinx.android.synthetic.main.view_home_header.*
 
 /**
@@ -20,5 +23,9 @@ class InputsFragment : Fragment(R.layout.fragment_home_inputs) {
         super.onViewCreated(view, savedInstanceState)
 
         homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
+
+        homeInputsSectionSearchMainPrimary.getEditText().doAfterTextChanged { requireActivity().shortToaster("Text changed: $it") }
+        homeInputsSectionSearchMainPrimaryLoading.showProgressBar(true)
+        homeInputsSectionSearchMainSecondaryLoading.showProgressBar(true)
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="InputSearchMainEditText">
+        <item name="android:paddingTop">@dimen/inputSearchMainEditTextPadding</item>
+        <item name="android:paddingBottom">@dimen/inputSearchMainEditTextPaddingBottom</item>
+        <item name="android:paddingStart">@dimen/inputSearchMainEditTextPadding</item>
+        <item name="android:paddingEnd">@dimen/inputSearchMainEditTextPadding</item>
+        <item name="android:drawablePadding">@dimen/inputSearchMainPrimaryDrawableCompoundPadding</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">@dimen/inputSearchMainTextSize</item>
+        <item name="android:textColor">@color/inputSearchMainPrimaryTextColor</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="InputSearchMainProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:indeterminate">true</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SummaryBlockTitleView">
+        <attr name="titleStartText" format="string" />
+        <attr name="titleMiddleText" format="string" />
+        <attr name="titleEndText" format="string" />
+        <attr name="titleEndDrawable" format="reference" />
+    </declare-styleable>
+
+</resources>

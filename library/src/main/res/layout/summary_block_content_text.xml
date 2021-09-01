@@ -6,28 +6,28 @@
     android:layout_height="wrap_content">
 
     <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
-        android:id="@+id/summaryBlockContentInlineTitle"
+        android:id="@+id/summaryBlockContentTextTitle"
         style="@style/SummaryBlockContentTitleLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentInlineList"
+        app:layout_constraintBottom_toTopOf="@id/summaryBlockContentValueText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:titleEnd="Action"
         tools:titleStart="My name is title, Head Title" />
 
-    <com.spendesk.grapes.list.content.summary.SummaryBlockRecyclerView
-        android:id="@+id/summaryBlockContentInlineList"
+    <TextView
+        android:id="@+id/summaryBlockContentValueText"
+        style="@style/TextValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/inlineBlockContentListMarginHorz"
         android:layout_marginEnd="@dimen/inlineBlockContentListMarginHorz"
-        app:itemDecorationMarginBottom="@dimen/inlineBlockContentListItemDecorationMarginVert"
+        android:layout_marginBottom="@dimen/inlineBlockContentListMarginVert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentInlineTitle"
-        tools:itemCount="3"
-        tools:listitem="@layout/item_inline_key_value" />
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentTextTitle"
+        tools:text="Value is there but it can be here or even whatever you want, that is not an issue here." />
 </androidx.constraintlayout.widget.ConstraintLayout>

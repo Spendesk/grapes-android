@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.core.view.isVisible
 import com.spendesk.grapes.R
+import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.SummaryBlockView
 import com.spendesk.grapes.extensions.afterMeasured
 import com.spendesk.grapes.extensions.gone
@@ -31,18 +32,18 @@ class SummaryBlockContentMapView : SummaryBlockView {
     //endregion constructors
 
     class Configuration(
-        val title: CharSequence,
+        titleConfiguration: SummaryBlockTitleView.Configuration,
         val mapImageUrl: String,
         val departureAddress: CharSequence,
         val arrivalAddress: CharSequence,
         val items: List<SummaryBlockContentModel.InlineKeyValue>,
-        val buttonCollapsedText: CharSequence, // Text appearing when the bloc is collapsed
-        val buttonExpandedText: CharSequence // Text appearing when the bloc is expanded
-    )
+        val buttonCollapsedText: CharSequence? = null, // Text appearing when the block is collapsed
+        val buttonExpandedText: CharSequence? = null // Text appearing when the block is expanded
+    ) : SummaryBlockView.Configuration(titleConfiguration)
 
     private val adapter = SummaryBlockContentAdapter()
-    private lateinit var buttonCollapsedText: CharSequence
-    private lateinit var buttonExpandedText: CharSequence
+    private var buttonCollapsedText: CharSequence? = null
+    private var buttonExpandedText: CharSequence? = null
 
     init {
         View.inflate(context, R.layout.summary_block_content_map, this)
@@ -50,15 +51,25 @@ class SummaryBlockContentMapView : SummaryBlockView {
         setupView()
     }
 
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentMapTitle
+
     fun updateConfiguration(configuration: Configuration) {
+        super.updateConfiguration(configuration)
+
         this.buttonCollapsedText = configuration.buttonCollapsedText
         this.buttonExpandedText = configuration.buttonExpandedText
 
-        summaryBlockContentMapTitle.text = configuration.title
         summaryBlockContentMapDepartureTitle.text = configuration.departureAddress
         summaryBlockContentMapArrivalTitle.text = configuration.arrivalAddress
+
         adapter.updateList(configuration.items)
-        summaryBlockContentViewMoreButton.text = configuration.buttonCollapsedText
+
+        if (shouldDisplayViewMoreButton()) {
+            summaryBlockContentViewMoreButton.visible()
+            summaryBlockContentViewMoreButton.text = buttonCollapsedText
+        } else {
+            summaryBlockContentMapList.visible()
+        }
 
         afterMeasured {
             // Wait for this view to be measured, because we need the dimensions of the imageView to use with Glide.
@@ -96,4 +107,6 @@ class SummaryBlockContentMapView : SummaryBlockView {
             }
         }
     }
+
+    private fun shouldDisplayViewMoreButton() = buttonCollapsedText != null && buttonExpandedText != null
 }
