@@ -21,6 +21,7 @@
     </style>
 
     <style name="SimpleEntryItemTitleStart">
+        <item name="android:gravity">center_vertical</item>
         <item name="android:fontFamily">@font/gt_america_bold</item>
         <item name="android:textColor">@color/component_simple_entry_item_title_start_text</item>
         <item name="android:textSize">@dimen/titleMSize</item>
@@ -30,6 +31,7 @@
     </style>
 
     <style name="SimpleEntryItemDescriptionStart">
+        <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@color/simpleEntryItemDescriptionStartColor</item>
         <item name="android:textSize">@dimen/bodySSize</item>
         <item name="android:singleLine">true</item>
@@ -37,6 +39,7 @@
     </style>
 
     <style name="SimpleEntryItemTitleEnd">
+        <item name="android:gravity">center_vertical</item>
         <item name="android:fontFamily">@font/gt_america_bold</item>
         <item name="android:textColor">@color/component_simple_entry_item_title_end_text</item>
         <item name="android:textSize">@dimen/titleMSize</item>
@@ -45,6 +48,7 @@
     </style>
 
     <style name="SimpleEntryItemTitleEndOptional">
+        <item name="android:gravity">center_vertical</item>
         <item name="android:visibility">gone</item>
         <item name="android:textColor">@color/simpleEntryItemTitleEndOptionalColor</item>
         <item name="android:textSize">@dimen/titleMSize</item>
@@ -53,6 +57,7 @@
     </style>
 
     <style name="SimpleEntryItemDescriptionEnd">
+        <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@color/simpleEntryItemDescriptionEndColor</item>
         <item name="android:textSize">@dimen/bodySSize</item>
         <item name="android:singleLine">true</item>
