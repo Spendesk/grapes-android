@@ -10,6 +10,7 @@ import androidx.annotation.DrawableRes
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 import kotlinx.android.synthetic.main.fragment_bottom_sheet_info.*
 
@@ -26,9 +27,10 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
     class Configuration(
         @DrawableRes val imageResourceId: Int,
         val title: CharSequence,
-        val description: CharSequence?,
-        val primaryButtonText: CharSequence?,
-        val secondaryButtonText: CharSequence?
+        val description: CharSequence? = null,
+        val primaryButtonText: CharSequence? = null,
+        val secondaryButtonText: CharSequence? = null,
+        val shouldShowHandle: Boolean = true
     )
 
     protected var onPrimaryButtonClicked: (() -> Unit)? = null
@@ -73,6 +75,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         actionMessageBottomSheetDescriptionText.visibleWithTextOrGone(configuration.description)
         actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
         actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
+        actionMessageBottomSheetPullView.visibleOrGone(configuration.shouldShowHandle)
     }
 
     private fun bindView() {
