@@ -26,9 +26,9 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
     class Configuration(
         @DrawableRes val imageResourceId: Int,
         val title: CharSequence,
-        val description: CharSequence?,
-        val primaryButtonText: CharSequence?,
-        val secondaryButtonText: CharSequence?
+        val description: CharSequence? = null,
+        val primaryButtonText: CharSequence? = null,
+        val secondaryButtonText: CharSequence? = null
     )
 
     protected var onPrimaryButtonClicked: (() -> Unit)? = null
@@ -73,6 +73,14 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         actionMessageBottomSheetDescriptionText.visibleWithTextOrGone(configuration.description)
         actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
         actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
+    }
+
+    fun setPrimaryButtonEnabled(isEnabled: Boolean) {
+        actionMessageBottomSheetPrimaryButton.isEnabled = isEnabled
+    }
+
+    fun setSecondaryButtonEnabled(isEnabled: Boolean) {
+        actionMessageBottomSheetSecondaryButton.isEnabled = isEnabled
     }
 
     private fun bindView() {
