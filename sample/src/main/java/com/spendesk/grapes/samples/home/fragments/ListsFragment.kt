@@ -32,9 +32,9 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         homeListsSectionItemOneListItem.updateConfiguration(
             SimpleEntryItemView.Configuration(
                 primaryImageUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
-                placeholderPrimaryImage = R.drawable.ic_launcher_background,
+                placeholderPrimaryImage = R.drawable.ic_launcher_foreground,
                 secondaryImageUrl = "https://avatars.githubusercontent.com/u/596985?v=4",
-                placeholderSecondaryImage = R.drawable.ic_launcher_background,
+                placeholderSecondaryImage = R.drawable.ic_launcher_foreground,
                 shouldCircleCropSecondaryImage = true,
                 titleStart = "Supplier",
                 descriptionStart = "Employee name • Description",
@@ -52,7 +52,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         homeListsSectionItemTwoListItem.updateConfiguration(
             SimpleEntryItemView.Configuration(
                 primaryImageUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
-                placeholderPrimaryImage = R.drawable.ic_launcher_background,
+                placeholderPrimaryImage = R.drawable.ic_launcher_foreground,
                 shouldCircleCropPrimaryImage = true,
                 titleStart = "Dany Bouca Nova",
                 isEnabled = false,
