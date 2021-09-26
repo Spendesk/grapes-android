@@ -1,4 +1,4 @@
-package com.spendesk.grapes.component.content.summary
+package com.spendesk.grapes.component.content.summary.block.definition
 
 import android.content.Context
 import android.util.AttributeSet

@@ -146,6 +146,10 @@
     <dimen name="mapBlockAddressDrawablePadding">@dimen/smallMargin</dimen>
     <!-- endregion MapBlock -->
 
+    <!-- region Footer -->
+    <dimen name="summaryFooterBlockMarginTop">40dp</dimen>
+    <!-- endregion Footer -->
+
     <dimen name="itemBlockApproverTitleTextSize">16sp</dimen>
     <dimen name="itemBlockApproverStatusTextMarginHorz">@dimen/smallMargin</dimen>
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
+    <com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
         android:id="@+id/summaryBlockContentResponsibilityCenterTitle"
         style="@style/SummaryBlockContentTitleLayout"
         android:layout_width="0dp"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentResponsibilityCenterTitle"
         tools:text="12 234,89E available of 39 000,00E" />
 
-    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeView
+    <com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeView
         android:id="@+id/summaryBlockContentResponsibilityCenterGaugeView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -57,19 +57,19 @@
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentResponsibilityCenterGaugeView"
         tools:visibility="visible" />
 
-    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeLegendView
+    <com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeLegendView
         android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlowPrimary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:ignore="missingConstraints" />
 
-    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeLegendView
+    <com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeLegendView
         android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlowSecondary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         tools:ignore="missingConstraints" />
 
-    <com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeLegendView
+    <com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeLegendView
         android:id="@+id/summaryBlockContentResponsibilityCenterLegendFlowTertiary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

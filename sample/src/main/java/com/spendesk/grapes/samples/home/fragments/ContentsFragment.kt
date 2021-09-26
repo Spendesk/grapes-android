@@ -3,9 +3,9 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
-import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentMapView
-import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentTextView
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
+import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentMapView
+import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentTextView
 import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel

@@ -17,7 +17,7 @@
         tools:layout_height="240dp"
         tools:src="@drawable/img_mileage_map_example" />
 
-    <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
+    <com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
         android:id="@+id/summaryBlockContentMapTitle"
         style="@style/SummaryBlockContentTitleLayout"
         android:layout_width="0dp"
