@@ -36,13 +36,13 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
                 val data = (listItems[position] as SimpleListModel.Item)
 
                 holder.view.updateConfiguration(data.configuration)
-                holder.view.setOnClickListener { onItemSelected?.invoke(position, data) }
+                if (data.id.isNotEmpty()) holder.view.setOnClickListener { onItemSelected?.invoke(position, data) } else Unit
             }
             is SimpleListAdapterViewHolder.Section -> {
                 val data = (listItems[position] as SimpleListModel.Section)
 
                 holder.view.updateConfiguration(data.configuration)
-                holder.view.setOnClickListener { onItemSelected?.invoke(position, data) }
+                if (data.id.isNotEmpty()) holder.view.setOnClickListener { onItemSelected?.invoke(position, data) } else Unit
             }
         }
 
