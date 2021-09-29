@@ -45,7 +45,8 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                     style = MessageInlineView.Style.WARNING,
                     title = "Missing receipt",
                     drawableStartId = R.drawable.ic_warning
-                )
+                ),
+                isSelected = true
             )
         )
 
@@ -67,6 +68,17 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 titleStart = "Number of kebabs per game",
                 descriptionStart = "C'est vraiment un n00b..",
                 imageAltText = "10"
+            )
+        )
+
+        homeListsSectionItemFifthListItem.updateConfiguration(
+            SimpleEntryItemView.Configuration(
+                primaryImageUrl = "https://avatars.githubusercontent.com/u/596985?v=4",
+                placeholderPrimaryImage = R.drawable.ic_launcher_foreground,
+                shouldCircleCropPrimaryImage = true,
+                titleStart = "Vivien Mahé",
+                descriptionStart = "OIAU OIEJF ODIJF ",
+                isSelected = true
             )
         )
 

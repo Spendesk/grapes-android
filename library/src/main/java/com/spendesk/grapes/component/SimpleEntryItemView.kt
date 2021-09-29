@@ -5,6 +5,7 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.*
@@ -45,17 +46,13 @@ class SimpleEntryItemView : ConstraintLayout {
         val descriptionEnd: CharSequence? = null,
         val messageConfiguration: MessageInlineView.Configuration? = null,
         val isEnabled: Boolean = true,
+        val isSelected: Boolean = false,
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
         val titleEndOptional: CharSequence? = null
     )
 
     init {
         View.inflate(context, R.layout.component_simple_entry_item, this)
-
-        val paddingStart = resources.getDimensionPixelOffset(R.dimen.listEntryItemPaddingStart)
-        val paddingEnd = resources.getDimensionPixelOffset(R.dimen.listEntryItemPaddingEnd)
-        val paddingVert = resources.getDimensionPixelOffset(R.dimen.listEntryItemPaddingVert)
-        setPadding(paddingStart, paddingVert, paddingEnd, paddingVert)
     }
 
     override fun setEnabled(enabled: Boolean) {
@@ -63,6 +60,19 @@ class SimpleEntryItemView : ConstraintLayout {
         simpleEntryItemSecondaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
         simpleEntryItemTitleStart.isEnabled = enabled
         simpleEntryItemTitleEnd.isEnabled = enabled
+    }
+
+    override fun setSelected(selected: Boolean) {
+        super.setSelected(selected)
+
+        setBackgroundColor(ContextCompat.getColor(context, if (selected) R.color.simpleEntryItemBackgroundColorSelected else R.color.simpleEntryItemBackgroundColorDefault))
+
+        simpleEntryItemSelectionMarker.visibleOrInvisible(selected)
+
+        simpleEntryItemTitleStart.isSelected = selected
+        simpleEntryItemTitleEnd.isSelected = selected
+        simpleEntryItemDescriptionStart.isSelected = selected
+        simpleEntryItemDescriptionEnd.isSelected = selected
     }
 
     fun updateConfiguration(configuration: Configuration) {
@@ -125,6 +135,7 @@ class SimpleEntryItemView : ConstraintLayout {
             }
 
         isEnabled = configuration.isEnabled
+        isSelected = configuration.isSelected
 
         when (configuration.titleStartDrawable != ResourcesCompat.ID_NULL) {
             true -> simpleEntryItemTitleStart.setDrawableRight(configuration.titleStartDrawable)

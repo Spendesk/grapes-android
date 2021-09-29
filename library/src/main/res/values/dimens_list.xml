@@ -2,16 +2,23 @@
 <resources>
 
     <!-- region Entry Item -->
-    <dimen name="listEntryItemMinHeight">56dp</dimen>
-    <dimen name="listEntryItemPaddingStart">0dp</dimen>
-    <dimen name="listEntryItemPaddingEnd">16dp</dimen>
-    <dimen name="listEntryItemPaddingVert">12dp</dimen>
+    <dimen name="listEntryItemMinHeight">64dp</dimen>
+    <dimen name="listEntryItemMarginEnd">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemMarginVert">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemSelectorMarkerWidth">@dimen/tinyMargin</dimen>
+    <dimen name="listEntryItemSelectorMarkerMarginEnd">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemImagesMarginEnd">@dimen/normalMargin</dimen>
     <dimen name="listEntryItemPrimaryImageSize">40dp</dimen>
     <dimen name="listEntryItemSecondaryImageSize">24dp</dimen>
-    <dimen name="listEntryItemDescriptionStartMarginHorz">@dimen/normalMargin</dimen>
-    <dimen name="listEntryItemTitleStartMarginHorz">@dimen/smallMargin</dimen>
-    <dimen name="listEntryItemPrimaryImageVerticalHalfGuidelineBegin">36dp</dimen>
-    <dimen name="listEntryItemPrimaryImageHorizontalHalfGuidelineBegin">28dp</dimen>
+    <dimen name="listEntryItemSecondaryImageMarginTop">36dp</dimen>
+    <dimen name="listEntryItemSecondaryImageMarginStart">@dimen/bigMargin</dimen>
+    <dimen name="listEntryItemTitleStartMarginEnd">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemTitleStartDrawablePadding">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginTop">1dp</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginBottom">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginEnd">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemDescriptionEndMarginBottom">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemMessageMarginTop">@dimen/tinyMargin</dimen>
     <!-- endregion List Item -->
 
     <!-- region Section Item -->
