@@ -6,18 +6,7 @@
     android:layout_height="wrap_content"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <View
-        android:id="@+id/simpleEntryItemSelectionMarker"
-        style="@style/SimpleEntryItemSelectorMarker"
-        android:layout_width="@dimen/listEntryItemSelectorMarkerWidth"
-        android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/listEntryItemSelectorMarkerMarginEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemContentStartBarrier"
-        app:layout_constraintHeight_min="@dimen/listEntryItemMinHeight"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible" />
+    <!-- region Barriers -->
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemContentStartBarrier"
@@ -32,6 +21,54 @@
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText,simpleEntryItemTitleStart,simpleEntryItemDescriptionStart, simpleEntryItemDescriptionEnd, simpleEntryItemTitleEnd" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemImageEndBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemTitleEndStartBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="simpleEntryItemTitleEndOptional,simpleEntryItemTitleEnd" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemDescriptionBottomBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemImageAltText" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemDescriptionEndStartBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd" />
+
+    <!-- endregion Barriers -->
+
+    <!-- region Views -->
+
+    <View
+        android:id="@+id/simpleEntryItemSelectionMarker"
+        style="@style/SimpleEntryItemSelectorMarker"
+        android:layout_width="@dimen/listEntryItemSelectorMarkerWidth"
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/listEntryItemSelectorMarkerMarginEnd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemContentStartBarrier"
+        app:layout_constraintHeight_min="@dimen/listEntryItemMinHeight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/simpleEntryItemPrimaryImage"
@@ -75,14 +112,6 @@
         tools:text="10"
         tools:visibility="visible" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemImageEndBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="true"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText" />
-
     <TextView
         android:id="@+id/simpleEntryItemTitleStart"
         style="@style/SimpleEntryItemTitleStart"
@@ -98,13 +127,6 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:drawableEnd="@drawable/ic_clear_round"
         tools:text="Title start here" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemTitleEndStartBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemTitleEndOptional,simpleEntryItemTitleEnd" />
 
     <TextView
         android:id="@+id/simpleEntryItemTitleEndOptional"
@@ -159,22 +181,6 @@
         tools:text="Employee name • Description"
         tools:visibility="visible" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemDescriptionBottomBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="true"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemImageAltText" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemDescriptionEndStartBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="true"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd" />
-
     <TextView
         android:id="@+id/simpleEntryItemDescriptionEnd"
         style="@style/SimpleEntryItemDescriptionEnd"
@@ -213,4 +219,6 @@
         tools:messageStyle="warning"
         tools:text="Missing info"
         tools:visibility="visible" />
+
+    <!-- endregion Views -->
 </merge>
