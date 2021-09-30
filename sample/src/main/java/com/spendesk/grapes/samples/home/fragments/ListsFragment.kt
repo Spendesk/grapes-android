@@ -45,8 +45,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                     style = MessageInlineView.Style.WARNING,
                     title = "Missing receipt",
                     drawableStartId = R.drawable.ic_warning
-                ),
-                isSelected = true
+                )
             )
         )
 

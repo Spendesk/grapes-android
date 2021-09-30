@@ -31,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText,simpleEntryItemTitleStart" />
+        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText,simpleEntryItemTitleStart,simpleEntryItemDescriptionStart, simpleEntryItemDescriptionEnd, simpleEntryItemTitleEnd" />
 
     <ImageView
         android:id="@+id/simpleEntryItemPrimaryImage"
@@ -41,6 +41,7 @@
         android:layout_marginTop="@dimen/listEntryItemMarginVert"
         android:layout_marginEnd="@dimen/listEntryItemImagesMarginEnd"
         android:layout_marginBottom="12dp"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentBottomBarrier"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImageEndBarrier"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,6 +68,7 @@
         android:layout_marginTop="@dimen/listEntryItemMarginVert"
         android:layout_marginEnd="@dimen/listEntryItemImagesMarginEnd"
         android:layout_marginBottom="@dimen/listEntryItemMarginVert"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentBottomBarrier"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImageEndBarrier"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
         app:layout_constraintTop_toTopOf="parent"
@@ -186,7 +188,6 @@
         style="@style/SimpleEntryItemMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/listEntryItemMessageMarginTop"
         android:layout_marginBottom="@dimen/listEntryItemMarginVert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemContentStartBarrier"

@@ -2,7 +2,7 @@
 <resources>
 
     <!-- region Entry Item -->
-    <dimen name="listEntryItemMinHeight">64dp</dimen>
+    <dimen name="listEntryItemMinHeight">45dp</dimen>
     <dimen name="listEntryItemMarginEnd">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemMarginVert">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemSelectorMarkerWidth">@dimen/tinyMargin</dimen>
@@ -18,7 +18,6 @@
     <dimen name="listEntryItemDescriptionStartMarginBottom">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemDescriptionStartMarginEnd">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemDescriptionEndMarginBottom">@dimen/middleMargin</dimen>
-    <dimen name="listEntryItemMessageMarginTop">@dimen/tinyMargin</dimen>
     <!-- endregion List Item -->
 
     <!-- region Section Item -->
