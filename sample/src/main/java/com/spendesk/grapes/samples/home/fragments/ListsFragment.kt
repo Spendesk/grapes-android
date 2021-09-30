@@ -64,8 +64,8 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
         homeListsSectionItemFourListItem.updateConfiguration(
             SimpleEntryItemView.Configuration(
-                titleStart = "Number of kebabs per game",
-                descriptionStart = "C'est vraiment un n00b..",
+                titleStart = "Number of kebabs per game frliufher ifughd oiguh ",
+                descriptionStart = "C'est vraiment un n00b.. eirfuher iugh rdiughd ifguh ",
                 imageAltText = "10"
             )
         )

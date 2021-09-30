@@ -134,6 +134,14 @@
         tools:text="71,03 €"
         tools:visibility="visible" />
 
+    <View
+        android:id="@+id/simpleEntryItemTitleEndAnchor"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEnd"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/simpleEntryItemDescriptionStart"
         style="@style/SimpleEntryItemDescriptionStart"
@@ -183,6 +191,14 @@
         tools:text="12 Sept."
         tools:visibility="visible" />
 
+    <View
+        android:id="@+id/simpleEntryItemDescriptionEndAnchor"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemDescriptionEnd"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.spendesk.grapes.messages.MessageInlineView
         android:id="@+id/simpleEntryItemMessage"
         style="@style/SimpleEntryItemMessage"
@@ -192,6 +208,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemContentStartBarrier"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentBottomBarrier"
+        app:layout_constraintVertical_bias="0.0"
         tools:drawableStart="@drawable/ic_warning"
         tools:messageStyle="warning"
         tools:text="Missing info"
