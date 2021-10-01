@@ -79,38 +79,39 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             isSelected = true
         )
 
-        homeListsSectionItemOneListItem.updateConfiguration(item1Configuration)
-        homeListsSectionItemTwoListItem.updateConfiguration(item2Configuration)
-        homeListsSectionItemThreeListItem.updateConfiguration(item3Configuration)
-        homeListsSectionItemFourListItem.updateConfiguration(item4Configuration)
-        homeListsSectionItemFifthListItem.updateConfiguration(item5Configuration)
+        val item6Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "A single line title",
+            titleEnd = "71,03 €",
+            descriptionEnd = "14 June"
+        )
 
         // Sections
         val section1Configuration = SimpleSectionItemView.Configuration(
             iconStart = R.drawable.ic_crop,
-            startText = "This is right",
-            endText = "This is Left"
+            startText = "This is a primary section",
+            endText = "Right text"
         )
 
         val section2Configuration = SimpleSectionItemView.Configuration(
-            startText = "This is right",
+            startText = "This is a secondary section",
             style = SimpleSectionItemView.Style.SECONDARY
         )
-
-        homeListsSectionItemListOne.updateConfiguration(section1Configuration)
-        homeListsSectionItemListTwo.updateConfiguration(section2Configuration)
 
         // List
         homeListsSectionList.adapter = adapter
 
         adapter.updateList(
             items = listOf(
-                SimpleListModel.Section(id = String.empty(), configuration = section2Configuration),
+                SimpleListModel.Section(id = String.empty(), configuration = section1Configuration),
                 SimpleListModel.Item(id = "1", configuration = item1Configuration),
                 SimpleListModel.Item(id = "2", configuration = item2Configuration),
+                SimpleListModel.Section(id = String.empty(), configuration = section2Configuration),
                 SimpleListModel.Item(id = "3", configuration = item3Configuration),
                 SimpleListModel.Item(id = "4", configuration = item4Configuration),
-                SimpleListModel.Item(id = "5", configuration = item5Configuration)
+                SimpleListModel.Item(id = "5", configuration = item5Configuration),
+                SimpleListModel.Item(id = "6", configuration = item6Configuration),
             )
         )
     }

@@ -43,18 +43,7 @@
     <string name="withLoader" translatable="false">With loader</string>
 
     <!-- Lists -->
-    <string name="listItem" translatable="false">List item</string>
-    <string name="listItemOne" translatable="false">item with all views visible</string>
-    <string name="listItemTwo" translatable="false">item with single line and big image and disabled state</string>
-    <string name="listItemThree" translatable="false">item with single line</string>
-    <string name="listItemFour" translatable="false">item with two lines and text-image</string>
-    <string name="listItemFive" translatable="false">item with two lines and selected state</string>
-    <string name="listItemSix" translatable="false">item #6</string>
-    <string name="listItemSeven" translatable="false">item #7</string>
-    <string name="listSectionItem" translatable="false">List Section item</string>
-    <string name="listSectionItemOne" translatable="false">primary section #1</string>
-    <string name="listSectionItemTwo" translatable="false">secondary section #2</string>
-    <string name="listList" translatable="false">List</string>
+    <string name="listTitle" translatable="false">List</string>
 
     <!-- Contents -->
     <string name="contentMap" translatable="false">Map</string>
