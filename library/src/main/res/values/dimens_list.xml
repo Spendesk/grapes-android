@@ -3,6 +3,8 @@
 
     <!-- region Entry Item -->
     <dimen name="listEntryItemMinHeight">64dp</dimen>
+    <dimen name="listEntryItemMaxHeight">104dp</dimen>
+    <dimen name="listEntryItemMarginStart">@dimen/normalMargin</dimen>
     <dimen name="listEntryItemMarginEnd">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemMarginVert">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemSelectorMarkerWidth">@dimen/tinyMargin</dimen>
@@ -12,12 +14,15 @@
     <dimen name="listEntryItemSecondaryImageSize">24dp</dimen>
     <dimen name="listEntryItemSecondaryImageMarginTop">36dp</dimen>
     <dimen name="listEntryItemSecondaryImageMarginStart">@dimen/bigMargin</dimen>
+    <dimen name="listEntryItemTitleStartMarginStart">@dimen/normalMargin</dimen>
     <dimen name="listEntryItemTitleStartMarginEnd">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemTitleStartDrawablePadding">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemDescriptionStartMarginTop">1dp</dimen>
     <dimen name="listEntryItemDescriptionStartMarginBottom">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginStart">@dimen/normalMargin</dimen>
     <dimen name="listEntryItemDescriptionStartMarginEnd">@dimen/middleMargin</dimen>
     <dimen name="listEntryItemDescriptionEndMarginBottom">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemMessageMarginBottom">@dimen/smallMargin</dimen>
     <!-- endregion List Item -->
 
     <!-- region Section Item -->

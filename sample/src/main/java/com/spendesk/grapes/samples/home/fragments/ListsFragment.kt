@@ -87,6 +87,13 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             descriptionEnd = "14 June"
         )
 
+        val item7Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Full single line",
+            titleEnd = "71,03 €"
+        )
+
         // Sections
         val section1Configuration = SimpleSectionItemView.Configuration(
             iconStart = R.drawable.ic_crop,
@@ -112,6 +119,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 SimpleListModel.Item(id = "4", configuration = item4Configuration),
                 SimpleListModel.Item(id = "5", configuration = item5Configuration),
                 SimpleListModel.Item(id = "6", configuration = item6Configuration),
+                SimpleListModel.Item(id = "7", configuration = item7Configuration),
             )
         )
     }

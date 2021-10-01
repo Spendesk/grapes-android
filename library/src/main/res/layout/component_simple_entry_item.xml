@@ -4,42 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="@dimen/listEntryItemMinHeight"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <!-- region Guidelines -->
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/simpleEntryItemContentHeightGuideline"
+        android:id="@+id/simpleEntryItemMinHeightGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="@dimen/listEntryItemMinHeight" />
+
+    <!-- region Content -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentStartHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/middleMargin" />
+
+    <!-- endregion Content -->
+
+    <!-- region Secondary image -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageStartWidthGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="40dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageEndWidthGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="64dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="36dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="60dp" />
+
+    <!-- endregion Secondary image -->
+
+    <!-- region Texts -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="52dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentTitleDescriptionStartWidthGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="72dp" />
+
+    <!-- endregion Texts -->
 
     <!-- endregion Guidelines -->
 
     <!-- region Barriers -->
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemContentStartBarrier"
+        android:id="@+id/simpleEntryItemImagesEndBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="simpleEntryItemSelectionMarker" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemContentBottomBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="simpleEntryItemContentHeightGuideline,simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText,simpleEntryItemTitleStart,simpleEntryItemDescriptionStart, simpleEntryItemDescriptionEnd, simpleEntryItemTitleEnd" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemImageEndBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="true"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText" />
+        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemImageAltText" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemTitleEndStartBarrier"
@@ -47,14 +94,6 @@
         android:layout_height="wrap_content"
         app:barrierDirection="start"
         app:constraint_referenced_ids="simpleEntryItemTitleEndOptional,simpleEntryItemTitleEnd" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemDescriptionBottomBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierAllowsGoneWidgets="true"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemImageAltText" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemDescriptionEndStartBarrier"
@@ -73,9 +112,7 @@
         style="@style/SimpleEntryItemSelectorMarker"
         android:layout_width="@dimen/listEntryItemSelectorMarkerWidth"
         android:layout_height="0dp"
-        android:layout_marginEnd="@dimen/listEntryItemSelectorMarkerMarginEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemContentStartBarrier"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
@@ -85,13 +122,11 @@
         style="@style/SimpleEntryItemPrimaryImage"
         android:layout_width="@dimen/listEntryItemPrimaryImageSize"
         android:layout_height="@dimen/listEntryItemPrimaryImageSize"
-        android:layout_marginTop="@dimen/listEntryItemMarginVert"
-        android:layout_marginEnd="@dimen/listEntryItemImagesMarginEnd"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentBottomBarrier"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImageEndBarrier"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/listEntryItemMarginStart"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:visibility="visible" />
 
     <ImageView
@@ -99,26 +134,21 @@
         style="@style/SimpleEntryItemSecondaryImage"
         android:layout_width="@dimen/listEntryItemSecondaryImageSize"
         android:layout_height="@dimen/listEntryItemSecondaryImageSize"
-        android:layout_marginStart="@dimen/listEntryItemSecondaryImageMarginStart"
-        android:layout_marginTop="@dimen/listEntryItemSecondaryImageMarginTop"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentBottomBarrier"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentSecondaryImageStartWidthGuideline"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/simpleEntryItemImageAltText"
         style="@style/SimpleEntryItemImageAltText"
         android:layout_width="@dimen/listEntryItemPrimaryImageSize"
         android:layout_height="@dimen/listEntryItemPrimaryImageSize"
-        android:layout_marginTop="@dimen/listEntryItemMarginVert"
-        android:layout_marginEnd="@dimen/listEntryItemImagesMarginEnd"
-        android:layout_marginBottom="@dimen/listEntryItemMarginVert"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentBottomBarrier"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImageEndBarrier"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/listEntryItemMarginStart"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="10"
         tools:visibility="visible" />
 
@@ -127,14 +157,14 @@
         style="@style/SimpleEntryItemTitleStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/listEntryItemMarginVert"
-        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginEnd"
+        android:layout_marginStart="@dimen/listEntryItemImagesMarginEnd"
+        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginStart"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionStart"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEndStartBarrier"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemImageEndBarrier"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:drawableEnd="@drawable/ic_clear_round"
         tools:text="Title start here" />
 
@@ -144,7 +174,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/listEntryItemMarginVert"
-        app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemTitleStart"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
@@ -159,7 +188,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/listEntryItemMarginVert"
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
-        app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemTitleStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEndOptional"
         app:layout_constraintTop_toTopOf="parent"
@@ -179,14 +207,14 @@
         style="@style/SimpleEntryItemDescriptionStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/listEntryItemDescriptionStartMarginStart"
         android:layout_marginTop="@dimen/listEntryItemDescriptionStartMarginTop"
         android:layout_marginEnd="@dimen/listEntryItemDescriptionStartMarginEnd"
-        android:layout_marginBottom="@dimen/listEntryItemDescriptionStartMarginBottom"
         app:layout_constrainedWidth="true"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionBottomBarrier"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemDescriptionEndStartBarrier"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemImageEndBarrier"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemImagesEndBarrier"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleStart"
         tools:text="Employee name • Description"
         tools:visibility="visible" />
@@ -198,9 +226,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/listEntryItemDescriptionStartMarginTop"
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
-        android:layout_marginBottom="@dimen/listEntryItemDescriptionEndMarginBottom"
-        app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemDescriptionStart"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionBottomBarrier"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemDescriptionEndStartBarrier"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
@@ -220,10 +246,11 @@
         style="@style/SimpleEntryItemMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/listEntryItemMarginVert"
+        android:layout_marginStart="@dimen/listEntryItemMarginStart"
+        android:layout_marginBottom="@dimen/listEntryItemMessageMarginBottom"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemContentStartBarrier"
-        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentBottomBarrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemMinHeightGuideline"
         app:layout_constraintVertical_bias="0.0"
         tools:drawableStart="@drawable/ic_warning"
         tools:messageStyle="warning"
