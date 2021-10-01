@@ -53,9 +53,13 @@ class SimpleEntryItemView : ConstraintLayout {
 
     init {
         View.inflate(context, R.layout.component_simple_entry_item, this)
+
+        addRippleEffect()
     }
 
     override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+
         simpleEntryItemPrimaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
         simpleEntryItemSecondaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
         simpleEntryItemTitleStart.isEnabled = enabled
@@ -76,9 +80,6 @@ class SimpleEntryItemView : ConstraintLayout {
     }
 
     fun updateConfiguration(configuration: Configuration) {
-        // Add ripple to the view
-        setBackgroundResource(R.drawable.shape_ripple_rect_solidwhite)
-
         configuration.primaryImageUrl
             ?.let {
                 simpleEntryItemPrimaryImage.visible()

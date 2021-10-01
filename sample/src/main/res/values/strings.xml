@@ -54,6 +54,7 @@
     <string name="listSectionItem" translatable="false">List Section item</string>
     <string name="listSectionItemOne" translatable="false">primary section #1</string>
     <string name="listSectionItemTwo" translatable="false">secondary section #2</string>
+    <string name="listList" translatable="false">List</string>
 
     <!-- Contents -->
     <string name="contentMap" translatable="false">Map</string>

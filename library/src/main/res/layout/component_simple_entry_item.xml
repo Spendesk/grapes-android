@@ -92,7 +92,7 @@
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImageEndBarrier"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
         app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/simpleEntryItemSecondaryImage"
@@ -120,7 +120,7 @@
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentStartBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="10"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/simpleEntryItemTitleStart"
@@ -150,7 +150,7 @@
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="$68,34 • "
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/simpleEntryItemTitleEnd"
@@ -164,7 +164,7 @@
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEndOptional"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="71,03 €"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <View
         android:id="@+id/simpleEntryItemTitleEndAnchor"
@@ -189,7 +189,7 @@
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemImageEndBarrier"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleStart"
         tools:text="Employee name • Description"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/simpleEntryItemDescriptionEnd"
@@ -205,7 +205,7 @@
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemDescriptionEndStartBarrier"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
         tools:text="12 Sept."
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <View
         android:id="@+id/simpleEntryItemDescriptionEndAnchor"
@@ -228,7 +228,7 @@
         tools:drawableStart="@drawable/ic_warning"
         tools:messageStyle="warning"
         tools:text="Missing info"
-        tools:visibility="gone" />
+        tools:visibility="visible" />
 
     <!-- endregion Views -->
 </merge>
