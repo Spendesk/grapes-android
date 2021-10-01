@@ -91,6 +91,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             placeholderPrimaryImage = R.drawable.ic_pencil,
             shouldCircleCropPrimaryImage = true,
             titleStart = "Full single line",
+            titleEndOptional = "$68,34",
             titleEnd = "71,03 €"
         )
 

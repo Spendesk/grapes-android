@@ -173,11 +173,11 @@
         style="@style/SimpleEntryItemTitleEndOptional"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/listEntryItemMarginVert"
+        app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemTitleEnd"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="$68,34 • "
         tools:visibility="visible" />
 
@@ -186,11 +186,11 @@
         style="@style/SimpleEntryItemTitleEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/listEntryItemMarginVert"
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEndOptional"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="71,03 €"
         tools:visibility="visible" />
 
