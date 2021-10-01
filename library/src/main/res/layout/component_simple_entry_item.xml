@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/middleMargin" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemContentStartHeight" />
 
     <!-- endregion Content -->
 
@@ -34,28 +34,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="40dp" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageStartWidthGuideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/simpleEntryItemContentSecondaryImageEndWidthGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="64dp" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageEndWidthGuideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="36dp" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageStartHeightGuideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="60dp" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageStartEndHeightGuideline" />
 
     <!-- endregion Secondary image -->
 
@@ -66,14 +66,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="52dp" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemDescriptionMaxEndHeightGuideline" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/simpleEntryItemContentTitleDescriptionStartWidthGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="72dp" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemDescriptionStartWidthGuideline" />
 
     <!-- endregion Texts -->
 
@@ -122,7 +122,7 @@
         style="@style/SimpleEntryItemPrimaryImage"
         android:layout_width="@dimen/listEntryItemPrimaryImageSize"
         android:layout_height="@dimen/listEntryItemPrimaryImageSize"
-        android:layout_marginStart="@dimen/listEntryItemMarginStart"
+        android:layout_marginStart="@dimen/listEntryItemImagesMarginStart"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImagesEndBarrier"
         app:layout_constraintStart_toStartOf="parent"
@@ -144,7 +144,7 @@
         style="@style/SimpleEntryItemImageAltText"
         android:layout_width="@dimen/listEntryItemPrimaryImageSize"
         android:layout_height="@dimen/listEntryItemPrimaryImageSize"
-        android:layout_marginStart="@dimen/listEntryItemMarginStart"
+        android:layout_marginStart="@dimen/listEntryItemImagesMarginStart"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImagesEndBarrier"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,8 +157,8 @@
         style="@style/SimpleEntryItemTitleStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/listEntryItemImagesMarginEnd"
-        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginStart"
+        android:layout_marginStart="@dimen/listEntryItemTitleStartMarginStart"
+        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginEnd"
         app:layout_constrainedWidth="true"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionStart"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEndStartBarrier"
@@ -224,7 +224,7 @@
         style="@style/SimpleEntryItemDescriptionEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/listEntryItemDescriptionStartMarginTop"
+        android:layout_marginTop="@dimen/listEntryItemDescriptionEndMarginTop"
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
         app:layout_constraintEnd_toEndOf="parent"
