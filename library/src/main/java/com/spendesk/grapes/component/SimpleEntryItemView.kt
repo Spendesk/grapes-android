@@ -45,7 +45,7 @@ class SimpleEntryItemView : ConstraintLayout {
         val titleEnd: CharSequence? = null,
         val descriptionEnd: CharSequence? = null,
         val messageConfiguration: MessageInlineView.Configuration? = null,
-        val isEnabled: Boolean = true,
+        val isGrayedOut: Boolean = false,
         val isSelected: Boolean = false,
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
         val titleEndOptional: CharSequence? = null
@@ -55,15 +55,6 @@ class SimpleEntryItemView : ConstraintLayout {
         View.inflate(context, R.layout.component_simple_entry_item, this)
 
         addRippleEffect()
-    }
-
-    override fun setEnabled(enabled: Boolean) {
-        super.setEnabled(enabled)
-
-        simpleEntryItemPrimaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
-        simpleEntryItemSecondaryImage.alpha = if (enabled) IMAGE_ALPHA_DEFAULT else IMAGE_ALPHA_REDUCED
-        simpleEntryItemTitleStart.isEnabled = enabled
-        simpleEntryItemTitleEnd.isEnabled = enabled
     }
 
     override fun setSelected(selected: Boolean) {
@@ -135,7 +126,7 @@ class SimpleEntryItemView : ConstraintLayout {
                 simpleEntryItemMessage.gone()
             }
 
-        isEnabled = configuration.isEnabled
+        setGrayedOut(isGrayedOut = configuration.isGrayedOut)
         isSelected = configuration.isSelected
 
         when (configuration.titleStartDrawable != ResourcesCompat.ID_NULL) {
@@ -149,5 +140,12 @@ class SimpleEntryItemView : ConstraintLayout {
                 simpleEntryItemTitleEndOptional.visible()
             }
             ?: run { simpleEntryItemTitleEndOptional.gone() }
+    }
+
+    fun setGrayedOut(isGrayedOut: Boolean) {
+        simpleEntryItemPrimaryImage.alpha = if (isGrayedOut) IMAGE_ALPHA_REDUCED else IMAGE_ALPHA_DEFAULT
+        simpleEntryItemSecondaryImage.alpha = if (isGrayedOut) IMAGE_ALPHA_REDUCED else IMAGE_ALPHA_DEFAULT
+        simpleEntryItemTitleStart.isEnabled = isGrayedOut.not()
+        simpleEntryItemTitleEnd.isEnabled = isGrayedOut.not()
     }
 }
