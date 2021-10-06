@@ -3,9 +3,9 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentMapView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentTextView
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
 import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
@@ -85,6 +85,22 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
     }
 
     private fun setupBlockText() {
+        // Text with value and image
+        with(homeButtonSectionTextWithValueAndImageBlock) {
+            updateConfiguration(
+                configuration = SummaryBlockContentTextView.Configuration(
+                    titleConfiguration = SummaryBlockTitleView.Configuration(
+                        startTitle = "Supplier",
+                        endTitle = "Edit"
+                    ),
+                    value = "Dany is grave a supplier",
+                    imageUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
+                    imagePlaceholderResId = R.drawable.ic_launcher_foreground
+                )
+            )
+            onEndTitleTextClicked = { requireActivity().shortToaster("Edit Text with value and image") }
+        }
+
         // Text with value
         with(homeButtonSectionTextWithValueBlock) {
             updateConfiguration(

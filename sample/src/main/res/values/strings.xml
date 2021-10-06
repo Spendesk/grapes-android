@@ -50,6 +50,7 @@
     <string name="contentMapExtended" translatable="false">Extended</string>
     <string name="contentMapCompact" translatable="false">Compact</string>
     <string name="contentText" translatable="false">Text</string>
+    <string name="contentTextWithValueAndImage" translatable="false">With value and image</string>
     <string name="contentTextWithValue" translatable="false">With value</string>
     <string name="contentTextWithoutValue" translatable="false">Without value</string>
 

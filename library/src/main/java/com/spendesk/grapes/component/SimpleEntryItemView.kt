@@ -51,6 +51,9 @@ class SimpleEntryItemView : ConstraintLayout {
         val titleEndOptional: CharSequence? = null
     )
 
+    private val primaryImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.simpleEntryItemBPrimaryImageCornerRadius)
+    private val secondaryImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.simpleEntryItemBSecondaryImageCornerRadius)
+
     init {
         View.inflate(context, R.layout.component_simple_entry_item, this)
 
@@ -77,7 +80,8 @@ class SimpleEntryItemView : ConstraintLayout {
                 simpleEntryItemPrimaryImage.loadFromUrl(
                     url = configuration.primaryImageUrl,
                     errorResId = configuration.placeholderPrimaryImage,
-                    shouldCircleCrop = configuration.shouldCircleCropPrimaryImage
+                    shouldCircleCrop = configuration.shouldCircleCropPrimaryImage,
+                    roundedCorners = if (configuration.shouldCircleCropPrimaryImage) 0 else primaryImageRoundedCornerRadius
                 )
             }
             ?: run {
@@ -99,7 +103,8 @@ class SimpleEntryItemView : ConstraintLayout {
                 simpleEntryItemSecondaryImage.loadFromUrl(
                     url = configuration.secondaryImageUrl,
                     errorResId = configuration.placeholderSecondaryImage,
-                    shouldCircleCrop = configuration.shouldCircleCropSecondaryImage
+                    shouldCircleCrop = configuration.shouldCircleCropSecondaryImage,
+                    roundedCorners = if (configuration.shouldCircleCropSecondaryImage) 0 else secondaryImageRoundedCornerRadius
                 )
             }
             ?: run {
