@@ -1,18 +1,18 @@
-package com.spendesk.grapes.template.header
+package com.spendesk.grapes.component.content.summary
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import com.spendesk.grapes.messages.MessageBlockView
-import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.UserSupplierInlineView
 import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import com.spendesk.grapes.messages.MessageBlockView
+import com.spendesk.grapes.messages.MessageInlineView
 import kotlinx.android.synthetic.main.summary_header.view.*
 
 /**
@@ -31,7 +31,7 @@ class SummaryHeaderView : ConstraintLayout {
         val userSupplierInlineConfiguration: UserSupplierInlineView.Configuration? = null,
         val amount: CharSequence,
         val amountSubtitle: CharSequence? = null,
-        val description: CharSequence,
+        val description: CharSequence? = null,
         val descriptionSubtitle: CharSequence? = null,
         val typeConfiguration: MessageInlineView.Configuration,
         val messageBlockConfiguration: MessageBlockView.Configuration? = null
@@ -53,7 +53,7 @@ class SummaryHeaderView : ConstraintLayout {
         // Amount and description
         summaryHeaderExpenseAmountTitle.text = configuration.amount
         summaryHeaderExpenseAmountSubtitle.visibleWithTextOrGone(configuration.amountSubtitle)
-        summaryHeaderExpenseDescriptionTitle.text = configuration.description
+        summaryHeaderExpenseDescriptionTitle.visibleWithTextOrGone(configuration.description)
         summaryHeaderExpenseDescriptionSubtitle.visibleWithTextOrGone(configuration.descriptionSubtitle)
 
         // Type
@@ -71,6 +71,6 @@ class SummaryHeaderView : ConstraintLayout {
     }
 
     private fun setupView() {
-        setBackgroundColor(ContextCompat.getColor(context, R.color.templateHeaderExpenseBackground))
+        setBackgroundColor(ContextCompat.getColor(context, R.color.summaryHeaderExpenseBackground))
     }
 }

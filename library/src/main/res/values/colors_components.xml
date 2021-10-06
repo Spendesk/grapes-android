@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- region Simple Entry Item -->
+    <color name="simpleEntryItemBackgroundColorDefault">@color/white</color>
+    <color name="simpleEntryItemBackgroundColorSelected">@color/mainPrimaryLightest</color>
+    <color name="simpleEntryItemSelectorMarkerBackgroundColor">@color/mainPrimaryNormal</color>
     <color name="simpleEntryItemImageAltTextBackgroundColor">@color/mainInfoNormal</color>
     <color name="simpleEntryItemImageAltTextColor">@color/white</color>
     <color name="simpleEntryItemTitleStartColorDefault">@color/mainComplementary</color>
     <color name="simpleEntryItemTitleStartColorDisabled">@color/mainNeutralDarker</color>
-    <color name="simpleEntryItemDescriptionStartColor">@color/mainNeutralDarker</color>
+    <color name="simpleEntryItemTitleStartColorSelected">@color/mainPrimaryNormal</color>
+    <color name="simpleEntryItemDescriptionStartColorDefault">@color/mainNeutralDarker</color>
+    <color name="simpleEntryItemDescriptionStartColorSelected">@color/mainPrimaryLight</color>
     <color name="simpleEntryItemTitleEndColorDefault">@color/mainComplementary</color>
     <color name="simpleEntryItemTitleEndColorDisabled">@color/mainNeutralDarker</color>
     <color name="simpleEntryItemTitleEndOptionalColor">@color/mainNeutralDarker</color>

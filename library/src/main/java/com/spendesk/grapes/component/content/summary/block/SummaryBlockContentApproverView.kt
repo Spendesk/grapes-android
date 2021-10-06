@@ -1,20 +1,20 @@
-package com.spendesk.grapes.component.content.summary.noneditable
+package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import com.spendesk.grapes.R
-import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
-import com.spendesk.grapes.component.content.summary.SummaryBlockView
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockView
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
-import kotlinx.android.synthetic.main.summary_block_content_inline.view.*
+import kotlinx.android.synthetic.main.summary_block_content_approver.view.*
 
 /**
  * @author Vivien Mahe
  * @since 07/01/2021
  */
-class SummaryBlockContentInlineView : SummaryBlockView {
+class SummaryBlockContentApproverView : SummaryBlockView {
 
     //region constructors
     constructor(context: Context) : super(context)
@@ -24,18 +24,18 @@ class SummaryBlockContentInlineView : SummaryBlockView {
 
     class Configuration(
         titleConfiguration: SummaryBlockTitleView.Configuration,
-        val items: List<SummaryBlockContentModel.InlineKeyValue>
+        val items: List<SummaryBlockContentModel.ApproverStatus>
     ) : SummaryBlockView.Configuration(titleConfiguration)
 
     private val adapter = SummaryBlockContentAdapter()
 
     init {
-        View.inflate(context, R.layout.summary_block_content_inline, this)
+        View.inflate(context, R.layout.summary_block_content_approver, this)
 
-        summaryBlockContentInlineList.adapter = adapter
+        summaryBlockContentApproverList.adapter = adapter
     }
 
-    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentInlineTitle
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentApproverTitle
 
     fun updateConfiguration(configuration: Configuration) {
         super.updateConfiguration(configuration)

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SummaryHeaderExpenseUserSupplier">
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="SummaryHeaderExpenseAmountTitleText">
+        <item name="android:textColor">@color/summaryHeaderExpenseAmountTitleText</item>
+        <item name="android:textSize">@dimen/summaryHeaderExpenseAmountTitleTextSize</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="SummaryHeaderExpenseAmountSubtitleText">
+        <item name="android:textColor">@color/summaryHeaderExpenseAmountSubtitleText</item>
+        <item name="android:textSize">@dimen/summaryHeaderExpenseAmountSubtitleTextSize</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+    <style name="SummaryHeaderExpenseDescriptionTitleText">
+        <item name="android:textColor">@color/summaryHeaderExpenseDescriptionTitleText</item>
+        <item name="android:textSize">@dimen/summaryHeaderExpenseDescriptionTitleTextSize</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+    </style>
+
+    <style name="SummaryHeaderExpenseDescriptionSubtitleText">
+        <item name="android:textColor">@color/summaryHeaderExpenseDescriptionSubtitleText</item>
+        <item name="android:textSize">@dimen/summaryHeaderExpenseDescriptionSubtitleTextSize</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+    </style>
+
+    <style name="SummaryHeaderExpenseDenyReasonMessage">
+        <item name="messageStyle">alert</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="SummaryHeaderExpenseBottomSeparator">
+        <item name="android:background">@color/summaryHeaderExpenseBottomSeparator</item>
+    </style>
+</resources>

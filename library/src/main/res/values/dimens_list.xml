@@ -2,16 +2,28 @@
 <resources>
 
     <!-- region Entry Item -->
-    <dimen name="listEntryItemMinHeight">56dp</dimen>
-    <dimen name="listEntryItemPaddingStart">0dp</dimen>
-    <dimen name="listEntryItemPaddingEnd">16dp</dimen>
-    <dimen name="listEntryItemPaddingVert">12dp</dimen>
+    <dimen name="listEntryItemMinHeight">64dp</dimen>
+    <dimen name="listEntryItemContentStartHeight">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemMarginStart">@dimen/normalMargin</dimen>
+    <dimen name="listEntryItemMarginEnd">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemSelectorMarkerWidth">@dimen/tinyMargin</dimen>
+    <dimen name="listEntryItemImagesMarginStart">@dimen/normalMargin</dimen>
+    <dimen name="listEntryItemTitleStartMarginStart">@dimen/normalMargin</dimen>
     <dimen name="listEntryItemPrimaryImageSize">40dp</dimen>
     <dimen name="listEntryItemSecondaryImageSize">24dp</dimen>
-    <dimen name="listEntryItemDescriptionStartMarginHorz">@dimen/normalMargin</dimen>
-    <dimen name="listEntryItemTitleStartMarginHorz">@dimen/smallMargin</dimen>
-    <dimen name="listEntryItemPrimaryImageVerticalHalfGuidelineBegin">36dp</dimen>
-    <dimen name="listEntryItemPrimaryImageHorizontalHalfGuidelineBegin">28dp</dimen>
+    <dimen name="listEntryItemSecondaryImageStartWidthGuideline">40dp</dimen>
+    <dimen name="listEntryItemSecondaryImageEndWidthGuideline">64dp</dimen>
+    <dimen name="listEntryItemSecondaryImageStartHeightGuideline">36dp</dimen>
+    <dimen name="listEntryItemSecondaryImageStartEndHeightGuideline">60dp</dimen>
+    <dimen name="listEntryItemTitleStartMarginEnd">@dimen/normalMargin</dimen>
+    <dimen name="listEntryItemTitleStartDrawablePadding">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginTop">1dp</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginStart">@dimen/normalMargin</dimen>
+    <dimen name="listEntryItemDescriptionStartMarginEnd">@dimen/middleMargin</dimen>
+    <dimen name="listEntryItemDescriptionMaxEndHeightGuideline">52dp</dimen>
+    <dimen name="listEntryItemDescriptionStartWidthGuideline">72dp</dimen>
+    <dimen name="listEntryItemDescriptionEndMarginTop">1dp</dimen>
+    <dimen name="listEntryItemMessageMarginBottom">@dimen/smallMargin</dimen>
     <!-- endregion List Item -->
 
     <!-- region Section Item -->

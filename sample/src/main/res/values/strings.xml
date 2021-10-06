@@ -43,17 +43,7 @@
     <string name="withLoader" translatable="false">With loader</string>
 
     <!-- Lists -->
-    <string name="listItem" translatable="false">List item</string>
-    <string name="listItemOne" translatable="false">item #1</string>
-    <string name="listItemTwo" translatable="false">item #2</string>
-    <string name="listItemThree" translatable="false">item #3</string>
-    <string name="listItemFour" translatable="false">item #4</string>
-    <string name="listItemFive" translatable="false">item #5</string>
-    <string name="listItemSix" translatable="false">item #6</string>
-    <string name="listItemSeven" translatable="false">item #7</string>
-    <string name="listSectionItem" translatable="false">List Section item</string>
-    <string name="listSectionItemOne" translatable="false">primary section #1</string>
-    <string name="listSectionItemTwo" translatable="false">secondary section #2</string>
+    <string name="listTitle" translatable="false">List</string>
 
     <!-- Contents -->
     <string name="contentMap" translatable="false">Map</string>

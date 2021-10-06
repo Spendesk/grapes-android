@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="summaryFooterTitleText">@color/mainNeutralDarkest</color>
+    <color name="summaryFooterSubtitleText">@color/mainNeutralDarker</color>
+</resources>

@@ -5,11 +5,15 @@ import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.RippleDrawable
 import android.graphics.drawable.StateListDrawable
+import android.os.Build
+import android.util.TypedValue
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
+import androidx.core.content.ContextCompat
 
 /**
  * [View] related extensions.
@@ -146,4 +150,14 @@ inline fun View.afterMeasured(crossinline func: View.() -> Unit) {
 
 fun View.setPaddingTop(paddingTop: Int) {
     setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
+}
+
+fun View.addRippleEffect() {
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+        foreground = ContextCompat.getDrawable(context, outValue.resourceId)
+    }
+    isClickable = true
+    isFocusable = true
 }

@@ -1,12 +1,12 @@
-package com.spendesk.grapes.component.content.summary.noneditable
+package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import com.spendesk.grapes.R
-import com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
-import com.spendesk.grapes.component.content.summary.SummaryBlockView
-import com.spendesk.grapes.component.content.summary.noneditable.SummaryBlockContentResponsibilityCenterGaugeView.Constants.MAX_GAUGES
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockView
+import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeView.Constants.MAX_GAUGES
 import com.spendesk.grapes.extensions.visibleOrGone
 import kotlinx.android.synthetic.main.summary_block_content_responsibility_center.view.*
 

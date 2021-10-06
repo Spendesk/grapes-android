@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="summaryHeaderExpenseMarginHorz">16dp</dimen>
+    <dimen name="summaryHeaderExpenseAmountTitleMarginTop">28dp</dimen>
+    <dimen name="summaryHeaderExpenseAmountTitleTextSize">40sp</dimen>
+    <dimen name="summaryHeaderExpenseAmountSubtitleMarginTop">4dp</dimen>
+    <dimen name="summaryHeaderExpenseAmountSubtitleTextSize">16sp</dimen>
+    <dimen name="summaryHeaderExpenseDescriptionMarginTop">24dp</dimen>
+    <dimen name="summaryHeaderExpenseDescriptionTitleTextSize">24sp</dimen>
+    <dimen name="summaryHeaderExpenseDescriptionSubtitleMarginTop">8dp</dimen>
+    <dimen name="summaryHeaderExpenseDescriptionSubtitleTextSize">16sp</dimen>
+    <dimen name="summaryHeaderExpenseTypeMessageMarginTop">40dp</dimen>
+    <dimen name="summaryHeaderExpenseDenyReasonMessageMarginTop">@dimen/normalMargin</dimen>
+    <dimen name="summaryHeaderExpenseBottomSeparatorMarginTop">16dp</dimen>
+    <dimen name="summaryHeaderExpenseBottomSeparatorSize">0.5dp</dimen>
+</resources>

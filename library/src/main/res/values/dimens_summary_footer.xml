@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="summaryFooterMarginHorz">16dp</dimen>
+    <dimen name="summaryFooterTitleMarginTop">40dp</dimen>
+    <dimen name="summaryFooterSubtitleMarginTop">@dimen/smallMargin</dimen>
+    <dimen name="summaryFooterTitleTextSize">14sp</dimen>
+    <dimen name="summaryFooterSubtitleTextSize">14sp</dimen>
+</resources>

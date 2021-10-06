@@ -1,4 +1,4 @@
-package com.spendesk.grapes.component.content.summary.noneditable
+package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
