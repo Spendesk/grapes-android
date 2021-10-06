@@ -15,9 +15,12 @@
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="MessageBlockSignatureImage"></style>
+    <style name="MessageBlockSignatureImage">
+        <item name="android:visibility">gone</item>
+    </style>
 
     <style name="MessageBlockSignatureText">
+        <item name="android:visibility">gone</item>
         <item name="android:textSize">@dimen/messageBlockSignatureTextSize</item>
         <item name="android:textColor">@color/messageBlockSignatureText</item>
         <item name="android:singleLine">true</item>
