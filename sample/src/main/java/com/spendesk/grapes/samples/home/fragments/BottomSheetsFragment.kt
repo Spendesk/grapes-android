@@ -85,7 +85,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                 )
             )
             .apply {
-                onItemClicked = { with(requireActivity()) { runOnUiThread { shortToaster("Search result clicked: $it"); dismiss() } } }
-                onSearchInputChanged = { with(requireActivity()) { runOnUiThread { shortToaster("Search input: $it") } } }
+                onItemClicked = { requireActivity().shortToaster("Search result clicked: $it"); dismiss() }
+                onSearchInputChanged = { requireActivity().shortToaster("Search input: $it") }
             }
 }

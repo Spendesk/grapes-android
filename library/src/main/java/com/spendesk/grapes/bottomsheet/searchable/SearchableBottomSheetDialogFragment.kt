@@ -150,11 +150,11 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private fun bindView() {
         binding?.apply {
             searchableSheetHeaderCloseButton.setOnClickListener { dismiss() }
-            searchableSheetInputSearch.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { onSearchInputChanged?.invoke(it.trim()) }
+            searchableSheetInputSearch.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { with(requireActivity()) { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
         }
 
         with(adapter) {
-            onItemSelected = { _, item -> onItemClicked?.invoke(item) }
+            onItemSelected = { _, item -> with(requireActivity()) { runOnUiThread { onItemClicked?.invoke(item) } } }
         }
     }
 }
