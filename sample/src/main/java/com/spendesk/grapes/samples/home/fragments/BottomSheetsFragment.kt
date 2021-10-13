@@ -44,7 +44,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
             val item3Configuration = SimpleEntryItemView.Configuration(titleStart = "C LA KIFFANCE")
             val item4Configuration = SimpleEntryItemView.Configuration(titleStart = "C LE KEBAB")
 
-            val searchableBottomSheetDialogFragment = createSearchableBottomSheetFragment().apply {
+            createSearchableBottomSheetFragment().apply {
                 updateViewState(
                     viewState = SearchableBottomSheetDialogFragmentViewState.Content(
                         items = listOf(
@@ -63,7 +63,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
 
         // Searchable with ViewState.Empty
         homeBottomSheetsSectionSearchableEmptyButton.setOnClickListener {
-            val searchableBottomSheetDialogFragment = createSearchableBottomSheetFragment().apply {
+            createSearchableBottomSheetFragment().apply {
                 updateViewState(
                     viewState = SearchableBottomSheetDialogFragmentViewState.Empty(
                         title = "This is an empty state",
