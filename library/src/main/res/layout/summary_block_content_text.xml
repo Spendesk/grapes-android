@@ -17,9 +17,29 @@
         tools:titleEnd="Action"
         tools:titleStart="My name is title, Head Title" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/summaryBlockContentStartGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/inlineBlockContentListMarginHorz" />
+
+    <ImageView
+        android:id="@+id/summaryBlockContentImage"
+        style="@style/SummaryBlockTextImage"
+        android:layout_width="@dimen/inlineBlockViewImageSize"
+        android:layout_height="@dimen/inlineBlockViewImageSize"
+        android:layout_marginBottom="@dimen/inlineBlockContentListMarginVert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentValueText"
+        app:layout_constraintStart_toEndOf="@id/summaryBlockContentStartGuideline"
+        app:layout_constraintTop_toBottomOf="@id/summaryBlockContentTextTitle"
+        tools:src="@drawable/ic_avatar_placeholder"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/summaryBlockContentValueText"
-        style="@style/TextValue"
+        style="@style/SummaryBlockTextValue"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/inlineBlockContentListMarginHorz"
@@ -27,7 +47,8 @@
         android:layout_marginBottom="@dimen/inlineBlockContentListMarginVert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/summaryBlockContentImage"
         app:layout_constraintTop_toBottomOf="@id/summaryBlockContentTextTitle"
+        app:layout_goneMarginStart="0dp"
         tools:text="Value is there but it can be here or even whatever you want, that is not an issue here." />
 </androidx.constraintlayout.widget.ConstraintLayout>

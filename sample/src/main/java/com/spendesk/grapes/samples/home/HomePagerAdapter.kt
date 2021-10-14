@@ -24,6 +24,7 @@ class HomePagerAdapter(
             is HomeTabItem.Inputs -> InputsFragment.newInstance()
             is HomeTabItem.Lists -> ListsFragment.newInstance()
             is HomeTabItem.Contents -> ContentsFragment.newInstance()
+            is HomeTabItem.BottomSheets -> BottomSheetsFragment.newInstance()
             is HomeTabItem.Avatars,
             is HomeTabItem.Messages,
             is HomeTabItem.Modals -> throw IllegalStateException("Cannot resolve the item (name: ${item::class.java.simpleName}. This item is not yet resolved is not handled")

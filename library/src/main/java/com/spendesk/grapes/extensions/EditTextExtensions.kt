@@ -1,10 +1,15 @@
 package com.spendesk.grapes.extensions
 
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.MotionEvent
+import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import com.spendesk.grapes.R
+import java.util.*
+import kotlin.concurrent.schedule
 
 /**
  * @author danyboucanova
@@ -28,3 +33,17 @@ fun AppCompatEditText.setupClearButtonWithAction() {
         return@OnTouchListener false
     }
 }
+
+fun EditText.afterTextChangedWith(delay: Long, consumer: (String) -> Unit) =
+    addTextChangedListener(object : TextWatcher {
+        var timer = Timer()
+
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+        override fun afterTextChanged(editable: Editable?) {
+            timer.cancel()
+            timer = Timer().apply { schedule(delay) { editable?.let { consumer(it.toString()) } } }
+        }
+    })

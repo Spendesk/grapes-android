@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- region Groups -->
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/searchableSheetEmptyStateGroup"
+        style="@style/BottomSheetSearchableEmptyStateGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="searchableSheetEmptyStateImage,searchableSheetEmptyStateTitleText"
+        tools:visibility="visible" />
+
+    <!-- endregion Groups -->
+
+    <ImageView
+        android:id="@+id/searchableSheetHeaderCloseButton"
+        style="@style/BottomSheetHeaderCloseButton"
+        android:layout_width="?attr/actionBarSize"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintBottom_toTopOf="@id/searchableSheetHeaderGuideline"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/searchableSheetHeaderTitle"
+        style="@style/BottomSheetHeaderTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="?attr/actionBarSize"
+        android:layout_marginEnd="?attr/actionBarSize"
+        app:layout_constraintBottom_toTopOf="@+id/searchableSheetHeaderGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Title" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/searchableSheetHeaderGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="?attr/actionBarSize" />
+
+    <com.spendesk.grapes.inputs.InputSearchMain
+        android:id="@+id/searchableSheetInputSearch"
+        style="@style/BottomSheetSearchableInputSearch"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/bottomSheetVerticalMargin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchableSheetHeaderGuideline" />
+
+    <com.spendesk.grapes.list.simple.SimpleListView
+        android:id="@+id/searchableSheetList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/bottomSheetListMarginTop"
+        android:layout_marginBottom="@dimen/bottomSheetVerticalMargin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchableSheetInputSearch" />
+
+    <ImageView
+        android:id="@+id/searchableSheetEmptyStateImage"
+        android:layout_width="@dimen/actionMessageBottomSheetImageSize"
+        android:layout_height="@dimen/actionMessageBottomSheetImageSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchableSheetInputSearch"
+        tools:src="@drawable/ic_status_info" />
+
+    <TextView
+        android:id="@+id/searchableSheetEmptyStateTitleText"
+        style="@style/BottomSheetSearchableEmptyStateTitleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/bottomSheetContentMarginHorz"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetTitleMarginVert"
+        android:layout_marginEnd="@dimen/bottomSheetContentMarginHorz"
+        android:layout_marginBottom="@dimen/actionMessageBottomSheetTitleMarginVert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/searchableSheetEmptyStateImage"
+        tools:text="No result matched your search!" />
+</androidx.constraintlayout.widget.ConstraintLayout>

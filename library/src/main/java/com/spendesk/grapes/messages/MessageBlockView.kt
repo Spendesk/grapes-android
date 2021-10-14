@@ -14,9 +14,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
 import com.spendesk.grapes.R
-import com.spendesk.grapes.extensions.setDrawable
-import com.spendesk.grapes.extensions.setDrawableLeft
-import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import com.spendesk.grapes.extensions.*
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import kotlinx.android.synthetic.main.message_block_view.view.*
 
@@ -88,7 +86,9 @@ class MessageBlockView : ConstraintLayout {
         configuration.drawableStartId?.let { setTitleDrawable(it) }
         setDescription(configuration.description)
         setSignatureText(configuration.signatureText)
-        setSignatureDrawable(url = configuration.signatureDrawableUrl, placeholderResId = configuration.signatureDrawablePlaceholderResId)
+        configuration.signatureText
+            ?.let { setSignatureDrawable(url = configuration.signatureDrawableUrl, placeholderResId = configuration.signatureDrawablePlaceholderResId) }
+            ?: run { messageBlockSignatureImage.gone() }
     }
 
     /**
@@ -132,11 +132,16 @@ class MessageBlockView : ConstraintLayout {
     }
 
     fun setSignatureDrawable(url: String?, placeholderResId: Int? = 0) {
-        messageBlockSignatureImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = true)
+        if (url != null || placeholderResId != null) {
+            messageBlockSignatureImage.visible()
+            messageBlockSignatureImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = true)
+        } else {
+            messageBlockSignatureImage.gone()
+        }
     }
 
     fun setSignatureDrawable(drawable: Drawable?) {
-        messageBlockSignatureImage.setImageDrawable(drawable)
+        drawable?.let { messageBlockSignatureImage.setImageDrawable(it) }
     }
 
     private fun initView(attributeSet: AttributeSet?) {

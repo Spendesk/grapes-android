@@ -7,6 +7,7 @@
     <string name="inputs" translatable="false">Inputs</string>
     <string name="lists" translatable="false">Lists</string>
     <string name="contents" translatable="false">Contents</string>
+    <string name="bottomSheets" translatable="false">Bottom Sheets</string>
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>
@@ -50,7 +51,14 @@
     <string name="contentMapExtended" translatable="false">Extended</string>
     <string name="contentMapCompact" translatable="false">Compact</string>
     <string name="contentText" translatable="false">Text</string>
+    <string name="contentTextWithValueAndImage" translatable="false">With value and image</string>
     <string name="contentTextWithValue" translatable="false">With value</string>
     <string name="contentTextWithoutValue" translatable="false">Without value</string>
+
+    <!-- BottomSheets -->
+    <string name="bottomSheetsSearchableTitle" translatable="false">Searchable bottom sheet</string>
+    <string name="bottomSheetSearchableViewStateContentButton" translatable="false">Searchable with viewState.Content</string>
+    <string name="bottomSheetSearchableViewStateEmptyButton" translatable="false">Searchable with viewState.Empty</string>
+    <string name="bottomSheetsEditableTitle" translatable="false">Editable bottom sheet</string>
 
 </resources>

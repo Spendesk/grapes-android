@@ -8,7 +8,7 @@
 
     <View
         android:id="@+id/actionMessageBottomSheetPullView"
-        style="@style/ActionMessageBottomSheetPullView"
+        style="@style/BottomSheetPullView"
         android:layout_width="@dimen/actionMessageBottomSheetPullViewWidth"
         android:layout_height="@dimen/actionMessageBottomSheetPullViewHeight"
         android:layout_marginTop="@dimen/actionMessageBottomSheetPullMarginTop"
