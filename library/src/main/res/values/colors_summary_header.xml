@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="summaryHeaderExpenseBackground">@color/white</color>
+    <color name="summaryHeaderExpenseAmountTitleText">@color/mainComplementary</color>
+    <color name="summaryHeaderExpenseAmountSubtitleText">@color/mainNeutralDarker</color>
+    <color name="summaryHeaderExpenseDescriptionTitleText">@color/mainComplementary</color>
+    <color name="summaryHeaderExpenseDescriptionSubtitleText">@color/mainNeutralDarker</color>
+    <color name="summaryHeaderExpenseBottomSeparator">@color/mainNeutralLight</color>
+</resources>

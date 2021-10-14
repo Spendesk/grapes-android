@@ -33,8 +33,14 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         val shouldShowHandle: Boolean = true
     )
 
+    // region Observable properties
+
     protected var onPrimaryButtonClicked: (() -> Unit)? = null
     protected var onSecondaryButtonClicked: (() -> Unit)? = null
+
+    // endregion Observable properties
+
+    override fun getTheme(): Int = R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -62,10 +68,6 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         super.onViewCreated(view, savedInstanceState)
 
         bindView()
-    }
-
-    override fun getTheme(): Int {
-        return R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
     }
 
     fun updateConfiguration(configuration: Configuration) {

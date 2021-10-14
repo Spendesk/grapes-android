@@ -7,6 +7,7 @@
     <string name="inputs" translatable="false">Inputs</string>
     <string name="lists" translatable="false">Lists</string>
     <string name="contents" translatable="false">Contents</string>
+    <string name="bottomSheets" translatable="false">Bottom Sheets</string>
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>
@@ -43,24 +44,21 @@
     <string name="withLoader" translatable="false">With loader</string>
 
     <!-- Lists -->
-    <string name="listItem" translatable="false">List item</string>
-    <string name="listItemOne" translatable="false">item #1</string>
-    <string name="listItemTwo" translatable="false">item #2</string>
-    <string name="listItemThree" translatable="false">item #3</string>
-    <string name="listItemFour" translatable="false">item #4</string>
-    <string name="listItemFive" translatable="false">item #5</string>
-    <string name="listItemSix" translatable="false">item #6</string>
-    <string name="listItemSeven" translatable="false">item #7</string>
-    <string name="listSectionItem" translatable="false">List Section item</string>
-    <string name="listSectionItemOne" translatable="false">primary section #1</string>
-    <string name="listSectionItemTwo" translatable="false">secondary section #2</string>
+    <string name="listTitle" translatable="false">List</string>
 
     <!-- Contents -->
     <string name="contentMap" translatable="false">Map</string>
     <string name="contentMapExtended" translatable="false">Extended</string>
     <string name="contentMapCompact" translatable="false">Compact</string>
     <string name="contentText" translatable="false">Text</string>
+    <string name="contentTextWithValueAndImage" translatable="false">With value and image</string>
     <string name="contentTextWithValue" translatable="false">With value</string>
     <string name="contentTextWithoutValue" translatable="false">Without value</string>
+
+    <!-- BottomSheets -->
+    <string name="bottomSheetsSearchableTitle" translatable="false">Searchable bottom sheet</string>
+    <string name="bottomSheetSearchableViewStateContentButton" translatable="false">Searchable with viewState.Content</string>
+    <string name="bottomSheetSearchableViewStateEmptyButton" translatable="false">Searchable with viewState.Empty</string>
+    <string name="bottomSheetsEditableTitle" translatable="false">Editable bottom sheet</string>
 
 </resources>

@@ -33,14 +33,15 @@
 
     <ImageView
         android:id="@+id/messageBlockSignatureImage"
+        style="@style/MessageBlockSignatureImage"
         android:layout_width="@dimen/messageBlockSignatureDrawableSize"
         android:layout_height="@dimen/messageBlockSignatureDrawableSize"
         android:layout_marginTop="@dimen/messageBlockSignatureMarginTop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/messageBlockSignatureImage"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/messageBlockDescription"
-        tools:src="@drawable/ic_request_type_single_purchase" />
+        tools:src="@drawable/ic_request_type_single_purchase"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/messageBlockSignatureText"
@@ -49,9 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/messageBlockSignatureTextMarginStart"
         android:layout_marginTop="@dimen/messageBlockSignatureMarginTop"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/messageBlockSignatureImage"
         app:layout_constraintTop_toBottomOf="@id/messageBlockDescription"
-        tools:text="Jean-Michel Octane" />
+        tools:text="Jean-Michel Octane"
+        tools:visibility="visible" />
 </merge>

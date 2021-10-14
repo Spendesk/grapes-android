@@ -3,6 +3,11 @@
 
     <!-- region Simple Entry Item -->
 
+    <style name="SimpleEntryItemSelectorMarker">
+        <item name="android:visibility">gone</item>
+        <item name="android:background">@color/simpleEntryItemSelectorMarkerBackgroundColor</item>
+    </style>
+
     <style name="SimpleEntryItemPrimaryImage">
         <item name="android:visibility">gone</item>
     </style>
@@ -27,12 +32,12 @@
         <item name="android:textSize">@dimen/titleMSize</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
-        <item name="android:drawablePadding">@dimen/middleMargin</item>
+        <item name="android:drawablePadding">@dimen/listEntryItemTitleStartDrawablePadding</item>
     </style>
 
     <style name="SimpleEntryItemDescriptionStart">
         <item name="android:gravity">center_vertical</item>
-        <item name="android:textColor">@color/simpleEntryItemDescriptionStartColor</item>
+        <item name="android:textColor">@color/component_simple_entry_item_description_start_text</item>
         <item name="android:textSize">@dimen/bodySSize</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>

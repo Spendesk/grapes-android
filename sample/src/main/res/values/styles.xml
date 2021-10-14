@@ -33,4 +33,5 @@
         <item name="android:textSize">@dimen/homeGenericSubtitleSize</item>
         <item name="android:textColor">@color/homeGenericSubtitleColor</item>
     </style>
+
 </resources>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.spendesk.grapes.component.content.summary.SummaryBlockTitleView
+    <com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
         android:id="@+id/summaryBlockContentInlineTitle"
         style="@style/SummaryBlockContentTitleLayout"
         android:layout_width="0dp"

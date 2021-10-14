@@ -1,6 +1,7 @@
 package com.spendesk.grapes.extensions
 
 import android.app.Activity
+import android.util.DisplayMetrics
 import android.view.Gravity
 import android.widget.TextView
 import android.widget.Toast
@@ -30,3 +31,16 @@ private fun Activity.createToaster(message: CharSequence, duration: Int) =
                 show()
             }
         }
+
+fun Activity.getWidth(): Int =
+    DisplayMetrics().let { displayMetrics ->
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        displayMetrics.widthPixels
+    }
+
+
+fun Activity.getHeight(): Int =
+    DisplayMetrics().let { displayMetrics ->
+        windowManager.defaultDisplay.getMetrics(displayMetrics)
+        displayMetrics.heightPixels
+    }

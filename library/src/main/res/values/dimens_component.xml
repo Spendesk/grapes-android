@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- region Simple Entry Item -->
+    <dimen name="simpleEntryItemBPrimaryImageCornerRadius">6dp</dimen>
+    <dimen name="simpleEntryItemBSecondaryImageCornerRadius">4dp</dimen>
     <dimen name="simpleEntryItemImageAltTextCornerRadius">30dp</dimen>
     <!-- endregion Simple Entry Item -->
 </resources>

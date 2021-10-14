@@ -4,45 +4,129 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:minHeight="@dimen/listEntryItemMinHeight"
     tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
-    <View
-        android:id="@+id/simpleEntryItemContent"
-        android:layout_width="0dp"
-        android:layout_height="@dimen/listEntryItemMinHeight"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentEndBarrier"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_min="@dimen/listEntryItemMinHeight"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <!-- region Guidelines -->
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/simpleEntryItemPrimaryImageVerticalHalfGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="@dimen/listEntryItemPrimaryImageVerticalHalfGuidelineBegin" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/simpleEntryItemPrimaryImageHorizontalHalfGuideline"
+        android:id="@+id/simpleEntryItemMinHeightGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="@dimen/listEntryItemPrimaryImageHorizontalHalfGuidelineBegin" />
+        app:layout_constraintGuide_begin="@dimen/listEntryItemMinHeight" />
+
+    <!-- region Content -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentStartHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemContentStartHeight" />
+
+    <!-- endregion Content -->
+
+    <!-- region Secondary image -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageStartWidthGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageStartWidthGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageEndWidthGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageEndWidthGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageStartHeightGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemSecondaryImageStartEndHeightGuideline" />
+
+    <!-- endregion Secondary image -->
+
+    <!-- region Texts -->
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemDescriptionMaxEndHeightGuideline" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemContentTitleDescriptionStartWidthGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/listEntryItemDescriptionStartWidthGuideline" />
+
+    <!-- endregion Texts -->
+
+    <!-- endregion Guidelines -->
+
+    <!-- region Barriers -->
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemImagesEndBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemImageAltText" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemTitleEndStartBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="simpleEntryItemTitleEndOptional,simpleEntryItemTitleEnd" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemDescriptionEndStartBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd" />
+
+    <!-- endregion Barriers -->
+
+    <!-- region Views -->
+
+    <View
+        android:id="@+id/simpleEntryItemSelectionMarker"
+        style="@style/SimpleEntryItemSelectorMarker"
+        android:layout_width="@dimen/listEntryItemSelectorMarkerWidth"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
 
     <ImageView
         android:id="@+id/simpleEntryItemPrimaryImage"
         style="@style/SimpleEntryItemPrimaryImage"
         android:layout_width="@dimen/listEntryItemPrimaryImageSize"
         android:layout_height="@dimen/listEntryItemPrimaryImageSize"
-        android:layout_marginStart="@dimen/normalMargin"
-        android:layout_marginTop="@dimen/smallMargin"
-        android:layout_marginEnd="@dimen/smallMargin"
-        android:layout_marginBottom="@dimen/smallMargin"
-        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemContent"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierStart"
-        app:layout_constraintStart_toStartOf="@id/simpleEntryItemContent"
-        app:layout_constraintTop_toTopOf="@id/simpleEntryItemContent"
+        android:layout_marginStart="@dimen/listEntryItemImagesMarginStart"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:visibility="visible" />
 
     <ImageView
@@ -50,10 +134,9 @@
         style="@style/SimpleEntryItemSecondaryImage"
         android:layout_width="@dimen/listEntryItemSecondaryImageSize"
         android:layout_height="@dimen/listEntryItemSecondaryImageSize"
-        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemContent"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierStart"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemPrimaryImageVerticalHalfGuideline"
-        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemPrimaryImageHorizontalHalfGuideline"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentSecondaryImageStartWidthGuideline"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
         tools:visibility="visible" />
 
     <TextView
@@ -61,75 +144,40 @@
         style="@style/SimpleEntryItemImageAltText"
         android:layout_width="@dimen/listEntryItemPrimaryImageSize"
         android:layout_height="@dimen/listEntryItemPrimaryImageSize"
-        android:layout_marginStart="@dimen/normalMargin"
-        android:layout_marginTop="@dimen/smallMargin"
-        android:layout_marginEnd="@dimen/smallMargin"
-        android:layout_marginBottom="@dimen/smallMargin"
-        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemContent"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierStart"
-        app:layout_constraintStart_toStartOf="@id/simpleEntryItemContent"
-        app:layout_constraintTop_toTopOf="@id/simpleEntryItemContent"
+        android:layout_marginStart="@dimen/listEntryItemImagesMarginStart"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="10"
         tools:visibility="visible" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemBarrierStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemSecondaryImage,simpleEntryItemImageAltText" />
 
     <TextView
         android:id="@+id/simpleEntryItemTitleStart"
         style="@style/SimpleEntryItemTitleStart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/listEntryItemTitleStartMarginHorz"
-        android:layout_marginTop="@dimen/smallMargin"
-        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginHorz"
-        app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionStart"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierEnd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemBarrierStart"
-        app:layout_constraintTop_toTopOf="@id/simpleEntryItemContent"
-        app:layout_constraintWidth_default="wrap"
-        app:layout_goneMarginBottom="@dimen/smallMargin"
-        tools:drawableEnd="@drawable/ic_clear_round"
-        tools:text="Title start here" />
-
-    <TextView
-        android:id="@+id/simpleEntryItemDescriptionStart"
-        style="@style/SimpleEntryItemDescriptionStart"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="@dimen/listEntryItemTitleStartMarginHorz"
-        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginHorz"
-        android:layout_marginBottom="@dimen/smallMargin"
-        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemContent"
-        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemBarrierEnd"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemBarrierStart"
-        app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleStart"
-        tools:text="Employee name • Description"
-        tools:visibility="visible" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemBarrierEnd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemTitleEnd,simpleEntryItemDescriptionEnd,simpleEntryItemTitleEndOptional" />
+        android:layout_marginStart="@dimen/listEntryItemTitleStartMarginStart"
+        android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginEnd"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionStart"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEndStartBarrier"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
+        tools:drawableEnd="@drawable/ic_clear_round"
+        tools:text="Title start here" />
 
     <TextView
         android:id="@+id/simpleEntryItemTitleEndOptional"
         style="@style/SimpleEntryItemTitleEndOptional"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/smallMargin"
-        app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionEnd"
+        android:layout_height="wrap_content"
+        app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemTitleEnd"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
-        app:layout_constraintTop_toTopOf="@id/simpleEntryItemContent"
-        app:layout_goneMarginBottom="@dimen/smallMargin"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="$68,34 • "
         tools:visibility="visible" />
 
@@ -137,44 +185,77 @@
         android:id="@+id/simpleEntryItemTitleEnd"
         style="@style/SimpleEntryItemTitleEnd"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="@dimen/smallMargin"
-        app:layout_constraintBottom_toTopOf="@+id/simpleEntryItemDescriptionEnd"
-        app:layout_constraintEnd_toEndOf="@id/simpleEntryItemContent"
-        app:layout_constraintTop_toTopOf="@id/simpleEntryItemContent"
-        app:layout_goneMarginBottom="@dimen/smallMargin"
-        tools:text="71,03 €" />
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEndOptional"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
+        tools:text="71,03 €"
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/simpleEntryItemTitleEndAnchor"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEnd"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/simpleEntryItemDescriptionStart"
+        style="@style/SimpleEntryItemDescriptionStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/listEntryItemDescriptionStartMarginStart"
+        android:layout_marginTop="@dimen/listEntryItemDescriptionStartMarginTop"
+        android:layout_marginEnd="@dimen/listEntryItemDescriptionStartMarginEnd"
+        app:layout_constrainedWidth="true"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        app:layout_constraintEnd_toStartOf="@id/simpleEntryItemDescriptionEndStartBarrier"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemImagesEndBarrier"
+        app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleStart"
+        tools:text="Employee name • Description"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/simpleEntryItemDescriptionEnd"
         style="@style/SimpleEntryItemDescriptionEnd"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginBottom="@dimen/smallMargin"
-        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemContent"
-        app:layout_constraintEnd_toEndOf="@id/simpleEntryItemContent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
-        tools:text="12 Sept." />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/simpleEntryItemContentEndBarrier"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="simpleEntryItemPrimaryImage,simpleEntryItemDescriptionStart,simpleEntryItemDescriptionEnd" />
+        android:layout_marginTop="@dimen/listEntryItemDescriptionEndMarginTop"
+        android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemDescriptionEndStartBarrier"
+        app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
+        tools:text="12 Sept."
+        tools:visibility="visible" />
+
+    <View
+        android:id="@+id/simpleEntryItemDescriptionEndAnchor"
+        android:layout_width="1dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemDescriptionEnd"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.spendesk.grapes.messages.MessageInlineView
         android:id="@+id/simpleEntryItemMessage"
         style="@style/SimpleEntryItemMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/normalMargin"
-        android:layout_marginTop="@dimen/smallMargin"
+        android:layout_marginStart="@dimen/listEntryItemMarginStart"
+        android:layout_marginBottom="@dimen/listEntryItemMessageMarginBottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentEndBarrier"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemMinHeightGuideline"
+        app:layout_constraintVertical_bias="0.0"
         tools:drawableStart="@drawable/ic_warning"
         tools:messageStyle="warning"
         tools:text="Missing info"
         tools:visibility="visible" />
+
+    <!-- endregion Views -->
 </merge>

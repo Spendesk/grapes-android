@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- Action Message Bottom Sheet -->
-
-    <style name="BottomSheetDialogStyle" parent="Theme.Design.Light.BottomSheetDialog">
-        <item name="bottomSheetStyle">@style/BottomSheetModalStyle</item>
-        <item name="android:windowSoftInputMode">adjustResize</item>
-    </style>
-
-    <style name="BottomSheetModalStyle" parent="Widget.Design.BottomSheet.Modal">
-        <item name="android:background">@drawable/shape_rect_solidwhite_cornerstop12</item>
-    </style>
-
-    <style name="ActionMessageBottomSheetPullView">
-        <item name="android:background">@drawable/shape_solidgrey5_corner4</item>
-    </style>
-
-    <style name="ActionMessageBottomSheetTitleText">
-        <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textSize">@dimen/actionMessageBottomSheetTitleTextSize</item>
-        <item name="android:textColor">@color/actionMessageBottomSheetTitleTextColor</item>
-        <item name="android:clickable">false</item>
-    </style>
-
-    <style name="ActionMessageBottomSheetDescriptionText">
-        <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textSize">@dimen/actionMessageBottomSheetDescriptionTextSize</item>
-        <item name="android:textColor">@color/actionMessageBottomSheetDescriptionTextColor</item>
-        <item name="android:clickable">false</item>
-    </style>
-
-    <style name="ActionMessageBottomSheetPrimaryButton">
-        <item name="grapesButtonSize">normal</item>
-        <item name="grapesButtonStyle">primary</item>
-    </style>
-
-    <style name="ActionMessageBottomSheetSecondaryButton">
-        <item name="grapesButtonSize">normal</item>
-        <item name="grapesButtonStyle">secondary</item>
-    </style>
-
     <!-- Default -->
     <style name="Ripple">
         <item name="android:focusable">true</item>
@@ -224,10 +183,14 @@
         <item name="android:drawableStart">@drawable/ic_address_arrival</item>
     </style>
 
-    <style name="TextValue">
+    <style name="SummaryBlockTextValue">
         <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textColor">@color/inlineBlockViewValueTextColor</item>
         <item name="android:textSize">@dimen/inlineBlockViewValueTextSize</item>
+    </style>
+
+    <style name="SummaryBlockTextImage">
+        <item name="android:visibility">gone</item>
     </style>
 
     <!-- endregion blocks -->

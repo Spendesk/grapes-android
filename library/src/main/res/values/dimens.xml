@@ -137,6 +137,8 @@
     <dimen name="inlineBlockViewTextMarginHorz">@dimen/bigMargin</dimen>
     <dimen name="inlineBlockViewKeyTextSize">16sp</dimen>
     <dimen name="inlineBlockViewValueTextSize">16sp</dimen>
+    <dimen name="inlineBlockViewImageCornerRadius">6dp</dimen>
+    <dimen name="inlineBlockViewImageSize">32dp</dimen>
 
     <dimen name="summaryBlockContentApproverImageSize">32dp</dimen>
     <!-- endregion InlineBlockView -->
@@ -145,6 +147,10 @@
     <dimen name="mapBlockAddressTextSize">16sp</dimen>
     <dimen name="mapBlockAddressDrawablePadding">@dimen/smallMargin</dimen>
     <!-- endregion MapBlock -->
+
+    <!-- region Footer -->
+    <dimen name="summaryFooterBlockMarginTop">40dp</dimen>
+    <!-- endregion Footer -->
 
     <dimen name="itemBlockApproverTitleTextSize">16sp</dimen>
     <dimen name="itemBlockApproverStatusTextMarginHorz">@dimen/smallMargin</dimen>
