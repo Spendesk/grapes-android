@@ -48,7 +48,8 @@ class SimpleEntryItemView : ConstraintLayout {
         val isGrayedOut: Boolean = false,
         val isSelected: Boolean = false,
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
-        val titleEndOptional: CharSequence? = null
+        val titleEndOptional: CharSequence? = null,
+        val badgeNumber: CharSequence? = null,
     )
 
     private val primaryImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.simpleEntryItemBPrimaryImageCornerRadius)
@@ -121,6 +122,7 @@ class SimpleEntryItemView : ConstraintLayout {
         simpleEntryItemDescriptionStart.visibleWithTextOrGone(configuration.descriptionStart)
         simpleEntryItemTitleEnd.visibleWithTextOrGone(configuration.titleEnd)
         simpleEntryItemDescriptionEnd.visibleWithTextOrGone(configuration.descriptionEnd)
+        simpleEntryItemBadge.visibleWithTextOrGone(configuration.badgeNumber)
 
         configuration.messageConfiguration
             ?.let {

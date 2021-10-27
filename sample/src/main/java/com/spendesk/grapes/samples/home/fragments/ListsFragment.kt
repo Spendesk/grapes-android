@@ -95,6 +95,11 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             titleEnd = "71,03 €"
         )
 
+        val item8Configuration = SimpleEntryItemView.Configuration(
+            titleStart = "Jean Michel de la vega",
+            badgeNumber = "42"
+        )
+
         // Sections
         val section1Configuration = SimpleSectionItemView.Configuration(
             iconStart = R.drawable.ic_crop,
@@ -121,6 +126,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 SimpleListModel.Item(id = "5", configuration = item5Configuration),
                 SimpleListModel.Item(id = "6", configuration = item6Configuration),
                 SimpleListModel.Item(id = "7", configuration = item7Configuration),
+                SimpleListModel.Item(id = "8", configuration = item8Configuration)
             )
         )
     }

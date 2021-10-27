@@ -24,6 +24,7 @@
     <dimen name="listEntryItemDescriptionStartWidthGuideline">72dp</dimen>
     <dimen name="listEntryItemDescriptionEndMarginTop">1dp</dimen>
     <dimen name="listEntryItemMessageMarginBottom">@dimen/smallMargin</dimen>
+    <dimen name="listEntryItemBadgeMarginEnd">@dimen/normalMargin</dimen>
     <!-- endregion List Item -->
 
     <!-- region Section Item -->
