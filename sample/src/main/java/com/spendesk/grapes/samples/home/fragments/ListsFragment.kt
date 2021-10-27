@@ -97,7 +97,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
         val item8Configuration = SimpleEntryItemView.Configuration(
             titleStart = "Jean Michel de la vega",
-            badgeNumber = "42"
+            badgeNumber = 42
         )
 
         // Sections
