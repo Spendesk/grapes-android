@@ -19,7 +19,7 @@ open class DeepBlueBucketView : BucketView {
 
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val title: CharSequence,
         val description: CharSequence,
         val buttonText: CharSequence

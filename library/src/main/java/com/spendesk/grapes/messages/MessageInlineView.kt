@@ -43,7 +43,7 @@ class MessageInlineView : AppCompatTextView {
         setupView()
     }
 
-    class Configuration(
+    data class Configuration(
         val style: Style,
         val title: CharSequence,
         @DrawableRes val drawableStartId: Int? = null

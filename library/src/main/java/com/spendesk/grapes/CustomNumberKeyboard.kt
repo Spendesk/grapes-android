@@ -23,7 +23,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     var onTextChanged: ((String) -> Unit)? = null
     var onRequestedBiometricAuthentication: (() -> Unit)? = null
 
-    class Configuration(
+    data class Configuration(
         val showFingerprint: Boolean
     )
 

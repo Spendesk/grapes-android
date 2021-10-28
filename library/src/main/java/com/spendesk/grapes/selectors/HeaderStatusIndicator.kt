@@ -24,7 +24,7 @@ class HeaderStatusIndicator : ConstraintLayout {
 
     // endregion constructor
 
-    class Configuration(
+    data class Configuration(
         val pagerNumber: Int
     )
 

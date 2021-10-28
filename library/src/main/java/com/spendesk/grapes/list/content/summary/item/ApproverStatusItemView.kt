@@ -23,7 +23,7 @@ class ApproverStatusItemView : ConstraintLayout {
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val imageUrl: String? = null,
         @DrawableRes val placeholderResId: Int = 0,
         val title: CharSequence,

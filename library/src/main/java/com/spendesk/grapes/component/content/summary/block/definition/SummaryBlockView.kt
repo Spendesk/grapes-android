@@ -20,7 +20,7 @@ abstract class SummaryBlockView : CardView {
     //endregion constructors
 
     open class Configuration(
-        val titleConfiguration: SummaryBlockTitleView.Configuration
+        open val titleConfiguration: SummaryBlockTitleView.Configuration
     )
 
     protected abstract fun getSummaryBlockTitleView(): SummaryBlockTitleView

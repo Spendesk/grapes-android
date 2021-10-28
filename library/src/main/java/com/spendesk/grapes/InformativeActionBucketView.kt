@@ -30,7 +30,7 @@ class InformativeActionBucketView : BucketView {
         bindView()
     }
 
-    class Configuration(
+    data class Configuration(
         val title: CharSequence,
         val smallButtonText: CharSequence,
         val subtitleText: CharSequence,

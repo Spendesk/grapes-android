@@ -26,8 +26,8 @@ class SummaryBlockContentResponsibilityCenterView : SummaryBlockView {
         const val MAX_LEGENDS = MAX_GAUGES
     }
 
-    class Configuration(
-        titleConfiguration: SummaryBlockTitleView.Configuration,
+    data class Configuration(
+        override val titleConfiguration: SummaryBlockTitleView.Configuration,
         val description: CharSequence,
         val gaugeViewConfiguration: SummaryBlockContentResponsibilityCenterGaugeView.Configuration,
         val legendConfiguration: List<SummaryBlockContentResponsibilityCenterGaugeLegendView.Configuration> = ArrayList(),

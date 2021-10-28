@@ -20,7 +20,7 @@ class SummaryFooterView : ConstraintLayout {
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val title: CharSequence,
         val subtitle: CharSequence? = null,
     )

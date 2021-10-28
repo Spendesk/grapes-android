@@ -35,7 +35,7 @@ class SimpleSectionItemView : ConstraintLayout {
 
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         @DrawableRes val iconStart: Int = ResourcesCompat.ID_NULL,
         val startText: CharSequence? = null,
         val endText: CharSequence? = null,
