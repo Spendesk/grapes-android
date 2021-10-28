@@ -39,4 +39,7 @@ sealed class HomeTabItem : Parcelable {
 
     @Parcelize
     object BottomSheets : HomeTabItem()
+
+    @Parcelize
+    object Loaders : HomeTabItem()
 }

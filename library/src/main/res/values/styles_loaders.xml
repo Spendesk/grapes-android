@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region CircularProgressBar -->
+
+    <style name="CircularProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminate">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="CircularProgressBarMain" parent="@style/CircularProgressBar">
+        <item name="android:indeterminateTint">@color/circularProgressBarMainColor</item>
+        <item name="android:rotation">90</item>
+    </style>
+
+    <style name="CircularProgressBarSecondary" parent="@style/CircularProgressBar">
+        <item name="android:indeterminateTint">@color/circularProgressBarSecondaryColor</item>
+    </style>
+
+    <!-- endregion CircularProgressBar -->
+
+</resources>

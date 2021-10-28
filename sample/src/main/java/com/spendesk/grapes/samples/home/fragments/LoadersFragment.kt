@@ -7,18 +7,18 @@ import com.spendesk.grapes.samples.R
 import kotlinx.android.synthetic.main.view_home_header.*
 
 /**
- * @author danyboucanova
- * @since 12/29/20
+ * @author Vivien Mahe
+ * @since 28/10/2021
  */
-class ButtonsFragment : Fragment(R.layout.fragment_home_buttons) {
+class LoadersFragment : Fragment(R.layout.fragment_home_loaders) {
 
     companion object {
-        fun newInstance() = ButtonsFragment()
+        fun newInstance() = LoadersFragment()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.buttons)
+        homeGenericHeaderTitle.text = context?.getString(R.string.loaders)
     }
 }
