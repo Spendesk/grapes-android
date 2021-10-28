@@ -104,6 +104,12 @@
     <style name="SummaryBlockContentTitleEndImage">
         <item name="android:visibility">gone</item>
     </style>
+
+    <style name="SummaryBlockContentTitleEndProgressBar">
+        <item name="android:visibility">gone</item>
+        <item name="grapesProgressBarSize">small</item>
+        <item name="android:gravity">center</item>
+    </style>
     <!-- endregion Summary Block Content -->
 
     <!-- region Inline Block -->
@@ -121,7 +127,7 @@
         <item name="android:gravity">end</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
-        <item name="android:textColor">@color/inlineBlockViewValueTextColor</item>
+        <item name="android:textColor">@color/inlineBlockViewValueTextColorDefault</item>
         <item name="android:textSize">@dimen/inlineBlockViewValueTextSize</item>
     </style>
     <!-- endregion Inline Block -->
@@ -185,7 +191,7 @@
 
     <style name="SummaryBlockTextValue">
         <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:textColor">@color/inlineBlockViewValueTextColor</item>
+        <item name="android:textColor">@color/summary_block_content_text_value_text</item>
         <item name="android:textSize">@dimen/inlineBlockViewValueTextSize</item>
     </style>
 

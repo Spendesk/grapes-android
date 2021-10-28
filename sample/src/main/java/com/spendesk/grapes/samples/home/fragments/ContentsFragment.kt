@@ -107,9 +107,12 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
                         startTitle = "Description",
-                        endTitle = "Edit"
+                        endTitle = "Saving",
+                        isEnabled = false,
+                        showProgressBar = true
                     ),
-                    value = "Room booked in Lyon for 3 days to Le Progrès and organize a team building with Lyon’s team"
+                    value = "Room booked in Lyon for 3 days to Le Progrès and organize a team building with Lyon’s team",
+                    isEnabled = false
                 )
             )
             onEndTitleTextClicked = { requireActivity().shortToaster("Edit Text with value") }

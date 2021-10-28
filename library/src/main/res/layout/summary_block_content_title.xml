@@ -23,41 +23,59 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/summaryBlockContentMiddleTitleTextMarginStart"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndBarrier"
+        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndLeftBarrier"
         app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleStartText"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="• Optional"
         tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/summaryBlockContentTitleEndBarrier"
+        android:id="@+id/summaryBlockContentTitleEndLeftBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="summaryBlockContentTitleEndText,summaryBlockContentTitleEndImage" />
+        app:constraint_referenced_ids="summaryBlockContentTitleEndText" />
 
     <TextView
         android:id="@+id/summaryBlockContentTitleEndText"
         style="@style/SummaryBlockContentTitleEndText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/partialContentBlockEndImageMarginStart"
         android:layout_marginStart="@dimen/inlineBlockViewTextMarginHorz"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndImage"
-        app:layout_constraintStart_toEndOf="@+id/summaryBlockContentTitleEndBarrier"
+        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndRightBarrier"
+        app:layout_constraintStart_toEndOf="@+id/summaryBlockContentTitleEndLeftBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Action"
         tools:visibility="visible" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/summaryBlockContentTitleEndRightBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="summaryBlockContentTitleEndText" />
 
     <ImageView
         android:id="@+id/summaryBlockContentTitleEndImage"
         style="@style/SummaryBlockContentTitleEndImage"
         android:layout_width="@dimen/partialContentBlockEndImageSize"
         android:layout_height="@dimen/partialContentBlockEndImageSize"
-        android:layout_marginStart="@dimen/partialContentBlockEndImageMarginStart"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleEndText"
+        app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleEndRightBarrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible" />
+
+    <com.spendesk.grapes.loader.CircularProgressBar
+        android:id="@+id/summaryBlockContentTitleEndProgressBar"
+        style="@style/SummaryBlockContentTitleEndProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleEndRightBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

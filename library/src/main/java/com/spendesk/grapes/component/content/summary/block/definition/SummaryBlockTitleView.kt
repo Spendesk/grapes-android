@@ -2,16 +2,16 @@ package com.spendesk.grapes.component.content.summary.block.definition
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.SummaryBlockContentTitleBinding
 import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleOrInvisible
-import kotlinx.android.synthetic.main.summary_block_content_title.view.*
 
 /**
  * @author Vivien Mahe
@@ -33,29 +33,35 @@ class SummaryBlockTitleView : ConstraintLayout {
     }
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val startTitle: CharSequence,
-        var middleTitle: CharSequence? = null,
-        var endTitle: CharSequence? = null,
+        val middleTitle: CharSequence? = null,
+        val endTitle: CharSequence? = null,
         @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
-        var isActivated: Boolean = false
+        val isActivated: Boolean = false,
+        val isEnabled: Boolean = true,
+        val showProgressBar: Boolean = false
     )
 
     var onEndTitleTextClicked: (() -> Unit)? = null
         set(onEndTitleTextClicked) {
             field = onEndTitleTextClicked
-            summaryBlockContentTitleEndText.setOnClickListener { field?.invoke() }
+            binding.summaryBlockContentTitleEndText.setOnClickListener { field?.invoke() }
         }
 
-    init {
-        View.inflate(context, R.layout.summary_block_content_title, this)
-    }
+    private var binding = SummaryBlockContentTitleBinding.inflate(LayoutInflater.from(context), this, true)
 
     override fun setActivated(activated: Boolean) {
         super.setActivated(activated)
 
         // Toggle endTitle text style
-        summaryBlockContentTitleEndText.isActivated = activated
+        binding.summaryBlockContentTitleEndText.isActivated = activated
+    }
+
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+
+        binding.summaryBlockContentTitleEndText.isEnabled = enabled
     }
 
     fun updateConfiguration(configuration: Configuration) {
@@ -63,28 +69,34 @@ class SummaryBlockTitleView : ConstraintLayout {
         setTitleMiddleText(configuration.middleTitle)
         setTitleEndText(configuration.endTitle)
         setTitleEndDrawable(configuration.drawableEnd)
+        setProgressBarVisibility(configuration.showProgressBar)
         isActivated = configuration.isActivated
+        isEnabled = configuration.isEnabled
     }
 
     fun setTitleStartText(text: CharSequence?) {
-        summaryBlockContentTitleStartText.text = text ?: String.empty()
+        binding.summaryBlockContentTitleStartText.text = text ?: String.empty()
     }
 
     fun setTitleMiddleText(text: CharSequence?) {
-        summaryBlockContentTitleMiddleText.visibleOrInvisible(text != null)
-        summaryBlockContentTitleMiddleText.text = text
+        binding.summaryBlockContentTitleMiddleText.visibleOrInvisible(text != null)
+        binding.summaryBlockContentTitleMiddleText.text = text
     }
 
     fun setTitleEndText(text: CharSequence?) {
-        summaryBlockContentTitleEndText.visibleOrGone(text != null)
-        summaryBlockContentTitleEndText.text = text
+        binding.summaryBlockContentTitleEndText.visibleOrGone(text != null)
+        binding.summaryBlockContentTitleEndText.text = text
     }
 
     fun setTitleEndDrawable(drawable: Int) {
         if (drawable != ResourcesCompat.ID_NULL) {
-            summaryBlockContentTitleEndImage.visible()
-            summaryBlockContentTitleEndImage.setBackgroundResource(drawable)
+            binding.summaryBlockContentTitleEndImage.visible()
+            binding.summaryBlockContentTitleEndImage.setBackgroundResource(drawable)
         }
+    }
+
+    fun setProgressBarVisibility(show: Boolean) {
+        binding.summaryBlockContentTitleEndProgressBar.visibleOrGone(show)
     }
 
     private fun setupView(attributeSet: AttributeSet?) {
