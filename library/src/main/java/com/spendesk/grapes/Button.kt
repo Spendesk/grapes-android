@@ -39,7 +39,7 @@ class Button : AppCompatTextView {
     }
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val text: CharSequence,
         val style: Style,
         val isEnabled: Boolean = true

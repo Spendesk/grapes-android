@@ -33,7 +33,7 @@ class SummaryBlockTitleView : ConstraintLayout {
     }
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val startTitle: CharSequence,
         var middleTitle: CharSequence? = null,
         var endTitle: CharSequence? = null,

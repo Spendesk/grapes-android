@@ -35,7 +35,7 @@ class UserSupplierInlineView : ConstraintLayout {
 
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val title: CharSequence,
         val subtitle: CharSequence? = null,
         val bigImageUrl: String? = null,

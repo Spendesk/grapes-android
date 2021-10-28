@@ -50,7 +50,7 @@ class InfoTipView : AppCompatTextView {
 
     // endregion constructor
 
-    class Configuration(
+    data class Configuration(
         val style: Style,
         val title: CharSequence,
         @DrawableRes val drawableStart: Int? = null,

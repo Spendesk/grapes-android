@@ -28,7 +28,7 @@ class RegistrationCodeView : CardView {
 
     private var maxCodeItemLength: Int = 0
 
-    class Configuration(
+    data class Configuration(
         val maxCodeItemLength: Int,
         val firstTextWatcher: ((String) -> Unit),
         val secondTextWatcher: ((String) -> Unit),

@@ -36,7 +36,7 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
         private const val EDITTEXT_TEXT_CHANGED_DELAY = 500L // Milliseconds
     }
 
-    class Configuration(
+    data class Configuration(
         val title: CharSequence,
         val searchInputText: CharSequence? = null,
         val hintText: CharSequence? = null
