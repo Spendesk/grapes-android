@@ -32,7 +32,7 @@ class SimpleEntryItemView : ConstraintLayout {
         private const val IMAGE_ALPHA_REDUCED = 0.6f
     }
 
-    class Configuration(
+    data class Configuration(
         val primaryImageUrl: String? = null,
         val shouldCircleCropPrimaryImage: Boolean = false,
         @DrawableRes val placeholderPrimaryImage: Int = ResourcesCompat.ID_NULL,

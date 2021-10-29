@@ -23,7 +23,7 @@ class SwitchCardView : CardView {
 
     var onChecked: ((Boolean) -> Unit)? = null
 
-    class Configuration(
+    data class Configuration(
         val text: CharSequence,
         val isChecked: Boolean = false
     )

@@ -24,7 +24,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
     }
 
-    class Configuration(
+    data class Configuration(
         @DrawableRes val imageResourceId: Int,
         val title: CharSequence,
         val description: CharSequence? = null,

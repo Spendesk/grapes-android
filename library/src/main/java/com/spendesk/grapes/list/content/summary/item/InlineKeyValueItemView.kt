@@ -21,7 +21,7 @@ class InlineKeyValueItemView : ConstraintLayout {
 
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val key: CharSequence,
         val value: CharSequence
     )

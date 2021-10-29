@@ -23,8 +23,8 @@ class SummaryBlockContentTextView : SummaryBlockView {
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
     //endregion constructors
 
-    class Configuration(
-        titleConfiguration: SummaryBlockTitleView.Configuration,
+    data class Configuration(
+        override val titleConfiguration: SummaryBlockTitleView.Configuration,
         val value: CharSequence? = null,
         val imageUrl: String? = null,
         @DrawableRes val imagePlaceholderResId: Int? = null,

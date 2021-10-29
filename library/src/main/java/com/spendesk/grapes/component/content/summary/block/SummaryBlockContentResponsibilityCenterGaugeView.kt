@@ -28,7 +28,7 @@ class SummaryBlockContentResponsibilityCenterGaugeView : ConstraintLayout {
         const val MAX_GAUGES = 3
     }
 
-    class Configuration(
+    data class Configuration(
         val gauges: List<Gauge>,
         @FloatRange(from = 0.0, to = 1.0) val threshold: Float? = null
     )

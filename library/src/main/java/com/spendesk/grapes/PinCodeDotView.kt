@@ -23,7 +23,7 @@ class PinCodeDotView : LinearLayout {
 
     //endregion constructors
 
-    class Configuration(
+    data class Configuration(
         val pinCodeLength: Int
     )
 

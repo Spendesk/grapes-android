@@ -22,8 +22,8 @@ class SummaryBlockContentApproverView : SummaryBlockView {
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
     //endregion constructors
 
-    class Configuration(
-        titleConfiguration: SummaryBlockTitleView.Configuration,
+    data class Configuration(
+        override val titleConfiguration: SummaryBlockTitleView.Configuration,
         val items: List<SummaryBlockContentModel.ApproverStatus>
     ) : SummaryBlockView.Configuration(titleConfiguration)
 
