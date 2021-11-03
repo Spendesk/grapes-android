@@ -41,7 +41,7 @@
         style="@style/SummaryBlockContentTitleEndText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/partialContentBlockEndImageMarginStart"
+        android:layout_marginEnd="@dimen/partialContentBlockTextEndMarginEnd"
         android:layout_marginStart="@dimen/inlineBlockViewTextMarginHorz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndRightBarrier"

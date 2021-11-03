@@ -40,6 +40,7 @@ class SummaryBlockTitleView : ConstraintLayout {
         @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
         val isActivated: Boolean = false,
         val isEnabled: Boolean = true,
+        val isSelected: Boolean = false,
         val showProgressBar: Boolean = false
     )
 
@@ -64,6 +65,12 @@ class SummaryBlockTitleView : ConstraintLayout {
         binding.summaryBlockContentTitleEndText.isEnabled = enabled
     }
 
+    override fun setSelected(selected: Boolean) {
+        super.setSelected(selected)
+
+        binding.summaryBlockContentTitleEndText.isSelected = selected
+    }
+
     fun updateConfiguration(configuration: Configuration) {
         setTitleStartText(configuration.startTitle)
         setTitleMiddleText(configuration.middleTitle)
@@ -72,6 +79,7 @@ class SummaryBlockTitleView : ConstraintLayout {
         setProgressBarVisibility(configuration.showProgressBar)
         isActivated = configuration.isActivated
         isEnabled = configuration.isEnabled
+        isSelected = configuration.isSelected
     }
 
     fun setTitleStartText(text: CharSequence?) {

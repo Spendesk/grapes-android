@@ -90,6 +90,8 @@
     </style>
 
     <style name="SummaryBlockContentTitleEndText">
+        <item name="android:paddingTop">@dimen/partialContentBlockTextEndPaddingVert</item>
+        <item name="android:paddingBottom">@dimen/partialContentBlockTextEndPaddingVert</item>
         <item name="android:visibility">gone</item>
         <item name="android:fontFamily">@font/gt_america_bold</item>
         <item name="android:textColor">@color/summary_block_content_title_end_text</item>
