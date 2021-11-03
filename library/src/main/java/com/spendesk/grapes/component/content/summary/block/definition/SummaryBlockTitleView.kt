@@ -106,7 +106,7 @@ class SummaryBlockTitleView : ConstraintLayout {
 
     fun setProgressBarVisibility(show: Boolean) {
         binding.summaryBlockContentTitleEndProgressBar.visibleOrGone(show)
-        setTitleEndDrawable(ResourcesCompat.ID_NULL)
+        if (show) setTitleEndDrawable(ResourcesCompat.ID_NULL)
     }
 
     private fun setupView(attributeSet: AttributeSet?) {
