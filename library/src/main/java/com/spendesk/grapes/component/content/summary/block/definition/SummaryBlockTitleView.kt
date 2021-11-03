@@ -8,10 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SummaryBlockContentTitleBinding
-import com.spendesk.grapes.extensions.empty
-import com.spendesk.grapes.extensions.visible
-import com.spendesk.grapes.extensions.visibleOrGone
-import com.spendesk.grapes.extensions.visibleOrInvisible
+import com.spendesk.grapes.extensions.*
 
 /**
  * @author Vivien Mahe
@@ -100,11 +97,16 @@ class SummaryBlockTitleView : ConstraintLayout {
         if (drawable != ResourcesCompat.ID_NULL) {
             binding.summaryBlockContentTitleEndImage.visible()
             binding.summaryBlockContentTitleEndImage.setBackgroundResource(drawable)
+
+            setProgressBarVisibility(false)
+        } else {
+            binding.summaryBlockContentTitleEndImage.gone()
         }
     }
 
     fun setProgressBarVisibility(show: Boolean) {
         binding.summaryBlockContentTitleEndProgressBar.visibleOrGone(show)
+        setTitleEndDrawable(ResourcesCompat.ID_NULL)
     }
 
     private fun setupView(attributeSet: AttributeSet?) {
