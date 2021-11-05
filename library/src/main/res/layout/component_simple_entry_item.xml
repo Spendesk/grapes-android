@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         app:barrierAllowsGoneWidgets="true"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd" />
+        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd,simpleEntryItemBadgeBarrier" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemBadgeBarrier"
@@ -170,7 +170,7 @@
     <TextView
         android:id="@+id/simpleEntryItemTitleStart"
         style="@style/SimpleEntryItemTitleStart"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/listEntryItemTitleStartMarginStart"
         android:layout_marginEnd="@dimen/listEntryItemTitleStartMarginEnd"
