@@ -46,7 +46,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                         startTitle = "Trip details",
                         middleTitle = " • Optional",
                         endTitle = "Action",
-                        drawableEnd = R.drawable.ic_warning_circle_stroke,
+                        drawableEnd = R.drawable.ic_warning,
                         isActivated = true
                     ),
                     mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
@@ -101,15 +101,34 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
             onEndTitleTextClicked = { requireActivity().shortToaster("Edit Text with value and image") }
         }
 
-        // Text with value
+        // Text with value disabled
         with(homeButtonSectionTextWithValueBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
                         startTitle = "Description",
-                        endTitle = "Edit"
+                        endTitle = "Saving",
+                        isEnabled = false,
+                        showProgressBar = true
                     ),
-                    value = "Room booked in Lyon for 3 days to Le Progrès and organize a team building with Lyon’s team"
+                    value = "Room booked in Lyon for 3 days to Le Progrès and organize a team building with Lyon’s team",
+                    isEnabled = false
+                )
+            )
+            onEndTitleTextClicked = { requireActivity().shortToaster("Edit Text with value") }
+        }
+
+        // Text with value selected
+        with(homeButtonSectionTextWithValueSelectedBlock) {
+            updateConfiguration(
+                configuration = SummaryBlockContentTextView.Configuration(
+                    titleConfiguration = SummaryBlockTitleView.Configuration(
+                        startTitle = "Description",
+                        endTitle = "Error",
+                        isSelected = true,
+                        drawableEnd = R.drawable.ic_warning
+                    ),
+                    value = "Another example of a text content block but this time with a selected value, which will change the color of the title's end text"
                 )
             )
             onEndTitleTextClicked = { requireActivity().shortToaster("Edit Text with value") }

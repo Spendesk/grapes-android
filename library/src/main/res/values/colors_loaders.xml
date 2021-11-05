@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- region CircularProgressBar -->
+
+    <color name="circularProgressBarMainColor">@color/mainBrandPeach</color>
+    <color name="circularProgressBarSecondaryColor">@color/mainPrimaryNormal</color>
+
+    <!-- endregion CircularProgressBar -->
+
+</resources>

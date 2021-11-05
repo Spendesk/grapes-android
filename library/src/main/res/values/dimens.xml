@@ -131,8 +131,9 @@
     <dimen name="partialContentBlockTitleMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="partialContentBlockTitleMarginVert">@dimen/normalMargin</dimen>
     <dimen name="partialContentBlockTitleTextSize">14sp</dimen>
-    <dimen name="partialContentBlockEndImageSize">32dp</dimen>
-    <dimen name="partialContentBlockEndImageMarginStart">@dimen/smallMargin</dimen>
+    <dimen name="partialContentBlockEndImageSize">16dp</dimen>
+    <dimen name="partialContentBlockTextEndMarginEnd">@dimen/smallMargin</dimen>
+    <dimen name="partialContentBlockTextEndPaddingVert">@dimen/tinyMargin</dimen>
 
     <dimen name="inlineBlockViewTextMarginHorz">@dimen/bigMargin</dimen>
     <dimen name="inlineBlockViewKeyTextSize">16sp</dimen>
