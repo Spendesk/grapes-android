@@ -10,6 +10,13 @@
     <!-- region Guidelines -->
 
     <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/simpleEntryItemMinEndGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="0dp" />
+
+    <androidx.constraintlayout.widget.Guideline
         android:id="@+id/simpleEntryItemMinHeightGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -101,7 +108,15 @@
         android:layout_height="wrap_content"
         app:barrierAllowsGoneWidgets="true"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd" />
+        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd,simpleEntryItemBadgeBarrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemBadgeBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="simpleEntryItemBadge,simpleEntryItemMinEndGuideline" />
 
     <!-- endregion Barriers -->
 
@@ -188,7 +203,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/simpleEntryItemBadgeBarrier"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEndOptional"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="71,03 €"
@@ -205,7 +220,7 @@
     <TextView
         android:id="@+id/simpleEntryItemDescriptionStart"
         style="@style/SimpleEntryItemDescriptionStart"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/listEntryItemDescriptionStartMarginStart"
         android:layout_marginTop="@dimen/listEntryItemDescriptionStartMarginTop"
@@ -227,7 +242,7 @@
         android:layout_marginTop="@dimen/listEntryItemDescriptionEndMarginTop"
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/simpleEntryItemBadgeBarrier"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemDescriptionEndStartBarrier"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
         tools:text="12 Sept."
@@ -257,5 +272,16 @@
         tools:text="Missing info"
         tools:visibility="visible" />
 
+    <com.spendesk.grapes.BadgeView
+        android:id="@+id/simpleEntryItemBadge"
+        android:layout_width="wrap_content"
+        android:layout_marginEnd="@dimen/listEntryItemBadgeMarginEnd"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemMinHeightGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemBadgeBarrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="42"
+        tools:visibility="visible" />
     <!-- endregion Views -->
 </merge>
