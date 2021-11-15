@@ -3,10 +3,8 @@ package com.spendesk.grapes.loader
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.spendesk.grapes.R
-import com.spendesk.grapes.databinding.FragmentBottomSheetSearchableBinding
 import com.spendesk.grapes.databinding.LoaderCircularProgressbarBinding
 import java.util.*
 import kotlin.math.roundToInt
@@ -66,19 +64,8 @@ class CircularProgressBar : ConstraintLayout {
         }.let { sizeResId ->
             val dimen = resources.getDimension(sizeResId).roundToInt()
 
-            with(binding.circularProgressBarMain) {
-                minWidth = dimen
-                minHeight = dimen
-                maxWidth = dimen
-                maxHeight = dimen
-            }
-
-            with(binding.circularProgressBarSecondary) {
-                minWidth = dimen
-                minHeight = dimen
-                maxWidth = dimen
-                maxHeight = dimen
-            }
+            binding.circularProgressBarMain.layoutParams = LayoutParams(dimen, dimen)
+            binding.circularProgressBarSecondary.layoutParams = LayoutParams(dimen, dimen)
         }
     }
 }
