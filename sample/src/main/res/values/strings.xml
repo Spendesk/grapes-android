@@ -56,6 +56,8 @@
     <string name="contentTextWithValueDisabled" translatable="false">With value disabled</string>
     <string name="contentTextWithValueSelected" translatable="false">With value selected</string>
     <string name="contentTextWithoutValue" translatable="false">Without value</string>
+    <string name="contentCard" translatable="false">Card</string>
+    <string name="contentCardLink" translatable="false">Link card</string>
 
     <!-- BottomSheets -->
     <string name="bottomSheetsSearchableTitle" translatable="false">Searchable bottom sheet</string>
