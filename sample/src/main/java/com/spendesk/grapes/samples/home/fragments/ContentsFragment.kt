@@ -3,6 +3,7 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.spendesk.grapes.component.content.summary.SummaryCardLinkView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentMapView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentTextView
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
@@ -35,6 +36,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
     private fun setupView() {
         setupBlockMap()
         setupBlockText()
+        setupCard()
     }
 
     private fun setupBlockMap() {
@@ -146,6 +148,17 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                 )
             )
             onEndTitleTextClicked = { requireActivity().shortToaster("Add Text without value") }
+        }
+    }
+
+    private fun setupCard() {
+        with(homeButtonSectionCardLinkBlock) {
+            updateConfiguration(
+                configuration = SummaryCardLinkView.Configuration(
+                    title = "Get virtual card details",
+                    startImage = R.drawable.ic_crop
+                )
+            )
         }
     }
 }
