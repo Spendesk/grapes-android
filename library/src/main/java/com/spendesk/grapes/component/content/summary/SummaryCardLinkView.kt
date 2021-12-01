@@ -9,11 +9,9 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SummaryCardLinkBinding
+import com.spendesk.grapes.extensions.addRippleEffect
 import com.spendesk.grapes.extensions.gone
-import com.spendesk.grapes.extensions.removeDrawables
-import com.spendesk.grapes.extensions.setDrawableRight
 import com.spendesk.grapes.extensions.visible
-import kotlinx.android.synthetic.main.component_simple_entry_item.view.*
 
 /**
  * @author Vivien Mahe
@@ -53,5 +51,7 @@ class SummaryCardLinkView : CardView {
     private fun setupView() {
         radius = resources.getDimension(R.dimen.contentBlockCardRadius)
         cardElevation = resources.getDimension(R.dimen.contentBlockElevation)
+
+        addRippleEffect()
     }
 }
