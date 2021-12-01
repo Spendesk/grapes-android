@@ -151,6 +151,7 @@
 
     <!-- region Card -->
     <dimen name="summaryCardLinkMarginTop">40dp</dimen>
+    <dimen name="summaryCardLinkMarginHorz">@dimen/normalMargin</dimen>
     <!-- endregion Card -->
 
     <!-- region Footer -->
