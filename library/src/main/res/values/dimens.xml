@@ -149,6 +149,10 @@
     <dimen name="mapBlockAddressDrawablePadding">@dimen/smallMargin</dimen>
     <!-- endregion MapBlock -->
 
+    <!-- region Card -->
+    <dimen name="summaryCardLinkMarginTop">40dp</dimen>
+    <!-- endregion Card -->
+
     <!-- region Footer -->
     <dimen name="summaryFooterBlockMarginTop">40dp</dimen>
     <!-- endregion Footer -->
