@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="summaryCardLinkPadding">16dp</dimen>
+    <dimen name="summaryCardLinkImageSize">32dp</dimen>
+    <dimen name="summaryCardLinkTitleMarginStart">16dp</dimen>
+    <dimen name="summaryCardLinkTitleTextSize">16sp</dimen>
+</resources>

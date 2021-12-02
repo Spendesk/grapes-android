@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SummaryCardLink">
+        <item name="android:padding">@dimen/summaryCardLinkPadding</item>
+    </style>
+
+    <style name="SummaryCardLinkTitleText">
+        <item name="android:textColor">@color/summaryCardLinkTitleText</item>
+        <item name="android:textSize">@dimen/summaryCardLinkTitleTextSize</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="SummaryCardLinkArrow">
+        <item name="android:src">@drawable/ic_arrow_right</item>
+    </style>
+
+</resources>

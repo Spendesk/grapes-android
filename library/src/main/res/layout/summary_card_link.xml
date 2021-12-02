@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/SummaryCardLink"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/summaryLinkCardImage"
+        android:layout_width="@dimen/summaryCardLinkImageSize"
+        android:layout_height="@dimen/summaryCardLinkImageSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/summaryLinkCardTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_crop" />
+
+    <TextView
+        android:id="@+id/summaryLinkCardTitle"
+        style="@style/SummaryCardLinkTitleText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/summaryCardLinkTitleMarginStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/summaryLinkCardArrow"
+        app:layout_constraintStart_toEndOf="@id/summaryLinkCardImage"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Get virtual card details" />
+
+    <ImageView
+        android:id="@+id/summaryLinkCardArrow"
+        style="@style/SummaryCardLinkArrow"
+        android:layout_width="@dimen/summaryCardLinkImageSize"
+        android:layout_height="@dimen/summaryCardLinkImageSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/summaryLinkCardTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
