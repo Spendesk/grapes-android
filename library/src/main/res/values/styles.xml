@@ -270,14 +270,21 @@
 
     <style name="CustomNumberKeyboardText">
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/customNumberKeyboardTextColor</item>
         <item name="android:textSize">@dimen/customNumberKeyboardTextSize</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
     </style>
 
-    <style name="CustomNumberKeyboardBiometricImage">
+    <style name="CustomNumberKeyboardTextDark" parent="@style/CustomNumberKeyboardText">
+        <item name="android:textColor">@color/customNumberKeyboardTextColorDark</item>
+    </style>
+
+    <style name="CustomNumberKeyboardTextLight" parent="@style/CustomNumberKeyboardText">
+        <item name="android:textColor">@color/customNumberKeyboardTextColorLight</item>
+    </style>
+
+    <style name="CustomNumberKeyboardExtraButtonImage">
         <item name="android:scaleType">centerInside</item>
         <item name="android:src">@drawable/ic_biometric_fingerprint</item>
         <item name="android:clickable">true</item>
