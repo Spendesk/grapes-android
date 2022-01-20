@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.spendesk.grapes.extensions.invisible
+import com.spendesk.grapes.extensions.isVisible
 import com.spendesk.grapes.extensions.visible
 import kotlinx.android.synthetic.main.view_custom_number_keyboard.view.*
 import java.text.DecimalFormatSymbols
@@ -42,6 +43,11 @@ class CustomNumberKeyboard : ConstraintLayout {
     private val deleteKey: ImageView
     private val numberKeys: MutableList<TextView> = mutableListOf()
     private val allKeys: MutableList<View> = mutableListOf()
+
+    private var amountValue: Double = 0.0
+    private var firstDecimal: Int? = null
+    private var secondDecimal: Int? = null
+    private var commaPressed: Boolean = false
 
     data class Configuration(
         val style: Style = Style.getDefault(),
@@ -83,8 +89,6 @@ class CustomNumberKeyboard : ConstraintLayout {
         }
     }
 
-    private var number = String()
-
     init {
         View.inflate(context, R.layout.view_custom_number_keyboard, this)
 
@@ -106,6 +110,14 @@ class CustomNumberKeyboard : ConstraintLayout {
         )
         numberKeys.map { it as View }.toMutableList().apply { add(extraButtonKey); add(deleteKey) }
 
+        // Sets the decimals and comma if needed
+        val decimalPart = amountValue.toBigDecimal().minus(amountValue.toInt().toBigDecimal()).multiply(100.toBigDecimal()).toInt()
+        commaPressed = decimalPart != 0
+        if (commaPressed) {
+            firstDecimal = decimalPart / 10
+            secondDecimal = decimalPart.toBigDecimal().divide(10.0.toBigDecimal()).minus(firstDecimal!!.toBigDecimal()).multiply(10.toBigDecimal()).toInt()
+        }
+
         bindNumberKeyPad()
     }
 
@@ -122,7 +134,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     }
 
     fun clearText() {
-        number = ""
+        amountValue = 0.0
     }
 
     fun setStyleAndExtraButton(style: Style, extraButton: ExtraButton) {
@@ -190,26 +202,67 @@ class CustomNumberKeyboard : ConstraintLayout {
         // Handle number bindings
         numberKeys.map { textView ->
             textView.setOnClickListener {
-                if (isEnabled) {
-                    number += textView.text
-                    onTextChanged?.invoke(number)
-                }
+                onKeyNumberPressed(numberPressed = Integer.parseInt(textView.text.toString()))
+//                number += textView.text
+//                onTextChanged?.invoke(number)
             }
         }
 
         // Handle special bindings
-        extraButtonKey.setOnClickListener { if (isEnabled) onRequestedBiometricAuthentication?.invoke() }
+        customNumberKeyboardExtraButtonImage.setOnClickListener { onRequestedBiometricAuthentication?.invoke() }
+        customNumberKeyboardExtraButtonText.setOnClickListener { commaPressed = true }
 
         deleteKey.setOnClickListener {
-            if (isEnabled) {
-                if (number.isNotEmpty()) {
-                    number = number.substring(0, number.length - 1)
-                }
-
-                onTextChanged?.invoke(number)
-            }
+            onKeyDeletePressed()
+//            if (number.isNotEmpty()) {
+//                number = number.substring(0, number.length - 1)
+//            }
+//
+//            onTextChanged?.invoke(number)
         }
     }
+
+    private fun onKeyNumberPressed(numberPressed: Int) {
+        if (commaPressed.not()) {
+            // Comma has not been clicked yet, which means we only deal with the integer part
+            amountValue = amountValue.toBigDecimal().multiply(10.toBigDecimal()).add(numberPressed.toBigDecimal()).toDouble()
+        } else {
+            // Comma has been clicked, which means we deal with the decimal part
+            if (firstDecimal == null) firstDecimal = numberPressed
+            else if (secondDecimal == null) secondDecimal = numberPressed
+
+            val decimalPart = firstDecimal?.let { it * 10 + (secondDecimal ?: 0) } ?: 0
+
+            amountValue = amountValue.toBigDecimal().toBigInteger().toBigDecimal().add((decimalPart / 100f).toBigDecimal()).toDouble()
+        }
+
+        updateAmount()
+    }
+
+    private fun onKeyDeletePressed() {
+        if (commaPressed.not()) {
+            // Comma has not been clicked yet, which means we only deal with the integer part
+            amountValue = amountValue.toBigDecimal().divide(10.toBigDecimal()).toBigInteger().toDouble()
+        } else {
+            // Comma has been clicked, which means we deal with the decimal part
+            when {
+                secondDecimal != null -> secondDecimal = null
+                firstDecimal != null -> firstDecimal = null
+                else -> commaPressed = false
+            }
+
+            val decimalPart = firstDecimal?.let { it * 10 + (secondDecimal ?: 0) } ?: 0
+
+            amountValue = amountValue.toBigDecimal().toBigInteger().toBigDecimal().add((decimalPart / 100f).toBigDecimal()).toDouble()
+        }
+
+        updateAmount()
+    }
+
+    /**
+     * Emits a new value for the amount entered.
+     */
+    private fun updateAmount() = onTextChanged?.invoke(amountValue.toString())
 
     private enum class Separator(val separator: Char, val resId: Int) {
         COMMA(',', R.string.customNumberKeyboardComma),
