@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.spendesk.grapes.extensions.invisible
-import com.spendesk.grapes.extensions.isVisible
 import com.spendesk.grapes.extensions.visible
 import kotlinx.android.synthetic.main.view_custom_number_keyboard.view.*
 import java.text.DecimalFormatSymbols
@@ -36,7 +35,7 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     //endregion constructors
 
-    var onTextChanged: ((String) -> Unit)? = null
+    var onTextChanged: ((Double) -> Unit)? = null
     var onRequestedBiometricAuthentication: (() -> Unit)? = null
 
     private val extraButtonKey: View
@@ -201,25 +200,14 @@ class CustomNumberKeyboard : ConstraintLayout {
     private fun bindNumberKeyPad() {
         // Handle number bindings
         numberKeys.map { textView ->
-            textView.setOnClickListener {
-                onKeyNumberPressed(numberPressed = Integer.parseInt(textView.text.toString()))
-//                number += textView.text
-//                onTextChanged?.invoke(number)
-            }
+            textView.setOnClickListener { onKeyNumberPressed(numberPressed = Integer.parseInt(textView.text.toString())) }
         }
 
         // Handle special bindings
         customNumberKeyboardExtraButtonImage.setOnClickListener { onRequestedBiometricAuthentication?.invoke() }
         customNumberKeyboardExtraButtonText.setOnClickListener { commaPressed = true }
 
-        deleteKey.setOnClickListener {
-            onKeyDeletePressed()
-//            if (number.isNotEmpty()) {
-//                number = number.substring(0, number.length - 1)
-//            }
-//
-//            onTextChanged?.invoke(number)
-        }
+        deleteKey.setOnClickListener { onKeyDeletePressed() }
     }
 
     private fun onKeyNumberPressed(numberPressed: Int) {
@@ -262,7 +250,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     /**
      * Emits a new value for the amount entered.
      */
-    private fun updateAmount() = onTextChanged?.invoke(amountValue.toString())
+    private fun updateAmount() = onTextChanged?.invoke(amountValue)
 
     private enum class Separator(val separator: Char, val resId: Int) {
         COMMA(',', R.string.customNumberKeyboardComma),
