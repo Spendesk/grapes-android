@@ -42,4 +42,7 @@ sealed class HomeTabItem : Parcelable {
 
     @Parcelize
     object Loaders : HomeTabItem()
+
+    @Parcelize
+    object Keyboards : HomeTabItem()
 }

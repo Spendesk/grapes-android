@@ -70,4 +70,10 @@
     <string name="loadersCircularProgressBarNormal" translatable="false">Normal</string>
     <string name="loadersCircularProgressBarSmall" translatable="false">Small</string>
 
+    <!-- Keyboards -->
+    <string name="keyboardsTitle" translatable="false">Keyboards</string>
+    <string name="keyboardsOne" translatable="false">Light &amp; Fingerprint</string>
+    <string name="keyboardsTwo" translatable="false">Dark &amp; Separator</string>
+    <string name="keyboardsThree" translatable="false">Dark &amp; No extra button</string>
+
 </resources>
