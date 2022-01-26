@@ -5,4 +5,26 @@
         <item name="flow_horizontalGap">@dimen/headerStatusIndicatorFlowHorizontalGap</item>
         <item name="flow_wrapMode">chain</item>
     </style>
+
+    <style name="SelectorView">
+        <item name="android:clickable">true</item>
+        <item name="android:background">@drawable/background_selector_view</item>
+        <item name="android:paddingTop">@dimen/selectorViewTextPaddingVert</item>
+        <item name="android:paddingBottom">@dimen/selectorViewTextPaddingVert</item>
+        <item name="android:paddingStart">@dimen/selectorViewTextPaddingHorz</item>
+        <item name="android:paddingEnd">@dimen/selectorViewTextPaddingHorz</item>
+    </style>
+
+    <style name="SelectorViewText">
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textColor">@color/selector_view_text</item>
+        <item name="android:textSize">@dimen/selectorViewText</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+    </style>
+
+    <style name="SelectorViewBadge">
+        <item name="android:visibility">gone</item>
+    </style>
+
 </resources>

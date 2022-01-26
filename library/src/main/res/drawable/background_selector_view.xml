@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/selectorViewBackgroundRipple">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="@dimen/selectorViewBackgroundStroke"
+                android:color="@color/selector_view_background_stroke" />
+
+            <solid android:color="@color/selector_view_background" />
+            <corners android:radius="@dimen/selectorViewBackgroundRadius" />
+        </shape>
+    </item>
+</ripple>

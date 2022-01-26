@@ -18,4 +18,12 @@
     <dimen name="switchCardTextMarginEnd">@dimen/normalMargin</dimen>
     <dimen name="switchCardHeight">28dp</dimen>
     <dimen name="switchCardTextSize">16sp</dimen>
+
+    <dimen name="selectorViewText">@dimen/titleSSize</dimen>
+    <dimen name="selectorViewTextPaddingVert">8dp</dimen>
+    <dimen name="selectorViewTextPaddingHorz">14dp</dimen>
+    <dimen name="selectorViewBackgroundStroke">1dp</dimen>
+    <dimen name="selectorViewBackgroundRadius">100dp</dimen>
+    <dimen name="selectorViewTextDrawablePadding">@dimen/smallMargin</dimen>
+
 </resources>
