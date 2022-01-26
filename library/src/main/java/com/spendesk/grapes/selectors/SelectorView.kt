@@ -33,13 +33,17 @@ class SelectorView : ConstraintLayout {
     // endregion constructor
 
     data class Configuration(
-        val text: CharSequence?,
+        val text: CharSequence,
         val notificationText: CharSequence?,
         val shouldShowDrawableEnd: Boolean = false,
         val isSelected: Boolean = false
     )
 
     private var binding = SelectorViewBinding.inflate(LayoutInflater.from(context), this, true)
+
+    init {
+        isClickable = true
+    }
 
     override fun setSelected(selected: Boolean) {
         super.setSelected(selected)
@@ -54,7 +58,7 @@ class SelectorView : ConstraintLayout {
         isSelected = configuration.isSelected
     }
 
-    fun setText(text: CharSequence?) {
+    fun setText(text: CharSequence) {
         binding.text.text = text
     }
 
@@ -81,7 +85,7 @@ class SelectorView : ConstraintLayout {
                 val badgeText = getString(R.styleable.SelectorView_badgeText)
                 val isSelected = getBoolean(R.styleable.SelectorView_isSelected, false)
 
-                setText(text = text)
+                text?.let { setText(text = text) }
                 showDrawableEnd(shouldShowDrawableEnd = shouldShowDrawableEnd)
                 setBadgeText(notificationText = badgeText)
                 setSelected(selected = isSelected)

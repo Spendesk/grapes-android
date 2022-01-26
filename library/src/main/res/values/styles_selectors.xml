@@ -7,7 +7,6 @@
     </style>
 
     <style name="SelectorView">
-        <item name="android:clickable">true</item>
         <item name="android:background">@drawable/background_selector_view</item>
         <item name="android:paddingTop">@dimen/selectorViewTextPaddingVert</item>
         <item name="android:paddingBottom">@dimen/selectorViewTextPaddingVert</item>
@@ -21,10 +20,12 @@
         <item name="android:textSize">@dimen/selectorViewText</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
+        <item name="android:clickable">false</item>
     </style>
 
     <style name="SelectorViewBadge">
         <item name="android:visibility">gone</item>
+        <item name="android:clickable">false</item>
     </style>
 
 </resources>
