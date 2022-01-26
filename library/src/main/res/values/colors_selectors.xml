@@ -9,4 +9,13 @@
     <color name="pickerBlockIconCardViewIconUnselectedTint">@color/mainComplementary</color>
 
     <color name="switchCardTextColor">@color/mainNeutralDarkest</color>
+
+    <color name="selectorViewTextDefault">@color/colorPrimary</color>
+    <color name="selectorViewTextSelected">@color/white</color>
+    <color name="selectorViewBackgroundDefault">@color/white</color>
+    <color name="selectorViewBackgroundSelected">@color/colorPrimary</color>
+    <color name="selectorViewBackgroundRipple">@color/ripple</color>
+    <color name="selectorViewBackgroundStrokeDefault">@color/mainPrimaryLighter</color>
+    <color name="selectorViewBackgroundStrokeSelected">@color/colorPrimary</color>
+
 </resources>
