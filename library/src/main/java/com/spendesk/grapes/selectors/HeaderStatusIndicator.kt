@@ -3,6 +3,7 @@ package com.spendesk.grapes.selectors
 import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.animation.TimeInterpolator
 import android.content.Context
 import android.transition.TransitionManager
 import android.util.AttributeSet
@@ -109,6 +110,17 @@ class HeaderStatusIndicator : ConstraintLayout {
     }
 
     private fun animateUpdateStatusIndex(statusIndex: Int) {
+        val updateStatusAnimators = computeUpdateStatusAnimators(statusIndex)
+
+        animatorSet = AnimatorSet().apply {
+            duration = INDICATOR_ANIMATION_DURATION_MS
+            interpolator = computeInterpolatorForAnimators(updateStatusAnimators)
+            playSequentially(updateStatusAnimators)
+            start()
+        }
+    }
+
+    private fun computeUpdateStatusAnimators(statusIndex: Int): List<Animator> {
         val animators: MutableList<Animator> = mutableListOf()
 
         progressBarIds.forEachIndexed { index, progressBarIdView ->
@@ -125,37 +137,26 @@ class HeaderStatusIndicator : ConstraintLayout {
             }
         }
 
-        val sortedAnimators = if (currentIndex > statusIndex) {
+        return if (currentIndex > statusIndex) {
             // we need to decrease the status bar progress so we need to play defined animators in a reversed order
             animators.reversed()
         } else {
             animators
         }
+    }
 
-        // This interpolator is used by every animators. We can only use a non linear one when there is one animation to be played. Otherwise it would look bumpy.
-        val animatorsInterpolator = if (sortedAnimators.size == 1) {
+    // This interpolator is used by every animators. We can only use a non linear one when there is one animation to be played. Otherwise it would look bumpy.
+    private fun computeInterpolatorForAnimators(animators: List<Animator>): TimeInterpolator =
+        if (animators.size == 1) {
             FastOutSlowInInterpolator()
         } else {
             LinearInterpolator()
         }
 
-        animatorSet = AnimatorSet().apply {
-            duration = INDICATOR_ANIMATION_DURATION_MS
-            interpolator = animatorsInterpolator
-            playSequentially(sortedAnimators)
-            start()
-        }
-    }
-
     private fun setUpdateStatusIndex(statusIndex: Int) {
         progressBarIds.forEachIndexed { index, progressBarIdView ->
             val progressBar = findViewById<ProgressBar>(progressBarIdView)
-
-            if (index <= statusIndex) {
-                progressBar.progress = 100
-            } else {
-                progressBar.progress = 0
-            }
+            progressBar.progress = if (index <= statusIndex) 100 else 0
         }
     }
 }
