@@ -66,7 +66,7 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
         val item4Configuration = SimpleEntryItemView.Configuration(
             titleStart = "Number of kebabs per game",
-            descriptionStart = "C'est vraiment un n00b..",
+            descriptionStart = "C'est vraiment un n00b.. en plus il a une grande description",
             imageAltText = "10"
         )
 
@@ -100,6 +100,14 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             badgeNumber = 42
         )
 
+        val item9Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Payments style",
+            titleEnd = "73,69 €",
+            descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+        )
+
         // Sections
         val section1Configuration = SimpleSectionItemView.Configuration(
             iconStart = R.drawable.ic_crop,
@@ -126,7 +134,8 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 SimpleListModel.Item(id = "5", configuration = item5Configuration),
                 SimpleListModel.Item(id = "6", configuration = item6Configuration),
                 SimpleListModel.Item(id = "7", configuration = item7Configuration),
-                SimpleListModel.Item(id = "8", configuration = item8Configuration)
+                SimpleListModel.Item(id = "8", configuration = item8Configuration),
+                SimpleListModel.Item(id = "9", configuration = item9Configuration)
             )
         )
     }
