@@ -108,7 +108,7 @@
         android:layout_height="wrap_content"
         app:barrierAllowsGoneWidgets="true"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd,simpleEntryItemBadgeBarrier" />
+        app:constraint_referenced_ids="simpleEntryItemDescriptionEnd,simpleEntryItemBadgeBarrier, simpleEntryItemTitleEnd" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemBadgeBarrier"
