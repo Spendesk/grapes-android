@@ -150,7 +150,8 @@
 
     <!-- region CustomNumberKeyboardText -->
 
-    <color name="customNumberKeyboardTextColor">@color/white</color>
+    <color name="customNumberKeyboardTextColorLight">@color/white</color>
+    <color name="customNumberKeyboardTextColorDark">@color/mainComplementary</color>
 
     <!-- endregion CustomNumberKeyboardText -->
 

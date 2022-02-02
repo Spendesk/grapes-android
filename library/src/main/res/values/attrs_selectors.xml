@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SelectorView">
+        <attr name="android:text" />
+        <attr name="showDrawableEnd" format="boolean" />
+        <attr name="badgeText" format="string" />
+        <attr name="isSelected" format="boolean" />
+    </declare-styleable>
+
+</resources>

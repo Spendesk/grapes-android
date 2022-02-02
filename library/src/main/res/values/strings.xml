@@ -10,6 +10,8 @@
     <string name="customNumberKeyboard7" translatable="false">7</string>
     <string name="customNumberKeyboard8" translatable="false">8</string>
     <string name="customNumberKeyboard9" translatable="false">9</string>
+    <string name="customNumberKeyboardComma" translatable="false">,</string>
+    <string name="customNumberKeyboardDot" translatable="false">.</string>
 
     <!-- region Simple Entry Item -->
     <string name="simpleEntryItemTitleEndOptionalFormat" translatable="false">%1$s •&#160;</string>

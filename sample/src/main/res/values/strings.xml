@@ -39,6 +39,10 @@
     <string name="selectorsPickerCardsListView" translatable="false">Picker cards list</string>
     <string name="selectorsPickerTextListView" translatable="false">Picker texts list</string>
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
+    <string name="selectorsSelectorTitle" translatable="false">Selector</string>
+    <string name="selectorsSelectorOne" translatable="false">Default</string>
+    <string name="selectorsSelectorTwo" translatable="false">Notification</string>
+    <string name="selectorsSelectorThree" translatable="false">Active</string>
 
     <!-- Inputs -->
     <string name="inputSearchMain" translatable="false">Search Input Main</string>
@@ -69,5 +73,11 @@
     <string name="loadersCircularProgressBar" translatable="false">CircularProgressBar</string>
     <string name="loadersCircularProgressBarNormal" translatable="false">Normal</string>
     <string name="loadersCircularProgressBarSmall" translatable="false">Small</string>
+
+    <!-- Keyboards -->
+    <string name="keyboardsTitle" translatable="false">Keyboards</string>
+    <string name="keyboardsOne" translatable="false">Light &amp; Fingerprint</string>
+    <string name="keyboardsTwo" translatable="false">Dark &amp; Separator</string>
+    <string name="keyboardsThree" translatable="false">Dark &amp; No extra button</string>
 
 </resources>
