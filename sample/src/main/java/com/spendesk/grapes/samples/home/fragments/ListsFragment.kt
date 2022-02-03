@@ -103,9 +103,54 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         val item9Configuration = SimpleEntryItemView.Configuration(
             placeholderPrimaryImage = R.drawable.ic_pencil,
             shouldCircleCropPrimaryImage = true,
-            titleStart = "Payments style",
-            titleEnd = "73,69 €",
+            titleStart = "Very expansive",
+            titleEnd = "73242534,69 €",
             descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+        )
+
+        val item10Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Kebab",
+            titleEnd = "7,69 €",
+            descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+        )
+
+        val item11Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Very expansive with date",
+            titleEnd = "73242534,69 €",
+            descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+            descriptionEnd = "14 June"
+
+        )
+
+        val item12Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Kebab with date in the cold with a mustache doing a backflip",
+            titleEnd = "7 €",
+            descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+            descriptionEnd = "14 November"
+        )
+
+        val item13Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Kebab with date in the cold with a mustache doing a backflip",
+            descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+            descriptionEnd = "14 November"
+        )
+
+        val item14Configuration = SimpleEntryItemView.Configuration(
+            placeholderPrimaryImage = R.drawable.ic_pencil,
+            shouldCircleCropPrimaryImage = true,
+            titleStart = "Kebab with date in the cold with a mustache doing a backflip",
+            titleEnd = "7 €",
+            titleEndOptional = "$68,34",
+            descriptionStart = "Super longue descritpion qui va passer sous le prix parce qu'elle est trop grosse",
+            descriptionEnd = "14 November"
         )
 
         // Sections
@@ -135,7 +180,12 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 SimpleListModel.Item(id = "6", configuration = item6Configuration),
                 SimpleListModel.Item(id = "7", configuration = item7Configuration),
                 SimpleListModel.Item(id = "8", configuration = item8Configuration),
-                SimpleListModel.Item(id = "9", configuration = item9Configuration)
+                SimpleListModel.Item(id = "9", configuration = item9Configuration),
+                SimpleListModel.Item(id = "10", configuration = item10Configuration),
+                SimpleListModel.Item(id = "11", configuration = item11Configuration),
+                SimpleListModel.Item(id = "12", configuration = item12Configuration),
+                SimpleListModel.Item(id = "13", configuration = item13Configuration),
+                SimpleListModel.Item(id = "14", configuration = item14Configuration),
             )
         )
     }
