@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemTitleEndOptional,simpleEntryItemTitleEnd" />
+        app:constraint_referenced_ids="simpleEntryItemTitleEndOptional,simpleEntryItemTitleEnd, simpleEntryItemDescriptionEnd" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/simpleEntryItemDescriptionEndStartBarrier"
@@ -192,6 +192,7 @@
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="$68,34 • "
         tools:visibility="visible" />
@@ -204,9 +205,8 @@
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toEndOf="@id/simpleEntryItemBadgeBarrier"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEndOptional"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
-        tools:text="71,03 €"
+        tools:text="7 €"
         tools:visibility="visible" />
 
     <View
@@ -243,6 +243,7 @@
         android:layout_marginEnd="@dimen/listEntryItemMarginEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentDescriptionMaxEndHeightGuideline"
         app:layout_constraintEnd_toEndOf="@id/simpleEntryItemBadgeBarrier"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemDescriptionEndStartBarrier"
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
         tools:text="12 Sept."
@@ -275,8 +276,8 @@
     <com.spendesk.grapes.BadgeView
         android:id="@+id/simpleEntryItemBadge"
         android:layout_width="wrap_content"
-        android:layout_marginEnd="@dimen/listEntryItemBadgeMarginEnd"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/listEntryItemBadgeMarginEnd"
         app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemMinHeightGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemBadgeBarrier"
