@@ -3,15 +3,11 @@ package com.spendesk.grapes.component.content.summary.block
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
-import com.spendesk.grapes.R
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockView
-import com.spendesk.grapes.databinding.SummaryBlockContentApproverBinding
 import com.spendesk.grapes.databinding.SummaryBlockContentInlineBinding
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
-import kotlinx.android.synthetic.main.summary_block_content_inline.view.*
 
 /**
  * @author Vivien Mahe
