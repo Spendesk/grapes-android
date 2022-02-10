@@ -2,10 +2,10 @@ package com.spendesk.grapes.selectors
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.cardview.widget.CardView
 import com.spendesk.grapes.R
-import kotlinx.android.synthetic.main.selector_switch_card.view.*
+import com.spendesk.grapes.databinding.SelectorSwitchCardBinding
 
 /**
  * @author danyboucanova
@@ -28,18 +28,18 @@ class SwitchCardView : CardView {
         val isChecked: Boolean = false
     )
 
-    init {
-        View.inflate(context, R.layout.selector_switch_card, this)
+    private val binding: SelectorSwitchCardBinding = SelectorSwitchCardBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         radius = resources.getDimensionPixelOffset(R.dimen.switchCardRadius).toFloat()
         elevation = resources.getDimensionPixelOffset(R.dimen.switchCardElevation).toFloat()
 
-        setOnClickListener { switchCardSwitch.isChecked = !switchCardSwitch.isChecked }
-        switchCardSwitch.setOnCheckedChangeListener { _, isChecked -> onChecked?.invoke(isChecked) }
+        setOnClickListener { binding.switchCardSwitch.isChecked = !binding.switchCardSwitch.isChecked }
+        binding.switchCardSwitch.setOnCheckedChangeListener { _, isChecked -> onChecked?.invoke(isChecked) }
     }
 
     fun updateConfiguration(configuration: Configuration) {
-        switchCardSwitch.isChecked = configuration.isChecked
-        switchCardText.text = configuration.text
+        binding.switchCardSwitch.isChecked = configuration.isChecked
+        binding.switchCardText.text = configuration.text
     }
 }

@@ -7,7 +7,7 @@ import android.animation.TimeInterpolator
 import android.content.Context
 import android.transition.TransitionManager
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.ProgressBar
@@ -15,7 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.interpolator.view.animation.FastOutSlowInInterpolator
 import com.spendesk.grapes.R
-import kotlinx.android.synthetic.main.selectors_header_status_indicator.view.*
+import com.spendesk.grapes.databinding.SelectorsHeaderStatusIndicatorBinding
 import kotlin.math.abs
 
 /**
@@ -44,9 +44,9 @@ class HeaderStatusIndicator : ConstraintLayout {
     private var animatorSet: AnimatorSet? = null
     private var currentIndex: Int = 0
 
-    init {
-        View.inflate(context, R.layout.selectors_header_status_indicator, this)
+    private val binding: SelectorsHeaderStatusIndicatorBinding = SelectorsHeaderStatusIndicatorBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         setBackgroundColor(ContextCompat.getColor(context, R.color.headerStatusIndicatorBackgroundColor))
     }
 
@@ -66,7 +66,7 @@ class HeaderStatusIndicator : ConstraintLayout {
             }
         }
 
-        selectorsHeaderStatusIndicatorFlow.referencedIds = progressBarIds.toIntArray()
+        binding.selectorsHeaderStatusIndicatorFlow.referencedIds = progressBarIds.toIntArray()
     }
 
     private fun addProgressBars(amountOfProgressBarToAdd: Int) {
@@ -89,7 +89,7 @@ class HeaderStatusIndicator : ConstraintLayout {
         for (i in progressBarIds.size - 1 downTo progressBarIds.size - amountOfProgressBarToRemove) {
             val progressBarId = progressBarIds[i]
             val progressBar = findViewById<ProgressBar>(progressBarId)
-            selectorsHeaderStatusIndicatorFlow.removeView(progressBar)
+            binding.selectorsHeaderStatusIndicatorFlow.removeView(progressBar)
             progressBarIds.remove(progressBarId)
             removeView(progressBar)
         }
