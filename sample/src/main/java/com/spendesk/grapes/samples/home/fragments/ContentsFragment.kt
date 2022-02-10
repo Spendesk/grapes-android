@@ -12,8 +12,8 @@ import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
 import com.spendesk.grapes.list.content.summary.item.InlineKeyValueItemView
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_contents.*
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeContentsBinding
 
 /**
  * @author danyboucanova
@@ -25,10 +25,12 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         fun newInstance() = ContentsFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeContentsBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.contents)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.contents)
 
         setupView()
     }
@@ -41,7 +43,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
 
     private fun setupBlockMap() {
         // Map extended
-        with(homeButtonSectionMapExtendedBlock) {
+        with(binding.homeButtonSectionMapExtendedBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentMapView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
@@ -70,7 +72,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         }
 
         // Map compact
-        homeButtonSectionMapCompactBlock.updateConfiguration(
+        binding.homeButtonSectionMapCompactBlock.updateConfiguration(
             configuration = SummaryBlockContentMapView.Configuration(
                 titleConfiguration = SummaryBlockTitleView.Configuration(
                     startTitle = "Route"
@@ -88,7 +90,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
 
     private fun setupBlockText() {
         // Text with value and image
-        with(homeButtonSectionTextWithValueAndImageBlock) {
+        with(binding.homeButtonSectionTextWithValueAndImageBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
@@ -104,7 +106,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         }
 
         // Text with value disabled
-        with(homeButtonSectionTextWithValueBlock) {
+        with(binding.homeButtonSectionTextWithValueBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
@@ -121,7 +123,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         }
 
         // Text with value selected
-        with(homeButtonSectionTextWithValueSelectedBlock) {
+        with(binding.homeButtonSectionTextWithValueSelectedBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
@@ -137,7 +139,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
         }
 
         // Text without value
-        with(homeButtonSectionTextWithoutValueBlock) {
+        with(binding.homeButtonSectionTextWithoutValueBlock) {
             updateConfiguration(
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
@@ -152,7 +154,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
     }
 
     private fun setupCard() {
-        with(homeButtonSectionCardLinkBlock) {
+        with(binding.homeButtonSectionCardLinkBlock) {
             updateConfiguration(
                 configuration = SummaryCardLinkView.Configuration(
                     title = "Get virtual card details",
