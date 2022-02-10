@@ -2,11 +2,11 @@ package com.spendesk.grapes
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
+import com.spendesk.grapes.databinding.BucketActionInformativeBinding
 import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.messages.MessageInlineView
-import kotlinx.android.synthetic.main.bucket_action_informative.view.*
 
 /**
  * @author danyboucanova
@@ -24,9 +24,9 @@ class InformativeActionBucketView : BucketView {
 
     var onButtonClick: (() -> Unit)? = null
 
-    init {
-        View.inflate(context, R.layout.bucket_action_informative, this)
+    private val binding: BucketActionInformativeBinding = BucketActionInformativeBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         bindView()
     }
 
@@ -39,21 +39,23 @@ class InformativeActionBucketView : BucketView {
     )
 
     fun updateData(configuration: Configuration) {
-        actionInformativeTitleText.text = configuration.title
-        actionInformativeButton.text = configuration.smallButtonText
+        with(binding) {
+            actionInformativeTitleText.text = configuration.title
+            actionInformativeButton.text = configuration.smallButtonText
 
-        if (configuration.shouldShowChip) {
-            actionInformativeMessage.visible()
-            actionInformativeSubtitleText.gone()
-            configuration.messageContent?.let { actionInformativeMessage.updateConfiguration(configuration = MessageInlineView.Configuration(it, configuration.subtitleText)) }
-        } else {
-            actionInformativeMessage.gone()
-            actionInformativeSubtitleText.visible()
-            actionInformativeSubtitleText.text = configuration.subtitleText
+            if (configuration.shouldShowChip) {
+                actionInformativeMessage.visible()
+                actionInformativeSubtitleText.gone()
+                configuration.messageContent?.let { actionInformativeMessage.updateConfiguration(configuration = MessageInlineView.Configuration(it, configuration.subtitleText)) }
+            } else {
+                actionInformativeMessage.gone()
+                actionInformativeSubtitleText.visible()
+                actionInformativeSubtitleText.text = configuration.subtitleText
+            }
         }
     }
 
     private fun bindView() {
-        actionInformativeButton.setOnClickListener { onButtonClick?.invoke() }
+        binding.actionInformativeButton.setOnClickListener { onButtonClick?.invoke() }
     }
 }
