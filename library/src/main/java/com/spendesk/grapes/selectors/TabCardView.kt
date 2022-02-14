@@ -2,15 +2,15 @@ package com.spendesk.grapes.selectors
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.StringRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.ViewTabCardviewBinding
 import com.spendesk.grapes.extensions.addRippleEffect
 import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
-import kotlinx.android.synthetic.main.view_tab_cardview.view.*
 
 /**
  * @author danyboucanova
@@ -38,9 +38,9 @@ class TabCardView : CardView {
         val isActivated: Boolean
     )
 
-    init {
-        View.inflate(context, R.layout.view_tab_cardview, this)
+    private var binding = ViewTabCardviewBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         addRippleEffect()
 
         cardElevation = context.resources.getDimension(R.dimen.tabCardViewRootCardElevation)
@@ -50,7 +50,7 @@ class TabCardView : CardView {
     }
 
     fun updateConfiguration(configuration: Configuration) {
-        tabCardViewText.isHovered = configuration.isActivated
+        binding.tabCardViewText.isHovered = configuration.isActivated
         isHovered = configuration.isActivated
 
         setText(configuration.text)
@@ -58,18 +58,18 @@ class TabCardView : CardView {
     }
 
     fun setText(text: CharSequence) {
-        tabCardViewText.text = text
+        binding.tabCardViewText.text = text
     }
 
     fun setText(@StringRes textId: Int) {
-        tabCardViewText.setText(textId)
+        binding.tabCardViewText.setText(textId)
     }
 
     fun setBadge(count: CharSequence?) =
         count?.let {
-            tabCardViewBadge.visible()
-            tabCardViewBadge.text = count.toString()
+            binding.tabCardViewBadge.visible()
+            binding.tabCardViewBadge.text = count.toString()
         } ?: run {
-            tabCardViewBadge.gone()
+            binding.tabCardViewBadge.gone()
         }
 }
