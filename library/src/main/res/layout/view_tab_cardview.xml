@@ -2,37 +2,35 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:parentTag="androidx.cardview.widget.CardView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:paddingHorizontal="@dimen/selectorViewTextPaddingHorz"
-        android:paddingVertical="@dimen/selectorViewTextPaddingVert"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/tabCardViewContainerHeight"
+        android:layout_marginHorizontal="@dimen/tabCardViewMarginHorz">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text"
-            style="@style/SelectorViewText"
+        <TextView
+            android:id="@+id/tabCardViewText"
+            style="@style/TabCardViewText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/badgeView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Spendesk FR" />
+            tools:text="Your Expenses" />
 
         <com.spendesk.grapes.BadgeView
-            android:id="@+id/badgeView"
-            style="@style/SelectorViewBadge"
+            android:id="@+id/tabCardViewBadge"
+            style="@style/TabCardViewBadge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/tabCardViewBadgeMarginStart"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/text"
+            app:layout_constraintStart_toEndOf="@id/tabCardViewText"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="8"
+            tools:text="+42"
             tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

@@ -66,14 +66,67 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         // SwitchCard
         homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))
 
-        // Selectors
-        // The other selectors are init via XML
+        // Selector
         homeSelectorsSectionSelectorOne.updateConfiguration(
             configuration = SelectorView.Configuration(
-                text = "Spendesk FR",
+                style = SelectorView.Style.PRIMARY,
+                text = "Primary",
+                notificationText = null,
+                shouldShowDrawableEnd = false
+            )
+        )
+
+        homeSelectorsSectionSelectorTwo.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.SECONDARY,
+                text = "Secondary",
+                notificationText = "1",
+                shouldShowDrawableEnd = true
+            )
+        )
+
+        homeSelectorsSectionSelectorThree.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.ACTIVE_PRIMARY,
+                text = "Active Primary",
                 notificationText = null,
                 shouldShowDrawableEnd = true
             )
         )
+        homeSelectorsSectionSelectorFour.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.ACTIVE_PRIMARY_DARK,
+                text = "Active Primary Dark",
+                notificationText = null,
+                shouldShowDrawableEnd = true
+            )
+        )
+
+        // TabCardView
+        homeSelectorsSectionTabCardViewOne.updateConfiguration(
+            configuration = TabCardView.Configuration(
+                text = "Hop",
+                badgeNumber = "1",
+                isActivated = true
+            )
+        )
+
+        homeSelectorsSectionTabCardViewTwo.updateConfiguration(
+            configuration = TabCardView.Configuration(
+                text = "Plop",
+                badgeNumber = null,
+                isActivated = true
+            )
+        )
+        homeSelectorsSectionTabCardViewTwo.isHovered = true
+
+        homeSelectorsSectionTabCardViewThree.updateConfiguration(
+            configuration = TabCardView.Configuration(
+                text = "Hop",
+                badgeNumber = null,
+                isActivated = true
+            )
+        )
+        homeSelectorsSectionTabCardViewThree.isHovered = true
     }
 }

@@ -17,9 +17,8 @@
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
             android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
             android:text="@string/selectorsPickerCardsListView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +28,8 @@
             android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginVertical="@dimen/homeSectionBucketViewMarginVert"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionHeaderStatusIndicatorTitleText">
@@ -46,9 +43,8 @@
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
                     android:text="@string/selectorsHeaderStatusIndicatorFirst"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -58,9 +54,8 @@
                     android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorFirstHeaderStatusIndicator"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionHeaderStatusIndicatorFirstSubtitle" />
@@ -221,11 +216,8 @@
             android:id="@+id/homeSelectorsSectionSelectorBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginVertical="@dimen/homeSectionBucketViewMarginVert"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionSelectorTitleText">
@@ -239,9 +231,8 @@
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
                     android:text="@string/selectorsSelectorOne"
                     app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionSelectorOne"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -252,9 +243,8 @@
                     android:id="@+id/homeSelectorsSectionSelectorOne"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
                     app:layout_constraintBottom_toTopOf="@id/homeSelectorSectionTwoSubtitle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionOneSubtitle"
@@ -265,9 +255,8 @@
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
                     android:text="@string/selectorsSelectorTwo"
                     app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionSelectorTwo"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -278,9 +267,8 @@
                     android:id="@+id/homeSelectorsSectionSelectorTwo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
                     android:text="Spendesk UK"
                     app:badgeText="8"
                     app:layout_constraintBottom_toTopOf="@id/homeSelectorSectionThreeSubtitle"
@@ -292,11 +280,9 @@
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginHorizontal="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
                     android:text="@string/selectorsSelectorThree"
-                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionSelectorThree"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionSelectorTwo" />
@@ -305,15 +291,139 @@
                     android:id="@+id/homeSelectorsSectionSelectorThree"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionBucketViewMarginVert"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionThreeSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeSelectorSectionFourSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:text="@string/selectorsSelectorFour"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSelectorThree" />
+
+                <com.spendesk.grapes.selectors.SelectorView
+                    android:id="@+id/homeSelectorsSectionSelectorFour"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionBucketViewMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionFourSubtitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeSelectorsSectionTabCardViewTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:text="@string/selectorsTabCardViewTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSelectorBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeSelectorsSectionTabCardViewBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/homeSelectorSectionTabCardViewOneSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/selectorsSelectorOne"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.selectors.TabCardView
+                    android:id="@+id/homeSelectorsSectionTabCardViewOne"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+                    app:layout_constraintBottom_toTopOf="@id/homeSelectorSectionTabCardViewTwoSubtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionTabCardViewOneSubtitle"
+                    tools:text="Spendesk FR" />
+
+                <TextView
+                    android:id="@+id/homeSelectorSectionTabCardViewTwoSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/selectorsSelectorTwo"
+                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionTabCardViewTwo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewOne" />
+
+                <com.spendesk.grapes.selectors.TabCardView
+                    android:id="@+id/homeSelectorsSectionTabCardViewTwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionTabCardViewThreeSubtitle"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionTabCardViewTwoSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeSelectorsSectionTabCardViewThreeSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/selectorsSelectorThree"
+                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionTabCardViewThree"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewTwo" />
+
+                <com.spendesk.grapes.selectors.TabCardView
+                    android:id="@+id/homeSelectorsSectionTabCardViewThree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
                     android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
-                    android:text="Spendesk US"
-                    app:isSelected="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionThreeSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewThreeSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>

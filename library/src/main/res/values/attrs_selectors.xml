@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <attr name="selectorStyle" format="enum|reference">
+        <enum name="primary" value="0" />
+        <enum name="secondary" value="1" />
+        <enum name="activePrimary" value="2" />
+        <enum name="activePrimaryDark" value="3" />
+    </attr>
+
     <declare-styleable name="SelectorView">
+        <attr name="selectorStyle" />
         <attr name="android:text" />
         <attr name="showDrawableEnd" format="boolean" />
         <attr name="badgeText" format="string" />
-        <attr name="isSelected" format="boolean" />
     </declare-styleable>
 
 </resources>
