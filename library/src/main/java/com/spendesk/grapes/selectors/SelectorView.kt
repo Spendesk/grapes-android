@@ -62,7 +62,6 @@ class SelectorView : CardView {
     private var binding = SelectorViewBinding.inflate(LayoutInflater.from(context), this)
 
     init {
-        isClickable = true
         addRippleEffect()
     }
 

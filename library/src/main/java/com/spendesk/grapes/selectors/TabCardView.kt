@@ -2,13 +2,13 @@ package com.spendesk.grapes.selectors
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.annotation.StringRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.ViewTabCardviewBinding
-import com.spendesk.grapes.extensions.addRippleEffect
 import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
 
@@ -41,7 +41,10 @@ class TabCardView : CardView {
     private var binding = ViewTabCardviewBinding.inflate(LayoutInflater.from(context), this)
 
     init {
-        addRippleEffect()
+        // Add ripple effect
+        val outValue = TypedValue()
+        context.theme.resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+        foreground = ContextCompat.getDrawable(context, outValue.resourceId)
 
         cardElevation = context.resources.getDimension(R.dimen.tabCardViewRootCardElevation)
         radius = context.resources.getDimension(R.dimen.tabCardViewRootCardRadius)
