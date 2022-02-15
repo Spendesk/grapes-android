@@ -10,7 +10,6 @@ import com.spendesk.grapes.extensions.invisible
 import com.spendesk.grapes.extensions.visible
 import kotlinx.android.synthetic.main.view_custom_number_keyboard.view.*
 import java.text.DecimalFormatSymbols
-import java.util.*
 
 /**
  * @author danyboucanova
@@ -35,7 +34,7 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     //endregion constructors
 
-    var onTextChanged: ((Double) -> Unit)? = null
+    var onTextChanged: ((String) -> Unit)? = null
     var onRequestedBiometricAuthentication: (() -> Unit)? = null
 
     private val extraButtonKey: View
@@ -43,9 +42,11 @@ class CustomNumberKeyboard : ConstraintLayout {
     private val numberKeys: MutableList<TextView> = mutableListOf()
     private val allKeys: MutableList<View> = mutableListOf()
 
+    private val numberValue = StringBuilder()
+    private val leftPartNumber = StringBuilder()
+    private val rightPartNumber = StringBuilder(2)
+
     private var amountValue: Double = 0.0
-    private var firstDecimal: Int? = null
-    private var secondDecimal: Int? = null
     private var commaPressed: Boolean = false
 
     data class Configuration(
@@ -109,14 +110,6 @@ class CustomNumberKeyboard : ConstraintLayout {
         )
         numberKeys.map { it as View }.toMutableList().apply { add(extraButtonKey); add(deleteKey) }
 
-        // Sets the decimals and comma if needed
-        val decimalPart = amountValue.toBigDecimal().minus(amountValue.toInt().toBigDecimal()).multiply(100.toBigDecimal()).toInt()
-        commaPressed = decimalPart != 0
-        if (commaPressed) {
-            firstDecimal = decimalPart / 10
-            secondDecimal = decimalPart.toBigDecimal().divide(10.0.toBigDecimal()).minus(firstDecimal!!.toBigDecimal()).multiply(10.toBigDecimal()).toInt()
-        }
-
         bindNumberKeyPad()
     }
 
@@ -126,14 +119,8 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     // TODO: Check why duplicateParentState disables the ripple effect on children, might be obvious but I did not had the bandwidth at the time.
     override fun setEnabled(enabled: Boolean) {
-        allKeys.map { view ->
-            view.isEnabled = enabled
-        }
+        allKeys.map { view -> view.isEnabled = enabled }
         super.setEnabled(enabled)
-    }
-
-    fun clearText() {
-        amountValue = 0.0
     }
 
     fun setStyleAndExtraButton(style: Style, extraButton: ExtraButton) {
@@ -200,7 +187,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     private fun bindNumberKeyPad() {
         // Handle number bindings
         numberKeys.map { textView ->
-            textView.setOnClickListener { onKeyNumberPressed(numberPressed = Integer.parseInt(textView.text.toString())) }
+            textView.setOnClickListener { onKeyNumberPressed(numberPressed = textView.text.toString()) }
         }
 
         // Handle special bindings
@@ -210,38 +197,28 @@ class CustomNumberKeyboard : ConstraintLayout {
         deleteKey.setOnClickListener { onKeyDeletePressed() }
     }
 
-    private fun onKeyNumberPressed(numberPressed: Int) {
-        if (commaPressed.not()) {
-            // Comma has not been clicked yet, which means we only deal with the integer part
-            amountValue = amountValue.toBigDecimal().multiply(10.toBigDecimal()).add(numberPressed.toBigDecimal()).toDouble()
-        } else {
-            // Comma has been clicked, which means we deal with the decimal part
-            if (firstDecimal == null) firstDecimal = numberPressed
-            else if (secondDecimal == null) secondDecimal = numberPressed
-
-            val decimalPart = firstDecimal?.let { it * 10 + (secondDecimal ?: 0) } ?: 0
-
-            amountValue = amountValue.toBigDecimal().toBigInteger().toBigDecimal().add((decimalPart / 100f).toBigDecimal()).toDouble()
+    private fun onKeyNumberPressed(numberPressed: String) {
+        when (commaPressed) {
+            true -> rightPartNumber.append(numberPressed) // Comma has been clicked, which means we deal with the decimal part
+            false -> leftPartNumber.append(numberPressed) // Comma has not been clicked yet, which means we only deal with the integer part
         }
 
         updateAmount()
     }
 
     private fun onKeyDeletePressed() {
-        if (commaPressed.not()) {
-            // Comma has not been clicked yet, which means we only deal with the integer part
-            amountValue = amountValue.toBigDecimal().divide(10.toBigDecimal()).toBigInteger().toDouble()
-        } else {
-            // Comma has been clicked, which means we deal with the decimal part
-            when {
-                secondDecimal != null -> secondDecimal = null
-                firstDecimal != null -> firstDecimal = null
-                else -> commaPressed = false
+        when (commaPressed) {
+            true -> {
+                // Comma has been clicked, which means we deal with the decimal part
+                with(rightPartNumber.lastIndex) {
+                    if (this > -1) rightPartNumber.deleteAt(this)
+                    if (this == 0) commaPressed = false // The user deleted all the numbers in the right part, so we delete the comma
+                }
             }
 
-            val decimalPart = firstDecimal?.let { it * 10 + (secondDecimal ?: 0) } ?: 0
-
-            amountValue = amountValue.toBigDecimal().toBigInteger().toBigDecimal().add((decimalPart / 100f).toBigDecimal()).toDouble()
+            false ->
+                // Comma has not been clicked yet, which means we only deal with the integer part
+                with(leftPartNumber.lastIndex) { if (this > -1) leftPartNumber.deleteAt(this) }
         }
 
         updateAmount()
@@ -250,7 +227,16 @@ class CustomNumberKeyboard : ConstraintLayout {
     /**
      * Emits a new value for the amount entered.
      */
-    private fun updateAmount() = onTextChanged?.invoke(amountValue)
+    private fun updateAmount() {
+        with(numberValue) {
+            clear()
+            append(leftPartNumber)
+            if (rightPartNumber.isNotEmpty()) append(".")
+            append(rightPartNumber)
+        }
+
+        onTextChanged?.invoke(numberValue.toString())
+    }
 
     private enum class Separator(val separator: Char, val resId: Int) {
         COMMA(',', R.string.customNumberKeyboardComma),
