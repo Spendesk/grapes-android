@@ -230,7 +230,7 @@ class CustomNumberKeyboard : ConstraintLayout {
         with(numberValue) {
             clear()
             append(leftPartNumber)
-            if (rightPartNumber.isNotEmpty()) append(".")
+            if (rightPartNumber.isNotEmpty()) append(Separator.DOT.separator) // Always use the dot for formatting the amount so cast to Double is possible
             append(rightPartNumber)
         }
 
