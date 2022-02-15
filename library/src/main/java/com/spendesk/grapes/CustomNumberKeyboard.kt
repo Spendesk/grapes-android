@@ -116,12 +116,14 @@ class CustomNumberKeyboard : ConstraintLayout {
         setStyleAndExtraButton(style = configuration.style, extraButton = configuration.extraButton)
     }
 
-    // TODO: Check why duplicateParentState disables the ripple effect on children, might be obvious but I did not had the bandwidth at the time.
     override fun setEnabled(enabled: Boolean) {
         allKeys.map { view -> view.isEnabled = enabled }
         super.setEnabled(enabled)
     }
 
+    /**
+     * Sets the [Style] and the [ExtraButton] of this keyboard.
+     */
     fun setStyleAndExtraButton(style: Style, extraButton: ExtraButton) {
         when (style) {
             Style.LIGHT -> {
