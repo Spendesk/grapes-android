@@ -2,13 +2,14 @@ package com.spendesk.grapes
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import com.spendesk.grapes.databinding.ViewCustomNumberKeyboardBinding
 import com.spendesk.grapes.extensions.invisible
 import com.spendesk.grapes.extensions.visible
-import kotlinx.android.synthetic.main.view_custom_number_keyboard.view.*
 import java.text.DecimalFormatSymbols
 
 /**
@@ -36,18 +37,6 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     var onTextChanged: ((String) -> Unit)? = null
     var onRequestedBiometricAuthentication: (() -> Unit)? = null
-
-    private val extraButtonKey: View
-    private val deleteKey: ImageView
-    private val numberKeys: MutableList<TextView> = mutableListOf()
-    private val allKeys: MutableList<View> = mutableListOf()
-
-    private val numberValue = StringBuilder()
-    private val leftPartNumber = StringBuilder()
-    private val rightPartNumber = StringBuilder(2)
-
-    private var amountValue: Double = 0.0
-    private var commaPressed: Boolean = false
 
     data class Configuration(
         val style: Style = Style.getDefault(),
@@ -89,23 +78,33 @@ class CustomNumberKeyboard : ConstraintLayout {
         }
     }
 
-    init {
-        View.inflate(context, R.layout.view_custom_number_keyboard, this)
+    private val extraButtonKey: View
+    private val deleteKey: ImageView
+    private val numberKeys: MutableList<TextView> = mutableListOf()
+    private val allKeys: MutableList<View> = mutableListOf()
 
-        extraButtonKey = customNumberKeyboardExtraButtonLayout
-        deleteKey = customNumberKeyboardDeleteImage
+    private val numberValue = StringBuilder()
+    private val leftPartNumber = StringBuilder()
+    private val rightPartNumber = StringBuilder()
+    private var commaPressed: Boolean = false
+
+    private var binding = ViewCustomNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
+
+    init {
+        extraButtonKey = binding.extraButtonLayout
+        deleteKey = binding.deleteImage
         numberKeys.addAll(
             listOf(
-                customNumberKeyboard0,
-                customNumberKeyboard1,
-                customNumberKeyboard2,
-                customNumberKeyboard3,
-                customNumberKeyboard4,
-                customNumberKeyboard5,
-                customNumberKeyboard6,
-                customNumberKeyboard7,
-                customNumberKeyboard8,
-                customNumberKeyboard9
+                binding.number0,
+                binding.number1,
+                binding.number2,
+                binding.number3,
+                binding.number4,
+                binding.number5,
+                binding.number6,
+                binding.number7,
+                binding.number8,
+                binding.number9
             )
         )
         numberKeys.map { it as View }.toMutableList().apply { add(extraButtonKey); add(deleteKey) }
@@ -133,16 +132,16 @@ class CustomNumberKeyboard : ConstraintLayout {
                     ExtraButton.NONE -> extraButtonKey.invisible()
                     ExtraButton.FINGERPRINT -> {
                         extraButtonKey.visible()
-                        customNumberKeyboardExtraButtonText.invisible()
-                        customNumberKeyboardExtraButtonImage.visible()
-                        customNumberKeyboardExtraButtonImage.setImageResource(R.drawable.ic_biometric_fingerprint)
+                        binding.extraButtonText.invisible()
+                        binding.extraButtonImage.visible()
+                        binding.extraButtonImage.setImageResource(R.drawable.ic_biometric_fingerprint)
                     }
                     ExtraButton.SEPARATOR -> {
                         extraButtonKey.visible()
-                        customNumberKeyboardExtraButtonImage.invisible()
-                        customNumberKeyboardExtraButtonText.visible()
-                        customNumberKeyboardExtraButtonText.setText(getSeparator().resId)
-                        customNumberKeyboardExtraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextLight)
+                        binding.extraButtonImage.invisible()
+                        binding.extraButtonText.visible()
+                        binding.extraButtonText.setText(getSeparator().resId)
+                        binding.extraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextLight)
                     }
                 }
             }
@@ -155,16 +154,16 @@ class CustomNumberKeyboard : ConstraintLayout {
                     ExtraButton.NONE -> extraButtonKey.invisible()
                     ExtraButton.FINGERPRINT -> {
                         extraButtonKey.visible()
-                        customNumberKeyboardExtraButtonText.invisible()
-                        customNumberKeyboardExtraButtonImage.visible()
-                        customNumberKeyboardExtraButtonImage.setImageResource(R.drawable.ic_biometric_fingerprint_dark)
+                        binding.extraButtonText.invisible()
+                        binding.extraButtonImage.visible()
+                        binding.extraButtonImage.setImageResource(R.drawable.ic_biometric_fingerprint_dark)
                     }
                     ExtraButton.SEPARATOR -> {
                         extraButtonKey.visible()
-                        customNumberKeyboardExtraButtonImage.invisible()
-                        customNumberKeyboardExtraButtonText.visible()
-                        customNumberKeyboardExtraButtonText.setText(getSeparator().resId)
-                        customNumberKeyboardExtraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextDark)
+                        binding.extraButtonImage.invisible()
+                        binding.extraButtonText.visible()
+                        binding.extraButtonText.setText(getSeparator().resId)
+                        binding.extraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextDark)
                     }
                 }
             }
@@ -186,13 +185,11 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     private fun bindNumberKeyPad() {
         // Handle number bindings
-        numberKeys.map { textView ->
-            textView.setOnClickListener { onKeyNumberPressed(numberPressed = textView.text.toString()) }
-        }
+        numberKeys.map { textView -> textView.setOnClickListener { onKeyNumberPressed(numberPressed = textView.text.toString()) } }
 
         // Handle special bindings
-        customNumberKeyboardExtraButtonImage.setOnClickListener { onRequestedBiometricAuthentication?.invoke() }
-        customNumberKeyboardExtraButtonText.setOnClickListener { commaPressed = true }
+        binding.extraButtonImage.setOnClickListener { onRequestedBiometricAuthentication?.invoke() }
+        binding.extraButtonText.setOnClickListener { commaPressed = true }
 
         deleteKey.setOnClickListener { onKeyDeletePressed() }
     }
