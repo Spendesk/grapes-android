@@ -19,6 +19,10 @@ import java.text.DecimalFormatSymbols
 
 class CustomNumberKeyboard : ConstraintLayout {
 
+    companion object {
+        private const val MAXIMUM_DIGITS_NONE = -1
+    }
+
     //region constructors
 
     constructor(context: Context) : super(context) {
@@ -40,7 +44,8 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     data class Configuration(
         val style: Style = Style.getDefault(),
-        val extraButton: ExtraButton = ExtraButton.getDefault()
+        val extraButton: ExtraButton = ExtraButton.getDefault(),
+        val maximumDigits: Int = MAXIMUM_DIGITS_NONE
     )
 
     enum class Style(val position: Int) {
@@ -87,6 +92,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     private val leftPartNumber = StringBuilder()
     private val rightPartNumber = StringBuilder()
     private var commaPressed: Boolean = false
+    private var maximumDigits: Int = MAXIMUM_DIGITS_NONE
 
     private var binding = ViewCustomNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -114,11 +120,22 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     fun updateConfiguration(configuration: Configuration) {
         setStyleAndExtraButton(style = configuration.style, extraButton = configuration.extraButton)
+        this.maximumDigits = configuration.maximumDigits
     }
 
     override fun setEnabled(enabled: Boolean) {
         allKeys.map { view -> view.isEnabled = enabled }
         super.setEnabled(enabled)
+    }
+
+    /**
+     * Clears and resets the number value to the default one.
+     */
+    fun clear() {
+        numberValue.clear()
+        leftPartNumber.clear()
+        rightPartNumber.clear()
+        commaPressed = false
     }
 
     /**
@@ -177,6 +194,7 @@ class CustomNumberKeyboard : ConstraintLayout {
             with(context.obtainStyledAttributes(it, R.styleable.CustomNumberKeyboard)) {
                 val style = Style.fromPosition(getInt(R.styleable.CustomNumberKeyboard_keyboardStyle, Style.getDefault().position))
                 val extraButton = ExtraButton.fromPosition(getInt(R.styleable.CustomNumberKeyboard_keyboardExtraButton, ExtraButton.getDefault().position))
+                maximumDigits = getInt(R.styleable.CustomNumberKeyboard_keyboardMaximumDigits, MAXIMUM_DIGITS_NONE)
 
                 setStyleAndExtraButton(style = style, extraButton = extraButton)
 
@@ -198,7 +216,12 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     private fun onKeyNumberPressed(numberPressed: String) {
         when (commaPressed) {
-            true -> rightPartNumber.append(numberPressed) // Comma has been clicked, which means we deal with the decimal part
+            true -> {
+                // Comma has been clicked, which means we deal with the decimal part
+                // Only append a new number if there is no limit or if the maximum limit of digits is not exceeded
+                if (maximumDigits == MAXIMUM_DIGITS_NONE || rightPartNumber.length < maximumDigits)
+                    rightPartNumber.append(numberPressed)
+            }
             false -> leftPartNumber.append(numberPressed) // Comma has not been clicked yet, which means we only deal with the integer part
         }
 

@@ -15,5 +15,6 @@
     <declare-styleable name="CustomNumberKeyboard">
         <attr name="keyboardStyle" />
         <attr name="keyboardExtraButton" />
+        <attr name="keyboardMaximumDigits" format="integer" />
     </declare-styleable>
 </resources>
