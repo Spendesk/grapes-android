@@ -2,7 +2,7 @@
 <resources>
     <string name="numberKeyboard0" translatable="false">0</string>
     <string name="numberKeyboard1" translatable="false">1</string>
-    <string name="nNumberKeyboard2" translatable="false">2</string>
+    <string name="numberKeyboard2" translatable="false">2</string>
     <string name="numberKeyboard3" translatable="false">3</string>
     <string name="numberKeyboard4" translatable="false">4</string>
     <string name="numberKeyboard5" translatable="false">5</string>

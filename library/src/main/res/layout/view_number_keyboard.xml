@@ -31,7 +31,7 @@
         style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/nNumberKeyboard2" />
+        android:text="@string/numberKeyboard2" />
 
     <TextView
         android:id="@+id/number3"
