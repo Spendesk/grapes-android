@@ -148,12 +148,12 @@
 
     <!-- endregion Security Code Validation CardView -->
 
-    <!-- region CustomNumberKeyboardText -->
+    <!-- region NumberKeyboardText -->
 
-    <color name="customNumberKeyboardTextColorLight">@color/white</color>
-    <color name="customNumberKeyboardTextColorDark">@color/mainComplementary</color>
+    <color name="numberKeyboardTextColorLight">@color/white</color>
+    <color name="numberKeyboardTextColorDark">@color/mainComplementary</color>
 
-    <!-- endregion CustomNumberKeyboardText -->
+    <!-- endregion NumberKeyboardText -->
 
     <!-- region Action Message Bottom Sheet -->
 

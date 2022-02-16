@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:minHeight="@dimen/customNumberKeyboardMinHeight"
+    android:minHeight="@dimen/numberKeyboardMinHeight"
     tools:background="@color/colorPrimaryDark">
 
     <androidx.constraintlayout.helper.widget.Flow
@@ -21,66 +21,66 @@
 
     <TextView
         android:id="@+id/number1"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard1" />
+        android:text="@string/numberKeyboard1" />
 
     <TextView
         android:id="@+id/number2"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard2" />
+        android:text="@string/nNumberKeyboard2" />
 
     <TextView
         android:id="@+id/number3"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard3" />
+        android:text="@string/numberKeyboard3" />
 
     <TextView
         android:id="@+id/number4"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard4" />
+        android:text="@string/numberKeyboard4" />
 
     <TextView
         android:id="@+id/number5"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard5" />
+        android:text="@string/numberKeyboard5" />
 
     <TextView
         android:id="@+id/number6"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard6" />
+        android:text="@string/numberKeyboard6" />
 
     <TextView
         android:id="@+id/number7"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard7" />
+        android:text="@string/numberKeyboard7" />
 
     <TextView
         android:id="@+id/number8"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard8" />
+        android:text="@string/numberKeyboard8" />
 
     <TextView
         android:id="@+id/number9"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard9" />
+        android:text="@string/numberKeyboard9" />
 
     <FrameLayout
         android:id="@+id/extraButtonLayout"
@@ -89,7 +89,7 @@
 
         <ImageView
             android:id="@+id/extraButtonImage"
-            style="@style/CustomNumberKeyboardExtraButtonImage"
+            style="@style/NumberKeyboardExtraButtonImage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:visibility="gone"
@@ -97,24 +97,24 @@
 
         <TextView
             android:id="@+id/extraButtonText"
-            style="@style/CustomNumberKeyboardTextLight"
+            style="@style/NumberKeyboardTextLight"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/customNumberKeyboardComma"
+            android:text="@string/numberKeyboardComma"
             android:visibility="gone"
             tools:visibility="visible" />
     </FrameLayout>
 
     <TextView
         android:id="@+id/number0"
-        style="@style/CustomNumberKeyboardTextLight"
+        style="@style/NumberKeyboardTextLight"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/customNumberKeyboard0" />
+        android:text="@string/numberKeyboard0" />
 
     <ImageView
         android:id="@+id/deleteImage"
-        style="@style/CustomNumberKeyboardDeleteImage"
+        style="@style/NumberKeyboardDeleteImage"
         android:layout_width="0dp"
         android:layout_height="0dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

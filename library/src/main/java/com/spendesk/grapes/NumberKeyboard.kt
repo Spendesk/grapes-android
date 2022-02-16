@@ -7,7 +7,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.spendesk.grapes.databinding.ViewCustomNumberKeyboardBinding
+import com.spendesk.grapes.databinding.ViewNumberKeyboardBinding
 import com.spendesk.grapes.extensions.invisible
 import com.spendesk.grapes.extensions.visible
 import java.text.DecimalFormatSymbols
@@ -17,7 +17,7 @@ import java.text.DecimalFormatSymbols
  * @since 3/10/21
  */
 
-class CustomNumberKeyboard : ConstraintLayout {
+class NumberKeyboard : ConstraintLayout {
 
     companion object {
         private const val MAXIMUM_DIGITS_NONE = -1
@@ -94,7 +94,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     private var commaPressed: Boolean = false
     private var maximumDigits: Int = MAXIMUM_DIGITS_NONE
 
-    private var binding = ViewCustomNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
+    private var binding = ViewNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
         extraButtonKey = binding.extraButtonLayout
@@ -144,7 +144,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     fun setStyleAndExtraButton(style: Style, extraButton: ExtraButton) {
         when (style) {
             Style.LIGHT -> {
-                numberKeys.forEach { it.setTextAppearance(context, R.style.CustomNumberKeyboardTextLight) }
+                numberKeys.forEach { it.setTextAppearance(context, R.style.NumberKeyboardTextLight) }
                 deleteKey.setImageResource(R.drawable.ic_delete_return)
 
                 when (extraButton) {
@@ -160,13 +160,13 @@ class CustomNumberKeyboard : ConstraintLayout {
                         binding.extraButtonImage.invisible()
                         binding.extraButtonText.visible()
                         binding.extraButtonText.setText(getSeparator().resId)
-                        binding.extraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextLight)
+                        binding.extraButtonText.setTextAppearance(context, R.style.NumberKeyboardTextLight)
                     }
                 }
             }
 
             Style.DARK -> {
-                numberKeys.forEach { it.setTextAppearance(context, R.style.CustomNumberKeyboardTextDark) }
+                numberKeys.forEach { it.setTextAppearance(context, R.style.NumberKeyboardTextDark) }
                 deleteKey.setImageResource(R.drawable.ic_delete_return_dark)
 
                 when (extraButton) {
@@ -182,7 +182,7 @@ class CustomNumberKeyboard : ConstraintLayout {
                         binding.extraButtonImage.invisible()
                         binding.extraButtonText.visible()
                         binding.extraButtonText.setText(getSeparator().resId)
-                        binding.extraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextDark)
+                        binding.extraButtonText.setTextAppearance(context, R.style.NumberKeyboardTextDark)
                     }
                 }
             }
@@ -191,10 +191,10 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
-            with(context.obtainStyledAttributes(it, R.styleable.CustomNumberKeyboard)) {
-                val style = Style.fromPosition(getInt(R.styleable.CustomNumberKeyboard_keyboardStyle, Style.getDefault().position))
-                val extraButton = ExtraButton.fromPosition(getInt(R.styleable.CustomNumberKeyboard_keyboardExtraButton, ExtraButton.getDefault().position))
-                maximumDigits = getInt(R.styleable.CustomNumberKeyboard_keyboardMaximumDigits, MAXIMUM_DIGITS_NONE)
+            with(context.obtainStyledAttributes(it, R.styleable.NumberKeyboard)) {
+                val style = Style.fromPosition(getInt(R.styleable.NumberKeyboard_keyboardStyle, Style.getDefault().position))
+                val extraButton = ExtraButton.fromPosition(getInt(R.styleable.NumberKeyboard_keyboardExtraButton, ExtraButton.getDefault().position))
+                maximumDigits = getInt(R.styleable.NumberKeyboard_keyboardMaximumDigits, MAXIMUM_DIGITS_NONE)
 
                 setStyleAndExtraButton(style = style, extraButton = extraButton)
 
@@ -261,8 +261,8 @@ class CustomNumberKeyboard : ConstraintLayout {
     }
 
     private enum class Separator(val separator: Char, val resId: Int) {
-        COMMA(',', R.string.customNumberKeyboardComma),
-        DOT('.', R.string.customNumberKeyboardDot);
+        COMMA(',', R.string.numberKeyboardComma),
+        DOT('.', R.string.numberKeyboardDot);
 
         companion object {
             fun fromChar(char: Char): Separator {
