@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:color="@color/tabCardViewActivatedSelectedBackground" android:state_hovered="true" android:state_selected="true" />
+    <item android:color="@color/tabCardViewDeactivatedSelectedBackground" android:state_hovered="false" android:state_selected="true" />
+    <item android:color="@color/tabCardViewDeactivatedUnselectedBackground" android:state_hovered="false" android:state_selected="false" />
+    <item android:color="@color/tabCardViewActivatedUnselectedBackground" android:state_hovered="true" android:state_selected="false" />
+</selector>

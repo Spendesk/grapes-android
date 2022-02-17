@@ -98,14 +98,91 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         // SwitchCard
         homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))
 
-        // Selectors
-        // The other selectors are init via XML
+        // Selector
         homeSelectorsSectionSelectorOne.updateConfiguration(
             configuration = SelectorView.Configuration(
-                text = "Spendesk FR",
+                style = SelectorView.Style.PRIMARY,
+                text = "Primary",
+                notificationText = null,
+                shouldShowDrawableEnd = false
+            )
+        )
+
+        homeSelectorsSectionSelectorTwo.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.SECONDARY,
+                text = "Secondary",
+                notificationText = "1",
+                shouldShowDrawableEnd = true
+            )
+        )
+
+        homeSelectorsSectionSelectorThree.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.ACTIVE_PRIMARY,
+                text = "Active Primary",
                 notificationText = null,
                 shouldShowDrawableEnd = true
             )
         )
+        homeSelectorsSectionSelectorFour.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.ACTIVE_PRIMARY_DARK,
+                text = "Active Primary Dark",
+                notificationText = null,
+                shouldShowDrawableEnd = true
+            )
+        )
+
+        // Tabs
+        homeSelectorsSectionTabCardViewTabLayoutOne.addTab(homeSelectorsSectionTabCardViewTabLayoutOne.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutOne.addTab(homeSelectorsSectionTabCardViewTabLayoutOne.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutOne.getTabAt(0)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Rick",
+                            badgeNumber = "4",
+                            isActivated = true
+                        )
+                    )
+                }
+        homeSelectorsSectionTabCardViewTabLayoutOne.getTabAt(1)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Astley",
+                            badgeNumber = "2",
+                            isActivated = true
+                        )
+                    )
+                }
+
+        homeSelectorsSectionTabCardViewTabLayoutTwo.addTab(homeSelectorsSectionTabCardViewTabLayoutTwo.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutTwo.addTab(homeSelectorsSectionTabCardViewTabLayoutTwo.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutTwo.getTabAt(0)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Rick",
+                            badgeNumber = "4",
+                            isActivated = false
+                        )
+                    )
+                }
+        homeSelectorsSectionTabCardViewTabLayoutTwo.getTabAt(1)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Astley",
+                            badgeNumber = "2",
+                            isActivated = false
+                        )
+                    )
+                }
     }
 }

@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.widget.TextViewCompat
+import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.invisible
 import com.spendesk.grapes.extensions.visible
 import kotlinx.android.synthetic.main.view_custom_number_keyboard.view.*
@@ -35,7 +37,8 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     //endregion constructors
 
-    var onTextChanged: ((Double) -> Unit)? = null
+    var onNumberChanged: ((Double) -> Unit)? = null
+    var onTextChanged: ((String) -> Unit)? = null
     var onRequestedBiometricAuthentication: (() -> Unit)? = null
 
     private val extraButtonKey: View
@@ -43,6 +46,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     private val numberKeys: MutableList<TextView> = mutableListOf()
     private val allKeys: MutableList<View> = mutableListOf()
 
+    private var textValue: String = String.empty()
     private var amountValue: Double = 0.0
     private var firstDecimal: Int? = null
     private var secondDecimal: Int? = null
@@ -134,12 +138,13 @@ class CustomNumberKeyboard : ConstraintLayout {
 
     fun clearText() {
         amountValue = 0.0
+        textValue = String.empty()
     }
 
     fun setStyleAndExtraButton(style: Style, extraButton: ExtraButton) {
         when (style) {
             Style.LIGHT -> {
-                numberKeys.forEach { it.setTextAppearance(context, R.style.CustomNumberKeyboardTextLight) }
+                numberKeys.forEach { TextViewCompat.setTextAppearance(it, R.style.CustomNumberKeyboardTextLight) }
                 deleteKey.setImageResource(R.drawable.ic_delete_return)
 
                 when (extraButton) {
@@ -155,13 +160,14 @@ class CustomNumberKeyboard : ConstraintLayout {
                         customNumberKeyboardExtraButtonImage.invisible()
                         customNumberKeyboardExtraButtonText.visible()
                         customNumberKeyboardExtraButtonText.setText(getSeparator().resId)
-                        customNumberKeyboardExtraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextLight)
+
+                        TextViewCompat.setTextAppearance(customNumberKeyboardExtraButtonText, R.style.CustomNumberKeyboardTextLight)
                     }
                 }
             }
 
             Style.DARK -> {
-                numberKeys.forEach { it.setTextAppearance(context, R.style.CustomNumberKeyboardTextDark) }
+                numberKeys.forEach { TextViewCompat.setTextAppearance(it, R.style.CustomNumberKeyboardTextDark) }
                 deleteKey.setImageResource(R.drawable.ic_delete_return_dark)
 
                 when (extraButton) {
@@ -177,7 +183,7 @@ class CustomNumberKeyboard : ConstraintLayout {
                         customNumberKeyboardExtraButtonImage.invisible()
                         customNumberKeyboardExtraButtonText.visible()
                         customNumberKeyboardExtraButtonText.setText(getSeparator().resId)
-                        customNumberKeyboardExtraButtonText.setTextAppearance(context, R.style.CustomNumberKeyboardTextDark)
+                        TextViewCompat.setTextAppearance(customNumberKeyboardExtraButtonText, R.style.CustomNumberKeyboardTextDark)
                     }
                 }
             }
@@ -211,6 +217,7 @@ class CustomNumberKeyboard : ConstraintLayout {
     }
 
     private fun onKeyNumberPressed(numberPressed: Int) {
+        // Update amount number
         if (commaPressed.not()) {
             // Comma has not been clicked yet, which means we only deal with the integer part
             amountValue = amountValue.toBigDecimal().multiply(10.toBigDecimal()).add(numberPressed.toBigDecimal()).toDouble()
@@ -224,10 +231,14 @@ class CustomNumberKeyboard : ConstraintLayout {
             amountValue = amountValue.toBigDecimal().toBigInteger().toBigDecimal().add((decimalPart / 100f).toBigDecimal()).toDouble()
         }
 
+        // Update string
+        textValue += numberPressed
+
         updateAmount()
     }
 
     private fun onKeyDeletePressed() {
+        // Update amount number
         if (commaPressed.not()) {
             // Comma has not been clicked yet, which means we only deal with the integer part
             amountValue = amountValue.toBigDecimal().divide(10.toBigDecimal()).toBigInteger().toDouble()
@@ -244,13 +255,21 @@ class CustomNumberKeyboard : ConstraintLayout {
             amountValue = amountValue.toBigDecimal().toBigInteger().toBigDecimal().add((decimalPart / 100f).toBigDecimal()).toDouble()
         }
 
+        // Update string
+        if (textValue.isNotEmpty()) {
+            textValue = textValue.substring(0, textValue.length - 1)
+        }
+
         updateAmount()
     }
 
     /**
      * Emits a new value for the amount entered.
      */
-    private fun updateAmount() = onTextChanged?.invoke(amountValue)
+    private fun updateAmount() {
+        onNumberChanged?.invoke(amountValue)
+        onTextChanged?.invoke(textValue)
+    }
 
     private enum class Separator(val separator: Char, val resId: Int) {
         COMMA(',', R.string.customNumberKeyboardComma),

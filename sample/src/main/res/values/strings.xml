@@ -42,9 +42,14 @@
     <string name="selectorsPickerTextListView" translatable="false">Picker texts list</string>
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
     <string name="selectorsSelectorTitle" translatable="false">Selector</string>
-    <string name="selectorsSelectorOne" translatable="false">Default</string>
-    <string name="selectorsSelectorTwo" translatable="false">Notification</string>
-    <string name="selectorsSelectorThree" translatable="false">Active</string>
+    <string name="selectorsTabCardViewTitle" translatable="false">Tab CardView</string>
+    <string name="selectorsSelectorOne" translatable="false">Primary</string>
+    <string name="selectorsSelectorTwo" translatable="false">Secondary</string>
+    <string name="selectorsSelectorThree" translatable="false">Primary Active</string>
+    <string name="selectorsSelectorFour" translatable="false">Primary Dark Active</string>
+
+    <string name="selectorsTabOne" translatable="false">Active</string>
+    <string name="selectorsTabTwo" translatable="false">Not Active</string>
 
     <!-- Inputs -->
     <string name="inputSearchMain" translatable="false">Search Input Main</string>
