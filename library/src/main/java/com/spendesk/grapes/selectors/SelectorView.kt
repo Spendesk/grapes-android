@@ -62,7 +62,9 @@ class SelectorView : CardView {
     private var binding = SelectorViewBinding.inflate(LayoutInflater.from(context), this)
 
     init {
+        // Cardview needed in order to avoid ripple overflow outside the view
         addRippleEffect()
+        getContainer().cardElevation = 0f
     }
 
     fun updateConfiguration(configuration: Configuration) {
@@ -73,12 +75,12 @@ class SelectorView : CardView {
     }
 
     fun updateStyle(style: Style) {
+        val textColorResId: Int
+
         when (style) {
             Style.PRIMARY -> {
-                val textColor = ContextCompat.getColor(context, R.color.selectorViewPrimaryText)
+                textColorResId = R.color.selectorViewPrimaryText
 
-                binding.text.setTextColor(textColor)
-                TextViewCompat.setCompoundDrawableTintList(binding.text, ColorStateList.valueOf(textColor))
                 getContainer().setDrawable(
                     colorId = R.color.selectorViewBackgroundPrimary,
                     strokeSizeId = R.dimen.selectorViewBackgroundStroke,
@@ -87,10 +89,8 @@ class SelectorView : CardView {
                 )
             }
             Style.SECONDARY -> {
-                val textColor = ContextCompat.getColor(context, R.color.selectorViewSecondaryText)
+                textColorResId = R.color.selectorViewSecondaryText
 
-                binding.text.setTextColor(textColor)
-                TextViewCompat.setCompoundDrawableTintList(binding.text, ColorStateList.valueOf(textColor))
                 getContainer().setDrawable(
                     colorId = R.color.selectorViewBackgroundSecondary,
                     strokeSizeId = R.dimen.selectorViewBackgroundStroke,
@@ -99,26 +99,26 @@ class SelectorView : CardView {
                 )
             }
             Style.ACTIVE_PRIMARY -> {
-                val textColor = ContextCompat.getColor(context, R.color.selectorViewActivePrimaryText)
+                textColorResId = R.color.selectorViewActivePrimaryText
 
-                binding.text.setTextColor(textColor)
-                TextViewCompat.setCompoundDrawableTintList(binding.text, ColorStateList.valueOf(textColor))
                 getContainer().setDrawable(
                     colorId = R.color.selectorViewBackgroundActivePrimary,
                     radiusId = R.dimen.selectorViewBackgroundRadius
                 )
             }
             Style.ACTIVE_PRIMARY_DARK -> {
-                val textColor = ContextCompat.getColor(context, R.color.selectorViewActivePrimaryDarkText)
+                textColorResId = R.color.selectorViewActivePrimaryDarkText
 
-                binding.text.setTextColor(textColor)
-                TextViewCompat.setCompoundDrawableTintList(binding.text, ColorStateList.valueOf(textColor))
                 getContainer().setDrawable(
                     colorId = R.color.selectorViewBackgroundActivePrimaryDark,
                     radiusId = R.dimen.selectorViewBackgroundRadius
                 )
             }
         }
+        // Text color + drawable vector tint color
+        val textColor = ContextCompat.getColor(context, textColorResId)
+        binding.text.setTextColor(textColor)
+        TextViewCompat.setCompoundDrawableTintList(binding.text, ColorStateList.valueOf(textColor))
     }
 
     fun setText(text: CharSequence) {

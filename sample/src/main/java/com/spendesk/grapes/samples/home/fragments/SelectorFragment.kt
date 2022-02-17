@@ -102,31 +102,55 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
             )
         )
 
-        // TabCardView
-        homeSelectorsSectionTabCardViewOne.updateConfiguration(
-            configuration = TabCardView.Configuration(
-                text = "Hop",
-                badgeNumber = "1",
-                isActivated = true
-            )
-        )
+        // Tabs
+        homeSelectorsSectionTabCardViewTabLayoutOne.addTab(homeSelectorsSectionTabCardViewTabLayoutOne.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutOne.addTab(homeSelectorsSectionTabCardViewTabLayoutOne.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutOne.getTabAt(0)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Rick",
+                            badgeNumber = "4",
+                            isActivated = true
+                        )
+                    )
+                }
+        homeSelectorsSectionTabCardViewTabLayoutOne.getTabAt(1)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Astley",
+                            badgeNumber = "2",
+                            isActivated = true
+                        )
+                    )
+                }
 
-        homeSelectorsSectionTabCardViewTwo.updateConfiguration(
-            configuration = TabCardView.Configuration(
-                text = "Plop",
-                badgeNumber = null,
-                isActivated = true
-            )
-        )
-        homeSelectorsSectionTabCardViewTwo.isHovered = true
-
-        homeSelectorsSectionTabCardViewThree.updateConfiguration(
-            configuration = TabCardView.Configuration(
-                text = "Hop",
-                badgeNumber = null,
-                isActivated = true
-            )
-        )
-        homeSelectorsSectionTabCardViewThree.isHovered = true
+        homeSelectorsSectionTabCardViewTabLayoutTwo.addTab(homeSelectorsSectionTabCardViewTabLayoutTwo.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutTwo.addTab(homeSelectorsSectionTabCardViewTabLayoutTwo.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutTwo.getTabAt(0)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Rick",
+                            badgeNumber = "4",
+                            isActivated = false
+                        )
+                    )
+                }
+        homeSelectorsSectionTabCardViewTabLayoutTwo.getTabAt(1)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Astley",
+                            badgeNumber = "2",
+                            isActivated = false
+                        )
+                    )
+                }
     }
 }

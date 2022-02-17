@@ -357,22 +357,21 @@
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/selectorsSelectorOne"
+                    android:text="@string/selectorsTabOne"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.spendesk.grapes.selectors.TabCardView
-                    android:id="@+id/homeSelectorsSectionTabCardViewOne"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/homeSelectorsSectionTabCardViewTabLayoutOne"
+                    style="@style/SelectorsTabLayout"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-                    app:layout_constraintBottom_toTopOf="@id/homeSelectorSectionTabCardViewTwoSubtitle"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionTabCardViewOneSubtitle"
-                    tools:text="Spendesk FR" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorSectionTabCardViewOneSubtitle" />
 
                 <TextView
                     android:id="@+id/homeSelectorSectionTabCardViewTwoSubtitle"
@@ -382,48 +381,23 @@
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/selectorsSelectorTwo"
-                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionTabCardViewTwo"
+                    android:text="@string/selectorsTabTwo"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewOne" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionTabCardViewTabLayoutOne"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-                <com.spendesk.grapes.selectors.TabCardView
-                    android:id="@+id/homeSelectorsSectionTabCardViewTwo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionTabCardViewThreeSubtitle"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeSelectorSectionTabCardViewTwoSubtitle" />
-
-                <TextView
-                    android:id="@+id/homeSelectorsSectionTabCardViewThreeSubtitle"
-                    style="@style/HomeGenericSubtitle"
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/homeSelectorsSectionTabCardViewTabLayoutTwo"
+                    style="@style/SelectorsTabLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/selectorsSelectorThree"
-                    app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionTabCardViewThree"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewTwo" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorSectionTabCardViewTwoSubtitle" />
 
-                <com.spendesk.grapes.selectors.TabCardView
-                    android:id="@+id/homeSelectorsSectionTabCardViewThree"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
-                    android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
-                    android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
-                    android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeSelectorsSectionTabCardViewThreeSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>

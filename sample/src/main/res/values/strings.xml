@@ -46,6 +46,9 @@
     <string name="selectorsSelectorThree" translatable="false">Primary Active</string>
     <string name="selectorsSelectorFour" translatable="false">Primary Dark Active</string>
 
+    <string name="selectorsTabOne" translatable="false">Active</string>
+    <string name="selectorsTabTwo" translatable="false">Not Active</string>
+
     <!-- Inputs -->
     <string name="inputSearchMain" translatable="false">Search Input Main</string>
     <string name="withLoader" translatable="false">With loader</string>

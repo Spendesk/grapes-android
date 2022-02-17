@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:parentTag="androidx.cardview.widget.CardView">
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/teub"
         android:paddingHorizontal="@dimen/selectorViewTextPaddingHorz"
         android:paddingVertical="@dimen/selectorViewTextPaddingVert"
         android:layout_width="wrap_content"
