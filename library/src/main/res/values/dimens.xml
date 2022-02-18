@@ -104,12 +104,12 @@
 
     <!-- Verification Code View -->
 
-    <!-- Custom Number Keyboard -->
+    <!-- NumberKeyboard -->
 
-    <dimen name="customNumberKeyboardMinHeight">248dp</dimen>
-    <dimen name="customNumberKeyboardTextSize">32sp</dimen>
+    <dimen name="numberKeyboardMinHeight">248dp</dimen>
+    <dimen name="numberKeyboardTextSize">32sp</dimen>
 
-    <!-- Custom Number Keyboard-->
+    <!-- NumberKeyboard-->
 
     <!-- region Blocks -->
 

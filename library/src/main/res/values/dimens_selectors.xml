@@ -19,11 +19,20 @@
     <dimen name="switchCardHeight">28dp</dimen>
     <dimen name="switchCardTextSize">16sp</dimen>
 
+    <!-- SelectorCardView -->
     <dimen name="selectorViewText">@dimen/titleSSize</dimen>
     <dimen name="selectorViewTextPaddingVert">8dp</dimen>
     <dimen name="selectorViewTextPaddingHorz">14dp</dimen>
     <dimen name="selectorViewBackgroundStroke">1dp</dimen>
     <dimen name="selectorViewBackgroundRadius">100dp</dimen>
     <dimen name="selectorViewTextDrawablePadding">@dimen/smallMargin</dimen>
+
+    <!-- TabCardView -->
+    <dimen name="tabCardViewRootCardElevation">0dp</dimen>
+    <dimen name="tabCardViewRootCardRadius">@dimen/cardViewBigRadius</dimen>
+    <dimen name="tabCardViewContainerHeight">32dp</dimen>
+    <dimen name="tabCardViewMarginHorz">@dimen/smallMargin</dimen>
+    <dimen name="tabCardViewTextSize">14sp</dimen>
+    <dimen name="tabCardViewBadgeMarginStart">@dimen/smallMargin</dimen>
 
 </resources>

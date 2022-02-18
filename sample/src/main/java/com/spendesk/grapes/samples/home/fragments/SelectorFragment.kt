@@ -8,6 +8,7 @@ import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.selectors.*
 import kotlinx.android.synthetic.main.fragment_home_selectors.*
 import kotlinx.android.synthetic.main.view_home_header.*
+import kotlin.random.Random
 
 /**
  * @author danyboucanova
@@ -27,6 +28,9 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         bindView()
     }
 
+    private var currentAnimatedStatusIndex = 0
+    private var maxAnimatedStatusIndex = 5
+
     private fun bindView() {
         // Header Pager Indicator
         homeSelectorsSectionHeaderStatusIndicatorFirstHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
@@ -37,6 +41,34 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
 
         homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
         homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator.updateStatusIndex(5)
+
+        homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(maxAnimatedStatusIndex))
+        homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator.updateStatusIndex(currentAnimatedStatusIndex)
+
+        homeSelectorsSectionHeaderStatusIndicatorFourthSubtitle.setOnClickListener {
+            currentAnimatedStatusIndex = (currentAnimatedStatusIndex - 1) % maxAnimatedStatusIndex
+            homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator.updateStatusIndex(currentAnimatedStatusIndex, true)
+        }
+
+        homeSelectorsSectionHeaderStatusIndicatorFourthRandomButton.setOnClickListener {
+            currentAnimatedStatusIndex = Random.nextInt(0, maxAnimatedStatusIndex)
+            activity?.shortToaster("Show index $currentAnimatedStatusIndex")
+            homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator.updateStatusIndex(currentAnimatedStatusIndex, true)
+        }
+
+        homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator.setOnClickListener {
+            currentAnimatedStatusIndex = (currentAnimatedStatusIndex + 1) % maxAnimatedStatusIndex
+            homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator.updateStatusIndex(currentAnimatedStatusIndex, true)
+        }
+
+        homeSelectorsSectionHeaderStatusIndicatorFifthHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(5))
+        homeSelectorsSectionHeaderStatusIndicatorFifthHeaderStatusIndicator.updateStatusIndex(3)
+
+        homeSelectorsSectionHeaderStatusIndicatorFifthRandomButton.setOnClickListener {
+            val newMaxItems = Random.nextInt(1, 5)
+            activity?.shortToaster("Show max item $newMaxItems")
+            homeSelectorsSectionHeaderStatusIndicatorFifthHeaderStatusIndicator.updateConfiguration(HeaderStatusIndicator.Configuration(newMaxItems), shouldAnimate = true)
+        }
 
         // Picker Cards List
         val pickerCardListViewAdapter = PickerAdapter()
@@ -66,14 +98,91 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
         // SwitchCard
         homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))
 
-        // Selectors
-        // The other selectors are init via XML
+        // Selector
         homeSelectorsSectionSelectorOne.updateConfiguration(
             configuration = SelectorView.Configuration(
-                text = "Spendesk FR",
+                style = SelectorView.Style.PRIMARY,
+                text = "Primary",
+                notificationText = null,
+                shouldShowDrawableEnd = false
+            )
+        )
+
+        homeSelectorsSectionSelectorTwo.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.SECONDARY,
+                text = "Secondary",
+                notificationText = "1",
+                shouldShowDrawableEnd = true
+            )
+        )
+
+        homeSelectorsSectionSelectorThree.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.ACTIVE_PRIMARY,
+                text = "Active Primary",
                 notificationText = null,
                 shouldShowDrawableEnd = true
             )
         )
+        homeSelectorsSectionSelectorFour.updateConfiguration(
+            configuration = SelectorView.Configuration(
+                style = SelectorView.Style.ACTIVE_PRIMARY_DARK,
+                text = "Active Primary Dark",
+                notificationText = null,
+                shouldShowDrawableEnd = true
+            )
+        )
+
+        // Tabs
+        homeSelectorsSectionTabCardViewTabLayoutOne.addTab(homeSelectorsSectionTabCardViewTabLayoutOne.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutOne.addTab(homeSelectorsSectionTabCardViewTabLayoutOne.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutOne.getTabAt(0)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Rick",
+                            badgeNumber = "4",
+                            isActivated = true
+                        )
+                    )
+                }
+        homeSelectorsSectionTabCardViewTabLayoutOne.getTabAt(1)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Astley",
+                            badgeNumber = "2",
+                            isActivated = true
+                        )
+                    )
+                }
+
+        homeSelectorsSectionTabCardViewTabLayoutTwo.addTab(homeSelectorsSectionTabCardViewTabLayoutTwo.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutTwo.addTab(homeSelectorsSectionTabCardViewTabLayoutTwo.newTab())
+        homeSelectorsSectionTabCardViewTabLayoutTwo.getTabAt(0)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Rick",
+                            badgeNumber = "4",
+                            isActivated = false
+                        )
+                    )
+                }
+        homeSelectorsSectionTabCardViewTabLayoutTwo.getTabAt(1)?.customView =
+            TabCardView(requireContext())
+                .apply {
+                    updateConfiguration(
+                        configuration = TabCardView.Configuration(
+                            text = "Astley",
+                            badgeNumber = "2",
+                            isActivated = false
+                        )
+                    )
+                }
     }
 }
