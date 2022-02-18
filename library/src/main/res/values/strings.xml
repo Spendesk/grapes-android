@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="customNumberKeyboard0" translatable="false">0</string>
-    <string name="customNumberKeyboard1" translatable="false">1</string>
-    <string name="customNumberKeyboard2" translatable="false">2</string>
-    <string name="customNumberKeyboard3" translatable="false">3</string>
-    <string name="customNumberKeyboard4" translatable="false">4</string>
-    <string name="customNumberKeyboard5" translatable="false">5</string>
-    <string name="customNumberKeyboard6" translatable="false">6</string>
-    <string name="customNumberKeyboard7" translatable="false">7</string>
-    <string name="customNumberKeyboard8" translatable="false">8</string>
-    <string name="customNumberKeyboard9" translatable="false">9</string>
+    <string name="numberKeyboard0" translatable="false">0</string>
+    <string name="numberKeyboard1" translatable="false">1</string>
+    <string name="numberKeyboard2" translatable="false">2</string>
+    <string name="numberKeyboard3" translatable="false">3</string>
+    <string name="numberKeyboard4" translatable="false">4</string>
+    <string name="numberKeyboard5" translatable="false">5</string>
+    <string name="numberKeyboard6" translatable="false">6</string>
+    <string name="numberKeyboard7" translatable="false">7</string>
+    <string name="numberKeyboard8" translatable="false">8</string>
+    <string name="numberKeyboard9" translatable="false">9</string>
+    <string name="numberKeyboardComma" translatable="false">,</string>
+    <string name="numberKeyboardDot" translatable="false">.</string>
 
     <!-- region Simple Entry Item -->
     <string name="simpleEntryItemTitleEndOptionalFormat" translatable="false">%1$s •&#160;</string>

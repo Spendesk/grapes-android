@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="keyboardStyle" format="enum|reference">
+        <enum name="light" value="0" />
+        <enum name="dark" value="1" />
+    </attr>
+
+    <attr name="keyboardExtraButton" format="enum|reference">
+        <enum name="none" value="0" />
+        <enum name="fingerprint" value="1" />
+        <enum name="separator" value="2" />
+    </attr>
+
+    <declare-styleable name="NumberKeyboard">
+        <attr name="keyboardStyle" />
+        <attr name="keyboardExtraButton" />
+        <attr name="keyboardMaximumDigits" format="integer" />
+    </declare-styleable>
+</resources>
