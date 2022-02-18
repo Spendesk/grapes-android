@@ -5,4 +5,29 @@
         <item name="flow_horizontalGap">@dimen/headerStatusIndicatorFlowHorizontalGap</item>
         <item name="flow_wrapMode">chain</item>
     </style>
+
+    <!-- Selector View -->
+    <style name="SelectorViewText">
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textSize">@dimen/selectorViewText</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <style name="SelectorViewBadge">
+        <item name="android:visibility">gone</item>
+        <item name="android:clickable">false</item>
+    </style>
+
+    <!-- Tab CardView -->
+    <style name="TabCardViewText">
+        <item name="android:textSize">@dimen/tabCardViewTextSize</item>
+        <item name="android:textColor">@color/selector_tab_cardview_text</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+    </style>ew
+
+    <style name="TabCardViewBadge">
+        <item name="android:visibility">gone</item>
+    </style>
 </resources>
