@@ -3,7 +3,7 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import com.spendesk.grapes.CustomNumberKeyboard
+import com.spendesk.grapes.NumberKeyboard
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
 import kotlinx.android.synthetic.main.fragment_home_keyboards.*
@@ -26,9 +26,9 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
 
         with(homeKeyboardsSectionOne) {
             updateConfiguration(
-                configuration = CustomNumberKeyboard.Configuration(
-                    style = CustomNumberKeyboard.Style.LIGHT,
-                    extraButton = CustomNumberKeyboard.ExtraButton.FINGERPRINT
+                configuration = NumberKeyboard.Configuration(
+                    style = NumberKeyboard.Style.LIGHT,
+                    extraButton = NumberKeyboard.ExtraButton.FINGERPRINT
                 )
             )
 

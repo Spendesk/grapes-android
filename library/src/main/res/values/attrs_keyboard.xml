@@ -12,8 +12,9 @@
         <enum name="separator" value="2" />
     </attr>
 
-    <declare-styleable name="CustomNumberKeyboard">
+    <declare-styleable name="NumberKeyboard">
         <attr name="keyboardStyle" />
         <attr name="keyboardExtraButton" />
+        <attr name="keyboardMaximumDigits" format="integer" />
     </declare-styleable>
 </resources>
