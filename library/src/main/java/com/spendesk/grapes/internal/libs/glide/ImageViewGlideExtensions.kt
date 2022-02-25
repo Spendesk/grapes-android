@@ -28,7 +28,7 @@ import java.io.File
  * @param circleCrop loads the image as a circle and adds a border (Pair of borderwidth and border color)
  */
 
-fun ImageView.loadFromUrl(
+internal fun ImageView.loadFromUrl(
     url: String?,
     errorResId: Int? = 0,
     circleCrop: Pair<Int, Int>? = null,
@@ -39,7 +39,7 @@ fun ImageView.loadFromUrl(
 ) =
     loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
-fun ImageView.loadFromUrl(
+internal fun ImageView.loadFromUrl(
     url: String?,
     errorResId: Int? = 0,
     shouldCircleCrop: Boolean,
@@ -50,7 +50,7 @@ fun ImageView.loadFromUrl(
 ) =
     loadRequest(GlideApp.with(context).load(url), errorResId, shouldCircleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
-fun ImageView.loadFromUrl(
+internal fun ImageView.loadFromUrl(
     url: GlideUrl?,
     errorResId: Int? = 0,
     circleCrop: Pair<Int, Int>? = null,
@@ -61,7 +61,7 @@ fun ImageView.loadFromUrl(
 ) =
     loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
-fun ImageView.loadFromFile(
+internal fun ImageView.loadFromFile(
     file: File?,
     errorResId: Int? = 0,
     circleCrop: Pair<Int, Int>? = null,
