@@ -5,7 +5,6 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.component.SimpleSectionItemView
-import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.list.simple.SimpleListAdapter
 import com.spendesk.grapes.list.simple.SimpleListModel
 import com.spendesk.grapes.messages.MessageInlineView
@@ -170,10 +169,10 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
 
         adapter.updateList(
             items = listOf(
-                SimpleListModel.Section(id = String.empty(), configuration = section1Configuration),
+                SimpleListModel.Section(id = "", configuration = section1Configuration),
                 SimpleListModel.Item(id = "1", configuration = item1Configuration),
                 SimpleListModel.Item(id = "2", configuration = item2Configuration),
-                SimpleListModel.Section(id = String.empty(), configuration = section2Configuration),
+                SimpleListModel.Section(id = "", configuration = section2Configuration),
                 SimpleListModel.Item(id = "3", configuration = item3Configuration),
                 SimpleListModel.Item(id = "4", configuration = item4Configuration),
                 SimpleListModel.Item(id = "5", configuration = item5Configuration),

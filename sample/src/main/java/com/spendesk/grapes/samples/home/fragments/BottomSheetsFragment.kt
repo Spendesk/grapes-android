@@ -7,7 +7,6 @@ import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFra
 import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFragmentViewState
 import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.component.SimpleSectionItemView
-import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.simple.SimpleListModel
 import com.spendesk.grapes.samples.R
@@ -48,7 +47,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                 updateViewState(
                     viewState = SearchableBottomSheetDialogFragmentViewState.Content(
                         items = listOf(
-                            SimpleListModel.Section(id = String.empty(), configuration = sectionConfiguration),
+                            SimpleListModel.Section(id = "", configuration = sectionConfiguration),
                             SimpleListModel.Item(id = "1", configuration = item1Configuration),
                             SimpleListModel.Item(id = "2", configuration = item2Configuration),
                             SimpleListModel.Item(id = "3", configuration = item3Configuration),
