@@ -11,9 +11,9 @@ import io.reactivex.rxjava3.disposables.Disposable
 /**
  * Adds this Disposable to the given container [CompositeDisposable] or disposes it if the container has been disposed.
  */
-internal fun Disposable.disposedBy(compositeDisposable: CompositeDisposable) = compositeDisposable.add(this)
+fun Disposable.disposedBy(compositeDisposable: CompositeDisposable) = compositeDisposable.add(this)
 
 /**
  * Removes and disposes this Disposable from the given container [CompositeDisposable] if it is part of this container.
  */
-internal fun Disposable.removeFrom(compositeDisposable: CompositeDisposable) = compositeDisposable.remove(this)
+fun Disposable.removeFrom(compositeDisposable: CompositeDisposable) = compositeDisposable.remove(this)

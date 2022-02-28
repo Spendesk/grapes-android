@@ -10,10 +10,10 @@ import android.util.TypedValue
 import android.view.View
 import android.view.ViewTreeObserver
 import android.view.inputmethod.InputMethodManager
-import android.widget.TextView
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.core.content.ContextCompat
+import androidx.core.view.isVisible
 
 /**
  * [View] related extensions.
@@ -92,9 +92,8 @@ internal fun View.gone() {
 /**
  * Sets this view to [View.VISIBLE] if the given [show] is true. Sets this view to [View.GONE] otherwise.
  */
-@Deprecated("Use attribute [androidx.core.view.isVisible] instead", ReplaceWith("isVisible", "androidx.core.view.isVisible"))
 internal fun View.visibleOrGone(show: Boolean) {
-    if (show) visible() else gone()
+    isVisible = show
 }
 
 /**
