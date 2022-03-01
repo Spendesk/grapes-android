@@ -18,29 +18,29 @@ import androidx.core.graphics.drawable.DrawableCompat
 /**
  * Sets a drawable on the left of this [TextView].
  */
-fun TextView.setDrawableLeft(drawable: Drawable?) = this.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
+internal fun TextView.setDrawableLeft(drawable: Drawable?) = this.setCompoundDrawablesWithIntrinsicBounds(drawable, null, null, null)
 
 /**
  * Sets a drawable on the left of this [TextView].
  */
-fun TextView.setDrawableLeft(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(drawableResId, 0, 0, 0)
+internal fun TextView.setDrawableLeft(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(drawableResId, 0, 0, 0)
 
 /**
  * Sets a drawable on the top of this [TextView].
  */
-fun TextView.setDrawableTop(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, drawableResId, 0, 0)
+internal fun TextView.setDrawableTop(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, drawableResId, 0, 0)
 
 /**
  * Sets a drawable on the right of this [TextView].
  */
-fun TextView.setDrawableRight(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableResId, 0)
+internal fun TextView.setDrawableRight(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, 0, drawableResId, 0)
 
 /**
  * Sets a drawable on the bottom of this [TextView].
  */
-fun TextView.setDrawableBottom(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, drawableResId)
+internal fun TextView.setDrawableBottom(drawableResId: Int) = this.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, drawableResId)
 
-fun TextView.setDrawableTintList(colorStateListId: Int) {
+internal fun TextView.setDrawableTintList(colorStateListId: Int) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
         compoundDrawableTintList = ContextCompat.getColorStateList(context, colorStateListId)
     } else {
@@ -49,12 +49,12 @@ fun TextView.setDrawableTintList(colorStateListId: Int) {
 
 }
 
-fun TextView.removeDrawables() = this.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
+internal fun TextView.removeDrawables() = this.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
 
 /**
  * Sets this textView to [View.VISIBLE] if the given [text] is not null. Sets this view to [View.GONE] otherwise.
  */
-fun TextView.visibleWithTextOrGone(text: CharSequence?) =
+internal fun TextView.visibleWithTextOrGone(text: CharSequence?) =
     when (text.isNullOrEmpty()) {
         true -> gone()
         false -> {

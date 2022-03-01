@@ -7,7 +7,6 @@ import com.spendesk.grapes.component.content.summary.SummaryCardLinkView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentMapView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentTextView
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
-import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
 import com.spendesk.grapes.list.content.summary.item.InlineKeyValueItemView
@@ -51,7 +50,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                         drawableEnd = R.drawable.ic_warning,
                         isActivated = true
                     ),
-                    mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
+                    mapImageUrl = "", // TODO Change this when we actually use Mapbox
                     departureAddress = "Ca part de là mais c'est assez long quand même",
                     arrivalAddress = "Et ça fini ici !",
                     items = listOf(
@@ -75,7 +74,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
                 titleConfiguration = SummaryBlockTitleView.Configuration(
                     startTitle = "Route"
                 ),
-                mapImageUrl = String.empty(), // TODO Change this when we actually use Mapbox
+                mapImageUrl = "", // TODO Change this when we actually use Mapbox
                 departureAddress = "Ca part de là mais c'est assez long quand même",
                 arrivalAddress = "Et ça fini ici !",
                 items = listOf(

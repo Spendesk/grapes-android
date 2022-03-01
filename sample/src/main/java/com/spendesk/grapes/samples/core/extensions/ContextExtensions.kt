@@ -8,6 +8,6 @@ import android.content.res.Configuration
  * @since 1/6/21
  */
 
-fun Context.isDarkThemeOn(): Boolean {
+internal fun Context.isDarkThemeOn(): Boolean {
     return resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
 }

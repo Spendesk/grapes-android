@@ -16,7 +16,7 @@ import kotlin.concurrent.schedule
  * @since 17/06/2021
  */
 
-fun AppCompatEditText.setupClearButtonWithAction() {
+internal fun AppCompatEditText.setupClearButtonWithAction() {
     val drawable = ContextCompat.getDrawable(context, R.drawable.ic_clear_round)
 
     doAfterTextChanged { editable ->
@@ -34,7 +34,7 @@ fun AppCompatEditText.setupClearButtonWithAction() {
     }
 }
 
-fun EditText.afterTextChangedWith(delay: Long, consumer: (String) -> Unit) =
+internal fun EditText.afterTextChangedWith(delay: Long, consumer: (String) -> Unit) =
     addTextChangedListener(object : TextWatcher {
         var timer = Timer()
 

@@ -10,7 +10,7 @@ import android.graphics.drawable.GradientDrawable
 /**
  * Easily creates [GradientDrawable] and returns it.
  */
-fun GradientDrawable.create(
+internal fun GradientDrawable.create(
     color: Int,
     radius: Float = 0f,
     stroke: Int = 0,

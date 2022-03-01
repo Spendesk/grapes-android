@@ -12,9 +12,9 @@ import androidx.core.content.ContextCompat
 /**
  * @see <a href="https://developer.android.com/reference/androidx/core/content/ContextCompat#getColor(android.content.Context,%20int)">getColor(Context, int)</a>
  */
-fun Context.colorCompat(id: Int) = ContextCompat.getColor(this, id)
+internal fun Context.colorCompat(id: Int) = ContextCompat.getColor(this, id)
 
 /**
  * @see <a href="https://developer.android.com/reference/androidx/core/content/ContextCompat#getColorStateList(android.content.Context,%20int)">getColor(Context, int)</a>
  */
-fun Context.colorStateListCompat(id: Int) = ContextCompat.getColorStateList(this, id)
+internal fun Context.colorStateListCompat(id: Int) = ContextCompat.getColorStateList(this, id)
