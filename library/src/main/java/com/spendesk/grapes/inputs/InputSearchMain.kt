@@ -4,16 +4,15 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.InputSearchMainBinding
 import com.spendesk.grapes.extensions.setupClearButtonWithAction
 import com.spendesk.grapes.extensions.visibleOrInvisible
-import kotlinx.android.synthetic.main.input_search_main.view.*
-import java.util.*
 
 /**
  * @author danyboucanova
@@ -54,9 +53,7 @@ class InputSearchMain : CardView {
         }
     }
 
-    init {
-        View.inflate(context, R.layout.input_search_main, this)
-    }
+    private val binding: InputSearchMainBinding = InputSearchMainBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun setStyle(style: Style) {
         when (style) {
@@ -73,10 +70,9 @@ class InputSearchMain : CardView {
         }
     }
 
-    fun showProgressBar(visible: Boolean) =
-        inputSearchMainProgressBar.visibleOrInvisible(visible)
+    fun showProgressBar(visible: Boolean) = binding.inputSearchMainProgressBar.visibleOrInvisible(visible)
 
-    fun getEditText(): AppCompatEditText = inputSearchMainEditText
+    fun getEditText(): AppCompatEditText = binding.inputSearchMainEditText
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
@@ -96,7 +92,7 @@ class InputSearchMain : CardView {
     }
 
     private fun configureEditText(focusable: Boolean, hint: Int, drawableStart: Int, style: Style, shouldUseClearButton: Boolean) {
-        with(inputSearchMainEditText) {
+        with(binding.inputSearchMainEditText) {
 
             // set basic properties
             isFocusable = focusable

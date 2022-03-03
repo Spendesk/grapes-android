@@ -3,12 +3,12 @@ package com.spendesk.grapes
 import android.content.Context
 import android.text.InputFilter
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import android.widget.EditText
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
-import kotlinx.android.synthetic.main.view_registration_code.view.*
+import com.spendesk.grapes.databinding.ViewRegistrationCodeBinding
 
 /**
  * @author danyboucanova
@@ -35,9 +35,9 @@ class RegistrationCodeView : CardView {
         val thirdTextWatcher: ((String) -> Unit)
     )
 
-    init {
-        View.inflate(context, R.layout.view_registration_code, this)
+    private val binding: ViewRegistrationCodeBinding = ViewRegistrationCodeBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         setupView()
     }
 
@@ -52,8 +52,9 @@ class RegistrationCodeView : CardView {
         bindView()
     }
 
-    fun clearText() =
-        listOf(registrationCodeThirdText, registrationCodeSecondText, registrationCodeFirstText).map { it.text?.clear() }
+    fun clearText() {
+        listOf(binding.registrationCodeThirdText, binding.registrationCodeSecondText, binding.registrationCodeFirstText).forEach { it.text?.clear() }
+    }
 
     private fun setupView() {
         setCardBackgroundColor(ContextCompat.getColor(context, R.color.registrationCodeViewBackground))
@@ -62,32 +63,32 @@ class RegistrationCodeView : CardView {
 
         setOnClickListener {
             when {
-                registrationCodeFirstText.text?.length in 0 until maxCodeItemLength -> registrationCodeFirstText.requestFocus()
-                registrationCodeSecondText.text?.length in 0 until maxCodeItemLength -> registrationCodeSecondText.requestFocus()
-                registrationCodeThirdText.text?.length in 0 until maxCodeItemLength -> registrationCodeThirdText.requestFocus()
+                binding.registrationCodeFirstText.text?.length in 0 until maxCodeItemLength -> binding.registrationCodeFirstText.requestFocus()
+                binding.registrationCodeSecondText.text?.length in 0 until maxCodeItemLength -> binding.registrationCodeSecondText.requestFocus()
+                binding.registrationCodeThirdText.text?.length in 0 until maxCodeItemLength -> binding.registrationCodeThirdText.requestFocus()
             }
         }
     }
 
     private fun bindView() {
-        handleItem(registrationCodeFirstText, onFirstTextChanged) {
+        handleItem(binding.registrationCodeFirstText, onFirstTextChanged) {
             when (it.length) {
-                maxCodeItemLength -> registrationCodeSecondText.requestFocus()
+                maxCodeItemLength -> binding.registrationCodeSecondText.requestFocus()
                 else -> Unit // Nothing to do here
             }
         }
 
-        handleItem(registrationCodeSecondText, onSecondTextChanged) {
+        handleItem(binding.registrationCodeSecondText, onSecondTextChanged) {
             when (it.length) {
-                0 -> registrationCodeFirstText.requestFocus()
-                maxCodeItemLength -> registrationCodeThirdText.requestFocus()
+                0 -> binding.registrationCodeFirstText.requestFocus()
+                maxCodeItemLength -> binding.registrationCodeThirdText.requestFocus()
                 else -> Unit // Nothing to do here
             }
 
         }
-        handleItem(registrationCodeThirdText, onThirdTextChanged) {
+        handleItem(binding.registrationCodeThirdText, onThirdTextChanged) {
             when (it.length) {
-                0 -> registrationCodeSecondText.requestFocus()
+                0 -> binding.registrationCodeSecondText.requestFocus()
                 else -> Unit // Nothing to do here
             }
         }
@@ -104,7 +105,7 @@ class RegistrationCodeView : CardView {
             }
 
     private fun limitTextLength() {
-        listOf(registrationCodeFirstText, registrationCodeSecondText, registrationCodeThirdText).map {
+        listOf(binding.registrationCodeFirstText, binding.registrationCodeSecondText, binding.registrationCodeThirdText).forEach {
             it.filters = arrayOf(InputFilter.LengthFilter(maxCodeItemLength))
         }
     }

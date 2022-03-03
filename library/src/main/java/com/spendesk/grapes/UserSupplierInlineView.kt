@@ -4,14 +4,14 @@ import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.TypedValue
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
+import com.spendesk.grapes.databinding.UserSupplierInlineViewBinding
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
-import kotlinx.android.synthetic.main.user_supplier_inline_view.view.*
 
 /**
  * @author Vivien Mahe
@@ -50,9 +50,7 @@ class UserSupplierInlineView : ConstraintLayout {
     private val bigImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.userSupplierInlineBigImageCornerRadius)
     private val smallImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.userSupplierInlineSmallImageCornerRadius)
 
-    init {
-        View.inflate(context, R.layout.user_supplier_inline_view, this)
-    }
+    private val binding: UserSupplierInlineViewBinding = UserSupplierInlineViewBinding.inflate(LayoutInflater.from(context), this)
 
     fun updateConfiguration(configuration: Configuration) {
         setTitle(configuration.title)
@@ -63,33 +61,33 @@ class UserSupplierInlineView : ConstraintLayout {
     }
 
     fun setTitle(title: CharSequence) {
-        userSupplierInlineTitleText.text = title
+        binding.userSupplierInlineTitleText.text = title
     }
 
     fun setSubtitle(subtitle: CharSequence?) {
-        userSupplierInlineSubtitleText.visibleWithTextOrGone(subtitle)
+        binding.userSupplierInlineSubtitleText.visibleWithTextOrGone(subtitle)
     }
 
     fun setBigImage(url: String?, placeholderResId: Int? = 0, shouldCircleCrop: Boolean) {
         val cornerRadius = if (shouldCircleCrop) 0 else bigImageRoundedCornerRadius
-        userSupplierInlineBigImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = shouldCircleCrop, roundedCorners = cornerRadius)
+        binding.userSupplierInlineBigImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = shouldCircleCrop, roundedCorners = cornerRadius)
     }
 
     fun setBigImageDrawable(drawable: Drawable?) {
-        userSupplierInlineBigImage.setImageDrawable(drawable)
+        binding.userSupplierInlineBigImage.setImageDrawable(drawable)
     }
 
     fun shouldShowSmallImage(shouldShowImage: Boolean) {
-        userSupplierInlineSmallImage.visibleOrGone(shouldShowImage)
+        binding.userSupplierInlineSmallImage.visibleOrGone(shouldShowImage)
     }
 
     fun setSmallImage(url: String?, placeholderResId: Int? = 0, shouldCircleCrop: Boolean) {
         val cornerRadius = if (shouldCircleCrop) 0 else smallImageRoundedCornerRadius
-        userSupplierInlineSmallImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = shouldCircleCrop, roundedCorners = cornerRadius)
+        binding.userSupplierInlineSmallImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = shouldCircleCrop, roundedCorners = cornerRadius)
     }
 
     fun setSmallImageDrawable(drawable: Drawable?) {
-        userSupplierInlineSmallImage.setImageDrawable(drawable)
+        binding.userSupplierInlineSmallImage.setImageDrawable(drawable)
     }
 
     private fun initView(attributeSet: AttributeSet?) {
