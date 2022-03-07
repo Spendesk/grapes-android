@@ -2,11 +2,10 @@ package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
-import com.spendesk.grapes.R
-import kotlinx.android.synthetic.main.view_responsibility_center_gauge_legend.view.*
+import com.spendesk.grapes.databinding.ViewResponsibilityCenterGaugeLegendBinding
 
 /**
  * @author danyboucanova
@@ -26,13 +25,13 @@ class SummaryBlockContentResponsibilityCenterGaugeLegendView : ConstraintLayout 
         val resourceId: Int = ResourcesCompat.ID_NULL
     )
 
-    init {
-        View.inflate(context, R.layout.view_responsibility_center_gauge_legend, this)
-    }
+    private val binding: ViewResponsibilityCenterGaugeLegendBinding = ViewResponsibilityCenterGaugeLegendBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun updateConfiguration(configuration: Configuration) {
-        responsibilityCenterGaugeLegendImage.setBackgroundResource(configuration.resourceId)
-        responsibilityCenterGaugeLegendTitle.text = configuration.title
-        responsibilityCenterGaugeLegendSubtitle.text = configuration.subtitle
+        with(binding) {
+            responsibilityCenterGaugeLegendImage.setBackgroundResource(configuration.resourceId)
+            responsibilityCenterGaugeLegendTitle.text = configuration.title
+            responsibilityCenterGaugeLegendSubtitle.text = configuration.subtitle
+        }
     }
 }

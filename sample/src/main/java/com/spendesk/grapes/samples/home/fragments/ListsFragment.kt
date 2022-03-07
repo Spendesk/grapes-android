@@ -5,13 +5,12 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.component.SimpleSectionItemView
-import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.list.simple.SimpleListAdapter
 import com.spendesk.grapes.list.simple.SimpleListModel
 import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_lists.*
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeListsBinding
 
 /**
  * @author danyboucanova
@@ -23,12 +22,13 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         fun newInstance() = ListsFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeListsBinding::bind)
     private val adapter = SimpleListAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.lists)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.lists)
 
         setupView()
     }
@@ -166,14 +166,14 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
         )
 
         // List
-        homeListsSectionList.adapter = adapter
+        binding.homeListsSectionList.adapter = adapter
 
         adapter.updateList(
             items = listOf(
-                SimpleListModel.Section(id = String.empty(), configuration = section1Configuration),
+                SimpleListModel.Section(id = "", configuration = section1Configuration),
                 SimpleListModel.Item(id = "1", configuration = item1Configuration),
                 SimpleListModel.Item(id = "2", configuration = item2Configuration),
-                SimpleListModel.Section(id = String.empty(), configuration = section2Configuration),
+                SimpleListModel.Section(id = "", configuration = section2Configuration),
                 SimpleListModel.Item(id = "3", configuration = item3Configuration),
                 SimpleListModel.Item(id = "4", configuration = item4Configuration),
                 SimpleListModel.Item(id = "5", configuration = item5Configuration),

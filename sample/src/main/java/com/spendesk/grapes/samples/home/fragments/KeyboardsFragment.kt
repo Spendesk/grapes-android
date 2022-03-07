@@ -6,8 +6,8 @@ import androidx.fragment.app.Fragment
 import com.spendesk.grapes.NumberKeyboard
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_keyboards.*
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeKeyboardsBinding
 
 /**
  * @author Vivien Mahe
@@ -19,12 +19,14 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
         fun newInstance() = KeyboardsFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeKeyboardsBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
 
-        with(homeKeyboardsSectionOne) {
+        with(binding.homeKeyboardsSectionOne) {
             updateConfiguration(
                 configuration = NumberKeyboard.Configuration(
                     style = NumberKeyboard.Style.LIGHT,
@@ -36,13 +38,13 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
             onRequestedBiometricAuthentication = { activity?.shortToaster("Biometric key pressed") }
         }
 
-        with(homeKeyboardsSectionTwo) {
+        with(binding.homeKeyboardsSectionTwo) {
             // FYI: Configuration is set via XML attrs
             onTextChanged = { activity?.shortToaster("Key pressed: $it") }
             onRequestedBiometricAuthentication = { activity?.shortToaster("Separator key pressed") }
         }
 
-        with(homeKeyboardsSectionThree) {
+        with(binding.homeKeyboardsSectionThree) {
             // FYI: Configuration is set via XML attrs
             onTextChanged = { activity?.shortToaster("Key pressed: $it") }
             onRequestedBiometricAuthentication = { activity?.shortToaster("Separator key pressed") }

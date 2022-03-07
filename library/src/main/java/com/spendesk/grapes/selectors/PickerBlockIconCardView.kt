@@ -2,11 +2,11 @@ package com.spendesk.grapes.selectors
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.core.content.ContextCompat
 import com.spendesk.grapes.R
-import kotlinx.android.synthetic.main.selector_picker_block_icon.view.*
+import com.spendesk.grapes.databinding.SelectorPickerBlockIconBinding
 
 /**
  * @author danyboucanova
@@ -27,9 +27,9 @@ class PickerBlockIconCardView : SelectBlockCardView {
         @DrawableRes val icon: Int
     )
 
-    init {
-        View.inflate(context, R.layout.selector_picker_block_icon, this)
+    private val binding: SelectorPickerBlockIconBinding = SelectorPickerBlockIconBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         isClickable = true
         isFocusable = true
 
@@ -40,9 +40,11 @@ class PickerBlockIconCardView : SelectBlockCardView {
     fun updateConfiguration(configuration: Configuration) {
         isChecked = configuration.isSelected
 
-        pickerBlockIconImageView.setImageResource(configuration.icon)
-        pickerBlockIconImageView.setColorFilter(
-            ContextCompat.getColor(context, if (configuration.isSelected) R.color.pickerBlockIconCardViewIconSelectedTint else R.color.pickerBlockIconCardViewIconUnselectedTint)
-        )
+        with(binding.pickerBlockIconImageView) {
+            setImageResource(configuration.icon)
+            setColorFilter(
+                ContextCompat.getColor(context, if (configuration.isSelected) R.color.pickerBlockIconCardViewIconSelectedTint else R.color.pickerBlockIconCardViewIconUnselectedTint)
+            )
+        }
     }
 }

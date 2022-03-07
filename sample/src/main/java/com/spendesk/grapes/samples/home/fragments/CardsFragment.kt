@@ -7,8 +7,8 @@ import com.spendesk.grapes.DeepBlueBucketView
 import com.spendesk.grapes.InformativeActionBucketView
 import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_cards.*
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeCardsBinding
 
 /**
  * @author danyboucanova
@@ -20,23 +20,25 @@ class CardsFragment : Fragment(R.layout.fragment_home_cards) {
         fun newInstance() = CardsFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeCardsBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.cards)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.cards)
 
         bindView()
     }
 
     private fun bindView() {
-        homeCardSectionOnTheWayDeepBlueBucketView.updateData(
+        binding.homeCardSectionOnTheWayDeepBlueBucketView.updateData(
             DeepBlueBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewTitle),
                 description = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewDescription),
                 buttonText = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewButtonText)
             )
         )
-        homeCardSectionRecardDeepBlueBucketView.updateData(
+        binding.homeCardSectionRecardDeepBlueBucketView.updateData(
             DeepBlueBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionRecardDeepBlueBucketViewTitle),
                 description = requireContext().getString(R.string.homePushSectionRecardDeepBlueBucketViewDescription),
@@ -44,7 +46,7 @@ class CardsFragment : Fragment(R.layout.fragment_home_cards) {
             )
         )
 
-        homeCardSectionPlasticCardNormalInformativeActionBucketView.updateData(
+        binding.homeCardSectionPlasticCardNormalInformativeActionBucketView.updateData(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewSmallButtonText),
@@ -54,7 +56,7 @@ class CardsFragment : Fragment(R.layout.fragment_home_cards) {
             )
         )
 
-        homeCardSectionPlasticCardWarningInformativeActionBucketView.updateData(
+        binding.homeCardSectionPlasticCardWarningInformativeActionBucketView.updateData(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewSmallButtonText),
@@ -64,7 +66,7 @@ class CardsFragment : Fragment(R.layout.fragment_home_cards) {
             )
         )
 
-        homeCardSectionPlasticCardAlertInformativeActionBucketView.updateData(
+        binding.homeCardSectionPlasticCardAlertInformativeActionBucketView.updateData(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewSmallButtonText),

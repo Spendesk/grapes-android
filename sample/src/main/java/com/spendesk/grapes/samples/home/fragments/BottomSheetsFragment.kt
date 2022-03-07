@@ -7,12 +7,11 @@ import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFra
 import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFragmentViewState
 import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.component.SimpleSectionItemView
-import com.spendesk.grapes.extensions.empty
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.simple.SimpleListModel
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_bottom_sheets.*
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeBottomSheetsBinding
 
 /**
  * @author Vivien Mahe
@@ -24,17 +23,19 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
         fun newInstance() = BottomSheetsFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeBottomSheetsBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.bottomSheets)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.bottomSheets)
 
         setupView()
     }
 
     private fun setupView() {
         // Searchable with ViewState.Content
-        homeBottomSheetsSectionSearchableContentButton.setOnClickListener {
+        binding.homeBottomSheetsSectionSearchableContentButton.setOnClickListener {
             val sectionConfiguration = SimpleSectionItemView.Configuration(
                 startText = "This is a secondary section",
                 style = SimpleSectionItemView.Style.SECONDARY
@@ -48,7 +49,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                 updateViewState(
                     viewState = SearchableBottomSheetDialogFragmentViewState.Content(
                         items = listOf(
-                            SimpleListModel.Section(id = String.empty(), configuration = sectionConfiguration),
+                            SimpleListModel.Section(id = "", configuration = sectionConfiguration),
                             SimpleListModel.Item(id = "1", configuration = item1Configuration),
                             SimpleListModel.Item(id = "2", configuration = item2Configuration),
                             SimpleListModel.Item(id = "3", configuration = item3Configuration),
@@ -62,7 +63,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
         }
 
         // Searchable with ViewState.Empty
-        homeBottomSheetsSectionSearchableEmptyButton.setOnClickListener {
+        binding.homeBottomSheetsSectionSearchableEmptyButton.setOnClickListener {
             createSearchableBottomSheetFragment().apply {
                 updateViewState(
                     viewState = SearchableBottomSheetDialogFragmentViewState.Empty(

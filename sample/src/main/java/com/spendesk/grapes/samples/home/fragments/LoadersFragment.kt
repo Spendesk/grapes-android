@@ -4,7 +4,8 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeLoadersBinding
 
 /**
  * @author Vivien Mahe
@@ -16,9 +17,11 @@ class LoadersFragment : Fragment(R.layout.fragment_home_loaders) {
         fun newInstance() = LoadersFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeLoadersBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.loaders)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.loaders)
     }
 }

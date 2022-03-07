@@ -10,7 +10,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
-        <include layout="@layout/view_home_header" />
+        <include
+            android:id="@+id/homeHeader"
+            layout="@layout/view_home_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorTitleText"
@@ -22,7 +29,7 @@
             android:text="@string/selectorsPickerCardsListView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeGenericHeaderBackground" />
+            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
 
         <com.spendesk.grapes.BucketView
             android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorBucketView"
@@ -163,8 +170,8 @@
                     android:layout_height="24dp"
                     android:layout_marginEnd="16dp"
                     android:background="?selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_loop"
                     android:gravity="center"
+                    android:src="@drawable/ic_loop"
                     app:layout_constraintBottom_toBottomOf="@+id/homeSelectorsSectionHeaderStatusIndicatorFifthSubtitle"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/homeSelectorsSectionHeaderStatusIndicatorFifthSubtitle"

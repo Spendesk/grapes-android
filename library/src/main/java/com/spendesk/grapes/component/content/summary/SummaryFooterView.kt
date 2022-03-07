@@ -2,11 +2,10 @@ package com.spendesk.grapes.component.content.summary
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.SummaryFooterBinding
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
-import kotlinx.android.synthetic.main.summary_footer.view.*
 
 /**
  * @author Vivien Mahe
@@ -25,12 +24,10 @@ class SummaryFooterView : ConstraintLayout {
         val subtitle: CharSequence? = null,
     )
 
-    init {
-        View.inflate(context, R.layout.summary_footer, this)
-    }
+    private val binding: SummaryFooterBinding = SummaryFooterBinding.inflate(LayoutInflater.from(context), this)
 
     fun updateConfiguration(configuration: Configuration) {
-        summaryFooterTitle.text = configuration.title
-        summaryFooterSubtitle.visibleWithTextOrGone(configuration.subtitle)
+        binding.summaryFooterTitle.text = configuration.title
+        binding.summaryFooterSubtitle.visibleWithTextOrGone(configuration.subtitle)
     }
 }

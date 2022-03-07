@@ -5,7 +5,7 @@ import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.TypedValue
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -14,9 +14,9 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
 import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.MessageBlockViewBinding
 import com.spendesk.grapes.extensions.*
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
-import kotlinx.android.synthetic.main.message_block_view.view.*
 
 
 /**
@@ -41,9 +41,9 @@ class MessageBlockView : ConstraintLayout {
 
     //endregion constructors
 
-    init {
-        View.inflate(context, R.layout.message_block_view, this)
+    private val binding: MessageBlockViewBinding = MessageBlockViewBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         setupView()
     }
 
@@ -88,7 +88,7 @@ class MessageBlockView : ConstraintLayout {
         setSignatureText(configuration.signatureText)
         configuration.signatureText
             ?.let { setSignatureDrawable(url = configuration.signatureDrawableUrl, placeholderResId = configuration.signatureDrawablePlaceholderResId) }
-            ?: run { messageBlockSignatureImage.gone() }
+            ?: run { binding.messageBlockSignatureImage.gone() }
     }
 
     /**
@@ -104,13 +104,13 @@ class MessageBlockView : ConstraintLayout {
             Style.WARNING -> ColorConfiguration(R.color.mainWarningNormal, R.color.mainWarningLightest, R.color.mainWarningLighter)
             Style.INFO -> ColorConfiguration(R.color.mainInfoNormal, R.color.mainInfoLightest, R.color.mainInfoLighter)
         }.let { configuration ->
-            messageBlockTitle.setTextColor(ContextCompat.getColor(context, configuration.textColor))
+            binding.messageBlockTitle.setTextColor(ContextCompat.getColor(context, configuration.textColor))
             setDrawable(colorId = configuration.backgroundColor, radiusId = R.dimen.messageInlineRadius, strokeSizeId = R.dimen.messageInlineStrokeSize, strokeColorId = configuration.strokeColor)
         }
     }
 
     fun setTitle(title: CharSequence) {
-        messageBlockTitle.text = title
+        binding.messageBlockTitle.text = title
     }
 
     fun setTitleDrawable(drawableStartId: Int) {
@@ -119,29 +119,31 @@ class MessageBlockView : ConstraintLayout {
             // Convert drawable to a bitmap sized accordingly to be set as drawableStart in the textView.
             // The Bitmap is then converted again to a drawable but now having the right size which will not push the bounds and the size of the whole view.
             val drawableBitmap = ContextCompat.getDrawable(context, drawableStartId)?.toBitmap(drawableSize, drawableSize)
-            messageBlockTitle.setDrawableLeft(drawableBitmap?.toDrawable(resources))
+            binding.messageBlockTitle.setDrawableLeft(drawableBitmap?.toDrawable(resources))
         }
     }
 
     fun setDescription(description: CharSequence?) {
-        messageBlockDescription.visibleWithTextOrGone(description)
+        binding.messageBlockDescription.visibleWithTextOrGone(description)
     }
 
     fun setSignatureText(signatureText: CharSequence?) {
-        messageBlockSignatureText.visibleWithTextOrGone(signatureText)
+        binding.messageBlockSignatureText.visibleWithTextOrGone(signatureText)
     }
 
     fun setSignatureDrawable(url: String?, placeholderResId: Int? = 0) {
-        if (url != null || placeholderResId != null) {
-            messageBlockSignatureImage.visible()
-            messageBlockSignatureImage.loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = true)
-        } else {
-            messageBlockSignatureImage.gone()
+        with(binding.messageBlockSignatureImage) {
+            if (url != null || placeholderResId != null) {
+                visible()
+                loadFromUrl(url = url, errorResId = placeholderResId, shouldCircleCrop = true)
+            } else {
+                gone()
+            }
         }
     }
 
     fun setSignatureDrawable(drawable: Drawable?) {
-        drawable?.let { messageBlockSignatureImage.setImageDrawable(it) }
+        drawable?.let { binding.messageBlockSignatureImage.setImageDrawable(it) }
     }
 
     private fun initView(attributeSet: AttributeSet?) {
@@ -166,7 +168,7 @@ class MessageBlockView : ConstraintLayout {
     }
 
     private fun setupView() {
-        if (isInEditMode.not()) messageBlockTitle.setTypeface(ResourcesCompat.getFont(context, R.font.gt_america_bold), Typeface.NORMAL)
+        if (isInEditMode.not()) binding.messageBlockTitle.setTypeface(ResourcesCompat.getFont(context, R.font.gt_america_bold), Typeface.NORMAL)
 
         val paddingVert = resources.getDimensionPixelOffset(R.dimen.messageBlockPaddingVert)
         val paddingHorz = resources.getDimensionPixelOffset(R.dimen.messageBlockPaddingHorz)
