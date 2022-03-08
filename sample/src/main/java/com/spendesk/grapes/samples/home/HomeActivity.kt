@@ -1,5 +1,6 @@
 package com.spendesk.grapes.samples.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.viewModels
@@ -21,6 +22,10 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
  */
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
+
+    companion object {
+        const val MAX_FRAGMENTS_RETAINED_EITHER_SIDE_CURRENT_PAGE = 1
+    }
 
     private val viewModel: HomeActivityViewModel by viewModels()
 
@@ -62,9 +67,12 @@ class HomeActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("WrongConstant")
     private fun setupView() {
         homeAdapter = HomePagerAdapter(this)
+
         with(binding.homeViewPager) {
+            offscreenPageLimit = MAX_FRAGMENTS_RETAINED_EITHER_SIDE_CURRENT_PAGE
             adapter = homeAdapter
             isUserInputEnabled = false
         }
