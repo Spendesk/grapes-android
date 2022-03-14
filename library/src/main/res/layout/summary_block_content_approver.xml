@@ -24,6 +24,7 @@
         android:layout_marginStart="@dimen/inlineBlockContentListMarginHorz"
         android:layout_marginEnd="@dimen/inlineBlockContentListMarginHorz"
         app:itemDecorationMarginBottom="@dimen/inlineBlockContentListItemDecorationMarginVert"
+        app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
