@@ -73,6 +73,10 @@
         <item name="android:visibility">gone</item>
     </style>
 
+    <style name="simpleEntryItemBadge">
+        <item name="android:visibility">gone</item>
+    </style>
+
     <!-- endregion Simple Entry Item -->
 
     <!-- region Simple Section Item -->

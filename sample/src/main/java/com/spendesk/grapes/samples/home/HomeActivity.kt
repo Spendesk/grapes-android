@@ -12,7 +12,7 @@ import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.extensions.isDarkThemeOn
 import com.spendesk.grapes.samples.databinding.ActivityHomeBinding
-import com.spendesk.grapes.samples.entity.HomeTabItem
+import com.spendesk.grapes.samples.model.HomeTabItem
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -27,7 +27,7 @@ class HomeActivity : AppCompatActivity() {
         const val MAX_FRAGMENTS_RETAINED_EITHER_SIDE_CURRENT_PAGE = 1
     }
 
-    private val viewModel: HomeActivityViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels()
 
     private val disposables = CompositeDisposable()
     private lateinit var homeAdapter: HomePagerAdapter
@@ -59,6 +59,12 @@ class HomeActivity : AppCompatActivity() {
             }
         }
         return true
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        disposables.clear()
     }
 
     private fun bindViewModel() {

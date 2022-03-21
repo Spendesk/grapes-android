@@ -2,7 +2,7 @@ package com.spendesk.grapes.samples.home
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
-import com.spendesk.grapes.samples.entity.HomeTabItem
+import com.spendesk.grapes.samples.model.HomeTabItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.subjects.PublishSubject
@@ -13,7 +13,7 @@ import javax.inject.Inject
  * @since 12/29/20
  */
 @HiltViewModel
-class HomeActivityViewModel @Inject constructor() : ViewModel() {
+class HomeViewModel @Inject constructor() : ViewModel() {
 
     //region observable properties
 
@@ -27,6 +27,7 @@ class HomeActivityViewModel @Inject constructor() : ViewModel() {
             Lifecycle.State.INITIALIZED -> {
                 updateHomeTabItem.onNext(
                     listOf(
+                        HomeTabItem.Colors,
                         HomeTabItem.Buttons,
                         HomeTabItem.Cards,
                         HomeTabItem.Selectors,

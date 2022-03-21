@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">GrapesSamples</string>
 
+    <string name="colors" translatable="false">Colors</string>
     <string name="buttons" translatable="false">Buttons</string>
     <string name="cards" translatable="false">Cards</string>
     <string name="selectors" translatable="false">Selectors</string>
@@ -12,6 +13,14 @@
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>
+
+    <!-- Colors -->
+    <string name="colorsPurple" translatable="false">Purple</string>
+    <string name="colorsNeutral" translatable="false">Neutral</string>
+    <string name="colorsWarning" translatable="false">Warning</string>
+    <string name="colorsInfo" translatable="false">Info</string>
+    <string name="colorsSuccess" translatable="false">Success</string>
+    <string name="colorsAlert" translatable="false">Alert</string>
 
     <!-- Buttons -->
     <string name="buttonNormal" translatable="false">Normal</string>
