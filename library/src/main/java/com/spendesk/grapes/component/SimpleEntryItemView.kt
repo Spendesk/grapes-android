@@ -39,7 +39,6 @@ class SimpleEntryItemView : ConstraintLayout {
         val secondaryImageUrl: String? = null,
         val shouldCircleCropSecondaryImage: Boolean = false,
         @DrawableRes val placeholderSecondaryImage: Int = ResourcesCompat.ID_NULL,
-        val shouldShowSecondaryImage: Boolean = secondaryImageUrl != null && placeholderSecondaryImage != ResourcesCompat.ID_NULL,
         val imageAltText: CharSequence? = null,
         val titleStart: CharSequence,
         val descriptionStart: CharSequence? = null,
