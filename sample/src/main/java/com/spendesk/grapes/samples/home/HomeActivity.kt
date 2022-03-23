@@ -64,6 +64,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
 
+        viewModel.onLifecycleStateChange(lifecycle.currentState)
         disposables.clear()
     }
 
