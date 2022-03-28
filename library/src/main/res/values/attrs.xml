@@ -21,14 +21,4 @@
     </declare-styleable>
     <!-- endregion Button -->
 
-    <!-- region UserSupplierInline -->
-    <declare-styleable name="UserSupplierInlineView">
-        <attr name="title" />
-        <attr name="subtitle" />
-        <attr name="bigImageDrawable" format="reference" />
-        <attr name="shouldShowSmallImage" format="boolean" />
-        <attr name="smallImageDrawable" format="reference" />
-    </declare-styleable>
-    <!-- endregion UserSupplierInline -->
-
 </resources>
