@@ -2,15 +2,17 @@ package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.FloatRange
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.SummaryBlockContentMapBinding
+import com.spendesk.grapes.databinding.ViewResponsibilityCenterGaugeBinding
 import com.spendesk.grapes.extensions.setDrawable
 import com.spendesk.grapes.extensions.visible
-import kotlinx.android.synthetic.main.view_responsibility_center_gauge.view.*
 
 /**
  * @author danyboucanova
@@ -38,30 +40,29 @@ class SummaryBlockContentResponsibilityCenterGaugeView : ConstraintLayout {
         @FloatRange(from = 0.0, to = 1.0) val ratio: Float
     )
 
-    init {
-        View.inflate(context, R.layout.view_responsibility_center_gauge, this)
-    }
+    private val binding: ViewResponsibilityCenterGaugeBinding = ViewResponsibilityCenterGaugeBinding.inflate(LayoutInflater.from(context), this)
 
     fun updateConfiguration(configuration: Configuration) {
         if (configuration.gauges.size > MAX_GAUGES) {
             throw IllegalArgumentException("Error: Too many gauges (size: ${configuration.gauges.size}) given in argument. This view cannot handle more than: $MAX_GAUGES gauges.")
         }
+        with(binding) {
+            val gaugeViews = listOf(responsibilityCenterGaugePrimaryView, responsibilityCenterGaugeSecondaryView, responsibilityCenterGaugeTertiaryView)
+            val guidelineViews = listOf(responsibilityCenterGaugePrimaryGuideline, responsibilityCenterGaugeSecondaryGuideline, responsibilityCenterGaugeTertiaryGuideline)
 
-        val gaugeViews = listOf(responsibilityCenterGaugePrimaryView, responsibilityCenterGaugeSecondaryView, responsibilityCenterGaugeTertiaryView)
-        val guidelineViews = listOf(responsibilityCenterGaugePrimaryGuideline, responsibilityCenterGaugeSecondaryGuideline, responsibilityCenterGaugeTertiaryGuideline)
+            // Handle Gauges
+            configuration.gauges.forEachIndexed { index, gauge ->
+                gaugeViews[index].visible()
+                gaugeViews[index].setBackgroundResource(gauge.resourceId)
+                guidelineViews[index].setGuidelinePercent(gauge.ratio)
+            }
 
-        // Handle Gauges
-        configuration.gauges.forEachIndexed { index, gauge ->
-            gaugeViews[index].visible()
-            gaugeViews[index].setBackgroundResource(gauge.resourceId)
-            guidelineViews[index].setGuidelinePercent(gauge.ratio)
-        }
-
-        // Handle Threshold
-        configuration.threshold?.let {
-            responsibilityCenterGaugeLimitView.visible()
-            responsibilityCenterGaugeLimitGuideline.setGuidelinePercent(it)
-            responsibilityCenterGaugeLimitView.setDrawable(colorId = R.color.responsibilityCenterGaugeViewLimitBackground, radiusId = R.dimen.responsibilityCenterGaugeLimitRadius)
+            // Handle Threshold
+            configuration.threshold?.let {
+                responsibilityCenterGaugeLimitView.visible()
+                responsibilityCenterGaugeLimitGuideline.setGuidelinePercent(it)
+                responsibilityCenterGaugeLimitView.setDrawable(colorId = R.color.responsibilityCenterGaugeViewLimitBackground, radiusId = R.dimen.responsibilityCenterGaugeLimitRadius)
+            }
         }
     }
 }

@@ -2,13 +2,12 @@ package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
-import com.spendesk.grapes.R
+import android.view.LayoutInflater
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockView
+import com.spendesk.grapes.databinding.SummaryBlockContentInlineBinding
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentAdapter
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
-import kotlinx.android.synthetic.main.summary_block_content_inline.view.*
 
 /**
  * @author Vivien Mahe
@@ -28,14 +27,13 @@ class SummaryBlockContentInlineView : SummaryBlockView {
     ) : SummaryBlockView.Configuration(titleConfiguration)
 
     private val adapter = SummaryBlockContentAdapter()
+    private val binding: SummaryBlockContentInlineBinding = SummaryBlockContentInlineBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
-        View.inflate(context, R.layout.summary_block_content_inline, this)
-
-        summaryBlockContentInlineList.adapter = adapter
+        binding.summaryBlockContentInlineList.adapter = adapter
     }
 
-    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentInlineTitle
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = binding.summaryBlockContentInlineTitle
 
     fun updateConfiguration(configuration: Configuration) {
         super.updateConfiguration(configuration)

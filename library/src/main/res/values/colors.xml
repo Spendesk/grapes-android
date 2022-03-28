@@ -129,12 +129,6 @@
     <color name="responsibilityCenterGaugeViewLimitBackground">@color/colorPrimaryDark</color>
     <!-- endregion Blocks -->
 
-    <!-- region UserSupplierInline -->
-    <color name="userSupplierInlineSmallImageBackground">@color/white</color>
-    <color name="userSupplierInlineTitleText">@color/mainComplementary</color>
-    <color name="userSupplierInlineSubtitleText">@color/mainNeutralDarker</color>
-    <!-- endregion UserSupplierInline -->
-
     <!-- region Toaster -->
     <color name="toasterBackground">@color/mainNeutralDarkest</color>
     <color name="toasterText">@color/white</color>

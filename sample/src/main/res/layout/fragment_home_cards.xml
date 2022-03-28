@@ -9,7 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="0dp">
 
-        <include layout="@layout/view_home_header" />
+        <include
+            android:id="@+id/homeHeader"
+            layout="@layout/view_home_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <!-- region purple-->
         <TextView
@@ -23,7 +30,7 @@
             android:text="@string/cardPurple"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeGenericHeaderBackground" />
+            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
 
         <com.spendesk.grapes.BucketView
             android:id="@+id/homeCardSectionPurpleBucketView"
@@ -235,14 +242,14 @@
                 <com.spendesk.grapes.RegistrationCodeView
                     android:layout_width="0dp"
                     android:layout_height="56dp"
-                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionRegistrationCodeNormalSubtitle"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
-                    android:layout_marginBottom="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionSubtitleMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeCardSectionRegistrationCodeNormalSubtitle" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>

@@ -32,14 +32,14 @@ private fun Activity.createToaster(message: CharSequence, duration: Int) =
             }
         }
 
-fun Activity.getWidth(): Int =
+internal fun Activity.getWidth(): Int =
     DisplayMetrics().let { displayMetrics ->
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         displayMetrics.widthPixels
     }
 
 
-fun Activity.getHeight(): Int =
+internal fun Activity.getHeight(): Int =
     DisplayMetrics().let { displayMetrics ->
         windowManager.defaultDisplay.getMetrics(displayMetrics)
         displayMetrics.heightPixels

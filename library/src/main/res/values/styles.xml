@@ -203,28 +203,6 @@
 
     <!-- endregion blocks -->
 
-    <!-- region UserSupplierInline -->
-    <style name="UserSupplierInlineSmallImage">
-        <item name="android:padding">@dimen/userSupplierInlineSmallImagePadding</item>
-        <item name="android:background">@drawable/shape_rect_solidwhite_stroke2white_radius2</item>
-    </style>
-
-    <style name="UserSupplierInlineTitle">
-        <item name="android:textSize">@dimen/userSupplierInlineTitleText</item>
-        <item name="android:textColor">@color/userSupplierInlineTitleText</item>
-        <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:gravity">center_vertical</item>
-    </style>
-
-    <style name="UserSupplierInlineSubtitle">
-        <item name="android:textSize">@dimen/userSupplierInlineSubtitleText</item>
-        <item name="android:textColor">@color/userSupplierInlineSubtitleText</item>
-        <item name="android:fontFamily">@font/gt_america</item>
-        <item name="android:singleLine">true</item>
-    </style>
-    <!-- endregion UserSupplierInline -->
-
     <!-- region Toaster -->
 
     <style name="ToasterLayout">

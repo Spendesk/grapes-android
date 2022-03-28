@@ -2,8 +2,8 @@ package com.spendesk.grapes
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
-import kotlinx.android.synthetic.main.bucket_deep_blue.view.*
+import android.view.LayoutInflater
+import com.spendesk.grapes.databinding.BucketDeepBlueBinding
 
 /**
  * @author danyboucanova
@@ -27,31 +27,33 @@ open class DeepBlueBucketView : BucketView {
 
     var onButtonClick: (() -> Unit)? = null
 
-    init {
-        View.inflate(context, R.layout.bucket_deep_blue, this)
+    private val binding: BucketDeepBlueBinding = BucketDeepBlueBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         bindView()
     }
 
     fun updateData(configuration: Configuration) {
-        deepBlueBucketTitle.text = configuration.title
-        deepBlueBucketDescription.text = configuration.description
-        deepBlueBucketButton.text = configuration.buttonText
+        with(binding) {
+            deepBlueBucketTitle.text = configuration.title
+            deepBlueBucketDescription.text = configuration.description
+            deepBlueBucketButton.text = configuration.buttonText
+        }
     }
 
     fun updateTitle(title: CharSequence) {
-        deepBlueBucketTitle.text = title
+        binding.deepBlueBucketTitle.text = title
     }
 
     fun updateDescription(description: CharSequence) {
-        deepBlueBucketDescription.text = description
+        binding.deepBlueBucketDescription.text = description
     }
 
     fun updateButtonText(buttonText: CharSequence) {
-        deepBlueBucketButton.text = buttonText
+        binding.deepBlueBucketButton.text = buttonText
     }
 
     private fun bindView() {
-        deepBlueBucketButton.setOnClickListener { onButtonClick?.invoke() }
+        binding.deepBlueBucketButton.setOnClickListener { onButtonClick?.invoke() }
     }
 }

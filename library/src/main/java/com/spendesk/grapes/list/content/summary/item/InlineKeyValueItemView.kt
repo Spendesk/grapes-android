@@ -2,10 +2,11 @@ package com.spendesk.grapes.list.content.summary.item
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.View
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.spendesk.grapes.R
-import kotlinx.android.synthetic.main.item_inline_key_value.view.*
+import com.spendesk.grapes.databinding.ItemInlineKeyValueBinding
 
 /**
  * @author danyboucanova
@@ -26,12 +27,16 @@ class InlineKeyValueItemView : ConstraintLayout {
         val value: CharSequence
     )
 
+    private val binding: ItemInlineKeyValueBinding = ItemInlineKeyValueBinding.inflate(LayoutInflater.from(context), this, true)
+
     init {
         View.inflate(context, R.layout.item_inline_key_value, this)
     }
 
     fun updateConfiguration(configuration: Configuration) {
-        inlineBlockViewKeyText.text = configuration.key
-        inlineBlockViewValueText.text = configuration.value
+        with(binding) {
+            inlineBlockViewKeyText.text = configuration.key
+            inlineBlockViewValueText.text = configuration.value
+        }
     }
 }

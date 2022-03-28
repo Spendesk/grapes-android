@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="SummaryHeaderExpenseUserSupplier">
+    <style name="SummaryHeaderExpenseSimpleEntryView">
         <item name="android:visibility">gone</item>
     </style>
 

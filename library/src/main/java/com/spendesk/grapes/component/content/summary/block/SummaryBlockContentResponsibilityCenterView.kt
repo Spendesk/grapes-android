@@ -2,13 +2,12 @@ package com.spendesk.grapes.component.content.summary.block
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
-import com.spendesk.grapes.R
+import android.view.LayoutInflater
+import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeView.Constants.MAX_GAUGES
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockView
-import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentResponsibilityCenterGaugeView.Constants.MAX_GAUGES
+import com.spendesk.grapes.databinding.SummaryBlockContentResponsibilityCenterBinding
 import com.spendesk.grapes.extensions.visibleOrGone
-import kotlinx.android.synthetic.main.summary_block_content_responsibility_center.view.*
 
 /**
  * @author danyboucanova
@@ -34,27 +33,24 @@ class SummaryBlockContentResponsibilityCenterView : SummaryBlockView {
         val showLegend: Boolean = false
     ) : SummaryBlockView.Configuration(titleConfiguration)
 
-    init {
-        View.inflate(context, R.layout.summary_block_content_responsibility_center, this)
-    }
+    private val binding: SummaryBlockContentResponsibilityCenterBinding = SummaryBlockContentResponsibilityCenterBinding.inflate(LayoutInflater.from(context), this, true)
 
-    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = summaryBlockContentResponsibilityCenterTitle
+    override fun getSummaryBlockTitleView(): SummaryBlockTitleView = binding.summaryBlockContentResponsibilityCenterTitle
 
     fun updateConfiguration(configuration: Configuration) {
         super.updateConfiguration(configuration)
 
-        summaryBlockContentResponsibilityCenterDescription.text = configuration.description
+        binding.summaryBlockContentResponsibilityCenterDescription.text = configuration.description
 
         // Handle Gauges
-        summaryBlockContentResponsibilityCenterGaugeView.updateConfiguration(configuration.gaugeViewConfiguration)
+        binding.summaryBlockContentResponsibilityCenterGaugeView.updateConfiguration(configuration.gaugeViewConfiguration)
 
         // Handle Legend
         showLegend(configuration.showLegend)
         handleLegend(configuration.legendConfiguration)
     }
 
-    fun showLegend(visibility: Boolean) =
-        summaryBlockContentResponsibilityCenterLegendFlow.visibleOrGone(visibility)
+    fun showLegend(visibility: Boolean) = binding.summaryBlockContentResponsibilityCenterLegendFlow.visibleOrGone(visibility)
 
     private fun handleLegend(legendConfiguration: List<SummaryBlockContentResponsibilityCenterGaugeLegendView.Configuration>) {
         if (legendConfiguration.size > MAX_LEGENDS) {
@@ -62,12 +58,14 @@ class SummaryBlockContentResponsibilityCenterView : SummaryBlockView {
         }
 
         // Configure each legend
-        val legendViews =
-            listOf(summaryBlockContentResponsibilityCenterLegendFlowPrimary, summaryBlockContentResponsibilityCenterLegendFlowSecondary, summaryBlockContentResponsibilityCenterLegendFlowTertiary)
+        with(binding) {
+            val legendViews =
+                listOf(summaryBlockContentResponsibilityCenterLegendFlowPrimary, summaryBlockContentResponsibilityCenterLegendFlowSecondary, summaryBlockContentResponsibilityCenterLegendFlowTertiary)
 
-        legendConfiguration.forEachIndexed { index, legend ->
-            summaryBlockContentResponsibilityCenterLegendFlow.referencedIds += legendViews[index].id
-            legendViews[index].updateConfiguration(legend)
+            legendConfiguration.forEachIndexed { index, legend ->
+                summaryBlockContentResponsibilityCenterLegendFlow.referencedIds += legendViews[index].id
+                legendViews[index].updateConfiguration(legend)
+            }
         }
     }
 }

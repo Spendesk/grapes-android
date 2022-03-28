@@ -5,4 +5,4 @@ package com.spendesk.grapes.extensions
  * @since 17/06/2021
  */
 
-fun String.Companion.empty() = ""
+internal fun String.Companion.empty() = ""

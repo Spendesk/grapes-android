@@ -2,16 +2,16 @@ package com.spendesk.grapes.component
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
 import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.ComponentSimpleSectionItemBinding
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
-import kotlinx.android.synthetic.main.component_simple_section_item.view.*
 
 /**
  * @author danyboucanova
@@ -59,19 +59,21 @@ class SimpleSectionItemView : ConstraintLayout {
         }
     }
 
-    init {
-        View.inflate(context, R.layout.component_simple_section_item, this)
+    private val binding: ComponentSimpleSectionItemBinding = ComponentSimpleSectionItemBinding.inflate(LayoutInflater.from(context), this)
 
+    init {
         setPadding(resources.getDimensionPixelOffset(R.dimen.listSectionItemPadding))
     }
 
     fun updateConfiguration(configuration: Configuration) {
-        if (configuration.iconStart != ResourcesCompat.ID_NULL) {
-            simpleSectionItemStartImage.visible()
-            simpleSectionItemStartImage.setBackgroundResource(configuration.iconStart)
+        with(binding) {
+            if (configuration.iconStart != ResourcesCompat.ID_NULL) {
+                simpleSectionItemStartImage.visible()
+                simpleSectionItemStartImage.setBackgroundResource(configuration.iconStart)
+            }
+            simpleSectionItemStartText.visibleWithTextOrGone(configuration.startText)
+            simpleSectionItemEndText.visibleWithTextOrGone(configuration.endText)
         }
-        simpleSectionItemStartText.visibleWithTextOrGone(configuration.startText)
-        simpleSectionItemEndText.visibleWithTextOrGone(configuration.endText)
         configuration.style?.let { setStyle(style = it) }
     }
 

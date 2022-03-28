@@ -1,7 +1,7 @@
 package com.spendesk.grapes.samples.entity
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 /**
  * @author danyboucanova

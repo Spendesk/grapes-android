@@ -2,14 +2,13 @@ package com.spendesk.grapes.list.content.summary.item
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.View
+import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.spendesk.grapes.R
+import com.spendesk.grapes.databinding.ItemApproverStatusBinding
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import com.spendesk.grapes.messages.MessageInlineView
-import kotlinx.android.synthetic.main.item_approver_status.view.*
 
 /**
  * @author danyboucanova
@@ -31,15 +30,15 @@ class ApproverStatusItemView : ConstraintLayout {
         val messageInlineStatusStyle: MessageInlineView.Style? = null
     )
 
-    init {
-        View.inflate(context, R.layout.item_approver_status, this)
-    }
+    private val binding: ItemApproverStatusBinding = ItemApproverStatusBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun updateConfiguration(configuration: Configuration) {
-        itemApproverStatusText.text = configuration.title
-        itemApproverStatusImage.loadFromUrl(url = configuration.imageUrl, errorResId = configuration.placeholderResId, shouldCircleCrop = true)
+        with(binding) {
+            itemApproverStatusText.text = configuration.title
+            itemApproverStatusImage.loadFromUrl(url = configuration.imageUrl, errorResId = configuration.placeholderResId, shouldCircleCrop = true)
 
-        itemApproverStatusMessageInline.visibleWithTextOrGone(configuration.messageInlineStatusText)
-        configuration.messageInlineStatusStyle?.let { itemApproverStatusMessageInline.setStyle(it) }
+            itemApproverStatusMessageInline.visibleWithTextOrGone(configuration.messageInlineStatusText)
+            configuration.messageInlineStatusStyle?.let { itemApproverStatusMessageInline.setStyle(it) }
+        }
     }
 }

@@ -10,9 +10,9 @@ import androidx.annotation.DrawableRes
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
-import kotlinx.android.synthetic.main.fragment_bottom_sheet_info.*
 
 /**
  * @author danyboucanova
@@ -40,6 +40,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
 
     // endregion Observable properties
 
+    private var binding: FragmentBottomSheetInfoBinding? = null
     override fun getTheme(): Int = R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -61,8 +62,10 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         return dialog
     }
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(R.layout.fragment_bottom_sheet_info, container, false)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        binding = FragmentBottomSheetInfoBinding.inflate(inflater, container, false)
+        return binding?.root
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -70,18 +73,27 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         bindView()
     }
 
-    fun updateConfiguration(configuration: Configuration) {
-        actionMessageBottomSheetImage.setBackgroundResource(configuration.imageResourceId)
-        actionMessageBottomSheetTitleText.text = configuration.title
+    override fun onDestroyView() {
+        super.onDestroyView()
+        binding = null
+    }
 
-        actionMessageBottomSheetDescriptionText.visibleWithTextOrGone(configuration.description)
-        actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
-        actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
-        actionMessageBottomSheetPullView.visibleOrGone(configuration.shouldShowHandle)
+    fun updateConfiguration(configuration: Configuration) {
+        binding?.apply {
+            actionMessageBottomSheetImage.setBackgroundResource(configuration.imageResourceId)
+            actionMessageBottomSheetTitleText.text = configuration.title
+
+            actionMessageBottomSheetDescriptionText.visibleWithTextOrGone(configuration.description)
+            actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
+            actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
+            actionMessageBottomSheetPullView.visibleOrGone(configuration.shouldShowHandle)
+        }
     }
 
     private fun bindView() {
-        actionMessageBottomSheetPrimaryButton.setOnClickListener { onPrimaryButtonClicked?.invoke() }
-        actionMessageBottomSheetSecondaryButton.setOnClickListener { onSecondaryButtonClicked?.invoke() }
+        binding?.apply {
+            actionMessageBottomSheetPrimaryButton.setOnClickListener { onPrimaryButtonClicked?.invoke() }
+            actionMessageBottomSheetSecondaryButton.setOnClickListener { onSecondaryButtonClicked?.invoke() }
+        }
     }
 }

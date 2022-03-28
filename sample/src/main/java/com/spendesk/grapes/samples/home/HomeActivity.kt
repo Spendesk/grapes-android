@@ -10,27 +10,31 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.extensions.isDarkThemeOn
+import com.spendesk.grapes.samples.databinding.ActivityHomeBinding
 import com.spendesk.grapes.samples.entity.HomeTabItem
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
-import kotlinx.android.synthetic.main.activity_home.*
 
 /**
  * @author danyboucanova
  * @since 1/4/21
  */
 @AndroidEntryPoint
-class HomeActivity : AppCompatActivity(R.layout.activity_home) {
+class HomeActivity : AppCompatActivity() {
 
     private val viewModel: HomeActivityViewModel by viewModels()
 
     private val disposables = CompositeDisposable()
     private lateinit var homeAdapter: HomePagerAdapter
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setSupportActionBar(homeToolbar)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.homeToolbar)
 
         setupView()
         bindViewModel()
@@ -60,15 +64,16 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home) {
 
     private fun setupView() {
         homeAdapter = HomePagerAdapter(this)
-        homeViewPager.adapter = homeAdapter
-        homeViewPager.isUserInputEnabled = false
-
+        with(binding.homeViewPager) {
+            adapter = homeAdapter
+            isUserInputEnabled = false
+        }
     }
 
     private fun updateHomeTabs(expenseItemList: List<HomeTabItem>) {
         homeAdapter.updateList(expenseItemList)
 
-        TabLayoutMediator(homeTabLayout, homeViewPager, true) { tab, position ->
+        TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager, true) { tab, position ->
             tab.text = homeAdapter.getTabText(position)
         }.attach()
     }

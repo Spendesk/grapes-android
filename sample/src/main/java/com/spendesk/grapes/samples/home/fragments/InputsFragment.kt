@@ -6,8 +6,8 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
-import kotlinx.android.synthetic.main.fragment_home_inputs.*
-import kotlinx.android.synthetic.main.view_home_header.*
+import com.spendesk.grapes.samples.core.internal.viewBinding
+import com.spendesk.grapes.samples.databinding.FragmentHomeInputsBinding
 
 /**
  * @author danyboucanova
@@ -19,13 +19,16 @@ class InputsFragment : Fragment(R.layout.fragment_home_inputs) {
         fun newInstance() = InputsFragment()
     }
 
+    private val binding by viewBinding(FragmentHomeInputsBinding::bind)
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
-
-        homeInputsSectionSearchMainPrimary.getEditText().doAfterTextChanged { requireActivity().shortToaster("Text changed: $it") }
-        homeInputsSectionSearchMainPrimaryLoading.showProgressBar(true)
-        homeInputsSectionSearchMainSecondaryLoading.showProgressBar(true)
+        with(binding) {
+            homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
+            homeInputsSectionSearchMainPrimary.getEditText().doAfterTextChanged { requireActivity().shortToaster("Text changed: $it") }
+            homeInputsSectionSearchMainPrimaryLoading.showProgressBar(true)
+            homeInputsSectionSearchMainSecondaryLoading.showProgressBar(true)
+        }
     }
 }
