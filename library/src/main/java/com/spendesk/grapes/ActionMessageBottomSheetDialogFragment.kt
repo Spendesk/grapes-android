@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
+import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -15,6 +16,7 @@ import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
 import com.spendesk.grapes.extensions.getHeight
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import java.io.Serializable
 
 /**
  * @author danyboucanova
@@ -23,7 +25,13 @@ import com.spendesk.grapes.extensions.visibleWithTextOrGone
 open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
+        fun newInstance(configuration: Configuration? = null): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment().apply {
+            if (configuration != null) {
+                arguments = bundleOf(INTENT_CONFIGURATION to configuration)
+            }
+        }
+
+        private const val INTENT_CONFIGURATION = "configuration"
         private const val SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE = 0.8f
     }
 
@@ -34,17 +42,27 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         val primaryButtonText: CharSequence? = null,
         val secondaryButtonText: CharSequence? = null,
         val shouldShowHandle: Boolean = true
-    )
+    ) : Serializable
 
     // region Observable properties
 
     protected var onPrimaryButtonClicked: (() -> Unit)? = null
     protected var onSecondaryButtonClicked: (() -> Unit)? = null
 
+    private var configuration: Configuration? = null
+
     // endregion Observable properties
 
     private var binding: FragmentBottomSheetInfoBinding? = null
     override fun getTheme(): Int = R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        (arguments?.getSerializable(INTENT_CONFIGURATION) as? Configuration)?.let {
+            configuration = it
+        }
+    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
@@ -82,6 +100,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
     }
 
     fun updateConfiguration(configuration: Configuration) {
+        this.configuration = configuration
         binding?.apply {
             actionMessageBottomSheetImage.setBackgroundResource(configuration.imageResourceId)
             actionMessageBottomSheetTitleText.text = configuration.title
@@ -116,5 +135,6 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
             actionMessageBottomSheetPrimaryButton.setOnClickListener { onPrimaryButtonClicked?.invoke() }
             actionMessageBottomSheetSecondaryButton.setOnClickListener { onSecondaryButtonClicked?.invoke() }
         }
+        configuration?.let { updateConfiguration(it) }
     }
 }

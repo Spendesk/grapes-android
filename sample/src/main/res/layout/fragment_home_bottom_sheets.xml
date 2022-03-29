@@ -82,6 +82,69 @@
         </com.spendesk.grapes.BucketView>
 
         <TextView
+            android:id="@+id/homeBottomSheetsSectionActionMessage"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/bottomSheetsActionMessageTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeBottomSheetsSectionSearchableBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeBottomSheetsSectionActionMessageBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeBottomSheetsSectionActionMessage">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeBottomSheetsSectionActionMessageSmallContentButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/bottomSheetActionMessageViewStateSmallContentButton"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintBottom_toTopOf="@id/homeBottomSheetsSectionActionMessageLargeContentButton"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeBottomSheetsSectionActionMessageLargeContentButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/bottomSheetActionMessageViewStateLargeContentButton"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeBottomSheetsSectionActionMessageSmallContentButton" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
             android:id="@+id/homeBottomSheetsSectionEditableText"
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
@@ -92,7 +155,7 @@
             android:text="@string/bottomSheetsEditableTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeBottomSheetsSectionSearchableBucketView" />
+            app:layout_constraintTop_toBottomOf="@+id/homeBottomSheetsSectionActionMessageBucketView" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
