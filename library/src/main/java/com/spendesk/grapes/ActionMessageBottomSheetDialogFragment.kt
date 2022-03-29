@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
+import com.spendesk.grapes.extensions.getHeight
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 
@@ -22,6 +24,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
 
     companion object {
         fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
+        private const val SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE = 0.8f
     }
 
     data class Configuration(
@@ -87,6 +90,24 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
             actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
             actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
             actionMessageBottomSheetPullView.visibleOrGone(configuration.shouldShowHandle)
+
+            actionMessageBottomSheetDescriptionText.apply {
+                viewTreeObserver.addOnGlobalLayoutListener(
+                    object : OnGlobalLayoutListener {
+                        override fun onGlobalLayout() {
+                            val parentHeight = requireActivity().getHeight()
+                            val bottomSheetHeight = binding?.root?.height
+
+                            if (bottomSheetHeight != null && bottomSheetHeight.toFloat() / parentHeight > SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE) {
+                                maxLines = measuredHeight / lineHeight
+                            } else {
+                                maxLines = Int.MAX_VALUE
+                            }
+                            viewTreeObserver.removeOnGlobalLayoutListener(this)
+                        }
+                    }
+                )
+            }
         }
     }
 
