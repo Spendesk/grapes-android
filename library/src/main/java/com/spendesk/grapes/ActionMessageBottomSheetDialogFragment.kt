@@ -25,13 +25,8 @@ import java.io.Serializable
 open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(configuration: Configuration? = null): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment().apply {
-            if (configuration != null) {
-                arguments = bundleOf(INTENT_CONFIGURATION to configuration)
-            }
-        }
+        fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
 
-        private const val INTENT_CONFIGURATION = "configuration"
         private const val SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE = 0.8f
     }
 
@@ -55,14 +50,6 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
 
     private var binding: FragmentBottomSheetInfoBinding? = null
     override fun getTheme(): Int = R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        (arguments?.getSerializable(INTENT_CONFIGURATION) as? Configuration)?.let {
-            configuration = it
-        }
-    }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = super.onCreateDialog(savedInstanceState)
