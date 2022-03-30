@@ -275,6 +275,7 @@
 
     <com.spendesk.grapes.BadgeView
         android:id="@+id/simpleEntryItemBadge"
+        style="@style/SimpleEntryItemBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/listEntryItemBadgeMarginEnd"
