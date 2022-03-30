@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
-import androidx.core.os.bundleOf
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -16,7 +15,6 @@ import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
 import com.spendesk.grapes.extensions.getHeight
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
-import java.io.Serializable
 
 /**
  * @author danyboucanova
@@ -37,7 +35,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         val primaryButtonText: CharSequence? = null,
         val secondaryButtonText: CharSequence? = null,
         val shouldShowHandle: Boolean = true
-    ) : Serializable
+    )
 
     // region Observable properties
 
@@ -79,6 +77,10 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         super.onViewCreated(view, savedInstanceState)
 
         bindView()
+
+        // Configuration could have been updated (and then the variable is set) before view creation.
+        // Once the fragment view is created, we have to make sure it is bound with desired configuration
+        configuration?.let { updateConfiguration(it) }
     }
 
     override fun onDestroyView() {
@@ -122,6 +124,5 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
             actionMessageBottomSheetPrimaryButton.setOnClickListener { onPrimaryButtonClicked?.invoke() }
             actionMessageBottomSheetSecondaryButton.setOnClickListener { onSecondaryButtonClicked?.invoke() }
         }
-        configuration?.let { updateConfiguration(it) }
     }
 }
