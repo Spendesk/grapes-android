@@ -38,4 +38,7 @@
     <color name="tabCardViewDeactivatedSelectedBackground">@color/white</color>
     <color name="tabCardViewDeactivatedUnselectedBackground">@color/whiteAlpha20</color>
 
+    <!-- KeyboardPropositionsView -->
+    <color name="keyboardPropositionsViewText">@color/mainNeutralDarker</color>
+
 </resources>

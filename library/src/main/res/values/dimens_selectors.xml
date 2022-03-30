@@ -35,4 +35,8 @@
     <dimen name="tabCardViewTextSize">14sp</dimen>
     <dimen name="tabCardViewBadgeMarginStart">@dimen/smallMargin</dimen>
 
+    <!-- KeyboardPropositionsView -->
+    <dimen name="keyboardPropositionsViewTextSize">16sp</dimen>
+    <dimen name="keyboardPropositionsViewTextPaddingVertical">12dp</dimen>
+
 </resources>
