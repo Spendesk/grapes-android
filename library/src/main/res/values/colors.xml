@@ -103,6 +103,7 @@
     <!-- endregion Button -->
 
     <!-- region Bucket -->
+    <color name="actionInformativeContainerBackground">@color/white</color>
     <color name="deepBlueBucketTitleText">@color/white</color>
     <color name="deepBlueBucketDescriptionText">@color/mainNeutralLight</color>
     <color name="actionInformativeTitleTextColor">@color/mainComplementary</color>

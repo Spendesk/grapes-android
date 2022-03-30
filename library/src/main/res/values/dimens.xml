@@ -70,8 +70,11 @@
 
     <dimen name="actionInformativeTitleTextSize">32sp</dimen>
     <dimen name="actionInformativeSubtitleTextSize">14sp</dimen>
+    <dimen name="actionInformativeSubtitleFlowMarginTop">2dp</dimen>
     <dimen name="actionInformationSubtitleTextMarginEnd">@dimen/smallMargin</dimen>
+    <dimen name="actionInformativeMessageInlineDrawablePadding">4dp</dimen>
     <dimen name="actionInformativeContainerPadding">@dimen/normalMargin</dimen>
+    <dimen name="actionInformativeButtonPadding">@dimen/bucketPadding</dimen>
     <!-- endregion Bucket -->
 
     <!-- region Chip -->
