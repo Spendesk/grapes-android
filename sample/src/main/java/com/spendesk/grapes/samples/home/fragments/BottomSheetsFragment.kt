@@ -3,6 +3,7 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.spendesk.grapes.ActionMessageBottomSheetDialogFragment
 import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFragment
 import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFragmentViewState
 import com.spendesk.grapes.component.SimpleEntryItemView
@@ -73,6 +74,36 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                 )
 
                 show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, SearchableBottomSheetDialogFragment::class.java.name)
+            }
+        }
+
+        binding.homeBottomSheetsSectionActionMessageSmallContentButton.setOnClickListener {
+            val smallConfiguration = ActionMessageBottomSheetDialogFragment.Configuration(
+                imageResourceId = R.drawable.ic_supplier_placeholder,
+                title = "Small content action message",
+                description = "A small description of two lines or three\nIn fact it depends how large your screen is, because this sentence is a bit long it might take several lines",
+                primaryButtonText = "Primary",
+                secondaryButtonText = "Secondary",
+                shouldShowHandle = true
+            )
+            ActionMessageBottomSheetDialogFragment.newInstance().apply {
+                updateConfiguration(smallConfiguration)
+                show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, ActionMessageBottomSheetDialogFragment::class.java.name)
+            }
+        }
+
+        binding.homeBottomSheetsSectionActionMessageLargeContentButton.setOnClickListener {
+            val longConfiguration = ActionMessageBottomSheetDialogFragment.Configuration(
+                imageResourceId = R.drawable.ic_supplier_placeholder,
+                title = "Large content action message",
+                description = "A large description of many many lines\n".repeat(40),
+                primaryButtonText = "Primary",
+                secondaryButtonText = "Secondary",
+                shouldShowHandle = true
+            )
+            ActionMessageBottomSheetDialogFragment.newInstance().apply {
+                updateConfiguration(longConfiguration)
+                show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, ActionMessageBottomSheetDialogFragment::class.java.name)
             }
         }
     }

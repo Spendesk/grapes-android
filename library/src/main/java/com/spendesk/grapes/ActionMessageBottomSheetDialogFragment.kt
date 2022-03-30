@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
+import com.spendesk.grapes.extensions.getHeight
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
 
@@ -22,6 +24,8 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
 
     companion object {
         fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
+
+        private const val SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE = 0.8f
     }
 
     data class Configuration(
@@ -37,6 +41,8 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
 
     protected var onPrimaryButtonClicked: (() -> Unit)? = null
     protected var onSecondaryButtonClicked: (() -> Unit)? = null
+
+    private var configuration: Configuration? = null
 
     // endregion Observable properties
 
@@ -71,6 +77,10 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         super.onViewCreated(view, savedInstanceState)
 
         bindView()
+
+        // Configuration could have been updated (and then the variable is set) before view creation.
+        // Once the fragment view is created, we have to make sure it is bound with desired configuration
+        configuration?.let { updateConfiguration(it) }
     }
 
     override fun onDestroyView() {
@@ -79,6 +89,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
     }
 
     fun updateConfiguration(configuration: Configuration) {
+        this.configuration = configuration
         binding?.apply {
             actionMessageBottomSheetImage.setBackgroundResource(configuration.imageResourceId)
             actionMessageBottomSheetTitleText.text = configuration.title
@@ -87,6 +98,24 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
             actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
             actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
             actionMessageBottomSheetPullView.visibleOrGone(configuration.shouldShowHandle)
+
+            actionMessageBottomSheetDescriptionText.apply {
+                viewTreeObserver.addOnGlobalLayoutListener(
+                    object : OnGlobalLayoutListener {
+                        override fun onGlobalLayout() {
+                            val parentHeight = requireActivity().getHeight()
+                            val bottomSheetHeight = binding?.root?.height
+
+                            if (bottomSheetHeight != null && bottomSheetHeight.toFloat() / parentHeight > SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE) {
+                                maxLines = measuredHeight / lineHeight
+                            } else {
+                                maxLines = Int.MAX_VALUE
+                            }
+                            viewTreeObserver.removeOnGlobalLayoutListener(this)
+                        }
+                    }
+                )
+            }
         }
     }
 
