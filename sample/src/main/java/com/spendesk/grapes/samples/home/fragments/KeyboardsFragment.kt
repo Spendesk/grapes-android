@@ -8,7 +8,6 @@ import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeKeyboardsBinding
-import com.spendesk.grapes.selectors.KeyboardSuggestionsView
 
 /**
  * @author Vivien Mahe
@@ -51,22 +50,31 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
             onRequestedBiometricAuthentication = { activity?.shortToaster("Separator key pressed") }
         }
 
-        with(binding.suggestions) {
-            onItemClicked = {
-                activity?.shortToaster("Suggestion pressed: ${it.text}")
-            }
+        with(binding.homeKeyboardsSectionWithSuggestion) {
+            onTextChanged = { activity?.shortToaster("Key pressed: $it") }
 
-            updateConfiguration(
-                KeyboardSuggestionsView.Configuration(
-                    items = listOf(
-                        KeyboardSuggestionsView.Item("1", "50$"),
-                        KeyboardSuggestionsView.Item("2", "100$"),
-                        KeyboardSuggestionsView.Item("3", "200$"),
-                        KeyboardSuggestionsView.Item("4", "500$"),
-                        KeyboardSuggestionsView.Item("5", "600$"),
-                        KeyboardSuggestionsView.Item("6", "700$"),
-                    ),
-                    maxItems = 3
+            updateSuggestions(
+                listOf(
+                    NumberKeyboard.Suggestions(label = "50$", rawValue = "50"),
+                    NumberKeyboard.Suggestions(label = "100$", rawValue = "100"),
+                    NumberKeyboard.Suggestions(label = "200$", rawValue = "200"),
+                    NumberKeyboard.Suggestions(label = "500$", rawValue = "500"),
+                )
+            )
+        }
+
+        with(binding.homeKeyboardsSectionWithSuggestionDark) {
+            onTextChanged = { activity?.shortToaster("Key pressed: $it") }
+
+            updateSuggestions(
+                listOf(
+                    NumberKeyboard.Suggestions(label = "50$", rawValue = "50"),
+                    NumberKeyboard.Suggestions(label = "100$", rawValue = "100"),
+                    NumberKeyboard.Suggestions(label = "200$", rawValue = "200"),
+                    NumberKeyboard.Suggestions(label = "500$", rawValue = "500"),
+                    NumberKeyboard.Suggestions(label = "700$", rawValue = "700"),
+                    NumberKeyboard.Suggestions(label = "1000$", rawValue = "1000"),
+                    NumberKeyboard.Suggestions(label = "2000$", rawValue = "2000"),
                 )
             )
         }

@@ -12,7 +12,7 @@ import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SelectorKeyboardSuggestionsViewBinding
 import kotlin.math.abs
 
-class KeyboardSuggestionsView : ConstraintLayout {
+internal class KeyboardSuggestionsView : ConstraintLayout {
 
     companion object {
         private const val DEFAULT_MAX_ITEMS = 5
@@ -48,8 +48,16 @@ class KeyboardSuggestionsView : ConstraintLayout {
     private val binding: SelectorKeyboardSuggestionsViewBinding = SelectorKeyboardSuggestionsViewBinding.inflate(LayoutInflater.from(context), this)
 
     @StyleRes
-    private var itemStyle: Int = R.style.KeyboardSuggestionsViewText
+    private var itemStyle: Int = R.style.KeyboardSuggestionsViewTextStyle
+
+    @StyleRes
+    private var itemTextAppearance: Int = R.style.KeyboardSuggestionsViewTextAppearance
     var onItemClicked: ((item: Item) -> Unit)? = null
+
+    fun updateItemTextAppearance(@StyleRes textAppearanceRes: Int) {
+        itemTextAppearance = textAppearanceRes
+        updateViewsTextAppearance()
+    }
 
     fun updateConfiguration(configuration: Configuration) {
         val itemsToShow = configuration.items.take(configuration.maxItems)
@@ -80,6 +88,7 @@ class KeyboardSuggestionsView : ConstraintLayout {
             with(textView) {
                 layoutParams = ViewGroup.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT)
                 id = generateViewId()
+                setTextAppearance(context, itemTextAppearance)
             }
 
             addView(textView)
@@ -109,7 +118,14 @@ class KeyboardSuggestionsView : ConstraintLayout {
         if (attributeSet == null) return
 
         context.obtainStyledAttributes(attributeSet, R.styleable.KeyboardSuggestionsView).use { styleAttributes ->
-            itemStyle = styleAttributes.getResourceId(R.styleable.KeyboardSuggestionsView_itemStyle, R.style.KeyboardSuggestionsViewText)
+            itemStyle = styleAttributes.getResourceId(R.styleable.KeyboardSuggestionsView_itemStyle, R.style.KeyboardSuggestionsViewTextStyle)
+        }
+    }
+
+    private fun updateViewsTextAppearance() {
+        suggestionViewIds.forEach { textViewId ->
+            val textView = findViewById<TextView>(textViewId)
+            textView.setTextAppearance(context, itemTextAppearance)
         }
     }
 }

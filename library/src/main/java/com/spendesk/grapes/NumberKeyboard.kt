@@ -7,9 +7,11 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import com.spendesk.grapes.databinding.ViewNumberKeyboardBinding
 import com.spendesk.grapes.extensions.invisible
 import com.spendesk.grapes.extensions.visible
+import com.spendesk.grapes.selectors.KeyboardSuggestionsView
 import java.text.DecimalFormatSymbols
 
 /**
@@ -47,6 +49,14 @@ class NumberKeyboard : ConstraintLayout {
         val extraButton: ExtraButton = ExtraButton.getDefault(),
         val maximumDigits: Int = MAXIMUM_DIGITS_NONE
     )
+
+    data class Suggestions(
+        val rawValue: String,
+        val label: CharSequence
+    ) {
+        val id: String
+            get() = "suggestionId_${rawValue}_${label}"
+    }
 
     enum class Style(val position: Int) {
         LIGHT(0),
@@ -94,6 +104,8 @@ class NumberKeyboard : ConstraintLayout {
     private var commaPressed: Boolean = false
     private var maximumDigits: Int = MAXIMUM_DIGITS_NONE
 
+    private val suggestions = mutableListOf<Suggestions>()
+
     private var binding = ViewNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
@@ -123,6 +135,30 @@ class NumberKeyboard : ConstraintLayout {
         this.maximumDigits = configuration.maximumDigits
     }
 
+    fun updateSuggestions(suggestions: List<Suggestions>? = null) {
+        this.suggestions.clear()
+        suggestions?.let { this.suggestions.addAll(it) }
+        val suggestionsConfigurationItems = suggestions?.map { KeyboardSuggestionsView.Item(id = it.id, text = it.label) } ?: emptyList()
+
+        with(binding.suggestions) {
+            isVisible = suggestions != null
+            updateConfiguration(KeyboardSuggestionsView.Configuration(items = suggestionsConfigurationItems))
+            onItemClicked = { clickedItem ->
+                clear()
+                emitRawValueAssociatedToSuggestion(clickedItem)
+            }
+        }
+    }
+
+    private fun emitRawValueAssociatedToSuggestion(clickedItem: KeyboardSuggestionsView.Item) {
+        suggestions
+            .firstOrNull { it.id == clickedItem.id }
+            ?.rawValue
+            ?.let { amountFromSuggestion ->
+                this@NumberKeyboard.onTextChanged?.invoke(amountFromSuggestion)
+            }
+    }
+
     override fun setEnabled(enabled: Boolean) {
         allKeys.map { view -> view.isEnabled = enabled }
         super.setEnabled(enabled)
@@ -145,6 +181,7 @@ class NumberKeyboard : ConstraintLayout {
         when (style) {
             Style.LIGHT -> {
                 numberKeys.forEach { it.setTextAppearance(context, R.style.NumberKeyboardTextLight) }
+                binding.suggestions.updateItemTextAppearance(R.style.KeyboardSuggestionsViewTextAppearance_Light)
                 deleteKey.setImageResource(R.drawable.ic_delete_return)
 
                 when (extraButton) {
@@ -167,6 +204,7 @@ class NumberKeyboard : ConstraintLayout {
 
             Style.DARK -> {
                 numberKeys.forEach { it.setTextAppearance(context, R.style.NumberKeyboardTextDark) }
+                binding.suggestions.updateItemTextAppearance(R.style.KeyboardSuggestionsViewTextAppearance)
                 deleteKey.setImageResource(R.drawable.ic_delete_return_dark)
 
                 when (extraButton) {

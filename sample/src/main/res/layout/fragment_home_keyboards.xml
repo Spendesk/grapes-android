@@ -160,15 +160,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.spendesk.grapes.selectors.KeyboardSuggestionsView
-                    android:id="@+id/suggestions"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <com.spendesk.grapes.NumberKeyboard
                     android:id="@+id/homeKeyboardsSectionWithSuggestion"
                     android:layout_width="0dp"
@@ -178,10 +169,25 @@
                     android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
                     app:keyboardExtraButton="none"
                     app:keyboardStyle="dark"
+                    app:layout_constraintBottom_toTopOf="@+id/homeKeyboardsSectionWithSuggestionDark"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.NumberKeyboard
+                    android:id="@+id/homeKeyboardsSectionWithSuggestionDark"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    android:background="@color/mainComplementary"
+                    app:keyboardExtraButton="none"
+                    app:keyboardStyle="light"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/suggestions" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeKeyboardsSectionWithSuggestion" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>
