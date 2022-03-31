@@ -26,22 +26,21 @@
         <item name="android:textColor">@color/selector_tab_cardview_text</item>
         <item name="android:fontFamily">@font/gt_america_bold</item>
     </style>
-    ew
 
     <style name="TabCardViewBadge">
         <item name="android:visibility">gone</item>
     </style>
 
-    <!-- KeyboardPropositionsView -->
-    <style name="KeyboardPropositionsViewText">
+    <!-- KeyboardSuggestionsView -->
+    <style name="KeyboardSuggestionsViewText">
         <item name="android:fontFamily">@font/font_raw_gt_america_regular</item>
-        <item name="android:textSize">@dimen/keyboardPropositionsViewTextSize</item>
+        <item name="android:textSize">@dimen/keyboardSuggestionsViewTextSize</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/keyboardPropositionsViewText</item>
-        <item name="android:paddingTop">@dimen/keyboardPropositionsViewTextPaddingVertical</item>
-        <item name="android:paddingBottom">@dimen/keyboardPropositionsViewTextPaddingVertical</item>
+        <item name="android:textColor">@color/keyboardSuggestionsViewText</item>
+        <item name="android:paddingTop">@dimen/keyboardSuggestionsViewTextPaddingVertical</item>
+        <item name="android:paddingBottom">@dimen/keyboardSuggestionsViewTextPaddingVertical</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:background">?attr/selectableItemBackground</item>

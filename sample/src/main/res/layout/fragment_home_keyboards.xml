@@ -133,20 +133,20 @@
         </com.spendesk.grapes.BucketView>
 
         <TextView
-            android:id="@+id/homeKeyboardsSectionWithPropositionTitleText"
+            android:id="@+id/homeKeyboardsSectionWithSuggestionTitleText"
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
             android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
             android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/keyboardsWithPropositionsTitle"
+            android:text="@string/keyboardsWithSuggestionsTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeKeyboardsSectionSearchMainBucketView" />
 
         <com.spendesk.grapes.BucketView
-            android:id="@+id/homeKeyboardsSectionWithPropositionsBucketView"
+            android:id="@+id/homeKeyboardsSectionWithSuggestionsBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -154,14 +154,14 @@
             android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeKeyboardsSectionWithPropositionTitleText">
+            app:layout_constraintTop_toBottomOf="@id/homeKeyboardsSectionWithSuggestionTitleText">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.spendesk.grapes.selectors.KeyboardPropositionsView
-                    android:id="@+id/propositions"
+                <com.spendesk.grapes.selectors.KeyboardSuggestionsView
+                    android:id="@+id/suggestions"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -170,7 +170,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.spendesk.grapes.NumberKeyboard
-                    android:id="@+id/homeKeyboardsSectionWithProposition"
+                    android:id="@+id/homeKeyboardsSectionWithSuggestion"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
@@ -181,7 +181,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/propositions" />
+                    app:layout_constraintTop_toBottomOf="@id/suggestions" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>
