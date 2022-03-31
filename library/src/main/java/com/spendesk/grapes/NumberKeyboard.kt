@@ -50,7 +50,7 @@ class NumberKeyboard : ConstraintLayout {
         val maximumDigits: Int = MAXIMUM_DIGITS_NONE
     )
 
-    data class Suggestions(
+    data class Suggestion(
         val rawValue: String,
         val label: CharSequence
     ) {
@@ -104,7 +104,7 @@ class NumberKeyboard : ConstraintLayout {
     private var commaPressed: Boolean = false
     private var maximumDigits: Int = MAXIMUM_DIGITS_NONE
 
-    private val suggestions = mutableListOf<Suggestions>()
+    private val suggestions = mutableListOf<Suggestion>()
 
     private var binding = ViewNumberKeyboardBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -135,13 +135,13 @@ class NumberKeyboard : ConstraintLayout {
         this.maximumDigits = configuration.maximumDigits
     }
 
-    fun updateSuggestions(suggestions: List<Suggestions>? = null) {
+    fun updateSuggestions(suggestions: List<Suggestion>? = null) {
         this.suggestions.clear()
         suggestions?.let { this.suggestions.addAll(it) }
         val suggestionsConfigurationItems = suggestions?.map { KeyboardSuggestionsView.Item(id = it.id, text = it.label) } ?: emptyList()
 
+        binding.suggestionsGroup.isVisible = suggestions != null
         with(binding.suggestions) {
-            isVisible = suggestions != null
             updateConfiguration(KeyboardSuggestionsView.Configuration(items = suggestionsConfigurationItems))
             onItemClicked = { clickedItem ->
                 clear()

@@ -55,10 +55,10 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
 
             updateSuggestions(
                 listOf(
-                    NumberKeyboard.Suggestions(label = "50$", rawValue = "50"),
-                    NumberKeyboard.Suggestions(label = "100$", rawValue = "100"),
-                    NumberKeyboard.Suggestions(label = "200$", rawValue = "200"),
-                    NumberKeyboard.Suggestions(label = "500$", rawValue = "500"),
+                    NumberKeyboard.Suggestion(label = "50$", rawValue = "50"),
+                    NumberKeyboard.Suggestion(label = "100$", rawValue = "100"),
+                    NumberKeyboard.Suggestion(label = "200$", rawValue = "200"),
+                    NumberKeyboard.Suggestion(label = "500$", rawValue = "500"),
                 )
             )
         }
@@ -68,13 +68,13 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
 
             updateSuggestions(
                 listOf(
-                    NumberKeyboard.Suggestions(label = "50$", rawValue = "50"),
-                    NumberKeyboard.Suggestions(label = "100$", rawValue = "100"),
-                    NumberKeyboard.Suggestions(label = "200$", rawValue = "200"),
-                    NumberKeyboard.Suggestions(label = "500$", rawValue = "500"),
-                    NumberKeyboard.Suggestions(label = "700$", rawValue = "700"),
-                    NumberKeyboard.Suggestions(label = "1000$", rawValue = "1000"),
-                    NumberKeyboard.Suggestions(label = "2000$", rawValue = "2000"),
+                    NumberKeyboard.Suggestion(label = "50$", rawValue = "50"),
+                    NumberKeyboard.Suggestion(label = "100$", rawValue = "100"),
+                    NumberKeyboard.Suggestion(label = "200$", rawValue = "200"),
+                    NumberKeyboard.Suggestion(label = "500$", rawValue = "500"),
+                    NumberKeyboard.Suggestion(label = "700$", rawValue = "700"),
+                    NumberKeyboard.Suggestion(label = "1000$", rawValue = "1000"),
+                    NumberKeyboard.Suggestion(label = "2000$", rawValue = "2000"),
                 )
             )
         }
