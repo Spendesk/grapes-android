@@ -52,6 +52,10 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
         }
 
         with(binding.propositions) {
+            setListener {
+                activity?.shortToaster("Proposition pressed: ${it.text}")
+            }
+
             updateData(
                 KeyboardPropositionsView.Configuration(
                     listOf(
@@ -60,9 +64,7 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
                         KeyboardPropositionsView.Item("3", "200$"),
                         KeyboardPropositionsView.Item("4", "500$"),
                     )
-                ) {
-                    activity?.shortToaster("Proposition pressed: ${it.text}")
-                }
+                )
             )
         }
     }

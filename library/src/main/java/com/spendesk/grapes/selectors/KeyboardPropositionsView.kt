@@ -45,20 +45,23 @@ class KeyboardPropositionsView : ConstraintLayout {
 
     data class Configuration(
         val items: List<Item>,
-        val maxItemsPerLine: Int = DEFAULT_MAX_ITEMS_PER_LINE,
-        val listener: OnItemClickedListener? = null,
+        val maxItemsPerLine: Int = DEFAULT_MAX_ITEMS_PER_LINE
     )
 
     private val propositionsViewId = mutableListOf<Int>()
+    private val propositionsItem = mutableListOf<Item>()
     private val binding: SelectorKeyboardPropositionsViewBinding = SelectorKeyboardPropositionsViewBinding.inflate(LayoutInflater.from(context), this)
 
     @StyleRes
     private var itemStyle: Int = R.style.KeyboardPropositionsViewText
     private var listener: OnItemClickedListener? = null
 
-    fun updateData(configuration: Configuration) {
-        this.listener = configuration.listener
+    fun setListener(listener: OnItemClickedListener?) {
+        this.listener = listener
+        updateListeners()
+    }
 
+    fun updateData(configuration: Configuration) {
         val itemsDelta = configuration.items.size - propositionsViewId.size
         if (itemsDelta > 0) {
             addItemViews(itemsDelta)
@@ -71,6 +74,15 @@ class KeyboardPropositionsView : ConstraintLayout {
         with(binding.flow) {
             setMaxElementsWrap(configuration.maxItemsPerLine)
             referencedIds = propositionsViewId.toIntArray()
+        }
+    }
+
+    private fun updateListeners() {
+        propositionsViewId.forEachIndexed { index, textViewId ->
+            val item = propositionsItem[index]
+            val textView = findViewById<TextView>(textViewId)
+
+            textView.setOnClickListener { listener?.onItemClicked(item) }
         }
     }
 
@@ -101,6 +113,9 @@ class KeyboardPropositionsView : ConstraintLayout {
     }
 
     private fun updateItemViewsContent(items: List<Item>) {
+        propositionsItem.clear()
+        propositionsItem.addAll(items)
+
         if (propositionsViewId.size != items.size) {
             throw IllegalStateException("${items.size} items to add in KeyboardPropositionsView and only ${propositionsViewId.size} views available. Internal error.")
         }
