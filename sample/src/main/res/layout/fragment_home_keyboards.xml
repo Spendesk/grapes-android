@@ -131,5 +131,58 @@
                     app:layout_constraintTop_toBottomOf="@id/homeKeyboardsSectionThreeSubtitle" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeKeyboardsSectionWithPropositionTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/keyboardsWithPropositionsTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeKeyboardsSectionSearchMainBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeKeyboardsSectionWithPropositionsBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeKeyboardsSectionWithPropositionTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.spendesk.grapes.selectors.KeyboardPropositionsView
+                    android:id="@+id/propositions"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.NumberKeyboard
+                    android:id="@+id/homeKeyboardsSectionWithProposition"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    app:keyboardExtraButton="none"
+                    app:keyboardStyle="dark"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/propositions" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

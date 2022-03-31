@@ -8,6 +8,7 @@ import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeKeyboardsBinding
+import com.spendesk.grapes.selectors.KeyboardPropositionsView
 
 /**
  * @author Vivien Mahe
@@ -48,6 +49,21 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
             // FYI: Configuration is set via XML attrs
             onTextChanged = { activity?.shortToaster("Key pressed: $it") }
             onRequestedBiometricAuthentication = { activity?.shortToaster("Separator key pressed") }
+        }
+
+        with(binding.propositions) {
+            updateData(
+                KeyboardPropositionsView.Configuration(
+                    listOf(
+                        KeyboardPropositionsView.Item("1", "50$"),
+                        KeyboardPropositionsView.Item("2", "100$"),
+                        KeyboardPropositionsView.Item("3", "200$"),
+                        KeyboardPropositionsView.Item("4", "500$"),
+                    )
+                ) {
+                    activity?.shortToaster("Proposition pressed: ${it.text}")
+                }
+            )
         }
     }
 }
