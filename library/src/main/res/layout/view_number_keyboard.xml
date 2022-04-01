@@ -31,10 +31,10 @@
         android:visibility="gone"
         app:constraint_referenced_ids="suggestions, separator" />
 
-
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="@dimen/numberKeyboardSeparatorMargin"
         app:constraint_referenced_ids="number1,number2,number3,number4,number5,number6,number7,number8,number9,extraButtonLayout,number0,deleteImage"
         app:flow_horizontalStyle="spread"
         app:flow_maxElementsWrap="3"
@@ -42,7 +42,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/separator" />
+        app:layout_constraintTop_toBottomOf="@+id/separator"
+        app:layout_goneMarginTop="0dp" />
 
     <TextView
         android:id="@+id/number1"

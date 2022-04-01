@@ -53,12 +53,15 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
         with(binding.homeKeyboardsSectionWithSuggestion) {
             onTextChanged = { activity?.shortToaster("Key pressed: $it") }
 
-            updateSuggestions(
-                listOf(
-                    NumberKeyboard.Suggestion(label = "50$", rawValue = "50"),
-                    NumberKeyboard.Suggestion(label = "100$", rawValue = "100"),
-                    NumberKeyboard.Suggestion(label = "200$", rawValue = "200"),
-                    NumberKeyboard.Suggestion(label = "500$", rawValue = "500"),
+            updateConfiguration(
+                configuration = NumberKeyboard.Configuration(
+                    style = NumberKeyboard.Style.DARK,
+                    suggestions = listOf(
+                        NumberKeyboard.Suggestion(label = "50$", rawValue = "50"),
+                        NumberKeyboard.Suggestion(label = "100$", rawValue = "100"),
+                        NumberKeyboard.Suggestion(label = "200$", rawValue = "200"),
+                        NumberKeyboard.Suggestion(label = "500$", rawValue = "500"),
+                    )
                 )
             )
         }

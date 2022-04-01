@@ -47,7 +47,8 @@ class NumberKeyboard : ConstraintLayout {
     data class Configuration(
         val style: Style = Style.getDefault(),
         val extraButton: ExtraButton = ExtraButton.getDefault(),
-        val maximumDigits: Int = MAXIMUM_DIGITS_NONE
+        val maximumDigits: Int = MAXIMUM_DIGITS_NONE,
+        val suggestions: List<Suggestion> = listOf()
     )
 
     data class Suggestion(
@@ -133,14 +134,17 @@ class NumberKeyboard : ConstraintLayout {
     fun updateConfiguration(configuration: Configuration) {
         setStyleAndExtraButton(style = configuration.style, extraButton = configuration.extraButton)
         this.maximumDigits = configuration.maximumDigits
+
+        updateSuggestions(configuration.suggestions)
     }
 
-    fun updateSuggestions(suggestions: List<Suggestion>? = null) {
+    fun updateSuggestions(suggestions: List<Suggestion> = listOf()) {
         this.suggestions.clear()
-        suggestions?.let { this.suggestions.addAll(it) }
-        val suggestionsConfigurationItems = suggestions?.map { KeyboardSuggestionsView.Item(id = it.id, text = it.label) } ?: emptyList()
+        this.suggestions.addAll(suggestions)
 
-        binding.suggestionsGroup.isVisible = suggestions != null
+        val suggestionsConfigurationItems = this.suggestions.map { KeyboardSuggestionsView.Item(id = it.id, text = it.label) }
+
+        binding.suggestionsGroup.isVisible = this.suggestions.isNotEmpty()
         with(binding.suggestions) {
             updateConfiguration(KeyboardSuggestionsView.Configuration(items = suggestionsConfigurationItems))
             onItemClicked = { clickedItem ->
@@ -154,9 +158,7 @@ class NumberKeyboard : ConstraintLayout {
         suggestions
             .firstOrNull { it.id == clickedItem.id }
             ?.rawValue
-            ?.let { amountFromSuggestion ->
-                this@NumberKeyboard.onTextChanged?.invoke(amountFromSuggestion)
-            }
+            ?.let { amountFromSuggestion -> this@NumberKeyboard.onTextChanged?.invoke(amountFromSuggestion) }
     }
 
     override fun setEnabled(enabled: Boolean) {

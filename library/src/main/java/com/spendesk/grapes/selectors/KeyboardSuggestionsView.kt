@@ -15,7 +15,7 @@ import kotlin.math.abs
 internal class KeyboardSuggestionsView : ConstraintLayout {
 
     companion object {
-        private const val DEFAULT_MAX_ITEMS = 5
+        private const val DEFAULT_MAX_ITEMS = 4
     }
 
     //region constructors
@@ -39,10 +39,7 @@ internal class KeyboardSuggestionsView : ConstraintLayout {
         val text: CharSequence
     )
 
-    data class Configuration(
-        val items: List<Item>,
-        val maxItems: Int = DEFAULT_MAX_ITEMS
-    )
+    data class Configuration(val items: List<Item>)
 
     private val suggestionViewIds = mutableListOf<Int>()
     private val binding: SelectorKeyboardSuggestionsViewBinding = SelectorKeyboardSuggestionsViewBinding.inflate(LayoutInflater.from(context), this)
@@ -60,7 +57,7 @@ internal class KeyboardSuggestionsView : ConstraintLayout {
     }
 
     fun updateConfiguration(configuration: Configuration) {
-        val itemsToShow = configuration.items.take(configuration.maxItems)
+        val itemsToShow = configuration.items.take(DEFAULT_MAX_ITEMS)
 
         val itemsDelta = itemsToShow.size - suggestionViewIds.size
         if (itemsDelta > 0) {
