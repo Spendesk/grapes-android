@@ -15,4 +15,8 @@
         <attr name="badgeText" format="string" />
     </declare-styleable>
 
+    <declare-styleable name="KeyboardSuggestionsView">
+        <attr name="itemStyle" format="reference" />
+    </declare-styleable>
+
 </resources>
