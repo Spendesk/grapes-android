@@ -62,9 +62,9 @@
 
     <!-- region Searchable Bottom Sheet -->
 
-    <style name="BottomSheetSearchableInputSearch">
+    <style name="BottomSheetSearchableSearchInput">
         <item name="android:drawableStart">@drawable/ic_menu_search</item>
-        <item name="inputSearchMainStyle">secondary</item>
+        <item name="searchInputStyle">secondary</item>
     </style>
 
     <style name="BottomSheetSearchableEmptyStateGroup">

@@ -46,9 +46,9 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="?attr/actionBarSize" />
 
-    <com.spendesk.grapes.inputs.InputSearchMain
-        android:id="@+id/searchableSheetInputSearch"
-        style="@style/BottomSheetSearchableInputSearch"
+    <com.spendesk.grapes.inputs.SearchInput
+        android:id="@+id/searchableSheetSearchInput"
+        style="@style/BottomSheetSearchableSearchInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/bottomSheetVerticalMargin"
@@ -65,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchableSheetInputSearch" />
+        app:layout_constraintTop_toBottomOf="@id/searchableSheetSearchInput" />
 
     <ImageView
         android:id="@+id/searchableSheetEmptyStateImage"
@@ -73,7 +73,7 @@
         android:layout_height="@dimen/actionMessageBottomSheetImageSize"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/searchableSheetInputSearch"
+        app:layout_constraintTop_toBottomOf="@id/searchableSheetSearchInput"
         tools:src="@drawable/ic_status_info" />
 
     <TextView

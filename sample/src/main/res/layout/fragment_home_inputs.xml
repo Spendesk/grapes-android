@@ -26,7 +26,7 @@
             android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
             android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
             android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
-            android:text="@string/inputSearchMain"
+            android:text="@string/searchInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
@@ -59,7 +59,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.spendesk.grapes.inputs.InputSearchMain
+                <com.spendesk.grapes.inputs.SearchInput
                     android:id="@+id/homeInputsSectionSearchMainPrimary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -68,10 +68,10 @@
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
                     android:drawableStart="@drawable/ic_search"
-                    app:inputSearchMainStyle="primary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainPrimarySubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainPrimarySubtitle"
+                    app:searchInputStyle="primary" />
 
                 <TextView
                     android:id="@+id/homeInputsSectionSearchMainPrimaryLoadingSubtitle"
@@ -86,7 +86,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchMainPrimary" />
 
-                <com.spendesk.grapes.inputs.InputSearchMain
+                <com.spendesk.grapes.inputs.SearchInput
                     android:id="@+id/homeInputsSectionSearchMainPrimaryLoading"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -95,10 +95,10 @@
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
                     android:drawableStart="@drawable/ic_search"
-                    app:inputSearchMainStyle="primary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainPrimaryLoadingSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainPrimaryLoadingSubtitle"
+                    app:searchInputStyle="primary" />
 
                 <TextView
                     android:id="@+id/homeInputsSectionSearchMainSecondarySubtitle"
@@ -113,7 +113,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchMainPrimaryLoading" />
 
-                <com.spendesk.grapes.inputs.InputSearchMain
+                <com.spendesk.grapes.inputs.SearchInput
                     android:id="@+id/homeInputsSectionSearchMainSecondary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -122,10 +122,10 @@
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
                     android:drawableStart="@drawable/ic_search"
-                    app:inputSearchMainStyle="secondary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainSecondarySubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainSecondarySubtitle"
+                    app:searchInputStyle="secondary" />
 
                 <TextView
                     android:id="@+id/homeInputsSectionSearchMainSecondaryLoadingSubtitle"
@@ -140,7 +140,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchMainSecondary" />
 
-                <com.spendesk.grapes.inputs.InputSearchMain
+                <com.spendesk.grapes.inputs.SearchInput
                     android:id="@+id/homeInputsSectionSearchMainSecondaryLoading"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -149,11 +149,11 @@
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
                     android:drawableStart="@drawable/ic_search"
-                    app:inputSearchMainStyle="secondary"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainSecondaryLoadingSubtitle" />
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainSecondaryLoadingSubtitle"
+                    app:searchInputStyle="secondary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
     </androidx.constraintlayout.widget.ConstraintLayout>

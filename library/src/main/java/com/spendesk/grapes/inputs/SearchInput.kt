@@ -10,7 +10,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
-import com.spendesk.grapes.databinding.InputSearchMainBinding
+import com.spendesk.grapes.databinding.SearchInputBinding
 import com.spendesk.grapes.extensions.setupClearButtonWithAction
 import com.spendesk.grapes.extensions.visibleOrInvisible
 
@@ -18,7 +18,7 @@ import com.spendesk.grapes.extensions.visibleOrInvisible
  * @author danyboucanova
  * @since 15/06/2021
  */
-class InputSearchMain : CardView {
+class SearchInput : CardView {
 
     //region constructors
 
@@ -53,48 +53,47 @@ class InputSearchMain : CardView {
         }
     }
 
-    private val binding: InputSearchMainBinding = InputSearchMainBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = SearchInputBinding.inflate(LayoutInflater.from(context), this, true)
 
     fun setStyle(style: Style) {
         when (style) {
             Style.PRIMARY -> {
-                radius = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryCardRadius).toFloat()
-                elevation = resources.getDimensionPixelOffset(R.dimen.inputSearchMainPrimaryCardElevation).toFloat()
+                radius = resources.getDimensionPixelOffset(R.dimen.searchInputPrimaryCardRadius).toFloat()
+                elevation = resources.getDimensionPixelOffset(R.dimen.searchInputPrimaryCardElevation).toFloat()
             }
             Style.SECONDARY -> {
-                radius = resources.getDimensionPixelOffset(R.dimen.inputSearchMainSecondaryCardRadius).toFloat()
-                elevation = resources.getDimensionPixelOffset(R.dimen.inputSearchMainSecondaryCardElevation).toFloat()
+                radius = resources.getDimensionPixelOffset(R.dimen.searchInputSecondaryCardRadius).toFloat()
+                elevation = resources.getDimensionPixelOffset(R.dimen.searchInputSecondaryCardElevation).toFloat()
 
                 setBackgroundResource(R.drawable.shape_rect_solidbackground_stroke5neutrallight_radius8)
             }
         }
     }
 
-    fun showProgressBar(visible: Boolean) = binding.inputSearchMainProgressBar.visibleOrInvisible(visible)
+    fun showProgressBar(visible: Boolean) = binding.progressBar.visibleOrInvisible(visible)
 
-    fun getEditText(): AppCompatEditText = binding.inputSearchMainEditText
+    fun getEditText(): AppCompatEditText = binding.editText
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
-            with(context.obtainStyledAttributes(it, R.styleable.InputSearchMain)) {
-                val focusable = getBoolean(R.styleable.InputSearchMain_android_focusable, true)
-                val hint = getResourceId(R.styleable.InputSearchMain_android_hint, ResourcesCompat.ID_NULL)
-                val drawableStart = getResourceId(R.styleable.InputSearchMain_android_drawableStart, ResourcesCompat.ID_NULL)
+            with(context.obtainStyledAttributes(it, R.styleable.SearchInput)) {
+                val focusable = getBoolean(R.styleable.SearchInput_android_focusable, true)
+                val hint = getResourceId(R.styleable.SearchInput_android_hint, ResourcesCompat.ID_NULL)
+                val drawableStart = getResourceId(R.styleable.SearchInput_android_drawableStart, ResourcesCompat.ID_NULL)
 
-                val shouldUseClearButton = getBoolean(R.styleable.InputSearchMain_inputSearchMainClearButton, true)
-                val style = Style.fromPosition(getInt(R.styleable.InputSearchMain_inputSearchMainStyle, Style.getDefault().position))
+                val shouldUseClearButton = getBoolean(R.styleable.SearchInput_searchInputClearButton, true)
+                val style = Style.fromPosition(getInt(R.styleable.SearchInput_searchInputStyle, Style.getDefault().position))
 
                 setStyle(style)
-                configureEditText(focusable, hint, drawableStart, style, shouldUseClearButton)
+                configureEditText(focusable = focusable, hint = hint, drawableStart = drawableStart, style = style, shouldUseClearButton = shouldUseClearButton)
                 recycle()
             }
         }
     }
 
     private fun configureEditText(focusable: Boolean, hint: Int, drawableStart: Int, style: Style, shouldUseClearButton: Boolean) {
-        with(binding.inputSearchMainEditText) {
-
-            // set basic properties
+        with(binding.editText) {
+            // Set basic properties
             isFocusable = focusable
             if (hint != ResourcesCompat.ID_NULL) setHint(hint)
 
@@ -113,8 +112,8 @@ class InputSearchMain : CardView {
 
             // Add the according style tint for compound drawables except for clear icon
             val color = when (style) {
-                Style.PRIMARY -> R.color.inputSearchMainPrimaryTintColor
-                Style.SECONDARY -> R.color.inputSearchMainSecondaryTintColor
+                Style.PRIMARY -> R.color.searchInputPrimaryTintColor
+                Style.SECONDARY -> R.color.searchInputSecondaryTintColor
             }
 
             // The index 3 corresponds to the right compound drawable, the clear icon that we should not tint
@@ -125,7 +124,7 @@ class InputSearchMain : CardView {
             }
 
             // Handle click
-            setOnClickListener { this@InputSearchMain.performClick() }
+            setOnClickListener { this@SearchInput.performClick() }
         }
     }
 }

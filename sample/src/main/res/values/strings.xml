@@ -52,7 +52,7 @@
     <string name="selectorsTabTwo" translatable="false">Not Active</string>
 
     <!-- Inputs -->
-    <string name="inputSearchMain" translatable="false">Search Input Main</string>
+    <string name="searchInput" translatable="false">Search Input Main</string>
     <string name="withLoader" translatable="false">With loader</string>
 
     <!-- Lists -->
