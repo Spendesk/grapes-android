@@ -29,4 +29,16 @@
 
     <!-- endregion SearchInput -->
 
+    <!-- region PasswordInput -->
+
+    <declare-styleable name="PasswordInput">
+        <attr name="passwordInputEndText" format="string" />
+        <attr name="textInputStyle" />
+        <attr name="android:focusable" />
+        <attr name="android:hint" />
+        <attr name="android:drawableStart" />
+    </declare-styleable>
+
+    <!-- endregion PasswordInput -->
+
 </resources>

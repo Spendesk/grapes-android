@@ -3,7 +3,7 @@
 
     <!-- region TextInput -->
 
-    <dimen name="textInputTextSize">16dp</dimen>
+    <dimen name="textInputTextSize">16sp</dimen>
     <dimen name="textInputEditTextPadding">16dp</dimen>
     <dimen name="textInputEditTextPaddingBottom">12dp</dimen>
     <dimen name="textInputPrimaryDrawableCompoundPadding">8dp</dimen>
@@ -14,5 +14,12 @@
     <dimen name="textInputSecondaryCardElevation">0dp</dimen>
 
     <!-- endregion TextInput -->
+
+    <!-- region PasswordInput -->
+
+    <dimen name="passwordInputEndTextSize">16dp</dimen>
+    <dimen name="passwordInputEndTextPadding">16dp</dimen>
+
+    <!-- endregion PasswordInput -->
 
 </resources>

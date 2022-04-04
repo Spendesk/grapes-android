@@ -27,4 +27,23 @@
 
     <!-- endregion SearchInput -->
 
+    <!-- region PasswordInput -->
+
+    <style name="PasswordInputEditText" parent="@style/TextInputEditText">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <style name="PasswordInputEndText">
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textSize">@dimen/passwordInputEndTextSize</item>
+        <item name="android:textColor">@color/passwordInputEndTextColor</item>
+        <item name="android:padding">@dimen/passwordInputEndTextPadding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- endregion PasswordInput -->
+
 </resources>
