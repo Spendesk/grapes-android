@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="SearchInputEditText">
-        <item name="android:paddingTop">@dimen/searchInputEditTextPadding</item>
-        <item name="android:paddingBottom">@dimen/searchInputEditTextPaddingBottom</item>
-        <item name="android:paddingStart">@dimen/searchInputEditTextPadding</item>
-        <item name="android:paddingEnd">@dimen/searchInputEditTextPadding</item>
-        <item name="android:drawablePadding">@dimen/searchInputPrimaryDrawableCompoundPadding</item>
+    <!-- region TextInput -->
+
+    <style name="TextInputEditText">
+        <item name="android:paddingTop">@dimen/textInputEditTextPadding</item>
+        <item name="android:paddingBottom">@dimen/textInputEditTextPaddingBottom</item>
+        <item name="android:paddingStart">@dimen/textInputEditTextPadding</item>
+        <item name="android:paddingEnd">@dimen/textInputEditTextPadding</item>
+        <item name="android:drawablePadding">@dimen/textInputPrimaryDrawableCompoundPadding</item>
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:textSize">@dimen/searchInputTextSize</item>
-        <item name="android:textColor">@color/searchInputPrimaryTextColor</item>
+        <item name="android:textSize">@dimen/textInputTextSize</item>
+        <item name="android:textColor">@color/textInputPrimaryTextColor</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
+
+    <!-- endregion TextInput -->
+
+    <!-- region SearchInput -->
 
     <style name="SearchInputProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:indeterminate">true</item>
         <item name="android:visibility">invisible</item>
     </style>
+
+    <!-- endregion SearchInput -->
+
 </resources>

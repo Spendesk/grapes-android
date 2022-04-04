@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- region SearchInput -->
-    <attr name="searchInputStyle" format="enum|reference">
+    <attr name="textInputStyle" format="enum|reference">
         <enum name="primary" value="0" />
         <enum name="secondary" value="1" />
     </attr>
 
+    <!-- region TextInput -->
+
+    <declare-styleable name="TextInput">
+        <attr name="textInputStyle" />
+        <attr name="android:focusable" />
+        <attr name="android:hint" />
+        <attr name="android:drawableStart" />
+    </declare-styleable>
+
+    <!-- endregion TextInput -->
+
+    <!-- region SearchInput -->
+
     <declare-styleable name="SearchInput">
-        <attr name="searchInputStyle" />
         <attr name="searchInputClearButton" format="boolean" />
+        <attr name="textInputStyle" />
         <attr name="android:focusable" />
         <attr name="android:hint" />
         <attr name="android:drawableStart" />

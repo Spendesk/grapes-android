@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="searchInputPrimaryTextColor">@color/mainNeutralDarkest</color>
-    <color name="searchInputPrimaryTintColor">@color/mainNeutralDarkest</color>
-    <color name="searchInputSecondaryTintColor">@color/mainNeutralNormal</color>
+    <color name="textInputPrimaryTextColor">@color/mainNeutralDarkest</color>
+    <color name="textInputPrimaryTintColor">@color/mainNeutralDarkest</color>
+    <color name="textInputSecondaryTintColor">@color/mainNeutralNormal</color>
 
 </resources>

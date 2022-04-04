@@ -64,7 +64,7 @@
 
     <style name="BottomSheetSearchableSearchInput">
         <item name="android:drawableStart">@drawable/ic_menu_search</item>
-        <item name="searchInputStyle">secondary</item>
+        <item name="textInputStyle">secondary</item>
     </style>
 
     <style name="BottomSheetSearchableEmptyStateGroup">
