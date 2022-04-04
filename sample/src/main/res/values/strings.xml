@@ -52,8 +52,13 @@
     <string name="selectorsTabTwo" translatable="false">Not Active</string>
 
     <!-- Inputs -->
-    <string name="searchInput" translatable="false">Search Input Main</string>
-    <string name="withLoader" translatable="false">With loader</string>
+    <string name="textInput" translatable="false">Text Input</string>
+    <string name="textInputPrimaryFulfilled" translatable="false">Primary fulfilled</string>
+    <string name="textInputPrimaryWithIcon" translatable="false">Primary with icon</string>
+    <string name="textInputSecondaryFulfilled" translatable="false">Secondary fulfilled</string>
+    <string name="searchInput" translatable="false">Search Input</string>
+    <string name="searchInputPrimaryWithLoader" translatable="false">Primary with loader</string>
+    <string name="searchInputSecondaryWithLoader" translatable="false">Secondary with loader</string>
 
     <!-- Lists -->
     <string name="listTitle" translatable="false">List</string>

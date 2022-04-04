@@ -18,8 +18,176 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- region TextInput -->
+
         <TextView
-            android:id="@+id/homeInputsSectionSearchMainTitleText"
+            android:id="@+id/homeInputsSectionTextInputTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/textInput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeInputsSectionTextInputBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeInputsSectionTextInputTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/homeInputsSectionTextInputPrimarySubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.inputs.TextInput
+                    android:id="@+id/homeInputsSectionTextInputPrimary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionTextInputPrimarySubtitle"
+                    app:textInputStyle="primary" />
+
+                <TextView
+                    android:id="@+id/homeInputsSectionTextInputPrimaryFulfilledSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/textInputPrimaryFulfilled"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionTextInputPrimary" />
+
+                <com.spendesk.grapes.inputs.TextInput
+                    android:id="@+id/homeInputsSectionTextInputPrimaryFulfilled"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionTextInputPrimaryFulfilledSubtitle"
+                    app:textInputStyle="primary" />
+
+                <TextView
+                    android:id="@+id/homeInputsSectionTextInputPrimaryWithIconSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/textInputPrimaryWithIcon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionTextInputPrimaryFulfilled" />
+
+                <com.spendesk.grapes.inputs.TextInput
+                    android:id="@+id/homeInputsSectionTextInputPrimaryWithIcon"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    android:drawableStart="@drawable/ic_address_arrival"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionTextInputPrimaryWithIconSubtitle"
+                    app:textInputStyle="primary" />
+
+                <TextView
+                    android:id="@+id/homeInputsSectionTextInputSecondarySubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionTextInputPrimaryWithIcon" />
+
+                <com.spendesk.grapes.inputs.TextInput
+                    android:id="@+id/homeInputsSectionTextInputSecondary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionTextInputSecondarySubtitle"
+                    app:textInputStyle="secondary" />
+
+                <TextView
+                    android:id="@+id/homeInputsSectionTextInputSecondaryFulfilledSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/textInputSecondaryFulfilled"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionTextInputSecondary" />
+
+                <com.spendesk.grapes.inputs.TextInput
+                    android:id="@+id/homeInputsSectionTextInputSecondaryFulfilled"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionTextInputSecondaryFulfilledSubtitle"
+                    app:textInputStyle="secondary" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <!-- endregion TextInput -->
+
+        <!-- region SearchInput -->
+
+        <TextView
+            android:id="@+id/homeInputsSectionSearchInputTitleText"
             style="@style/HomeGenericTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,10 +197,10 @@
             android:text="@string/searchInput"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
+            app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionTextInputBucketView" />
 
         <com.spendesk.grapes.BucketView
-            android:id="@+id/homeInputsSectionSearchMainBucketView"
+            android:id="@+id/homeInputsSectionSearchInputBucketView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
@@ -40,14 +208,14 @@
             android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainTitleText">
+            app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchInputTitleText">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/homeInputsSectionSearchMainPrimarySubtitle"
+                    android:id="@+id/homeInputsSectionSearchInputPrimarySubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -60,7 +228,7 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.spendesk.grapes.inputs.SearchInput
-                    android:id="@+id/homeInputsSectionSearchMainPrimary"
+                    android:id="@+id/homeInputsSectionSearchInputPrimary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
@@ -70,24 +238,24 @@
                     android:drawableStart="@drawable/ic_search"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainPrimarySubtitle"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchInputPrimarySubtitle"
                     app:textInputStyle="primary" />
 
                 <TextView
-                    android:id="@+id/homeInputsSectionSearchMainPrimaryLoadingSubtitle"
+                    android:id="@+id/homeInputsSectionSearchInputPrimaryLoadingSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/withLoader"
+                    android:text="@string/searchInputPrimaryWithLoader"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchMainPrimary" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchInputPrimary" />
 
                 <com.spendesk.grapes.inputs.SearchInput
-                    android:id="@+id/homeInputsSectionSearchMainPrimaryLoading"
+                    android:id="@+id/homeInputsSectionSearchInputPrimaryLoading"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
@@ -97,11 +265,11 @@
                     android:drawableStart="@drawable/ic_search"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainPrimaryLoadingSubtitle"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchInputPrimaryLoadingSubtitle"
                     app:textInputStyle="primary" />
 
                 <TextView
-                    android:id="@+id/homeInputsSectionSearchMainSecondarySubtitle"
+                    android:id="@+id/homeInputsSectionSearchInputSecondarySubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -111,10 +279,10 @@
                     android:text="@string/secondary"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchMainPrimaryLoading" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchInputPrimaryLoading" />
 
                 <com.spendesk.grapes.inputs.SearchInput
-                    android:id="@+id/homeInputsSectionSearchMainSecondary"
+                    android:id="@+id/homeInputsSectionSearchInputSecondary"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
@@ -124,24 +292,24 @@
                     android:drawableStart="@drawable/ic_search"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainSecondarySubtitle"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchInputSecondarySubtitle"
                     app:textInputStyle="secondary" />
 
                 <TextView
-                    android:id="@+id/homeInputsSectionSearchMainSecondaryLoadingSubtitle"
+                    android:id="@+id/homeInputsSectionSearchInputSecondaryLoadingSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
                     android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
-                    android:text="@string/secondary"
+                    android:text="@string/searchInputSecondaryWithLoader"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchMainSecondary" />
+                    app:layout_constraintTop_toBottomOf="@+id/homeInputsSectionSearchInputSecondary" />
 
                 <com.spendesk.grapes.inputs.SearchInput
-                    android:id="@+id/homeInputsSectionSearchMainSecondaryLoading"
+                    android:id="@+id/homeInputsSectionSearchInputSecondaryLoading"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
@@ -152,9 +320,12 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchMainSecondaryLoadingSubtitle"
+                    app:layout_constraintTop_toBottomOf="@id/homeInputsSectionSearchInputSecondaryLoadingSubtitle"
                     app:textInputStyle="secondary" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
+
+        <!-- region SearchInput -->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
