@@ -4,6 +4,7 @@
     <!-- region TextInput -->
 
     <style name="TextInputEditText">
+        <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:paddingTop">@dimen/textInputEditTextPadding</item>
         <item name="android:paddingBottom">@dimen/textInputEditTextPaddingBottom</item>
         <item name="android:paddingStart">@dimen/textInputEditTextPadding</item>
