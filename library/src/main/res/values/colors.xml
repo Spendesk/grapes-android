@@ -147,6 +147,7 @@
 
     <color name="numberKeyboardTextColorLight">@color/white</color>
     <color name="numberKeyboardTextColorDark">@color/mainComplementary</color>
+    <color name="numberKeyboardSeparatorColor">@color/mainNeutralLight</color>
 
     <!-- endregion NumberKeyboardText -->
 

@@ -111,6 +111,7 @@
 
     <dimen name="numberKeyboardMinHeight">248dp</dimen>
     <dimen name="numberKeyboardTextSize">32sp</dimen>
+    <dimen name="numberKeyboardSeparatorMargin">12dp</dimen>
 
     <!-- NumberKeyboard-->
 
