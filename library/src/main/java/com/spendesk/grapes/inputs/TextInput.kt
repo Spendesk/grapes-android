@@ -19,7 +19,7 @@ import com.spendesk.grapes.databinding.TextInputBinding
  */
 open class TextInput : CardView {
 
-    //region constructors
+    // region constructors
 
     constructor(context: Context) : super(context) {
         setupView(null)
@@ -33,7 +33,13 @@ open class TextInput : CardView {
         setupView(attributeSet)
     }
 
-    //endregion constructors
+    // endregion constructors
+
+    // region Observable properties
+
+    var onFocusChanged: ((Boolean) -> Unit)? = null
+
+    // endregion Observable properties
 
     enum class Style(val position: Int) {
         PRIMARY(0),
@@ -60,6 +66,7 @@ open class TextInput : CardView {
                 radius = resources.getDimensionPixelOffset(R.dimen.textInputPrimaryCardRadius).toFloat()
                 elevation = resources.getDimensionPixelOffset(R.dimen.textInputPrimaryCardElevation).toFloat()
             }
+
             Style.SECONDARY -> {
                 radius = resources.getDimensionPixelOffset(R.dimen.textInputSecondaryCardRadius).toFloat()
                 elevation = resources.getDimensionPixelOffset(R.dimen.textInputSecondaryCardElevation).toFloat()
@@ -68,6 +75,8 @@ open class TextInput : CardView {
             }
         }
     }
+
+    fun getText() = getEditText().toString()
 
     open fun getEditText(): AppCompatEditText = binding.editText
 
@@ -98,8 +107,9 @@ open class TextInput : CardView {
                 }
             }
 
-            // Handle click
+            // Register listeners
             setOnClickListener { this@TextInput.performClick() }
+            setOnFocusChangeListener { _, hasFocus -> onFocusChanged?.invoke(hasFocus) }
         }
     }
 
