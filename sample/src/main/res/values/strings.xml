@@ -60,6 +60,7 @@
     <string name="searchInputPrimaryWithLoader" translatable="false">Primary with loader</string>
     <string name="searchInputSecondaryWithLoader" translatable="false">Secondary with loader</string>
     <string name="passwordInput" translatable="false">Password Input</string>
+    <string name="passwordInputHint" translatable="false">Enter your password</string>
     <string name="passwordInputForgot" translatable="false">Forgot?</string>
 
     <!-- Lists -->

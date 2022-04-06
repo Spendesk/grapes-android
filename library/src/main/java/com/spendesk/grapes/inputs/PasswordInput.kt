@@ -7,14 +7,18 @@ import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.PasswordInputBinding
+import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import com.spendesk.grapes.inputs.definition.Input
 
 /**
+ * An implementation of [Input] which configures this input as a password field and the possibility to add a clickable text at the end of this input.
+ *
  * @author Vivien Mahe
  * @since 04/04/2022
  */
-class PasswordInput : TextInput {
+class PasswordInput : Input {
 
-    //region constructors
+    // region Constructors
 
     constructor(context: Context) : super(context) {
         setupView(null)
@@ -28,9 +32,13 @@ class PasswordInput : TextInput {
         setupView(attributeSet)
     }
 
-    //endregion constructors
+    // endregion Constructors
+
+    // region Observable properties
 
     var onEndTextClicked: (() -> Unit)? = null
+
+    // endregion Observable properties
 
     private val binding = PasswordInputBinding.inflate(LayoutInflater.from(context), this, true)
 
@@ -44,20 +52,18 @@ class PasswordInput : TextInput {
                 val drawableStart = getResourceId(R.styleable.PasswordInput_android_drawableStart, ResourcesCompat.ID_NULL)
                 val style = Style.fromPosition(getInt(R.styleable.PasswordInput_textInputStyle, Style.getDefault().position))
                 val endText = getString(R.styleable.PasswordInput_passwordInputEndText)
+                recycle()
 
                 setStyle(style)
-                configureEditText(focusable = focusable, hint = hint, drawableStart = drawableStart, style = style, endText = endText)
-                recycle()
+                configureEditText(focusable = focusable, hint = hint, drawableStart = drawableStart, style = style) {
+                    // Configure the text displayed at the end of the editText, if any
+                    with(binding.endTextView) {
+                        visibleWithTextOrGone(endText)
+                        text = endText
+                        setOnClickListener { onEndTextClicked?.invoke() }
+                    }
+                }
             }
-        }
-    }
-
-    private fun configureEditText(focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style, endText: String? = null) {
-        super.configureEditText(binding.editText, focusable, hint, drawableStart, style)
-
-        with(binding.endTextView) {
-            text = endText
-            setOnClickListener { onEndTextClicked?.invoke() }
         }
     }
 }

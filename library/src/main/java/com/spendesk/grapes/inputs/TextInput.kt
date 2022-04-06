@@ -1,23 +1,21 @@
 package com.spendesk.grapes.inputs
 
 import android.content.Context
-import android.graphics.PorterDuff
-import android.graphics.PorterDuffColorFilter
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.widget.EditText
 import androidx.appcompat.widget.AppCompatEditText
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.TextInputBinding
+import com.spendesk.grapes.inputs.definition.Input
 
 /**
+ * A basic implementation [Input] which only displays an [AppCompatEditText].
+ *
  * @author Vivien Mahe
  * @since 04/04/2022
  */
-open class TextInput : CardView {
+class TextInput : Input {
 
     // region constructors
 
@@ -35,84 +33,9 @@ open class TextInput : CardView {
 
     // endregion constructors
 
-    // region Observable properties
-
-    var onFocusChanged: ((Boolean) -> Unit)? = null
-
-    // endregion Observable properties
-
-    enum class Style(val position: Int) {
-        PRIMARY(0),
-        SECONDARY(1);
-
-        companion object {
-            fun fromPosition(position: Int): Style {
-                return try {
-                    values().first { it.position == position }
-                } catch (exception: NoSuchElementException) {
-                    getDefault()
-                }
-            }
-
-            fun getDefault() = PRIMARY
-        }
-    }
-
     private val binding = TextInputBinding.inflate(LayoutInflater.from(context), this, true)
 
-    fun setStyle(style: Style) {
-        when (style) {
-            Style.PRIMARY -> {
-                radius = resources.getDimensionPixelOffset(R.dimen.textInputPrimaryCardRadius).toFloat()
-                elevation = resources.getDimensionPixelOffset(R.dimen.textInputPrimaryCardElevation).toFloat()
-            }
-
-            Style.SECONDARY -> {
-                radius = resources.getDimensionPixelOffset(R.dimen.textInputSecondaryCardRadius).toFloat()
-                elevation = resources.getDimensionPixelOffset(R.dimen.textInputSecondaryCardElevation).toFloat()
-
-                setBackgroundResource(R.drawable.shape_rect_solidbackground_stroke5neutrallight_radius8)
-            }
-        }
-    }
-
-    fun getText() = getEditText().toString()
-
-    open fun getEditText(): AppCompatEditText = binding.editText
-
-    protected open fun configureEditText(editText: EditText, focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style) {
-        with(editText) {
-            // Set basic properties
-            isFocusable = focusable
-
-            hint?.let { setHint(it) }
-
-            if (drawableStart != ResourcesCompat.ID_NULL)
-                setCompoundDrawablesRelativeWithIntrinsicBounds(
-                    ContextCompat.getDrawable(context, drawableStart),
-                    compoundDrawablesRelative[1],
-                    compoundDrawablesRelative[1],
-                    compoundDrawablesRelative[3]
-                )
-
-            // Add the according style tint for compound drawables except for clear icon
-            val color = when (style) {
-                Style.PRIMARY -> R.color.textInputPrimaryTintColor
-                Style.SECONDARY -> R.color.textInputSecondaryTintColor
-            }
-
-            // The index 3 corresponds to the right compound drawable, the clear icon that we should not tint
-            compoundDrawablesRelative.forEachIndexed { index, drawable ->
-                if (drawable != null && index != 3) {
-                    drawable.colorFilter = PorterDuffColorFilter(ContextCompat.getColor(context, color), PorterDuff.Mode.SRC_IN)
-                }
-            }
-
-            // Register listeners
-            setOnClickListener { this@TextInput.performClick() }
-            setOnFocusChangeListener { _, hasFocus -> onFocusChanged?.invoke(hasFocus) }
-        }
-    }
+    override fun getEditText(): AppCompatEditText = binding.editText
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
@@ -121,10 +44,10 @@ open class TextInput : CardView {
                 val hint = getString(R.styleable.TextInput_android_hint)
                 val drawableStart = getResourceId(R.styleable.TextInput_android_drawableStart, ResourcesCompat.ID_NULL)
                 val style = Style.fromPosition(getInt(R.styleable.TextInput_textInputStyle, Style.getDefault().position))
+                recycle()
 
                 setStyle(style)
-                configureEditText(editText = binding.editText, focusable = focusable, hint = hint, drawableStart = drawableStart, style = style)
-                recycle()
+                configureEditText(focusable = focusable, hint = hint, drawableStart = drawableStart, style = style)
             }
         }
     }

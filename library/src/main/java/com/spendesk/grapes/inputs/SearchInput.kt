@@ -3,18 +3,22 @@ package com.spendesk.grapes.inputs
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.ProgressBar
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SearchInputBinding
 import com.spendesk.grapes.extensions.setupClearButtonWithAction
 import com.spendesk.grapes.extensions.visibleOrInvisible
+import com.spendesk.grapes.inputs.definition.Input
 
 /**
+ * An implementation of [Input] which provides the look & feel of a search input, by adding a configurable drawableStart, a cross icon to clear the text typed in this input, and the ability to display a horizontal progress bar below the input.
+ *
  * @author danyboucanova
  * @since 15/06/2021
  */
-class SearchInput : TextInput {
+class SearchInput : Input {
 
     //region constructors
 
@@ -36,6 +40,9 @@ class SearchInput : TextInput {
 
     override fun getEditText(): AppCompatEditText = binding.editText
 
+    /**
+     * Whether or not the horizontal [ProgressBar] displayed below the editText is shown.
+     */
     fun showProgressBar(visible: Boolean) = binding.progressBar.visibleOrInvisible(visible)
 
     private fun setupView(attributeSet: AttributeSet?) {
@@ -46,20 +53,16 @@ class SearchInput : TextInput {
                 val drawableStart = getResourceId(R.styleable.SearchInput_android_drawableStart, ResourcesCompat.ID_NULL)
                 val style = Style.fromPosition(getInt(R.styleable.SearchInput_textInputStyle, Style.getDefault().position))
                 val shouldUseClearButton = getBoolean(R.styleable.SearchInput_searchInputClearButton, true)
+                recycle()
 
                 setStyle(style)
-                configureEditText(focusable = focusable, hint = hint, drawableStart = drawableStart, style = style, shouldUseClearButton = shouldUseClearButton)
-                recycle()
+                configureEditText(focusable = focusable, hint = hint, drawableStart = drawableStart, style = style) { editText ->
+                    // Add clear drawableEnd button
+                    if (shouldUseClearButton) {
+                        editText.setupClearButtonWithAction()
+                    }
+                }
             }
-        }
-    }
-
-    private fun configureEditText(focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style, shouldUseClearButton: Boolean) {
-        super.configureEditText(binding.editText, focusable, hint, drawableStart, style)
-
-        // Add clear drawableEnd button
-        if (shouldUseClearButton) {
-            binding.editText.setupClearButtonWithAction()
         }
     }
 }

@@ -38,7 +38,6 @@ class InputsFragment : Fragment(R.layout.fragment_home_inputs) {
             homeInputsSectionSearchInputSecondaryLoading.showProgressBar(true)
 
             // Password
-            homeInputsSectionPasswordInputPrimary.getEditText().hint = "Enter your password"
             homeInputsSectionPasswordInputPrimary.onEndTextClicked = { requireActivity().shortToaster("Forgot password clicked!") }
         }
     }
