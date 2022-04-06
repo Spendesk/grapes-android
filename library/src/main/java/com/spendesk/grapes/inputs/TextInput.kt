@@ -80,11 +80,12 @@ open class TextInput : CardView {
 
     open fun getEditText(): AppCompatEditText = binding.editText
 
-    protected open fun configureEditText(editText: EditText, focusable: Boolean, hint: Int, drawableStart: Int, style: Style) {
+    protected open fun configureEditText(editText: EditText, focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style) {
         with(editText) {
             // Set basic properties
             isFocusable = focusable
-            if (hint != ResourcesCompat.ID_NULL) setHint(hint)
+
+            hint?.let { setHint(it) }
 
             if (drawableStart != ResourcesCompat.ID_NULL)
                 setCompoundDrawablesRelativeWithIntrinsicBounds(
@@ -117,7 +118,7 @@ open class TextInput : CardView {
         attributeSet?.let {
             with(context.obtainStyledAttributes(it, R.styleable.TextInput)) {
                 val focusable = getBoolean(R.styleable.TextInput_android_focusable, true)
-                val hint = getResourceId(R.styleable.TextInput_android_hint, ResourcesCompat.ID_NULL)
+                val hint = getString(R.styleable.TextInput_android_hint)
                 val drawableStart = getResourceId(R.styleable.TextInput_android_drawableStart, ResourcesCompat.ID_NULL)
                 val style = Style.fromPosition(getInt(R.styleable.TextInput_textInputStyle, Style.getDefault().position))
 

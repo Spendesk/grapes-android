@@ -250,7 +250,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeCardSectionRegistrationCodeNormalSubtitle" />
-
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.spendesk.grapes.BucketView>
         <!-- endregion plastic card -->

@@ -42,7 +42,7 @@ class SearchInput : TextInput {
         attributeSet?.let {
             with(context.obtainStyledAttributes(it, R.styleable.SearchInput)) {
                 val focusable = getBoolean(R.styleable.SearchInput_android_focusable, true)
-                val hint = getResourceId(R.styleable.SearchInput_android_hint, ResourcesCompat.ID_NULL)
+                val hint = getString(R.styleable.SearchInput_android_hint)
                 val drawableStart = getResourceId(R.styleable.SearchInput_android_drawableStart, ResourcesCompat.ID_NULL)
                 val style = Style.fromPosition(getInt(R.styleable.SearchInput_textInputStyle, Style.getDefault().position))
                 val shouldUseClearButton = getBoolean(R.styleable.SearchInput_searchInputClearButton, true)
@@ -54,7 +54,7 @@ class SearchInput : TextInput {
         }
     }
 
-    private fun configureEditText(focusable: Boolean, hint: Int, drawableStart: Int, style: Style, shouldUseClearButton: Boolean) {
+    private fun configureEditText(focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style, shouldUseClearButton: Boolean) {
         super.configureEditText(binding.editText, focusable, hint, drawableStart, style)
 
         // Add clear drawableEnd button

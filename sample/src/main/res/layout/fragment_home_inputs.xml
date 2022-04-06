@@ -349,6 +349,8 @@
             android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
             android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
             android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/homeInputsSectionPasswordInputTitleText">
