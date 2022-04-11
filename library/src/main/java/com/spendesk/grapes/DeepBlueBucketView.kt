@@ -33,7 +33,7 @@ open class DeepBlueBucketView : BucketView {
         bindView()
     }
 
-    fun updateData(configuration: Configuration) {
+    fun updateConfiguration(configuration: Configuration) {
         with(binding) {
             deepBlueBucketTitle.text = configuration.title
             deepBlueBucketDescription.text = configuration.description
