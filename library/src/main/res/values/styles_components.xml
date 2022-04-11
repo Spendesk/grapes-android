@@ -73,7 +73,7 @@
         <item name="android:visibility">gone</item>
     </style>
 
-    <style name="simpleEntryItemBadge">
+    <style name="SimpleEntryItemBadge">
         <item name="android:visibility">gone</item>
     </style>
 

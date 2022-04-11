@@ -49,5 +49,37 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
             onTextChanged = { activity?.shortToaster("Key pressed: $it") }
             onRequestedBiometricAuthentication = { activity?.shortToaster("Separator key pressed") }
         }
+
+        with(binding.homeKeyboardsSectionWithSuggestion) {
+            onTextChanged = { activity?.shortToaster("Key pressed: $it") }
+
+            updateConfiguration(
+                configuration = NumberKeyboard.Configuration(
+                    style = NumberKeyboard.Style.DARK,
+                    suggestions = listOf(
+                        NumberKeyboard.Suggestion(label = "50$", rawValue = "50"),
+                        NumberKeyboard.Suggestion(label = "100$", rawValue = "100"),
+                        NumberKeyboard.Suggestion(label = "200$", rawValue = "200"),
+                        NumberKeyboard.Suggestion(label = "500$", rawValue = "500"),
+                    )
+                )
+            )
+        }
+
+        with(binding.homeKeyboardsSectionWithSuggestionDark) {
+            onTextChanged = { activity?.shortToaster("Key pressed: $it") }
+
+            updateSuggestions(
+                listOf(
+                    NumberKeyboard.Suggestion(label = "50$", rawValue = "50"),
+                    NumberKeyboard.Suggestion(label = "100$", rawValue = "100"),
+                    NumberKeyboard.Suggestion(label = "200$", rawValue = "200"),
+                    NumberKeyboard.Suggestion(label = "500$", rawValue = "500"),
+                    NumberKeyboard.Suggestion(label = "700$", rawValue = "700"),
+                    NumberKeyboard.Suggestion(label = "1000$", rawValue = "1000"),
+                    NumberKeyboard.Suggestion(label = "2000$", rawValue = "2000"),
+                )
+            )
+        }
     }
 }

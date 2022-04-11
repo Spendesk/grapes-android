@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import com.spendesk.grapes.R
-import com.spendesk.grapes.UserSupplierInlineView
+import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.databinding.SummaryHeaderBinding
 import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
@@ -28,12 +28,12 @@ class SummaryHeaderView : ConstraintLayout {
     //endregion constructors
 
     data class Configuration(
-        val userSupplierInlineConfiguration: UserSupplierInlineView.Configuration? = null,
-        val amount: CharSequence,
+        val simpleEntryItemViewConfiguration: SimpleEntryItemView.Configuration? = null,
+        val amount: CharSequence? = null,
         val amountSubtitle: CharSequence? = null,
         val description: CharSequence? = null,
         val descriptionSubtitle: CharSequence? = null,
-        val typeConfiguration: MessageInlineView.Configuration,
+        val typeConfiguration: MessageInlineView.Configuration? = null,
         val messageBlockConfiguration: MessageBlockView.Configuration? = null
     )
 
@@ -46,19 +46,22 @@ class SummaryHeaderView : ConstraintLayout {
     fun updateConfiguration(configuration: Configuration) {
         with(binding) {
             // User & supplier
-            with(summaryHeaderExpenseAmountUserSupplier) {
-                visibleOrGone(configuration.userSupplierInlineConfiguration != null)
-                configuration.userSupplierInlineConfiguration?.let { updateConfiguration(configuration = it) }
+            with(summaryHeaderExpenseAmountSimpleEntryView) {
+                visibleOrGone(configuration.simpleEntryItemViewConfiguration != null)
+                configuration.simpleEntryItemViewConfiguration?.let { updateConfiguration(configuration = it) }
             }
 
             // Amount and description
-            summaryHeaderExpenseAmountTitle.text = configuration.amount
+            summaryHeaderExpenseAmountTitle.visibleWithTextOrGone(configuration.amount)
             summaryHeaderExpenseAmountSubtitle.visibleWithTextOrGone(configuration.amountSubtitle)
             summaryHeaderExpenseDescriptionTitle.visibleWithTextOrGone(configuration.description)
             summaryHeaderExpenseDescriptionSubtitle.visibleWithTextOrGone(configuration.descriptionSubtitle)
 
             // Type
-            summaryHeaderExpenseTypeMessage.updateConfiguration(configuration = configuration.typeConfiguration)
+            with(summaryHeaderExpenseTypeMessage) {
+                visibleOrGone(configuration.typeConfiguration != null)
+                configuration.typeConfiguration?.let { updateConfiguration(it) }
+            }
 
             // Deny reason
             configuration.messageBlockConfiguration
