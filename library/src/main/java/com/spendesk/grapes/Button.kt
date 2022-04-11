@@ -170,11 +170,6 @@ class Button : AppCompatTextView {
 
             // Set color to the text of the button
             setTextColor(context.colorStateListCompat(buttonConfig.contentColorStateListId))
-
-            // Set color to the icon if there is one
-//            if (compoundDrawables.isNotEmpty()) {
-//                TextViewCompat.setCompoundDrawableTintList(this, context.colorStateListCompat(buttonConfig.contentColorStateListId))
-//            }
         }
     }
 
