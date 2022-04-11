@@ -35,6 +35,8 @@ class ColorsFragment : Fragment(R.layout.fragment_home_colors) {
 
         setupView()
         bindViewModel()
+
+        viewModel.onLifecycleStateChange(lifecycle.currentState)
     }
 
     override fun onDestroyView() {

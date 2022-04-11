@@ -9,7 +9,7 @@ import com.spendesk.grapes.samples.components.CoverListItemView
 import com.spendesk.grapes.samples.home.fragments.list.ColorsBlockModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.core.Observable
-import io.reactivex.rxjava3.subjects.PublishSubject
+import io.reactivex.rxjava3.subjects.BehaviorSubject
 import javax.inject.Inject
 
 /**
@@ -21,14 +21,15 @@ class ColorsViewModel @Inject constructor() : ViewModel() {
 
     // region observable properties
 
-    private val updateColorsItem = PublishSubject.create<List<ColorsBlockModel>>()
+    private val updateColorsItem = BehaviorSubject.create<List<ColorsBlockModel>>()
     fun updateColorsItem(): Observable<List<ColorsBlockModel>> = updateColorsItem
 
     // endregion observable properties
 
     fun onLifecycleStateChange(lifecycle: Lifecycle.State) =
         when (lifecycle) {
-            Lifecycle.State.INITIALIZED -> updateColorsList()
+            Lifecycle.State.INITIALIZED,
+            Lifecycle.State.CREATED -> updateColorsList()
             else -> Unit // Nothing else to do here.
         }
 

@@ -15,9 +15,11 @@ import com.spendesk.grapes.samples.databinding.ViewCoverCardviewBinding
 class CoverCardView : CardView {
 
     //region constructors
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
     constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
     //endregion constructors
 
     private val binding = ViewCoverCardviewBinding.inflate(LayoutInflater.from(context), this)
