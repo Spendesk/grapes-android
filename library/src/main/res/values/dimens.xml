@@ -70,8 +70,11 @@
 
     <dimen name="actionInformativeTitleTextSize">32sp</dimen>
     <dimen name="actionInformativeSubtitleTextSize">14sp</dimen>
+    <dimen name="actionInformativeSubtitleFlowMarginTop">2dp</dimen>
     <dimen name="actionInformationSubtitleTextMarginEnd">@dimen/smallMargin</dimen>
+    <dimen name="actionInformativeMessageInlineDrawablePadding">4dp</dimen>
     <dimen name="actionInformativeContainerPadding">@dimen/normalMargin</dimen>
+    <dimen name="actionInformativeButtonPadding">@dimen/bucketPadding</dimen>
     <!-- endregion Bucket -->
 
     <!-- region Chip -->
@@ -108,6 +111,7 @@
 
     <dimen name="numberKeyboardMinHeight">248dp</dimen>
     <dimen name="numberKeyboardTextSize">32sp</dimen>
+    <dimen name="numberKeyboardSeparatorMargin">12dp</dimen>
 
     <!-- NumberKeyboard-->
 
@@ -185,18 +189,6 @@
     <dimen name="responsibilityCenterGaugeLegendSubtitleMarginHorz">8dp</dimen>
 
     <!-- endregion Blocks -->
-
-    <!-- region UserSupplierInline -->
-    <dimen name="userSupplierInlineBigImageSize">40dp</dimen>
-    <dimen name="userSupplierInlineBigImageCornerRadius">6dp</dimen>
-    <dimen name="userSupplierInlineSmallImageSize">28dp</dimen>
-    <dimen name="userSupplierInlineSmallImagePadding">2dp</dimen>
-    <dimen name="userSupplierInlineSmallImageCornerRadius">4dp</dimen>
-    <dimen name="userSupplierInlineSmallImageOverlapMargin">-5dp</dimen>
-    <dimen name="userSupplierInlineTextsMarginStart">8dp</dimen>
-    <dimen name="userSupplierInlineTitleText">16sp</dimen>
-    <dimen name="userSupplierInlineSubtitleText">14sp</dimen>
-    <!-- endregion UserSupplierInline -->
 
     <!-- region Toaster -->
     <dimen name="toasterLayoutPadding">@dimen/normalMargin</dimen>

@@ -103,6 +103,7 @@
     <!-- endregion Button -->
 
     <!-- region Bucket -->
+    <color name="actionInformativeContainerBackground">@color/white</color>
     <color name="deepBlueBucketTitleText">@color/white</color>
     <color name="deepBlueBucketDescriptionText">@color/mainNeutralLight</color>
     <color name="actionInformativeTitleTextColor">@color/mainComplementary</color>
@@ -129,12 +130,6 @@
     <color name="responsibilityCenterGaugeViewLimitBackground">@color/colorPrimaryDark</color>
     <!-- endregion Blocks -->
 
-    <!-- region UserSupplierInline -->
-    <color name="userSupplierInlineSmallImageBackground">@color/white</color>
-    <color name="userSupplierInlineTitleText">@color/mainComplementary</color>
-    <color name="userSupplierInlineSubtitleText">@color/mainNeutralDarker</color>
-    <!-- endregion UserSupplierInline -->
-
     <!-- region Toaster -->
     <color name="toasterBackground">@color/mainNeutralDarkest</color>
     <color name="toasterText">@color/white</color>
@@ -152,6 +147,7 @@
 
     <color name="numberKeyboardTextColorLight">@color/white</color>
     <color name="numberKeyboardTextColorDark">@color/mainComplementary</color>
+    <color name="numberKeyboardSeparatorColor">@color/mainNeutralLight</color>
 
     <!-- endregion NumberKeyboardText -->
 

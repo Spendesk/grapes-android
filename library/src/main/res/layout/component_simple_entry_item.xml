@@ -149,9 +149,10 @@
         style="@style/SimpleEntryItemSecondaryImage"
         android:layout_width="@dimen/listEntryItemSecondaryImageSize"
         android:layout_height="@dimen/listEntryItemSecondaryImageSize"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentSecondaryImageStartWidthGuideline"
-        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        tools:src="@drawable/ic_avatar_placeholder"
         tools:visibility="visible" />
 
     <TextView
@@ -191,8 +192,8 @@
         app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemTitleEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
         app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="$68,34 • "
         tools:visibility="visible" />
@@ -275,6 +276,7 @@
 
     <com.spendesk.grapes.BadgeView
         android:id="@+id/simpleEntryItemBadge"
+        style="@style/SimpleEntryItemBadge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/listEntryItemBadgeMarginEnd"

@@ -31,14 +31,14 @@ class CardsFragment : Fragment(R.layout.fragment_home_cards) {
     }
 
     private fun bindView() {
-        binding.homeCardSectionOnTheWayDeepBlueBucketView.updateData(
+        binding.homeCardSectionOnTheWayDeepBlueBucketView.updateConfiguration(
             DeepBlueBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewTitle),
                 description = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewDescription),
                 buttonText = requireContext().getString(R.string.homePushSectionOnTheWayDeepBlueBucketViewButtonText)
             )
         )
-        binding.homeCardSectionRecardDeepBlueBucketView.updateData(
+        binding.homeCardSectionRecardDeepBlueBucketView.updateConfiguration(
             DeepBlueBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionRecardDeepBlueBucketViewTitle),
                 description = requireContext().getString(R.string.homePushSectionRecardDeepBlueBucketViewDescription),
@@ -46,33 +46,30 @@ class CardsFragment : Fragment(R.layout.fragment_home_cards) {
             )
         )
 
-        binding.homeCardSectionPlasticCardNormalInformativeActionBucketView.updateData(
+        binding.homeCardSectionPlasticCardNormalInformativeActionBucketView.updateConfiguration(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewSmallButtonText),
                 subtitleText = requireContext().getString(R.string.homePushSectionPlasticCardNormalInformativeActionBucketViewSubtitleText),
-                shouldShowChip = false,
-                messageContent = null
+                messageInlineStyle = null
             )
         )
 
-        binding.homeCardSectionPlasticCardWarningInformativeActionBucketView.updateData(
+        binding.homeCardSectionPlasticCardWarningInformativeActionBucketView.updateConfiguration(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewSmallButtonText),
                 subtitleText = requireContext().getString(R.string.homePushSectionPlasticCardWarningInformativeActionBucketViewSubtitleText),
-                shouldShowChip = true,
-                messageContent = MessageInlineView.Style.WARNING
+                messageInlineStyle = MessageInlineView.Style.WARNING
             )
         )
 
-        binding.homeCardSectionPlasticCardAlertInformativeActionBucketView.updateData(
+        binding.homeCardSectionPlasticCardAlertInformativeActionBucketView.updateConfiguration(
             InformativeActionBucketView.Configuration(
                 title = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewTitle),
                 smallButtonText = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewSmallButtonText),
                 subtitleText = requireContext().getString(R.string.homePushSectionPlasticCardAlertInformativeActionBucketViewSubtitleText),
-                shouldShowChip = true,
-                messageContent = MessageInlineView.Style.ALERT
+                messageInlineStyle = MessageInlineView.Style.ALERT
             )
         )
     }

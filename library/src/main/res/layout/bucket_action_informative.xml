@@ -2,8 +2,6 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     tools:parentTag="com.spendesk.grapes.BucketView">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,40 +13,74 @@
         <TextView
             android:id="@+id/actionInformativeTitleText"
             style="@style/ActionInformativeTitleText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/actionInformativeSubtitleFlow"
+            app:layout_constraintEnd_toStartOf="@+id/actionInformativeButtonBarrier"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="54,40 $" />
 
+        <androidx.constraintlayout.helper.widget.Flow
+            android:id="@+id/actionInformativeSubtitleFlow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/actionInformativeSubtitleFlowMarginTop"
+            android:orientation="vertical"
+            app:constraint_referenced_ids="actionInformativeSubtitleText,actionInformativeMessageInline"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/actionInformativeButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionInformativeTitleText" />
+
         <TextView
             android:id="@+id/actionInformativeSubtitleText"
             style="@style/ActionInformativeSubtitleText"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toStartOf="@+id/actionInformativeButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actionInformativeTitleText"
-            tools:visibility="visible" />
-
-        <com.spendesk.grapes.messages.MessageInlineView
-            android:id="@+id/actionInformativeMessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/actionInformativeButton"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/actionInformativeTitleText"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Subtitle"
+            tools:visibility="gone" />
+
+        <com.spendesk.grapes.messages.MessageInlineView
+            android:id="@+id/actionInformativeMessageInline"
+            style="@style/ActionInformativeMessageInline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             tools:messageStyle="info"
-            tools:text="Card Limited" />
+            tools:style="warning"
+            tools:text="Message Inline"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/actionInformativeButtonBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:barrierDirection="end"
+            app:constraint_referenced_ids="actionInformativeTitleText,actionInformativeSubtitleFlow" />
 
         <com.spendesk.grapes.Button
             android:id="@+id/actionInformativeButton"
             style="@style/ActionInformativeButton"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/actionInformativeButtonPadding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/actionInformativeSubtitleFlow"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Top Up" />
+            tools:text="Button Text" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

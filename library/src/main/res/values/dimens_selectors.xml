@@ -35,4 +35,8 @@
     <dimen name="tabCardViewTextSize">14sp</dimen>
     <dimen name="tabCardViewBadgeMarginStart">@dimen/smallMargin</dimen>
 
+    <!-- KeyboardSuggestionsView -->
+    <dimen name="keyboardSuggestionsViewTextSize">16sp</dimen>
+    <dimen name="keyboardSuggestionsViewTextPaddingVertical">12dp</dimen>
+
 </resources>

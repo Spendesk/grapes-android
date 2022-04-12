@@ -86,5 +86,9 @@
     <string name="keyboardsOne" translatable="false">Light &amp; Fingerprint</string>
     <string name="keyboardsTwo" translatable="false">Dark &amp; Separator</string>
     <string name="keyboardsThree" translatable="false">Dark &amp; No extra button</string>
+    <string name="keyboardsWithSuggestionsTitle" translatable="false">Keyboards with suggestions</string>
+    <string name="bottomSheetsActionMessageTitle">Action message bottom sheet</string>
+    <string name="bottomSheetActionMessageViewStateSmallContentButton">Small content</string>
+    <string name="bottomSheetActionMessageViewStateLargeContentButton">Large content</string>
 
 </resources>
