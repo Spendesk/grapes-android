@@ -1,9 +1,13 @@
 package com.spendesk.grapes.samples.components
 
 import android.content.Context
+import android.graphics.Typeface
+import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
-import com.spendesk.grapes.extensions.setMargins
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.samples.R
 
 /**
@@ -13,15 +17,18 @@ import com.spendesk.grapes.samples.R
 class SectionTitleTextView : AppCompatTextView {
 
     //region constructors
-    constructor(context: Context) : super(context, null, R.style.HomeGenericTitle)
-    constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet, R.style.HomeGenericTitle)
-    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, R.style.HomeGenericTitle)
+
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
+    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
     //endregion constructors
 
     init {
-        val marginVert = resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginVert)
-        val marginHorz = resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginHorz)
-
-//        setMargins(left = marginHorz, top = marginVert, right = marginHorz, bottom = marginVert)
+        maxLines = 1
+        ellipsize = TextUtils.TruncateAt.END
+        setTypeface(ResourcesCompat.getFont(context, R.font.gt_america), Typeface.NORMAL)
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimensionPixelSize(R.dimen.sectionTitleTextSize).toFloat())
+        setTextColor(ContextCompat.getColor(context, R.color.sectionTitleTextColor))
     }
 }

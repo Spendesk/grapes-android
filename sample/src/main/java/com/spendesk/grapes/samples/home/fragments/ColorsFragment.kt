@@ -9,12 +9,14 @@ import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeColorsBinding
 import com.spendesk.grapes.samples.home.fragments.list.ColorsAdapter
+import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
 /**
  * @author danyboucanova
  * @since 09/03/2022
  */
+@AndroidEntryPoint
 class ColorsFragment : Fragment(R.layout.fragment_home_colors) {
 
     companion object {

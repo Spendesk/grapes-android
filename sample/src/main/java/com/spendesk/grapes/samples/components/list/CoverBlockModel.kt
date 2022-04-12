@@ -1,4 +1,6 @@
-package com.spendesk.grapes.samples.components
+package com.spendesk.grapes.samples.components.list
+
+import com.spendesk.grapes.samples.components.CoverCardView
 
 /**
  * @author danyboucanova

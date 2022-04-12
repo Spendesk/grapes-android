@@ -1,9 +1,9 @@
-package com.spendesk.grapes.samples.components
+package com.spendesk.grapes.samples.components.list
 
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.spendesk.grapes.samples.components.list.CoverViewType
+import com.spendesk.grapes.samples.components.CoverCardView
 
 /**
  * @author danyboucanova

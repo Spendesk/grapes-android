@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="coverCardContainerWidth">120dp</dimen>
-    <dimen name="coverCardContainerHeight">100dp</dimen>
-    <dimen name="coverCardText">@dimen/titleSSize</dimen>
-</resources>

@@ -1,4 +1,4 @@
-package com.spendesk.grapes.samples.components
+package com.spendesk.grapes.samples.components.list
 
 import android.content.Context
 import android.util.AttributeSet
@@ -32,6 +32,6 @@ open class CoverListView : RecyclerView {
 
         // padding for first element of the list
         clipToPadding = false
-        this.setPadding(marginHorz, 0, 0, 0)
+        this.setPadding(marginHorz, 0, 0, marginHorz)
     }
 }

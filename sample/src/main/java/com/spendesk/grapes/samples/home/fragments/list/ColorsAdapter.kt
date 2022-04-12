@@ -3,7 +3,8 @@ package com.spendesk.grapes.samples.home.fragments.list
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.spendesk.grapes.samples.components.CoverListItemView
+import com.spendesk.grapes.samples.R
+import com.spendesk.grapes.samples.components.list.CoverListItemView
 import com.spendesk.grapes.samples.components.SectionTitleTextView
 
 /**
@@ -35,7 +36,18 @@ class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.CoverViewHolder>() {
             ColorsBlockViewType.SECTION -> CoverViewHolder.Section(SectionTitleTextView(context))
             ColorsBlockViewType.COVER_LIST -> CoverViewHolder.CoverList(CoverListItemView(context))
         }.apply {
-            itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            val layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+
+            when (this) {
+                is CoverViewHolder.Section -> {
+                    val marginHorz = parent.context.resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginHorz)
+                    val marginVert = parent.context.resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginVert)
+
+                    layoutParams.setMargins(marginHorz, marginVert, marginHorz, marginVert)
+                }
+                is CoverViewHolder.CoverList -> Unit
+            }
+            itemView.layoutParams = layoutParams
         }
     }
 

@@ -29,6 +29,7 @@
         <TextView
             android:id="@+id/coverCardText"
             style="@style/CoverCardText"
+            android:layout_marginHorizontal="@dimen/coverCardTextMarginHorz"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"

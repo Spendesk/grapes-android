@@ -165,7 +165,7 @@ internal fun View.addRippleEffect() {
 }
 
 fun View.setMargins(left: Int? = null, top: Int? = null, right: Int? = null, bottom: Int? = null) {
-    val lp = this.layoutParams as ViewGroup.MarginLayoutParams
+    val lp = this.layoutParams as? ViewGroup.MarginLayoutParams ?: ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
     lp.setMargins(
         left ?: lp.leftMargin,

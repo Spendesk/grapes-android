@@ -1,6 +1,6 @@
 package com.spendesk.grapes.samples.home.fragments.list
 
-import com.spendesk.grapes.samples.components.CoverListItemView
+import com.spendesk.grapes.samples.components.list.CoverListItemView
 
 /**
  * @author danyboucanova
