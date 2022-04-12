@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="inputSearchMainPrimaryTextColor">@color/mainNeutralDarkest</color>
-    <color name="inputSearchMainPrimaryTintColor">@color/mainNeutralDarkest</color>
-    <color name="inputSearchMainSecondaryTintColor">@color/mainNeutralNormal</color>
+
+    <!-- region TextInput -->
+
+    <color name="textInputPrimaryTextColor">@color/mainNeutralDarkest</color>
+    <color name="textInputPrimaryTintColor">@color/mainNeutralDarkest</color>
+    <color name="textInputSecondaryTintColor">@color/mainNeutralNormal</color>
+
+    <!-- endregion TextInput -->
+
+    <!-- region PasswordInput -->
+
+    <color name="passwordInputEndTextColor">@color/mainPrimaryNormal</color>
+
+    <!-- endregion PasswordInput -->
+
 </resources>
