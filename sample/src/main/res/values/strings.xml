@@ -10,6 +10,7 @@
     <string name="contents" translatable="false">Contents</string>
     <string name="bottomSheets" translatable="false">Bottom Sheets</string>
     <string name="loaders" translatable="false">Loaders</string>
+    <string name="keyboards" translatable="false">Keyboards</string>
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>

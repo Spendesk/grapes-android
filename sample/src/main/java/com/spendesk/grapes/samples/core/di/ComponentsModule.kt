@@ -6,18 +6,19 @@ import com.spendesk.grapes.samples.core.components.translator.Translator
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.ActivityComponent
-import dagger.hilt.android.scopes.ActivityScoped
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 /**
  * @author : danyboucanova
  * @since : 12/04/2022, Tue
  **/
-//@Module
-//@InstallIn(ActivityComponent::class)
-//object ActivityModule {
-//
-//    @Provides
-//    @ActivityScoped
-//    fun provideTranslator(context: Context): Translator = ContextTranslator(context)
-//}
+@Module
+@InstallIn(SingletonComponent::class)
+class ComponentsModule {
+
+    @Provides
+    @Singleton
+    fun provideTranslator(@ApplicationContext context: Context): Translator = ContextTranslator(context)
+}

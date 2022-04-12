@@ -24,7 +24,7 @@ class KeyboardsFragment : Fragment(R.layout.fragment_home_keyboards) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.inputs)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.keyboards)
 
         with(binding.homeKeyboardsSectionOne) {
             updateConfiguration(

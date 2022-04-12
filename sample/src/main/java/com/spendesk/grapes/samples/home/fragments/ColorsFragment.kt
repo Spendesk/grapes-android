@@ -44,8 +44,8 @@ class ColorsFragment : Fragment(R.layout.fragment_home_colors) {
     override fun onDestroyView() {
         super.onDestroyView()
 
-        disposables.clear()
         viewModel.onLifecycleStateChange(lifecycle.currentState)
+        disposables.clear()
     }
 
     private fun setupView() {
