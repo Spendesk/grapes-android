@@ -21,7 +21,7 @@ class CoverAdapter : RecyclerView.Adapter<CoverAdapter.CoverViewHolder>() {
         when (CoverViewType.values()[viewType]) {
             CoverViewType.COVER -> CoverViewHolder.Cover(CoverCardView(parent.context))
         }.apply {
-            itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
     override fun getItemCount(): Int = itemsList.size

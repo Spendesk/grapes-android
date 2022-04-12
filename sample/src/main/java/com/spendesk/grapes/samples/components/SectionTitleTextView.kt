@@ -22,6 +22,6 @@ class SectionTitleTextView : AppCompatTextView {
         val marginVert = resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginVert)
         val marginHorz = resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginHorz)
 
-        setMargins(left = marginHorz, top = marginVert, right = marginHorz, bottom = marginVert)
+//        setMargins(left = marginHorz, top = marginVert, right = marginHorz, bottom = marginVert)
     }
 }

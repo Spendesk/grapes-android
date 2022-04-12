@@ -19,6 +19,13 @@ class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.CoverViewHolder>() {
 
     private val listItems: MutableList<ColorsBlockModel> = ArrayList()
 
+    fun updateList(items: List<ColorsBlockModel>) {
+        listItems.clear()
+        listItems.addAll(items)
+
+        notifyDataSetChanged()
+    }
+
     // region override
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoverViewHolder {
@@ -45,16 +52,5 @@ class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.CoverViewHolder>() {
 
     //endregion override
 
-    //region public
-
-    fun updateList(items: List<ColorsBlockModel>) {
-        listItems.clear()
-        listItems.addAll(items)
-
-        notifyDataSetChanged()
-    }
-
-    fun getViewTypeAtPosition(position: Int): ColorsBlockViewType = listItems[position].viewType
-
-    //endregion public
+    private fun getViewTypeAtPosition(position: Int): ColorsBlockViewType = listItems[position].viewType
 }
