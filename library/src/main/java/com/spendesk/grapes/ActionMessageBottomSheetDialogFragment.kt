@@ -12,9 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
-import com.spendesk.grapes.extensions.getHeight
-import com.spendesk.grapes.extensions.visibleOrGone
-import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import com.spendesk.grapes.extensions.*
 
 /**
  * @author danyboucanova
@@ -95,8 +93,8 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
             actionMessageBottomSheetTitleText.text = configuration.title
 
             actionMessageBottomSheetDescriptionText.visibleWithTextOrGone(configuration.description)
-            actionMessageBottomSheetPrimaryButton.visibleWithTextOrGone(configuration.primaryButtonText)
-            actionMessageBottomSheetSecondaryButton.visibleWithTextOrGone(configuration.secondaryButtonText)
+            with(actionMessageBottomSheetPrimaryButton) { configuration.primaryButtonText?.let { visible(); setText(it) } ?: gone() }
+            with(actionMessageBottomSheetSecondaryButton) { configuration.secondaryButtonText?.let { visible(); setText(it) } ?: gone() }
             actionMessageBottomSheetPullView.visibleOrGone(configuration.shouldShowHandle)
 
             actionMessageBottomSheetDescriptionText.apply {

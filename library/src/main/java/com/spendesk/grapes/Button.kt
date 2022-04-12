@@ -2,20 +2,20 @@ package com.spendesk.grapes
 
 import android.content.Context
 import android.graphics.Rect
-import android.graphics.Typeface
-import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
-import android.view.Gravity
+import android.view.LayoutInflater
 import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
-import androidx.appcompat.widget.AppCompatTextView
+import androidx.annotation.IntRange
+import androidx.annotation.StringRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.TextViewCompat
+import com.spendesk.grapes.databinding.ButtonBinding
 import com.spendesk.grapes.extensions.colorStateListCompat
 import com.spendesk.grapes.extensions.setDrawableLeft
 import com.spendesk.grapes.extensions.setRippleDrawable
-import java.util.*
 
 /**
  * Implementation of the Grapes Button which handles three different styles: Primary Button, Secondary Button and Alert Button.
@@ -23,25 +23,28 @@ import java.util.*
  * @author danyboucanova
  * @since 10/09/2020
  */
-class Button : AppCompatTextView {
+class Button : ConstraintLayout {
 
-    //region constructors
+    // region constructors
+
     constructor(context: Context) : super(context) {
-        initButton(null)
+        setupView(null)
     }
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
-        initButton(attrs)
+        setupView(attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-        initButton(attrs)
+        setupView(attrs)
     }
-    //endregion constructors
+
+    // endregion constructors
 
     data class Configuration(
         val text: CharSequence,
         val style: Style,
+        val loaderType: LoaderType = LoaderType.getDefault(),
         val isEnabled: Boolean = true
     )
 
@@ -81,23 +84,43 @@ class Button : AppCompatTextView {
         }
     }
 
+    enum class LoaderType(val position: Int) {
+        NONE(-1),
+        HORIZONTAL(0),
+        CIRCULAR(1);
+
+        companion object {
+            fun fromPosition(position: Int): LoaderType {
+                return try {
+                    values().first { it.position == position }
+                } catch (exception: NoSuchElementException) {
+                    getDefault()
+                }
+            }
+
+            fun getDefault() = NONE
+        }
+    }
+
     private lateinit var size: Size
     private val bounds = Rect()
 
+    private var binding = ButtonBinding.inflate(LayoutInflater.from(context), this)
+
+    init {
+        isClickable = true
+        isFocusable = true
+    }
+
     /**
-     * Set the button's height according to its [Size]
+     * Set the button's height according to its [Size].
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val desiredWidth = MeasureSpec.getSize(widthMeasureSpec)
+
         val desiredHeight = when (size) {
             Size.NORMAL -> resources.getDimensionPixelSize(R.dimen.buttonHeight)
             Size.SMALL -> resources.getDimensionPixelSize(R.dimen.buttonSmallHeight)
-        }
-        val desiredWidth = when (size) {
-            Size.NORMAL -> MeasureSpec.getSize(widthMeasureSpec)
-            Size.SMALL -> {
-                paint.getTextBounds(text.toString(), 0, text.length, bounds)
-                resources.getDimensionPixelSize(R.dimen.buttonSmallPaddingStart) + bounds.width() + resources.getDimensionPixelSize(R.dimen.buttonSmallPaddingEnd)
-            }
         }
 
         super.onMeasure(
@@ -106,10 +129,25 @@ class Button : AppCompatTextView {
         )
     }
 
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+
+        binding.text.isEnabled = enabled
+    }
+
     fun updateConfiguration(configuration: Configuration) {
-        text = configuration.text
+        setText(configuration.text)
         setStyle(configuration.style)
+        setLoaderType(configuration.loaderType)
         isEnabled = configuration.isEnabled
+    }
+
+    fun setText(text: CharSequence) {
+        binding.text.text = text
+    }
+
+    fun setText(@StringRes textResId: Int) {
+        if (textResId != TypedValue.TYPE_NULL) binding.text.setText(textResId)
     }
 
     /**
@@ -121,42 +159,45 @@ class Button : AppCompatTextView {
         when (buttonStyle) {
             Style.PRIMARY ->
                 ButtonConfig(
-                    R.color.buttonPrimaryBackground,
-                    R.color.buttonPrimaryBackgroundPressed,
-                    R.color.buttonPrimaryBackgroundDisabled,
-                    R.color.btn_primary_text,
-                    R.dimen.buttonRadius
+                    colorBackground = R.color.buttonPrimaryBackground,
+                    colorBackgroundPressed = R.color.buttonPrimaryBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonPrimaryBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_primary_text,
+                    radius = R.dimen.buttonRadius
                 )
+
             Style.SECONDARY ->
                 ButtonConfig(
-                    R.color.buttonSecondaryBackground,
-                    R.color.buttonSecondaryBackgroundPressed,
-                    R.color.buttonSecondaryBackgroundDisabled,
-                    R.color.btn_secondary_text,
-                    R.dimen.buttonRadius,
-                    R.dimen.buttonSecondaryBackgroundStroke,
-                    R.color.buttonSecondaryBackgroundStroke
+                    colorBackground = R.color.buttonSecondaryBackground,
+                    colorBackgroundPressed = R.color.buttonSecondaryBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonSecondaryBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_secondary_text,
+                    radius = R.dimen.buttonRadius,
+                    stroke = R.dimen.buttonSecondaryBackgroundStroke,
+                    strokeColor = R.color.buttonSecondaryBackgroundStroke
                 )
+
             Style.ALERT ->
                 ButtonConfig(
-                    R.color.buttonAlertBackground,
-                    R.color.buttonAlertBackgroundPressed,
-                    R.color.buttonAlertBackgroundDisabled,
-                    R.color.btn_alert_text,
-                    R.dimen.buttonRadius,
-                    R.dimen.buttonAlertBackgroundStroke,
-                    R.color.buttonAlertBackgroundStroke
+                    colorBackground = R.color.buttonAlertBackground,
+                    colorBackgroundPressed = R.color.buttonAlertBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonAlertBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_alert_text,
+                    radius = R.dimen.buttonRadius,
+                    stroke = R.dimen.buttonAlertBackgroundStroke,
+                    strokeColor = R.color.buttonAlertBackgroundStroke
                 )
+
             Style.WARNING ->
                 ButtonConfig(
-                    R.color.buttonWarningBackground,
-                    R.color.buttonWarningBackgroundPressed,
-                    R.color.buttonWarningBackgroundDisabled,
-                    R.color.btn_warning_text,
-                    R.dimen.buttonRadius
+                    colorBackground = R.color.buttonWarningBackground,
+                    colorBackgroundPressed = R.color.buttonWarningBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonWarningBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_warning_text,
+                    radius = R.dimen.buttonRadius
                 )
         }.let { buttonConfig ->
-            // set background
+            // Set background
             setRippleDrawable(
                 buttonConfig.colorBackground,
                 buttonConfig.colorBackgroundPressed,
@@ -165,53 +206,74 @@ class Button : AppCompatTextView {
                 buttonConfig.stroke,
                 buttonConfig.strokeColor
             )
-            // set color to the text of the button
-            setTextColor(context.colorStateListCompat(buttonConfig.contentColorStateListId))
-            // set color to the icon if there is one
-            if (compoundDrawables.isNotEmpty()) {
-                TextViewCompat.setCompoundDrawableTintList(this, context.colorStateListCompat(buttonConfig.contentColorStateListId))
+
+            // Set color to the text of the button
+            binding.text.setTextColor(context.colorStateListCompat(buttonConfig.contentColorStateListId))
+
+            // Set color to the icon if there is one
+            if (binding.text.compoundDrawables.isNotEmpty()) {
+                TextViewCompat.setCompoundDrawableTintList(binding.text, context.colorStateListCompat(buttonConfig.contentColorStateListId))
             }
         }
     }
 
-    private fun initButton(attributeSet: AttributeSet?) {
-        with(context.obtainStyledAttributes(attributeSet, R.styleable.Button)) {
-            size = Size.fromPosition(getInt(R.styleable.Button_grapesButtonSize, Size.getDefault().position))
+    /**
+     * Sets the type of loader to be displayed for this button:
+     * - [LoaderType.HORIZONTAL] will display a horizontal progress bar as background of this button, the value can be updated via [updateLoaderProgress].
+     * - [LoaderType.CIRCULAR] will display an infinite circular progress bar on the right side of the button.
+     * - [LoaderType.NONE] will remove any loader.
+     */
+    fun setLoaderType(loaderType: LoaderType) {
+        when (loaderType) {
 
-            setupView(
-                textId = getResourceId(R.styleable.Button_android_text, TypedValue.TYPE_NULL),
-                drawableStartId = getResourceId(R.styleable.Button_android_drawableStart, TypedValue.TYPE_NULL),
-                buttonStyle = Style.fromPosition(getInt(R.styleable.Button_grapesButtonStyle, Style.getDefault().position))
-            )
-            recycle()
         }
     }
 
-    private fun setupView(textId: Int, drawableStartId: Int, buttonStyle: Style) {
-        includeFontPadding = false
-        ellipsize = TextUtils.TruncateAt.MARQUEE
-        setSingleLine()
+    /**
+     * Updates the progress of the horizontal progress bar, if set using [LoaderType.HORIZONTAL]. The range of the progress is 0 to 100.
+     *
+     * @param progress Value of the progress bar within the range 0 to 100.
+     */
+    fun updateLoaderProgress(@IntRange(from = 0, to = 100) progress: Int) {
 
-        if (!isInEditMode) setTypeface(ResourcesCompat.getFont(context, R.font.gt_america_bold), Typeface.NORMAL)
-        val buttonTextSize = when (size) {
-            Size.SMALL -> resources.getDimensionPixelOffset(R.dimen.buttonSmallTextSize).toFloat()
-            Size.NORMAL -> resources.getDimensionPixelOffset(R.dimen.buttonNormalTextSize).toFloat()
+    }
+
+    private fun setupView(attributeSet: AttributeSet?) {
+        with(context.obtainStyledAttributes(attributeSet, R.styleable.Button)) {
+            val buttonSize = Size.fromPosition(getInt(R.styleable.Button_grapesButtonSize, Size.getDefault().position))
+            val textId = getResourceId(R.styleable.Button_android_text, TypedValue.TYPE_NULL)
+            val drawableStartId = getResourceId(R.styleable.Button_android_drawableStart, TypedValue.TYPE_NULL)
+            val enabled = getBoolean(R.styleable.Button_android_enabled, true)
+            val buttonStyle = Style.fromPosition(getInt(R.styleable.Button_grapesButtonStyle, Style.getDefault().position))
+            val loaderType = LoaderType.fromPosition(getInt(R.styleable.Button_grapesButtonLoaderType, LoaderType.getDefault().position))
+            recycle()
+
+            isEnabled = enabled
+            size = buttonSize
+            setText(textResId = textId)
+            configureTextView(drawableStartId = drawableStartId)
+            setStyle(buttonStyle = buttonStyle)
+            setLoaderType(loaderType = loaderType)
         }
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, buttonTextSize)
+    }
 
-        gravity = Gravity.CENTER
-        isClickable = true
-        isFocusable = true
-        isAllCaps = false
+    private fun configureTextView(drawableStartId: Int) {
+        with(binding.text) {
+            // Set text size depending on the requested Button size
+            val buttonTextSize = when (size) {
+                Size.SMALL -> resources.getDimensionPixelOffset(R.dimen.buttonSmallTextSize).toFloat()
+                Size.NORMAL -> resources.getDimensionPixelOffset(R.dimen.buttonNormalTextSize).toFloat()
+            }
+            setTextSize(TypedValue.COMPLEX_UNIT_PX, buttonTextSize)
 
-        if (textId != ResourcesCompat.ID_NULL) setText(textId)
-        if (drawableStartId != ResourcesCompat.ID_NULL) {
-            val paddingHorz = resources.getDimensionPixelSize(R.dimen.buttonDrawablePadding)
+            // Set left drawable if set
+            if (drawableStartId != ResourcesCompat.ID_NULL) {
+                val paddingHorz = resources.getDimensionPixelSize(R.dimen.buttonDrawablePadding)
 
-            setDrawableLeft(drawableStartId)
-            setPadding(paddingHorz, 0, paddingHorz + compoundDrawables.first().bounds.width(), 0)
+                setDrawableLeft(drawableStartId)
+                setPadding(paddingHorz, 0, paddingHorz + compoundDrawables.first().bounds.width(), 0)
+            }
         }
-        setStyle(buttonStyle)
     }
 
     private inner class ButtonConfig(

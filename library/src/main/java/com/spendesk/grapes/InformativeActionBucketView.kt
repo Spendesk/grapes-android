@@ -51,7 +51,7 @@ open class InformativeActionBucketView : BucketView {
             configuration.titleColor
                 .takeIf { it != ResourcesCompat.ID_NULL }
                 ?.let { actionInformativeTitleText.setTextColor(ContextCompat.getColor(context, it)) }
-            actionInformativeButton.text = configuration.smallButtonText
+            actionInformativeButton.setText(configuration.smallButtonText)
 
             if (configuration.messageInlineStyle != null) {
                 actionInformativeMessageInline.visible()
