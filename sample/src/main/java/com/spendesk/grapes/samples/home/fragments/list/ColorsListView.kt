@@ -9,10 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
  * @author danyboucanova
  * @since 10/03/2022
  */
-class ColorsListView(
-    context: Context,
-    attributeSet: AttributeSet?
-) : RecyclerView(context, attributeSet) {
+class ColorsListView : RecyclerView {
+
+    //region constructors
+
+    constructor(context: Context) : super(context, null)
+    constructor(context: Context, attributeSet: AttributeSet?) : super(context, attributeSet)
+    constructor(context: Context, attributeSet: AttributeSet?, defStyleAttr: Int) : super(context, attributeSet, defStyleAttr)
+
+    //endregion constructors
 
     init {
         layoutManager = LinearLayoutManager(context, VERTICAL, false)

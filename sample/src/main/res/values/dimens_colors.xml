@@ -2,5 +2,5 @@
 <resources>
 
     <dimen name="coverListMarginVertical">@dimen/normalMargin</dimen>
-    <dimen name="coverListMarginHorizontal">@dimen/normalMargin</dimen>
+    <dimen name="coverListMarginHorizontal">@dimen/smallMargin</dimen>
 </resources>

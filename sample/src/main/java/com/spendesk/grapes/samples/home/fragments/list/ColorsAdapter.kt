@@ -4,8 +4,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.spendesk.grapes.samples.R
-import com.spendesk.grapes.samples.components.list.CoverListItemView
 import com.spendesk.grapes.samples.components.SectionTitleTextView
+import com.spendesk.grapes.samples.components.list.CoverListItemView
 
 /**
  * @author danyboucanova
@@ -45,7 +45,7 @@ class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.CoverViewHolder>() {
 
                     layoutParams.setMargins(marginHorz, marginVert, marginHorz, marginVert)
                 }
-                is CoverViewHolder.CoverList -> Unit
+                is CoverViewHolder.CoverList -> Unit // Nothing to do here
             }
             itemView.layoutParams = layoutParams
         }

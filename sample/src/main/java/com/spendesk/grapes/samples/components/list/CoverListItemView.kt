@@ -2,12 +2,15 @@ package com.spendesk.grapes.samples.components.list
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
+import androidx.constraintlayout.widget.ConstraintLayout
+import com.spendesk.grapes.samples.databinding.ViewCoverListBinding
 
 /**
  * @author danyboucanova
  * @since 10/03/2022
  */
-class CoverListItemView : CoverListView {
+class CoverListItemView : ConstraintLayout {
 
     //region constructors
 
@@ -17,15 +20,16 @@ class CoverListItemView : CoverListView {
 
     //endregion constructors
 
-    private val adapter: CoverAdapter
+    private val binding = ViewCoverListBinding.inflate(LayoutInflater.from(context), this, true)
+
+    private val adapter: CoverAdapter = CoverAdapter()
 
     class Configuration(
         val items: List<CoverBlockModel>
     )
 
     init {
-        adapter = CoverAdapter()
-        setAdapter(adapter)
+        binding.coverListView.adapter = adapter
     }
 
     fun updateConfiguration(configuration: Configuration) {
