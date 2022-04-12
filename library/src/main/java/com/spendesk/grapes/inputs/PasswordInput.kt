@@ -59,7 +59,6 @@ class PasswordInput : Input {
                     // Configure the text displayed at the end of the editText, if any
                     with(binding.endTextView) {
                         visibleWithTextOrGone(endText)
-                        text = endText
                         setOnClickListener { onEndTextClicked?.invoke() }
                     }
                 }

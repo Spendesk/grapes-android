@@ -98,7 +98,7 @@ abstract class Input : CardView {
                 setCompoundDrawablesRelativeWithIntrinsicBounds(
                     ContextCompat.getDrawable(context, drawableStart),
                     compoundDrawablesRelative[1],
-                    compoundDrawablesRelative[1],
+                    compoundDrawablesRelative[2],
                     compoundDrawablesRelative[3]
                 )
 
