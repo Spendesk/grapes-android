@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- region InputSearchMain -->
-    <attr name="inputSearchMainStyle" format="enum|reference">
+    <attr name="textInputStyle" format="enum|reference">
         <enum name="primary" value="0" />
         <enum name="secondary" value="1" />
     </attr>
 
-    <declare-styleable name="InputSearchMain">
-        <attr name="inputSearchMainStyle" />
-        <attr name="inputSearchMainClearButton" format="boolean" />
+    <!-- region TextInput -->
+
+    <declare-styleable name="TextInput">
+        <attr name="textInputStyle" />
         <attr name="android:focusable" />
         <attr name="android:hint" />
         <attr name="android:drawableStart" />
     </declare-styleable>
 
-    <!-- endregion InputSearchMain -->
+    <!-- endregion TextInput -->
+
+    <!-- region SearchInput -->
+
+    <declare-styleable name="SearchInput">
+        <attr name="searchInputClearButton" format="boolean" />
+        <attr name="textInputStyle" />
+        <attr name="android:focusable" />
+        <attr name="android:hint" />
+        <attr name="android:drawableStart" />
+    </declare-styleable>
+
+    <!-- endregion SearchInput -->
+
+    <!-- region PasswordInput -->
+
+    <declare-styleable name="PasswordInput">
+        <attr name="passwordInputEndText" format="string" />
+        <attr name="textInputStyle" />
+        <attr name="android:focusable" />
+        <attr name="android:hint" />
+        <attr name="android:drawableStart" />
+    </declare-styleable>
+
+    <!-- endregion PasswordInput -->
+
 </resources>

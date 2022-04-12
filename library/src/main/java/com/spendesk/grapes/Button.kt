@@ -11,11 +11,9 @@ import androidx.annotation.ColorRes
 import androidx.annotation.DimenRes
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.res.ResourcesCompat
-import androidx.core.widget.TextViewCompat
 import com.spendesk.grapes.extensions.colorStateListCompat
 import com.spendesk.grapes.extensions.setDrawableLeft
 import com.spendesk.grapes.extensions.setRippleDrawable
-import java.util.*
 
 /**
  * Implementation of the Grapes Button which handles three different styles: Primary Button, Secondary Button and Alert Button.
@@ -92,6 +90,7 @@ class Button : AppCompatTextView {
             Size.NORMAL -> resources.getDimensionPixelSize(R.dimen.buttonHeight)
             Size.SMALL -> resources.getDimensionPixelSize(R.dimen.buttonSmallHeight)
         }
+
         val desiredWidth = when (size) {
             Size.NORMAL -> MeasureSpec.getSize(widthMeasureSpec)
             Size.SMALL -> {
@@ -121,42 +120,45 @@ class Button : AppCompatTextView {
         when (buttonStyle) {
             Style.PRIMARY ->
                 ButtonConfig(
-                    R.color.buttonPrimaryBackground,
-                    R.color.buttonPrimaryBackgroundPressed,
-                    R.color.buttonPrimaryBackgroundDisabled,
-                    R.color.btn_primary_text,
-                    R.dimen.buttonRadius
+                    colorBackground = R.color.buttonPrimaryBackground,
+                    colorBackgroundPressed = R.color.buttonPrimaryBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonPrimaryBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_primary_text,
+                    radius = R.dimen.buttonRadius
                 )
+
             Style.SECONDARY ->
                 ButtonConfig(
-                    R.color.buttonSecondaryBackground,
-                    R.color.buttonSecondaryBackgroundPressed,
-                    R.color.buttonSecondaryBackgroundDisabled,
-                    R.color.btn_secondary_text,
-                    R.dimen.buttonRadius,
-                    R.dimen.buttonSecondaryBackgroundStroke,
-                    R.color.buttonSecondaryBackgroundStroke
+                    colorBackground = R.color.buttonSecondaryBackground,
+                    colorBackgroundPressed = R.color.buttonSecondaryBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonSecondaryBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_secondary_text,
+                    radius = R.dimen.buttonRadius,
+                    stroke = R.dimen.buttonSecondaryBackgroundStroke,
+                    strokeColor = R.color.buttonSecondaryBackgroundStroke
                 )
+
             Style.ALERT ->
                 ButtonConfig(
-                    R.color.buttonAlertBackground,
-                    R.color.buttonAlertBackgroundPressed,
-                    R.color.buttonAlertBackgroundDisabled,
-                    R.color.btn_alert_text,
-                    R.dimen.buttonRadius,
-                    R.dimen.buttonAlertBackgroundStroke,
-                    R.color.buttonAlertBackgroundStroke
+                    colorBackground = R.color.buttonAlertBackground,
+                    colorBackgroundPressed = R.color.buttonAlertBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonAlertBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_alert_text,
+                    radius = R.dimen.buttonRadius,
+                    stroke = R.dimen.buttonAlertBackgroundStroke,
+                    strokeColor = R.color.buttonAlertBackgroundStroke
                 )
+
             Style.WARNING ->
                 ButtonConfig(
-                    R.color.buttonWarningBackground,
-                    R.color.buttonWarningBackgroundPressed,
-                    R.color.buttonWarningBackgroundDisabled,
-                    R.color.btn_warning_text,
-                    R.dimen.buttonRadius
+                    colorBackground = R.color.buttonWarningBackground,
+                    colorBackgroundPressed = R.color.buttonWarningBackgroundPressed,
+                    colorBackgroundDisabled = R.color.buttonWarningBackgroundDisabled,
+                    contentColorStateListId = R.color.btn_warning_text,
+                    radius = R.dimen.buttonRadius
                 )
         }.let { buttonConfig ->
-            // set background
+            // Set background
             setRippleDrawable(
                 buttonConfig.colorBackground,
                 buttonConfig.colorBackgroundPressed,
@@ -165,12 +167,9 @@ class Button : AppCompatTextView {
                 buttonConfig.stroke,
                 buttonConfig.strokeColor
             )
-            // set color to the text of the button
+
+            // Set color to the text of the button
             setTextColor(context.colorStateListCompat(buttonConfig.contentColorStateListId))
-            // set color to the icon if there is one
-            if (compoundDrawables.isNotEmpty()) {
-                TextViewCompat.setCompoundDrawableTintList(this, context.colorStateListCompat(buttonConfig.contentColorStateListId))
-            }
         }
     }
 
@@ -183,34 +182,42 @@ class Button : AppCompatTextView {
                 drawableStartId = getResourceId(R.styleable.Button_android_drawableStart, TypedValue.TYPE_NULL),
                 buttonStyle = Style.fromPosition(getInt(R.styleable.Button_grapesButtonStyle, Style.getDefault().position))
             )
+
             recycle()
         }
     }
 
     private fun setupView(textId: Int, drawableStartId: Int, buttonStyle: Style) {
+        // Set basic properties
         includeFontPadding = false
         ellipsize = TextUtils.TruncateAt.MARQUEE
-        setSingleLine()
-
-        if (!isInEditMode) setTypeface(ResourcesCompat.getFont(context, R.font.gt_america_bold), Typeface.NORMAL)
-        val buttonTextSize = when (size) {
-            Size.SMALL -> resources.getDimensionPixelOffset(R.dimen.buttonSmallTextSize).toFloat()
-            Size.NORMAL -> resources.getDimensionPixelOffset(R.dimen.buttonNormalTextSize).toFloat()
-        }
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, buttonTextSize)
-
         gravity = Gravity.CENTER
         isClickable = true
         isFocusable = true
         isAllCaps = false
+        setSingleLine()
 
+        // Set text font
+        if (!isInEditMode) setTypeface(ResourcesCompat.getFont(context, R.font.gt_america_bold), Typeface.NORMAL)
+
+        // Set text size
+        when (size) {
+            Size.SMALL -> R.dimen.buttonSmallTextSize
+            Size.NORMAL -> R.dimen.buttonNormalTextSize
+        }.let { buttonTextSizeResId -> setTextSize(TypedValue.COMPLEX_UNIT_PX, resources.getDimensionPixelOffset(buttonTextSizeResId).toFloat()) }
+
+        // Set text
         if (textId != ResourcesCompat.ID_NULL) setText(textId)
+
+        // Set left drawable
         if (drawableStartId != ResourcesCompat.ID_NULL) {
             val paddingHorz = resources.getDimensionPixelSize(R.dimen.buttonDrawablePadding)
 
             setDrawableLeft(drawableStartId)
             setPadding(paddingHorz, 0, paddingHorz + compoundDrawables.first().bounds.width(), 0)
         }
+
+        // Set style
         setStyle(buttonStyle)
     }
 
