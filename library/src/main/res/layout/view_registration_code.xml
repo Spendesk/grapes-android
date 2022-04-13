@@ -9,13 +9,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/registrationCodeContainer"
         android:layout_width="match_parent"
-        android:focusable="true"
-        android:clickable="true"
         android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
         app:layout_constraintBottom_toBottomOf="@+id/registrationCodeSecondText"
         app:layout_constraintTop_toBottomOf="@+id/registrationCodeSecondText">
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <EditText
             android:id="@+id/registrationCodeFirstText"
             style="@style/RegistrationCodeViewText"
             android:layout_width="0dp"
@@ -40,7 +40,7 @@
             app:layout_constraintStart_toEndOf="@+id/registrationCodeFirstText"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <EditText
             android:id="@+id/registrationCodeSecondText"
             style="@style/RegistrationCodeViewText"
             android:layout_width="0dp"
@@ -64,7 +64,7 @@
             app:layout_constraintStart_toEndOf="@+id/registrationCodeSecondText"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatEditText
+        <EditText
             android:id="@+id/registrationCodeThirdText"
             style="@style/RegistrationCodeViewText"
             android:layout_width="0dp"

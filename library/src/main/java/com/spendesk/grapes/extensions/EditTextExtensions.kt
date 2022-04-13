@@ -4,7 +4,6 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.widget.EditText
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
 import com.spendesk.grapes.R
@@ -16,7 +15,7 @@ import kotlin.concurrent.schedule
  * @since 17/06/2021
  */
 
-internal fun AppCompatEditText.setupClearButtonWithAction() {
+internal fun EditText.setupClearButtonWithAction() {
     val drawable = ContextCompat.getDrawable(context, R.drawable.ic_clear_round)
 
     doAfterTextChanged { editable ->

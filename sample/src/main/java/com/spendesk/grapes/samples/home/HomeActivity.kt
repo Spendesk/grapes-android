@@ -5,7 +5,7 @@ import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.appcompat.widget.SwitchCompat
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.tabs.TabLayoutMediator
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.extensions.disposedBy
@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_home, menu)
 
-        with(menu?.findItem(R.id.menuHomeSwitchTheme)?.actionView as SwitchCompat) {
+        with(menu?.findItem(R.id.menuHomeSwitchTheme)?.actionView as SwitchMaterial) {
             isChecked = isDarkThemeOn()
 
             setOnCheckedChangeListener { buttonView, isChecked ->

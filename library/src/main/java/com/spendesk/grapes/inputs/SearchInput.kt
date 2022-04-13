@@ -3,8 +3,8 @@ package com.spendesk.grapes.inputs
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.EditText
 import android.widget.ProgressBar
-import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SearchInputBinding
@@ -38,7 +38,7 @@ class SearchInput : Input {
 
     private val binding = SearchInputBinding.inflate(LayoutInflater.from(context), this, true)
 
-    override fun getEditText(): AppCompatEditText = binding.editText
+    override fun getEditText(): EditText = binding.editText
 
     /**
      * Whether or not the horizontal [ProgressBar] displayed below the editText is shown.

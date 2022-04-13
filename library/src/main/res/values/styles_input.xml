@@ -21,7 +21,7 @@
 
     <!-- region SearchInput -->
 
-    <style name="SearchInputProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+    <style name="SearchInputProgressBar" parent="@style/Widget.MaterialComponents.LinearProgressIndicator">
         <item name="android:indeterminate">true</item>
         <item name="android:visibility">invisible</item>
     </style>

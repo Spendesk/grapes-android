@@ -7,9 +7,9 @@ import android.util.TypedValue
 import android.view.Gravity
 import androidx.annotation.DimenRes
 import androidx.annotation.DrawableRes
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.textview.MaterialTextView
 import com.spendesk.grapes.R
 
 /**
@@ -17,7 +17,7 @@ import com.spendesk.grapes.R
  * @since 2020-01-22
  */
 @Deprecated("This component is deprecated. Please use the newer one MessageInlineView")
-class InfoTipView : AppCompatTextView {
+class InfoTipView : MaterialTextView {
 
     // region constructor
 
