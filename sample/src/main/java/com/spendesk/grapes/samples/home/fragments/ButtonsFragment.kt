@@ -22,6 +22,10 @@ class ButtonsFragment : Fragment(R.layout.fragment_home_buttons) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.buttons)
+        with(binding) {
+            homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.buttons)
+
+            homeButtonSectionPrimaryProgressButton.updateLoaderProgress(progress = 50)
+        }
     }
 }

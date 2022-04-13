@@ -37,7 +37,6 @@
     <dimen name="buttonSmallHeight">32dp</dimen>
     <dimen name="buttonSmallPaddingStart">@dimen/bigMargin</dimen>
     <dimen name="buttonSmallPaddingEnd">@dimen/bigMargin</dimen>
-
     <dimen name="buttonNormalTextSize">16sp</dimen>
     <dimen name="buttonSmallTextSize">14sp</dimen>
     <dimen name="buttonPaddingVert">12dp</dimen>
@@ -47,6 +46,8 @@
     <dimen name="buttonRadius">8dp</dimen>
     <dimen name="buttonSecondaryBackgroundStroke">1dp</dimen>
     <dimen name="buttonAlertBackgroundStroke">1dp</dimen>
+    <dimen name="buttonHorizontalProgressBarRadius">18dp</dimen>
+    <dimen name="buttonCircularProgressBarMarginHorz">@dimen/smallMargin</dimen>
     <!-- endregion Button -->
 
     <!-- region BadgeView -->

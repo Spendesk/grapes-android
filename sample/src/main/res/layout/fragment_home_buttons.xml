@@ -75,6 +75,34 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionPrimaryProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionPrimaryProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionPrimaryDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -85,7 +113,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionPrimaryDisabledButton"

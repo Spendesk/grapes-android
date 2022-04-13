@@ -1,21 +1,17 @@
 package com.spendesk.grapes
 
 import android.content.Context
-import android.graphics.Rect
+import android.graphics.Color
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
-import androidx.annotation.ColorRes
-import androidx.annotation.DimenRes
+import androidx.annotation.*
 import androidx.annotation.IntRange
-import androidx.annotation.StringRes
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.TextViewCompat
 import com.spendesk.grapes.databinding.ButtonBinding
-import com.spendesk.grapes.extensions.colorStateListCompat
-import com.spendesk.grapes.extensions.setDrawableLeft
-import com.spendesk.grapes.extensions.setRippleDrawable
+import com.spendesk.grapes.extensions.*
 
 /**
  * Implementation of the Grapes Button which handles three different styles: Primary Button, Secondary Button and Alert Button.
@@ -23,7 +19,7 @@ import com.spendesk.grapes.extensions.setRippleDrawable
  * @author danyboucanova
  * @since 10/09/2020
  */
-class Button : ConstraintLayout {
+class Button : CardView {
 
     // region constructors
 
@@ -103,7 +99,6 @@ class Button : ConstraintLayout {
     }
 
     private lateinit var size: Size
-    private val bounds = Rect()
 
     private var binding = ButtonBinding.inflate(LayoutInflater.from(context), this)
 
@@ -133,6 +128,7 @@ class Button : ConstraintLayout {
         super.setEnabled(enabled)
 
         binding.text.isEnabled = enabled
+        binding.container.isEnabled = enabled
     }
 
     fun updateConfiguration(configuration: Configuration) {
@@ -162,7 +158,7 @@ class Button : ConstraintLayout {
                     colorBackground = R.color.buttonPrimaryBackground,
                     colorBackgroundPressed = R.color.buttonPrimaryBackgroundPressed,
                     colorBackgroundDisabled = R.color.buttonPrimaryBackgroundDisabled,
-                    contentColorStateListId = R.color.btn_primary_text,
+                    contentTextColorStateList = R.color.btn_primary_text,
                     radius = R.dimen.buttonRadius
                 )
 
@@ -171,7 +167,7 @@ class Button : ConstraintLayout {
                     colorBackground = R.color.buttonSecondaryBackground,
                     colorBackgroundPressed = R.color.buttonSecondaryBackgroundPressed,
                     colorBackgroundDisabled = R.color.buttonSecondaryBackgroundDisabled,
-                    contentColorStateListId = R.color.btn_secondary_text,
+                    contentTextColorStateList = R.color.btn_secondary_text,
                     radius = R.dimen.buttonRadius,
                     stroke = R.dimen.buttonSecondaryBackgroundStroke,
                     strokeColor = R.color.buttonSecondaryBackgroundStroke
@@ -182,7 +178,7 @@ class Button : ConstraintLayout {
                     colorBackground = R.color.buttonAlertBackground,
                     colorBackgroundPressed = R.color.buttonAlertBackgroundPressed,
                     colorBackgroundDisabled = R.color.buttonAlertBackgroundDisabled,
-                    contentColorStateListId = R.color.btn_alert_text,
+                    contentTextColorStateList = R.color.btn_alert_text,
                     radius = R.dimen.buttonRadius,
                     stroke = R.dimen.buttonAlertBackgroundStroke,
                     strokeColor = R.color.buttonAlertBackgroundStroke
@@ -193,26 +189,40 @@ class Button : ConstraintLayout {
                     colorBackground = R.color.buttonWarningBackground,
                     colorBackgroundPressed = R.color.buttonWarningBackgroundPressed,
                     colorBackgroundDisabled = R.color.buttonWarningBackgroundDisabled,
-                    contentColorStateListId = R.color.btn_warning_text,
+                    contentTextColorStateList = R.color.btn_warning_text,
                     radius = R.dimen.buttonRadius
                 )
         }.let { buttonConfig ->
+            radius = resources.getDimension(buttonConfig.radius)
+            cardElevation = 0f
+
             // Set background
-            setRippleDrawable(
-                buttonConfig.colorBackground,
-                buttonConfig.colorBackgroundPressed,
-                buttonConfig.colorBackgroundDisabled,
-                buttonConfig.radius,
-                buttonConfig.stroke,
-                buttonConfig.strokeColor
+            binding.container.setRippleDrawable(
+                colorId = buttonConfig.colorBackground,
+                colorPressedId = buttonConfig.colorBackgroundPressed,
+                colorDisableId = buttonConfig.colorBackgroundDisabled,
+                radiusId = buttonConfig.radius,
+                strokeId = buttonConfig.stroke,
+                strokeColorId = buttonConfig.strokeColor
             )
 
             // Set color to the text of the button
-            binding.text.setTextColor(context.colorStateListCompat(buttonConfig.contentColorStateListId))
+            binding.text.setTextColor(context.colorStateListCompat(buttonConfig.contentTextColorStateList))
 
             // Set color to the icon if there is one
             if (binding.text.compoundDrawables.isNotEmpty()) {
-                TextViewCompat.setCompoundDrawableTintList(binding.text, context.colorStateListCompat(buttonConfig.contentColorStateListId))
+                TextViewCompat.setCompoundDrawableTintList(binding.text, context.colorStateListCompat(buttonConfig.contentTextColorStateList))
+            }
+
+            // Set color to the horizontal progress bar
+            with(binding.horizontalProgressBar) {
+                setIndicatorColor(context.colorCompat(buttonConfig.colorBackgroundPressed))
+                trackColor = Color.TRANSPARENT
+                trackCornerRadius = resources.getDimensionPixelSize(R.dimen.bigMargin)
+                trackThickness = when (size) {
+                    Size.NORMAL -> resources.getDimensionPixelSize(R.dimen.buttonHeight)
+                    Size.SMALL -> resources.getDimensionPixelSize(R.dimen.buttonSmallHeight)
+                }
             }
         }
     }
@@ -224,8 +234,23 @@ class Button : ConstraintLayout {
      * - [LoaderType.NONE] will remove any loader.
      */
     fun setLoaderType(loaderType: LoaderType) {
-        when (loaderType) {
+        with(binding) {
+            when (loaderType) {
+                LoaderType.HORIZONTAL -> {
+                    horizontalProgressBar.visible()
+                    circularProgressBar.gone()
+                }
 
+                LoaderType.CIRCULAR -> {
+                    horizontalProgressBar.gone()
+                    circularProgressBar.visible()
+                }
+
+                LoaderType.NONE -> {
+                    horizontalProgressBar.gone()
+                    circularProgressBar.gone()
+                }
+            }
         }
     }
 
@@ -235,7 +260,7 @@ class Button : ConstraintLayout {
      * @param progress Value of the progress bar within the range 0 to 100.
      */
     fun updateLoaderProgress(@IntRange(from = 0, to = 100) progress: Int) {
-
+        binding.horizontalProgressBar.setProgressCompat(progress, true)
     }
 
     private fun setupView(attributeSet: AttributeSet?) {
@@ -280,7 +305,7 @@ class Button : ConstraintLayout {
         @ColorRes val colorBackground: Int,
         @ColorRes val colorBackgroundPressed: Int,
         @ColorRes val colorBackgroundDisabled: Int,
-        @ColorRes val contentColorStateListId: Int,
+        @ColorRes val contentTextColorStateList: Int,
         @DimenRes val radius: Int = 0,
         @DimenRes val stroke: Int = 0,
         @ColorRes val strokeColor: Int = 0

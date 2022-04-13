@@ -4,17 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+    tools:parentTag="androidx.cardview.widget.CardView">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text"
-        style="@style/ButtonText"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="This is a button" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/horizontalProgressBar"
+            style="@style/ButtonHorizontalProgressBar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="30"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text"
+            style="@style/ButtonText"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:drawableStart="@drawable/ic_crop"
+            tools:layout_height="48dp"
+            tools:text="This is a button aoeij oeijf zeofij dzofijsd foisdj fodisj foidj ofidj" />
+
+        <ProgressBar
+            android:id="@+id/circularProgressBar"
+            style="@style/ButtonCircularProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/buttonCircularProgressBarMarginHorz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:progress="30"
+            tools:visibility="visible" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>
