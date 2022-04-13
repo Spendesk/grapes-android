@@ -40,13 +40,12 @@
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/actionInformativeButton"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/actionInformativeTitleText"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Subtitle"
-            tools:visibility="gone" />
+            tools:visibility="visible" />
 
         <com.spendesk.grapes.messages.MessageInlineView
             android:id="@+id/actionInformativeMessageInline"

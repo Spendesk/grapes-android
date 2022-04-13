@@ -2,6 +2,7 @@ package com.spendesk.grapes
 
 import android.content.Context
 import android.graphics.Color
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -99,6 +100,7 @@ class Button : MaterialCardView {
     }
 
     private lateinit var size: Size
+    private val bounds = Rect()
 
     private var binding = ButtonBinding.inflate(LayoutInflater.from(context), this)
 
@@ -110,7 +112,13 @@ class Button : MaterialCardView {
      * Set the button's height according to its [Size].
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val desiredWidth = MeasureSpec.getSize(widthMeasureSpec)
+        val desiredWidth = when (size) {
+            Size.NORMAL -> MeasureSpec.getSize(widthMeasureSpec)
+            Size.SMALL -> {
+                binding.text.paint.getTextBounds(binding.text.toString(), 0, binding.text.text.length, bounds)
+                resources.getDimensionPixelSize(R.dimen.buttonSmallPaddingStart) + bounds.width() + resources.getDimensionPixelSize(R.dimen.buttonSmallPaddingEnd)
+            }
+        }
 
         val desiredHeight = when (size) {
             Size.NORMAL -> resources.getDimensionPixelSize(R.dimen.buttonHeight)
