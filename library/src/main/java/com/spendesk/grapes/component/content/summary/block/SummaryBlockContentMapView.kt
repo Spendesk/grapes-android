@@ -65,7 +65,7 @@ class SummaryBlockContentMapView : SummaryBlockView {
 
             if (shouldDisplayViewMoreButton()) {
                 summaryBlockContentViewMoreButton.visible()
-                summaryBlockContentViewMoreButton.text = buttonCollapsedText
+                updateViewMoreButton(text = buttonCollapsedText)
             } else {
                 summaryBlockContentMapList.visible()
             }
@@ -98,16 +98,20 @@ class SummaryBlockContentMapView : SummaryBlockView {
                 when {
                     summaryBlockContentMapList.isVisible -> {
                         summaryBlockContentMapList.gone()
-                        summaryBlockContentViewMoreButton.text = buttonCollapsedText
+                        updateViewMoreButton(text = buttonCollapsedText)
                     }
 
                     summaryBlockContentMapList.isVisible.not() -> {
                         summaryBlockContentMapList.visible()
-                        summaryBlockContentViewMoreButton.text = buttonExpandedText
+                        updateViewMoreButton(text = buttonExpandedText)
                     }
                 }
             }
         }
+    }
+
+    private fun updateViewMoreButton(text: CharSequence?) {
+        text?.let { binding.summaryBlockContentViewMoreButton.setText(it) }
     }
 
     private fun shouldDisplayViewMoreButton() = buttonCollapsedText != null && buttonExpandedText != null

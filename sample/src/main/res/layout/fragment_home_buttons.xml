@@ -75,6 +75,61 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionPrimaryHorizontalProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionPrimaryHorizontalProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryHorizontalProgressSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeButtonSectionPrimaryCircularProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryHorizontalProgressButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionPrimaryCircularProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryCircularProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionPrimaryDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -85,7 +140,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryCircularProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionPrimaryDisabledButton"
@@ -165,6 +220,64 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionPrimaryWithIconHorizontalProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionPrimaryWithIconHorizontalProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:drawableStart="@drawable/ic_crop"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconHorizontalProgressSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeButtonSectionPrimaryWithIconCircularProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconHorizontalProgressButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionPrimaryWithIconCircularProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:drawableStart="@drawable/ic_crop"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="circular"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="primary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconCircularProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionPrimaryWithIconDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -175,7 +288,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionPrimaryWithIconCircularProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionPrimaryWithIconDisabledButton"
@@ -255,6 +368,62 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionSecondaryHorizontalProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionSecondaryHorizontalProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryHorizontalProgressSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeButtonSectionSecondaryCircularProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryHorizontalProgressButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionSecondaryCircularProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="circular"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryCircularProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionSecondaryDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -265,7 +434,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryCircularProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionSecondaryDisabledButton"
@@ -345,6 +514,64 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionSecondaryWithIconHorizontalProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionSecondaryWithIconHorizontalProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:drawableStart="@drawable/ic_crop"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconHorizontalProgressSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeButtonSectionSecondaryWithIconCircularProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconHorizontalProgressButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionSecondaryWithIconCircularProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:drawableStart="@drawable/ic_crop"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="circular"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="secondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconCircularProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionSecondaryWithIconDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -355,7 +582,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionSecondaryWithIconCircularProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionSecondaryWithIconDisabledButton"
@@ -435,6 +662,62 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionAlertHorizontalProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionAlertHorizontalProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="alert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertHorizontalProgressSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeButtonSectionAlertCircularProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertHorizontalProgressButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionAlertCircularProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="circular"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="alert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertCircularProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionAlertDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -445,7 +728,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionAlertCircularProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionAlertDisabledButton"
@@ -526,6 +809,62 @@
                     app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningNormalSubtitle" />
 
                 <TextView
+                    android:id="@+id/homeButtonSectionWarningHorizontalProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressHorizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningNormalButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionWarningHorizontalProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="horizontal"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="warning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningHorizontalProgressSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeButtonSectionWarningCircularProgressSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/buttonProgressCircular"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningHorizontalProgressButton" />
+
+                <com.spendesk.grapes.Button
+                    android:id="@+id/homeButtonSectionWarningCircularProgressButton"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
+                    android:text="@string/stubButton"
+                    app:grapesButtonLoaderType="circular"
+                    app:grapesButtonSize="normal"
+                    app:grapesButtonStyle="warning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningCircularProgressSubtitle" />
+
+                <TextView
                     android:id="@+id/homeButtonSectionWarningDisabledSubtitle"
                     style="@style/HomeGenericSubtitle"
                     android:layout_width="0dp"
@@ -536,7 +875,7 @@
                     android:text="@string/buttonDisabled"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningNormalButton" />
+                    app:layout_constraintTop_toBottomOf="@id/homeButtonSectionWarningCircularProgressButton" />
 
                 <com.spendesk.grapes.Button
                     android:id="@+id/homeButtonSectionWarningDisabledButton"

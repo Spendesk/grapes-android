@@ -5,9 +5,11 @@
     <attr name="subtitle" format="string" />
 
     <!-- region Button -->
+
     <declare-styleable name="Button">
         <attr name="android:text" />
         <attr name="android:drawableStart" />
+        <attr name="android:enabled" />
         <attr name="grapesButtonStyle" format="enum|reference">
             <enum name="primary" value="0" />
             <enum name="secondary" value="1" />
@@ -18,7 +20,12 @@
             <enum name="normal" value="0" />
             <enum name="small" value="1" />
         </attr>
+        <attr name="grapesButtonLoaderType" format="enum|reference">
+            <enum name="horizontal" value="0" />
+            <enum name="circular" value="1" />
+        </attr>
     </declare-styleable>
+
     <!-- endregion Button -->
 
 </resources>
