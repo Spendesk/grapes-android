@@ -46,7 +46,6 @@
     <dimen name="buttonRadius">8dp</dimen>
     <dimen name="buttonSecondaryBackgroundStroke">1dp</dimen>
     <dimen name="buttonAlertBackgroundStroke">1dp</dimen>
-    <dimen name="buttonHorizontalProgressBarRadius">18dp</dimen>
     <dimen name="buttonCircularProgressBarMarginHorz">@dimen/smallMargin</dimen>
     <dimen name="buttonCircularProgressBarThickness">2dp</dimen>
     <!-- endregion Button -->

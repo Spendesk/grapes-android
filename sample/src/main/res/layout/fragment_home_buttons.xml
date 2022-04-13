@@ -123,7 +123,6 @@
                     android:layout_marginTop="@dimen/homeSectionComponentMarginVert"
                     android:layout_marginEnd="@dimen/homeSectionComponentMarginHorz"
                     android:text="@string/stubButton"
-                    app:grapesButtonLoaderType="circular"
                     app:grapesButtonSize="normal"
                     app:grapesButtonStyle="primary"
                     app:layout_constraintEnd_toEndOf="parent"

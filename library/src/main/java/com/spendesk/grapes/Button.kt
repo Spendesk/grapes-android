@@ -239,19 +239,22 @@ class Button : CardView {
         with(binding) {
             when (loaderType) {
                 LoaderType.HORIZONTAL -> {
-                    isClickable(isClickable = false)
+                    isClickable(isClickable = false) // The button is not clickable when in loading state
+                    text.visible()
                     horizontalProgressBar.visible()
                     circularProgressBar.gone()
                 }
 
                 LoaderType.CIRCULAR -> {
-                    isClickable(isClickable = false)
+                    isClickable(isClickable = false) // The button is not clickable when in loading state
+                    text.gone() // The text is not visible when showing the circular progress bar
                     horizontalProgressBar.gone()
                     circularProgressBar.visible()
                 }
 
                 LoaderType.NONE -> {
                     isClickable(isClickable = true)
+                    text.visible()
                     horizontalProgressBar.gone()
                     circularProgressBar.gone()
                 }

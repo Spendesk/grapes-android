@@ -100,9 +100,6 @@
     <color name="buttonWarningContent">@color/white</color>
     <color name="buttonWarningContentPressed">@color/white</color>
     <color name="buttonWarningContentDisabled">@color/white</color>
-
-    <color name="buttonHorizontalProgressBackground">@android:color/transparent</color>
-    <color name="buttonHorizontalProgressForeground">#FF000000</color>
     <!-- endregion Button -->
 
     <!-- region Bucket -->
