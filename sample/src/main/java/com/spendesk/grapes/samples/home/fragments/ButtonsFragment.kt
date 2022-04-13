@@ -54,6 +54,12 @@ class ButtonsFragment : Fragment(R.layout.fragment_home_buttons) {
                     }
                 }
             }
+
+            homeButtonSectionPrimaryWithIconHorizontalProgressButton.updateLoaderProgress(progress = 30)
+            homeButtonSectionSecondaryHorizontalProgressButton.updateLoaderProgress(progress = 30)
+            homeButtonSectionSecondaryWithIconHorizontalProgressButton.updateLoaderProgress(progress = 30)
+            homeButtonSectionAlertHorizontalProgressButton.updateLoaderProgress(progress = 30)
+            homeButtonSectionWarningHorizontalProgressButton.updateLoaderProgress(progress = 30)
         }
     }
 }
