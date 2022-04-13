@@ -22,7 +22,7 @@
             tools:progress="30"
             tools:visibility="visible" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/text"
             style="@style/ButtonText"
             android:layout_width="0dp"

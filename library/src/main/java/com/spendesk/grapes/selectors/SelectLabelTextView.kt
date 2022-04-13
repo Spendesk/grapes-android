@@ -3,8 +3,8 @@ package com.spendesk.grapes.selectors
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.Checkable
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
+import com.google.android.material.textview.MaterialTextView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.addRippleEffect
 
@@ -12,7 +12,7 @@ import com.spendesk.grapes.extensions.addRippleEffect
  * @author danyboucanova
  * @since 03/06/2021
  */
-open class SelectLabelTextView : AppCompatTextView, Checkable {
+open class SelectLabelTextView : MaterialTextView, Checkable {
 
     //region constructors
 

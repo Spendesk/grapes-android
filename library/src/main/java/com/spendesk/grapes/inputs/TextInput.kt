@@ -3,14 +3,14 @@ package com.spendesk.grapes.inputs
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.appcompat.widget.AppCompatEditText
+import android.widget.EditText
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.TextInputBinding
 import com.spendesk.grapes.inputs.definition.Input
 
 /**
- * A basic implementation [Input] which only displays an [AppCompatEditText].
+ * A basic implementation [Input] which only displays an [EditText].
  *
  * @author Vivien Mahe
  * @since 04/04/2022
@@ -35,7 +35,7 @@ class TextInput : Input {
 
     private val binding = TextInputBinding.inflate(LayoutInflater.from(context), this, true)
 
-    override fun getEditText(): AppCompatEditText = binding.editText
+    override fun getEditText(): EditText = binding.editText
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {

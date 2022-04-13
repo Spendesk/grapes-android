@@ -4,14 +4,14 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.PorterDuffColorFilter
 import android.util.AttributeSet
-import androidx.appcompat.widget.AppCompatEditText
+import android.widget.EditText
 import androidx.cardview.widget.CardView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 
 /**
- * Definition of an Input field within Grapes Design System, which ensure the presence of an [AppCompatEditText] and its basic configuration.
+ * Definition of an Input field within Grapes Design System, which ensure the presence of an [EditText] and its basic configuration.
  *
  * @author Vivien Mahe
  * @since 06/04/2022
@@ -50,9 +50,9 @@ abstract class Input : CardView {
     }
 
     /**
-     * Subclasses must override this method and provide the [AppCompatEditText] present in the layout to build this [Input].
+     * Subclasses must override this method and provide the [EditText] present in the layout to build this [Input].
      */
-    abstract fun getEditText(): AppCompatEditText
+    abstract fun getEditText(): EditText
 
     /**
      * Returns the text value within the editText of this input.
@@ -87,7 +87,7 @@ abstract class Input : CardView {
      * @param style The style to be applied to this editText.
      * @param extraConfiguration An instruction block that can be applied (if any) to this editText to allow some extra configuration.
      */
-    open fun configureEditText(focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style, extraConfiguration: ((editText: AppCompatEditText) -> Unit)? = null) {
+    open fun configureEditText(focusable: Boolean, hint: String? = null, drawableStart: Int, style: Style, extraConfiguration: ((editText: EditText) -> Unit)? = null) {
         with(getEditText()) {
             // Set basic properties
             this.isFocusable = focusable

@@ -6,6 +6,6 @@
         android:id="@+id/menuHomeSwitchTheme"
         android:checkable="true"
         android:title="switch to dark theme"
-        app:actionViewClass="androidx.appcompat.widget.SwitchCompat"
+        app:actionViewClass="com.google.android.material.switchmaterial.SwitchMaterial"
         app:showAsAction="always" />
 </menu>

@@ -3,7 +3,7 @@ package com.spendesk.grapes.inputs
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import androidx.appcompat.widget.AppCompatEditText
+import android.widget.EditText
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.PasswordInputBinding
@@ -42,7 +42,7 @@ class PasswordInput : Input {
 
     private val binding = PasswordInputBinding.inflate(LayoutInflater.from(context), this, true)
 
-    override fun getEditText(): AppCompatEditText = binding.editText
+    override fun getEditText(): EditText = binding.editText
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
