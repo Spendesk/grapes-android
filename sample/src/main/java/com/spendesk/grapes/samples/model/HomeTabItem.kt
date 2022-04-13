@@ -13,6 +13,9 @@ sealed class HomeTabItem : Parcelable {
     object Colors : HomeTabItem()
 
     @Parcelize
+    object Fonts : HomeTabItem()
+
+    @Parcelize
     object Buttons : HomeTabItem()
 
     @Parcelize

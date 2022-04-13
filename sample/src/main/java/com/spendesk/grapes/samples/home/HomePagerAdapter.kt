@@ -19,6 +19,7 @@ class HomePagerAdapter(
     override fun createFragment(position: Int): Fragment =
         when (val item = itemList[position]) {
             is HomeTabItem.Colors -> ColorsFragment.newInstance()
+            is HomeTabItem.Fonts -> FontsFragment.newInstance()
             is HomeTabItem.Buttons -> ButtonsFragment.newInstance()
             is HomeTabItem.Cards -> CardsFragment.newInstance()
             is HomeTabItem.Selectors -> SelectorFragment.newInstance()
