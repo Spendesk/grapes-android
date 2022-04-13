@@ -7,9 +7,9 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import androidx.annotation.*
 import androidx.annotation.IntRange
-import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.widget.TextViewCompat
+import com.google.android.material.card.MaterialCardView
 import com.spendesk.grapes.databinding.ButtonBinding
 import com.spendesk.grapes.extensions.*
 
@@ -19,7 +19,7 @@ import com.spendesk.grapes.extensions.*
  * @author danyboucanova
  * @since 10/09/2020
  */
-class Button : CardView {
+class Button : MaterialCardView {
 
     // region constructors
 
@@ -192,6 +192,9 @@ class Button : CardView {
                     radius = R.dimen.buttonRadius
                 )
         }.let { buttonConfig ->
+            // Set cardView properties
+            strokeWidth = if (buttonConfig.stroke != 0) resources.getDimensionPixelOffset(buttonConfig.stroke) else 0
+            strokeColor = if (buttonConfig.strokeColor != 0) context.colorCompat(buttonConfig.strokeColor) else 0
             radius = resources.getDimension(buttonConfig.radius)
             cardElevation = 0f
 
