@@ -36,17 +36,17 @@
             tools:layout_height="48dp"
             tools:text="This is a button aoeij oeijf zeofij dzofijsd foisdj fodisj foidj ofidj" />
 
-        <ProgressBar
+        <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circularProgressBar"
             style="@style/ButtonCircularProgressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/buttonCircularProgressBarMarginHorz"
+            android:layout_marginEnd="@dimen/buttonCircularProgressBarMarginHorz"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/text"
             app:layout_constraintTop_toTopOf="parent"
-            tools:progress="30"
             tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

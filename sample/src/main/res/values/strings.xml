@@ -16,6 +16,7 @@
     <!-- Buttons -->
     <string name="buttonNormal" translatable="false">Normal</string>
     <string name="buttonProgressHorizontal" translatable="false">Horizontal loading</string>
+    <string name="buttonProgressCircular" translatable="false">Circular loading</string>
     <string name="buttonDisabled" translatable="false">Disabled</string>
     <string name="buttonPrimary" translatable="false">Primary</string>
     <string name="buttonPrimaryWithIcon" translatable="false">Primary with icon</string>

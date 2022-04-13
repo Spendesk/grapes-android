@@ -103,8 +103,7 @@ class Button : CardView {
     private var binding = ButtonBinding.inflate(LayoutInflater.from(context), this)
 
     init {
-        isClickable = true
-        isFocusable = true
+        isClickable(isClickable = true)
     }
 
     /**
@@ -224,6 +223,9 @@ class Button : CardView {
                     Size.SMALL -> resources.getDimensionPixelSize(R.dimen.buttonSmallHeight)
                 }
             }
+
+            // Set color to the circular progress bar
+            binding.circularProgressBar.setIndicatorColor(context.colorCompat(buttonConfig.contentTextColorStateList))
         }
     }
 
@@ -237,16 +239,19 @@ class Button : CardView {
         with(binding) {
             when (loaderType) {
                 LoaderType.HORIZONTAL -> {
+                    isClickable(isClickable = false)
                     horizontalProgressBar.visible()
                     circularProgressBar.gone()
                 }
 
                 LoaderType.CIRCULAR -> {
+                    isClickable(isClickable = false)
                     horizontalProgressBar.gone()
                     circularProgressBar.visible()
                 }
 
                 LoaderType.NONE -> {
+                    isClickable(isClickable = true)
                     horizontalProgressBar.gone()
                     circularProgressBar.gone()
                 }
@@ -299,6 +304,11 @@ class Button : CardView {
                 setPadding(paddingHorz, 0, paddingHorz + compoundDrawables.first().bounds.width(), 0)
             }
         }
+    }
+
+    private fun isClickable(isClickable: Boolean) {
+        this.isClickable = isClickable
+        this.isFocusable = isClickable
     }
 
     private inner class ButtonConfig(

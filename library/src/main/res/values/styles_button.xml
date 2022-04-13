@@ -16,14 +16,11 @@
         <item name="android:max">100</item>
     </style>
 
-    <style name="ButtonCircularProgressBar" parent="@style/Widget.AppCompat.ProgressBar">
+    <style name="ButtonCircularProgressBar">
         <item name="android:visibility">gone</item>
         <item name="android:indeterminate">true</item>
-        <item name="android:background">@android:color/transparent</item>
-        <item name="android:minWidth">@dimen/normalMargin</item>
-        <item name="android:maxWidth">@dimen/normalMargin</item>
-        <item name="android:minHeight">@dimen/normalMargin</item>
-        <item name="android:maxHeight">@dimen/normalMargin</item>
+        <item name="trackThickness">@dimen/buttonCircularProgressBarThickness</item>
+        <item name="indicatorSize">@dimen/normalMargin</item>
     </style>
 
 </resources>
