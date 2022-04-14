@@ -2,11 +2,11 @@
 <resources>
 
     <dimen name="bottomSheetVerticalMargin">@dimen/smallMargin</dimen>
+    <dimen name="bottomSheetVerticalPadding">@dimen/smallMargin</dimen>
     <dimen name="bottomSheetPullViewWidth">24dp</dimen>
     <dimen name="bottomSheetPullViewHeight">4dp</dimen>
     <dimen name="bottomSheetHeaderTitle">16sp</dimen>
     <dimen name="bottomSheetListMarginTop">@dimen/smallMargin</dimen>
     <dimen name="bottomSheetContentMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="bottomSheetContentMarginVert">@dimen/normalMargin</dimen>
-
 </resources>

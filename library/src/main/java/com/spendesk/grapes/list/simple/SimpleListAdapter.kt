@@ -21,6 +21,13 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
 
     private val listItems: MutableList<SimpleListModel> = ArrayList()
 
+    fun updateList(items: List<SimpleListModel>) {
+        listItems.clear()
+        listItems.addAll(items)
+
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleListAdapterViewHolder =
         when (SimpleListViewType.values()[viewType]) {
             SimpleListViewType.ITEM -> SimpleListAdapterViewHolder.Entry(SimpleEntryItemView(parent.context))
@@ -49,13 +56,6 @@ class SimpleListAdapter : RecyclerView.Adapter<SimpleListAdapter.SimpleListAdapt
     override fun getItemCount(): Int = listItems.size
 
     override fun getItemViewType(position: Int): Int = getViewTypeAtPosition(position).ordinal
-
-    fun updateList(items: List<SimpleListModel>) {
-        listItems.clear()
-        listItems.addAll(items)
-
-        notifyDataSetChanged()
-    }
 
     private fun getViewTypeAtPosition(position: Int): SimpleListViewType = listItems[position].viewType
 }
