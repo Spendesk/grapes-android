@@ -7,11 +7,11 @@ import android.util.TypedValue
 import android.view.Gravity
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.graphics.drawable.toBitmap
 import androidx.core.graphics.drawable.toDrawable
+import com.google.android.material.textview.MaterialTextView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.setDrawable
 import com.spendesk.grapes.extensions.setDrawableLeft
@@ -21,7 +21,7 @@ import com.spendesk.grapes.extensions.setDrawableLeft
  * @author danyboucanova
  * @since 26/10/2020
  */
-class MessageInlineView : AppCompatTextView {
+class MessageInlineView : MaterialTextView {
 
     //region constructors
 

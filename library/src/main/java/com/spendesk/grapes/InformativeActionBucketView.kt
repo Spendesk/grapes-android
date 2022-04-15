@@ -3,8 +3,14 @@ package com.spendesk.grapes
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.TextView
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.databinding.BucketActionInformativeBinding
 import com.spendesk.grapes.extensions.gone
+import com.spendesk.grapes.extensions.removeDrawables
+import com.spendesk.grapes.extensions.setDrawableLeft
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.messages.MessageInlineView
 
@@ -12,7 +18,7 @@ import com.spendesk.grapes.messages.MessageInlineView
  * @author danyboucanova
  * @since 27/10/2020
  */
-class InformativeActionBucketView : BucketView {
+open class InformativeActionBucketView : BucketView {
 
     //region constructors
 
@@ -32,30 +38,44 @@ class InformativeActionBucketView : BucketView {
 
     data class Configuration(
         val title: CharSequence,
-        val smallButtonText: CharSequence,
+        @ColorRes val titleColor: Int = ResourcesCompat.ID_NULL,
         val subtitleText: CharSequence,
-        val shouldShowChip: Boolean,
-        val messageContent: MessageInlineView.Style? = null
+        @ColorRes val subtitleColor: Int = ResourcesCompat.ID_NULL,
+        val smallButtonText: CharSequence,
+        val messageInlineStyle: MessageInlineView.Style? = null
     )
 
-    fun updateData(configuration: Configuration) {
+    fun updateConfiguration(configuration: Configuration) {
         with(binding) {
             actionInformativeTitleText.text = configuration.title
-            actionInformativeButton.text = configuration.smallButtonText
+            configuration.titleColor
+                .takeIf { it != ResourcesCompat.ID_NULL }
+                ?.let { actionInformativeTitleText.setTextColor(ContextCompat.getColor(context, it)) }
+            actionInformativeButton.setText(configuration.smallButtonText)
 
-            if (configuration.shouldShowChip) {
-                actionInformativeMessage.visible()
+            if (configuration.messageInlineStyle != null) {
+                actionInformativeMessageInline.visible()
                 actionInformativeSubtitleText.gone()
-                configuration.messageContent?.let { actionInformativeMessage.updateConfiguration(configuration = MessageInlineView.Configuration(it, configuration.subtitleText)) }
+                actionInformativeMessageInline.updateConfiguration(configuration = MessageInlineView.Configuration(configuration.messageInlineStyle, configuration.subtitleText))
             } else {
-                actionInformativeMessage.gone()
+                actionInformativeMessageInline.gone()
                 actionInformativeSubtitleText.visible()
                 actionInformativeSubtitleText.text = configuration.subtitleText
             }
         }
     }
 
+    fun setTitle(title: CharSequence) {
+        binding.actionInformativeTitleText.text = title
+    }
+
     private fun bindView() {
         binding.actionInformativeButton.setOnClickListener { onButtonClick?.invoke() }
     }
+
+    private fun updateSubtitleDrawable(textView: TextView, drawableResId: Int) =
+        when (drawableResId) {
+            0 -> textView.removeDrawables()
+            else -> textView.setDrawableLeft(drawableResId)
+        }
 }

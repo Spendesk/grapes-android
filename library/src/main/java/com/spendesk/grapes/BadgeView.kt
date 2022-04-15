@@ -5,15 +5,15 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.textview.MaterialTextView
 
 /**
  * @author danyboucanova
  * @since 18/11/2020
  */
-class BadgeView : AppCompatTextView {
+class BadgeView : MaterialTextView {
 
     //region constructors
     constructor(context: Context) : super(context)

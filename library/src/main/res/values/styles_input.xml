@@ -1,21 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="InputSearchMainEditText">
-        <item name="android:paddingTop">@dimen/inputSearchMainEditTextPadding</item>
-        <item name="android:paddingBottom">@dimen/inputSearchMainEditTextPaddingBottom</item>
-        <item name="android:paddingStart">@dimen/inputSearchMainEditTextPadding</item>
-        <item name="android:paddingEnd">@dimen/inputSearchMainEditTextPadding</item>
-        <item name="android:drawablePadding">@dimen/inputSearchMainPrimaryDrawableCompoundPadding</item>
+    <!-- region TextInput -->
+
+    <style name="TextInputEditText">
+        <item name="android:fontFamily">@font/gt_america</item>
+        <item name="android:paddingTop">@dimen/textInputEditTextPadding</item>
+        <item name="android:paddingBottom">@dimen/textInputEditTextPaddingBottom</item>
+        <item name="android:paddingStart">@dimen/textInputEditTextPadding</item>
+        <item name="android:paddingEnd">@dimen/textInputEditTextPadding</item>
+        <item name="android:drawablePadding">@dimen/textInputPrimaryDrawableCompoundPadding</item>
         <item name="android:background">@android:color/transparent</item>
-        <item name="android:textSize">@dimen/inputSearchMainTextSize</item>
-        <item name="android:textColor">@color/inputSearchMainPrimaryTextColor</item>
+        <item name="android:textSize">@dimen/textInputTextSize</item>
+        <item name="android:textColor">@color/textInputPrimaryTextColor</item>
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="InputSearchMainProgressBar" parent="@style/Widget.AppCompat.ProgressBar.Horizontal">
+    <!-- endregion TextInput -->
+
+    <!-- region SearchInput -->
+
+    <style name="SearchInputProgressBar" parent="@style/Widget.MaterialComponents.LinearProgressIndicator">
         <item name="android:indeterminate">true</item>
         <item name="android:visibility">invisible</item>
     </style>
+
+    <!-- endregion SearchInput -->
+
+    <!-- region PasswordInput -->
+
+    <style name="PasswordInputEditText" parent="@style/TextInputEditText">
+        <item name="android:inputType">textPassword</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
+    <style name="PasswordInputEndText">
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:textSize">@dimen/passwordInputEndTextSize</item>
+        <item name="android:textColor">@color/passwordInputEndTextColor</item>
+        <item name="android:padding">@dimen/passwordInputEndTextPadding</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:background">?attr/selectableItemBackgroundBorderless</item>
+    </style>
+
+    <!-- endregion PasswordInput -->
+
 </resources>

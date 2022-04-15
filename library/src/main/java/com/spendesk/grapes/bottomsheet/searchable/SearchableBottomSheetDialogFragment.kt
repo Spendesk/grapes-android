@@ -112,7 +112,7 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     fun showSearchProgressBar(show: Boolean) {
-        binding?.searchableSheetInputSearch?.showProgressBar(show)
+        binding?.searchableSheetSearchInput?.showProgressBar(show)
     }
 
     fun updateViewState(viewState: SearchableBottomSheetDialogFragmentViewState) {
@@ -140,8 +140,8 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
         binding?.apply {
             searchableSheetHeaderTitle.text = configuration?.title
-            configuration?.searchInputText?.let { searchableSheetInputSearch.getEditText().setText(it) }
-            searchableSheetInputSearch.getEditText().hint = configuration?.hintText
+            configuration?.searchInputText?.let { searchableSheetSearchInput.getEditText().setText(it) }
+            searchableSheetSearchInput.getEditText().hint = configuration?.hintText
 
             searchableSheetList.adapter = adapter
         }
@@ -150,7 +150,7 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private fun bindView() {
         binding?.apply {
             searchableSheetHeaderCloseButton.setOnClickListener { dismiss() }
-            searchableSheetInputSearch.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { with(requireActivity()) { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
+            searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { with(requireActivity()) { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
         }
 
         with(adapter) {

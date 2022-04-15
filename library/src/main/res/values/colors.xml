@@ -72,7 +72,7 @@
     <!-- region Button -->
     <color name="buttonPrimaryBackground">@color/mainPrimaryNormal</color>
     <color name="buttonPrimaryBackgroundPressed">@color/mainPrimaryDark</color>
-    <color name="buttonPrimaryBackgroundDisabled">@color/mainNeutralLight</color>
+    <color name="buttonPrimaryBackgroundDisabled">@color/mainNeutralNormal</color>
     <color name="buttonPrimaryContent">@color/white</color>
     <color name="buttonPrimaryContentPressed">@color/white</color>
     <color name="buttonPrimaryContentDisabled">@color/white</color>
@@ -103,6 +103,7 @@
     <!-- endregion Button -->
 
     <!-- region Bucket -->
+    <color name="actionInformativeContainerBackground">@color/white</color>
     <color name="deepBlueBucketTitleText">@color/white</color>
     <color name="deepBlueBucketDescriptionText">@color/mainNeutralLight</color>
     <color name="actionInformativeTitleTextColor">@color/mainComplementary</color>
