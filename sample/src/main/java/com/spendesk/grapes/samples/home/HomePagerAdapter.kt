@@ -3,8 +3,8 @@ package com.spendesk.grapes.samples.home
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.spendesk.grapes.samples.model.HomeTabItem
 import com.spendesk.grapes.samples.home.fragments.*
+import com.spendesk.grapes.samples.model.HomeTabItem
 
 /**
  * @author danyboucanova
