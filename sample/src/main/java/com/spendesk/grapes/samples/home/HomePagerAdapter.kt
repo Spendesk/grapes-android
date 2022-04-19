@@ -3,7 +3,7 @@ package com.spendesk.grapes.samples.home
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.spendesk.grapes.samples.entity.HomeTabItem
+import com.spendesk.grapes.samples.model.HomeTabItem
 import com.spendesk.grapes.samples.home.fragments.*
 
 /**
@@ -18,6 +18,7 @@ class HomePagerAdapter(
 
     override fun createFragment(position: Int): Fragment =
         when (val item = itemList[position]) {
+            is HomeTabItem.Colors -> ColorsFragment.newInstance()
             is HomeTabItem.Buttons -> ButtonsFragment.newInstance()
             is HomeTabItem.Cards -> CardsFragment.newInstance()
             is HomeTabItem.Selectors -> SelectorFragment.newInstance()
