@@ -13,7 +13,7 @@ import com.spendesk.grapes.samples.R
  * @author danyboucanova
  * @since 09/03/2022
  */
-class CoverListView : RecyclerView {
+class ColorSampleListView : RecyclerView {
 
     //region constructors
     constructor(context: Context) : super(context, null)

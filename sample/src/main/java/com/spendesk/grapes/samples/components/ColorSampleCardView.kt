@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import androidx.annotation.DrawableRes
 import androidx.cardview.widget.CardView
 import androidx.core.content.res.ResourcesCompat
-import com.spendesk.grapes.samples.databinding.ViewCoverCardviewBinding
+import com.spendesk.grapes.samples.databinding.ViewColorSampleCardviewBinding
 
 /**
  * @author danyboucanova
  * @since 09/03/2022
  */
-class CoverCardView : CardView {
+class ColorSampleCardView : CardView {
 
     //region constructors
 
@@ -22,7 +22,7 @@ class CoverCardView : CardView {
 
     //endregion constructors
 
-    private val binding = ViewCoverCardviewBinding.inflate(LayoutInflater.from(context), this)
+    private val binding = ViewColorSampleCardviewBinding.inflate(LayoutInflater.from(context), this)
 
     class Configuration(
         @DrawableRes val drawableRes: Int = ResourcesCompat.ID_NULL,

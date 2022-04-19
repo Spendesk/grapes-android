@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.spendesk.grapes.samples.components.list.CoverListView
+    <com.spendesk.grapes.samples.components.list.ColorSampleListView
         android:id="@+id/coverListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

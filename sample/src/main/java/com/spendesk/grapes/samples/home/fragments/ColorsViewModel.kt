@@ -3,9 +3,9 @@ package com.spendesk.grapes.samples.home.fragments
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.ViewModel
 import com.spendesk.grapes.samples.R
-import com.spendesk.grapes.samples.components.list.CoverBlockModel
-import com.spendesk.grapes.samples.components.CoverCardView
-import com.spendesk.grapes.samples.components.list.CoverListItemView
+import com.spendesk.grapes.samples.components.list.ColorSampleBlockModel
+import com.spendesk.grapes.samples.components.ColorSampleCardView
+import com.spendesk.grapes.samples.components.list.ColorSampleListItemView
 import com.spendesk.grapes.samples.core.components.translator.Translator
 import com.spendesk.grapes.samples.home.fragments.list.ColorsBlockModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -41,78 +41,78 @@ class ColorsViewModel @Inject constructor(
             listOf(
                 ColorsBlockModel.Section(translator.getString(R.string.colorsPrimary)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainPrimaryDark, translator.getString(R.string.colorsPrimaryDark))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainPrimaryNormal, translator.getString(R.string.colorsPrimaryNormal))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainPrimaryLight, translator.getString(R.string.colorsPrimaryLight))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainPrimaryLighter, translator.getString(R.string.colorsPrimaryLighter))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainPrimaryLightest, translator.getString(R.string.colorsPrimaryLightest)))
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainPrimaryDark, translator.getString(R.string.colorsPrimaryDark))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainPrimaryNormal, translator.getString(R.string.colorsPrimaryNormal))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainPrimaryLight, translator.getString(R.string.colorsPrimaryLight))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainPrimaryLighter, translator.getString(R.string.colorsPrimaryLighter))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainPrimaryLightest, translator.getString(R.string.colorsPrimaryLightest)))
                         )
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsInfo)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainInfoNormal, translator.getString(R.string.colorsInfoNormal))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainInfoLighter, translator.getString(R.string.colorsInfoLighter))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainInfoLightest, translator.getString(R.string.colorsInfoLightest)))
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainInfoNormal, translator.getString(R.string.colorsInfoNormal))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainInfoLighter, translator.getString(R.string.colorsInfoLighter))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainInfoLightest, translator.getString(R.string.colorsInfoLightest)))
                         )
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsSuccess)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainSuccessNormal, translator.getString(R.string.colorsSuccessNormal))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainSuccessLighter, translator.getString(R.string.colorsSuccessLighter))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainSuccessLightest, translator.getString(R.string.colorsSuccessLightest)))
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainSuccessNormal, translator.getString(R.string.colorsSuccessNormal))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainSuccessLighter, translator.getString(R.string.colorsSuccessLighter))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainSuccessLightest, translator.getString(R.string.colorsSuccessLightest)))
                         )
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsWarning)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainWarningDark, translator.getString(R.string.colorsWarningDark))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainWarningNormal, translator.getString(R.string.colorsWarningNormal))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainWarningLighter, translator.getString(R.string.colorsWarningLighter))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainWarningLightest, translator.getString(R.string.colorsWarningLightest)))
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainWarningDark, translator.getString(R.string.colorsWarningDark))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainWarningNormal, translator.getString(R.string.colorsWarningNormal))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainWarningLighter, translator.getString(R.string.colorsWarningLighter))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainWarningLightest, translator.getString(R.string.colorsWarningLightest)))
                         )
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsAlert)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainAlertDark, translator.getString(R.string.colorsAlertDark))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainAlertNormal, translator.getString(R.string.colorsAlertNormal))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainAlertLighter, translator.getString(R.string.colorsAlertLighter))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainAlertLightest, translator.getString(R.string.colorsAlertLightest)))
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainAlertDark, translator.getString(R.string.colorsAlertDark))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainAlertNormal, translator.getString(R.string.colorsAlertNormal))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainAlertLighter, translator.getString(R.string.colorsAlertLighter))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainAlertLightest, translator.getString(R.string.colorsAlertLightest)))
                         )
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsNeutral)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainNeutralDarkest, translator.getString(R.string.colorsNeutralDarkest))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainNeutralDarker, translator.getString(R.string.colorsNeutralDarker))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainNeutralDark, translator.getString(R.string.colorsNeutralDark))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainNeutralNormal, translator.getString(R.string.colorsNeutralNormal))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainNeutralLight, translator.getString(R.string.colorsNeutralLight))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainNeutralLighter, translator.getString(R.string.colorsNeutralLighter))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralDarkest, translator.getString(R.string.colorsNeutralDarkest))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralDarker, translator.getString(R.string.colorsNeutralDarker))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralDark, translator.getString(R.string.colorsNeutralDark))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralNormal, translator.getString(R.string.colorsNeutralNormal))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralLight, translator.getString(R.string.colorsNeutralLight))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralLighter, translator.getString(R.string.colorsNeutralLighter))),
                         )
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsStructural)),
                 ColorsBlockModel.Cover(
-                    CoverListItemView.Configuration(
+                    ColorSampleListItemView.Configuration(
                         items = listOf(
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.white, translator.getString(R.string.colorsStructuralWhite))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainComplementary, translator.getString(R.string.colorsStructuralComplementary))),
-                            CoverBlockModel.Cover(CoverCardView.Configuration(R.color.mainBackground, translator.getString(R.string.colorsStructuralBackground))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.white, translator.getString(R.string.colorsStructuralWhite))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainComplementary, translator.getString(R.string.colorsStructuralComplementary))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainBackground, translator.getString(R.string.colorsStructuralBackground))),
                         )
                     )
                 )

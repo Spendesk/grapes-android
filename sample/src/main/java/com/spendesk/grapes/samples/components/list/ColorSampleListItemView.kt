@@ -10,7 +10,7 @@ import com.spendesk.grapes.samples.databinding.ViewCoverListBinding
  * @author danyboucanova
  * @since 10/03/2022
  */
-class CoverListItemView : ConstraintLayout {
+class ColorSampleListItemView : ConstraintLayout {
 
     //region constructors
 
@@ -22,10 +22,10 @@ class CoverListItemView : ConstraintLayout {
 
     private val binding = ViewCoverListBinding.inflate(LayoutInflater.from(context), this, true)
 
-    private val adapter: CoverAdapter = CoverAdapter()
+    private val adapter: ColorSampleAdapter = ColorSampleAdapter()
 
     class Configuration(
-        val items: List<CoverBlockModel>
+        val items: List<ColorSampleBlockModel>
     )
 
     init {
