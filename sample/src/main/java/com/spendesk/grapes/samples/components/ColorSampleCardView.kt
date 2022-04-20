@@ -30,7 +30,7 @@ class ColorSampleCardView : CardView {
     )
 
     fun updateConfiguration(configuration: Configuration) {
-        binding.coverCardText.text = configuration.text
-        binding.coverCardImage.setBackgroundResource(configuration.drawableRes)
+        binding.colorSampleCardText.text = configuration.text
+        binding.colorSampleCardImage.setBackgroundResource(configuration.drawableRes)
     }
 }

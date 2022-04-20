@@ -11,11 +11,11 @@ import com.spendesk.grapes.samples.components.list.ColorSampleListItemView
  * @author danyboucanova
  * @since 10/03/2022
  */
-class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.CoverViewHolder>() {
+class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.ColorsViewHolder>() {
 
-    sealed class CoverViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        class Section(val view: SectionTitleTextView) : CoverViewHolder(view)
-        class CoverList(val view: ColorSampleListItemView) : CoverViewHolder(view)
+    sealed class ColorsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        class Section(val view: SectionTitleTextView) : ColorsViewHolder(view)
+        class ColorList(val view: ColorSampleListItemView) : ColorsViewHolder(view)
     }
 
     private val listItems: MutableList<ColorsBlockModel> = ArrayList()
@@ -29,32 +29,32 @@ class ColorsAdapter : RecyclerView.Adapter<ColorsAdapter.CoverViewHolder>() {
 
     // region override
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoverViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorsViewHolder {
         val context = parent.context
 
         return when (ColorsBlockViewType.values()[viewType]) {
-            ColorsBlockViewType.SECTION -> CoverViewHolder.Section(SectionTitleTextView(context))
-            ColorsBlockViewType.COLOR_LIST -> CoverViewHolder.CoverList(ColorSampleListItemView(context))
+            ColorsBlockViewType.SECTION -> ColorsViewHolder.Section(SectionTitleTextView(context))
+            ColorsBlockViewType.COLOR_LIST -> ColorsViewHolder.ColorList(ColorSampleListItemView(context))
         }.apply {
             val layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
 
             when (this) {
-                is CoverViewHolder.Section -> {
+                is ColorsViewHolder.Section -> {
                     val marginHorz = parent.context.resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginHorz)
                     val marginVert = parent.context.resources.getDimensionPixelSize(R.dimen.homeSectionTitleMarginVert)
 
                     layoutParams.setMargins(marginHorz, marginVert, marginHorz, marginVert)
                 }
-                is CoverViewHolder.CoverList -> Unit // Nothing to do here
+                is ColorsViewHolder.ColorList -> Unit // Nothing to do here
             }
             itemView.layoutParams = layoutParams
         }
     }
 
-    override fun onBindViewHolder(holder: CoverViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ColorsViewHolder, position: Int) {
         when (holder) {
-            is CoverViewHolder.Section -> holder.view.text = (listItems[position] as ColorsBlockModel.Section).text
-            is CoverViewHolder.CoverList -> holder.view.updateConfiguration(ColorSampleListItemView.Configuration((listItems[position] as ColorsBlockModel.Color).configuration.items))
+            is ColorsViewHolder.Section -> holder.view.text = (listItems[position] as ColorsBlockModel.Section).text
+            is ColorsViewHolder.ColorList -> holder.view.updateConfiguration(ColorSampleListItemView.Configuration((listItems[position] as ColorsBlockModel.Color).configuration.items))
         }
     }
 

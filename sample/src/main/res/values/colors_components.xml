@@ -2,5 +2,5 @@
 <resources>
 
     <color name="sectionTitleTextColor">@color/mainComplementary</color>
-    <color name="coverCardText">@color/mainComplementary</color>
+    <color name="colorSampleCardText">@color/mainComplementary</color>
 </resources>

@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.spendesk.grapes.samples.databinding.ViewCoverListBinding
+import com.spendesk.grapes.samples.databinding.ViewColorListBinding
 
 /**
  * @author danyboucanova
@@ -20,7 +20,7 @@ class ColorSampleListItemView : ConstraintLayout {
 
     //endregion constructors
 
-    private val binding = ViewCoverListBinding.inflate(LayoutInflater.from(context), this, true)
+    private val binding = ViewColorListBinding.inflate(LayoutInflater.from(context), this, true)
 
     private val adapter: ColorSampleAdapter = ColorSampleAdapter()
 

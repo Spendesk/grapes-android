@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="coverCardContainerWidth">120dp</dimen>
+    <dimen name="colorSampleCardContainerWidth">120dp</dimen>
     <dimen name="coverCardContainerHeight">100dp</dimen>
-    <dimen name="coverCardText">@dimen/bodyXsSize</dimen>
-    <dimen name="coverCardTextMarginHorz">@dimen/smallMargin</dimen>
+    <dimen name="colorSampleCardText">@dimen/bodyXsSize</dimen>
+    <dimen name="colorSampleCardTextMarginHorz">@dimen/smallMargin</dimen>
 
     <dimen name="sectionTitleMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="sectionTitleTextSize">24sp</dimen>

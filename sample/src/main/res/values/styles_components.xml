@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="CoverCardText">
+    <style name="ColorSampleCardText">
         <item name="android:gravity">center_vertical</item>
         <item name="android:fontFamily">@font/gt_america_bold</item>
-        <item name="android:textSize">@dimen/coverCardText</item>
-        <item name="android:textColor">@color/coverCardText</item>
+        <item name="android:textSize">@dimen/colorSampleCardText</item>
+        <item name="android:textColor">@color/colorSampleCardText</item>
     </style>
 </resources>
