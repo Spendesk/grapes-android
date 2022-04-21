@@ -29,7 +29,7 @@
     <dimen name="titleSSize">14sp</dimen>
     <dimen name="titleMSize">16sp</dimen>
     <dimen name="titleLSize">18sp</dimen>
-    <dimen name="titleXLSize">32sp</dimen>
+    <dimen name="titleXlSize">32sp</dimen>
     <!-- endregion Typography -->
 
     <!-- region Button -->
