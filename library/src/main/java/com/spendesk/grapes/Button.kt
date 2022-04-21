@@ -1,6 +1,7 @@
 package com.spendesk.grapes
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Rect
 import android.util.AttributeSet
@@ -112,9 +113,9 @@ class Button : MaterialCardView {
      * Set the button's height according to its [Size].
      */
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
-        val desiredWidth = when (size) {
-            Size.NORMAL -> MeasureSpec.getSize(widthMeasureSpec)
-            Size.SMALL -> {
+        val desiredWidth = when (MeasureSpec.getMode(widthMeasureSpec)) {
+            MeasureSpec.EXACTLY -> MeasureSpec.getSize(widthMeasureSpec)
+            else -> {
                 binding.text.paint.getTextBounds(binding.text.toString(), 0, binding.text.text.length, bounds)
                 resources.getDimensionPixelSize(R.dimen.buttonSmallPaddingStart) + bounds.width() + resources.getDimensionPixelSize(R.dimen.buttonSmallPaddingEnd)
             }
@@ -205,15 +206,14 @@ class Button : MaterialCardView {
             strokeColor = if (buttonConfig.strokeColor != 0) context.colorCompat(buttonConfig.strokeColor) else 0
             radius = resources.getDimension(buttonConfig.radius)
             cardElevation = 0f
+            rippleColor = ColorStateList.valueOf(Color.TRANSPARENT)
 
             // Set background
             binding.container.setRippleDrawable(
                 colorId = buttonConfig.colorBackground,
                 colorPressedId = buttonConfig.colorBackgroundPressed,
                 colorDisableId = buttonConfig.colorBackgroundDisabled,
-                radiusId = buttonConfig.radius,
-                strokeId = buttonConfig.stroke,
-                strokeColorId = buttonConfig.strokeColor
+                radiusId = buttonConfig.radius
             )
 
             // Set color to the text of the button

@@ -48,10 +48,14 @@ class ButtonsFragment : Fragment(R.layout.fragment_home_buttons) {
 
             // Primary circular progress button
             Timer().schedule(CIRCULAR_PROGRESS_ANIMATION_DELAY_MS) {
-                with(requireActivity()) {
-                    runOnUiThread {
-                        homeButtonSectionPrimaryCircularProgressButton.setLoaderType(loaderType = Button.LoaderType.CIRCULAR)
+                try {
+                    with(requireActivity()) {
+                        runOnUiThread {
+                            homeButtonSectionPrimaryCircularProgressButton.setLoaderType(loaderType = Button.LoaderType.CIRCULAR)
+                        }
                     }
+                } catch (throwable: Throwable) {
+                    // Might crash when the activity is killed and the timer requires it
                 }
             }
 
