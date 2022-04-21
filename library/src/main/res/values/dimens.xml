@@ -207,7 +207,7 @@
     <dimen name="actionMessageBottomSheetTitleMarginVert">@dimen/hugeMargin</dimen>
     <dimen name="actionMessageBottomSheetTitleMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="actionMessageBottomSheetTitleTextSize">18sp</dimen>
-    <dimen name="actionMessageBottomSheetDescriptionTextSize">16sp</dimen>
+    <dimen name="actionMessageBottomSheetDescriptionTextSize">@dimen/bodyRegularSize</dimen>
     <dimen name="actionMessageBottomSheetDescriptionMarginVert">@dimen/normalMargin</dimen>
     <dimen name="actionMessageBottomSheetDescriptionMarginHorz">@dimen/normalMargin</dimen>
 
