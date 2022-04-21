@@ -126,7 +126,7 @@
         android:id="@+id/simpleEntryItemSelectionMarker"
         style="@style/SimpleEntryItemSelectorMarker"
         android:layout_width="@dimen/listEntryItemSelectorMarkerWidth"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -210,14 +210,6 @@
         tools:text="7 €"
         tools:visibility="visible" />
 
-    <View
-        android:id="@+id/simpleEntryItemTitleEndAnchor"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEnd"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/simpleEntryItemDescriptionStart"
         style="@style/SimpleEntryItemDescriptionStart"
@@ -249,14 +241,6 @@
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
         tools:text="12 Sept."
         tools:visibility="visible" />
-
-    <View
-        android:id="@+id/simpleEntryItemDescriptionEndAnchor"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemDescriptionEnd"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.spendesk.grapes.messages.MessageInlineView
         android:id="@+id/simpleEntryItemMessage"
