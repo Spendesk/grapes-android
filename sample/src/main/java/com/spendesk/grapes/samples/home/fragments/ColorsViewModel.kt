@@ -40,7 +40,7 @@ class ColorsViewModel @Inject constructor(
         updateColorsItem.onNext(
             listOf(
                 ColorsBlockModel.Section(translator.getString(R.string.colorsPrimary)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainPrimaryDark, translator.getString(R.string.colorsPrimaryDark))),
@@ -52,7 +52,7 @@ class ColorsViewModel @Inject constructor(
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsInfo)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainInfoNormal, translator.getString(R.string.colorsInfoNormal))),
@@ -62,7 +62,7 @@ class ColorsViewModel @Inject constructor(
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsSuccess)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainSuccessNormal, translator.getString(R.string.colorsSuccessNormal))),
@@ -72,7 +72,7 @@ class ColorsViewModel @Inject constructor(
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsWarning)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainWarningDark, translator.getString(R.string.colorsWarningDark))),
@@ -83,7 +83,7 @@ class ColorsViewModel @Inject constructor(
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsAlert)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainAlertDark, translator.getString(R.string.colorsAlertDark))),
@@ -94,7 +94,7 @@ class ColorsViewModel @Inject constructor(
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsNeutral)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainNeutralDarkest, translator.getString(R.string.colorsNeutralDarkest))),
@@ -107,7 +107,7 @@ class ColorsViewModel @Inject constructor(
                     )
                 ),
                 ColorsBlockModel.Section(translator.getString(R.string.colorsStructural)),
-                ColorsBlockModel.Cover(
+                ColorsBlockModel.Color(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.white, translator.getString(R.string.colorsStructuralWhite))),

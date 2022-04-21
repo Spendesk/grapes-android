@@ -28,6 +28,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                 updateHomeTabItem.onNext(
                     listOf(
                         HomeTabItem.Colors,
+                        HomeTabItem.Fonts,
                         HomeTabItem.Buttons,
                         HomeTabItem.Cards,
                         HomeTabItem.Selectors,

@@ -6,5 +6,5 @@ package com.spendesk.grapes.samples.home.fragments.list
  */
 enum class ColorsBlockViewType {
     SECTION,
-    COVER_LIST
+    COLOR_LIST
 }

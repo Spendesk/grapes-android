@@ -9,26 +9,26 @@ import com.spendesk.grapes.samples.components.ColorSampleCardView
  * @author danyboucanova
  * @since 10/03/2022
  */
-class ColorSampleAdapter : RecyclerView.Adapter<ColorSampleAdapter.CoverViewHolder>() {
+class ColorSampleAdapter : RecyclerView.Adapter<ColorSampleAdapter.ColorSampleViewHolder>() {
 
     private val itemsList: MutableList<ColorSampleBlockModel> = ArrayList()
 
-    sealed class CoverViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        class Cover(val view: ColorSampleCardView) : CoverViewHolder(view)
+    sealed class ColorSampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        class Color(val view: ColorSampleCardView) : ColorSampleViewHolder(view)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoverViewHolder =
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ColorSampleViewHolder =
         when (ColorSampleViewType.values()[viewType]) {
-            ColorSampleViewType.COLOR -> CoverViewHolder.Cover(ColorSampleCardView(parent.context))
+            ColorSampleViewType.COLOR -> ColorSampleViewHolder.Color(ColorSampleCardView(parent.context))
         }.apply {
             itemView.layoutParams = RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
         }
 
     override fun getItemCount(): Int = itemsList.size
 
-    override fun onBindViewHolder(holder: CoverViewHolder, position: Int) =
+    override fun onBindViewHolder(holder: ColorSampleViewHolder, position: Int) =
         when (holder) {
-            is CoverViewHolder.Cover -> holder.view.updateConfiguration((itemsList[position] as ColorSampleBlockModel.Color).configuration)
+            is ColorSampleViewHolder.Color -> holder.view.updateConfiguration((itemsList[position] as ColorSampleBlockModel.Color).configuration)
         }
 
     fun updateList(items: List<ColorSampleBlockModel>) {

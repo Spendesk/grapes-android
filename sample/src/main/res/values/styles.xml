@@ -34,4 +34,13 @@
         <item name="android:textColor">@color/homeGenericSubtitleColor</item>
     </style>
 
+    <style name="FontBodyText">
+        <item name="android:textColor">@color/mainComplementary</item>
+        <item name="android:fontFamily">@font/gt_america</item>
+    </style>
+
+    <style name="FontTitleText">
+        <item name="android:textColor">@color/mainComplementary</item>
+        <item name="android:fontFamily">@font/gt_america_bold</item>
+    </style>
 </resources>

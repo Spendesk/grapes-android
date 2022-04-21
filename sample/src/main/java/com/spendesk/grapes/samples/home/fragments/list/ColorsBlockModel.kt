@@ -9,5 +9,5 @@ import com.spendesk.grapes.samples.components.list.ColorSampleListItemView
 sealed class ColorsBlockModel(val viewType: ColorsBlockViewType) {
 
     data class Section(val text: CharSequence) : ColorsBlockModel(ColorsBlockViewType.SECTION)
-    data class Cover(val configuration: ColorSampleListItemView.Configuration) : ColorsBlockModel(ColorsBlockViewType.COVER_LIST)
+    data class Color(val configuration: ColorSampleListItemView.Configuration) : ColorsBlockModel(ColorsBlockViewType.COLOR_LIST)
 }

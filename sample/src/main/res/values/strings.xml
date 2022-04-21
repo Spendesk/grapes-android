@@ -2,6 +2,7 @@
     <string name="app_name" translatable="false">GrapesSamples</string>
 
     <string name="colors" translatable="false">Colors</string>
+    <string name="fonts" translatable="false">Fonts</string>
     <string name="buttons" translatable="false">Buttons</string>
     <string name="cards" translatable="false">Cards</string>
     <string name="selectors" translatable="false">Selectors</string>
@@ -68,6 +69,22 @@
     <string name="buttonSecondaryWithIcon" translatable="false">Secondary with icon</string>
     <string name="buttonAlert" translatable="false">Alert</string>
     <string name="buttonWarning" translatable="false">Warning</string>
+
+    <!-- Fonts -->
+    <string name="fontBody" translatable="false">Body</string>
+    <string name="fontBodyXs" translatable="false">Body XS - 12px</string>
+    <string name="fontBodyS" translatable="false">Body S - 14px</string>
+    <string name="fontBodyRegular" translatable="false">Body Regular - 14px</string>
+    <string name="fontBodyM" translatable="false">Body M - 24px</string>
+    <string name="fontBodyL" translatable="false">Body L - 32px</string>
+    <string name="fontBodyXl" translatable="false">Body XL - 40px</string>
+    <string name="fontBodyXxl" translatable="false">Body XXL - 56px</string>
+
+    <string name="fontTitle" translatable="false">Title</string>
+    <string name="fontTitleS" translatable="false">Title S - 14px</string>
+    <string name="fontTitleM" translatable="false">Title M - 16px</string>
+    <string name="fontTitleL" translatable="false">Title L - 18px</string>
+    <string name="fontTitleXl" translatable="false">Title XL - 32px</string>
 
     <!-- Card -->
     <string name="cardPurple" translatable="false">Purple Card</string>
