@@ -132,6 +132,8 @@
     <string name="listTitle" translatable="false">List</string>
 
     <!-- Contents -->
+    <string name="contentHeader" translatable="false">Header</string>
+    <string name="contentHeaderFull" translatable="false">Full header</string>
     <string name="contentMap" translatable="false">Map</string>
     <string name="contentMapExtended" translatable="false">Extended</string>
     <string name="contentMapCompact" translatable="false">Compact</string>
