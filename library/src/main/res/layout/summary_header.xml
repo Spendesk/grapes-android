@@ -9,7 +9,6 @@
         style="@style/SummaryHeaderExpenseSimpleEntryView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:maxHeight="56dp"
         app:layout_constraintBottom_toTopOf="@id/summaryHeaderExpenseAmountTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
