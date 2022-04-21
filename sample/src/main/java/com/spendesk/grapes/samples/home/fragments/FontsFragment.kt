@@ -22,7 +22,7 @@ class FontsFragment : Fragment(R.layout.fragment_home_fonts) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.colors)
+        binding.homeHeader.homeGenericHeaderTitle.text = context?.getString(R.string.fonts)
 
         setupView()
     }
