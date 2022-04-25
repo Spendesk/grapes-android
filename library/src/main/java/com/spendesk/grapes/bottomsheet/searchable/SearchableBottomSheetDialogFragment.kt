@@ -151,18 +151,19 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private fun bindView() {
         binding?.apply {
             searchableSheetHeaderCloseButton.setOnClickListener { dismiss() }
-            searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { whenActivityAttached { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
+            searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
         }
 
         with(adapter) {
-            onItemSelected = { _, item -> whenActivityAttached { runOnUiThread { onItemClicked?.invoke(item) } } }
+            onItemSelected = { _, item -> 
+                { runOnUiThread { onItemClicked?.invoke(item) } } }
         }
     }
 
     /**
      * Ensures the parent activity is attached to perform the given action [consumer].
      */
-    private fun whenActivityAttached(consumer: FragmentActivity.() -> Unit) {
+    private fun withActivityAttached(consumer: FragmentActivity.() -> Unit) {
         if (isAdded && activity != null) {
             consumer(requireActivity())
         }
