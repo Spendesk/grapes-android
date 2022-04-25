@@ -42,7 +42,7 @@
 
     <style name="ActionMessageBottomSheetDescriptionText">
         <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textSize">@dimen/actionMessageBottomSheetDescriptionTextSize</item>
         <item name="android:textColor">@color/actionMessageBottomSheetDescriptionTextColor</item>
         <item name="android:clickable">false</item>

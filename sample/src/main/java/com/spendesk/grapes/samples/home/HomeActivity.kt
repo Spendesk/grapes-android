@@ -1,5 +1,6 @@
 package com.spendesk.grapes.samples.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 import androidx.activity.viewModels
@@ -11,7 +12,7 @@ import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.extensions.isDarkThemeOn
 import com.spendesk.grapes.samples.databinding.ActivityHomeBinding
-import com.spendesk.grapes.samples.entity.HomeTabItem
+import com.spendesk.grapes.samples.model.HomeTabItem
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 
@@ -22,7 +23,11 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 @AndroidEntryPoint
 class HomeActivity : AppCompatActivity() {
 
-    private val viewModel: HomeActivityViewModel by viewModels()
+    companion object {
+        const val MAX_FRAGMENTS_RETAINED_EITHER_SIDE_CURRENT_PAGE = 1
+    }
+
+    private val viewModel: HomeViewModel by viewModels()
 
     private val disposables = CompositeDisposable()
     private lateinit var homeAdapter: HomePagerAdapter
@@ -56,15 +61,25 @@ class HomeActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        viewModel.onLifecycleStateChange(lifecycle.currentState)
+        disposables.clear()
+    }
+
     private fun bindViewModel() {
         with(viewModel) {
             updateHomeTabItem().subscribe { updateHomeTabs(it) }.disposedBy(disposables)
         }
     }
 
+    @SuppressLint("WrongConstant")
     private fun setupView() {
         homeAdapter = HomePagerAdapter(this)
+
         with(binding.homeViewPager) {
+            offscreenPageLimit = MAX_FRAGMENTS_RETAINED_EITHER_SIDE_CURRENT_PAGE
             adapter = homeAdapter
             isUserInputEnabled = false
         }

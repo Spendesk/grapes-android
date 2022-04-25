@@ -1,4 +1,4 @@
-package com.spendesk.grapes.samples.entity
+package com.spendesk.grapes.samples.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -8,6 +8,12 @@ import kotlinx.parcelize.Parcelize
  * @since 12/29/20
  */
 sealed class HomeTabItem : Parcelable {
+
+    @Parcelize
+    object Colors : HomeTabItem()
+
+    @Parcelize
+    object Fonts : HomeTabItem()
 
     @Parcelize
     object Buttons : HomeTabItem()

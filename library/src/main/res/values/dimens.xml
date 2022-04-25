@@ -29,7 +29,7 @@
     <dimen name="titleSSize">14sp</dimen>
     <dimen name="titleMSize">16sp</dimen>
     <dimen name="titleLSize">18sp</dimen>
-    <dimen name="titleXLSize">32sp</dimen>
+    <dimen name="titleXlSize">32sp</dimen>
     <!-- endregion Typography -->
 
     <!-- region Button -->
@@ -207,7 +207,7 @@
     <dimen name="actionMessageBottomSheetTitleMarginVert">@dimen/hugeMargin</dimen>
     <dimen name="actionMessageBottomSheetTitleMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="actionMessageBottomSheetTitleTextSize">18sp</dimen>
-    <dimen name="actionMessageBottomSheetDescriptionTextSize">16sp</dimen>
+    <dimen name="actionMessageBottomSheetDescriptionTextSize">@dimen/bodyRegularSize</dimen>
     <dimen name="actionMessageBottomSheetDescriptionMarginVert">@dimen/normalMargin</dimen>
     <dimen name="actionMessageBottomSheetDescriptionMarginHorz">@dimen/normalMargin</dimen>
 
