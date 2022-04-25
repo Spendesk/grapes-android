@@ -45,7 +45,7 @@ class PinCodeDotView : LinearLayout {
         if (maxCodeLength == null) throw IllegalStateException("Error: The ${javaClass.simpleName} class must be update by its configuration before use.")
 
         for (pos in 0 until maxCodeLength!!) {
-            replaceViewColorAtPosition(pos, if (pos in text.indices) R.color.white else R.color.colorPrimaryDark)
+            replaceViewColorAtPosition(pos, if (pos in text.indices) R.color.mainWhite else R.color.colorPrimaryDark)
         }
     }
 
