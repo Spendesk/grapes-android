@@ -155,8 +155,7 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
 
         with(adapter) {
-            onItemSelected = { _, item -> 
-                { runOnUiThread { onItemClicked?.invoke(item) } } }
+            onItemSelected = { _, item -> withActivityAttached { runOnUiThread { onItemClicked?.invoke(item) } } }
         }
     }
 
