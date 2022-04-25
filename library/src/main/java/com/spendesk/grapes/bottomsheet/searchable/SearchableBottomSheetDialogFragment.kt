@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -150,11 +151,20 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private fun bindView() {
         binding?.apply {
             searchableSheetHeaderCloseButton.setOnClickListener { dismiss() }
-            searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { with(requireActivity()) { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
+            searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
         }
 
         with(adapter) {
-            onItemSelected = { _, item -> with(requireActivity()) { runOnUiThread { onItemClicked?.invoke(item) } } }
+            onItemSelected = { _, item -> withActivityAttached { runOnUiThread { onItemClicked?.invoke(item) } } }
+        }
+    }
+
+    /**
+     * Ensures the parent activity is attached to perform the given action [consumer].
+     */
+    private fun withActivityAttached(consumer: FragmentActivity.() -> Unit) {
+        if (isAdded && activity != null) {
+            consumer(requireActivity())
         }
     }
 }
