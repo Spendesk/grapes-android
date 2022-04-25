@@ -111,6 +111,7 @@ class ColorsViewModel @Inject constructor(
                     ColorSampleListItemView.Configuration(
                         items = listOf(
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainWhite, translator.getString(R.string.colorsStructuralWhite))),
+                            ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainBlack, translator.getString(R.string.colorsStructuralBlack))),
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainComplementary, translator.getString(R.string.colorsStructuralComplementary))),
                             ColorSampleBlockModel.Color(ColorSampleCardView.Configuration(R.color.mainBackground, translator.getString(R.string.colorsStructuralBackground))),
                         )
