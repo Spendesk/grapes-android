@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Je suis la description du switch" />
 
-        <androidx.appcompat.widget.SwitchCompat
+        <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchCardSwitch"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/switchCardHeight"

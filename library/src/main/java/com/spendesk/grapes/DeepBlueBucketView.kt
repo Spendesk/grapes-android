@@ -33,12 +33,10 @@ open class DeepBlueBucketView : BucketView {
         bindView()
     }
 
-    fun updateData(configuration: Configuration) {
-        with(binding) {
-            deepBlueBucketTitle.text = configuration.title
-            deepBlueBucketDescription.text = configuration.description
-            deepBlueBucketButton.text = configuration.buttonText
-        }
+    fun updateConfiguration(configuration: Configuration) {
+        updateTitle(title = configuration.title)
+        updateDescription(description = configuration.description)
+        updateButtonText(buttonText = configuration.buttonText)
     }
 
     fun updateTitle(title: CharSequence) {
@@ -50,7 +48,7 @@ open class DeepBlueBucketView : BucketView {
     }
 
     fun updateButtonText(buttonText: CharSequence) {
-        binding.deepBlueBucketButton.text = buttonText
+        binding.deepBlueBucketButton.setText(buttonText)
     }
 
     private fun bindView() {

@@ -42,7 +42,7 @@
 
     <style name="ActionMessageBottomSheetDescriptionText">
         <item name="android:gravity">center</item>
-        <item name="android:fontFamily">@font/gt_america_bold</item>
+        <item name="android:fontFamily">@font/gt_america</item>
         <item name="android:textSize">@dimen/actionMessageBottomSheetDescriptionTextSize</item>
         <item name="android:textColor">@color/actionMessageBottomSheetDescriptionTextColor</item>
         <item name="android:clickable">false</item>
@@ -62,9 +62,9 @@
 
     <!-- region Searchable Bottom Sheet -->
 
-    <style name="BottomSheetSearchableInputSearch">
+    <style name="BottomSheetSearchableSearchInput">
         <item name="android:drawableStart">@drawable/ic_menu_search</item>
-        <item name="inputSearchMainStyle">secondary</item>
+        <item name="textInputStyle">secondary</item>
     </style>
 
     <style name="BottomSheetSearchableEmptyStateGroup">

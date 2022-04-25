@@ -3,13 +3,17 @@ package com.spendesk.grapes.samples.home.fragments
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.spendesk.grapes.component.SimpleEntryItemView
 import com.spendesk.grapes.component.content.summary.SummaryCardLinkView
+import com.spendesk.grapes.component.content.summary.SummaryHeaderView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentMapView
 import com.spendesk.grapes.component.content.summary.block.SummaryBlockContentTextView
 import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.list.content.summary.SummaryBlockContentModel
 import com.spendesk.grapes.list.content.summary.item.InlineKeyValueItemView
+import com.spendesk.grapes.messages.MessageBlockView
+import com.spendesk.grapes.messages.MessageInlineView
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeContentsBinding
@@ -41,6 +45,51 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
     }
 
     private fun setupBlockMap() {
+        // Header
+        with(binding.homeButtonSectionHeaderBlock) {
+            val simpleEntryConfiguration = SimpleEntryItemView.Configuration(
+                primaryImageUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
+                placeholderPrimaryImage = R.drawable.ic_launcher_foreground,
+                secondaryImageUrl = "https://avatars.githubusercontent.com/u/596985?v=4",
+                placeholderSecondaryImage = R.drawable.ic_launcher_foreground,
+                shouldCircleCropSecondaryImage = true,
+                titleStart = "Supplier",
+                descriptionStart = "Employee name • Description",
+                titleEnd = "71,03 €",
+                descriptionEnd = "14 June",
+                titleEndOptional = "$68,34",
+                messageConfiguration = MessageInlineView.Configuration(
+                    style = MessageInlineView.Style.WARNING,
+                    title = "Missing receipt",
+                    drawableStartId = R.drawable.ic_warning
+                )
+            )
+
+            updateConfiguration(
+                configuration = SummaryHeaderView.Configuration(
+                    simpleEntryItemViewConfiguration = simpleEntryConfiguration,
+                    amount = "130 €",
+                    amountSubtitle = "This is the subtitle of the amount",
+                    description = "Some description to explain why this header exists, and its existence is that questionable that it might require many many many lines to describe everything.",
+                    descriptionSubtitle = "And if the description is not enough, there is also this field to explain more",
+                    typeConfiguration = MessageInlineView.Configuration(
+                        style = MessageInlineView.Style.WARNING,
+                        title = "Missing receipt",
+                        drawableStartId = R.drawable.ic_warning
+                    ),
+                    messageBlockConfiguration = MessageBlockView.Configuration(
+                        style = MessageBlockView.Style.ALERT,
+                        title = "Deny reason",
+                        drawableStartId = R.drawable.ic_status_error,
+                        description = "Oui oui oui t'es deny",
+                        signatureText = "Par tout le monde",
+                        signatureDrawableUrl = "https://avatars.githubusercontent.com/u/9486557?s=60&v=4",
+                        signatureDrawablePlaceholderResId = R.drawable.ic_launcher_foreground
+                    )
+                )
+            )
+        }
+
         // Map extended
         with(binding.homeButtonSectionMapExtendedBlock) {
             updateConfiguration(

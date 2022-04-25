@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name" translatable="false">GrapesSamples</string>
 
+    <string name="colors" translatable="false">Colors</string>
+    <string name="fonts" translatable="false">Fonts</string>
     <string name="buttons" translatable="false">Buttons</string>
     <string name="cards" translatable="false">Cards</string>
     <string name="selectors" translatable="false">Selectors</string>
@@ -9,12 +11,59 @@
     <string name="contents" translatable="false">Contents</string>
     <string name="bottomSheets" translatable="false">Bottom Sheets</string>
     <string name="loaders" translatable="false">Loaders</string>
+    <string name="keyboards" translatable="false">Keyboards</string>
 
     <string name="primary" translatable="false">Primary</string>
     <string name="secondary" translatable="false">Secondary</string>
 
+    <!-- Colors -->
+    <string name="colorsPrimary" translatable="false">Primary</string>
+    <string name="colorsPrimaryDark" translatable="false">Primary - Dark</string>
+    <string name="colorsPrimaryNormal" translatable="false">Primary - Normal</string>
+    <string name="colorsPrimaryLight" translatable="false">Primary - Light</string>
+    <string name="colorsPrimaryLighter" translatable="false">Primary - Lighter</string>
+    <string name="colorsPrimaryLightest" translatable="false">Primary - Lightest</string>
+
+    <string name="colorsInfo" translatable="false">Info</string>
+    <string name="colorsInfoNormal" translatable="false">Info - Normal</string>
+    <string name="colorsInfoLighter" translatable="false">Info - Lighter</string>
+    <string name="colorsInfoLightest" translatable="false">Info - Lightest</string>
+
+    <string name="colorsSuccess" translatable="false">Success</string>
+    <string name="colorsSuccessNormal" translatable="false">Success - Normal</string>
+    <string name="colorsSuccessLighter" translatable="false">Success - Lighter</string>
+    <string name="colorsSuccessLightest" translatable="false">Success - Lightest</string>
+
+    <string name="colorsWarning" translatable="false">Warning</string>
+    <string name="colorsWarningDark" translatable="false">Warning - Dark</string>
+    <string name="colorsWarningNormal" translatable="false">Warning - Normal</string>
+    <string name="colorsWarningLighter" translatable="false">Warning - Lighter</string>
+    <string name="colorsWarningLightest" translatable="false">Warning - Lightest</string>
+
+    <string name="colorsAlert" translatable="false">Alert</string>
+    <string name="colorsAlertDark" translatable="false">Alert - Dark</string>
+    <string name="colorsAlertNormal" translatable="false">Alert - Normal</string>
+    <string name="colorsAlertLighter" translatable="false">Alert - Lighter</string>
+    <string name="colorsAlertLightest" translatable="false">Alert - Lightest</string>
+
+    <string name="colorsNeutral" translatable="false">Neutral</string>
+    <string name="colorsNeutralDarkest" translatable="false">Neutral - Darkest</string>
+    <string name="colorsNeutralDarker" translatable="false">Neutral - Darker</string>
+    <string name="colorsNeutralDark" translatable="false">Neutral - Dark</string>
+    <string name="colorsNeutralNormal" translatable="false">Neutral - Normal</string>
+    <string name="colorsNeutralLight" translatable="false">Neutral - Light</string>
+    <string name="colorsNeutralLighter" translatable="false">Neutral - Lighter</string>
+
+    <string name="colorsStructural" translatable="false">Structural</string>
+    <string name="colorsStructuralWhite" translatable="false">White</string>
+    <string name="colorsStructuralComplementary" translatable="false">Complementary</string>
+    <string name="colorsStructuralBackground" translatable="false">Background</string>
+    <string name="colorsStructuralPurpleGradient" translatable="false">Purple Gradient</string>
+
     <!-- Buttons -->
     <string name="buttonNormal" translatable="false">Normal</string>
+    <string name="buttonProgressHorizontal" translatable="false">Horizontal loading</string>
+    <string name="buttonProgressCircular" translatable="false">Circular loading</string>
     <string name="buttonDisabled" translatable="false">Disabled</string>
     <string name="buttonPrimary" translatable="false">Primary</string>
     <string name="buttonPrimaryWithIcon" translatable="false">Primary with icon</string>
@@ -22,6 +71,22 @@
     <string name="buttonSecondaryWithIcon" translatable="false">Secondary with icon</string>
     <string name="buttonAlert" translatable="false">Alert</string>
     <string name="buttonWarning" translatable="false">Warning</string>
+
+    <!-- Fonts -->
+    <string name="fontBody" translatable="false">Body</string>
+    <string name="fontBodyXs" translatable="false">Body XS - 12px</string>
+    <string name="fontBodyS" translatable="false">Body S - 14px</string>
+    <string name="fontBodyRegular" translatable="false">Body Regular - 14px</string>
+    <string name="fontBodyM" translatable="false">Body M - 24px</string>
+    <string name="fontBodyL" translatable="false">Body L - 32px</string>
+    <string name="fontBodyXl" translatable="false">Body XL - 40px</string>
+    <string name="fontBodyXxl" translatable="false">Body XXL - 56px</string>
+
+    <string name="fontTitle" translatable="false">Title</string>
+    <string name="fontTitleS" translatable="false">Title S - 14px</string>
+    <string name="fontTitleM" translatable="false">Title M - 16px</string>
+    <string name="fontTitleL" translatable="false">Title L - 18px</string>
+    <string name="fontTitleXl" translatable="false">Title XL - 32px</string>
 
     <!-- Card -->
     <string name="cardPurple" translatable="false">Purple Card</string>
@@ -52,13 +117,23 @@
     <string name="selectorsTabTwo" translatable="false">Not Active</string>
 
     <!-- Inputs -->
-    <string name="inputSearchMain" translatable="false">Search Input Main</string>
-    <string name="withLoader" translatable="false">With loader</string>
+    <string name="textInput" translatable="false">Text Input</string>
+    <string name="textInputPrimaryFulfilled" translatable="false">Primary fulfilled</string>
+    <string name="textInputPrimaryWithIcon" translatable="false">Primary with icon</string>
+    <string name="textInputSecondaryFulfilled" translatable="false">Secondary fulfilled</string>
+    <string name="searchInput" translatable="false">Search Input</string>
+    <string name="searchInputPrimaryWithLoader" translatable="false">Primary with loader</string>
+    <string name="searchInputSecondaryWithLoader" translatable="false">Secondary with loader</string>
+    <string name="passwordInput" translatable="false">Password Input</string>
+    <string name="passwordInputHint" translatable="false">Enter your password</string>
+    <string name="passwordInputForgot" translatable="false">Forgot?</string>
 
     <!-- Lists -->
     <string name="listTitle" translatable="false">List</string>
 
     <!-- Contents -->
+    <string name="contentHeader" translatable="false">Header</string>
+    <string name="contentHeaderFull" translatable="false">Full header</string>
     <string name="contentMap" translatable="false">Map</string>
     <string name="contentMapExtended" translatable="false">Extended</string>
     <string name="contentMapCompact" translatable="false">Compact</string>

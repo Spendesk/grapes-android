@@ -47,6 +47,7 @@ class SummaryHeaderView : ConstraintLayout {
         with(binding) {
             // User & supplier
             with(summaryHeaderExpenseAmountSimpleEntryView) {
+                isClickable = false
                 visibleOrGone(configuration.simpleEntryItemViewConfiguration != null)
                 configuration.simpleEntryItemViewConfiguration?.let { updateConfiguration(configuration = it) }
             }

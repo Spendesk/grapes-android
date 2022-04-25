@@ -128,7 +128,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionHeaderStatusIndicatorThirdHeaderStatusIndicator" />
 
-                <androidx.appcompat.widget.AppCompatImageButton
+                <ImageButton
                     android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorFourthRandomButton"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -164,7 +164,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionHeaderStatusIndicatorFourthHeaderStatusIndicator" />
 
-                <androidx.appcompat.widget.AppCompatImageButton
+                <ImageButton
                     android:id="@+id/homeSelectorsSectionHeaderStatusIndicatorFifthRandomButton"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
@@ -463,8 +463,8 @@
                     android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
                     android:text="@string/selectorsTabTwo"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionTabCardViewTabLayoutOne"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionTabCardViewTabLayoutOne" />
 
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/homeSelectorsSectionTabCardViewTabLayoutTwo"

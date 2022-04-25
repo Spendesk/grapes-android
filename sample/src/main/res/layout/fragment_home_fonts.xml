@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/HomeGenericScrollViewContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <include
+            android:id="@+id/homeHeader"
+            layout="@layout/view_home_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/homeFontsSectionBodyTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/fontBody"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeFontsSectionBodyBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodyTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodyXsSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontBodyXs"
+                    android:textSize="@dimen/bodyXsSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodySSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontBodyS"
+                    android:textSize="@dimen/bodySSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodyXsSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodyRegularSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontBodyRegular"
+                    android:textSize="@dimen/bodyRegularSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodySSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodyMSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontBodyM"
+                    android:textSize="@dimen/bodyMSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodyRegularSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodyLSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontBodyL"
+                    android:textSize="@dimen/bodyLSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodyMSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodyXlSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontBodyXl"
+                    android:textSize="@dimen/bodyXlSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodyLSubtitle" />
+
+
+                <TextView
+                    android:id="@+id/homeFontsSectionBodyXxlSubtitle"
+                    style="@style/FontBodyText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginBottom="@dimen/homeSectionSubtitleMarginVert"
+                    android:text="@string/fontBodyXxl"
+                    android:textSize="@dimen/bodyXxlSize"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeFontsSectionBodyXlSubtitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeFontsSectionTitleTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionTitleMarginHorz"
+            android:text="@string/fontTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeFontsSectionBodyBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeFontsSectionTitleBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeFontsSectionTitleTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeFontsSectionTitleSSubtitle"
+                    style="@style/FontTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontTitleS"
+                    android:textSize="@dimen/titleSSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionTitleMSubtitle"
+                    style="@style/FontTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontTitleM"
+                    android:textSize="@dimen/titleMSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeFontsSectionTitleSSubtitle" />
+
+                <TextView
+                    android:id="@+id/homeFontsSectionTitleLSubtitle"
+                    style="@style/FontTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontTitleL"
+                    android:textSize="@dimen/titleLSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeFontsSectionTitleMSubtitle" />
+
+
+                <TextView
+                    android:id="@+id/homeFontsSectionTitleXlSubtitle"
+                    style="@style/FontTitleText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginBottom="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/fontTitleXl"
+                    android:textSize="@dimen/titleXlSize"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeFontsSectionTitleLSubtitle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

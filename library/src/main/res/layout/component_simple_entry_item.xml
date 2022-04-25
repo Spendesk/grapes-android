@@ -126,7 +126,7 @@
         android:id="@+id/simpleEntryItemSelectionMarker"
         style="@style/SimpleEntryItemSelectorMarker"
         android:layout_width="@dimen/listEntryItemSelectorMarkerWidth"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -149,9 +149,10 @@
         style="@style/SimpleEntryItemSecondaryImage"
         android:layout_width="@dimen/listEntryItemSecondaryImageSize"
         android:layout_height="@dimen/listEntryItemSecondaryImageSize"
-        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        app:layout_constraintBottom_toTopOf="@id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
         app:layout_constraintStart_toEndOf="@+id/simpleEntryItemContentSecondaryImageStartWidthGuideline"
-        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentSecondaryImageEndHeightGuideline"
+        app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentSecondaryImageStartHeightGuideline"
+        tools:src="@drawable/ic_avatar_placeholder"
         tools:visibility="visible" />
 
     <TextView
@@ -191,8 +192,8 @@
         app:layout_constraintBaseline_toBaselineOf="@id/simpleEntryItemTitleEnd"
         app:layout_constraintBottom_toTopOf="@id/simpleEntryItemDescriptionEnd"
         app:layout_constraintEnd_toStartOf="@id/simpleEntryItemTitleEnd"
-        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
         app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/simpleEntryItemTitleEndStartBarrier"
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="$68,34 • "
         tools:visibility="visible" />
@@ -208,14 +209,6 @@
         app:layout_constraintTop_toBottomOf="@id/simpleEntryItemContentStartHeightGuideline"
         tools:text="7 €"
         tools:visibility="visible" />
-
-    <View
-        android:id="@+id/simpleEntryItemTitleEndAnchor"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemTitleEnd"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/simpleEntryItemDescriptionStart"
@@ -248,14 +241,6 @@
         app:layout_constraintTop_toBottomOf="@+id/simpleEntryItemTitleEnd"
         tools:text="12 Sept."
         tools:visibility="visible" />
-
-    <View
-        android:id="@+id/simpleEntryItemDescriptionEndAnchor"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/simpleEntryItemDescriptionEnd"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <com.spendesk.grapes.messages.MessageInlineView
         android:id="@+id/simpleEntryItemMessage"
