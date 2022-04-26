@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="headerStatusIndicatorBackgroundColor">@color/white</color>
+    <color name="headerStatusIndicatorBackgroundColor">@color/mainWhite</color>
 
     <color name="pickerLabelUnselectedTextColor">@color/mainNeutralDarker</color>
     <color name="pickerLabelSelectedTextColor">@color/mainPrimaryNormal</color>
@@ -12,30 +12,30 @@
 
     <!-- Selector View -->
     <color name="selectorViewBackgroundRipple">@color/ripple</color>
-    <color name="selectorViewBackgroundPrimary">@color/white</color>
+    <color name="selectorViewBackgroundPrimary">@color/mainWhite</color>
     <color name="selectorViewBackgroundPrimaryStroke">@color/mainPrimaryLighter</color>
     <color name="selectorViewPrimaryText">@color/mainPrimaryNormal</color>
 
     <color name="selectorViewSecondaryText">@color/mainComplementary</color>
-    <color name="selectorViewBackgroundSecondary">@color/white</color>
+    <color name="selectorViewBackgroundSecondary">@color/mainWhite</color>
     <color name="selectorViewBackgroundSecondaryStroke">@color/mainPrimaryLighter</color>
 
-    <color name="selectorViewActivePrimaryText">@color/white</color>
+    <color name="selectorViewActivePrimaryText">@color/mainWhite</color>
     <color name="selectorViewBackgroundActivePrimary">@color/mainPrimaryNormal</color>
 
-    <color name="selectorViewActivePrimaryDarkText">@color/white</color>
+    <color name="selectorViewActivePrimaryDarkText">@color/mainWhite</color>
     <color name="selectorViewBackgroundActivePrimaryDark">@color/colorPrimaryDark</color>
 
     <!-- Tab Cardview -->
 
-    <color name="tabCardViewActivatedSelectedText">@color/white</color>
+    <color name="tabCardViewActivatedSelectedText">@color/mainWhite</color>
     <color name="tabCardViewActivatedUnselectedText">@color/mainPrimaryLighter</color>
     <color name="tabCardViewDeactivatedSelectedText">@color/mainComplementary</color>
-    <color name="tabCardViewDeactivatedUnselectedText">@color/white</color>
+    <color name="tabCardViewDeactivatedUnselectedText">@color/mainWhite</color>
 
     <color name="tabCardViewActivatedSelectedBackground">@color/mainPrimaryDark</color>
     <color name="tabCardViewActivatedUnselectedBackground">@android:color/transparent</color>
-    <color name="tabCardViewDeactivatedSelectedBackground">@color/white</color>
+    <color name="tabCardViewDeactivatedSelectedBackground">@color/mainWhite</color>
     <color name="tabCardViewDeactivatedUnselectedBackground">@color/whiteAlpha20</color>
 
     <!-- KeyboardSuggestionsView -->
