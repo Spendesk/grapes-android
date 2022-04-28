@@ -21,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Your Expenses" />
 
-        <com.spendesk.grapes.BadgeView
+        <com.spendesk.grapes.messages.BadgeView
             android:id="@+id/tabCardViewBadge"
             style="@style/TabCardViewBadge"
             android:layout_width="wrap_content"

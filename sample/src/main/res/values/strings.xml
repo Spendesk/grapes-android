@@ -98,6 +98,40 @@
     <string name="cardWarning" translatable="false">Warning</string>
     <string name="cardAlert" translatable="false">Alert</string>
 
+    <!-- Messages -->
+    <string name="messagesInline" translatable="false">Inline</string>
+    <string name="messagesInlineAlert" translatable="false">Alert</string>
+    <string name="messagesInlineWarning" translatable="false">Warning</string>
+    <string name="messagesInlineInformation" translatable="false">Information</string>
+    <string name="messagesInlineNeutral" translatable="false">Neutral</string>
+    <string name="messagesInlineSuccess" translatable="false">Success</string>
+
+    <string name="messagesInlineIcon" translatable="false">Inline + Icon</string>
+    <string name="messagesInlineIconAlert" translatable="false">Alert</string>
+    <string name="messagesInlineIconWarning" translatable="false">Warning</string>
+    <string name="messagesInlineIconInformation" translatable="false">Information</string>
+    <string name="messagesInlineIconNeutral" translatable="false">Neutral</string>
+    <string name="messagesInlineIconSuccess" translatable="false">Success</string>
+
+    <string name="messagesBlock" translatable="false">Block</string>
+    <string name="messagesBlockAlert" translatable="false">Alert</string>
+    <string name="messagesBlockWarning" translatable="false">Warning</string>
+    <string name="messagesBlockInformation" translatable="false">Information</string>
+    <string name="messagesBlockNeutral" translatable="false">Neutral</string>
+    <string name="messagesBlockSuccess" translatable="false">Success</string>
+    <string name="homeMessagesBlockDescription" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.</string>
+
+    <string name="messagesBlockSignature" translatable="false">Block + Signature</string>
+    <string name="messagesBlockSignatureAlert" translatable="false">Alert</string>
+    <string name="messagesBlockSignatureWarning" translatable="false">Warning</string>
+    <string name="messagesBlockSignatureInformation" translatable="false">Information</string>
+    <string name="messagesBlockSignatureNeutral" translatable="false">Neutral</string>
+    <string name="messagesBlockSignatureSuccess" translatable="false">Success</string>
+
+    <string name="messagesNotifications" translatable="false">Notifications</string>
+    <string name="messagesNotificationsBadge" translatable="false">Badge</string>
+    <string name="messagesNotificationsBadgeText" translatable="false">123</string>
+
     <!-- Selectors -->
     <string name="selectorsHeaderStatusIndicatorFirst" translatable="false">One item</string>
     <string name="selectorsHeaderStatusIndicatorSecond" translatable="false">Three items</string>
@@ -109,6 +143,7 @@
     <string name="selectorsSwitchCardView" translatable="false">Switch Card</string>
     <string name="selectorsSelectorTitle" translatable="false">Selector</string>
     <string name="selectorsTabCardViewTitle" translatable="false">Tab CardView</string>
+    <string name="selectorsDotsViewTitle" translatable="false">Dots View</string>
     <string name="selectorsSelectorOne" translatable="false">Primary</string>
     <string name="selectorsSelectorTwo" translatable="false">Secondary</string>
     <string name="selectorsSelectorThree" translatable="false">Primary Active</string>
@@ -116,6 +151,9 @@
 
     <string name="selectorsTabOne" translatable="false">Active</string>
     <string name="selectorsTabTwo" translatable="false">Not Active</string>
+    <string name="selectorsDotsOne" translatable="false">All inactive</string>
+    <string name="selectorsDotsTwo" translatable="false">Half inactive</string>
+    <string name="selectorsDotsThree" translatable="false">All active</string>
 
     <!-- Inputs -->
     <string name="textInput" translatable="false">Text Input</string>

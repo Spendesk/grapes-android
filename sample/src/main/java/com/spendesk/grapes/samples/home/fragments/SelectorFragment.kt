@@ -187,6 +187,9 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
                             )
                         )
                     }
+            homeSelectorSectionDotsViewOne.updateConfiguration(DotsView.Configuration(pinCodeLength = 4, code = null))
+            homeSelectorSectionDotsViewTwo.updateConfiguration(DotsView.Configuration(pinCodeLength = 4, code = "OU"))
+            homeSelectorSectionDotsViewThree.updateConfiguration(DotsView.Configuration(pinCodeLength = 4, code = "OUII"))
         }
     }
 }
