@@ -3,6 +3,13 @@
 
     <string name="stubButton">Ceci est un bouton</string>
 
+    <!-- Messages -->
+    <string name="homeMessagesAlertTitle">Email ou mot de passe incorrect</string>
+    <string name="homeMessagesWarningTitle">Information manquante</string>
+    <string name="homeMessagesInformationTitle">Ceci n\'est juste qu\'une information</string>
+    <string name="homeMessagesNeutralTitle">Ceci est un message neutre</string>
+    <string name="homeMessagesSuccessTitle">Cela est un message de réussite</string>
+
     <string name="homePushSectionOnTheWayDeepBlueBucketViewTitle">🎁 Votre carte est en chemin !</string>
     <string name="homePushSectionOnTheWayDeepBlueBucketViewDescription">Vous devriez la recevoir d\'ici le 14/06.</string>
     <string name="homePushSectionOnTheWayDeepBlueBucketViewButtonText">J\'ai reçu ma carte</string>

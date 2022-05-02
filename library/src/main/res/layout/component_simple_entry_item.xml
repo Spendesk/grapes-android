@@ -258,7 +258,7 @@
         tools:text="Missing info"
         tools:visibility="visible" />
 
-    <com.spendesk.grapes.BadgeView
+    <com.spendesk.grapes.messages.BadgeView
         android:id="@+id/simpleEntryItemBadge"
         style="@style/SimpleEntryItemBadge"
         android:layout_width="wrap_content"

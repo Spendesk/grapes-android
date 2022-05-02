@@ -1,4 +1,4 @@
-package com.spendesk.grapes
+package com.spendesk.grapes.messages
 
 import android.content.Context
 import android.graphics.Typeface
@@ -8,6 +8,7 @@ import android.view.Gravity
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.google.android.material.textview.MaterialTextView
+import com.spendesk.grapes.R
 
 /**
  * @author danyboucanova
@@ -16,9 +17,11 @@ import com.google.android.material.textview.MaterialTextView
 class BadgeView : MaterialTextView {
 
     //region constructors
+
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
     constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
     //endregion constructors
 
     init {

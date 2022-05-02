@@ -3,6 +3,13 @@
 
     <string name="stubButton">This is a button</string>
 
+    <!-- Messages -->
+    <string name="homeMessagesAlertTitle">Invalid email or password</string>
+    <string name="homeMessagesWarningTitle">Something missing</string>
+    <string name="homeMessagesInformationTitle">This is just for information</string>
+    <string name="homeMessagesNeutralTitle">This is just a neutral message</string>
+    <string name="homeMessagesSuccessTitle">This is a success message</string>
+
     <!-- Pushs -->
     <string name="homePushSectionOnTheWayDeepBlueBucketViewTitle">🎁 Your card is on its way!</string>
     <string name="homePushSectionOnTheWayDeepBlueBucketViewDescription">You should receive it by the 14/06.</string>

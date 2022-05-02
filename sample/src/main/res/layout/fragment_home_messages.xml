@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/homeHeader"
+            layout="@layout/view_home_header"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/homeMessagesSectionInlineTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:text="@string/messagesInline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeHeader" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeMessagesSectionInlineBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineAlertSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineAlert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineAlertMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/homeMessagesAlertTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineAlertSubtitle"
+                    app:messageStyle="alert" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineWarningSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineWarning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineAlertMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineWarningMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/homeMessagesWarningTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineWarningSubtitle"
+                    app:messageStyle="warning" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineInformationSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineInformation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineWarningMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineInformationMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/homeMessagesInformationTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineInformationSubtitle"
+                    app:messageStyle="info" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineNeutralSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineNeutral"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineInformationMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineNeutralMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/homeMessagesNeutralTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineNeutralSubtitle"
+                    app:messageStyle="neutral" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineSuccessSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineSuccess"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineNeutralMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineSuccessMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:text="@string/homeMessagesSuccessTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineSuccessSubtitle"
+                    app:messageStyle="success" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeMessagesSectionInlineIconTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:text="@string/messagesInlineIcon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeMessagesSectionInlineIconBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineIconTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineIconAlertSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineAlert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineIconAlertMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:drawableStart="@drawable/ic_status_error"
+                    android:text="@string/homeMessagesAlertTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineIconAlertSubtitle"
+                    app:messageStyle="alert" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineIconWarningSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineWarning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineIconAlertMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineIconWarningMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:drawableStart="@drawable/ic_warning"
+                    android:text="@string/homeMessagesWarningTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineIconWarningSubtitle"
+                    app:messageStyle="warning" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineIconInformationSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineInformation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineIconWarningMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineIconInformationMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:drawableStart="@drawable/ic_status_info"
+                    android:text="@string/homeMessagesInformationTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineIconInformationSubtitle"
+                    app:messageStyle="info" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineIconNeutralSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineNeutral"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineIconInformationMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineIconNeutralMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:drawableStart="@drawable/ic_address_arrival"
+                    android:text="@string/homeMessagesNeutralTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineIconNeutralSubtitle"
+                    app:messageStyle="neutral" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionInlineIconSuccessSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesInlineSuccess"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineIconNeutralMessageInline" />
+
+                <com.spendesk.grapes.messages.MessageInlineView
+                    android:id="@+id/homeMessagesSectionInlineIconSuccessMessageInline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    android:drawableStart="@drawable/ic_success"
+                    android:text="@string/homeMessagesSuccessTitle"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionInlineIconSuccessSubtitle"
+                    app:messageStyle="success" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeMessagesSectionBlockTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:text="@string/messagesBlock"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionInlineIconBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeMessagesSectionBlockBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockAlertSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockAlert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockAlertMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockAlertSubtitle"
+                    app:messageStyle="alert"
+                    tools:drawableStart="@drawable/ic_status_error"
+                    tools:text="Invalid email or password" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockWarningSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockWarning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockAlertMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockWarningMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockWarningSubtitle"
+                    app:messageStyle="warning"
+                    tools:drawableStart="@drawable/ic_warning"
+                    tools:text="Something missing" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockInformationSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockInformation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockWarningMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockInformationMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockInformationSubtitle"
+                    app:messageStyle="info"
+                    tools:drawableStart="@drawable/ic_status_info"
+                    tools:text="This is just for information" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockNeutralSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockNeutral"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockInformationMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockNeutralMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockNeutralSubtitle"
+                    app:messageStyle="neutral"
+                    tools:drawableStart="@drawable/ic_address_arrival"
+                    tools:text="This is just a neutral message" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockSuccessSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockSuccess"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockNeutralMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockSuccessMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockSuccessSubtitle"
+                    app:messageStyle="success"
+                    tools:drawableStart="@drawable/ic_success"
+                    tools:text="This is a success message" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeMessagesSectionBlockSignatureTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:text="@string/messagesBlockSignature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeMessagesSectionBlockSignatureBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockSignatureTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockSignatureAlertSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockAlert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockSignatureAlertMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockSignatureAlertSubtitle"
+                    app:messageStyle="alert"
+                    tools:drawableStart="@drawable/ic_status_error"
+                    tools:text="Invalid email or password" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockSignatureWarningSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockWarning"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockSignatureAlertMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockSignatureWarningMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockSignatureWarningSubtitle"
+                    app:messageStyle="warning"
+                    tools:drawableStart="@drawable/ic_warning"
+                    tools:text="Something missing" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockSignatureInformationSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockInformation"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockSignatureWarningMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockSignatureInformationMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockSignatureInformationSubtitle"
+                    app:messageStyle="info"
+                    tools:drawableStart="@drawable/ic_status_info"
+                    tools:text="This is just for information" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockSignatureNeutralSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockNeutral"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockSignatureInformationMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockSignatureNeutralMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockSignatureNeutralSubtitle"
+                    app:messageStyle="neutral"
+                    tools:drawableStart="@drawable/ic_address_arrival"
+                    tools:text="This is just a neutral message" />
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionBlockSignatureSuccessSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesBlockSuccess"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockSignatureNeutralMessageBlock" />
+
+                <com.spendesk.grapes.messages.MessageBlockView
+                    android:id="@+id/homeMessagesSectionBlockSignatureSuccessMessageBlock"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionBlockSignatureSuccessSubtitle"
+                    app:messageStyle="success"
+                    tools:drawableStart="@drawable/ic_success"
+                    tools:text="This is a success message" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+
+        <TextView
+            android:id="@+id/homeMessagesSectionNotificationsTitleText"
+            style="@style/HomeGenericTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/homeSectionTitleMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionTitleMarginVert"
+            android:text="@string/messagesNotifications"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionBlockSignatureBucketView" />
+
+        <com.spendesk.grapes.BucketView
+            android:id="@+id/homeMessagesSectionNotificationsBucketView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionBucketViewMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionBucketViewMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionBucketViewMarginHorz"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeMessagesSectionNotificationsTitleText">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/homeMessagesSectionNotificationsBadgeSubtitle"
+                    style="@style/HomeGenericSubtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/homeSectionSubtitleMarginHorz"
+                    android:layout_marginTop="@dimen/homeSectionSubtitleMarginVert"
+                    android:layout_marginEnd="@dimen/homeSectionSubtitleMarginHorz"
+                    android:text="@string/messagesNotificationsBadge"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.spendesk.grapes.messages.BadgeView
+                    android:id="@+id/homeMessagesSectionNotificationsBadgeView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/homeSectionComponentMarginHorz"
+                    android:layout_marginVertical="@dimen/homeSectionComponentMarginVert"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homeMessagesSectionNotificationsBadgeSubtitle"
+                    tools:text="123" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.spendesk.grapes.BucketView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

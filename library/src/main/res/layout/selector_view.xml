@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Spendesk FR" />
 
-        <com.spendesk.grapes.BadgeView
+        <com.spendesk.grapes.messages.BadgeView
             android:id="@+id/badgeView"
             style="@style/SelectorViewBadge"
             android:layout_width="wrap_content"
