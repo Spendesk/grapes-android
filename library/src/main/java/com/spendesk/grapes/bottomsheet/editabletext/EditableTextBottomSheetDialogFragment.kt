@@ -102,7 +102,7 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onDestroyView() {
-        binding?.editableEditText?.hideKeyboard()
+        binding?.textEditText?.hideKeyboard()
         binding = null
         super.onDestroyView()
     }
@@ -120,25 +120,25 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private fun setupView() {
         binding?.apply {
-            editableHeaderTitle.text = configuration?.title ?: String.empty()
-            editableValidateButton.setText(configuration?.buttonText ?: String.empty())
-            editableEditText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
-            editableEditText.hint = configuration?.hintText ?: String.empty()
+            headerTitle.text = configuration?.title ?: String.empty()
+            validateButton.setText(configuration?.buttonText ?: String.empty())
+            textEditText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
+            textEditText.hint = configuration?.hintText ?: String.empty()
             updateValidateButton()
 
-            Handler(Looper.getMainLooper()).postDelayed({ editableEditText.showSoftKeyboard() }, 50)
+            Handler(Looper.getMainLooper()).postDelayed({ textEditText.showSoftKeyboard() }, 50)
         }
     }
 
     private fun bindView() {
         binding?.apply {
-            editableHeaderCloseButton.setOnClickListener { dismiss() }
-            editableValidateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(editableEditText.text.toString().trim()) } } }
-            editableEditText.afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { updateValidateButton() } } }
+            headerCloseButton.setOnClickListener { dismiss() }
+            validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(textEditText.text.toString().trim()) } } }
+            textEditText.afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { updateValidateButton() } } }
         }
     }
 
     private fun updateValidateButton() {
-        binding?.editableValidateButton?.isEnabled = binding?.editableEditText?.text?.isNotEmpty() ?: false
+        binding?.validateButton?.isEnabled = binding?.textEditText?.text?.isNotEmpty() ?: false
     }
 }
