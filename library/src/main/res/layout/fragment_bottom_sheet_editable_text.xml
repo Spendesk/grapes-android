@@ -6,36 +6,36 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/headerCloseButton"
+        android:id="@+id/editableHeaderCloseButton"
         style="@style/BottomSheetHeaderCloseButton"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintBottom_toTopOf="@id/headerGuideline"
+        app:layout_constraintBottom_toTopOf="@id/editableHeaderGuideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/headerTitle"
+        android:id="@+id/editableHeaderTitle"
         style="@style/BottomSheetHeaderTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="?attr/actionBarSize"
         android:layout_marginEnd="?attr/actionBarSize"
-        app:layout_constraintBottom_toTopOf="@+id/headerGuideline"
+        app:layout_constraintBottom_toTopOf="@+id/editableHeaderGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/headerGuideline"
+        android:id="@+id/editableHeaderGuideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="?attr/actionBarSize" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/textEditText"
+        android:id="@+id/editableEditText"
         style="@style/BottomSheetEditableTextEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -44,13 +44,13 @@
         android:layout_marginEnd="@dimen/bottomSheetContentMarginHorz"
         android:layout_marginBottom="@dimen/bottomSheetEditableTextEditTextMarginVert"
         android:minLines="8"
-        app:layout_constraintBottom_toTopOf="@+id/validateButton"
+        app:layout_constraintBottom_toTopOf="@+id/editableValidateButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerGuideline" />
+        app:layout_constraintTop_toBottomOf="@id/editableHeaderGuideline" />
 
     <com.spendesk.grapes.Button
-        android:id="@+id/validateButton"
+        android:id="@+id/editableValidateButton"
         style="@style/BottomSheetEditableTextValidateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -60,6 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textEditText"
+        app:layout_constraintTop_toBottomOf="@id/editableEditText"
         tools:text="Validate" />
 </androidx.constraintlayout.widget.ConstraintLayout>
