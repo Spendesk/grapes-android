@@ -102,7 +102,7 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onDestroyView() {
-        binding?.editText?.hideKeyboard()
+        binding?.textEditText?.hideKeyboard()
         binding = null
         super.onDestroyView()
     }
@@ -122,23 +122,23 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
         binding?.apply {
             headerTitle.text = configuration?.title ?: String.empty()
             validateButton.setText(configuration?.buttonText ?: String.empty())
-            editText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
-            editText.hint = configuration?.hintText ?: String.empty()
+            textEditText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
+            textEditText.hint = configuration?.hintText ?: String.empty()
             updateValidateButton()
 
-            Handler(Looper.getMainLooper()).postDelayed({ editText.showSoftKeyboard() }, 50)
+            Handler(Looper.getMainLooper()).postDelayed({ textEditText.showSoftKeyboard() }, 50)
         }
     }
 
     private fun bindView() {
         binding?.apply {
             headerCloseButton.setOnClickListener { dismiss() }
-            validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(editText.text.toString().trim()) } } }
-            editText.afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { updateValidateButton() } } }
+            validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(textEditText.text.toString().trim()) } } }
+            textEditText.afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { updateValidateButton() } } }
         }
     }
 
     private fun updateValidateButton() {
-        binding?.validateButton?.isEnabled = binding?.editText?.text?.isNotEmpty() ?: false
+        binding?.validateButton?.isEnabled = binding?.textEditText?.text?.isNotEmpty() ?: false
     }
 }
