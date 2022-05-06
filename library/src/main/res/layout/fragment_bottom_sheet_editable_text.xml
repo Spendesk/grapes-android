@@ -35,7 +35,7 @@
         app:layout_constraintGuide_begin="?attr/actionBarSize" />
 
     <androidx.appcompat.widget.AppCompatEditText
-        android:id="@+id/textEditText"
+        android:id="@+id/editText"
         style="@style/BottomSheetEditableTextEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -60,6 +60,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textEditText"
+        app:layout_constraintTop_toBottomOf="@id/editText"
         tools:text="Validate" />
 </androidx.constraintlayout.widget.ConstraintLayout>
