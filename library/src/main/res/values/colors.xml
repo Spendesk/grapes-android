@@ -15,6 +15,8 @@
     <color name="mainPrimaryLighter">#DBD1F4</color>
     <color name="mainPrimaryLightest">#F4EFFC</color>
 
+    <color name="mainWhite">#FFF</color>
+    <color name="mainBlack">#FF000000</color>
     <color name="mainComplementary">#17114E</color>
     <color name="mainNeutralDarkest">#48465E</color>
     <color name="mainNeutralDarker">#706F81</color>
@@ -53,58 +55,57 @@
     <color name="midnightPurple">@color/mainPrimaryDark</color>
     <color name="mainBrandPeach">#FECBBE</color> <!-- TODO: Not in the palette. Also check for drawables what to replace -->
     <color name="mainYellow">#FFB620</color> <!-- TODO: Not in the palette. Also check for drawables what to replace -->
-    <color name="white">#FFF</color>
 
     <color name="colorPrimaryDarkForDarkToolbar">#020003</color>
     <color name="activityBackground">@color/mainBackground</color>
     <color name="ripple">#E9E9E9</color>
     <color name="mainBrandPurpleRipple">#2C077C</color>
     <color name="maskView">@color/mainNeutralDarkest</color>
-    <color name="toolbarBackground">@color/white</color>
+    <color name="toolbarBackground">@color/mainWhite</color>
     <color name="toolbarBackgroundDark">@color/mainComplementary</color>
     <color name="placeholdersColor">@color/mainNeutralNormal</color>
 
     <!-- endregion Default -->
 
     <!-- region BadgeView -->
-    <color name="badgeViewTextColor">@color/white</color>
+    <color name="badgeViewTextColor">@color/mainWhite</color>
 
     <!-- region Button -->
     <color name="buttonPrimaryBackground">@color/mainPrimaryNormal</color>
     <color name="buttonPrimaryBackgroundPressed">@color/mainPrimaryDark</color>
     <color name="buttonPrimaryBackgroundDisabled">@color/mainNeutralNormal</color>
-    <color name="buttonPrimaryContent">@color/white</color>
-    <color name="buttonPrimaryContentPressed">@color/white</color>
-    <color name="buttonPrimaryContentDisabled">@color/white</color>
+    <color name="buttonPrimaryContent">@color/mainWhite</color>
+    <color name="buttonPrimaryContentPressed">@color/mainWhite</color>
+    <color name="buttonPrimaryContentDisabled">@color/mainWhite</color>
 
-    <color name="buttonSecondaryBackground">@color/white</color>
+    <color name="buttonSecondaryBackground">@color/mainWhite</color>
     <color name="buttonSecondaryBackgroundPressed">@color/mainNeutralLighter</color>
     <color name="buttonSecondaryBackgroundDisabled">@color/mainNeutralNormal</color>
     <color name="buttonSecondaryBackgroundStroke">@color/mainNeutralLight</color>
     <color name="buttonSecondaryContent">@color/mainNeutralDarkest</color>
     <color name="buttonSecondaryContentPressed">@color/mainNeutralDarkest</color>
-    <color name="buttonSecondaryContentDisabled">@color/white</color>
+    <color name="buttonSecondaryContentDisabled">@color/mainWhite</color>
 
     <color name="buttonAlertBackground">@color/mainAlertNormal</color>
     <color name="buttonAlertBackgroundPressed">@color/mainAlertDark</color>
     <color name="buttonAlertBackgroundDisabled">@color/mainNeutralNormal</color>
     <color name="buttonAlertBackgroundStroke">@color/mainNeutralLight</color>
-    <color name="buttonAlertContent">@color/white</color>
-    <color name="buttonAlertContentPressed">@color/white</color>
-    <color name="buttonAlertContentDisabled">@color/white</color>
+    <color name="buttonAlertContent">@color/mainWhite</color>
+    <color name="buttonAlertContentPressed">@color/mainWhite</color>
+    <color name="buttonAlertContentDisabled">@color/mainWhite</color>
 
     <color name="buttonWarningBackground">@color/mainWarningNormal</color>
     <color name="buttonWarningBackgroundPressed">@color/mainWarningDark</color>
     <color name="buttonWarningBackgroundDisabled">@color/mainNeutralDark</color>
     <color name="buttonWarningBackgroundStroke">@color/mainNeutralLight</color>
-    <color name="buttonWarningContent">@color/white</color>
-    <color name="buttonWarningContentPressed">@color/white</color>
-    <color name="buttonWarningContentDisabled">@color/white</color>
+    <color name="buttonWarningContent">@color/mainWhite</color>
+    <color name="buttonWarningContentPressed">@color/mainWhite</color>
+    <color name="buttonWarningContentDisabled">@color/mainWhite</color>
     <!-- endregion Button -->
 
     <!-- region Bucket -->
-    <color name="actionInformativeContainerBackground">@color/white</color>
-    <color name="deepBlueBucketTitleText">@color/white</color>
+    <color name="actionInformativeContainerBackground">@color/mainWhite</color>
+    <color name="deepBlueBucketTitleText">@color/mainWhite</color>
     <color name="deepBlueBucketDescriptionText">@color/mainNeutralLight</color>
     <color name="actionInformativeTitleTextColor">@color/mainComplementary</color>
     <color name="actionInformativeSubtitleTextColor">@color/mainNeutralDarker</color>
@@ -123,8 +124,8 @@
     <color name="inlineBlockViewValueTextColorDisabled">@color/mainNeutralDark</color>
     <color name="mapBlockAddressTextColor">@color/mainComplementary</color>
 
-    <color name="responsibilityCenterGaugeViewContainerBackgroundColor">@color/white</color>
-    <color name="responsibilityCenterGaugeViewCardBackgroundColor">@color/white</color>
+    <color name="responsibilityCenterGaugeViewContainerBackgroundColor">@color/mainWhite</color>
+    <color name="responsibilityCenterGaugeViewCardBackgroundColor">@color/mainWhite</color>
     <color name="summaryBlockResponsibilityCenterDescriptionTextColor">@color/mainNeutralDarkest</color>
     <color name="responsibilityCenterGaugeViewBackground">@color/mainNeutralLight</color>
     <color name="responsibilityCenterGaugeViewLimitBackground">@color/colorPrimaryDark</color>
@@ -132,20 +133,20 @@
 
     <!-- region Toaster -->
     <color name="toasterBackground">@color/mainNeutralDarkest</color>
-    <color name="toasterText">@color/white</color>
+    <color name="toasterText">@color/mainWhite</color>
     <!-- endregion Toaster -->
 
     <!-- region Security Code Validation CardView -->
 
     <color name="registrationCodeViewBackground">@color/colorPrimaryDark</color>
-    <color name="registrationCodeViewTextColor">@color/white</color>
-    <color name="registrationCodeViewSeparatorViewBackground">@color/white</color>
+    <color name="registrationCodeViewTextColor">@color/mainWhite</color>
+    <color name="registrationCodeViewSeparatorViewBackground">@color/mainWhite</color>
 
     <!-- endregion Security Code Validation CardView -->
 
     <!-- region NumberKeyboardText -->
 
-    <color name="numberKeyboardTextColorLight">@color/white</color>
+    <color name="numberKeyboardTextColorLight">@color/mainWhite</color>
     <color name="numberKeyboardTextColorDark">@color/mainComplementary</color>
     <color name="numberKeyboardSeparatorColor">@color/mainNeutralLight</color>
 

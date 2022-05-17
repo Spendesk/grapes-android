@@ -1,4 +1,4 @@
-package com.spendesk.grapes
+package com.spendesk.grapes.selectors
 
 import android.content.Context
 import android.graphics.drawable.GradientDrawable
@@ -7,13 +7,14 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
+import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.setDrawable
 
 /**
  * @author danyboucanova
  * @since 3/9/21
  */
-class PinCodeDotView : LinearLayout {
+class DotsView : LinearLayout {
 
     //region constructors
 
@@ -24,7 +25,8 @@ class PinCodeDotView : LinearLayout {
     //endregion constructors
 
     data class Configuration(
-        val pinCodeLength: Int
+        val pinCodeLength: Int,
+        val code: String? = null
     )
 
     private var maxCodeLength: Int? = null
@@ -37,15 +39,16 @@ class PinCodeDotView : LinearLayout {
 
     fun updateConfiguration(configuration: Configuration) {
         maxCodeLength = configuration.pinCodeLength
-
         repeat(configuration.pinCodeLength) { addView(addOvalShapeWith(R.color.colorPrimaryDark)) }
+
+        configuration.code?.let { updateViewFromString(it) }
     }
 
     fun updateViewFromString(text: String) {
         if (maxCodeLength == null) throw IllegalStateException("Error: The ${javaClass.simpleName} class must be update by its configuration before use.")
 
         for (pos in 0 until maxCodeLength!!) {
-            replaceViewColorAtPosition(pos, if (pos in text.indices) R.color.white else R.color.colorPrimaryDark)
+            replaceViewColorAtPosition(pos, if (pos in text.indices) R.color.mainWhite else R.color.colorPrimaryDark)
         }
     }
 
