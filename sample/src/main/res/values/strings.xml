@@ -189,6 +189,8 @@
     <string name="bottomSheetSearchableViewStateContentButton" translatable="false">Searchable with viewState.Content</string>
     <string name="bottomSheetSearchableViewStateEmptyButton" translatable="false">Searchable with viewState.Empty</string>
     <string name="bottomSheetsEditableTitle" translatable="false">Editable bottom sheet</string>
+    <string name="bottomSheetsEditableEmptyText" translatable="false">Empty text</string>
+    <string name="bottomSheetsEditableWithText" translatable="false">With text</string>
 
     <!-- Loaders -->
     <string name="loadersCircularProgressBar" translatable="false">CircularProgressBar</string>

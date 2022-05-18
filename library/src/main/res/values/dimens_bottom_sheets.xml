@@ -8,5 +8,7 @@
     <dimen name="bottomSheetListMarginTop">@dimen/smallMargin</dimen>
     <dimen name="bottomSheetContentMarginHorz">@dimen/normalMargin</dimen>
     <dimen name="bottomSheetContentMarginVert">@dimen/normalMargin</dimen>
+    <dimen name="bottomSheetEditableTextEditTextMarginVert">@dimen/bigMargin</dimen>
+    <dimen name="bottomSheetEditableTextEditTextSize">16sp</dimen>
 
 </resources>
