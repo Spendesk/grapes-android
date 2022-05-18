@@ -37,9 +37,9 @@ fun GrapesButton(
     )
 }
 
-@Preview("default", "round")
-@Preview("dark theme", "round", uiMode = UI_MODE_NIGHT_NO)
-@Preview("large font", "round", fontScale = 2f)
+@Preview("default", "button")
+@Preview("dark theme", "button", uiMode = UI_MODE_NIGHT_NO)
+@Preview("large font", "button", fontScale = 2f)
 @Composable
 private fun ButtonPreview() {
     GrapesTheme {
