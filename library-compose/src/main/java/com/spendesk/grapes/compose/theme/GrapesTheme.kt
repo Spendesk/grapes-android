@@ -1,7 +1,6 @@
 package com.spendesk.grapes.compose.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
@@ -28,17 +27,13 @@ object GrapesTheme {
 
 @Composable
 fun GrapesTheme(
-    colors: GrapesColors = GrapesTheme.colors,
-    typography: GrapesTypography = GrapesTheme.typography,
-    dimensions: GrapesDimensions = GrapesTheme.dimensions,
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    MaterialTheme
     CompositionLocalProvider(
         LocalColors provides lightColorsPalette(),
         LocalTypography provides GrapesTypography(),
-    ) {
-        content()
-    }
+        LocalDimensions provides GrapesDimensions(),
+        content = content
+    )
 }

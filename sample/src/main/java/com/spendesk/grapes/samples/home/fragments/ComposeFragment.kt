@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.compose.button.GrapesButton
+import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
  * @author : danyboucanova
@@ -22,8 +23,10 @@ class ComposeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View =
         ComposeView(requireContext()).apply {
             setContent {
-                Row {
-                    GrapesButton(text = "First Compose component test")
+                GrapesTheme {
+                    Row {
+                        GrapesButton(text = "First Compose component test")
+                    }
                 }
             }
         }

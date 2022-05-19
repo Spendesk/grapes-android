@@ -14,6 +14,11 @@ import com.spendesk.grapes.compose.R
  * @since : 03/05/2022, Tue
  **/
 
+private val DefaultGrapesFontFamily = FontFamily(
+    Font(R.font.font_raw_gt_america_regular, FontWeight.Normal),
+    Font(R.font.font_raw_gt_america_medium, FontWeight.Medium)
+)
+
 @Immutable
 data class GrapesTypography constructor(
     val BodyXs: TextStyle,
@@ -29,12 +34,7 @@ data class GrapesTypography constructor(
     val titleXl: TextStyle,
 ) {
     constructor(
-        defaultFontFamily: FontFamily = FontFamily(
-            listOf(
-                Font(R.font.font_raw_gt_america_regular, FontWeight.Normal),
-                Font(R.font.font_raw_gt_america_medium, FontWeight.Medium)
-            )
-        ),
+        defaultFontFamily: FontFamily = DefaultGrapesFontFamily,
         BodyXs: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 12.sp,
