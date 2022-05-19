@@ -18,4 +18,4 @@ data class GrapesDimensions(
     val paddingLarge: Dp = 24.dp
 )
 
-internal val LocalDimensions = staticCompositionLocalOf { GrapesDimensions() }
+internal val LocalGrapesDimensions = staticCompositionLocalOf { GrapesDimensions() }

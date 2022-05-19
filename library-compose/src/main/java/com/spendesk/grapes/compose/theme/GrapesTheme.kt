@@ -14,15 +14,15 @@ object GrapesTheme {
     val colors: GrapesColors
         @Composable
         @ReadOnlyComposable
-        get() = LocalColors.current
+        get() = LocalGrapesColors.current
     val typography: GrapesTypography
         @Composable
         @ReadOnlyComposable
-        get() = LocalTypography.current
+        get() = LocalGrapesTypography.current
     val dimensions: GrapesDimensions
         @Composable
         @ReadOnlyComposable
-        get() = LocalDimensions.current
+        get() = LocalGrapesDimensions.current
 }
 
 @Composable
@@ -31,9 +31,9 @@ fun GrapesTheme(
     content: @Composable () -> Unit
 ) {
     CompositionLocalProvider(
-        LocalColors provides lightColorsPalette(),
-        LocalTypography provides GrapesTypography(),
-        LocalDimensions provides GrapesDimensions(),
+        LocalGrapesColors provides lightColorsPalette(),
+        LocalGrapesTypography provides GrapesTypography(),
+        LocalGrapesDimensions provides GrapesDimensions(),
         content = content
     )
 }

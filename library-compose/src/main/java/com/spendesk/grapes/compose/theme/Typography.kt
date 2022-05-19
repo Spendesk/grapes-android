@@ -94,7 +94,7 @@ data class GrapesTypography constructor(
     )
 }
 
-internal val LocalTypography = staticCompositionLocalOf { GrapesTypography() }
+internal val LocalGrapesTypography = staticCompositionLocalOf { GrapesTypography() }
 
 
 private fun TextStyle.withDefaultFontFamily(default: FontFamily): TextStyle {
