@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.ActionMessageBottomSheetDialogFragment
+import com.spendesk.grapes.bottomsheet.editabletext.EditableTextBottomSheetDialogFragment
 import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFragment
 import com.spendesk.grapes.bottomsheet.searchable.SearchableBottomSheetDialogFragmentViewState
 import com.spendesk.grapes.component.SimpleEntryItemView
@@ -13,6 +14,7 @@ import com.spendesk.grapes.list.simple.SimpleListModel
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeBottomSheetsBinding
+import com.spendesk.spendesk.presentation.view.bottomsheet.editabletext.EditableTextBottomSheetDialogFragmentViewState
 
 /**
  * @author Vivien Mahe
@@ -77,6 +79,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
             }
         }
 
+        // ActionMessage with small content
         binding.homeBottomSheetsSectionActionMessageSmallContentButton.setOnClickListener {
             val smallConfiguration = ActionMessageBottomSheetDialogFragment.Configuration(
                 imageResourceId = R.drawable.ic_supplier_placeholder,
@@ -92,6 +95,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
             }
         }
 
+        // ActionMessage with large content
         binding.homeBottomSheetsSectionActionMessageLargeContentButton.setOnClickListener {
             val longConfiguration = ActionMessageBottomSheetDialogFragment.Configuration(
                 imageResourceId = R.drawable.ic_supplier_placeholder,
@@ -104,6 +108,38 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
             ActionMessageBottomSheetDialogFragment.newInstance().apply {
                 updateConfiguration(longConfiguration)
                 show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, ActionMessageBottomSheetDialogFragment::class.java.name)
+            }
+        }
+
+        // EditableText with text
+        binding.homeBottomSheetsSectionEditableTextContentButton.setOnClickListener {
+            EditableTextBottomSheetDialogFragment.newInstance(
+                configuration = EditableTextBottomSheetDialogFragment.Configuration(
+                    title = "The EditableText BottomSheet with text",
+                    hintText = "This is some description",
+                    buttonText = "Validate"
+                )
+            ).apply {
+                onValidateButtonClicked = { requireActivity().shortToaster("Validate button clicked with editable text: $it"); dismiss() }
+
+                updateViewState(viewState = EditableTextBottomSheetDialogFragmentViewState.Content(text = "Some value"))
+                show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, EditableTextBottomSheetDialogFragment::class.java.name)
+            }
+        }
+
+        // EditableText with empty text
+        binding.homeBottomSheetsSectionEditableTextEmptyButton.setOnClickListener {
+            EditableTextBottomSheetDialogFragment.newInstance(
+                configuration = EditableTextBottomSheetDialogFragment.Configuration(
+                    title = "The EditableText BottomSheet no text",
+                    hintText = "This is some description",
+                    buttonText = "Validate"
+                )
+            ).apply {
+                onValidateButtonClicked = { requireActivity().shortToaster("Validate button clicked with editable text: $it"); dismiss() }
+
+                updateViewState(viewState = EditableTextBottomSheetDialogFragmentViewState.Content())
+                show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, EditableTextBottomSheetDialogFragment::class.java.name)
             }
         }
     }

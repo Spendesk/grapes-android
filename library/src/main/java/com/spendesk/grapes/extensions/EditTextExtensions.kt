@@ -46,3 +46,9 @@ internal fun EditText.afterTextChangedWith(delay: Long, consumer: (String) -> Un
             timer = Timer().apply { schedule(delay) { editable?.let { consumer(it.toString()) } } }
         }
     })
+
+
+fun EditText.setTextAndPositionCursorEnd(text: CharSequence) {
+    setText(text)
+    setSelection(text.length)
+}
