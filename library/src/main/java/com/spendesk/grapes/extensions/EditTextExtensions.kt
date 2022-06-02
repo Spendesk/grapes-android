@@ -43,7 +43,17 @@ internal fun EditText.afterTextChangedWith(delay: Long, consumer: (String) -> Un
 
         override fun afterTextChanged(editable: Editable?) {
             timer.cancel()
-            timer = Timer().apply { schedule(delay) { editable?.let { consumer(it.toString()) } } }
+            timer = Timer().apply {
+                schedule(delay) {
+                    try {
+                        if (editable.isNullOrEmpty().not()) consumer(editable.toString())
+                    } catch (exception: IndexOutOfBoundsException) {
+                        // A crash randomly happens here causing an IndexOutOfBoundsException when toString() tries to get the characters from the EditText
+                        // https://console.firebase.google.com/u/0/project/spendesk-mobile/crashlytics/app/android:com.spendesk.spendesk/issues/366c950f3b688d79a5de9004b6c5e947?time=last-ninety-days&types=crash&versions=2.23.4%20(22302888);2.23.3%20(22302887)&sessionEventKey=6297C55100E60001732296088542CD65_1682809803838467563
+                        // There is nothing much we can do here to get the text from the EditText if this method fails, so we just catch it to avoid a crash.
+                    }
+                }
+            }
         }
     })
 
