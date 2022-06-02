@@ -134,7 +134,7 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
         binding?.apply {
             headerCloseButton.setOnClickListener { dismiss() }
             validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(editText.text.toString().trim()) } } }
-            editText.afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { updateValidateButton() } } }
+            editText.onTextChanged { withActivityAttached { runOnUiThread { updateValidateButton() } } }
         }
     }
 
