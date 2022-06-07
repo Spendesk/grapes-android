@@ -15,7 +15,9 @@ data class GrapesDimensions(
     val paddingSmall: Dp = 4.dp,
     val paddingMedium: Dp = 8.dp,
     val paddingNormal: Dp = 16.dp,
-    val paddingLarge: Dp = 24.dp
+    val paddingLarge: Dp = 24.dp,
+
+    val radiusNormal: Dp = 8.dp
 )
 
 internal val LocalGrapesDimensions = staticCompositionLocalOf { GrapesDimensions() }

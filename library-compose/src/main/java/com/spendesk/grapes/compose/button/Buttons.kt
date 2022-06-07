@@ -1,6 +1,7 @@
 package com.spendesk.grapes.compose.button
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -31,6 +32,9 @@ fun GrapesButton(
 @Composable
 private fun ButtonPreview() {
     GrapesTheme {
+        Card() {
+            
+        }
         GrapesButton(text = "MAIS OUI")
     }
 }
