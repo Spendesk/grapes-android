@@ -21,7 +21,8 @@ fun GrapesButton(
     Text(
         text = text.toString(),
         color = GrapesTheme.colors.mainWhite,
-        modifier = modifier
+        modifier = modifier,
+        style = GrapesTheme.typography.titleXl
     )
 }
 

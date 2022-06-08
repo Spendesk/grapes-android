@@ -21,13 +21,13 @@ private val DefaultGrapesFontFamily = FontFamily(
 
 @Immutable
 data class GrapesTypography constructor(
-    val BodyXs: TextStyle,
-    val BodyS: TextStyle,
-    val BodyRegular: TextStyle,
-    val BodyM: TextStyle,
-    val BodyL: TextStyle,
-    val BodyXl: TextStyle,
-    val BodyXxl: TextStyle,
+    val bodyXs: TextStyle,
+    val bodyS: TextStyle,
+    val bodyRegular: TextStyle,
+    val bodyM: TextStyle,
+    val bodyL: TextStyle,
+    val bodyXl: TextStyle,
+    val bodyXxl: TextStyle,
     val titleS: TextStyle,
     val titleM: TextStyle,
     val titleL: TextStyle,
