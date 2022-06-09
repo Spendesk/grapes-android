@@ -47,10 +47,10 @@ class HomeActivity : AppCompatActivity() {
         viewModel.onLifecycleStateChange(lifecycle.currentState)
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_home, menu)
 
-        with(menu?.findItem(R.id.menuHomeSwitchTheme)?.actionView as SwitchMaterial) {
+        with(menu.findItem(R.id.menuHomeSwitchTheme)?.actionView as SwitchMaterial) {
             isChecked = isDarkThemeOn()
 
             setOnCheckedChangeListener { buttonView, isChecked ->
