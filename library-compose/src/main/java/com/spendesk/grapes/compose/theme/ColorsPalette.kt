@@ -7,7 +7,6 @@ import androidx.compose.ui.graphics.Color
  * @author : danyboucanova
  * @since : 18/05/2022, Wed
  **/
-
 fun lightColorsPalette(
     primaryDark: Color = mainPrimaryDark,
     primaryNormal: Color = mainPrimaryNormal,
