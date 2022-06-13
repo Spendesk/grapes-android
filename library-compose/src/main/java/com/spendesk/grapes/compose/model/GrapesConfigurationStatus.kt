@@ -5,7 +5,7 @@ package com.spendesk.grapes.compose.model
  * @since : 19/05/2022, Thu
  **/
 
-enum class GrapesConfigurationState {
+enum class GrapesConfigurationStatus {
     SUCCESS,
     INFORMATION,
     NEUTRAL,

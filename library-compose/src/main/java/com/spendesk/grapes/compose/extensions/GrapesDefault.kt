@@ -1,7 +1,7 @@
 package com.spendesk.grapes.compose.extensions
 
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.model.GrapesConfigurationState
+import com.spendesk.grapes.compose.model.GrapesConfigurationStatus
 
 object GrapesDefault {
 
@@ -12,13 +12,13 @@ object GrapesDefault {
      *
      * @return matching icon for a [configurationState] given.
      */
-    fun iconFor(configurationState: GrapesConfigurationState): Int =
+    fun iconFor(configurationState: GrapesConfigurationStatus): Int =
         when (configurationState) {
-            GrapesConfigurationState.SUCCESS -> R.drawable.ic_success
-            GrapesConfigurationState.INFORMATION -> R.drawable.ic_information
-            GrapesConfigurationState.NEUTRAL -> R.drawable.ic_neutral
-            GrapesConfigurationState.ALERT -> R.drawable.ic_error
-            GrapesConfigurationState.WARNING -> R.drawable.ic_warning
-            GrapesConfigurationState.BLOCKED -> R.drawable.ic_block
+            GrapesConfigurationStatus.SUCCESS -> R.drawable.ic_success
+            GrapesConfigurationStatus.INFORMATION -> R.drawable.ic_information
+            GrapesConfigurationStatus.NEUTRAL -> R.drawable.ic_neutral
+            GrapesConfigurationStatus.ALERT -> R.drawable.ic_error
+            GrapesConfigurationStatus.WARNING -> R.drawable.ic_warning
+            GrapesConfigurationStatus.BLOCKED -> R.drawable.ic_block
         }
 }
