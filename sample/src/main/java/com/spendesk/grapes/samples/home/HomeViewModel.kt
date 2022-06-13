@@ -30,6 +30,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
                         HomeTabItem.Colors,
                         HomeTabItem.Fonts,
                         HomeTabItem.Buttons,
+                        HomeTabItem.Compose,
                         HomeTabItem.Messages,
                         HomeTabItem.Cards,
                         HomeTabItem.Selectors,
