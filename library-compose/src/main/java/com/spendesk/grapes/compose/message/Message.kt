@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.extensions.GrapesDefault
-import com.spendesk.grapes.compose.extensions.contentColorFor
+import com.spendesk.grapes.compose.theme.extensions.contentColorFor
 import com.spendesk.grapes.compose.icons.GrapesSurface
 import com.spendesk.grapes.compose.model.GrapesConfigurationState
 import com.spendesk.grapes.compose.theme.GrapesTheme

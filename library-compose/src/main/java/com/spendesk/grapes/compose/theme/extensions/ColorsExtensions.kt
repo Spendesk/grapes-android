@@ -1,4 +1,4 @@
-package com.spendesk.grapes.compose.extensions
+package com.spendesk.grapes.compose.theme.extensions
 
 import androidx.compose.ui.graphics.Color
 import com.spendesk.grapes.compose.model.GrapesConfigurationState
