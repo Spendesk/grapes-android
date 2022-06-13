@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.vectorResource
-import com.spendesk.grapes.compose.extensions.GrapesDefault
+import com.spendesk.grapes.compose.extensions.GrapesIcons
 import com.spendesk.grapes.compose.model.GrapesConfigurationStatus
 import com.spendesk.grapes.compose.theme.GrapesTheme
 import com.spendesk.grapes.compose.theme.extensions.contentColorFor
@@ -22,7 +22,7 @@ fun GrapesIcon(
 ) =
     Icon(
         modifier = modifier,
-        imageVector = ImageVector.vectorResource(GrapesDefault.iconFor(configuration)),
+        imageVector = ImageVector.vectorResource(GrapesIcons.iconFor(configuration)),
         contentDescription = contentDescription,
         tint = GrapesTheme.colors.contentColorFor(configuration)
     )

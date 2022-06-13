@@ -3,7 +3,7 @@ package com.spendesk.grapes.compose.extensions
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.model.GrapesConfigurationStatus
 
-object GrapesDefault {
+object GrapesIcons {
 
     /**
      * The Grapes design system contains some main configuration typically used to describe a component state.
