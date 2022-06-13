@@ -2,20 +2,17 @@ version: 2.1
 
 references:
 
-  workspace_root: &workspace_root
-                    ~/grapes-android
-
   # Container environment
 
   container_config: &container_config
     docker:
-      - image: circleci/android:api-29
+      - image: cimg/android:2022.03
 
-    working_directory: *workspace_root
+    working_directory: ~/grapes-android
 
     environment:
-      _JVM_OPTS: -Xmx1536m
-      GRADLE_OPTS: -Xmx1536m -XX:+HeapDumpOnOutOfMemoryError -Dorg.gradle.daemon=false -Dorg.gradle.caching=true -Dorg.gradle.configureondemand=true -Dkotlin.compiler.execution.strategy=in-process -Dkotlin.incremental=false
+      _JAVA_OPTIONS: -Xmx4096m
+      GRADLE_OPTS: -Dorg.gradle.daemon=false
 
   gradle_checksum_cache_key: &gradle_checksum_cache_key
     key: gradle-{{ checksum "build.gradle" }}-{{ checksum "library/build.gradle" }}-{{ checksum "sample/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}

@@ -1,4 +1,4 @@
-package com.spendesk.grapes.bottomsheet.searchable
+package com.spendesk.grapes.bottomsheet.editabletext
 
 import android.app.Dialog
 import android.os.Bundle
@@ -8,25 +8,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.fragment.app.FragmentActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.spendesk.grapes.R
-import com.spendesk.grapes.databinding.FragmentBottomSheetSearchableBinding
+import com.spendesk.grapes.databinding.FragmentBottomSheetEditableTextBinding
 import com.spendesk.grapes.extensions.*
-import com.spendesk.grapes.list.simple.SimpleListAdapter
-import com.spendesk.grapes.list.simple.SimpleListModel
+import com.spendesk.spendesk.presentation.view.bottomsheet.editabletext.EditableTextBottomSheetDialogFragmentViewState
 import java.io.Serializable
 
 /**
  * @author Vivien Mahe
- * @since 05/02/2021
+ * @since 04/10/2021
  **/
-class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
+class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
-        fun newInstance(configuration: Configuration) = SearchableBottomSheetDialogFragment().apply {
+        fun newInstance(configuration: Configuration) = EditableTextBottomSheetDialogFragment().apply {
             isCancelable = false
             arguments = Bundle().apply {
                 putSerializable(INTENT_CONFIGURATION, configuration)
@@ -34,25 +32,24 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
 
         private const val INTENT_CONFIGURATION = "configuration"
-        private const val EDITTEXT_TEXT_CHANGED_DELAY = 500L // Milliseconds
+        private const val EDITTEXT_TEXT_CHANGED_DELAY = 50L // Milliseconds
     }
 
-    data class Configuration(
+    class Configuration(
         val title: CharSequence,
-        val searchInputText: CharSequence? = null,
-        val hintText: CharSequence? = null
+        val hintText: CharSequence? = null,
+        val buttonText: CharSequence? = null
     ) : Serializable
 
-    private var binding: FragmentBottomSheetSearchableBinding? = null
-    private val adapter = SimpleListAdapter()
+    private var binding: FragmentBottomSheetEditableTextBinding? = null
     private var configuration: Configuration? = null
+    private var editTextValue: CharSequence? = null
 
-    // region Observable properties
+    //region Observable properties
 
-    var onItemClicked: ((item: SimpleListModel) -> Unit)? = null
-    var onSearchInputChanged: ((searchInput: String) -> Unit)? = null
+    var onValidateButtonClicked: ((text: CharSequence) -> Unit)? = null
 
-    // endregion Observable properties
+    //endregion Observable properties
 
     override fun getTheme(): Int = R.style.BottomSheetDialogStyle // TODO: handle dark theme here.
 
@@ -93,69 +90,55 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        binding = FragmentBottomSheetSearchableBinding.inflate(inflater, container, false)
+        binding = FragmentBottomSheetEditableTextBinding.inflate(inflater, container, false)
         return binding!!.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setupView(view)
+        setupView()
         bindView()
-
-        Handler(Looper.getMainLooper()).postDelayed({ view.forceHideKeyboard() }, 50)
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
-
+        binding?.editText?.hideKeyboard()
         binding = null
+        super.onDestroyView()
     }
 
-    fun showSearchProgressBar(show: Boolean) {
-        binding?.searchableSheetSearchInput?.showProgressBar(show)
-    }
-
-    fun updateViewState(viewState: SearchableBottomSheetDialogFragmentViewState) {
+    fun updateViewState(viewState: EditableTextBottomSheetDialogFragmentViewState) {
         when (viewState) {
-            is SearchableBottomSheetDialogFragmentViewState.Content -> {
-                adapter.updateList(items = viewState.items)
-                binding?.searchableSheetEmptyStateGroup?.gone()
+            is EditableTextBottomSheetDialogFragmentViewState.Content -> {
+                // Save the text for later, because the binding might be null (the onCreateView() method might be not called yet)
+                editTextValue = viewState.text
             }
 
-            is SearchableBottomSheetDialogFragmentViewState.Empty -> {
-                adapter.updateList(items = listOf())
-                binding?.apply {
-                    searchableSheetEmptyStateTitleText.text = viewState.title
-                    searchableSheetEmptyStateGroup.visible()
-                }
-            }
-
-            is SearchableBottomSheetDialogFragmentViewState.Error -> Unit
+            is EditableTextBottomSheetDialogFragmentViewState.Error -> Unit
         }
     }
 
-    private fun setupView(view: View) {
-        // Makes the BottomSheet take the whole screen height
-        view.afterMeasured { layoutParams = layoutParams.apply { height = requireActivity().getHeight() } }
-
+    private fun setupView() {
         binding?.apply {
-            searchableSheetHeaderTitle.text = configuration?.title
-            configuration?.searchInputText?.let { searchableSheetSearchInput.getEditText().setText(it) }
-            searchableSheetSearchInput.getEditText().hint = configuration?.hintText
+            headerTitle.text = configuration?.title ?: String.empty()
+            validateButton.setText(configuration?.buttonText ?: String.empty())
+            editText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
+            editText.hint = configuration?.hintText ?: String.empty()
+            updateValidateButton()
 
-            searchableSheetList.adapter = adapter
+            Handler(Looper.getMainLooper()).postDelayed({ editText.showSoftKeyboard() }, 50)
         }
     }
 
     private fun bindView() {
         binding?.apply {
-            searchableSheetHeaderCloseButton.setOnClickListener { dismiss() }
-            searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
+            headerCloseButton.setOnClickListener { dismiss() }
+            validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(editText.text.toString().trim()) } } }
+            editText.onTextChanged { withActivityAttached { runOnUiThread { updateValidateButton() } } }
         }
+    }
 
-        with(adapter) {
-            onItemSelected = { _, item -> withActivityAttached { runOnUiThread { onItemClicked?.invoke(item) } } }
-        }
+    private fun updateValidateButton() {
+        binding?.validateButton?.isEnabled = binding?.editText?.text?.isNotEmpty() ?: false
     }
 }
