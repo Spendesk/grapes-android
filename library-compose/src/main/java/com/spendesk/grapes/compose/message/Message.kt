@@ -26,7 +26,7 @@ fun GrapesMessage(
     description: String? = null,
     showIcon: Boolean = false
 ) {
-    GrapesSurface(modifier = Modifier.wrapContentSize(), configuration = configuration, shape = RoundedCornerShape(size = GrapesTheme.dimensions.radiusNormal)) {
+    GrapesSurface(modifier = modifier, configuration = configuration, shape = RoundedCornerShape(size = GrapesTheme.dimensions.radiusNormal)) {
         Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingNormal)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
@@ -138,7 +138,8 @@ private fun MessageInlineFillingLongTitleAndDescription() {
                 title = "Very very very very very very very very very very very long title",
                 showIcon = true,
                 description = "Very very very very very very very very very very very long description",
-                configuration = GrapesConfigurationStatus.SUCCESS)
+                configuration = GrapesConfigurationStatus.SUCCESS
+            )
         }
     }
 }

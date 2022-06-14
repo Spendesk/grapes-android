@@ -18,7 +18,7 @@ import com.spendesk.grapes.compose.theme.extensions.contentColorFor
 fun GrapesIcon(
     configuration: GrapesConfigurationStatus,
     modifier: Modifier = Modifier,
-    contentDescription: String? = null,
+    contentDescription: String? = null
 ) =
     Icon(
         modifier = modifier,
