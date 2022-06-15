@@ -35,67 +35,66 @@ data class GrapesTypography constructor(
 ) {
     constructor(
         defaultFontFamily: FontFamily = DefaultGrapesFontFamily,
-        BodyXs: TextStyle = TextStyle(
+        bodyXs: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 12.sp,
         ),
-        BodyS: TextStyle = TextStyle(
+        bodyS: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 14.sp,
         ),
-        BodyRegular: TextStyle = TextStyle(
+        bodyRegular: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 16.sp,
         ),
-        BodyM: TextStyle = TextStyle(
+        bodyM: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 24.sp,
         ),
-        BodyL: TextStyle = TextStyle(
+        bodyL: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 32.sp,
         ),
-        BodyXl: TextStyle = TextStyle(
+        bodyXl: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 40.sp,
         ),
-        BodyXxl: TextStyle = TextStyle(
+        bodyXxl: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 56.sp,
         ),
-        TitleS: TextStyle = TextStyle(
+        titleS: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 14.sp,
         ),
-        TitleM: TextStyle = TextStyle(
+        titleM: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 16.sp,
         ),
-        TitleL: TextStyle = TextStyle(
+        titleL: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 18.sp,
         ),
-        TitleXl: TextStyle = TextStyle(
+        titleXl: TextStyle = TextStyle(
             fontWeight = FontWeight.W300,
             fontSize = 32.sp,
         ),
     ) : this(
-        BodyXs.withDefaultFontFamily(defaultFontFamily),
-        BodyS.withDefaultFontFamily(defaultFontFamily),
-        BodyRegular.withDefaultFontFamily(defaultFontFamily),
-        BodyM.withDefaultFontFamily(defaultFontFamily),
-        BodyL.withDefaultFontFamily(defaultFontFamily),
-        BodyXl.withDefaultFontFamily(defaultFontFamily),
-        BodyXxl.withDefaultFontFamily(defaultFontFamily),
-        TitleS.withDefaultFontFamily(defaultFontFamily),
-        TitleM.withDefaultFontFamily(defaultFontFamily),
-        TitleL.withDefaultFontFamily(defaultFontFamily),
-        TitleXl.withDefaultFontFamily(defaultFontFamily),
+        bodyXs.withDefaultFontFamily(defaultFontFamily),
+        bodyS.withDefaultFontFamily(defaultFontFamily),
+        bodyRegular.withDefaultFontFamily(defaultFontFamily),
+        bodyM.withDefaultFontFamily(defaultFontFamily),
+        bodyL.withDefaultFontFamily(defaultFontFamily),
+        bodyXl.withDefaultFontFamily(defaultFontFamily),
+        bodyXxl.withDefaultFontFamily(defaultFontFamily),
+        titleS.withDefaultFontFamily(defaultFontFamily),
+        titleM.withDefaultFontFamily(defaultFontFamily),
+        titleL.withDefaultFontFamily(defaultFontFamily),
+        titleXl.withDefaultFontFamily(defaultFontFamily),
     )
 }
 
 internal val LocalGrapesTypography = staticCompositionLocalOf { GrapesTypography() }
-
 
 private fun TextStyle.withDefaultFontFamily(default: FontFamily): TextStyle {
     return if (fontFamily != null) this else copy(fontFamily = default)
