@@ -21,6 +21,7 @@ class HomePagerAdapter(
             is HomeTabItem.Colors -> ColorsFragment.newInstance()
             is HomeTabItem.Fonts -> FontsFragment.newInstance()
             is HomeTabItem.Buttons -> ButtonsFragment.newInstance()
+            is HomeTabItem.Compose -> ComposeFragment.newInstance()
             is HomeTabItem.Cards -> CardsFragment.newInstance()
             is HomeTabItem.Selectors -> SelectorFragment.newInstance()
             is HomeTabItem.Inputs -> InputsFragment.newInstance()
