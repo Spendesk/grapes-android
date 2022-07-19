@@ -14,7 +14,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.FragmentBottomSheetEditableTextBinding
 import com.spendesk.grapes.extensions.*
-import com.spendesk.spendesk.presentation.view.bottomsheet.editabletext.EditableTextBottomSheetDialogFragmentViewState
 import java.io.Serializable
 
 /**
@@ -36,18 +35,18 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     class Configuration(
-        val title: CharSequence,
-        val hintText: CharSequence? = null,
-        val buttonText: CharSequence? = null
+        val title: String,
+        val hintText: String? = null,
+        val buttonText: String? = null
     ) : Serializable
 
     private var binding: FragmentBottomSheetEditableTextBinding? = null
     private var configuration: Configuration? = null
-    private var editTextValue: CharSequence? = null
+    private var editTextValue: String? = null
 
     //region Observable properties
 
-    var onValidateButtonClicked: ((text: CharSequence) -> Unit)? = null
+    var onValidateButtonClicked: ((text: String) -> Unit)? = null
 
     //endregion Observable properties
 
@@ -125,9 +124,9 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
             editText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
             editText.hint = configuration?.hintText ?: String.empty()
             updateValidateButton()
-
-            Handler(Looper.getMainLooper()).postDelayed({ editText.showSoftKeyboard() }, 50)
         }
+
+        Handler(Looper.getMainLooper()).postDelayed({ binding?.editText?.showSoftKeyboard() }, EDITTEXT_TEXT_CHANGED_DELAY)
     }
 
     private fun bindView() {
