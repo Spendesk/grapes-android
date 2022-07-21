@@ -22,6 +22,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -34,6 +35,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 04/07/2022
  */
 
+private const val DefaultWindowLength = 4
 private const val DefaultMaxLength = 12
 private val ForbiddenCharRegex = "\\D".toRegex()
 
@@ -43,11 +45,17 @@ fun WindowEditTextBase(
     text: String,
     onTextChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    windowLength: Int = DefaultWindowLength,
     maxLength: Int = DefaultMaxLength,
     cursorColor: Color = GrapesTheme.colors.mainWhite,
     textStyle: TextStyle = GrapesTheme.typography.bodyM.copy(letterSpacing = 3.sp, color = GrapesTheme.colors.mainWhite, fontSize = 18.sp, fontFeatureSettings = "tnum"),
+    hint: AnnotatedString = AnnotatedString("0"),
+    separator: AnnotatedString = AnnotatedString("-"),
 ) {
 
+    val visualTransformation = remember(windowLength, maxLength, hint, separator, textStyle) {
+        WindowedVisualTransformation(windowLength = windowLength, originalStringMaxLength = maxLength, separation = separator, hintAnnotatedString = hint)
+    }
     val formattedText = sanitizeWindowedEditTextContent(text, maxLength)
 
     Box(modifier = modifier, contentAlignment = Alignment.Center) {
@@ -60,6 +68,7 @@ fun WindowEditTextBase(
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, autoCorrect = false),
             cursorBrush = SolidColor(cursorColor),
+            visualTransformation = visualTransformation
         )
     }
 }
