@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -24,7 +25,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -39,9 +42,49 @@ private const val DefaultWindowLength = 4
 private const val DefaultMaxLength = 12
 private val ForbiddenCharRegex = "\\D".toRegex()
 
+@Composable
+fun WindowEditText(
+    text: String,
+    onTextChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    windowLength: Int = DefaultWindowLength,
+    maxLength: Int = DefaultMaxLength,
+    cursorColor: Color = GrapesTheme.colors.mainWhite,
+    textStyle: TextStyle = GrapesTheme.typography.bodyM.copy(letterSpacing = 3.sp, color = GrapesTheme.colors.mainWhite, fontSize = 18.sp, fontFeatureSettings = "tnum"),
+    hintChar: Char = '0',
+    separatorChar: Char = '-',
+) {
+    val hint = buildAnnotatedString {
+        withStyle(textStyle.toSpanStyle().copy(color = textStyle.color.copy(alpha = 0.2f))) {
+            append(hintChar)
+        }
+    }
+
+    val separator = buildAnnotatedString {
+        withStyle(textStyle.toSpanStyle().copy(letterSpacing = 38.sp)) {
+            append(separatorChar)
+        }
+    }
+
+    WindowEditTextBase(
+        text = text,
+        onTextChange = onTextChange,
+        modifier = modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+            .background(GrapesTheme.colors.mainPrimaryDark, RoundedCornerShape(12.dp))
+            .padding(vertical = 16.dp),
+        windowLength = windowLength,
+        maxLength = maxLength,
+        cursorColor = cursorColor,
+        textStyle = textStyle,
+        hint = hint,
+        separator = separator
+    )
+}
 
 @Composable
-fun WindowEditTextBase(
+internal fun WindowEditTextBase(
     text: String,
     onTextChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -108,7 +151,7 @@ fun WindowEditTextPreview() {
                 Text(text = "Text In edit text")
                 Text(text = content)
             }
-            WindowEditTextBase(
+            WindowEditText(
                 text = content, onTextChange = { content = it }
             )
         }
