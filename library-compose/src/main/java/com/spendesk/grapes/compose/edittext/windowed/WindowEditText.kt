@@ -31,9 +31,49 @@ private const val DefaultWindowLength = 4
 private const val DefaultMaxLength = 12
 private val ForbiddenCharRegex = "[^\\d]".toRegex()
 
+@Composable
+fun WindowEditText(
+    text: String,
+    onTextChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    windowLength: Int = DefaultWindowLength,
+    maxLength: Int = DefaultMaxLength,
+    cursorColor: Color = GrapesTheme.colors.mainWhite,
+    textStyle: TextStyle = GrapesTheme.typography.bodyM.copy(letterSpacing = 3.sp, color = GrapesTheme.colors.mainWhite, fontSize = 18.sp),
+    hintChar: Char = '0',
+    separatorChar: Char = '-',
+) {
+    val hint = buildAnnotatedString {
+        withStyle(textStyle.toSpanStyle().copy(color = textStyle.color.copy(alpha = 0.2f))) {
+            append(hintChar)
+        }
+    }
+
+    val separator = buildAnnotatedString {
+        withStyle(textStyle.toSpanStyle().copy(letterSpacing = 38.sp)) {
+            append(separatorChar)
+        }
+    }
+
+    WindowEditTextBase(
+        text = text,
+        onTextChange = onTextChange,
+        modifier = modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+            .background(GrapesTheme.colors.mainPrimaryDark, RoundedCornerShape(12.dp))
+            .padding(vertical = 16.dp),
+        windowLength = windowLength,
+        maxLength = maxLength,
+        cursorColor = cursorColor,
+        textStyle = textStyle,
+        hint = hint,
+        separator = separator
+    )
+}
 
 @Composable
-fun WindowEditTextBase(
+internal fun WindowEditTextBase(
     text: String,
     onTextChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -100,7 +140,7 @@ fun WindowEditTextPreview() {
                 Text(text = "Text In edit text")
                 Text(text = content)
             }
-            WindowEditTextBase(
+            WindowEditText(
                 text = content, onTextChange = { content = it }
             )
         }
