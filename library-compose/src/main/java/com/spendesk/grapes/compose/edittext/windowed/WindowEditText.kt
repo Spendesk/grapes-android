@@ -27,6 +27,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 04/07/2022
  */
 
+private const val DefaultWindowLength = 4
 private const val DefaultMaxLength = 12
 private val ForbiddenCharRegex = "[^\\d]".toRegex()
 
@@ -36,11 +37,17 @@ fun WindowEditTextBase(
     text: String,
     onTextChange: (String) -> Unit,
     modifier: Modifier = Modifier,
+    windowLength: Int = DefaultWindowLength,
     maxLength: Int = DefaultMaxLength,
     cursorColor: Color = GrapesTheme.colors.mainWhite,
-    textStyle: TextStyle = GrapesTheme.typography.bodyM.copy(letterSpacing = 3.sp, color = GrapesTheme.colors.mainWhite, fontSize = 18.sp)
+    textStyle: TextStyle = GrapesTheme.typography.bodyM.copy(letterSpacing = 3.sp, color = GrapesTheme.colors.mainWhite, fontSize = 18.sp),
+    hint: AnnotatedString = AnnotatedString("0"),
+    separator: AnnotatedString = AnnotatedString("-"),
 ) {
 
+    val visualTransformation = remember(windowLength, maxLength, hint, separator, textStyle) {
+        WindowedVisualTransformation(windowLength = windowLength, originalStringMaxLength = maxLength, separation = separator, hintAnnotatedString = hint)
+    }
     val formattedText = sanitizeWindowedEditTextContent(text, maxLength)
 
     Box(modifier = modifier, contentAlignment = Alignment.Center) {
@@ -53,6 +60,7 @@ fun WindowEditTextBase(
             singleLine = true,
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number, autoCorrect = false),
             cursorBrush = SolidColor(cursorColor),
+            visualTransformation = visualTransformation
         )
     }
 }
