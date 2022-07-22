@@ -10,52 +10,55 @@
         style="@style/BottomSheetHeaderCloseButton"
         android:layout_width="?attr/actionBarSize"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintBottom_toTopOf="@id/headerGuideline"
+        app:layout_constraintBottom_toTopOf="@id/headerBottomGuideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_close" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/headerBottomGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="?attr/actionBarSize" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/headerTitleEndGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="?attr/actionBarSize" />
 
     <TextView
         android:id="@+id/headerTitle"
         style="@style/BottomSheetHeaderTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="?attr/actionBarSize"
-        android:layout_marginEnd="?attr/actionBarSize"
-        app:layout_constraintBottom_toTopOf="@+id/headerGuideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/headerBottomGuideline"
+        app:layout_constraintEnd_toStartOf="@id/headerTitleEndGuideline"
+        app:layout_constraintStart_toEndOf="@id/headerCloseButton"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Title" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/headerGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="?attr/actionBarSize" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/editText"
         style="@style/BottomSheetEditableTextEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/bottomSheetContentMarginHorz"
-        android:layout_marginTop="@dimen/bottomSheetEditableTextEditTextMarginVert"
-        android:layout_marginEnd="@dimen/bottomSheetContentMarginHorz"
-        android:layout_marginBottom="@dimen/bottomSheetEditableTextEditTextMarginVert"
+        android:layout_marginHorizontal="@dimen/bottomSheetContentMarginHorz"
+        android:layout_marginVertical="@dimen/bottomSheetEditableTextEditTextMarginVert"
         android:minLines="8"
         app:layout_constraintBottom_toTopOf="@+id/validateButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/headerGuideline" />
+        app:layout_constraintTop_toBottomOf="@id/headerBottomGuideline" />
 
     <com.spendesk.grapes.Button
         android:id="@+id/validateButton"
         style="@style/BottomSheetEditableTextValidateButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/bottomSheetContentMarginHorz"
-        android:layout_marginEnd="@dimen/bottomSheetContentMarginHorz"
+        android:layout_marginHorizontal="@dimen/bottomSheetContentMarginHorz"
         android:layout_marginBottom="@dimen/bottomSheetContentMarginVert"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

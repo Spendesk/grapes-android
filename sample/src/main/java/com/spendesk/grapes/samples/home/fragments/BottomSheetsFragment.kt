@@ -14,7 +14,7 @@ import com.spendesk.grapes.list.simple.SimpleListModel
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeBottomSheetsBinding
-import com.spendesk.spendesk.presentation.view.bottomsheet.editabletext.EditableTextBottomSheetDialogFragmentViewState
+import com.spendesk.grapes.bottomsheet.editabletext.EditableTextBottomSheetDialogFragmentViewState
 
 /**
  * @author Vivien Mahe
