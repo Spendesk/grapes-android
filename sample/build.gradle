@@ -70,10 +70,11 @@ android {
             minifyEnabled false
         }
     }
-
-    lintOptions {
+    lint {
         abortOnError false
     }
+    namespace 'com.spendesk.grapes.samples'
+
 }
 
 dependencies {
