@@ -23,6 +23,10 @@ object GrapesTheme {
         @Composable
         @ReadOnlyComposable
         get() = LocalGrapesDimensions.current
+    val shapes: GrapesShapes
+        @Composable
+        @ReadOnlyComposable
+        get() = LocalGrapesShapes.current
 }
 
 @Composable
@@ -34,6 +38,7 @@ fun GrapesTheme(
         LocalGrapesColors provides lightColorsPalette(),
         LocalGrapesTypography provides GrapesTypography(),
         LocalGrapesDimensions provides GrapesDimensions(),
+        LocalGrapesShapes provides GrapesShapes(),
         content = content
     )
 }
