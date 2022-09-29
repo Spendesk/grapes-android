@@ -36,31 +36,51 @@ private fun GrapesButton(
     }
     when (configuration) {
         GrapesButtonConfiguration.TEXT, GrapesButtonConfiguration.SECONDARY_TEXT -> {
-            TextButton(modifier = modifier, onClick = onClick, colors = buttonColors, border = buttonStroke, content = content)
+            TextButton(
+                modifier = modifier,
+                onClick = onClick,
+                colors = buttonColors,
+                border = buttonStroke,
+                elevation = null,
+                shape = GrapesTheme.shapes.small,
+                content = content
+            )
         }
         else -> {
-            Button(modifier = modifier, onClick = onClick, colors = buttonColors, border = buttonStroke, content = content)
+            Button(
+                modifier = modifier,
+                onClick = onClick,
+                colors = buttonColors,
+                border = buttonStroke,
+                elevation = null,
+                shape = GrapesTheme.shapes.small,
+                content = content
+            )
         }
     }
 }
 
 @Composable
 fun GrapesButton(
+    text: String,
     modifier: Modifier = Modifier,
     onClick: (() -> Unit) = {},
     configuration: GrapesButtonConfiguration = GrapesButtonConfiguration.PRIMARY,
     size: GrapesButtonSize = GrapesButtonSize.LARGE,
-    text: String
 ) {
     val textStyle = when (size) {
         GrapesButtonSize.LARGE -> GrapesTheme.typography.titleM
         GrapesButtonSize.SMALL -> GrapesTheme.typography.titleS
     }
     val buttonModifier = when (size) {
-        GrapesButtonSize.LARGE -> modifier
-            .fillMaxWidth()
-            .heightIn(min = 48.dp)
-        GrapesButtonSize.SMALL -> modifier.wrapContentSize()
+        GrapesButtonSize.LARGE -> {
+            modifier
+                .fillMaxWidth()
+                .heightIn(min = 48.dp)
+        }
+        GrapesButtonSize.SMALL -> {
+            modifier.wrapContentSize()
+        }
     }
 
     GrapesButton(
