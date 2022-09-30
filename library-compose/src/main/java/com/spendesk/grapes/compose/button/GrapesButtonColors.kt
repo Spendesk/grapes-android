@@ -21,12 +21,14 @@ private class GrapesButtonColors(
 ) : ButtonColors {
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
-        return rememberUpdatedState(if (enabled) backgroundColor else disabledBackgroundColor)
+        val computedColor = if (enabled) backgroundColor else disabledBackgroundColor
+        return rememberUpdatedState(computedColor)
     }
 
     @Composable
     override fun contentColor(enabled: Boolean): State<Color> {
-        return rememberUpdatedState(if (enabled) contentColor else disabledContentColor)
+        val computedColor = if (enabled) contentColor else disabledContentColor
+        return rememberUpdatedState(computedColor)
     }
 
     override fun equals(other: Any?): Boolean {
@@ -35,12 +37,10 @@ private class GrapesButtonColors(
 
         other as GrapesButtonColors
 
-        if (backgroundColor != other.backgroundColor) return false
-        if (contentColor != other.contentColor) return false
-        if (disabledBackgroundColor != other.disabledBackgroundColor) return false
-        if (disabledContentColor != other.disabledContentColor) return false
-
-        return true
+        return backgroundColor == other.backgroundColor &&
+                contentColor == other.contentColor &&
+                disabledBackgroundColor == other.disabledBackgroundColor &&
+                disabledContentColor == other.disabledContentColor
     }
 
     override fun hashCode(): Int {
