@@ -42,7 +42,7 @@ allprojects {
 }
 
 ext {
-    sdkVersion = 32
+    sdkVersion = 33
     minSdkVersion = 21
 }
 
