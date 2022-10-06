@@ -9,7 +9,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
-import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -25,7 +24,7 @@ internal fun InformativeTemplate(
         modifier = Modifier
             .fillMaxSize()
             .background(Brush.linearGradient(listOf(GrapesTheme.colors.mainPrimaryDark, GrapesTheme.colors.mainPrimaryNormal)))
-            .padding(16.dp),
+            .padding(GrapesTheme.dimensions.paddingNormal),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.weight(1f))

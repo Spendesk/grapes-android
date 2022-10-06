@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.button.GrapesButtonConfiguration
 import com.spendesk.grapes.compose.button.GrapesButtonSize
@@ -33,7 +32,7 @@ private fun AskTemplate(
     InformativeTemplate(
         middlePart = middlePart,
         bottomPart = {
-            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+            Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingMedium)) {
                 approveButton()
                 declineButton()
             }
@@ -53,7 +52,11 @@ fun AskTemplate(
 ) {
     AskTemplate(
         middlePart = {
-            Column(modifier = Modifier.padding(8.dp), horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(16.dp)) {
+            Column(
+                modifier = Modifier.padding(GrapesTheme.dimensions.paddingMedium),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingNormal)
+            ) {
                 Image(painter = painterResource(id = imageRes), contentDescription = null)
                 Text(text = title, style = GrapesTheme.typography.titleXl, color = GrapesTheme.colors.mainWhite, textAlign = TextAlign.Center)
                 Text(text = subtitle, style = GrapesTheme.typography.bodyRegular, color = GrapesTheme.colors.mainWhite, textAlign = TextAlign.Center)
