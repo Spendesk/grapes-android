@@ -33,9 +33,9 @@ allprojects {
 ```
 
 Add the dependency to your application module:
-
 ```bash
-implementation 'com.github.Spendesk:grapes-android:$grapes_version'
+implementation 'com.github.Spendesk.grapes-android:grapes-android:$grapes_version' // View only dependency
+implementation 'com.github.Spendesk.grapes-android:grapes-android-compose:$grapes_version' // Compose only dependency
 ```
 
 The latest Grapes version is: [![Grapes-Android](https://jitpack.io/v/Spendesk/grapes-android.svg)](https://jitpack.io/#Spendesk/grapes-android)

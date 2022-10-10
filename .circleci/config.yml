@@ -15,7 +15,7 @@ references:
       GRADLE_OPTS: -Dorg.gradle.daemon=false
 
   gradle_checksum_cache_key: &gradle_checksum_cache_key
-    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "library/build.gradle" }}-{{ checksum "sample/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
+    key: gradle-{{ checksum "build.gradle" }}-{{ checksum "library/build.gradle" }}-{{ checksum "library-compose/build.gradle" }}-{{ checksum "sample/build.gradle" }}-{{ checksum "gradle.properties" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "settings.gradle" }}
 
   # Branching
 
