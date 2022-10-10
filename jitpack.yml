@@ -5,4 +5,4 @@ before_install:
   - sdk use java 11.0.10-open
 install:
   - java -version
-  - ./gradlew :library:clean :library:build :library:publishReleasePublicationToMavenLocal -xtest -xlint
+  - ./gradlew :library:clean :library:build :library:publishReleasePublicationToMavenLocal :library-compose:clean :library-compose:build :library-compose:publishReleasePublicationToMavenLocal -xtest -xlint
