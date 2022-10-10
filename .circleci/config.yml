@@ -85,6 +85,7 @@ jobs:
   build:
     <<: *container_config
     description: Build the APK for release buildType
+    resource_class: large
     steps:
       - checkout
       - restore-gradle-cache
