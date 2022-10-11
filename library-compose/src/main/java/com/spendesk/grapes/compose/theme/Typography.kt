@@ -36,47 +36,47 @@ data class GrapesTypography constructor(
     constructor(
         defaultFontFamily: FontFamily = DefaultGrapesFontFamily,
         bodyXs: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 12.sp,
         ),
         bodyS: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 14.sp,
         ),
         bodyRegular: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 16.sp,
         ),
         bodyM: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 24.sp,
         ),
         bodyL: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 32.sp,
         ),
         bodyXl: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 40.sp,
         ),
         bodyXxl: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Normal,
             fontSize = 56.sp,
         ),
         titleS: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
         ),
         titleM: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Medium,
             fontSize = 16.sp,
         ),
         titleL: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Medium,
             fontSize = 18.sp,
         ),
         titleXl: TextStyle = TextStyle(
-            fontWeight = FontWeight.W300,
+            fontWeight = FontWeight.Medium,
             fontSize = 32.sp,
         ),
     ) : this(
