@@ -1,6 +1,7 @@
 package com.spendesk.grapes.bottomsheet.searchable
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -51,6 +52,7 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     var onItemClicked: ((item: SimpleListModel) -> Unit)? = null
     var onSearchInputChanged: ((searchInput: String) -> Unit)? = null
+    var onCancelListener: (() -> Unit)? = null
 
     // endregion Observable properties
 
@@ -148,9 +150,14 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
         }
     }
 
+    override fun onCancel(dialog: DialogInterface) {
+        onCancelListener?.invoke()
+        super.onCancel(dialog)
+    }
+
     private fun bindView() {
         binding?.apply {
-            searchableSheetHeaderCloseButton.setOnClickListener { dismiss() }
+            searchableSheetHeaderCloseButton.setOnClickListener { dialog?.cancel() }
             searchableSheetSearchInput.getEditText().afterTextChangedWith(EDITTEXT_TEXT_CHANGED_DELAY) { withActivityAttached { runOnUiThread { onSearchInputChanged?.invoke(it.trim()) } } }
         }
 
