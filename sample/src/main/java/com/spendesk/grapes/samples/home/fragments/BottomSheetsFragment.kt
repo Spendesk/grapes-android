@@ -155,5 +155,6 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
             .apply {
                 onItemClicked = { requireActivity().shortToaster("Search result clicked: $it"); dismiss() }
                 onSearchInputChanged = { requireActivity().shortToaster("Search input: $it") }
+                onCancelListener = { requireActivity().shortToaster("Cancel dialog without clicking on an item") }
             }
 }
