@@ -24,6 +24,7 @@ private fun GrapesButton(
     modifier: Modifier = Modifier,
     onClick: (() -> Unit) = {},
     configuration: GrapesButtonConfiguration = GrapesButtonConfiguration.PRIMARY,
+    isEnabled: Boolean,
     content: @Composable RowScope.() -> Unit,
 ) {
     val (buttonColors: ButtonColors, buttonStroke: BorderStroke?) = when (configuration) {
@@ -43,7 +44,8 @@ private fun GrapesButton(
                 border = buttonStroke,
                 elevation = null,
                 shape = GrapesTheme.shapes.small,
-                content = content
+                content = content,
+                enabled = isEnabled
             )
         }
         else -> {
@@ -54,7 +56,8 @@ private fun GrapesButton(
                 border = buttonStroke,
                 elevation = null,
                 shape = GrapesTheme.shapes.small,
-                content = content
+                content = content,
+                enabled = isEnabled
             )
         }
     }
@@ -67,6 +70,7 @@ fun GrapesButton(
     onClick: (() -> Unit) = {},
     configuration: GrapesButtonConfiguration = GrapesButtonConfiguration.PRIMARY,
     size: GrapesButtonSize = GrapesButtonSize.LARGE,
+    isEnabled: Boolean = true
 ) {
     val textStyle = when (size) {
         GrapesButtonSize.LARGE -> GrapesTheme.typography.titleM
@@ -86,7 +90,8 @@ fun GrapesButton(
     GrapesButton(
         modifier = buttonModifier,
         onClick = onClick,
-        configuration = configuration
+        configuration = configuration,
+        isEnabled = isEnabled
     ) {
         Text(text, style = textStyle)
     }
@@ -103,11 +108,11 @@ private fun ButtonPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(4.dp)
         ) {
-            GrapesButton { Text(text = "Mais oui") }
-            GrapesButton(configuration = GrapesButtonConfiguration.SECONDARY) { Text(text = "Mais oui") }
-            GrapesButton(configuration = GrapesButtonConfiguration.ALERT) { Text(text = "Mais oui") }
-            GrapesButton(configuration = GrapesButtonConfiguration.WARNING) { Text(text = "Mais oui") }
-            GrapesButton(configuration = GrapesButtonConfiguration.TEXT) { Text(text = "Mais oui") }
+            GrapesButton(text = "Mais oui")
+            GrapesButton(text = "Mais oui" , configuration = GrapesButtonConfiguration.SECONDARY)
+            GrapesButton(text = "Mais oui", configuration = GrapesButtonConfiguration.ALERT)
+            GrapesButton(text = "Mais oui", configuration = GrapesButtonConfiguration.WARNING)
+            GrapesButton(text = "Mais oui", configuration = GrapesButtonConfiguration.TEXT)
             GrapesButton(text = "Small button", size = GrapesButtonSize.SMALL)
             GrapesButton(text = "Large button", size = GrapesButtonSize.LARGE)
         }
