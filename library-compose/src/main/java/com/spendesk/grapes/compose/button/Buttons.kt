@@ -1,17 +1,17 @@
 package com.spendesk.grapes.compose.button
 
 import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonColors
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -97,6 +97,36 @@ fun GrapesButton(
     }
 }
 
+@Composable
+fun GrapesButton(
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit) = {},
+    configuration: GrapesButtonConfiguration = GrapesButtonConfiguration.PRIMARY,
+    size: GrapesButtonSize = GrapesButtonSize.LARGE,
+    isEnabled: Boolean = true
+) {
+    val buttonModifier = when (size) {
+        GrapesButtonSize.LARGE -> {
+            modifier
+                .fillMaxWidth()
+                .heightIn(min = 48.dp)
+        }
+        GrapesButtonSize.SMALL -> {
+            modifier.wrapContentSize()
+        }
+    }
+
+    GrapesButton(
+        modifier = buttonModifier,
+        onClick = onClick,
+        configuration = configuration,
+        isEnabled = isEnabled
+    ) {
+        Icon(painter = painterResource(id = icon), contentDescription = "")
+    }
+}
+
 @Preview("default", "button")
 @Preview("dark theme", "button", uiMode = UI_MODE_NIGHT_NO)
 @Preview("large font", "button", fontScale = 2f)
@@ -115,6 +145,8 @@ private fun ButtonPreview() {
             GrapesButton(text = "Mais oui", configuration = GrapesButtonConfiguration.TEXT)
             GrapesButton(text = "Small button", size = GrapesButtonSize.SMALL)
             GrapesButton(text = "Large button", size = GrapesButtonSize.LARGE)
+            GrapesButton(icon = R.drawable.ic_delete_return, size = GrapesButtonSize.LARGE)
+            GrapesButton(icon = R.drawable.ic_delete_return, size = GrapesButtonSize.SMALL, configuration = GrapesButtonConfiguration.TEXT)
         }
     }
 }
