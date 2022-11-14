@@ -121,6 +121,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                 )
             ).apply {
                 onValidateButtonClicked = { requireActivity().shortToaster("Validate button clicked with editable text: $it"); dismiss() }
+                onCancelListener = { requireActivity().shortToaster("Editable text cancelled"); dismiss() }
 
                 updateViewState(viewState = EditableTextBottomSheetDialogFragmentViewState.Content(text = "Some value"))
                 show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, EditableTextBottomSheetDialogFragment::class.java.name)
@@ -137,6 +138,7 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                 )
             ).apply {
                 onValidateButtonClicked = { requireActivity().shortToaster("Validate button clicked with editable text: $it"); dismiss() }
+                onCancelListener = { requireActivity().shortToaster("Editable text cancelled"); dismiss() }
 
                 updateViewState(viewState = EditableTextBottomSheetDialogFragmentViewState.Content())
                 show(this@BottomSheetsFragment.requireActivity().supportFragmentManager, EditableTextBottomSheetDialogFragment::class.java.name)

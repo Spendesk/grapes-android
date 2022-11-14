@@ -1,6 +1,7 @@
 package com.spendesk.grapes.bottomsheet.editabletext
 
 import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -47,6 +48,7 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
     //region Observable properties
 
     var onValidateButtonClicked: ((text: String) -> Unit)? = null
+    var onCancelListener: (() -> Unit)? = null
 
     //endregion Observable properties
 
@@ -106,6 +108,11 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
         super.onDestroyView()
     }
 
+    override fun onCancel(dialog: DialogInterface) {
+        onCancelListener?.invoke()
+        super.onCancel(dialog)
+    }
+
     fun updateViewState(viewState: EditableTextBottomSheetDialogFragmentViewState) {
         when (viewState) {
             is EditableTextBottomSheetDialogFragmentViewState.Content -> {
@@ -131,7 +138,7 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     private fun bindView() {
         binding?.apply {
-            headerCloseButton.setOnClickListener { dismiss() }
+            headerCloseButton.setOnClickListener { dialog?.cancel() }
             validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(editText.text.toString().trim()) } } }
             editText.onTextChanged { withActivityAttached { runOnUiThread { updateValidateButton() } } }
         }
