@@ -47,7 +47,6 @@
         android:layout_marginStart="@dimen/actionMessageBottomSheetDescriptionMarginHorz"
         android:layout_marginTop="@dimen/actionMessageBottomSheetDescriptionMarginVert"
         android:layout_marginEnd="@dimen/actionMessageBottomSheetDescriptionMarginHorz"
-        android:layout_marginBottom="@dimen/actionMessageBottomSheetDescriptionMarginVert"
         android:ellipsize="end"
         app:layout_constrainedHeight="true"
         app:layout_constraintBottom_toTopOf="@id/actionMessageBottomSheetPrimaryButton"
@@ -62,6 +61,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/actionMessageBottomSheetPrimaryButtonMarginHorz"
+        android:layout_marginTop="@dimen/actionMessageBottomSheetPrimaryButtonMarginTop"
         android:layout_marginEnd="@dimen/actionMessageBottomSheetPrimaryButtonMarginHorz"
         app:layout_constraintBottom_toTopOf="@id/actionMessageBottomSheetSecondaryButton"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,5 +81,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/actionMessageBottomSheetPrimaryButton"
+        app:layout_goneMarginTop="@dimen/actionMessageBottomSheetPrimaryButtonMarginTop"
         tools:text="Secondary Button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
