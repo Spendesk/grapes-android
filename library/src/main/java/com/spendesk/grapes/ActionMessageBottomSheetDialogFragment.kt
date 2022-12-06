@@ -8,11 +8,16 @@ import android.view.ViewGroup
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
 import android.widget.FrameLayout
 import androidx.annotation.DrawableRes
+import androidx.core.view.isVisible
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.spendesk.grapes.databinding.FragmentBottomSheetInfoBinding
-import com.spendesk.grapes.extensions.*
+import com.spendesk.grapes.extensions.getHeight
+import com.spendesk.grapes.extensions.gone
+import com.spendesk.grapes.extensions.visible
+import com.spendesk.grapes.extensions.visibleOrGone
+import com.spendesk.grapes.extensions.visibleWithTextOrGone
 
 /**
  * @author danyboucanova
@@ -27,7 +32,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
     }
 
     data class Configuration(
-        @DrawableRes val imageResourceId: Int,
+        @DrawableRes val imageResourceId: Int? = null,
         val title: CharSequence,
         val description: CharSequence? = null,
         val primaryButtonText: CharSequence? = null,
@@ -89,7 +94,9 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
     fun updateConfiguration(configuration: Configuration) {
         this.configuration = configuration
         binding?.apply {
-            actionMessageBottomSheetImage.setBackgroundResource(configuration.imageResourceId)
+            configuration.imageResourceId?.let { actionMessageBottomSheetImage.setBackgroundResource(it) }
+            actionMessageBottomSheetImage.isVisible = configuration.imageResourceId != null
+
             actionMessageBottomSheetTitleText.text = configuration.title
 
             actionMessageBottomSheetDescriptionText.visibleWithTextOrGone(configuration.description)
