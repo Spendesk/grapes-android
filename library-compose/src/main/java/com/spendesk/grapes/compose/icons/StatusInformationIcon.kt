@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.icons
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -29,13 +30,39 @@ enum class Size(val surfaceSize: Dp, val iconSize: Dp) {
 fun StatusInformationIcon(
     configuration: GrapesConfigurationStatus,
     size: Size,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    hasBorder: Boolean = true
 ) {
     GrapesSurface(
         modifier = modifier.size(size.surfaceSize),
-        configuration = configuration
+        configuration = configuration,
+        hasBorder = hasBorder
     ) {
         GrapesIcon(
+            configuration = configuration,
+            modifier = Modifier
+                .wrapContentSize(align = Alignment.Center)
+                .size(size.iconSize),
+        )
+    }
+}
+
+@Composable
+fun StatusInformationIcon(
+    @DrawableRes icon: Int,
+    configuration: GrapesConfigurationStatus,
+    size: Size,
+    modifier: Modifier = Modifier,
+    hasBorder: Boolean = true
+) {
+    GrapesSurface(
+        modifier = modifier
+            .size(size.surfaceSize),
+        configuration = configuration,
+        hasBorder = hasBorder
+    ) {
+        GrapesIcon(
+            icon = icon,
             configuration = configuration,
             modifier = Modifier
                 .wrapContentSize(align = Alignment.Center)
