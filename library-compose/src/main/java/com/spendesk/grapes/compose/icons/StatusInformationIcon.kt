@@ -1,10 +1,15 @@
 package com.spendesk.grapes.compose.icons
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.model.GrapesConfigurationStatus
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -14,10 +19,10 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since : 19/05/2022, Thu
  **/
 
-enum class Size {
-    S,
-    M,
-    L
+enum class Size(val surfaceSize: Dp, val iconSize: Dp) {
+    S(surfaceSize = 32.dp, iconSize = 16.dp),
+    M(surfaceSize = 48.dp, iconSize = 24.dp),
+    L(surfaceSize = 80.dp, iconSize = 32.dp);
 }
 
 @Composable
@@ -25,31 +30,19 @@ fun StatusInformationIcon(
     configuration: GrapesConfigurationStatus,
     size: Size,
     modifier: Modifier = Modifier
-) =
+) {
     GrapesSurface(
-        modifier = modifier
-            .size(
-                when (size) {
-                    Size.S -> 32.dp
-                    Size.M -> 48.dp
-                    Size.L -> 80.dp
-                }
-            ),
+        modifier = modifier.size(size.surfaceSize),
         configuration = configuration
     ) {
         GrapesIcon(
             configuration = configuration,
             modifier = Modifier
                 .wrapContentSize(align = Alignment.Center)
-                .size(
-                    when (size) {
-                        Size.S -> 16.dp
-                        Size.M -> 24.dp
-                        Size.L -> 32.dp
-                    }
-                ),
+                .size(size.iconSize),
         )
     }
+}
 
 // region Previews
 
