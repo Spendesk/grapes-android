@@ -20,15 +20,19 @@ data class GrapesShapes(
      * the corner size to be 50%. [TextField] uses this shape with overriding the bottom corners
      * to zero.
      */
-    val small: CornerBasedShape = RoundedCornerShape(8.dp),
+    val small: CornerBasedShape = RoundedCornerShape(SmallShapeCornerRadius),
     /**
      * Shape used by medium components like [Card] or [AlertDialog].
      */
-    val medium: CornerBasedShape = RoundedCornerShape(8.dp),
+    val medium: CornerBasedShape = RoundedCornerShape(MediumShapeCornerRadius),
     /**
      * Shape used by large components like [ModalDrawer] or [ModalBottomSheetLayout].
      */
-    val large: CornerBasedShape = RoundedCornerShape(0.dp)
+    val large: CornerBasedShape = RoundedCornerShape(LargeShapeCornerRadius)
 )
+
+private val SmallShapeCornerRadius = 8.dp
+private val MediumShapeCornerRadius = 12.dp
+private val LargeShapeCornerRadius = 0.dp
 
 internal val LocalGrapesShapes = staticCompositionLocalOf { GrapesShapes() }
