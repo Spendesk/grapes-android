@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.icons
 
+import androidx.annotation.DrawableRes
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -19,10 +20,26 @@ fun GrapesIcon(
     configuration: GrapesConfigurationStatus,
     modifier: Modifier = Modifier,
     contentDescription: String? = null
-) =
+) {
+    GrapesIcon(
+        icon = GrapesIcons.iconFor(configuration),
+        configuration = configuration,
+        modifier = modifier,
+        contentDescription = contentDescription
+    )
+}
+
+@Composable
+fun GrapesIcon(
+    @DrawableRes icon: Int,
+    configuration: GrapesConfigurationStatus,
+    modifier: Modifier = Modifier,
+    contentDescription: String? = null
+) {
     Icon(
         modifier = modifier,
-        imageVector = ImageVector.vectorResource(GrapesIcons.iconFor(configuration)),
+        imageVector = ImageVector.vectorResource(icon),
         contentDescription = contentDescription,
         tint = GrapesTheme.colors.contentColorFor(configuration)
     )
+}
