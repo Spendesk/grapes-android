@@ -2,7 +2,7 @@
 buildscript {
 
     ext {
-        grapes_version = '1.1.4'
+        grapes_version = '1.1.5'
 
         kotlin_version = '1.7.10'
         firebase_app_distribution_version = '2.1.2'
