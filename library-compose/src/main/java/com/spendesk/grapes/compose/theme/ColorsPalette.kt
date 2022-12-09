@@ -72,7 +72,8 @@ fun lightColorsPalette(
     mainAlertDark = alertDark,
     mainAlertNormal = alertNormal,
     mainAlertLighter = alertLighter,
-    mainAlertLightest = alertLightest
+    mainAlertLightest = alertLightest,
+    isLight = true
 )
 
 internal val LocalGrapesColors = staticCompositionLocalOf { lightColorsPalette() }

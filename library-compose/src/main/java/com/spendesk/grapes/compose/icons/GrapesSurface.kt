@@ -11,15 +11,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.model.GrapesConfigurationStatus
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Composable
 fun GrapesSurface(
+    configuration: GrapesConfigurationStatus,
     modifier: Modifier = Modifier,
     shape: Shape = CircleShape,
-    configuration: GrapesConfigurationStatus,
+    hasBorder: Boolean = true,
     content: @Composable () -> Unit
 ) {
     val (backgroundColor: Color, borderColor: Color) = when (configuration) {
@@ -31,9 +33,11 @@ fun GrapesSurface(
         GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.mainPrimaryLightest, GrapesTheme.colors.mainPrimaryLighter)
     }
 
+    val border = BorderStroke(1.dp, borderColor).takeIf { hasBorder }
+
     Surface(
         modifier = modifier,
-        border = BorderStroke(1.dp, borderColor),
+        border = border,
         shape = shape,
         color = backgroundColor,
         content = content

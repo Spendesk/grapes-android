@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.theme
 
+import android.hardware.lights.Light
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 
@@ -45,6 +46,7 @@ data class GrapesColors(
     val mainAlertNormal: Color,
     val mainAlertLighter: Color,
     val mainAlertLightest: Color,
+    val isLight: Boolean
 )
 
 val mainPrimaryDark = Color(0xFF421896)
