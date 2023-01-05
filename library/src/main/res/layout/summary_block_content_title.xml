@@ -10,43 +10,42 @@
         style="@style/SummaryBlockContentTitleStartText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constrainedWidth="true"
+        app:layout_goneMarginEnd="@dimen/inlineBlockViewTextMarginHorz"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleMiddleText"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="This is a title" />
+        tools:text="This is a title which is very very very long and that takes a lotof " />
 
     <TextView
         android:id="@+id/summaryBlockContentTitleMiddleText"
         style="@style/SummaryBlockContentTitleMiddleText"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/summaryBlockContentMiddleTitleTextMarginStart"
+        android:layout_marginEnd="@dimen/inlineBlockViewTextMarginHorz"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndLeftBarrier"
+        app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndText"
         app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleStartText"
+        app:layout_constraintHorizontal_bias="0"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="• Optional"
         tools:visibility="visible" />
-
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/summaryBlockContentTitleEndLeftBarrier"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="start"
-        app:constraint_referenced_ids="summaryBlockContentTitleEndText" />
 
     <TextView
         android:id="@+id/summaryBlockContentTitleEndText"
         style="@style/SummaryBlockContentTitleEndText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/partialContentBlockTextEndMarginEnd"
         android:layout_marginStart="@dimen/inlineBlockViewTextMarginHorz"
+        android:layout_marginEnd="@dimen/partialContentBlockTextEndMarginEnd"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/summaryBlockContentTitleEndRightBarrier"
-        app:layout_constraintStart_toEndOf="@+id/summaryBlockContentTitleEndLeftBarrier"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_goneMarginStart="@dimen/inlineBlockViewTextMarginHorz"
         tools:text="Action"
         tools:visibility="visible" />
 
@@ -54,8 +53,8 @@
         android:id="@+id/summaryBlockContentTitleEndRightBarrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="end"
-        app:constraint_referenced_ids="summaryBlockContentTitleEndText" />
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="summaryBlockContentTitleEndImage, summaryBlockContentTitleEndProgressBar" />
 
     <ImageView
         android:id="@+id/summaryBlockContentTitleEndImage"
@@ -64,7 +63,6 @@
         android:layout_height="@dimen/partialContentBlockEndImageSize"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleEndRightBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
@@ -75,7 +73,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/summaryBlockContentTitleEndRightBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
