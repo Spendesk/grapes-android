@@ -191,7 +191,7 @@ class ContentsFragment : Fragment(R.layout.fragment_home_contents) {
             updateConfiguration(
                 configuration = SummaryBlockContentTextView.Configuration(
                     titleConfiguration = SummaryBlockTitleView.Configuration(
-                        startTitle = "Description",
+                        startTitle = "Very very long Description to see what's happening when the description is long",
                         endTitle = "Add",
                         isActivated = true
                     )
