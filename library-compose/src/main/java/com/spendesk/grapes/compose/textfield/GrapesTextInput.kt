@@ -11,6 +11,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
@@ -44,6 +45,7 @@ fun GrapesTextInput(
         placeholderValue = placeholderValue,
         onValueChange = onValueChange,
         modifier = modifier,
+        helperText = helperText,
         enabled = enabled,
         textStyle = textStyle,
         colors = colors,
@@ -92,30 +94,33 @@ fun PreviewGrapesTextField() {
                 .background(GrapesTheme.colors.mainBackground)
                 .verticalScroll(rememberScrollState())
                 .padding(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
 
             GrapesTextInput(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier,
                 value = emptyTextFieldValue,
                 placeholderValue = "This is a placeholder",
+                helperText = "This is helper text",
                 onValueChange = {
                     emptyTextFieldValue = it
                 }
             )
 
             GrapesTextInput(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier,
                 value = filledTextFieldValue,
                 isError = true,
                 placeholderValue = "This is a placeholder",
+                helperText = "This is an error helper text",
                 onValueChange = {
                     filledTextFieldValue = it
                 }
             )
 
             GrapesTextInput(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier,
                 value = emptyTextFieldValue,
                 enabled = false,
                 placeholderValue = "This is a disabled placeholder",
@@ -125,10 +130,11 @@ fun PreviewGrapesTextField() {
             )
 
             GrapesTextInput(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier,
                 value = disabledTextFieldValue,
                 enabled = false,
-                placeholderValue = "This is a placeholder",
+                placeholderValue = "This is a disabled placeholder",
+                helperText = "This is disabled helper text",
                 onValueChange = {
                     disabledTextFieldValue = it
                 }

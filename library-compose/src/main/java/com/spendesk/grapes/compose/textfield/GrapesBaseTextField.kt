@@ -2,7 +2,17 @@ package com.spendesk.grapes.compose.textfield
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.paddingFromBaseline
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -14,6 +24,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -42,24 +53,71 @@ internal fun GrapesBaseTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
 ) {
+
     val textColor = colors.textColor(enabled).value
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
 
-    GrapesCoreTextField(
-        value = value,
-        placeholderValue = placeholderValue,
-        onValueChange = onValueChange,
-        modifier = Modifier,
-        enabled = enabled,
-        textStyle = mergedTextStyle,
-        isError = isError,
-        keyboardActions = keyboardActions,
-        keyboardOptions = keyboardOptions,
-        singleLine = singleLine,
-        colors = colors,
-        visualTransformation = visualTransformation,
-        interactionSource = interactionSource
-    )
+    Column(
+        modifier = modifier.width(IntrinsicSize.Min)
+    ) {
+        GrapesCoreTextField(
+            value = value,
+            placeholderValue = placeholderValue,
+            modifier = Modifier,
+            onValueChange = onValueChange,
+            enabled = enabled,
+            textStyle = mergedTextStyle,
+            isError = isError,
+            keyboardActions = keyboardActions,
+            keyboardOptions = keyboardOptions,
+            singleLine = singleLine,
+            colors = colors,
+            visualTransformation = visualTransformation,
+            interactionSource = interactionSource
+        )
+
+        if (helperText != null && helperText.isNotEmpty()) {
+            GrapesHelperText(
+                text = helperText,
+                modifier = Modifier.fillMaxWidth(),
+                enabled = enabled,
+                isError = isError
+            )
+        }
+    }
+}
+
+@Composable
+internal fun GrapesHelperText(
+    text: String,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    textStyle: TextStyle = GrapesTheme.typography.bodyXs,
+    isError: Boolean = false,
+    colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
+    contentPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
+) {
+    val textColor = colors.helperTextColor(enabled, isError).value
+    val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
+
+    val layoutDirection = LocalLayoutDirection.current
+
+    val topPadding = contentPadding.calculateTopPadding()
+    val endPadding = contentPadding.calculateEndPadding(layoutDirection)
+    val startPadding = contentPadding.calculateStartPadding(layoutDirection)
+
+    Box(
+        modifier = modifier
+            .padding(start = startPadding, end = endPadding),
+        propagateMinConstraints = true,
+    ) {
+        Text(
+            text = text,
+            modifier = Modifier
+                .paddingFromBaseline(top = topPadding),
+            style = mergedTextStyle,
+        )
+    }
 }
 
 @ExperimentalMaterialApi
@@ -81,6 +139,7 @@ private fun GrapesCoreTextField(
 ) {
     BasicTextField(
         modifier = modifier
+            .fillMaxWidth()
             .defaultMinSize(
                 minWidth = GrapesTextFieldDefaults.MinWidth,
                 minHeight = GrapesTextFieldDefaults.MinHeight,

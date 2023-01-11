@@ -9,7 +9,6 @@ import androidx.compose.foundation.interaction.collectIsFocusedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.material.ContentAlpha
-import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
@@ -30,7 +29,6 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @author jean-philippe
  * @since 09/01/2023, Mon
  **/
-@ExperimentalMaterialApi
 @Immutable
 object GrapesTextFieldDefaults {
     private val TextFieldPaddingVertical = 14.dp
@@ -114,7 +112,10 @@ object GrapesTextFieldDefaults {
         disabledLabelColor: Color = unfocusedLabelColor.copy(ContentAlpha.disabled), // Todo replace
         errorLabelColor: Color = GrapesTheme.colors.mainAlertNormal,
         placeholderColor: Color = GrapesTheme.colors.mainNeutralDark,
-        disabledPlaceholderColor: Color = GrapesTheme.colors.mainNeutralNormal
+        disabledPlaceholderColor: Color = GrapesTheme.colors.mainNeutralNormal,
+        helperTextColor: Color = GrapesTheme.colors.mainNeutralDark,
+        errorHelperTextColor: Color = GrapesTheme.colors.mainAlertNormal,
+        disabledHelperTextColor: Color = helperTextColor.copy(ContentAlpha.disabled),
     ): GrapesTextFieldColors = DefaultGrapesGrapesTextFieldColors(
         textColor = textColor,
         disabledTextColor = disabledTextColor,
@@ -136,7 +137,10 @@ object GrapesTextFieldDefaults {
         disabledLabelColor = disabledLabelColor,
         errorLabelColor = errorLabelColor,
         placeholderColor = placeholderColor,
-        disabledPlaceholderColor = disabledPlaceholderColor
+        disabledPlaceholderColor = disabledPlaceholderColor,
+        helperTextColor = helperTextColor,
+        errorHelperTextColor = errorHelperTextColor,
+        disabledHelperTextColor = disabledHelperTextColor,
     )
 }
 
@@ -162,11 +166,25 @@ private data class DefaultGrapesGrapesTextFieldColors(
     private val disabledLabelColor: Color,
     private val errorLabelColor: Color,
     private val placeholderColor: Color,
-    private val disabledPlaceholderColor: Color
+    private val disabledPlaceholderColor: Color,
+    private val helperTextColor: Color,
+    private val disabledHelperTextColor: Color,
+    private val errorHelperTextColor: Color,
 ) : GrapesTextFieldColors {
 
     companion object {
         private const val AnimationDuration = 150
+    }
+
+    @Composable
+    override fun helperTextColor(enabled: Boolean, isError: Boolean): State<Color> {
+        return rememberUpdatedState(
+            when {
+                !enabled -> disabledHelperTextColor
+                isError -> errorHelperTextColor
+                else -> helperTextColor
+            }
+        )
     }
 
     @Composable
@@ -256,5 +274,6 @@ private data class DefaultGrapesGrapesTextFieldColors(
 @Stable
 interface GrapesTextFieldColors : TextFieldColors {
 
-    // TODO add helper text color
+    @Composable
+    fun helperTextColor(enabled: Boolean, isError: Boolean): State<Color>
 }
