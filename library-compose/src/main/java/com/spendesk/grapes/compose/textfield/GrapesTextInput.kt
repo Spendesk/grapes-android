@@ -3,16 +3,29 @@ package com.spendesk.grapes.compose.textfield
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.material.Switch
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
@@ -63,29 +76,22 @@ fun GrapesTextInput(
 @Composable
 @Preview
 fun PreviewGrapesTextField() {
-    var emptyTextFieldValue by remember {
+
+    var isEnabled by remember { mutableStateOf(true) }
+    var isError by remember { mutableStateOf(false) }
+    var textFieldValue by remember {
         mutableStateOf(
             TextFieldValue(
                 text = ""
             )
         )
     }
+    var helperText by remember { mutableStateOf("") }
 
-    var filledTextFieldValue by remember {
-        mutableStateOf(
-            TextFieldValue(
-                text = "This is a text value"
-            )
-        )
-    }
-
-    var disabledTextFieldValue by remember {
-        mutableStateOf(
-            TextFieldValue(
-                text = "This is a disabled text value"
-            )
-        )
-    }
+    // Option States
+    var hasTextValue by remember { mutableStateOf(false) }
+    var hasHelperText by remember { mutableStateOf(false) }
+    var canToggleError by remember { mutableStateOf(isEnabled) }
 
     GrapesTheme {
         Column(
@@ -95,51 +101,129 @@ fun PreviewGrapesTextField() {
                 .verticalScroll(rememberScrollState())
                 .padding(8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
 
+            Column(
+                modifier = Modifier
+                    .padding(bottom = 12.dp)
+                    .fillMaxWidth()
+                    .background(GrapesTheme.colors.mainNeutralLight)
+                    .padding(8.dp)
+
+
+            ) {
+                PreviewOptionsRow(
+                    options = {
+                        PreviewRowOptionSwitch(
+                            label = "Show text input value",
+                            isChecked = hasTextValue,
+                            onCheckedChange = { isChecked ->
+                                hasTextValue = isChecked
+                                textFieldValue = TextFieldValue(
+                                    text = "This is a text input value".takeIf { isChecked }.orEmpty()
+                                )
+                            }
+                        )
+
+                        PreviewRowOptionSwitch(
+                            label = "Show helper text",
+                            isChecked = hasHelperText,
+                            onCheckedChange = { isChecked ->
+                                hasHelperText = isChecked
+                                helperText = "Helper text".takeIf { isChecked }.orEmpty()
+                            }
+                        )
+                    }
+                )
+
+                PreviewOptionsRow(
+                    options = {
+                        PreviewRowOptionSwitch(
+                            label = "Is Enabled",
+                            isChecked = isEnabled,
+                            onCheckedChange = { isChecked ->
+                                canToggleError = isChecked
+                                if (isChecked.not() && isError) {
+                                    isError = false
+                                }
+
+                                isEnabled = isChecked
+                            }
+                        )
+
+                        PreviewRowOptionSwitch(
+                            label = "Is Error",
+                            isEnable = canToggleError,
+                            isChecked = isError,
+                            onCheckedChange = { isChecked ->
+                                isError = isChecked
+                            }
+                        )
+                    }
+                )
+            }
+
+            // ----
             GrapesTextInput(
-                modifier = Modifier,
-                value = emptyTextFieldValue,
+                modifier = Modifier.fillMaxWidth(),
+                value = textFieldValue,
                 placeholderValue = "This is a placeholder",
-                helperText = "This is helper text",
+                enabled = isEnabled,
+                helperText = helperText,
+                isError = isError,
                 onValueChange = {
-                    emptyTextFieldValue = it
-                }
-            )
-
-            GrapesTextInput(
-                modifier = Modifier,
-                value = filledTextFieldValue,
-                isError = true,
-                placeholderValue = "This is a placeholder",
-                helperText = "This is an error helper text",
-                onValueChange = {
-                    filledTextFieldValue = it
-                }
-            )
-
-            GrapesTextInput(
-                modifier = Modifier,
-                value = emptyTextFieldValue,
-                enabled = false,
-                placeholderValue = "This is a disabled placeholder",
-                onValueChange = {
-                    emptyTextFieldValue = it
-                }
-            )
-
-            GrapesTextInput(
-                modifier = Modifier,
-                value = disabledTextFieldValue,
-                enabled = false,
-                placeholderValue = "This is a disabled placeholder",
-                helperText = "This is disabled helper text",
-                onValueChange = {
-                    disabledTextFieldValue = it
+                    textFieldValue = it
                 }
             )
         }
     }
 }
+
+@Composable
+private fun PreviewOptionsRow(
+    options: @Composable RowScope.() -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceAround
+    ) {
+        options()
+    }
+}
+
+@Composable
+private fun PreviewRowOptionSwitch(
+    label: String,
+    modifier: Modifier = Modifier,
+    isEnable: Boolean = true,
+    isChecked: Boolean = false,
+    onCheckedChange: (isChecked: Boolean) -> Unit = {},
+) {
+    Row(
+        modifier = modifier
+            .height(IntrinsicSize.Min)
+            .toggleable(
+                role = Role.Switch,
+                enabled = isEnable,
+                value = isChecked,
+                onValueChange = onCheckedChange,
+            ),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            modifier = Modifier,
+            text = label,
+            style = GrapesTheme.typography.bodyRegular,
+        )
+        Switch(
+            modifier = Modifier,
+            checked = isChecked,
+            enabled = isEnable,
+            onCheckedChange = null
+        )
+    }
+}
+
 // endregion: Preview
