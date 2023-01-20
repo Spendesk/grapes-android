@@ -39,7 +39,11 @@ object GrapesButtonDefaults {
     val MinWidthSmall = 149.dp
     val MinHeightSmall = 32.dp
 
+    val iconSize = 16.dp
+    val iconSizeSmall = 14.dp
+
     private val BorderThickness = 1.dp
+    val CircularIndicatorBorderThickness = 2.dp
 
     //region Ripple
     /**

@@ -10,6 +10,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -29,6 +30,7 @@ object GrapesButtonStyleDefaults {
                     width = GrapesButtonDefaults.MinWidth.value,
                     height = GrapesButtonDefaults.MinHeight.value
                 ),
+                iconSize = GrapesButtonDefaults.iconSize,
                 shape = GrapesTheme.shapes.small,
                 rippleColor = GrapesTheme.colors.mainPrimaryDark,
                 colors = ButtonColorDefaults.primary,
@@ -45,6 +47,7 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
+            iconSize = GrapesButtonDefaults.iconSizeSmall,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainPrimaryDark,
             colors = ButtonColorDefaults.primary,
@@ -61,10 +64,28 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
             ),
+            iconSize = GrapesButtonDefaults.iconSize,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainNeutralNormal,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValues,
+            borderStroke = GrapesButtonDefaults.BorderStroke.secondary
+        )
+
+    val secondarySmall: GrapesButtonStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonStyle(
+            textStyle = GrapesTheme.typography.titleS,
+            minSize = Size(
+                width = GrapesButtonDefaults.MinWidthSmall.value,
+                height = GrapesButtonDefaults.MinHeightSmall.value
+            ),
+            iconSize = GrapesButtonDefaults.iconSizeSmall,
+            shape = GrapesTheme.shapes.small,
+            rippleColor = GrapesTheme.colors.mainNeutralNormal,
+            colors = ButtonColorDefaults.secondary,
+            contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
             borderStroke = GrapesButtonDefaults.BorderStroke.secondary
         )
 
@@ -77,6 +98,7 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
             ),
+            iconSize = GrapesButtonDefaults.iconSize,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainPrimaryLight,
             colors = ButtonColorDefaults.text,
@@ -93,27 +115,12 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
+            iconSize = GrapesButtonDefaults.iconSizeSmall,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainPrimaryLight,
             colors = ButtonColorDefaults.text,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
             borderStroke = null
-        )
-
-    val secondarySmall: GrapesButtonStyle
-        @Composable
-        @ReadOnlyComposable
-        get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
-            minSize = Size(
-                width = GrapesButtonDefaults.MinWidthSmall.value,
-                height = GrapesButtonDefaults.MinHeightSmall.value
-            ),
-            shape = GrapesTheme.shapes.small,
-            rippleColor = GrapesTheme.colors.mainNeutralNormal,
-            colors = ButtonColorDefaults.secondary,
-            contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
-            borderStroke = GrapesButtonDefaults.BorderStroke.secondary
         )
 
     val alert: GrapesButtonStyle
@@ -125,6 +132,7 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
             ),
+            iconSize = GrapesButtonDefaults.iconSize,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainAlertDark,
             colors = ButtonColorDefaults.alert,
@@ -141,6 +149,7 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
             ),
+            iconSize = GrapesButtonDefaults.iconSize,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainWarningDark,
             colors = ButtonColorDefaults.warning,
@@ -157,6 +166,7 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
+            iconSize = GrapesButtonDefaults.iconSizeSmall,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainNeutralLight,
             colors = ButtonColorDefaults.linkPrimary,
@@ -173,6 +183,7 @@ object GrapesButtonStyleDefaults {
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
+            iconSize = GrapesButtonDefaults.iconSizeSmall,
             shape = GrapesTheme.shapes.small,
             rippleColor = GrapesTheme.colors.mainNeutralLighter,
             colors = ButtonColorDefaults.linkSecondary,
@@ -185,6 +196,7 @@ object GrapesButtonStyleDefaults {
 data class GrapesButtonStyle(
     val textStyle: TextStyle,
     val minSize: Size,
+    val iconSize: Dp,
     val shape: Shape,
     val rippleColor: Color,
     val colors: ButtonColors,

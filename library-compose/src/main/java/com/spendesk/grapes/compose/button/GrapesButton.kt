@@ -1,14 +1,8 @@
 package com.spendesk.grapes.compose.button
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.LocalContentColor
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
@@ -20,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.button.GrapesButtonDefaults.CircularIndicatorBorderThickness
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -31,6 +26,7 @@ fun GrapesButton(
     modifier: Modifier = Modifier,
     buttonStyle: GrapesButtonStyle = GrapesButtonStyleDefaults.primary,
     enabled: Boolean = true,
+    showLoadingIndicator: Boolean = false,
     onClick: (() -> Unit) = {},
     content: @Composable RowScope.() -> Unit,
 ) {
@@ -49,10 +45,19 @@ fun GrapesButton(
             contentPadding = buttonStyle.contentPadding,
             elevation = null,
             enabled = enabled,
-            onClick = onClick,
+            onClick = onClick.takeUnless { showLoadingIndicator } ?: {},
             content = {
-                ProvideTextStyle(value = buttonStyle.textStyle) {
-                    content()
+                if (showLoadingIndicator.not()) {
+                    ProvideTextStyle(value = buttonStyle.textStyle) {
+                        content()
+                    }
+                } else {
+                    val contentColor = buttonStyle.colors.contentColor(enabled = enabled)
+                    CircularProgressIndicator(
+                        modifier = Modifier.size(buttonStyle.iconSize),
+                        color = contentColor.value,
+                        strokeWidth = CircularIndicatorBorderThickness,
+                    )
                 }
             }
         )
@@ -107,6 +112,16 @@ fun ButtonPrimaryPreview() {
                     text = "Button Primary Disabled",
                 )
             }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.primary,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "This should not be visible",
+                )
+            }
         }
     }
 }
@@ -114,7 +129,7 @@ fun ButtonPrimaryPreview() {
 @Preview(
     name = "Primary Small",
     group = "Small",
-    widthDp = 500,
+    widthDp = 700,
     showBackground = true,
 )
 @Composable
@@ -141,6 +156,16 @@ fun ButtonPrimarySmallPreview() {
             ) {
                 Text(
                     text = "Primary Small Disabled",
+                )
+            }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.primarySmall,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "This should not be shown",
                 )
             }
         }
@@ -181,6 +206,16 @@ fun ButtonSecondaryPreview() {
                     text = "Button Secondary Disabled",
                 )
             }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.secondary,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "This should not be visible",
+                )
+            }
         }
     }
 }
@@ -188,7 +223,7 @@ fun ButtonSecondaryPreview() {
 @Preview(
     name = "Secondary Small",
     group = "Small",
-    widthDp = 500,
+    widthDp = 700,
     showBackground = true,
 )
 @Composable
@@ -215,6 +250,16 @@ fun ButtonSecondarySmallPreview() {
             ) {
                 Text(
                     text = "Secondary Small Disabled",
+                )
+            }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "Should not be visible",
                 )
             }
         }
@@ -256,6 +301,16 @@ fun ButtonTextPreview() {
                     text = "Button Text Disabled",
                 )
             }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.text,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "Should not be visible",
+                )
+            }
         }
     }
 }
@@ -263,7 +318,7 @@ fun ButtonTextPreview() {
 @Preview(
     name = "Text Small",
     group = "Small",
-    widthDp = 500,
+    widthDp = 700,
     showBackground = true,
     backgroundColor = 0xFF421896 // Primary Dark
 )
@@ -291,6 +346,16 @@ fun ButtonTextSmallPreview() {
             ) {
                 Text(
                     text = "Secondary Text Disabled",
+                )
+            }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.textSmall,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "Should not be visible",
                 )
             }
         }
@@ -331,6 +396,16 @@ fun ButtonWarningPreview() {
                     text = "Button Warning Disabled",
                 )
             }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.warning,
+                showLoadingIndicator = true
+            ) {
+                Text(
+                    text = "Should not be visible",
+                )
+            }
         }
     }
 }
@@ -369,6 +444,16 @@ fun ButtonAlertPreview() {
                     text = "Button Alert Disabled",
                 )
             }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.alert,
+                showLoadingIndicator = true
+            ) {
+                Text(
+                    text = "Should not be visible",
+                )
+            }
         }
     }
 }
@@ -376,7 +461,7 @@ fun ButtonAlertPreview() {
 @Preview(
     name = "Link Primary",
     group = "Small",
-    widthDp = 500,
+    widthDp = 700,
     showBackground = true,
 )
 @Composable
@@ -405,6 +490,16 @@ fun ButtonLinkPrimaryPreview() {
                     text = "Link Primary Disabled",
                 )
             }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "Should not be visible",
+                )
+            }
         }
     }
 }
@@ -412,7 +507,7 @@ fun ButtonLinkPrimaryPreview() {
 @Preview(
     name = "Link Secondary",
     group = "Small",
-    widthDp = 520,
+    widthDp = 730,
     showBackground = true,
 )
 @Composable
@@ -439,6 +534,16 @@ fun ButtonLinkSecondaryPreview() {
             ) {
                 Text(
                     text = "Link Secondary Disabled",
+                )
+            }
+
+            GrapesButton(
+                modifier = Modifier,
+                buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
+                showLoadingIndicator = true,
+            ) {
+                Text(
+                    text = "Should not be visible",
                 )
             }
         }
