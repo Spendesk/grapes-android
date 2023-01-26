@@ -27,11 +27,8 @@ class ComposeFragment : Fragment() {
             setContent {
                 GrapesTheme {
                     Row {
-                        GrapesButton(
-                            modifier = Modifier,
-                        ) {
-                            Text(
-                                text = "First Compose component test")
+                        GrapesButton {
+                            Text(text = "First Compose component test")
                         }
                     }
                 }

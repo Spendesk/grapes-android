@@ -1,10 +1,23 @@
 package com.spendesk.grapes.compose.button
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.material.Button
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.ProvideTextStyle
+import androidx.compose.material.Text
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,16 +38,21 @@ fun GrapesButton(
     onClick: (() -> Unit) = {},
     content: @Composable RowScope.() -> Unit,
 ) {
-    val enabled = when(state) {
+    val enabled = when (state) {
         GrapesButtonState.Enabled, GrapesButtonState.ShowCircularIndicator -> true
         GrapesButtonState.Disabled -> false
     }
 
     val showLoadingIndicator = state is GrapesButtonState.ShowCircularIndicator
 
+    val interactionSource = if (showLoadingIndicator) {
+        NoRippleInteractionSource()
+    } else {
+        remember { MutableInteractionSource() }
+    }
+
     ProvideButtonRippleColor(
-        rippleColor = buttonStyle.rippleColor,
-        showLoadingIndicator = showLoadingIndicator
+        rippleColor = buttonStyle.rippleColor
     ) {
         Button(
             modifier = modifier
@@ -51,18 +69,19 @@ fun GrapesButton(
             elevation = null,
             enabled = enabled,
             onClick = onClick.takeUnless { showLoadingIndicator } ?: {},
+            interactionSource = interactionSource,
             content = {
-                if (showLoadingIndicator.not()) {
-                    ProvideTextStyle(value = buttonStyle.textStyle) {
-                        content()
-                    }
-                } else {
+                if (showLoadingIndicator) {
                     val contentColor = buttonStyle.colors.contentColor(enabled = enabled)
                     CircularProgressIndicator(
                         modifier = Modifier.size(buttonStyle.iconSize),
                         color = contentColor.value,
                         strokeWidth = CircularIndicatorBorderThickness,
                     )
+                } else {
+                    ProvideTextStyle(value = buttonStyle.textStyle) {
+                        content()
+                    }
                 }
             }
         )
@@ -75,15 +94,9 @@ fun GrapesButton(
  * We need to provide [LocalRippleTheme] with specific color.
  */
 @Composable
-private fun ProvideButtonRippleColor(rippleColor: Color, showLoadingIndicator: Boolean, content: @Composable () -> Unit) {
-    val rippleTheme = if (showLoadingIndicator.not()) {
-        GrapesButtonRippleTheme(rippleColor = rippleColor)
-    } else {
-        GrapesButtonClearRippleTheme()
-    }
-
+private fun ProvideButtonRippleColor(rippleColor: Color, content: @Composable () -> Unit) {
     CompositionLocalProvider(
-        LocalRippleTheme provides rippleTheme,
+        LocalRippleTheme provides GrapesButtonRippleTheme(rippleColor = rippleColor),
         content = content
     )
 }
@@ -106,7 +119,6 @@ fun ButtonPrimaryPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             GrapesButton(
-                modifier = Modifier,
                 buttonStyle = GrapesButtonStyleDefaults.primary,
             ) {
                 Text(
@@ -115,7 +127,6 @@ fun ButtonPrimaryPreview() {
             }
 
             GrapesButton(
-                modifier = Modifier,
                 buttonStyle = GrapesButtonStyleDefaults.primary,
                 state = GrapesButtonState.Disabled
             ) {
@@ -125,7 +136,6 @@ fun ButtonPrimaryPreview() {
             }
 
             GrapesButton(
-                modifier = Modifier,
                 buttonStyle = GrapesButtonStyleDefaults.primary,
                 state = GrapesButtonState.ShowCircularIndicator
             ) {

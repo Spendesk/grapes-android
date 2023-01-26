@@ -66,30 +66,14 @@ object GrapesButtonDefaults {
         hoveredAlpha = 0.08f
     )
 
-    private val ClearRippleAlpha = RippleAlpha(
-        pressedAlpha = 0f,
-        focusedAlpha = 0f,
-        draggedAlpha = 0f,
-        hoveredAlpha = 0f
-    )
-
     fun buttonRippleAlpha(contentColor: Color, lightTheme: Boolean): RippleAlpha {
-        return when {
-            lightTheme -> {
-                if (contentColor.luminance() > 0.5) {
-                    LightHighContrastRippleAlpha
-                } else {
-                    LightLowContrastRippleAlpha
-                }
-            }
-            else -> {
-                TODO("DarkTheme Not implemented yet")
-            }
+        //fixme DarkTheme not implemented yet
+        return if (contentColor.luminance() > 0.5) {
+            LightHighContrastRippleAlpha
+        } else {
+            LightLowContrastRippleAlpha
         }
     }
-
-    fun clearRippleAlpha() : RippleAlpha = ClearRippleAlpha
-
     //endregion Ripple
 
     //region BorderStroke
