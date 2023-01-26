@@ -25,3 +25,16 @@ internal class GrapesButtonRippleTheme(val rippleColor: Color) : RippleTheme {
         lightTheme = GrapesTheme.colors.isLight
     )
 }
+
+
+@Immutable
+internal class GrapesButtonClearRippleTheme() : RippleTheme {
+    @Composable
+    override fun defaultColor() = RippleTheme.defaultRippleColor(
+        contentColor = Color.Transparent,
+        lightTheme = GrapesTheme.colors.isLight
+    )
+
+    @Composable
+    override fun rippleAlpha() = GrapesButtonDefaults.clearRippleAlpha()
+}

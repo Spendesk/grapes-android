@@ -1,11 +1,7 @@
 package com.spendesk.grapes.compose.button
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.LocalContentColor
-import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -30,7 +26,10 @@ fun GrapesButton(
     onClick: (() -> Unit) = {},
     content: @Composable RowScope.() -> Unit,
 ) {
-    ProvideButtonRippleColor(rippleColor = buttonStyle.rippleColor) {
+    ProvideButtonRippleColor(
+        rippleColor = buttonStyle.rippleColor,
+        showLoadingIndicator = showLoadingIndicator
+    ) {
         Button(
             modifier = modifier
                 .widthIn(
@@ -70,9 +69,15 @@ fun GrapesButton(
  * We need to provide [LocalRippleTheme] with specific color.
  */
 @Composable
-private fun ProvideButtonRippleColor(rippleColor: Color, content: @Composable () -> Unit) {
+private fun ProvideButtonRippleColor(rippleColor: Color, showLoadingIndicator: Boolean, content: @Composable () -> Unit) {
+    val rippleTheme = if (showLoadingIndicator.not()) {
+        GrapesButtonRippleTheme(rippleColor = rippleColor)
+    } else {
+        GrapesButtonClearRippleTheme()
+    }
+
     CompositionLocalProvider(
-        LocalRippleTheme provides GrapesButtonRippleTheme(rippleColor = rippleColor),
+        LocalRippleTheme provides rippleTheme,
         content = content
     )
 }

@@ -66,6 +66,13 @@ object GrapesButtonDefaults {
         hoveredAlpha = 0.08f
     )
 
+    private val ClearRippleAlpha = RippleAlpha(
+        pressedAlpha = 0f,
+        focusedAlpha = 0f,
+        draggedAlpha = 0f,
+        hoveredAlpha = 0f
+    )
+
     fun buttonRippleAlpha(contentColor: Color, lightTheme: Boolean): RippleAlpha {
         return when {
             lightTheme -> {
@@ -80,6 +87,9 @@ object GrapesButtonDefaults {
             }
         }
     }
+
+    fun clearRippleAlpha() : RippleAlpha = ClearRippleAlpha
+
     //endregion Ripple
 
     //region BorderStroke
