@@ -3,6 +3,7 @@ package com.spendesk.grapes.compose.button
 import androidx.compose.material.ButtonColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.graphics.Color
@@ -13,7 +14,80 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 28/09/2022
  */
 @Immutable
-private class GrapesButtonColors(
+object ButtonColorDefaults {
+    val primary: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = GrapesTheme.colors.mainPrimaryNormal,
+            contentColor = GrapesTheme.colors.mainWhite,
+            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledContentColor = GrapesTheme.colors.mainWhite
+        )
+
+    val secondary: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = GrapesTheme.colors.mainWhite,
+            contentColor = GrapesTheme.colors.mainNeutralDarkest,
+            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledContentColor = GrapesTheme.colors.mainWhite
+        )
+
+    val text: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = Color.Transparent,
+            contentColor = GrapesTheme.colors.mainWhite,
+            disabledBackgroundColor = Color.Transparent,
+            disabledContentColor = GrapesTheme.colors.mainNeutralDark
+        )
+
+    val alert: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = GrapesTheme.colors.mainAlertNormal,
+            contentColor = GrapesTheme.colors.mainWhite,
+            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledContentColor = GrapesTheme.colors.mainWhite
+        )
+
+    val warning: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = GrapesTheme.colors.mainWarningNormal,
+            contentColor = GrapesTheme.colors.mainWhite,
+            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledContentColor = GrapesTheme.colors.mainWhite
+        )
+
+    val linkPrimary: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = Color.Transparent,
+            contentColor = GrapesTheme.colors.mainComplementary,
+            disabledBackgroundColor = Color.Transparent,
+            disabledContentColor = GrapesTheme.colors.mainNeutralDark
+        )
+
+    val linkSecondary: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = Color.Transparent,
+            contentColor = GrapesTheme.colors.mainNeutralDarker,
+            disabledBackgroundColor = Color.Transparent,
+            disabledContentColor = GrapesTheme.colors.mainNeutralDark
+        )
+}
+
+@Immutable
+private data class GrapesButtonColors(
     private val backgroundColor: Color,
     private val contentColor: Color,
     private val disabledBackgroundColor: Color,
@@ -51,51 +125,3 @@ private class GrapesButtonColors(
         return result
     }
 }
-
-@Composable
-fun primaryButtonColors(): ButtonColors = GrapesButtonColors(
-    backgroundColor = GrapesTheme.colors.mainPrimaryNormal,
-    contentColor = GrapesTheme.colors.mainWhite,
-    disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
-    disabledContentColor = GrapesTheme.colors.mainWhite
-)
-
-@Composable
-fun secondaryButtonColors(): ButtonColors = GrapesButtonColors(
-    backgroundColor = GrapesTheme.colors.mainWhite,
-    contentColor = GrapesTheme.colors.mainNeutralDarkest,
-    disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
-    disabledContentColor = GrapesTheme.colors.mainWhite
-)
-
-@Composable
-fun alertButtonColors(): ButtonColors = GrapesButtonColors(
-    backgroundColor = GrapesTheme.colors.mainAlertNormal,
-    contentColor = GrapesTheme.colors.mainWhite,
-    disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
-    disabledContentColor = GrapesTheme.colors.mainWhite
-)
-
-@Composable
-fun warningButtonColors(): ButtonColors = GrapesButtonColors(
-    backgroundColor = GrapesTheme.colors.mainWarningNormal,
-    contentColor = GrapesTheme.colors.mainWhite,
-    disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
-    disabledContentColor = GrapesTheme.colors.mainWhite
-)
-
-@Composable
-fun textButtonColors(): ButtonColors = GrapesButtonColors(
-    backgroundColor = Color.Transparent,
-    contentColor = GrapesTheme.colors.mainComplementary,
-    disabledBackgroundColor = Color.Transparent,
-    disabledContentColor = GrapesTheme.colors.mainNeutralNormal
-)
-
-@Composable
-fun secondaryTextButtonColors(): ButtonColors = GrapesButtonColors(
-    backgroundColor = Color.Transparent,
-    contentColor = GrapesTheme.colors.mainWhite,
-    disabledBackgroundColor = Color.Transparent,
-    disabledContentColor = GrapesTheme.colors.mainNeutralNormal
-)
