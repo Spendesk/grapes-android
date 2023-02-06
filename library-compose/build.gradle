@@ -59,6 +59,7 @@ dependencies {
     // Material Design 2 & 3 while migration is pending.
     api("androidx.compose.material:material")
     api("androidx.compose.material3:material3")
+
     // Material design icons
     api("androidx.compose.material:material-icons-core")
     api("androidx.compose.material:material-icons-extended")
