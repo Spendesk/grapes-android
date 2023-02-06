@@ -51,7 +51,9 @@ internal fun GrapesBaseTextField(
     singleLine: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
 
     val textColor = colors.textColor(enabled).value
@@ -73,7 +75,9 @@ internal fun GrapesBaseTextField(
             singleLine = singleLine,
             colors = colors,
             visualTransformation = visualTransformation,
-            interactionSource = interactionSource
+            interactionSource = interactionSource,
+            leadingIcon = leadingIcon,
+            trailingIcon = trailingIcon
         )
 
         if (helperText != null && helperText.isNotEmpty()) {
@@ -135,7 +139,9 @@ private fun GrapesCoreTextField(
     singleLine: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     BasicTextField(
         modifier = modifier
@@ -178,6 +184,8 @@ private fun GrapesCoreTextField(
                         color = colors.placeholderColor(enabled = enabled).value,
                     )
                 },
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 container = {
                     GrapesTextFieldDefaults.BorderBox(
                         enabled = enabled,
