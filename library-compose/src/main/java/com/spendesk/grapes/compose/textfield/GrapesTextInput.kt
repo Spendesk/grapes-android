@@ -15,11 +15,11 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.material.Switch
-import androidx.compose.material.Text
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
@@ -37,7 +37,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @author jean-philippe
  * @since 05/01/2023, Thu
  **/
-@ExperimentalMaterialApi
+@ExperimentalMaterial3Api
 @Composable
 fun GrapesTextInput(
     value: TextFieldValue,
@@ -72,7 +72,7 @@ fun GrapesTextInput(
 
 // region: Preview
 
-@ExperimentalMaterialApi
+@ExperimentalMaterial3Api
 @Composable
 @Preview
 fun PreviewGrapesTextField() {
