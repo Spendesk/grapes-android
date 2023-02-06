@@ -43,3 +43,17 @@ fun GrapesIcon(
         tint = GrapesTheme.colors.contentColorFor(configuration)
     )
 }
+
+@Composable
+fun GrapesIcon(
+    @DrawableRes icon: Int,
+    modifier: Modifier = Modifier,
+    contentDescription: String? = null
+) {
+    Icon(
+        modifier = modifier,
+        imageVector = ImageVector.vectorResource(icon),
+        contentDescription = contentDescription,
+        tint = GrapesTheme.colors.mainComplementary
+    )
+}

@@ -2,17 +2,7 @@ package com.spendesk.grapes.compose.textfield
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.IntrinsicSize
-import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.paddingFromBaseline
-import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -51,7 +41,9 @@ internal fun GrapesBaseTextField(
     singleLine: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
 
     val textColor = colors.textColor(enabled).value
@@ -73,7 +65,9 @@ internal fun GrapesBaseTextField(
             singleLine = singleLine,
             colors = colors,
             visualTransformation = visualTransformation,
-            interactionSource = interactionSource
+            interactionSource = interactionSource,
+            leadingIcon = leadingIcon,
+            trailingIcon = trailingIcon
         )
 
         if (helperText != null && helperText.isNotEmpty()) {
@@ -135,7 +129,9 @@ private fun GrapesCoreTextField(
     singleLine: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() }
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     BasicTextField(
         modifier = modifier
@@ -178,6 +174,8 @@ private fun GrapesCoreTextField(
                         color = colors.placeholderColor(enabled = enabled).value,
                     )
                 },
+                leadingIcon = leadingIcon,
+                trailingIcon = trailingIcon,
                 container = {
                     GrapesTextFieldDefaults.BorderBox(
                         enabled = enabled,
