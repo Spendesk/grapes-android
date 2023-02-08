@@ -41,6 +41,7 @@ object GrapesButtonDefaults {
 
     val iconSize = 16.dp
     val iconSizeSmall = 14.dp
+    val IconSpacing = 8.dp
 
     private val BorderThickness = 1.dp
     val CircularIndicatorBorderThickness = 2.dp
