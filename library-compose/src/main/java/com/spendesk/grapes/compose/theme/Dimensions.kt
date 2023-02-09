@@ -18,8 +18,6 @@ data class GrapesDimensions(
     val paddingLarge: Dp = 16.dp,
     val paddingXLarge: Dp = 24.dp,
 
-    val radiusNormal: Dp = 8.dp,
-
     val elevationNormal: Dp = 8.dp,
 )
 

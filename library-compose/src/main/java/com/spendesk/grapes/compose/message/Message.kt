@@ -26,7 +26,7 @@ fun GrapesMessage(
     description: String? = null,
     showIcon: Boolean = false
 ) {
-    GrapesSurface(modifier = modifier, configuration = configuration, shape = RoundedCornerShape(size = GrapesTheme.dimensions.radiusNormal)) {
+    GrapesSurface(modifier = modifier, configuration = configuration, shape = GrapesTheme.shapes.small) {
         Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
