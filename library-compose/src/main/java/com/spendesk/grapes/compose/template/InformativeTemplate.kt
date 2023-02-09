@@ -24,7 +24,7 @@ internal fun InformativeTemplate(
         modifier = Modifier
             .fillMaxSize()
             .background(Brush.linearGradient(listOf(GrapesTheme.colors.mainPrimaryDark, GrapesTheme.colors.mainPrimaryNormal)))
-            .padding(GrapesTheme.dimensions.paddingNormal),
+            .padding(GrapesTheme.dimensions.paddingLarge),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.weight(1f))

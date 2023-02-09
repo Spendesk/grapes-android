@@ -12,12 +12,11 @@ import androidx.compose.ui.unit.dp
 
 @Immutable
 data class GrapesDimensions(
-    val paddingSmall: Dp = 4.dp,
-    val paddingMedium: Dp = 8.dp,
-    val paddingNormal: Dp = 16.dp,
-    val paddingLarge: Dp = 24.dp,
-
-    val radiusNormal: Dp = 8.dp,
+    val paddingXSmall: Dp = 4.dp,
+    val paddingSmall: Dp = 8.dp,
+    val paddingMedium: Dp = 12.dp,
+    val paddingLarge: Dp = 16.dp,
+    val paddingXLarge: Dp = 24.dp,
 
     val elevationNormal: Dp = 8.dp,
 )
