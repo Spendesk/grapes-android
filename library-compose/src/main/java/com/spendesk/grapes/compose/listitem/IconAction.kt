@@ -36,7 +36,7 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingNormal)
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
     ) {
 
         StatusInformationIcon(
@@ -48,7 +48,7 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
 
         Column(
             modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)
         ) {
             Text(text = iconActionConfiguration.title, style = GrapesTheme.typography.titleM, color = titleColor)
             iconActionConfiguration.description?.let {

@@ -27,11 +27,11 @@ fun GrapesMessage(
     showIcon: Boolean = false
 ) {
     GrapesSurface(modifier = modifier, configuration = configuration, shape = RoundedCornerShape(size = GrapesTheme.dimensions.radiusNormal)) {
-        Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingNormal)) {
+        Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
                     GrapesIcon(configuration = configuration)
-                    Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingSmall))
+                    Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingXSmall))
                 }
                 Text(
                     text = title,
@@ -41,7 +41,7 @@ fun GrapesMessage(
             }
 
             if (description != null) {
-                Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingSmall))
+                Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingXSmall))
                 Text(
                     text = description,
                     style = GrapesTheme.typography.bodyS,
@@ -56,7 +56,7 @@ fun GrapesMessage(
 @Composable
 private fun MessageInline() {
     GrapesTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesMessage(title = "Message Inline Success", configuration = GrapesConfigurationStatus.SUCCESS)
             GrapesMessage(title = "Message Inline Information", configuration = GrapesConfigurationStatus.INFORMATION)
             GrapesMessage(title = "Message Inline Neutral", configuration = GrapesConfigurationStatus.NEUTRAL)
@@ -70,7 +70,7 @@ private fun MessageInline() {
 @Composable
 private fun MessageInlineIcon() {
     GrapesTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesMessage(title = "Message Inline Success", configuration = GrapesConfigurationStatus.SUCCESS, showIcon = true)
             GrapesMessage(title = "Message Inline Information", configuration = GrapesConfigurationStatus.INFORMATION, showIcon = true)
             GrapesMessage(title = "Message Inline Neutral", configuration = GrapesConfigurationStatus.NEUTRAL, showIcon = true)
@@ -84,7 +84,7 @@ private fun MessageInlineIcon() {
 @Composable
 private fun MessageInlineIconBlock() {
     GrapesTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesMessage(
                 title = "Message Inline Icon Block Success",
                 description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",

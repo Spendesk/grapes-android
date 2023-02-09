@@ -78,7 +78,7 @@ fun StatusInformationIcon(
 @Composable
 fun StatusInformationIconS() {
     GrapesTheme {
-        Row(horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             StatusInformationIcon(configuration = GrapesConfigurationStatus.SUCCESS, size = Size.S)
             StatusInformationIcon(configuration = GrapesConfigurationStatus.INFORMATION, size = Size.S)
             StatusInformationIcon(configuration = GrapesConfigurationStatus.ALERT, size = Size.S)
@@ -93,7 +93,7 @@ fun StatusInformationIconS() {
 @Composable
 fun StatusInformationIconM() {
     GrapesTheme {
-        Row(horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
+        Row(horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             StatusInformationIcon(configuration = GrapesConfigurationStatus.SUCCESS, size = Size.M)
             StatusInformationIcon(configuration = GrapesConfigurationStatus.INFORMATION, size = Size.M)
             StatusInformationIcon(configuration = GrapesConfigurationStatus.ALERT, size = Size.M)
@@ -108,7 +108,7 @@ fun StatusInformationIconM() {
 @Composable
 fun StatusInformationIconL() {
     GrapesTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             StatusInformationIcon(configuration = GrapesConfigurationStatus.SUCCESS, size = Size.L)
             StatusInformationIcon(configuration = GrapesConfigurationStatus.INFORMATION, size = Size.L)
             StatusInformationIcon(configuration = GrapesConfigurationStatus.ALERT, size = Size.L)
