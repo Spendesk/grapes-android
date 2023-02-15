@@ -10,34 +10,37 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.material.Switch
-import androidx.compose.material.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.R
+import com.spendesk.grapes.compose.icons.GrapesIcon
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
  * @author jean-philippe
  * @since 05/01/2023, Thu
  **/
-@ExperimentalMaterialApi
+@ExperimentalMaterial3Api
 @Composable
 fun GrapesTextInput(
     value: TextFieldValue,
@@ -52,6 +55,8 @@ fun GrapesTextInput(
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     GrapesBaseTextField(
         value = value,
@@ -67,17 +72,22 @@ fun GrapesTextInput(
         keyboardOptions = keyboardOptions,
         singleLine = true,
         visualTransformation = visualTransformation,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon
     )
 }
 
 // region: Preview
 
-@ExperimentalMaterialApi
+@ExperimentalMaterial3Api
 @Composable
 @Preview
 fun PreviewGrapesTextField() {
 
     var isEnabled by remember { mutableStateOf(true) }
+
+    var showLeadingIcon by remember { mutableStateOf(false) }
+    var showTrailingIcon by remember { mutableStateOf(false) }
     var isError by remember { mutableStateOf(false) }
     var textFieldValue by remember {
         mutableStateOf(
@@ -156,9 +166,23 @@ fun PreviewGrapesTextField() {
                             label = "Is Error",
                             isEnable = canToggleError,
                             isChecked = isError,
-                            onCheckedChange = { isChecked ->
-                                isError = isChecked
-                            }
+                            onCheckedChange = { isChecked -> isError = isChecked }
+                        )
+                    }
+                )
+
+                PreviewOptionsRow(
+                    options = {
+                        PreviewRowOptionSwitch(
+                            label = "Leading Icon",
+                            isChecked = showLeadingIcon,
+                            onCheckedChange = { isChecked -> showLeadingIcon = isChecked }
+                        )
+
+                        PreviewRowOptionSwitch(
+                            label = "Trailing Icon",
+                            isChecked = showTrailingIcon,
+                            onCheckedChange = { isChecked -> showTrailingIcon = isChecked }
                         )
                     }
                 )
@@ -172,9 +196,9 @@ fun PreviewGrapesTextField() {
                 enabled = isEnabled,
                 helperText = helperText,
                 isError = isError,
-                onValueChange = {
-                    textFieldValue = it
-                }
+                onValueChange = { textFieldValue = it },
+                leadingIcon = { if (showLeadingIcon) GrapesIcon(icon = R.drawable.ic_block, Modifier.size(18.dp)) },
+                trailingIcon = { if (showTrailingIcon) GrapesIcon(icon = R.drawable.ic_block, Modifier.size(18.dp)) }
             )
         }
     }

@@ -29,7 +29,7 @@ private fun AskTemplate(
     InformativeTemplate(
         middlePart = middlePart,
         bottomPart = {
-            Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingMedium)) {
+            Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
                 approveButton()
                 declineButton()
             }
@@ -50,9 +50,9 @@ fun AskTemplate(
     AskTemplate(
         middlePart = {
             Column(
-                modifier = Modifier.padding(GrapesTheme.dimensions.paddingMedium),
+                modifier = Modifier.padding(GrapesTheme.dimensions.paddingSmall),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingNormal)
+                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
             ) {
                 Image(painter = painterResource(id = imageRes), contentDescription = null)
                 Text(text = title, style = GrapesTheme.typography.titleXl, color = GrapesTheme.colors.mainWhite, textAlign = TextAlign.Center)

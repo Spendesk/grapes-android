@@ -3,12 +3,12 @@ package com.spendesk.grapes.compose.listitem
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,7 +36,7 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingNormal)
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
     ) {
 
         StatusInformationIcon(
@@ -48,7 +48,7 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
 
         Column(
             modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)
         ) {
             Text(text = iconActionConfiguration.title, style = GrapesTheme.typography.titleM, color = titleColor)
             iconActionConfiguration.description?.let {
