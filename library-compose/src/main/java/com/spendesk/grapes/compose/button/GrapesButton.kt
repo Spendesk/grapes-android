@@ -34,8 +34,15 @@ fun GrapesButton(
 
     GrapesCoreButton(
         modifier = modifier,
-        buttonStyle = buttonStyle,
         enabled = enabled,
+        rippleColor = buttonStyle.rippleColor,
+        colors = buttonStyle.colors,
+        minSize = buttonStyle.minSize,
+        iconSize = buttonStyle.iconSize,
+        contentPaddingValues = buttonStyle.contentPadding,
+        shape = buttonStyle.shape,
+        borderStroke = buttonStyle.borderStroke,
+        style = buttonStyle.textStyle,
         showLoadingIndicator = showLoadingIndicator,
         onClick = onClick
     ) {

@@ -1,11 +1,14 @@
 package com.spendesk.grapes.compose.button
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.Button
+import androidx.compose.material.ButtonColors
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.ripple.LocalRippleTheme
@@ -14,7 +17,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
@@ -24,8 +31,15 @@ import androidx.compose.ui.unit.dp
 @Composable
 internal fun GrapesCoreButton(
     modifier: Modifier = Modifier,
-    buttonStyle: GrapesButtonStyle = GrapesButtonStyleDefaults.primary,
     enabled: Boolean = true,
+    rippleColor: Color = GrapesButtonStyleDefaults.primary.rippleColor,
+    colors: ButtonColors = GrapesButtonStyleDefaults.primary.colors,
+    minSize: Size = GrapesButtonStyleDefaults.primary.minSize,
+    iconSize: Dp = GrapesButtonStyleDefaults.primary.iconSize,
+    contentPaddingValues: PaddingValues = GrapesButtonStyleDefaults.primary.contentPadding,
+    shape: Shape = GrapesButtonStyleDefaults.primary.shape,
+    borderStroke: BorderStroke? = GrapesButtonStyleDefaults.primary.borderStroke,
+    style: TextStyle = GrapesButtonStyleDefaults.primary.textStyle,
     showLoadingIndicator: Boolean = false,
     onClick: (() -> Unit) = {},
     content: @Composable RowScope.() -> Unit,
@@ -36,35 +50,33 @@ internal fun GrapesCoreButton(
         remember { MutableInteractionSource() }
     }
 
-    ProvideButtonRippleColor(
-        rippleColor = buttonStyle.rippleColor
-    ) {
+    ProvideButtonRippleColor(rippleColor = rippleColor) {
         Button(
             modifier = modifier
                 .widthIn(
-                    min = buttonStyle.minSize.width.dp
+                    min = minSize.width.dp
                 )
                 .heightIn(
-                    min = buttonStyle.minSize.height.dp
+                    min = minSize.height.dp
                 ),
-            shape = buttonStyle.shape,
-            border = buttonStyle.borderStroke,
-            colors = buttonStyle.colors,
-            contentPadding = buttonStyle.contentPadding,
+            shape = shape,
+            border = borderStroke,
+            colors = colors,
+            contentPadding = contentPaddingValues,
             elevation = null,
             enabled = enabled,
             onClick = onClick.takeUnless { showLoadingIndicator } ?: {},
             interactionSource = interactionSource,
             content = {
                 if (showLoadingIndicator) {
-                    val contentColor = buttonStyle.colors.contentColor(enabled = enabled)
+                    val contentColor = colors.contentColor(enabled = enabled)
                     CircularProgressIndicator(
-                        modifier = Modifier.size(buttonStyle.iconSize),
+                        modifier = Modifier.size(iconSize),
                         color = contentColor.value,
                         strokeWidth = GrapesButtonDefaults.CircularIndicatorBorderThickness,
                     )
                 } else {
-                    ProvideTextStyle(value = buttonStyle.textStyle) {
+                    ProvideTextStyle(value = style) {
                         content()
                     }
                 }
