@@ -5,8 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Row
-import androidx.compose.material.Text
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.compose.button.GrapesButton
@@ -27,9 +25,7 @@ class ComposeFragment : Fragment() {
             setContent {
                 GrapesTheme {
                     Row {
-                        GrapesButton {
-                            Text(text = "First Compose component test")
-                        }
+                        GrapesButton(text = "First Compose component test")
                     }
                 }
             }
