@@ -1,29 +1,16 @@
 package com.spendesk.grapes.compose.button
 
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.widthIn
-import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.Text
-import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.spendesk.grapes.compose.button.GrapesButtonDefaults.CircularIndicatorBorderThickness
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -32,11 +19,11 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Composable
 fun GrapesButton(
+    text: String,
     modifier: Modifier = Modifier,
     buttonStyle: GrapesButtonStyle = GrapesButtonStyleDefaults.primary,
     state: GrapesButtonState = GrapesButtonState.Enabled,
     onClick: (() -> Unit) = {},
-    content: @Composable RowScope.() -> Unit,
 ) {
     val enabled = when (state) {
         GrapesButtonState.Enabled, GrapesButtonState.ShowCircularIndicator -> true
@@ -45,59 +32,41 @@ fun GrapesButton(
 
     val showLoadingIndicator = state is GrapesButtonState.ShowCircularIndicator
 
-    val interactionSource = if (showLoadingIndicator) {
-        NoRippleInteractionSource()
-    } else {
-        remember { MutableInteractionSource() }
-    }
-
-    ProvideButtonRippleColor(
-        rippleColor = buttonStyle.rippleColor
+    GrapesCoreButton(
+        modifier = modifier,
+        enabled = enabled,
+        rippleColor = buttonStyle.rippleColor,
+        colors = buttonStyle.colors,
+        minSize = buttonStyle.minSize,
+        iconSize = buttonStyle.iconSize,
+        contentPaddingValues = buttonStyle.contentPadding,
+        shape = buttonStyle.shape,
+        borderStroke = buttonStyle.borderStroke,
+        style = buttonStyle.textStyle,
+        showLoadingIndicator = showLoadingIndicator,
+        onClick = onClick
     ) {
-        Button(
-            modifier = modifier
-                .widthIn(
-                    min = buttonStyle.minSize.width.dp
-                )
-                .heightIn(
-                    min = buttonStyle.minSize.height.dp
-                ),
-            shape = buttonStyle.shape,
-            border = buttonStyle.borderStroke,
-            colors = buttonStyle.colors,
-            contentPadding = buttonStyle.contentPadding,
-            elevation = null,
-            enabled = enabled,
-            onClick = onClick.takeUnless { showLoadingIndicator } ?: {},
-            interactionSource = interactionSource,
-            content = {
-                if (showLoadingIndicator) {
-                    val contentColor = buttonStyle.colors.contentColor(enabled = enabled)
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(buttonStyle.iconSize),
-                        color = contentColor.value,
-                        strokeWidth = CircularIndicatorBorderThickness,
-                    )
-                } else {
-                    ProvideTextStyle(value = buttonStyle.textStyle) {
-                        content()
-                    }
-                }
-            }
+        GrapesButtonContent(
+            text = text
         )
     }
 }
 
-/**
- * Default ripple theme use [LocalContentColor] as Ripple color but we require different
- * colors depending on button.
- * We need to provide [LocalRippleTheme] with specific color.
- */
+// TODO add leading Icon
 @Composable
-private fun ProvideButtonRippleColor(rippleColor: Color, content: @Composable () -> Unit) {
-    CompositionLocalProvider(
-        LocalRippleTheme provides GrapesButtonRippleTheme(rippleColor = rippleColor),
-        content = content
+private fun GrapesButtonContent(
+    text: String
+) {
+    GrapesButtonContentText(text)
+}
+
+@Composable
+private fun GrapesButtonContentText(
+    text: String,
+) {
+    Text(
+        text = text,
+        style = GrapesTheme.typography.titleM,
     )
 }
 
@@ -119,30 +88,21 @@ fun ButtonPrimaryPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             GrapesButton(
+                text = "Button Primary Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.primary,
-            ) {
-                Text(
-                    text = "Button Primary Enabled",
-                )
-            }
+            )
 
             GrapesButton(
+                text = "Button Primary Disabled",
+                state = GrapesButtonState.Disabled,
                 buttonStyle = GrapesButtonStyleDefaults.primary,
-                state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Button Primary Disabled",
-                )
-            }
+            )
 
             GrapesButton(
+                text = "This should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.primary,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "This should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -154,7 +114,7 @@ fun ButtonPrimaryPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonPrimarySmallPreview() {
+private fun ButtonPrimarySmallPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -162,33 +122,21 @@ fun ButtonPrimarySmallPreview() {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Primary Small Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.primarySmall,
-            ) {
-                Text(
-                    text = "Primary Small Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Primary Small Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.primarySmall,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Primary Small Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "This should not be shown",
                 buttonStyle = GrapesButtonStyleDefaults.primarySmall,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "This should not be shown",
-                )
-            }
+            )
         }
     }
 }
@@ -210,33 +158,21 @@ fun ButtonSecondaryPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Secondary Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
-            ) {
-                Text(
-                    text = "Button Secondary Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Secondary Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Button Secondary Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "This should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "This should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -256,33 +192,21 @@ fun ButtonSecondarySmallPreview() {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Secondary Small Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
-            ) {
-                Text(
-                    text = "Secondary Small Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Secondary Small Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Secondary Small Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -305,33 +229,21 @@ fun ButtonTextPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Text Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.text,
-            ) {
-                Text(
-                    text = "Button Text Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Text Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.text,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Button Text Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.text,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -352,33 +264,21 @@ fun ButtonTextSmallPreview() {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Secondary Text Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.textSmall,
-            ) {
-                Text(
-                    text = "Secondary Text Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Secondary Text Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.textSmall,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Secondary Text Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Secondary Text Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.textSmall,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -400,33 +300,21 @@ fun ButtonWarningPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Warning Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.warning,
-            ) {
-                Text(
-                    text = "Button Warning Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Warning Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.warning,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Button Warning Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.warning,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -448,33 +336,21 @@ fun ButtonAlertPreview() {
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Alert Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.alert,
-            ) {
-                Text(
-                    text = "Button Alert Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Button Alert Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.alert,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Button Alert Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.alert,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -494,33 +370,21 @@ fun ButtonLinkPrimaryPreview() {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Link Primary Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
-            ) {
-                Text(
-                    text = "Link Primary Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Link Primary Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Link Primary Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
@@ -540,33 +404,21 @@ fun ButtonLinkSecondaryPreview() {
             horizontalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
-                modifier = Modifier,
+                text = "Link Secondary Enabled",
                 buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
-            ) {
-                Text(
-                    text = "Link Secondary Enabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Link Secondary Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
                 state = GrapesButtonState.Disabled
-            ) {
-                Text(
-                    text = "Link Secondary Disabled",
-                )
-            }
+            )
 
             GrapesButton(
-                modifier = Modifier,
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
                 state = GrapesButtonState.ShowCircularIndicator
-            ) {
-                Text(
-                    text = "Should not be visible",
-                )
-            }
+            )
         }
     }
 }
