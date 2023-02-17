@@ -45,10 +45,14 @@ fun GrapesButton(
         borderStroke = buttonStyle.borderStroke,
         style = buttonStyle.textStyle,
         showLoadingIndicator = showLoadingIndicator,
-        onClick = onClick
-    ) {
-        GrapesButtonContentText(text = text)
-    }
+        onClick = onClick,
+        content = {
+            GrapesButtonContentText(
+                text = text,
+                textStyle = buttonStyle.textStyle
+            )
+        }
+    )
 }
 
 //region Previews

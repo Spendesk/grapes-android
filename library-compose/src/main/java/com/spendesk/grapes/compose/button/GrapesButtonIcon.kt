@@ -64,7 +64,12 @@ fun GrapesButtonIcon(
         },
         fillMaxWidthContent = isFillMaxWidthWithContent,
         onClick = onClick,
-        content = { GrapesButtonContentText(text = text) }
+        content = {
+            GrapesButtonContentText(
+                text = text,
+                textStyle = buttonStyle.textStyle
+            )
+        }
     )
 }
 
