@@ -2,7 +2,11 @@ package com.spendesk.grapes.compose.template
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,8 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.button.GrapesButton
 import com.spendesk.grapes.compose.button.GrapesButtonStyleDefaults
+import com.spendesk.grapes.compose.button.GrapesButton
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -29,7 +33,7 @@ private fun AskTemplate(
     InformativeTemplate(
         middlePart = middlePart,
         bottomPart = {
-            Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingMedium)) {
+            Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)) {
                 approveButton()
                 declineButton()
             }
@@ -50,9 +54,9 @@ fun AskTemplate(
     AskTemplate(
         middlePart = {
             Column(
-                modifier = Modifier.padding(GrapesTheme.dimensions.paddingMedium),
+                modifier = Modifier.padding(GrapesTheme.dimensions.paddingSmall),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingNormal)
+                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
             ) {
                 Image(painter = painterResource(id = imageRes), contentDescription = null)
                 Text(text = title, style = GrapesTheme.typography.titleXl, color = GrapesTheme.colors.mainWhite, textAlign = TextAlign.Center)
@@ -62,20 +66,18 @@ fun AskTemplate(
         approveButton = {
             GrapesButton(
                 modifier = Modifier.fillMaxWidth(),
+                text = positiveButtonText,
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
                 onClick = onPositiveButtonClicked,
-            ) {
-                Text(text = positiveButtonText)
-            }
+            )
         },
         declineButton = {
             GrapesButton(
                 modifier = Modifier.fillMaxWidth(),
+                text = negativeButtonText,
                 buttonStyle = GrapesButtonStyleDefaults.text,
                 onClick = onNegativeButtonClicked,
-            ) {
-                Text(text = negativeButtonText)
-            }
+            )
         }
     )
 }
