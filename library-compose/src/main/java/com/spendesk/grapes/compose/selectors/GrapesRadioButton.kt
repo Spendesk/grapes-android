@@ -20,10 +20,10 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Composable
 fun GrapesRadioButton(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     isEnabled: Boolean = true,
-    onClick: (() -> Unit)
+    onClick: (() -> Unit)? = null
 ) =
     RadioButton(
         modifier = modifier,
@@ -44,23 +44,23 @@ fun GrapesRadioButton(
     widthDp = 422,
     showBackground = true,
 )
-private fun GrapesRadioPreview() {
+private fun GrapesRadioButtonPreview() {
     GrapesTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                GrapesRadioButton(modifier = Modifier, isSelected = true, isEnabled = true, onClick = { Log.i("GrapesRadioButton", "action button click") })
+                GrapesRadioButton(isSelected = true, isEnabled = true, onClick = { Log.i("GrapesRadioButton", "action button click") })
                 Text("Radio selected and enabled")
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
-                GrapesRadioButton(modifier = Modifier, isSelected = false, isEnabled = true, onClick = { Log.i("GrapesRadioButton", "action button click") })
+                GrapesRadioButton(isSelected = false, isEnabled = true, onClick = { Log.i("GrapesRadioButton", "action button click") })
                 Text("Radio unselected and enabled")
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
-                GrapesRadioButton(modifier = Modifier, isSelected = true, isEnabled = false, onClick = { Log.i("GrapesRadioButton", "action button click") })
+                GrapesRadioButton(isSelected = true, isEnabled = false, onClick = { Log.i("GrapesRadioButton", "action button click") })
                 Text("Radio selected and disabled")
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
-                GrapesRadioButton(modifier = Modifier, isSelected = false, isEnabled = false, onClick = { Log.i("GrapesRadioButton", "action button click") })
+                GrapesRadioButton(isSelected = false, isEnabled = false, onClick = { Log.i("GrapesRadioButton", "action button click") })
                 Text("Radio unselected and disabled")
             }
         }
