@@ -31,7 +31,7 @@ fun GrapesDivider(
     showBackground = true
 )
 @Composable
-fun GrapesSimpleTopAppBarPreview() {
+fun GrapesDividerPreview() {
     GrapesTheme {
         LazyColumn {
             items(4) {
