@@ -20,7 +20,11 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.SolidColor
@@ -34,6 +38,74 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @author jean-philippe
  * @since 06/01/2023, Fri
  **/
+
+@ExperimentalMaterial3Api
+@Composable
+internal fun GrapesBaseTextField(
+    value: String,
+    placeholderValue: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    helperText: String? = null,
+    enabled: Boolean = true,
+    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    isError: Boolean = false,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    singleLine: Boolean = false,
+    colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+) {
+    // Holds the latest internal TextFieldValue state. We need to keep it to have the correct value
+    // of the composition.
+    var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
+    // Holds the latest TextFieldValue that BasicTextField was recomposed with. We couldn't simply
+    // pass `TextFieldValue(text = value)` to the CoreTextField because we need to preserve the
+    // composition.
+    val textFieldValue = textFieldValueState.copy(text = value)
+
+    SideEffect {
+        if (textFieldValue.selection != textFieldValueState.selection ||
+            textFieldValue.composition != textFieldValueState.composition) {
+            textFieldValueState = textFieldValue
+        }
+    }
+    // Last String value that either text field was recomposed with or updated in the onValueChange
+    // callback. We keep track of it to prevent calling onValueChange(String) for same String when
+    // CoreTextField's onValueChange is called multiple times without recomposition in between.
+    var lastTextValue by remember(value) { mutableStateOf(value) }
+
+    GrapesBaseTextField(
+        value = textFieldValueState,
+        placeholderValue = placeholderValue,
+        onValueChange = { newTextFieldValueState ->
+            textFieldValueState = newTextFieldValueState
+
+            val stringChangedSinceLastInvocation = lastTextValue != newTextFieldValueState.text
+            lastTextValue = newTextFieldValueState.text
+
+            if (stringChangedSinceLastInvocation) {
+                onValueChange(newTextFieldValueState.text)
+            }
+        },
+        modifier = modifier,
+        helperText = helperText,
+        enabled = enabled,
+        textStyle = textStyle,
+        isError = isError,
+        keyboardActions = keyboardActions,
+        keyboardOptions = keyboardOptions,
+        singleLine = singleLine,
+        colors = colors,
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+    )
+}
 
 @ExperimentalMaterial3Api
 @Composable
