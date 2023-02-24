@@ -22,8 +22,8 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Composable
 fun GrapesRadioButtonText(
-    modifier: Modifier = Modifier,
     text: String,
+    modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     isEnabled: Boolean = true,
     onClick: (() -> Unit)
