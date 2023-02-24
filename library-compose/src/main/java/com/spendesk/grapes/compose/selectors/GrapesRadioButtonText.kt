@@ -23,10 +23,10 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun GrapesRadioButtonText(
     text: String,
+    onClick: (() -> Unit),
     modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     isEnabled: Boolean = true,
-    onClick: (() -> Unit)
 ) =
     Row(
         modifier = modifier
