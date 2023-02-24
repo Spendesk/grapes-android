@@ -20,8 +20,8 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Composable
 fun GrapesCheckbox(
-    modifier: Modifier = Modifier,
     isChecked: Boolean,
+    modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
     onCheckedChange: ((Boolean) -> Unit)?,
 ) =
