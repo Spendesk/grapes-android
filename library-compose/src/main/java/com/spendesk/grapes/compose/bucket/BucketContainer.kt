@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -26,7 +28,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 private val GrapesBucketBorderWidth = 0.2.dp
 
 @Composable
-fun GrapesBucket(
+fun GrapesBucketContainer(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
@@ -40,6 +42,22 @@ fun GrapesBucket(
     }
 }
 
+@Composable
+fun GrapesBucketCore(
+    modifier: Modifier = Modifier,
+    headline: @Composable () -> Unit,
+    content: @Composable () -> Unit
+) {
+    GrapesBucketContainer(modifier = modifier) {
+        Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
+            Row(modifier = Modifier.padding(bottom = GrapesTheme.dimensions.paddingLarge)) {
+                headline()
+            }
+            content()
+        }
+    }
+}
+
 @Preview
 @Composable
 fun GrapesBucketPreview() {
@@ -50,7 +68,28 @@ fun GrapesBucketPreview() {
                 .background(GrapesTheme.colors.mainNeutralLighter)
                 .verticalScroll(rememberScrollState()),
         ) {
-            GrapesBucket(
+
+            GrapesBucketCore(
+                modifier = Modifier
+                    .padding(12.dp)
+                    .fillMaxWidth(),
+                headline = {
+                    Text(
+                        "fewrfer", modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.Red)
+                    )
+                },
+                content = {
+                    Text(
+                        "fewrfer", modifier = Modifier
+                            .fillMaxWidth()
+                            .background(Color.Blue)
+                    )
+                }
+            )
+
+            GrapesBucketContainer(
                 modifier = Modifier
                     .padding(12.dp)
                     .fillMaxWidth()
@@ -63,7 +102,7 @@ fun GrapesBucketPreview() {
                         .padding(horizontal = 16.dp, vertical = 12.dp)
                 )
             }
-            GrapesBucket(
+            GrapesBucketContainer(
                 modifier = Modifier
                     .padding(12.dp)
                     .fillMaxWidth()

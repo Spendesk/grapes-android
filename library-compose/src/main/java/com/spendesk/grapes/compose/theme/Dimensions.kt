@@ -12,6 +12,8 @@ import androidx.compose.ui.unit.dp
 
 @Immutable
 data class GrapesDimensions(
+    val dividerThickness: Dp = 1.0.dp,
+
     val paddingXSmall: Dp = 4.dp,
     val paddingSmall: Dp = 8.dp,
     val paddingMedium: Dp = 12.dp,

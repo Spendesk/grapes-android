@@ -1,6 +1,5 @@
 package com.spendesk.grapes.compose.theme
 
-import android.hardware.lights.Light
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 
