@@ -35,8 +35,6 @@ data class PasswordValidationEntry(
     val isValid: Boolean
 )
 
-private val ValidationItemCircleSize = 6.dp
-
 @Composable
 fun PasswordValidation(
     modifier: Modifier = Modifier,
@@ -55,9 +53,8 @@ private fun PasswordValidationItem(
     isValid: Boolean
 ) {
 
-    // These colors may change according to the final design. In the future, consider extracting them to be more customizable.
     val itemColor: Color by animateColorAsState(
-        if (isValid) GrapesTheme.colors.mainSuccessNormal else GrapesTheme.colors.mainAlertNormal
+        if (isValid) PasswordValidationDefaults.SuccessColor else PasswordValidationDefaults.ErrorColor
     )
 
     Row(
@@ -67,7 +64,7 @@ private fun PasswordValidationItem(
     ) {
         Spacer(
             modifier = Modifier
-                .size(ValidationItemCircleSize)
+                .size(PasswordValidationDefaults.ValidationItemCircleSize)
                 .background(itemColor, CircleShape)
         )
         Text(text = label, style = GrapesTheme.typography.bodyS, color = itemColor)
