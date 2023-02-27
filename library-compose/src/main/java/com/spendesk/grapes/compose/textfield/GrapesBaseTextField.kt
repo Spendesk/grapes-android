@@ -59,6 +59,11 @@ internal fun GrapesBaseTextField(
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
+    /**
+     * Mapping from string to TextFieldValue copy-pasted from string version of [androidx.compose.foundation.text.BasicTextField]
+     * The code style has been kept as it is in androidx source code on purpose, to be able to compare it easily.
+     */
+
     // Holds the latest internal TextFieldValue state. We need to keep it to have the correct value
     // of the composition.
     var textFieldValueState by remember { mutableStateOf(TextFieldValue(text = value)) }
@@ -69,7 +74,8 @@ internal fun GrapesBaseTextField(
 
     SideEffect {
         if (textFieldValue.selection != textFieldValueState.selection ||
-            textFieldValue.composition != textFieldValueState.composition) {
+            textFieldValue.composition != textFieldValueState.composition
+        ) {
             textFieldValueState = textFieldValue
         }
     }
