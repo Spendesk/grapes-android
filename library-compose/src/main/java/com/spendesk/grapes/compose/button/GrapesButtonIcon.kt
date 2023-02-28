@@ -38,12 +38,6 @@ fun GrapesButtonIcon(
 
     val showLoadingIndicator = state is GrapesButtonState.ShowCircularIndicator
 
-    val isFillMaxWidthWithContent =
-        buttonStyle == GrapesButtonStyleDefaults.primary ||
-                buttonStyle == GrapesButtonStyleDefaults.secondary ||
-                buttonStyle == GrapesButtonStyleDefaults.alert ||
-                buttonStyle == GrapesButtonStyleDefaults.warning
-
     GrapesCoreButton(
         modifier = modifier,
         enabled = enabled,
@@ -62,7 +56,7 @@ fun GrapesButtonIcon(
                 iconDescription = iconDescription,
             )
         },
-        fillMaxWidthContent = isFillMaxWidthWithContent,
+        fillMaxWidthContent = buttonStyle.isFillMaxWidthWithContent,
         onClick = onClick,
         content = {
             GrapesButtonContentText(
@@ -92,6 +86,12 @@ fun ButtonIconPrimaryPreview() {
         ) {
             GrapesButtonIcon(
                 text = "Button with Icon",
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
+            )
+
+            GrapesButtonIcon(
+                text = "Button with Icon And a very long text to check if it's ok",
                 leadingIcon = R.drawable.ic_success,
                 iconDescription = "Description"
             )

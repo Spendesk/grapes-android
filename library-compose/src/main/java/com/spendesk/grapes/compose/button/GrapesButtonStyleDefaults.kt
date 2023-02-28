@@ -35,7 +35,8 @@ object GrapesButtonStyleDefaults {
                 rippleColor = GrapesTheme.colors.mainPrimaryDark,
                 colors = ButtonColorDefaults.primary,
                 contentPadding = GrapesButtonDefaults.PaddingValues,
-                borderStroke = null
+                borderStroke = null,
+                isFillMaxWidthWithContent = true,
             )
 
     val primarySmall: GrapesButtonStyle
@@ -52,7 +53,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainPrimaryDark,
             colors = ButtonColorDefaults.primary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = false,
         )
 
     val secondary: GrapesButtonStyle
@@ -69,7 +71,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainNeutralNormal,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValues,
-            borderStroke = GrapesButtonDefaults.BorderStroke.secondary
+            borderStroke = GrapesButtonDefaults.BorderStroke.secondary,
+            isFillMaxWidthWithContent = true,
         )
 
     val secondarySmall: GrapesButtonStyle
@@ -86,7 +89,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainNeutralNormal,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
-            borderStroke = GrapesButtonDefaults.BorderStroke.secondary
+            borderStroke = GrapesButtonDefaults.BorderStroke.secondary,
+            isFillMaxWidthWithContent = false,
         )
 
     val text: GrapesButtonStyle
@@ -103,7 +107,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainPrimaryLight,
             colors = ButtonColorDefaults.text,
             contentPadding = GrapesButtonDefaults.PaddingValues,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = false,
         )
 
     val textSmall: GrapesButtonStyle
@@ -120,7 +125,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainPrimaryLight,
             colors = ButtonColorDefaults.text,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = false,
         )
 
     val alert: GrapesButtonStyle
@@ -137,7 +143,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainAlertDark,
             colors = ButtonColorDefaults.alert,
             contentPadding = GrapesButtonDefaults.PaddingValues,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = true,
         )
 
     val warning: GrapesButtonStyle
@@ -154,7 +161,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainWarningDark,
             colors = ButtonColorDefaults.warning,
             contentPadding = GrapesButtonDefaults.PaddingValues,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = true,
         )
 
     val linkPrimary: GrapesButtonStyle
@@ -171,7 +179,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainNeutralLight,
             colors = ButtonColorDefaults.linkPrimary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = false,
         )
 
     val linkSecondary: GrapesButtonStyle
@@ -188,7 +197,8 @@ object GrapesButtonStyleDefaults {
             rippleColor = GrapesTheme.colors.mainNeutralLighter,
             colors = ButtonColorDefaults.linkSecondary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
-            borderStroke = null
+            borderStroke = null,
+            isFillMaxWidthWithContent = false,
         )
 }
 
@@ -202,4 +212,5 @@ data class GrapesButtonStyle(
     val colors: ButtonColors,
     val contentPadding: PaddingValues,
     val borderStroke: BorderStroke?,
+    internal val isFillMaxWidthWithContent: Boolean,
 )

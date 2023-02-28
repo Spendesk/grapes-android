@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
@@ -27,6 +28,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -94,39 +96,143 @@ internal fun GrapesCoreButton(
                         strokeWidth = GrapesButtonDefaults.CircularIndicatorBorderThickness,
                     )
                 } else {
-                    if (decoratedLeading != null) {
-                        val contentWithIcon = @Composable {
-                            ContentWithIcon(
-                                fillMaxWidthContent = fillMaxWidthContent,
-                                iconSize = iconSize,
-                                textStyle = style,
-                                contentColor = contentColor.value,
-                                icon = decoratedLeading,
-                                content = { content() }
-                            )
-                        }
-
-                        if (fillMaxWidthContent) {
-                            Row(
-                                modifier = Modifier.fillMaxWidth(),
-                                horizontalArrangement = Arrangement.Start
-                            ) {
-                                contentWithIcon()
-                            }
-                        } else {
-                            contentWithIcon()
-                        }
-                    } else {
-                        Decoration(
-                            contentColor = contentColor.value,
-                            typography = style,
-                            content = { content() }
-                        )
+                    DecoratedContent(
+                        fillMaxWidthContent = fillMaxWidthContent,
+                        iconSize = iconSize,
+                        leadingIcon = decoratedLeading,
+                        textStyle = style,
+                        contentColor = contentColor.value,
+                    ) {
+                        content()
                     }
-
                 }
             }
         )
+    }
+}
+
+@Composable
+private fun RowScope.DecoratedContent(
+    fillMaxWidthContent: Boolean,
+    iconSize: Dp,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    textStyle: TextStyle,
+    contentColor: Color,
+    content: @Composable () -> Unit
+) {
+    if (leadingIcon != null) {
+        ContentWithIcon(
+            fillMaxWidthContent = fillMaxWidthContent,
+            iconSize = iconSize,
+            textStyle = textStyle,
+            contentColor = contentColor,
+            icon = leadingIcon
+        ) {
+            content()
+        }
+    } else {
+        Decoration(
+            contentColor = contentColor,
+            typography = textStyle
+        ) {
+            content()
+        }
+    }
+}
+
+@Composable
+private fun RowScope.ContentWithIcon(
+    fillMaxWidthContent: Boolean,
+    iconSize: Dp,
+    textStyle: TextStyle,
+    contentColor: Color,
+    icon: @Composable () -> Unit,
+    content: @Composable () -> Unit
+) {
+    if (fillMaxWidthContent) {
+        FillContentWithIcon(
+            iconSize = iconSize,
+            icon = icon,
+            textStyle = textStyle,
+            contentColor = contentColor,
+            content = content
+        )
+    } else {
+        RowContentWithIcon(
+            iconSize = iconSize,
+            icon = icon,
+            textStyle = textStyle,
+            contentColor = contentColor,
+            content = content
+        )
+    }
+}
+
+@Composable
+private fun FillContentWithIcon(
+    iconSize: Dp,
+    icon: @Composable () -> Unit,
+    textStyle: TextStyle,
+    contentColor: Color,
+    content: @Composable () -> Unit
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        BoxedIcon(
+            iconSize = iconSize,
+            icon = icon
+        )
+
+        Spacer(modifier = Modifier.weight(1f))
+        Decoration(
+            contentColor = contentColor,
+            typography = textStyle,
+            content = content
+        )
+        Spacer(modifier = Modifier.weight(1f))
+    }
+}
+
+@Composable
+private fun RowScope.RowContentWithIcon(
+    iconSize: Dp,
+    icon: @Composable () -> Unit,
+    textStyle: TextStyle,
+    contentColor: Color,
+    content: @Composable () -> Unit
+) {
+    BoxedIcon(
+        iconSize = iconSize,
+        icon = icon
+    )
+
+    Decoration(
+        contentColor = contentColor,
+        typography = textStyle,
+        content = content
+    )
+}
+
+@Composable
+private fun RowScope.BoxedIcon(
+    iconSize: Dp,
+    icon: @Composable () -> Unit,
+) {
+    val paddingValues = PaddingValues(end = GrapesTheme.dimensions.paddingSmall)
+    val direction = LocalLayoutDirection.current
+    Box(
+        modifier = Modifier
+            .size(
+                width = iconSize + paddingValues.calculateEndPadding(direction),
+                height = iconSize,
+            )
+            .padding(paddingValues)
+            .align(Alignment.CenterVertically),
+        contentAlignment = Alignment.Center,
+    ) {
+        icon()
     }
 }
 
@@ -143,41 +249,6 @@ private fun Decoration(
         )
     }
     if (typography != null) ProvideTextStyle(typography, contentWithColor) else contentWithColor()
-}
-
-@Composable
-private fun RowScope.ContentWithIcon(
-    fillMaxWidthContent: Boolean,
-    iconSize: Dp,
-    textStyle: TextStyle,
-    contentColor: Color,
-    icon: @Composable () -> Unit,
-    content: @Composable () -> Unit
-) {
-    val paddingValues = PaddingValues(end = GrapesTheme.dimensions.paddingSmall).takeUnless { fillMaxWidthContent }
-    Box(
-        modifier = Modifier
-            .padding(paddingValues ?: PaddingValues())
-            .size(
-                width = iconSize,
-                height = iconSize,
-            )
-            .align(Alignment.CenterVertically),
-        contentAlignment = Alignment.Center,
-    ) {
-        icon()
-    }
-    if (fillMaxWidthContent) {
-        Spacer(modifier = Modifier.weight(1f))
-    }
-    Decoration(
-        contentColor = contentColor,
-        typography = textStyle,
-        content = content
-    )
-    if (fillMaxWidthContent) {
-        Spacer(modifier = Modifier.weight(1f))
-    }
 }
 
 /**
