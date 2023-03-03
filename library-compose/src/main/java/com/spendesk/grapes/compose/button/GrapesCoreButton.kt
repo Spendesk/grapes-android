@@ -178,7 +178,8 @@ private fun FillContentWithIcon(
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         BoxedIcon(
             iconSize = iconSize,
