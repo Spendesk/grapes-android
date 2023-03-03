@@ -33,6 +33,11 @@ object GrapesButtonDefaults {
         vertical = SmallPaddingVertical,
     )
 
+    val PaddingValuesBrand: PaddingValues = PaddingValues(
+        horizontal = 2.dp,
+        vertical = 2.dp,
+    )
+
     val MinWidth = 340.dp
     val MinHeight = 48.dp
 

@@ -84,6 +84,16 @@ object ButtonColorDefaults {
             disabledBackgroundColor = Color.Transparent,
             disabledContentColor = GrapesTheme.colors.mainNeutralDark
         )
+
+    val google: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = GrapesTheme.colors.google,
+            contentColor = GrapesTheme.colors.mainWhite,
+            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledContentColor = GrapesTheme.colors.mainWhite
+        )
 }
 
 @Immutable
