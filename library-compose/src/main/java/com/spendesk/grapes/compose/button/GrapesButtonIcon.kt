@@ -31,6 +31,30 @@ fun GrapesButtonIcon(
     state: GrapesButtonState = GrapesButtonState.Enabled,
     onClick: (() -> Unit) = {},
 ) {
+    GrapesButtonIcon(
+        text = text,
+        leadingIcon = {
+            GrapesButtonContentIcon(
+                icon = leadingIcon,
+                iconDescription = iconDescription,
+            )
+        },
+        modifier = modifier,
+        buttonStyle = buttonStyle,
+        state = state,
+        onClick = onClick
+    )
+}
+
+@Composable
+internal fun GrapesButtonIcon(
+    text: String,
+    modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
+    buttonStyle: GrapesButtonStyle = GrapesButtonStyleDefaults.primary,
+    state: GrapesButtonState = GrapesButtonState.Enabled,
+    onClick: (() -> Unit) = {},
+) {
     val enabled = when (state) {
         GrapesButtonState.Enabled, GrapesButtonState.ShowCircularIndicator -> true
         GrapesButtonState.Disabled -> false
@@ -50,12 +74,7 @@ fun GrapesButtonIcon(
         borderStroke = buttonStyle.borderStroke,
         style = buttonStyle.textStyle,
         showLoadingIndicator = showLoadingIndicator,
-        leadingIcon = {
-            GrapesButtonContentIcon(
-                icon = leadingIcon,
-                iconDescription = iconDescription,
-            )
-        },
+        leadingIcon = leadingIcon,
         fillMaxWidthContent = buttonStyle.isFillMaxWidthWithContent,
         onClick = onClick,
         content = {
