@@ -1,0 +1,71 @@
+package com.spendesk.grapes.compose.bucket
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import com.spendesk.grapes.compose.theme.GrapesTheme
+
+/**
+ * @author : dany
+ * @since : 06/03/2023, Mon
+ **/
+@Composable
+fun GrapesBucketHeadline(
+    title: String,
+    modifier: Modifier = Modifier,
+    action: String? = null,
+    actionColor: Color? = null,
+    onActionClicked: (() -> Unit)? = null
+) {
+    Row(modifier = modifier.fillMaxWidth()) {
+        Text(
+            modifier = Modifier.weight(1f, fill = true),
+            text = title,
+            color = GrapesTheme.colors.mainComplementary,
+            overflow = TextOverflow.Ellipsis,
+            maxLines = 1,
+            style = GrapesTheme.typography.titleS
+        )
+        if (action != null && actionColor != null) {
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingMedium))
+            Text(
+                modifier = Modifier.clickable(onClick = onActionClicked ?: {}, onClickLabel = action, role = Role.Button),
+                text = action,
+                color = actionColor,
+                overflow = TextOverflow.Ellipsis,
+                maxLines = 1,
+                style = GrapesTheme.typography.titleS
+            )
+        }
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun GrapesHeadlinePreview() {
+    GrapesTheme {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(GrapesTheme.colors.mainNeutralLighter)
+                .verticalScroll(rememberScrollState()),
+        ) {
+
+            GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
+        }
+    }
+}
