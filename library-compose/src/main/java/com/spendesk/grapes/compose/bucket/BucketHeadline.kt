@@ -24,7 +24,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since : 06/03/2023, Mon
  **/
 @Composable
-fun GrapesBucketHeadline(
+internal fun GrapesBucketHeadline(
     title: String,
     modifier: Modifier = Modifier,
     action: String? = null,
@@ -56,7 +56,7 @@ fun GrapesBucketHeadline(
 
 @Preview(showBackground = true)
 @Composable
-fun GrapesHeadlinePreview() {
+fun GrapesBucketHeadlinePreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
