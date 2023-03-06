@@ -56,7 +56,7 @@ internal fun GrapesBucketHeadline(
 
 @Preview(showBackground = true)
 @Composable
-fun GrapesBucketHeadlinePreview() {
+private fun GrapesBucketHeadlinePreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -65,7 +65,17 @@ fun GrapesBucketHeadlinePreview() {
                 .verticalScroll(rememberScrollState()),
         ) {
 
+            GrapesBucketHeadline(title = "Bucket de Rick Astley")
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+
+            GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeed")
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+
             GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+
+            GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remooooooove with too many ooooooooooos", actionColor = GrapesTheme.colors.mainAlertNormal)
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
         }
     }
 }

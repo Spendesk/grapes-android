@@ -82,7 +82,7 @@ internal fun GrapesBucketCore(
 
 @Preview
 @Composable
-fun GrapesBucketPreview() {
+private fun GrapesBucketPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
