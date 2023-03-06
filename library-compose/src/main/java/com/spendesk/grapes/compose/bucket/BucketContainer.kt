@@ -5,7 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -43,24 +43,46 @@ fun GrapesBucketContainer(
 }
 
 @Composable
-fun GrapesBucketCore(
+fun GrapesBucket(
+    title: String,
+    modifier: Modifier = Modifier,
+    action: String? = null,
+    actionColor: Color? = null,
+    onActionClicked: (() -> Unit)? = null,
+    content: @Composable (() -> Unit)? = null
+) {
+    GrapesBucketCore(
+        modifier = modifier,
+        headline = { GrapesBucketHeadline(title = title, action = action, actionColor = actionColor, onActionClicked = onActionClicked) },
+        content = content
+    )
+}
+
+// region internal
+
+@Composable
+internal fun GrapesBucketCore(
     modifier: Modifier = Modifier,
     headline: @Composable () -> Unit,
-    content: @Composable () -> Unit
+    content: @Composable (() -> Unit)? = null
 ) {
     GrapesBucketContainer(modifier = modifier) {
         Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
-            Row(modifier = Modifier.padding(bottom = GrapesTheme.dimensions.paddingLarge)) {
-                headline()
+            headline()
+
+            if (content != null) {
+                Spacer(Modifier.padding(bottom = GrapesTheme.dimensions.paddingLarge))
+                content()
             }
-            content()
         }
     }
 }
 
+// endregion internal
+
 @Preview
 @Composable
-fun GrapesBucketPreview() {
+private fun GrapesBucketPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -69,24 +91,23 @@ fun GrapesBucketPreview() {
                 .verticalScroll(rememberScrollState()),
         ) {
 
-            GrapesBucketCore(
-                modifier = Modifier
-                    .padding(12.dp)
-                    .fillMaxWidth(),
-                headline = {
-                    Text(
-                        "fewrfer", modifier = Modifier
-                            .fillMaxWidth()
-                            .background(Color.Red)
-                    )
-                },
+            GrapesBucket(
+                modifier = Modifier.padding(12.dp),
+                title = "Rick's bucket",
+                action = "Delete",
+                actionColor = GrapesTheme.colors.mainAlertNormal,
+                onActionClicked = { println("Clicked") },
                 content = {
-                    Text(
-                        "fewrfer", modifier = Modifier
-                            .fillMaxWidth()
-                            .background(Color.Blue)
-                    )
+                    Column {
+                        Text(text = "Line 1")
+                        Text(text = "Line 2")
+                    }
                 }
+            )
+
+            GrapesBucket(
+                modifier = Modifier.padding(12.dp),
+                title = "Grapes Bucket Container Title"
             )
 
             GrapesBucketContainer(
