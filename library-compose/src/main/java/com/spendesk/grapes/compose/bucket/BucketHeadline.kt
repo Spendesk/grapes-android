@@ -71,6 +71,9 @@ private fun GrapesBucketHeadlinePreview() {
             GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeed")
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
 
+            GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeeeeeeed", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+
             GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
 
