@@ -9,8 +9,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
@@ -25,10 +27,10 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun GrapesCheckboxText(
     text: String,
+    onChecked: ((Boolean) -> Unit),
     modifier: Modifier = Modifier,
     isChecked: Boolean = false,
     isEnabled: Boolean = true,
-    onChecked: ((Boolean) -> Unit)
 ) =
     Row(
         modifier = modifier
@@ -43,7 +45,7 @@ fun GrapesCheckboxText(
         GrapesCheckbox(
             isChecked = isChecked,
             isEnabled = isEnabled,
-            onCheckedChange = null,
+            onCheckedChange = { },
         )
         Spacer(Modifier.padding(end = GrapesTheme.dimensions.paddingSmall))
         Text(
@@ -67,8 +69,10 @@ private fun GrapesCheckboxTextPreview() {
             GrapesCheckboxText(text = "Checkbox unselected and disabled", isChecked = false, isEnabled = false, onChecked = { Log.i("GrapesCheckboxText", "action checkbox clicked: $it") })
 
             Spacer(modifier = Modifier.size(16.dp))
-            val check = remember { mutableStateOf(true) }
-            GrapesCheckboxText(isChecked = check.value, onChecked = { check.value = check.value.not() }, text = "test value of the check: ${check.value}")
+
+            var isChecked by remember { mutableStateOf(false) }
+
+            GrapesCheckboxText(text = "Checkbox unselected and enabled", isChecked = isChecked, isEnabled = true, onChecked = { isChecked = it })
         }
     }
 }
