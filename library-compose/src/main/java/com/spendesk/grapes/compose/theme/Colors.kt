@@ -45,7 +45,9 @@ data class GrapesColors(
     val mainAlertNormal: Color,
     val mainAlertLighter: Color,
     val mainAlertLightest: Color,
-    val isLight: Boolean
+    val isLight: Boolean,
+
+    val google: Color,
 )
 
 val mainPrimaryDark = Color(0xFF421896)
@@ -83,3 +85,5 @@ val mainAlertDark = Color(0xFF9E2208)
 val mainAlertNormal = Color(0xFFD12D00)
 val mainAlertLighter = Color(0xFFF1C0B3)
 val mainAlertLightest = Color(0xFFFDEDE8)
+
+val google = Color(0xFF4285F4)

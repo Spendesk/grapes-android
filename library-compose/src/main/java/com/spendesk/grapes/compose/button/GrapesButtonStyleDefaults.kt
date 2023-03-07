@@ -11,6 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -199,6 +200,42 @@ object GrapesButtonStyleDefaults {
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
             borderStroke = null,
             isFillMaxWidthWithContent = false,
+        )
+
+    val google: GrapesButtonStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonStyle(
+            textStyle = GrapesTheme.typography.titleM,
+            minSize = Size(
+                width = GrapesButtonDefaults.MinWidthSmall.value,
+                height = GrapesButtonDefaults.MinHeightSmall.value
+            ),
+            iconSize = 40.dp,
+            shape = GrapesTheme.shapes.small,
+            rippleColor = GrapesTheme.colors.mainNeutralLighter,
+            colors = ButtonColorDefaults.google,
+            contentPadding = GrapesButtonDefaults.PaddingValuesBrand,
+            borderStroke = null,
+            isFillMaxWidthWithContent = true,
+        )
+
+    val microsoft: GrapesButtonStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonStyle(
+            textStyle = GrapesTheme.typography.titleM,
+            minSize = Size(
+                width = GrapesButtonDefaults.MinWidthSmall.value,
+                height = GrapesButtonDefaults.MinHeightSmall.value
+            ),
+            iconSize = 40.dp,
+            shape = GrapesTheme.shapes.small,
+            rippleColor = GrapesTheme.colors.mainNeutralLighter,
+            colors = ButtonColorDefaults.secondary,
+            contentPadding = GrapesButtonDefaults.PaddingValuesBrand,
+            borderStroke = GrapesButtonDefaults.BorderStroke.secondary,
+            isFillMaxWidthWithContent = true,
         )
 }
 

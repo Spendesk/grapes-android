@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonColors
@@ -178,7 +179,8 @@ private fun FillContentWithIcon(
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Start
+        horizontalArrangement = Arrangement.Start,
+        verticalAlignment = Alignment.CenterVertically
     ) {
         BoxedIcon(
             iconSize = iconSize,
@@ -192,6 +194,7 @@ private fun FillContentWithIcon(
             content = content
         )
         Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.width(iconSize))
     }
 }
 
