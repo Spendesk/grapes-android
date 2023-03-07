@@ -73,6 +73,7 @@ fun lightColorsPalette(
     mainAlertNormal = alertNormal,
     mainAlertLighter = alertLighter,
     mainAlertLightest = alertLightest,
+    google = google,
     isLight = true
 )
 

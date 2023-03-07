@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.button
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -10,6 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.R
+import com.spendesk.grapes.compose.button.atoms.GrapesButtonContentIcon
 import com.spendesk.grapes.compose.button.atoms.GrapesButtonContentText
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
@@ -19,9 +22,35 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 
 @Composable
-fun GrapesButton(
+fun GrapesButtonIcon(
+    text: String,
+    @DrawableRes leadingIcon: Int,
+    iconDescription: String,
+    modifier: Modifier = Modifier,
+    buttonStyle: GrapesButtonStyle = GrapesButtonStyleDefaults.primary,
+    state: GrapesButtonState = GrapesButtonState.Enabled,
+    onClick: (() -> Unit) = {},
+) {
+    GrapesButtonIcon(
+        text = text,
+        leadingIcon = {
+            GrapesButtonContentIcon(
+                icon = leadingIcon,
+                iconDescription = iconDescription,
+            )
+        },
+        modifier = modifier,
+        buttonStyle = buttonStyle,
+        state = state,
+        onClick = onClick
+    )
+}
+
+@Composable
+internal fun GrapesButtonIcon(
     text: String,
     modifier: Modifier = Modifier,
+    leadingIcon: (@Composable () -> Unit)? = null,
     buttonStyle: GrapesButtonStyle = GrapesButtonStyleDefaults.primary,
     state: GrapesButtonState = GrapesButtonState.Enabled,
     onClick: (() -> Unit) = {},
@@ -45,6 +74,8 @@ fun GrapesButton(
         borderStroke = buttonStyle.borderStroke,
         style = buttonStyle.textStyle,
         showLoadingIndicator = showLoadingIndicator,
+        leadingIcon = leadingIcon,
+        fillMaxWidthContent = buttonStyle.isFillMaxWidthWithContent,
         onClick = onClick,
         content = {
             GrapesButtonContentText(
@@ -63,7 +94,7 @@ fun GrapesButton(
     showBackground = true,
 )
 @Composable
-fun ButtonPrimaryPreview() {
+fun ButtonIconPrimaryPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -72,21 +103,30 @@ fun ButtonPrimaryPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            GrapesButton(
-                text = "Button Primary Enabled",
-                buttonStyle = GrapesButtonStyleDefaults.primary,
+            GrapesButtonIcon(
+                text = "Button with Icon",
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Button Primary Disabled",
+            GrapesButtonIcon(
+                text = "Button with Icon And a very long text to check if it's ok",
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
+            )
+
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 state = GrapesButtonState.Disabled,
-                buttonStyle = GrapesButtonStyleDefaults.primary,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
-                text = "This should not be visible",
-                buttonStyle = GrapesButtonStyleDefaults.primary,
-                state = GrapesButtonState.ShowCircularIndicator
+            GrapesButtonIcon(
+                text = "Should not be visible",
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -95,32 +135,38 @@ fun ButtonPrimaryPreview() {
 @Preview(
     name = "Primary Small",
     group = "Small",
-    widthDp = 810,
+    widthDp = 710,
     showBackground = true,
 )
 @Composable
-private fun ButtonPrimarySmallPreview() {
+private fun ButtonIconPrimarySmallPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            GrapesButton(
-                text = "Primary Small Enabled",
+            GrapesButtonIcon(
+                text = "Button with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.primarySmall,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Primary Small Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.primarySmall,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
-                text = "This should not be shown",
+            GrapesButtonIcon(
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.primarySmall,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -133,7 +179,7 @@ private fun ButtonPrimarySmallPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonSecondaryPreview() {
+fun ButtonIconSecondaryPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -142,21 +188,27 @@ fun ButtonSecondaryPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            GrapesButton(
-                text = "Button Secondary Enabled",
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Button Secondary Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
-                text = "This should not be visible",
+            GrapesButtonIcon(
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.secondary,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -165,32 +217,39 @@ fun ButtonSecondaryPreview() {
 @Preview(
     name = "Secondary Small",
     group = "Small",
-    widthDp = 850,
+    widthDp = 710,
     showBackground = true,
 )
 @Composable
-fun ButtonSecondarySmallPreview() {
+fun ButtonIconSecondarySmallPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            GrapesButton(
-                text = "Secondary Small Enabled",
+
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Secondary Small Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
+            GrapesButtonIcon(
                 text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.secondarySmall,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -204,7 +263,7 @@ fun ButtonSecondarySmallPreview() {
     backgroundColor = 0xFF421896 // Primary Dark
 )
 @Composable
-fun ButtonTextPreview() {
+fun ButtonIconTextPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -213,21 +272,27 @@ fun ButtonTextPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            GrapesButton(
-                text = "Button Text Enabled",
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.text,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Button Text Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.text,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
+            GrapesButtonIcon(
                 text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.text,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -236,33 +301,39 @@ fun ButtonTextPreview() {
 @Preview(
     name = "Text Small",
     group = "Small",
-    widthDp = 850,
+    widthDp = 710,
     showBackground = true,
     backgroundColor = 0xFF421896 // Primary Dark
 )
 @Composable
-fun ButtonTextSmallPreview() {
+fun ButtonIconTextSmallPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            GrapesButton(
-                text = "Secondary Text Enabled",
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.textSmall,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Secondary Text Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.textSmall,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
-                text = "Secondary Text Disabled",
+            GrapesButtonIcon(
+                text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.textSmall,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -275,7 +346,7 @@ fun ButtonTextSmallPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonWarningPreview() {
+fun ButtonIconWarningPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -284,21 +355,27 @@ fun ButtonWarningPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            GrapesButton(
-                text = "Button Warning Enabled",
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.warning,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Button Warning Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.warning,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
+            GrapesButtonIcon(
                 text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.warning,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -311,7 +388,7 @@ fun ButtonWarningPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonAlertPreview() {
+fun ButtonIconAlertPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -320,21 +397,27 @@ fun ButtonAlertPreview() {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            GrapesButton(
-                text = "Button Alert Enabled",
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.alert,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Button Alert Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.alert,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
+            GrapesButtonIcon(
                 text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.alert,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -343,32 +426,38 @@ fun ButtonAlertPreview() {
 @Preview(
     name = "Link Primary",
     group = "Small",
-    widthDp = 850,
+    widthDp = 710,
     showBackground = true,
 )
 @Composable
-fun ButtonLinkPrimaryPreview() {
+fun ButtonIconLinkPrimaryPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            GrapesButton(
-                text = "Link Primary Enabled",
+            GrapesButtonIcon(
+                text = "Text with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Link Primary Disabled",
+            GrapesButtonIcon(
+                text = "Text with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
+            GrapesButtonIcon(
                 text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.linkPrimary,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }
@@ -377,32 +466,38 @@ fun ButtonLinkPrimaryPreview() {
 @Preview(
     name = "Link Secondary",
     group = "Small",
-    widthDp = 1030,
+    widthDp = 710,
     showBackground = true,
 )
 @Composable
-fun ButtonLinkSecondaryPreview() {
+fun ButtonIconLinkSecondaryPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            GrapesButton(
-                text = "Link Secondary Enabled",
+            GrapesButtonIcon(
+                text = "Button with Icon",
                 buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description"
             )
 
-            GrapesButton(
-                text = "Link Secondary Disabled",
+            GrapesButtonIcon(
+                text = "Button with Icon Disabled",
                 buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
-                state = GrapesButtonState.Disabled
+                state = GrapesButtonState.Disabled,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
 
-            GrapesButton(
+            GrapesButtonIcon(
                 text = "Should not be visible",
                 buttonStyle = GrapesButtonStyleDefaults.linkSecondary,
-                state = GrapesButtonState.ShowCircularIndicator
+                state = GrapesButtonState.ShowCircularIndicator,
+                leadingIcon = R.drawable.ic_success,
+                iconDescription = "Description",
             )
         }
     }

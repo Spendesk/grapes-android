@@ -77,6 +77,43 @@ fun GrapesTextInput(
     )
 }
 
+@ExperimentalMaterial3Api
+@Composable
+fun GrapesTextInput(
+    value: String,
+    placeholderValue: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    helperText: String? = null,
+    enabled: Boolean = true,
+    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
+    isError: Boolean = false,
+    keyboardActions: KeyboardActions = KeyboardActions.Default,
+    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
+    visualTransformation: VisualTransformation = VisualTransformation.None,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+) {
+    GrapesBaseTextField(
+        value = value,
+        placeholderValue = placeholderValue,
+        onValueChange = onValueChange,
+        modifier = modifier,
+        helperText = helperText,
+        enabled = enabled,
+        textStyle = textStyle,
+        colors = colors,
+        isError = isError,
+        keyboardActions = keyboardActions,
+        keyboardOptions = keyboardOptions,
+        singleLine = true,
+        visualTransformation = visualTransformation,
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon
+    )
+}
+
 // region: Preview
 
 @ExperimentalMaterial3Api
