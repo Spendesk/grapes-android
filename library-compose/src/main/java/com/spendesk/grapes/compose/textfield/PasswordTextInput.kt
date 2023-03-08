@@ -42,6 +42,7 @@ fun PasswordTextInput(
     helperText: String? = null,
     enabled: Boolean = true,
     isError: Boolean = false,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
     keyboardActions: KeyboardActions = KeyboardActions.Default,
 ) {
     var isPasswordVisible by rememberSaveable { mutableStateOf(false) }
@@ -55,7 +56,7 @@ fun PasswordTextInput(
         enabled = enabled,
         isError = isError,
         keyboardActions = keyboardActions,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+        keyboardOptions = keyboardOptions,
         visualTransformation = if (isPasswordVisible) VisualTransformation.None else PasswordVisualTransformation(),
         trailingIcon = {
             val icon = if (isPasswordVisible) Icons.Filled.VisibilityOff else Icons.Filled.Visibility
