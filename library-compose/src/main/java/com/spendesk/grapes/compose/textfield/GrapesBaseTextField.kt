@@ -2,6 +2,7 @@ package com.spendesk.grapes.compose.textfield
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -51,6 +52,7 @@ internal fun GrapesBaseTextField(
     readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     isError: Boolean = false,
+    onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     singleLine: Boolean = false,
@@ -127,6 +129,7 @@ internal fun GrapesBaseTextField(
     readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     isError: Boolean = false,
+    onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     singleLine: Boolean = false,
@@ -139,6 +142,11 @@ internal fun GrapesBaseTextField(
 
     val textColor = colors.textColor(enabled).value
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
+
+    val isClickable = onClick != null && readOnly
+    if (isClickable && interactionSource.collectIsPressedAsState().value) {
+        onClick?.invoke()
+    }
 
     Column(
         modifier = modifier.width(IntrinsicSize.Min)
