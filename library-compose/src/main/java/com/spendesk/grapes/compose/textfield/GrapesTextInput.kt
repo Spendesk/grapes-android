@@ -49,6 +49,7 @@ fun GrapesTextInput(
     modifier: Modifier = Modifier,
     helperText: String? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
@@ -65,6 +66,7 @@ fun GrapesTextInput(
         modifier = modifier,
         helperText = helperText,
         enabled = enabled,
+        readOnly = readOnly,
         textStyle = textStyle,
         colors = colors,
         isError = isError,
@@ -86,6 +88,7 @@ fun GrapesTextInput(
     modifier: Modifier = Modifier,
     helperText: String? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
@@ -102,6 +105,7 @@ fun GrapesTextInput(
         modifier = modifier,
         helperText = helperText,
         enabled = enabled,
+        readOnly = readOnly,
         textStyle = textStyle,
         colors = colors,
         isError = isError,
@@ -122,7 +126,7 @@ fun GrapesTextInput(
 fun PreviewGrapesTextField() {
 
     var isEnabled by remember { mutableStateOf(true) }
-
+    var isReadOnly by remember { mutableStateOf(false) }
     var showLeadingIcon by remember { mutableStateOf(false) }
     var showTrailingIcon by remember { mutableStateOf(false) }
     var isError by remember { mutableStateOf(false) }
@@ -139,6 +143,14 @@ fun PreviewGrapesTextField() {
     var hasTextValue by remember { mutableStateOf(false) }
     var hasHelperText by remember { mutableStateOf(false) }
     var canToggleError by remember { mutableStateOf(isEnabled) }
+
+    val leadingIcon = @Composable {
+        GrapesIcon(icon = R.drawable.ic_neutral, Modifier.size(18.dp))
+    }
+
+    val trailingIcon = @Composable {
+        GrapesIcon(icon = R.drawable.ic_success, Modifier.size(18.dp))
+    }
 
     GrapesTheme {
         Column(
@@ -223,19 +235,31 @@ fun PreviewGrapesTextField() {
                         )
                     }
                 )
+
+                PreviewOptionsRow(
+                    options = {
+                        PreviewRowOptionSwitch(
+                            label = "Read Only",
+                            isChecked = isReadOnly,
+                            onCheckedChange = { isChecked -> isReadOnly = isChecked }
+                        )
+                    }
+                )
             }
 
             // ----
             GrapesTextInput(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth(),
                 value = textFieldValue,
                 placeholderValue = "This is a placeholder",
                 enabled = isEnabled,
+                readOnly = isReadOnly,
                 helperText = helperText,
                 isError = isError,
                 onValueChange = { textFieldValue = it },
-                leadingIcon = { if (showLeadingIcon) GrapesIcon(icon = R.drawable.ic_block, Modifier.size(18.dp)) },
-                trailingIcon = { if (showTrailingIcon) GrapesIcon(icon = R.drawable.ic_block, Modifier.size(18.dp)) }
+                leadingIcon = leadingIcon.takeIf { showLeadingIcon },
+                trailingIcon = trailingIcon.takeIf { showTrailingIcon }
             )
         }
     }
