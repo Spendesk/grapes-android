@@ -16,6 +16,10 @@ import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
+import androidx.compose.material.SnackbarDuration
+import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -23,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -35,6 +40,9 @@ import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.icons.GrapesIcon
 import com.spendesk.grapes.compose.theme.GrapesTheme
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * @author jean-philippe
@@ -49,9 +57,11 @@ fun GrapesTextInput(
     modifier: Modifier = Modifier,
     helperText: String? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
+    onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -59,15 +69,17 @@ fun GrapesTextInput(
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     GrapesBaseTextField(
+        modifier = modifier,
         value = value,
         placeholderValue = placeholderValue,
         onValueChange = onValueChange,
-        modifier = modifier,
         helperText = helperText,
         enabled = enabled,
+        readOnly = readOnly,
         textStyle = textStyle,
         colors = colors,
         isError = isError,
+        onClick = onClick,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
         singleLine = true,
@@ -86,9 +98,11 @@ fun GrapesTextInput(
     modifier: Modifier = Modifier,
     helperText: String? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
+    onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -96,15 +110,17 @@ fun GrapesTextInput(
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     GrapesBaseTextField(
+        modifier = modifier,
         value = value,
         placeholderValue = placeholderValue,
         onValueChange = onValueChange,
-        modifier = modifier,
         helperText = helperText,
         enabled = enabled,
+        readOnly = readOnly,
         textStyle = textStyle,
         colors = colors,
         isError = isError,
+        onClick = onClick,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
         singleLine = true,
@@ -122,7 +138,7 @@ fun GrapesTextInput(
 fun PreviewGrapesTextField() {
 
     var isEnabled by remember { mutableStateOf(true) }
-
+    var isReadOnly by remember { mutableStateOf(false) }
     var showLeadingIcon by remember { mutableStateOf(false) }
     var showTrailingIcon by remember { mutableStateOf(false) }
     var isError by remember { mutableStateOf(false) }
@@ -140,104 +156,144 @@ fun PreviewGrapesTextField() {
     var hasHelperText by remember { mutableStateOf(false) }
     var canToggleError by remember { mutableStateOf(isEnabled) }
 
-    GrapesTheme {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(GrapesTheme.colors.mainBackground)
-                .verticalScroll(rememberScrollState())
-                .padding(8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-            horizontalAlignment = Alignment.Start,
-        ) {
+    val leadingIcon = @Composable {
+        GrapesIcon(icon = R.drawable.ic_neutral, Modifier.size(18.dp))
+    }
 
+    val trailingIcon = @Composable {
+        GrapesIcon(icon = R.drawable.ic_success, Modifier.size(18.dp))
+    }
+
+    val scaffoldState = rememberScaffoldState()
+    val coroutineScope = rememberCoroutineScope()
+
+    GrapesTheme {
+        Scaffold(
+            modifier = Modifier.padding(8.dp),
+            scaffoldState = scaffoldState
+        ) {
             Column(
                 modifier = Modifier
-                    .padding(bottom = 12.dp)
-                    .fillMaxWidth()
-                    .background(GrapesTheme.colors.mainNeutralLight)
-                    .padding(8.dp)
-
-
+                    .fillMaxSize()
+                    .background(GrapesTheme.colors.mainBackground)
+                    .verticalScroll(rememberScrollState())
+                    .padding(it),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+                horizontalAlignment = Alignment.Start,
             ) {
-                PreviewOptionsRow(
-                    options = {
-                        PreviewRowOptionSwitch(
-                            label = "Show text input value",
-                            isChecked = hasTextValue,
-                            onCheckedChange = { isChecked ->
-                                hasTextValue = isChecked
-                                textFieldValue = TextFieldValue(
-                                    text = "This is a text input value".takeIf { isChecked }.orEmpty()
-                                )
-                            }
-                        )
 
-                        PreviewRowOptionSwitch(
-                            label = "Show helper text",
-                            isChecked = hasHelperText,
-                            onCheckedChange = { isChecked ->
-                                hasHelperText = isChecked
-                                helperText = "Helper text".takeIf { isChecked }.orEmpty()
-                            }
-                        )
-                    }
-                )
+                Column(
+                    modifier = Modifier
+                        .padding(bottom = 12.dp)
+                        .fillMaxWidth()
+                        .background(GrapesTheme.colors.mainNeutralLight)
+                        .padding(8.dp)
 
-                PreviewOptionsRow(
-                    options = {
-                        PreviewRowOptionSwitch(
-                            label = "Is Enabled",
-                            isChecked = isEnabled,
-                            onCheckedChange = { isChecked ->
-                                canToggleError = isChecked
-                                if (isChecked.not() && isError) {
-                                    isError = false
+
+                ) {
+                    PreviewOptionsRow(
+                        options = {
+                            PreviewRowOptionSwitch(
+                                label = "Show text input value",
+                                isChecked = hasTextValue,
+                                onCheckedChange = { isChecked ->
+                                    hasTextValue = isChecked
+                                    textFieldValue = TextFieldValue(
+                                        text = "This is a text input value".takeIf { isChecked }.orEmpty()
+                                    )
                                 }
+                            )
 
-                                isEnabled = isChecked
-                            }
-                        )
+                            PreviewRowOptionSwitch(
+                                label = "Show helper text",
+                                isChecked = hasHelperText,
+                                onCheckedChange = { isChecked ->
+                                    hasHelperText = isChecked
+                                    helperText = "Helper text".takeIf { isChecked }.orEmpty()
+                                }
+                            )
+                        }
+                    )
 
-                        PreviewRowOptionSwitch(
-                            label = "Is Error",
-                            isEnable = canToggleError,
-                            isChecked = isError,
-                            onCheckedChange = { isChecked -> isError = isChecked }
-                        )
-                    }
-                )
+                    PreviewOptionsRow(
+                        options = {
+                            PreviewRowOptionSwitch(
+                                label = "Is Enabled",
+                                isChecked = isEnabled,
+                                onCheckedChange = { isChecked ->
+                                    canToggleError = isChecked
+                                    if (isChecked.not() && isError) {
+                                        isError = false
+                                    }
 
-                PreviewOptionsRow(
-                    options = {
-                        PreviewRowOptionSwitch(
-                            label = "Leading Icon",
-                            isChecked = showLeadingIcon,
-                            onCheckedChange = { isChecked -> showLeadingIcon = isChecked }
-                        )
+                                    isEnabled = isChecked
+                                }
+                            )
 
-                        PreviewRowOptionSwitch(
-                            label = "Trailing Icon",
-                            isChecked = showTrailingIcon,
-                            onCheckedChange = { isChecked -> showTrailingIcon = isChecked }
-                        )
+                            PreviewRowOptionSwitch(
+                                label = "Is Error",
+                                isEnable = canToggleError,
+                                isChecked = isError,
+                                onCheckedChange = { isChecked -> isError = isChecked }
+                            )
+                        }
+                    )
+
+                    PreviewOptionsRow(
+                        options = {
+                            PreviewRowOptionSwitch(
+                                label = "Leading Icon",
+                                isChecked = showLeadingIcon,
+                                onCheckedChange = { isChecked -> showLeadingIcon = isChecked }
+                            )
+
+                            PreviewRowOptionSwitch(
+                                label = "Trailing Icon",
+                                isChecked = showTrailingIcon,
+                                onCheckedChange = { isChecked -> showTrailingIcon = isChecked }
+                            )
+                        }
+                    )
+
+                    PreviewOptionsRow(
+                        options = {
+                            PreviewRowOptionSwitch(
+                                label = "Read Only",
+                                isChecked = isReadOnly,
+                                onCheckedChange = { isChecked -> isReadOnly = isChecked }
+                            )
+                        }
+                    )
+                }
+
+                // ----
+                GrapesTextInput(
+                    modifier = Modifier.fillMaxWidth(),
+                    value = textFieldValue,
+                    placeholderValue = "This is a placeholder",
+                    enabled = isEnabled,
+                    readOnly = isReadOnly,
+                    helperText = helperText,
+                    isError = isError,
+                    onValueChange = { textFieldValue = it },
+                    leadingIcon = leadingIcon.takeIf { showLeadingIcon },
+                    trailingIcon = trailingIcon.takeIf { showTrailingIcon },
+                    onClick = {
+                        showOnClickSnackBar(coroutineScope, scaffoldState)
                     }
                 )
             }
-
-            // ----
-            GrapesTextInput(
-                modifier = Modifier.fillMaxWidth(),
-                value = textFieldValue,
-                placeholderValue = "This is a placeholder",
-                enabled = isEnabled,
-                helperText = helperText,
-                isError = isError,
-                onValueChange = { textFieldValue = it },
-                leadingIcon = { if (showLeadingIcon) GrapesIcon(icon = R.drawable.ic_block, Modifier.size(18.dp)) },
-                trailingIcon = { if (showTrailingIcon) GrapesIcon(icon = R.drawable.ic_block, Modifier.size(18.dp)) }
-            )
         }
+    }
+}
+
+private fun showOnClickSnackBar(coroutineScope: CoroutineScope, scaffoldState: ScaffoldState) {
+    coroutineScope.launch(Dispatchers.Default) {
+        scaffoldState.snackbarHostState.showSnackbar(
+            message = "Click Click (pan pan pan)",
+            duration = SnackbarDuration.Short,
+            actionLabel = "Dismiss"
+        )
     }
 }
 
