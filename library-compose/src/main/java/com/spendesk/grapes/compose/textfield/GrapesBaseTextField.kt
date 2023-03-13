@@ -2,6 +2,7 @@ package com.spendesk.grapes.compose.textfield
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -48,8 +49,10 @@ internal fun GrapesBaseTextField(
     modifier: Modifier = Modifier,
     helperText: String? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     isError: Boolean = false,
+    onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     singleLine: Boolean = false,
@@ -100,6 +103,7 @@ internal fun GrapesBaseTextField(
         modifier = modifier,
         helperText = helperText,
         enabled = enabled,
+        readOnly = readOnly,
         textStyle = textStyle,
         isError = isError,
         keyboardActions = keyboardActions,
@@ -122,8 +126,10 @@ internal fun GrapesBaseTextField(
     modifier: Modifier = Modifier,
     helperText: String? = null,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     isError: Boolean = false,
+    onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     singleLine: Boolean = false,
@@ -137,6 +143,11 @@ internal fun GrapesBaseTextField(
     val textColor = colors.textColor(enabled).value
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
 
+    val isClickable = onClick != null && readOnly
+    if (isClickable && interactionSource.collectIsPressedAsState().value) {
+        onClick?.invoke()
+    }
+
     Column(
         modifier = modifier.width(IntrinsicSize.Min)
     ) {
@@ -146,6 +157,7 @@ internal fun GrapesBaseTextField(
             modifier = Modifier,
             onValueChange = onValueChange,
             enabled = enabled,
+            readOnly = readOnly,
             textStyle = mergedTextStyle,
             isError = isError,
             keyboardActions = keyboardActions,
@@ -210,6 +222,7 @@ private fun GrapesCoreTextField(
     onValueChange: (TextFieldValue) -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
+    readOnly: Boolean = false,
     textStyle: TextStyle = TextStyle.Default,
     isError: Boolean = false,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -237,6 +250,7 @@ private fun GrapesCoreTextField(
                 shape = GrapesTextFieldDefaults.TextFieldShape
             ),
         enabled = enabled,
+        readOnly = readOnly,
         value = value,
         onValueChange = onValueChange,
         textStyle = textStyle,
