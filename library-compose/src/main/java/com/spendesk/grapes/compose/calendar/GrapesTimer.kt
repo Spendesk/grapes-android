@@ -1,14 +1,16 @@
 package com.spendesk.grapes.compose.calendar
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.TimePicker
+import androidx.compose.material3.TimeInput
 import androidx.compose.material3.TimePickerDefaults
 import androidx.compose.material3.TimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
 import java.util.*
@@ -19,10 +21,15 @@ import java.util.*
  **/
 @ExperimentalMaterial3Api
 @Composable
-fun GrapesTimer(selectedHour: Int, selectedMinutes: Int) {
-    TimePicker(
+fun GrapesTimer(
+    selectedHour: Int,
+    selectedMinutes: Int,
+    modifier: Modifier = Modifier
+) {
+    TimeInput(
+        modifier = modifier,
         state = TimePickerState(selectedHour, selectedMinutes, is24Hour = false),
-        TimePickerDefaults.colors()
+        colors = TimePickerDefaults.colors()
     )
 }
 
@@ -35,7 +42,7 @@ private fun GrapesTimerPreview() {
     val cal = Calendar.getInstance().apply { time = date }
 
     GrapesTheme {
-        Column {
+        Column(modifier = Modifier.fillMaxSize()) {
             GrapesTimer(selectedHour = cal.get(Calendar.HOUR_OF_DAY), selectedMinutes = cal.get(Calendar.MINUTE))
         }
     }

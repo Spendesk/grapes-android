@@ -61,6 +61,7 @@ dependencies {
     api("androidx.compose.material3:material3:$compose_material_3_version")
 
     // Material design icons
+    api("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0-beta01")
     api("androidx.compose.material:material-icons-core")
     api("androidx.compose.material:material-icons-extended")
     // Integration with observables
