@@ -9,7 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import androidx.fragment.app.FragmentActivity
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -96,6 +97,7 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentBottomSheetSearchableBinding.inflate(inflater, container, false)
+
         return binding!!.root
     }
 
@@ -103,9 +105,24 @@ class SearchableBottomSheetDialogFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupView(view)
+        setupInsets()
         bindView()
 
         Handler(Looper.getMainLooper()).postDelayed({ view.forceHideKeyboard() }, 50)
+    }
+
+    private fun setupInsets() {
+        dialog?.window?.decorView?.setOnApplyWindowInsetsListener { _, windowInsets ->
+            val bottomPaddingConsideringBottomInsets = WindowInsetsCompat
+                .toWindowInsetsCompat(windowInsets)
+                .getInsets(WindowInsetsCompat.Type.ime())
+                .bottom
+
+            binding?.root?.updatePadding(
+                bottom = bottomPaddingConsideringBottomInsets
+            )
+            windowInsets
+        }
     }
 
     override fun onDestroyView() {
