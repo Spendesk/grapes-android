@@ -8,23 +8,33 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
-import java.util.*
+import java.util.Calendar
+import java.util.Date
 
 /**
  * @author : dany
  * @since : 07/03/2023, Tue
  **/
-@ExperimentalMaterial3Api
+
+/**
+ * Grapes time picker which lets the user selects a specific time by providing the hour, minutes and the am/pm format.
+ *
+ * @param initialHour Initial hour to be displayed in the picker
+ * @param initialMinute Initial minute to be displayed in the picker
+ * @param modifier The [Modifier] to be applied to this time picker
+ * @param onTimeSelected Callback when an hour or minute is changed in the picker
+ */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GrapesTimer(
-    selectedHour: Int,
-    selectedMinutes: Int,
+    initialHour: Int,
+    initialMinute: Int,
     modifier: Modifier = Modifier,
     onTimeSelected: ((Int, Int) -> Unit)? = null
 ) {
     val timerPickerState = rememberTimePickerState(
-        initialHour = selectedHour,
-        initialMinute = selectedMinutes,
+        initialHour = initialHour,
+        initialMinute = initialMinute,
         is24Hour = false
     )
 
@@ -47,8 +57,6 @@ fun GrapesTimer(
     onTimeSelected?.invoke(timerPickerState.hour, timerPickerState.minute)
 }
 
-
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 private fun GrapesTimerPreview() {
@@ -56,8 +64,8 @@ private fun GrapesTimerPreview() {
 
     GrapesTheme {
         GrapesTimer(
-            selectedHour = cal.get(Calendar.HOUR_OF_DAY),
-            selectedMinutes = cal.get(Calendar.MINUTE),
+            initialHour = cal.get(Calendar.HOUR_OF_DAY),
+            initialMinute = cal.get(Calendar.MINUTE),
             onTimeSelected = { hour, minute -> println("Selected hour: $hour and minute: $minute") }
         )
     }

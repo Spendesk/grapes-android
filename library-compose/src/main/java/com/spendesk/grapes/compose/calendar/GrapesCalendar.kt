@@ -28,10 +28,10 @@ import java.util.TimeZone
  * @param date The pre-selected date in the calendar. Defaults to now if not provided
  * @param minDate The minimum selectable date in the calendar (previous dates will be disabled) if provided. Defaults to infinite in the past
  * @param maxDate The maximum selectable date in the calendar (further dates will be disabled) if provided. Defaults to infinite in the future
- * @param onDateSelected Callback when a date is selected in the calendar
+ * @param onDateSelected Callback when a date is selected in the picker
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-@ExperimentalMaterial3Api
 fun GrapesCalendar(
     modifier: Modifier = Modifier,
     date: Date = Date(),
@@ -84,17 +84,14 @@ fun GrapesCalendar(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 private fun GrapesCalendarWithMinDateAndMaxDatePreview() {
-    val now = Date()
     val minDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, -1) }.time
     val maxDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, 2) }.time
 
     GrapesTheme {
         GrapesCalendar(
-            date = now,
             minDate = minDate,
             maxDate = maxDate,
             onDateSelected = { date -> println("Selected date: $date") }
@@ -102,47 +99,37 @@ private fun GrapesCalendarWithMinDateAndMaxDatePreview() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 private fun GrapesCalendarWithMinDatePreview() {
-    val now = Date()
     val minDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, -1) }.time
 
     GrapesTheme {
         GrapesCalendar(
-            date = now,
             minDate = minDate,
             onDateSelected = { date -> println("Selected date: $date") }
         )
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 private fun GrapesCalendarWithMaxDatePreview() {
-    val now = Date()
     val maxDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, 2) }.time
 
     GrapesTheme {
         GrapesCalendar(
-            date = now,
             maxDate = maxDate,
             onDateSelected = { date -> println("Selected date: $date") }
         )
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Preview(showBackground = true)
 @Composable
 private fun GrapesCalendarPreview() {
-    val now = Date()
-
     GrapesTheme {
         GrapesCalendar(
-            date = now,
             onDateSelected = { date -> println("Selected date: $date") }
         )
     }
