@@ -1,14 +1,11 @@
 package com.spendesk.grapes.compose.calendar
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDefaults
 import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -68,11 +65,9 @@ fun GrapesCalendar(
 @Composable
 private fun GrapesCalendarPreview() {
     GrapesTheme {
-        Column(modifier = Modifier.wrapContentSize(align = Alignment.Center)) {
-            GrapesCalendar(
-                date = Date(),
-                onDateSelected = { date -> println("GrapesCalendarPreview: $date") }
-            )
-        }
+        GrapesCalendar(
+            date = Date(),
+            onDateSelected = { date -> println("Selected date: $date") }
+        )
     }
 }
