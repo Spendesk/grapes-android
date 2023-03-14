@@ -3,6 +3,7 @@ package com.spendesk.grapes.compose.calendar
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.DatePicker
+import androidx.compose.material3.DatePickerDefaults
 import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberDatePickerState
@@ -22,7 +23,8 @@ import java.util.Calendar.YEAR
 @ExperimentalMaterial3Api
 fun GrapesCalendar(
     date: Date,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onDateSelected: ((Date) -> Unit)? = null
 ) {
     val cal = Calendar.getInstance().apply { time = date }
     val selectedDate =
@@ -36,8 +38,29 @@ fun GrapesCalendar(
     DatePicker(
         state = selectedDate,
         modifier = modifier,
-        showModeToggle = false
+        showModeToggle = false,
+        title = null,
+        colors = DatePickerDefaults.colors(
+            containerColor = GrapesTheme.colors.mainBackground,
+            titleContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            headlineContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            weekdayContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            subheadContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            yearContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            currentYearContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            selectedYearContentColor = GrapesTheme.colors.mainWhite,
+            selectedYearContainerColor = GrapesTheme.colors.mainPrimaryNormal,
+            dayContentColor = GrapesTheme.colors.mainNeutralDarkest,
+            selectedDayContentColor = GrapesTheme.colors.mainWhite,
+            selectedDayContainerColor = GrapesTheme.colors.mainPrimaryNormal,
+            todayContentColor = GrapesTheme.colors.mainPrimaryNormal,
+            todayDateBorderColor = GrapesTheme.colors.mainPrimaryNormal
+        )
     )
+
+    if (onDateSelected != null && selectedDate.selectedDateMillis != null) {
+        onDateSelected.invoke(Date(selectedDate.selectedDateMillis!!))
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -46,7 +69,10 @@ fun GrapesCalendar(
 private fun GrapesCalendarPreview() {
     GrapesTheme {
         Column(modifier = Modifier.wrapContentSize(align = Alignment.Center)) {
-            GrapesCalendar(date = Date())
+            GrapesCalendar(
+                date = Date(),
+                onDateSelected = { date -> println("GrapesCalendarPreview: $date") }
+            )
         }
     }
 }
