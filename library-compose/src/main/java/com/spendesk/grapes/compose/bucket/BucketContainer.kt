@@ -51,9 +51,31 @@ fun GrapesBucket(
     onActionClicked: (() -> Unit)? = null,
     content: @Composable (() -> Unit)? = null
 ) {
+    val headLine = @Composable {
+        GrapesBucketHeadline(
+            title = title,
+            action = action,
+            actionColor = actionColor,
+            onActionClicked = onActionClicked
+        )
+    }
+
+    GrapesBucket(
+        modifier = modifier,
+        headline = headLine,
+        content = content
+    )
+}
+
+@Composable
+fun GrapesBucket(
+    headline: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
+    content: @Composable (() -> Unit)? = null
+) {
     GrapesBucketCore(
         modifier = modifier,
-        headline = { GrapesBucketHeadline(title = title, action = action, actionColor = actionColor, onActionClicked = onActionClicked) },
+        headline = headline,
         content = content
     )
 }
