@@ -94,7 +94,7 @@ internal fun GrapesButtonIcon(
     showBackground = true,
 )
 @Composable
-fun ButtonIconPrimaryPreview() {
+private fun ButtonIconPrimaryPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -179,7 +179,7 @@ private fun ButtonIconPrimarySmallPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonIconSecondaryPreview() {
+private fun ButtonIconSecondaryPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -221,7 +221,7 @@ fun ButtonIconSecondaryPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonIconSecondarySmallPreview() {
+private fun ButtonIconSecondarySmallPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -263,7 +263,7 @@ fun ButtonIconSecondarySmallPreview() {
     backgroundColor = 0xFF421896 // Primary Dark
 )
 @Composable
-fun ButtonIconTextPreview() {
+private fun ButtonIconTextPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -306,7 +306,7 @@ fun ButtonIconTextPreview() {
     backgroundColor = 0xFF421896 // Primary Dark
 )
 @Composable
-fun ButtonIconTextSmallPreview() {
+private fun ButtonIconTextSmallPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -346,7 +346,7 @@ fun ButtonIconTextSmallPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonIconWarningPreview() {
+private fun ButtonIconWarningPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -388,7 +388,7 @@ fun ButtonIconWarningPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonIconAlertPreview() {
+private fun ButtonIconAlertPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -430,7 +430,7 @@ fun ButtonIconAlertPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonIconLinkPrimaryPreview() {
+private fun ButtonIconLinkPrimaryPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -470,7 +470,7 @@ fun ButtonIconLinkPrimaryPreview() {
     showBackground = true,
 )
 @Composable
-fun ButtonIconLinkSecondaryPreview() {
+private fun ButtonIconLinkSecondaryPreview() {
     GrapesTheme {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -502,4 +502,5 @@ fun ButtonIconLinkSecondaryPreview() {
         }
     }
 }
+
 //endregion Previews
