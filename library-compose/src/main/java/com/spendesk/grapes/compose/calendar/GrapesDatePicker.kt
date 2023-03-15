@@ -33,7 +33,7 @@ import java.util.TimeZone
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GrapesCalendar(
+fun GrapesDatePicker(
     modifier: Modifier = Modifier,
     date: Date = Date(),
     minDate: Date? = null,
@@ -89,12 +89,12 @@ fun GrapesCalendar(
 
 @Preview(showBackground = true)
 @Composable
-private fun GrapesCalendarWithMinDateAndMaxDatePreview() {
+private fun GrapesDatePickerWithMinDateAndMaxDatePreview() {
     val minDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, -1) }.time
     val maxDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, 2) }.time
 
     GrapesTheme {
-        GrapesCalendar(
+        GrapesDatePicker(
             minDate = minDate,
             maxDate = maxDate,
             onDateSelected = { date -> println("Selected date: $date") }
@@ -104,11 +104,11 @@ private fun GrapesCalendarWithMinDateAndMaxDatePreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun GrapesCalendarWithMinDatePreview() {
+private fun GrapesDatePickerWithMinDatePreview() {
     val minDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, -1) }.time
 
     GrapesTheme {
-        GrapesCalendar(
+        GrapesDatePicker(
             minDate = minDate,
             onDateSelected = { date -> println("Selected date: $date") }
         )
@@ -117,11 +117,11 @@ private fun GrapesCalendarWithMinDatePreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun GrapesCalendarWithMaxDatePreview() {
+private fun GrapesDatePickerWithMaxDatePreview() {
     val maxDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, 2) }.time
 
     GrapesTheme {
-        GrapesCalendar(
+        GrapesDatePicker(
             maxDate = maxDate,
             onDateSelected = { date -> println("Selected date: $date") }
         )
@@ -130,9 +130,9 @@ private fun GrapesCalendarWithMaxDatePreview() {
 
 @Preview(showBackground = true)
 @Composable
-private fun GrapesCalendarPreview() {
+private fun GrapesDatePickerPreview() {
     GrapesTheme {
-        GrapesCalendar(
+        GrapesDatePicker(
             onDateSelected = { date -> println("Selected date: $date") }
         )
     }

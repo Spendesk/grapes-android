@@ -27,7 +27,7 @@ import java.util.Date
  */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GrapesTimer(
+fun GrapesTimePicker(
     initialHour: Int,
     initialMinute: Int,
     modifier: Modifier = Modifier,
@@ -62,11 +62,11 @@ fun GrapesTimer(
 
 @Preview(showBackground = true)
 @Composable
-private fun GrapesTimerPreview() {
+private fun GrapesTimePickerPreview() {
     val cal = Calendar.getInstance().apply { time = Date() }
 
     GrapesTheme {
-        GrapesTimer(
+        GrapesTimePicker(
             initialHour = cal.get(Calendar.HOUR_OF_DAY),
             initialMinute = cal.get(Calendar.MINUTE),
             onTimeSelected = { hour, minute -> println("Selected hour: $hour and minute: $minute") }
