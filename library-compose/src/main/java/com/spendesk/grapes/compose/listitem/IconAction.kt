@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.bucket.GrapesBucketContainer
+import com.spendesk.grapes.compose.bucket.GrapesBucketBox
 import com.spendesk.grapes.compose.icons.Size
 import com.spendesk.grapes.compose.icons.StatusInformationIcon
 import com.spendesk.grapes.compose.model.GrapesConfigurationStatus
@@ -90,7 +90,7 @@ private fun IconActionPreview() {
         ) {
             IconAction(iconActionConfiguration = alertConfiguration)
             IconAction(iconActionConfiguration = infoConfigurationWithoutDescription)
-            GrapesBucketContainer(
+            GrapesBucketBox(
                 modifier = Modifier
                     .padding(12.dp)
                     .fillMaxWidth()
