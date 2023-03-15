@@ -6,6 +6,7 @@ import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.extensions.resetDateToMidnight
@@ -79,8 +80,10 @@ fun GrapesCalendar(
         }
     )
 
-    if (onDateSelected != null && selectedDate.selectedDateMillis != null) {
-        onDateSelected.invoke(Date(selectedDate.selectedDateMillis!!))
+    LaunchedEffect(selectedDate.selectedDateMillis) {
+        selectedDate.selectedDateMillis?.let {
+            onDateSelected?.invoke(Date(it))
+        }
     }
 }
 
