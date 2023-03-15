@@ -56,7 +56,19 @@ class BottomSheetsFragment : Fragment(R.layout.fragment_home_bottom_sheets) {
                             SimpleListModel.Item(id = "1", configuration = item1Configuration),
                             SimpleListModel.Item(id = "2", configuration = item2Configuration),
                             SimpleListModel.Item(id = "3", configuration = item3Configuration),
-                            SimpleListModel.Item(id = "4", configuration = item4Configuration)
+                            SimpleListModel.Item(id = "4", configuration = item4Configuration),
+                            SimpleListModel.Item(id = "5", configuration = item1Configuration),
+                            SimpleListModel.Item(id = "6", configuration = item2Configuration),
+                            SimpleListModel.Item(id = "7", configuration = item3Configuration),
+                            SimpleListModel.Item(id = "8", configuration = item4Configuration),
+                            SimpleListModel.Item(id = "9", configuration = item1Configuration),
+                            SimpleListModel.Item(id = "10", configuration = item2Configuration),
+                            SimpleListModel.Item(id = "11", configuration = item3Configuration),
+                            SimpleListModel.Item(id = "12", configuration = item4Configuration),
+                            SimpleListModel.Item(id = "13", configuration = item1Configuration),
+                            SimpleListModel.Item(id = "14", configuration = item2Configuration),
+                            SimpleListModel.Item(id = "15", configuration = item3Configuration),
+                            SimpleListModel.Item(id = "16", configuration = item4Configuration)
                         )
                     )
                 )
