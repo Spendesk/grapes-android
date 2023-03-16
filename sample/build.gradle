@@ -83,7 +83,7 @@ dependencies {
     implementation project(path: ':library-compose')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.core:core-ktx:1.9.0"
+    implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
     implementation "androidx.fragment:fragment-ktx:1.5.3"
 
     implementation 'com.google.android.material:material:1.6.1'
