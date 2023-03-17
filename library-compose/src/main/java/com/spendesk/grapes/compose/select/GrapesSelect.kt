@@ -98,6 +98,17 @@ private fun Select(isExpanded: Boolean, label: String, modifier: Modifier = Modi
     }
 }
 
+@Composable
+private fun GrapesSelectIcon(expanded: Boolean, tint: Color) {
+    val rotation by animateFloatAsState(targetValue = if (expanded) 180f else 0f, label = "Rotation angle animation")
+
+    Icon(
+        Icons.Filled.ArrowDropDown,
+        null,
+        Modifier.rotate(rotation),
+        tint = tint
+    )
+}
 @Preview
 @Composable
 private fun GrapesSelectorPreview() {
