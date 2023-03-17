@@ -27,25 +27,27 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun GrapesCheckboxText(
     text: String,
-    onChecked: ((Boolean) -> Unit),
+    onChecked: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     isChecked: Boolean = false,
     isEnabled: Boolean = true,
-) =
+) {
+    val onToggleCheck = { onChecked(!isChecked) }
+
     Row(
         modifier = modifier
             .clickable(
                 enabled = isEnabled,
                 onClickLabel = text,
                 role = Role.Checkbox,
-                onClick = { onChecked(!isChecked) }
+                onClick = onToggleCheck
             ),
         verticalAlignment = Alignment.CenterVertically
     ) {
         GrapesCheckbox(
             isChecked = isChecked,
             isEnabled = isEnabled,
-            onCheckedChange = { },
+            onCheckedChange = { onToggleCheck.invoke() },
         )
         Spacer(Modifier.padding(end = GrapesTheme.dimensions.paddingSmall))
         Text(
@@ -54,6 +56,7 @@ fun GrapesCheckboxText(
             style = GrapesTheme.typography.bodyRegular
         )
     }
+}
 
 @Composable
 @Preview(
@@ -72,7 +75,7 @@ private fun GrapesCheckboxTextPreview() {
 
             var isChecked by remember { mutableStateOf(false) }
 
-            GrapesCheckboxText(text = "Checkbox unselected and enabled", isChecked = isChecked, isEnabled = true, onChecked = { isChecked = it })
+            GrapesCheckboxText(text = "Checkbox toggle", isChecked = isChecked, isEnabled = true, onChecked = { isChecked = it })
         }
     }
 }
