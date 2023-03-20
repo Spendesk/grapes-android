@@ -21,7 +21,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun GrapesCheckbox(
     isChecked: Boolean,
-    onCheckedChange: ((Boolean) -> Unit),
+    onCheckedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true,
 ) =
