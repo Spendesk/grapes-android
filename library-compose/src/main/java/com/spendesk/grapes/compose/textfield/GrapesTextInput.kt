@@ -20,9 +20,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.SnackbarDuration
 import androidx.compose.material.rememberScaffoldState
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Switch
-import androidx.compose.material3.Text
+import androidx.compose.material.Switch
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -48,7 +47,6 @@ import kotlinx.coroutines.launch
  * @author jean-philippe
  * @since 05/01/2023, Thu
  **/
-@ExperimentalMaterial3Api
 @Composable
 fun GrapesTextInput(
     value: TextFieldValue,
@@ -89,7 +87,6 @@ fun GrapesTextInput(
     )
 }
 
-@ExperimentalMaterial3Api
 @Composable
 fun GrapesTextInput(
     value: String,
@@ -132,7 +129,6 @@ fun GrapesTextInput(
 
 // region: Preview
 
-@ExperimentalMaterial3Api
 @Composable
 @Preview
 fun PreviewGrapesTextField() {

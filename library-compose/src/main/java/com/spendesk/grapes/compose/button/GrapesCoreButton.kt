@@ -18,9 +18,9 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonColors
 import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.LocalContentColor
 import androidx.compose.material.ProvideTextStyle
 import androidx.compose.material.ripple.LocalRippleTheme
-import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember

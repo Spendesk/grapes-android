@@ -17,9 +17,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Text
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -40,7 +40,6 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 06/01/2023, Fri
  **/
 
-@ExperimentalMaterial3Api
 @Composable
 internal fun GrapesBaseTextField(
     value: String,
@@ -117,7 +116,6 @@ internal fun GrapesBaseTextField(
     )
 }
 
-@ExperimentalMaterial3Api
 @Composable
 internal fun GrapesBaseTextField(
     value: TextFieldValue,
@@ -214,7 +212,7 @@ internal fun GrapesHelperText(
     }
 }
 
-@ExperimentalMaterial3Api
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 private fun GrapesCoreTextField(
     value: TextFieldValue,
@@ -278,7 +276,7 @@ private fun GrapesCoreTextField(
                 },
                 leadingIcon = leadingIcon,
                 trailingIcon = trailingIcon,
-                container = {
+                border = {
                     GrapesTextFieldDefaults.BorderBox(
                         enabled = enabled,
                         isError = isError,
