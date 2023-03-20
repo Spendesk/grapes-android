@@ -68,7 +68,10 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     // Material Design 2 & 3 while migration is pending.
     implementation("androidx.compose.material:material")
-    implementation("androidx.compose.material3:material3:$compose_material_3_version")
+    implementation("androidx.compose.material3:material3:$compose_material_3_version") {
+        exclude group: 'androidx.compose.material', module: 'material-icons-core'
+        exclude group: 'androidx.compose.material', module: 'material-ripple'
+    }
 
     // Material design icons
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
