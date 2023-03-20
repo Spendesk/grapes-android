@@ -44,7 +44,7 @@ internal fun GrapesBucketCore(
     content: @Composable (() -> Unit)? = null
 ) {
     GrapesBucketContainer(modifier = modifier) {
-        Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
+        Column {
             headline()
 
             if (content != null) {
