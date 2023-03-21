@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="grapes_top_app_bar_back_icon_description">Back</string>
-    <string name="grapes_top_app_bar_more_icon_description">More</string>
 
+    <string name="grapes_top_app_bar_back_icon_description">Back</string>
+    <string name="grapes_top_app_bar_close_icon_description">Close</string>
+    <string name="grapes_top_app_bar_more_icon_description">More</string>
 </resources>

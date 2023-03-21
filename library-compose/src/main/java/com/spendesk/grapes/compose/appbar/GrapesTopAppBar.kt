@@ -25,6 +25,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 28/12/2022, Wed
  **/
 
+// TODO: Create a parameter handling colors = GrapesTopAppBarDefaults.colors()
 @Composable
 fun GrapesTopAppBar(
     title: @Composable () -> Unit,
@@ -51,6 +52,7 @@ fun GrapesTopAppBarTitle(
     Text(
         modifier = modifier,
         text = title,
+        color = GrapesTheme.colors.mainComplementary,
         maxLines = 2,
         overflow = TextOverflow.Ellipsis,
         style = GrapesTheme.typography.titleL,
@@ -97,6 +99,19 @@ fun GrapesTopAppBarBackIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_back),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_back_icon_description),
+        tint = GrapesTheme.colors.mainComplementary
+    )
+}
+
+@Composable
+fun GrapesTopAppBarCloseIcon(
+    modifier: Modifier = Modifier,
+) {
+    Icon(
+        modifier = modifier.size(24.dp),
+        imageVector = ImageVector.vectorResource(R.drawable.ic_close),
+        contentDescription = stringResource(id = R.string.grapes_top_app_bar_close_icon_description),
+        tint = GrapesTheme.colors.mainComplementary
     )
 }
 
@@ -108,6 +123,7 @@ fun GrapesTopAppBarMoreIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_more_vertical),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_more_icon_description),
+        tint = GrapesTheme.colors.mainComplementary
     )
 }
 
@@ -149,6 +165,17 @@ fun GrapesSimpleTopAppBarPreview() {
                 navigationIcon = {
                     GrapesTopAppBarIconButton(
                         icon = { GrapesTopAppBarBackIcon() },
+                        onClick = { Log.i("GrapesTopAppBar", "navigationIcon click") }
+                    )
+                },
+            )
+
+            GrapesTopAppBar(
+                modifier = Modifier.fillMaxWidth(),
+                title = { GrapesTopAppBarTitle(title = "Top app bar title") },
+                navigationIcon = {
+                    GrapesTopAppBarIconButton(
+                        icon = { GrapesTopAppBarCloseIcon() },
                         onClick = { Log.i("GrapesTopAppBar", "navigationIcon click") }
                     )
                 },
