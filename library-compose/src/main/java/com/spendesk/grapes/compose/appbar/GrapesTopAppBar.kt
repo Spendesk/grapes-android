@@ -99,6 +99,7 @@ fun GrapesTopAppBarBackIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_back),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_back_icon_description),
+        tint = GrapesTheme.colors.mainComplementary
     )
 }
 
@@ -110,6 +111,7 @@ fun GrapesTopAppBarCloseIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_close),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_close_icon_description),
+        tint = GrapesTheme.colors.mainComplementary
     )
 }
 
@@ -121,6 +123,7 @@ fun GrapesTopAppBarMoreIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_more_vertical),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_more_icon_description),
+        tint = GrapesTheme.colors.mainComplementary
     )
 }
 
