@@ -28,13 +28,25 @@ fun GrapesBucket(
     onActionClicked: (() -> Unit)? = null,
     content: @Composable (() -> Unit)? = null
 ) {
-    GrapesBucketCore(
+    GrapesBucket(
         modifier = modifier,
         headline = { GrapesBucketHeadline(title = title, action = action, actionColor = actionColor, onActionClicked = onActionClicked) },
         content = content
     )
 }
 
+@Composable
+fun GrapesBucket(
+    modifier: Modifier = Modifier,
+    headline: @Composable () -> Unit,
+    content: @Composable (() -> Unit)? = null
+) {
+    GrapesBucketCore(
+        modifier = modifier,
+        headline = headline,
+        content = content,
+    )
+}
 // region internal
 
 @Composable
@@ -86,6 +98,22 @@ private fun GrapesBucketPreview() {
                 modifier = Modifier.padding(12.dp),
                 title = "Grapes Bucket Container Title"
             )
+
+            GrapesBucket(
+                modifier = Modifier.padding(12.dp),
+                headline = {
+                    GrapesBucketHeadline(
+                        modifier = Modifier.background(Color.Yellow),
+                        title = "Bucket de Rick Astley",
+                        action = "Remove",
+                        actionColor = GrapesTheme.colors.mainAlertNormal)
+                }
+            ) {
+                Column {
+                    Text(text = "Line 1")
+                    Text(text = "Line 2")
+                }
+            }
         }
     }
 }
