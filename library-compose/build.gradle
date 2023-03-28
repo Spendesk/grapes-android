@@ -68,7 +68,11 @@ dependencies {
     api("androidx.compose.foundation:foundation")
     // Material Design 2 & 3 while migration is pending.
     api("androidx.compose.material:material")
-    api("androidx.compose.material3:material3:$compose_material_3_version")
+    api("androidx.compose.material3:material3:$compose_material_3_version") {
+        because("These subdependecies are using an unstable version of androidx.compose.material that introduce a breaking change and crash")
+        exclude group: 'androidx.compose.material', module: 'material-icons-core'
+        exclude group: 'androidx.compose.material', module: 'material-ripple'
+    }
 
     // Material design icons
     api("androidx.lifecycle:lifecycle-runtime-ktx:2.6.0")
