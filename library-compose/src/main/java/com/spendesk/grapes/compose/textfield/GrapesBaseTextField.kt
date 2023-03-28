@@ -106,6 +106,7 @@ internal fun GrapesBaseTextField(
         readOnly = readOnly,
         textStyle = textStyle,
         isError = isError,
+        onClick = onClick,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
         singleLine = singleLine,
