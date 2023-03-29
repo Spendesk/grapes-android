@@ -87,6 +87,12 @@ internal fun GrapesBaseTextField(
     // CoreTextField's onValueChange is called multiple times without recomposition in between.
     var lastTextValue by remember(value) { mutableStateOf(value) }
 
+    SideEffect {
+        if (textFieldValueState.text != lastTextValue) {
+            textFieldValueState = textFieldValueState.copy(text = value)
+        }
+    }
+
     GrapesBaseTextField(
         value = textFieldValueState,
         placeholderValue = placeholderValue,
