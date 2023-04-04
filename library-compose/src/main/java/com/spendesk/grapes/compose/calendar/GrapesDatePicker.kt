@@ -2,18 +2,18 @@ package com.spendesk.grapes.compose.calendar
 
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDefaults
+import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.extensions.resetDateToMidnight
 import com.spendesk.grapes.compose.extensions.resetDateToTomorrowMidnight
 import com.spendesk.grapes.compose.theme.GrapesTheme
 import java.util.Calendar
-import java.util.Calendar.YEAR
 import java.util.Date
 import java.util.TimeZone
 
@@ -35,25 +35,26 @@ import java.util.TimeZone
 @Composable
 fun GrapesDatePicker(
     modifier: Modifier = Modifier,
-    date: Date = Date(),
+    date: Date? = null,
     minDate: Date? = null,
     maxDate: Date? = null,
     onDateSelected: ((Date) -> Unit)? = null
 ) {
-    val cal = Calendar.getInstance().apply { time = date }
-    val selectedDate =
-        rememberDatePickerState(
-            initialSelectedDateMillis = date.time,
-            initialDisplayedMonthMillis = null,
-            yearRange = IntRange(cal.get(YEAR) - 3, cal.get(YEAR)),
+    val selectedDate = remember(date, minDate, maxDate) {
+        DatePickerState(
+            initialSelectedDateMillis = date?.time,
+            initialDisplayedMonthMillis = date?.time,
+            yearRange = DatePickerDefaults.YearRange,
             initialDisplayMode = DisplayMode.Picker
         )
+    }
 
     DatePicker(
         state = selectedDate,
         modifier = modifier,
         showModeToggle = false,
         title = null,
+        headline = null,
         colors = DatePickerDefaults.colors(
             containerColor = GrapesTheme.colors.mainBackground,
             titleContentColor = GrapesTheme.colors.mainNeutralDarkest,
@@ -82,7 +83,9 @@ fun GrapesDatePicker(
 
     LaunchedEffect(selectedDate.selectedDateMillis) {
         selectedDate.selectedDateMillis?.let {
-            onDateSelected?.invoke(Date(it))
+            if (Date(it).resetDateToMidnight() != date?.resetDateToMidnight()) {
+                onDateSelected?.invoke(Date(it))
+            }
         }
     }
 }

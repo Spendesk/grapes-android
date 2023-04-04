@@ -56,7 +56,9 @@ fun GrapesTimePicker(
     )
 
     LaunchedEffect(timerPickerState.hour, timerPickerState.minute) {
-        onTimeSelected?.invoke(timerPickerState.hour, timerPickerState.minute)
+        if (timerPickerState.hour != initialHour && timerPickerState.minute != initialMinute) {
+            onTimeSelected?.invoke(timerPickerState.hour, timerPickerState.minute)
+        }
     }
 }
 
