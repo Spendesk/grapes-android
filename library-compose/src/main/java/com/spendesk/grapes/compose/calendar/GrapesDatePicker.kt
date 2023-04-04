@@ -5,7 +5,6 @@ import androidx.compose.material3.DatePickerDefaults
 import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
@@ -42,11 +41,13 @@ fun GrapesDatePicker(
     onDateSelected: ((Date) -> Unit)? = null
 ) {
     val selectedDate = remember(date, minDate, maxDate) {
-            DatePickerState(initialSelectedDateMillis = date?.time,
-                initialDisplayedMonthMillis = date?.time,
-                yearRange = DatePickerDefaults.YearRange,
-                initialDisplayMode = DisplayMode.Picker)
-        }
+        DatePickerState(
+            initialSelectedDateMillis = date?.time,
+            initialDisplayedMonthMillis = date?.time,
+            yearRange = DatePickerDefaults.YearRange,
+            initialDisplayMode = DisplayMode.Picker
+        )
+    }
 
     DatePicker(
         state = selectedDate,
