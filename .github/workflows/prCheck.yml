@@ -6,8 +6,6 @@ on:
   workflow_dispatch:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
-    branches-ignore:
-      - 'main'
 
 jobs:
   lint:
