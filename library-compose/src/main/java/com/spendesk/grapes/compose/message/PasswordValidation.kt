@@ -41,7 +41,7 @@ fun PasswordValidation(
     validationEntries: List<PasswordValidationEntry>
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
-        validationEntries.forEach {
+        validationEntries.iterator().forEach {
             PasswordValidationItem(label = it.label, isValid = it.isValid)
         }
     }

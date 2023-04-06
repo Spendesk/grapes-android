@@ -1,0 +1,56 @@
+name: 🍇 Development PR check
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize, ready_for_review, reopened]
+    branches-ignore:
+      - 'main'
+
+jobs:
+  lint:
+    name: Run linter
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3 # Necessary to access local action
+      - name: Checkout Grapes repo
+        uses: actions/checkout@v3
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Launch lint
+        run: ./gradlew lint
+
+  test:
+    name: Run unit tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3 # Necessary to access local action
+      - name: Checkout Grapes repo
+        uses: actions/checkout@v3
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Launch unit tests
+        run: ./gradlew test
+
+  build:
+    name: Build grapes
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3 # Necessary to access local action
+      - name: Checkout Grapes repo
+        uses: actions/checkout@v3
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Launch clean build
+        run: ./gradlew clean assembleDebug

@@ -1,0 +1,38 @@
+name: 🚀 App distrib delivery
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  publishDebugApp:
+    name: Publish sample app to Firebase app distrib
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3 # Necessary to access local action
+      - name: Checkout Grapes repo
+        uses: actions/checkout@v3
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Download keystore file
+        shell: bash
+        run: |
+          echo "Downloading keystore..."
+
+          sudo curl -H "Authorization: token ${{ secrets.GH_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.v3.raw" -o ${{ github.workspace }}/sample/spendesk-grapes.keystore -L ${{ secrets.KEYSTORE_URL }}
+          ls -l config/keystores
+
+      - name: Deploy sample to app distrib
+        env:
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          FIREBASE_TOKEN: $${{ secrets.FIREBASE_TOKEN }}
+        run: ./gradlew assembleRelease appDistributionUploadRelease
