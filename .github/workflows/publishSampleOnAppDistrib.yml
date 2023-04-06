@@ -27,7 +27,7 @@ jobs:
           echo "Downloading keystore..."
 
           sudo curl -H "Authorization: token ${{ secrets.GH_ACCESS_TOKEN }}" -H "Accept: application/vnd.github.v3.raw" -o ${{ github.workspace }}/sample/spendesk-grapes.keystore -L ${{ secrets.KEYSTORE_URL }}
-          ls -l config/keystores
+          ls -l ${{ github.workspace }}/sample
 
       - name: Deploy sample to app distrib
         env:
