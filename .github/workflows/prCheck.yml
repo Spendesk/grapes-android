@@ -21,7 +21,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Launch lint
-        run: ./gradlew lint
+        run: ./gradlew lintDebug
+
+      - name: Launch lint
+        run: ./gradlew lintDebug
 
   test:
     name: Run unit tests
