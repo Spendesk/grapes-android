@@ -60,7 +60,6 @@ android {
             firebaseAppDistribution {
                 groups = "release-candidate"
                 appId = "1:1044115290075:android:0ab502faa6ab13f24b59fe"
-                serviceCredentialsFile = "sample/spendesk-grapes-mobile-firebase-app-distribution.json"
             }
         }
 
