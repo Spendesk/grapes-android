@@ -93,13 +93,14 @@ object GrapesTextFieldDefaults {
     @Composable
     fun textFieldColors(
         textColor: Color = GrapesTheme.colors.mainNeutralDarkest,
-        disabledTextColor: Color = textColor.copy(ContentAlpha.disabled),
+        disabledTextColor: Color = GrapesTheme.colors.mainNeutralDarkest,
         backgroundColor: Color = GrapesTheme.colors.mainWhite,
+        disabledBackgroundColor: Color = GrapesTheme.colors.mainNeutralLighter,
         cursorColor: Color = GrapesTheme.colors.mainPrimaryLight,
         errorCursorColor: Color = GrapesTheme.colors.mainAlertNormal,
         focusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
         unfocusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
-        disabledBorderColor: Color = GrapesTheme.colors.mainNeutralLighter,
+        disabledBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
         errorBorderColor: Color = GrapesTheme.colors.mainAlertNormal,
         leadingIconColor: Color = Color.Yellow, // Todo replace
         disabledLeadingIconColor: Color = Color.Yellow, // Todo replace
@@ -132,6 +133,7 @@ object GrapesTextFieldDefaults {
         disabledTrailingIconColor = disabledTrailingIconColor,
         errorTrailingIconColor = errorTrailingIconColor,
         backgroundColor = backgroundColor,
+        disabledBackgroundColor = disabledBackgroundColor,
         focusedLabelColor = focusedLabelColor,
         unfocusedLabelColor = unfocusedLabelColor,
         disabledLabelColor = disabledLabelColor,
@@ -161,6 +163,7 @@ private data class DefaultGrapesGrapesTextFieldColors(
     private val disabledTrailingIconColor: Color,
     private val errorTrailingIconColor: Color,
     private val backgroundColor: Color,
+    private val disabledBackgroundColor: Color,
     private val focusedLabelColor: Color,
     private val unfocusedLabelColor: Color,
     private val disabledLabelColor: Color,
@@ -232,7 +235,7 @@ private data class DefaultGrapesGrapesTextFieldColors(
 
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
-        return rememberUpdatedState(backgroundColor)
+        return rememberUpdatedState(if (enabled) backgroundColor else disabledBackgroundColor)
     }
 
     @Composable
