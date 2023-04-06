@@ -71,7 +71,7 @@ fun GrapesSelect(
             onDismissRequest = { isExpanded = false },
             modifier = Modifier.background(GrapesTheme.colors.mainBackground)
         ) {
-            entries.forEach {
+            entries.iterator().forEach {
                 DropdownMenuItem(
                     text = { Text(it.label) },
                     onClick = {
