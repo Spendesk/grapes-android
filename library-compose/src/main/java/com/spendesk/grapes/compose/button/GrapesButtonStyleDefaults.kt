@@ -237,6 +237,24 @@ object GrapesButtonStyleDefaults {
             borderStroke = GrapesButtonDefaults.BorderStroke.secondary,
             isFillMaxWidthWithContent = true,
         )
+
+    val saml: GrapesButtonStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonStyle(
+            textStyle = GrapesTheme.typography.titleM,
+            minSize = Size(
+                width = GrapesButtonDefaults.MinWidthSmall.value,
+                height = GrapesButtonDefaults.MinHeightSmall.value
+            ),
+            iconSize = 40.dp,
+            shape = GrapesTheme.shapes.small,
+            rippleColor = GrapesTheme.colors.mainNeutralLighter,
+            colors = ButtonColorDefaults.secondary,
+            contentPadding = GrapesButtonDefaults.PaddingValuesBrand,
+            borderStroke = GrapesButtonDefaults.BorderStroke.secondary,
+            isFillMaxWidthWithContent = true,
+        )
 }
 
 @Immutable
