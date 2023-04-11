@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/textInputEditText"
         style="@style/TextInputEditText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
-        android:id="@+id/progressBar"
+        android:id="@+id/linearIndicatorProgressBar"
         style="@style/SearchInputProgressBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

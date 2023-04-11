@@ -9,7 +9,6 @@ import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SearchInputBinding
 import com.spendesk.grapes.extensions.setupClearButtonWithAction
-import com.spendesk.grapes.extensions.visibleOrInvisible
 import com.spendesk.grapes.inputs.definition.Input
 
 /**
@@ -38,12 +37,12 @@ class SearchInput : Input {
 
     private val binding = SearchInputBinding.inflate(LayoutInflater.from(context), this, true)
 
-    override fun getEditText(): EditText = binding.editText
+    override fun getEditText(): EditText = binding.textInputEditText
 
     /**
      * Whether or not the horizontal [ProgressBar] displayed below the editText is shown.
      */
-    fun showProgressBar(visible: Boolean) = binding.progressBar.visibleOrInvisible(visible)
+    fun showProgressBar(visible: Boolean) = if (visible) binding.linearIndicatorProgressBar.show() else binding.linearIndicatorProgressBar.hide()
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
