@@ -71,7 +71,7 @@ fun GrapesSelect(
             onDismissRequest = { isExpanded = false },
             modifier = Modifier.background(GrapesTheme.colors.mainBackground)
         ) {
-            entries.forEach {
+            entries.iterator().forEach {
                 DropdownMenuItem(
                     text = { Text(it.label) },
                     onClick = {
@@ -102,7 +102,7 @@ private fun Select(
         horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge),
         modifier = modifier
             .background(itemColor, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
-            .border(1.dp, GrapesTheme.colors.mainPrimaryLighter, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
+            .border(1.dp, GrapesTheme.colors.mainNeutralLight, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
             .padding(horizontal = GrapesTheme.dimensions.paddingLarge, vertical = GrapesTheme.dimensions.paddingMedium)
     ) {
         Text(text = label, style = GrapesTheme.typography.titleS, color = contentColor)

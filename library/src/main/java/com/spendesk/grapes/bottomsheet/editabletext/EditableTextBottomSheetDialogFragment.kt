@@ -103,7 +103,7 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
     }
 
     override fun onDestroyView() {
-        binding?.editText?.hideKeyboard()
+        binding?.textInputEditText?.hideKeyboard()
         binding = null
         super.onDestroyView()
     }
@@ -128,23 +128,23 @@ class EditableTextBottomSheetDialogFragment : BottomSheetDialogFragment() {
         binding?.apply {
             headerTitle.text = configuration?.title ?: String.empty()
             validateButton.setText(configuration?.buttonText ?: String.empty())
-            editText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
-            editText.hint = configuration?.hintText ?: String.empty()
+            textInputEditText.setTextAndPositionCursorEnd(editTextValue ?: String.empty())
+            textInputEditText.hint = configuration?.hintText ?: String.empty()
             updateValidateButton()
         }
 
-        Handler(Looper.getMainLooper()).postDelayed({ binding?.editText?.showSoftKeyboard() }, EDITTEXT_TEXT_CHANGED_DELAY)
+        Handler(Looper.getMainLooper()).postDelayed({ binding?.textInputEditText?.showSoftKeyboard() }, EDITTEXT_TEXT_CHANGED_DELAY)
     }
 
     private fun bindView() {
         binding?.apply {
             headerCloseButton.setOnClickListener { dialog?.cancel() }
-            validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(editText.text.toString().trim()) } } }
-            editText.onTextChanged { withActivityAttached { runOnUiThread { updateValidateButton() } } }
+            validateButton.setOnClickListener { withActivityAttached { runOnUiThread { onValidateButtonClicked?.invoke(textInputEditText.text.toString().trim()) } } }
+            textInputEditText.onTextChanged { withActivityAttached { runOnUiThread { updateValidateButton() } } }
         }
     }
 
     private fun updateValidateButton() {
-        binding?.validateButton?.isEnabled = binding?.editText?.text?.isNotEmpty() ?: false
+        binding?.validateButton?.isEnabled = binding?.textInputEditText?.text?.isNotEmpty() ?: false
     }
 }

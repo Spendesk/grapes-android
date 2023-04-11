@@ -62,6 +62,25 @@ fun GrapesMicrosoftButton(
     )
 }
 
+@Composable
+fun GrapesSamlButton(
+    label: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    state: GrapesButtonState = GrapesButtonState.Enabled,
+) {
+    val style = GrapesButtonStyleDefaults.saml
+
+    GrapesButtonIcon(
+        text = label,
+        leadingIcon = { BrandLeadingIcon(style, R.drawable.ic_saml_logo) },
+        buttonStyle = style,
+        state = state,
+        onClick = onClick,
+        modifier = modifier
+    )
+}
+
 private val BrandLogoSize = 20.dp
 private val BrandLogoContainerBorderRadius = 6.dp
 
@@ -95,6 +114,7 @@ private fun GrapesButtonBrandPreview() {
         ) {
             GrapesGoogleButton(label = "Register to Google", onClick = { /*TODO*/ })
             GrapesMicrosoftButton(label = "Register to Microsoft", onClick = { /*TODO*/ })
+            GrapesSamlButton(label = "Register to with SAML SSO", onClick = { /*TODO*/ })
         }
     }
 }
