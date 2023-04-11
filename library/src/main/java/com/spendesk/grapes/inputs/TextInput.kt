@@ -35,7 +35,7 @@ class TextInput : Input {
 
     private val binding = TextInputBinding.inflate(LayoutInflater.from(context), this, true)
 
-    override fun getEditText(): EditText = binding.editText
+    override fun getEditText(): EditText = binding.textInputEditText
 
     private fun setupView(attributeSet: AttributeSet?) {
         attributeSet?.let {
