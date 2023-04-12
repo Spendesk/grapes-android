@@ -2,6 +2,7 @@ package com.spendesk.grapes
 
 import android.content.Context
 import android.text.InputFilter
+import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.EditText
@@ -25,6 +26,7 @@ class RegistrationCodeView : CardView {
     private lateinit var onFirstTextChanged: ((String) -> Unit)
     private lateinit var onSecondTextChanged: ((String) -> Unit)
     private lateinit var onThirdTextChanged: ((String) -> Unit)
+    private var activeListeners: Map<Int, TextWatcher> = mapOf()
 
     private var maxCodeItemLength: Int = 0
 
@@ -94,8 +96,10 @@ class RegistrationCodeView : CardView {
         }
     }
 
-    private fun handleItem(registrationCodeItem: EditText, registrationCodeLambda: ((String) -> Unit)?, logicOnTextLength: ((String) -> Unit)) =
-        registrationCodeItem
+    private fun handleItem(registrationCodeItem: EditText, registrationCodeLambda: ((String) -> Unit)?, logicOnTextLength: ((String) -> Unit)) {
+        removeExistingListener(registrationCodeItem)
+
+        val textWatcher = registrationCodeItem
             .doAfterTextChanged { textEditable ->
                 val itemText = textEditable.toString()
 
@@ -103,6 +107,13 @@ class RegistrationCodeView : CardView {
                     ?.invoke(itemText)
                     .also { logicOnTextLength(itemText) }
             }
+
+        activeListeners = activeListeners.plus(registrationCodeItem.id to textWatcher)
+    }
+
+    private fun removeExistingListener(registrationCodeItem: EditText) {
+        activeListeners[registrationCodeItem.id]?.let { registrationCodeItem.removeTextChangedListener(it) }
+    }
 
     private fun limitTextLength() {
         listOf(binding.registrationCodeFirstText, binding.registrationCodeSecondText, binding.registrationCodeThirdText).forEach {
