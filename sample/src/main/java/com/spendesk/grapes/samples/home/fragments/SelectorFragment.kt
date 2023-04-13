@@ -76,9 +76,30 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
             // Picker Cards List
             val pickerCardListViewAdapter = PickerAdapter()
             val pickerCardListModel = listOf<PickerModel>(
-                PickerModel.Block(id = "lel", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_previous)),
-                PickerModel.Block(id = "lol", configuration = PickerBlockIconCardView.Configuration(isSelected = true, android.R.drawable.ic_media_play)),
-                PickerModel.Block(id = "lille", configuration = PickerBlockIconCardView.Configuration(isSelected = false, android.R.drawable.ic_media_next))
+                PickerModel.Block(
+                    id = "lel",
+                    configuration = PickerBlockIconCardView.Configuration(
+                        isSelected = false,
+                        icon = android.R.drawable.ic_media_previous,
+                        iconContentDescription = "media previous",
+                    )
+                ),
+                PickerModel.Block(
+                    id = "lol",
+                    configuration = PickerBlockIconCardView.Configuration(
+                        isSelected = true,
+                        icon = android.R.drawable.ic_media_play,
+                        iconContentDescription = "media play",
+                    )
+                ),
+                PickerModel.Block(
+                    id = "lille",
+                    configuration = PickerBlockIconCardView.Configuration(
+                        isSelected = false,
+                        icon = android.R.drawable.ic_media_next,
+                        iconContentDescription = "media next",
+                    )
+                )
             )
 
             homeSelectorsSectionPickerListView.adapter = pickerCardListViewAdapter
