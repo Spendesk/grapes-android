@@ -24,7 +24,8 @@ class PickerBlockIconCardView : SelectBlockCardView {
 
     data class Configuration(
         val isSelected: Boolean,
-        @DrawableRes val icon: Int
+        @DrawableRes val icon: Int,
+        val iconContentDescription: String,
     )
 
     private val binding: SelectorPickerBlockIconBinding = SelectorPickerBlockIconBinding.inflate(LayoutInflater.from(context), this)
@@ -42,6 +43,7 @@ class PickerBlockIconCardView : SelectBlockCardView {
 
         with(binding.pickerBlockIconImageView) {
             setImageResource(configuration.icon)
+            contentDescription = configuration.iconContentDescription
             setColorFilter(
                 ContextCompat.getColor(context, if (configuration.isSelected) R.color.pickerBlockIconCardViewIconSelectedTint else R.color.pickerBlockIconCardViewIconUnselectedTint)
             )
