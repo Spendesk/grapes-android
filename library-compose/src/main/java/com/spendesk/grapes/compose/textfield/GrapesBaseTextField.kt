@@ -2,7 +2,7 @@ package com.spendesk.grapes.compose.textfield
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.foundation.interaction.collectIsPressedAsState
+import androidx.compose.foundation.interaction.PressInteraction
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -21,6 +21,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -150,9 +151,14 @@ internal fun GrapesBaseTextField(
     val textColor = colors.textColor(enabled).value
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
 
-    val isClickable = onClick != null && readOnly
-    if (isClickable && interactionSource.collectIsPressedAsState().value) {
-        onClick?.invoke()
+    if (onClick != null && readOnly) {
+        LaunchedEffect(interactionSource) {
+            interactionSource.interactions.collect { interaction ->
+                if (interaction is PressInteraction.Release) {
+                    onClick.invoke()
+                }
+            }
+        }
     }
 
     Column(
