@@ -6,6 +6,10 @@ import androidx.compose.material3.TimePickerDefaults
 import androidx.compose.material3.rememberTimePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -56,7 +60,7 @@ fun GrapesTimePicker(
     )
 
     LaunchedEffect(timerPickerState.hour, timerPickerState.minute) {
-        if (timerPickerState.hour != initialHour && timerPickerState.minute != initialMinute) {
+        if (timerPickerState.hour != initialHour || timerPickerState.minute != initialMinute) {
             onTimeSelected?.invoke(timerPickerState.hour, timerPickerState.minute)
         }
     }
@@ -65,13 +69,18 @@ fun GrapesTimePicker(
 @Preview(showBackground = true)
 @Composable
 private fun GrapesTimePickerPreview() {
-    val cal = Calendar.getInstance().apply { time = Date() }
+    var itemHour by remember { mutableStateOf(Calendar.getInstance().apply { time = Date() }.get(Calendar.HOUR_OF_DAY)) }
+    var itemMinutes by remember { mutableStateOf(Calendar.getInstance().apply { time = Date() }.get(Calendar.MINUTE)) }
 
     GrapesTheme {
         GrapesTimePicker(
-            initialHour = cal.get(Calendar.HOUR_OF_DAY),
-            initialMinute = cal.get(Calendar.MINUTE),
-            onTimeSelected = { hour, minute -> println("Selected hour: $hour and minute: $minute") }
+            initialHour = itemHour,
+            initialMinute = itemMinutes,
+            onTimeSelected = { hour, minute ->
+                itemHour = hour
+                itemMinutes = minute
+                println("Selected hour: $hour and minute: $minute")
+            }
         )
     }
 }
