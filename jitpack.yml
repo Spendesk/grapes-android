@@ -1,8 +1,8 @@
 jdk:
   - openjdk11
 before_install:
-  - sdk install java 11.0.10-open
-  - sdk use java 11.0.10-open
+  - sdk install java 17.0.7-zulu
+  - sdk use java 17.0.7-zulu
 install:
   - java -version
   - ./gradlew :library:clean :library:build :library:publishReleasePublicationToMavenLocal :library-compose:clean :library-compose:build :library-compose:publishReleasePublicationToMavenLocal -xtest -xlint
