@@ -87,6 +87,7 @@ fun GrapesPinTextField(
         enabled = isEnabled,
         keyboardOptions = keyboardOptions,
         keyboardActions = keyboardActions,
+        singleLine = true,
         decorationBox = {
             GrapesPinTextFieldDecorationBox(
                 maxNumberOfChars = maxNumberOfChars,
