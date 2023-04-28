@@ -21,29 +21,61 @@ object GrapesPintTextFieldDefaults {
     val PinCharPadding = 2.dp
 
     @Composable
-    fun computePinCharBorderColor(
-        isEnabled: Boolean,
-        isError: Boolean,
-        isFocused: Boolean
-    ): Color =
+    fun pinFieldColors(
+        textColor: Color = GrapesTheme.colors.mainPrimaryNormal,
+        disabledTextColor: Color = GrapesTheme.colors.mainPrimaryLighter,
+        focusTextColor: Color = GrapesTheme.colors.mainPrimaryDark,
+        errorTextColor: Color = GrapesTheme.colors.mainAlertNormal,
+        disabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLightest,
+        focusedErrorBorderColor: Color = GrapesTheme.colors.mainAlertNormal,
+        errorBorderColor: Color = GrapesTheme.colors.mainAlertLightest,
+        focusedEnabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLight,
+        enabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLighter
+    ): GrapesPinColors = DefaultsPinColor(
+        textColor = textColor,
+        disabledTextColor = disabledTextColor,
+        focusTextColor = focusTextColor,
+        errorTextColor = errorTextColor,
+        disabledBorderColor = disabledBorderColor,
+        focusedErrorBorderColor = focusedErrorBorderColor,
+        errorBorderColor = errorBorderColor,
+        focusedEnabledBorderColor = focusedEnabledBorderColor,
+        enabledBorderColor = enabledBorderColor,
+    )
+}
+
+@Immutable
+class DefaultsPinColor(
+    private val textColor: Color,
+    private val disabledTextColor: Color,
+    private val focusTextColor: Color,
+    private val errorTextColor: Color,
+    private val disabledBorderColor: Color,
+    private val focusedErrorBorderColor: Color,
+    private val errorBorderColor: Color,
+    private val focusedEnabledBorderColor: Color,
+    private val enabledBorderColor: Color
+) : GrapesPinColors {
+    override fun textColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color =
         when {
-            isEnabled.not() -> GrapesTheme.colors.mainPrimaryLightest
-            isFocused && isError -> GrapesTheme.colors.mainAlertNormal
-            isError -> GrapesTheme.colors.mainAlertLightest
-            isFocused && isEnabled -> GrapesTheme.colors.mainPrimaryLight
-            else -> GrapesTheme.colors.mainPrimaryLighter
+            isEnabled.not() -> disabledTextColor
+            isError -> errorTextColor
+            isSelected && isEnabled -> focusTextColor
+            else -> textColor
         }
 
-    @Composable
-    fun computePinCharTextColor(
-        isEnabled: Boolean,
-        isError: Boolean,
-        isFocused: Boolean
-    ): Color =
+    override fun borderColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color =
         when {
-            isEnabled.not() -> GrapesTheme.colors.mainPrimaryLighter
-            isError -> GrapesTheme.colors.mainAlertNormal
-            isFocused && isEnabled -> GrapesTheme.colors.mainPrimaryDark
-            else -> GrapesTheme.colors.mainPrimaryNormal
+            isEnabled.not() -> disabledBorderColor
+            isSelected && isError -> focusedErrorBorderColor
+            isError -> errorBorderColor
+            isSelected && isEnabled -> focusedEnabledBorderColor
+            else -> enabledBorderColor
         }
+}
+
+interface GrapesPinColors {
+    fun textColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color
+
+    fun borderColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color
 }
