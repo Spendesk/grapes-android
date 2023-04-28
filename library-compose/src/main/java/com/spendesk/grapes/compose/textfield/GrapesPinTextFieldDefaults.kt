@@ -11,10 +11,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 18/04/2023
  */
 @Immutable
-object GrapesPintTextFieldDefaults {
-    val EnabledAlpha = 1f
-    val DisabledAlpha = 1f
-
+object GrapesPinTextFieldDefaults {
     val PinCharWidth = 48.dp
     val PinCharHeight = 62.dp
     val PinCharBorderWidth = 1.dp

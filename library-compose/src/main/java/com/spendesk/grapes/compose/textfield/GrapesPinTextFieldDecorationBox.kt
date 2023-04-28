@@ -66,12 +66,12 @@ private fun PinText(
 ) {
     Box(
         modifier = modifier
-            .width(GrapesPintTextFieldDefaults.PinCharWidth)
-            .height(GrapesPintTextFieldDefaults.PinCharHeight)
+            .width(GrapesPinTextFieldDefaults.PinCharWidth)
+            .height(GrapesPinTextFieldDefaults.PinCharHeight)
             .background(GrapesTheme.colors.mainWhite, shape = GrapesTheme.shapes.small)
             .border(
-                width = GrapesPintTextFieldDefaults.PinCharBorderWidth,
-                color = GrapesPintTextFieldDefaults
+                width = GrapesPinTextFieldDefaults.PinCharBorderWidth,
+                color = GrapesPinTextFieldDefaults
                     .pinFieldColors()
                     .borderColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
                 shape = GrapesTheme.shapes.small
@@ -81,13 +81,13 @@ private fun PinText(
                     onPress = { onClick() }
                 )
             }
-            .padding(GrapesPintTextFieldDefaults.PinCharPadding),
+            .padding(GrapesPinTextFieldDefaults.PinCharPadding),
         contentAlignment = Alignment.Center
     ) {
         Text(
             text = char,
             style = GrapesTheme.typography.bodyM,
-            color = GrapesPintTextFieldDefaults.pinFieldColors().textColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
+            color = GrapesPinTextFieldDefaults.pinFieldColors().textColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
             textAlign = TextAlign.Center
         )
     }
