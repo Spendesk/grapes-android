@@ -120,7 +120,11 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
             pickerTextListViewAdapter.updateList(pickerTextListModel)
 
             // SwitchCard
-            homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I AM the subtitle", isChecked = false))
+            homeSelectorsSectionSwitchCard.isEnabled = true
+            homeSelectorsSectionSwitchCard.updateConfiguration(SwitchCardView.Configuration(text = "I am the subtitle", isChecked = false))
+
+            homeSelectorsSectionSwitchCardTwo.updateConfiguration(SwitchCardView.Configuration(text = "I am the disabled subtitle", isChecked = false))
+            homeSelectorsSectionSwitchCardTwo.isEnabled = false
 
             // Selector
             homeSelectorsSectionSelectorOne.updateConfiguration(

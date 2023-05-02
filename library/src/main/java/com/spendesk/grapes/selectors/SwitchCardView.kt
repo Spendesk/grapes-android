@@ -38,6 +38,13 @@ class SwitchCardView : CardView {
         binding.switchCardSwitch.setOnCheckedChangeListener { _, isChecked -> onChecked?.invoke(isChecked) }
     }
 
+    override fun setEnabled(enabled: Boolean) {
+        super.setEnabled(enabled)
+
+        binding.switchCardSwitch.isEnabled = isEnabled
+        binding.switchCardText.isEnabled = isEnabled
+    }
+
     fun updateConfiguration(configuration: Configuration) {
         binding.switchCardSwitch.isChecked = configuration.isChecked
         binding.switchCardText.text = configuration.text
