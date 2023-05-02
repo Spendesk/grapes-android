@@ -274,10 +274,23 @@
             android:layout_marginTop="@dimen/homeSectionMarginVert"
             android:layout_marginEnd="@dimen/homeSectionMarginHorz"
             android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
-            app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionSelectorTitleText"
+            app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionSwitchCardTwo"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSwitchCardTitle" />
+
+        <com.spendesk.grapes.selectors.SwitchCardView
+            android:id="@+id/homeSelectorsSectionSwitchCardTwo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/homeSectionMarginHorz"
+            android:layout_marginTop="@dimen/homeSectionMarginVert"
+            android:layout_marginEnd="@dimen/homeSectionMarginHorz"
+            android:layout_marginBottom="@dimen/homeSectionBucketViewMarginVert"
+            app:layout_constraintBottom_toTopOf="@id/homeSelectorsSectionSelectorTitleText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSwitchCard" />
 
         <TextView
             android:id="@+id/homeSelectorsSectionSelectorTitleText"
@@ -290,7 +303,7 @@
             android:text="@string/selectorsSelectorTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSwitchCard" />
+            app:layout_constraintTop_toBottomOf="@+id/homeSelectorsSectionSwitchCardTwo" />
 
         <com.spendesk.grapes.BucketView
             android:id="@+id/homeSelectorsSectionSelectorBucketView"
