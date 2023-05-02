@@ -15,6 +15,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3 # Necessary to access local action
+      - name: Setup JDK 17
+        uses: actions/setup-java@v3
+        with:
+          distribution: "zulu"
+          java-version: '17'
+
       - name: Checkout Grapes repo
         uses: actions/checkout@v3
 

@@ -6,6 +6,8 @@ plugins {
 }
 
 android {
+    namespace 'com.spendesk.grapes'
+
     compileSdkVersion rootProject.ext.sdkVersion
 
     defaultConfig {
@@ -18,10 +20,20 @@ android {
         vectorDrawables.useSupportLibrary = true
     }
 
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    publishing {
+        singleVariant('release')
+    }
+
     buildFeatures {
         viewBinding = true
     }
-    namespace 'com.spendesk.grapes'
 }
 
 dependencies {
@@ -42,11 +54,11 @@ afterEvaluate {
     publishing {
         publications {
             release(MavenPublication) {
-                from components.release
-
                 group = 'com.github.Spendesk'
                 artifactId = 'grapes-android'
                 version = grapes_version
+
+                from components.release
             }
         }
     }
