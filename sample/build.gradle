@@ -8,6 +8,8 @@ plugins {
 }
 
 android {
+    namespace 'com.spendesk.grapes.samples'
+
     compileSdkVersion rootProject.ext.sdkVersion
 
     defaultConfig {
@@ -69,11 +71,10 @@ android {
             minifyEnabled false
         }
     }
+
     lint {
         abortOnError false
     }
-    namespace 'com.spendesk.grapes.samples'
-
 }
 
 dependencies {
