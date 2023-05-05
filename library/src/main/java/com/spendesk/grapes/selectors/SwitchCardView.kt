@@ -34,15 +34,19 @@ class SwitchCardView : CardView {
         radius = resources.getDimensionPixelOffset(R.dimen.switchCardRadius).toFloat()
         elevation = resources.getDimensionPixelOffset(R.dimen.switchCardElevation).toFloat()
 
-        setOnClickListener { binding.switchCardSwitch.isChecked = !binding.switchCardSwitch.isChecked }
+        setOnClickListener {
+            if (isEnabled) {
+                binding.switchCardSwitch.isChecked = !binding.switchCardSwitch.isChecked
+            }
+        }
         binding.switchCardSwitch.setOnCheckedChangeListener { _, isChecked -> onChecked?.invoke(isChecked) }
     }
 
     override fun setEnabled(enabled: Boolean) {
-        super.setEnabled(enabled)
-
         binding.switchCardSwitch.isEnabled = isEnabled
         binding.switchCardText.isEnabled = isEnabled
+
+        super.setEnabled(enabled)
     }
 
     fun updateConfiguration(configuration: Configuration) {
