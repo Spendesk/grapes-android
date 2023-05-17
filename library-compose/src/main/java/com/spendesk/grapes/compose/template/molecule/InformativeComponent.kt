@@ -8,7 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.TileMode
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -23,7 +26,11 @@ internal fun InformativeComponent(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Brush.linearGradient(listOf(GrapesTheme.colors.mainPrimaryDark, GrapesTheme.colors.mainPrimaryNormal)))
+            .background(
+                Brush.linearGradient(
+                    listOf(GrapesTheme.colors.mainPrimaryNormal, GrapesTheme.colors.mainPrimaryDark)
+                )
+            )
             .padding(GrapesTheme.dimensions.paddingLarge),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
