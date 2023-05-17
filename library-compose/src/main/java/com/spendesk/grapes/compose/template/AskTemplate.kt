@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.button.GrapesButton
 import com.spendesk.grapes.compose.button.GrapesButtonStyleDefaults
+import com.spendesk.grapes.compose.template.molecule.InformativeComponent
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -28,7 +29,7 @@ private fun AskTemplate(
     description: @Composable () -> Unit,
     callToAction: @Composable () -> Unit,
 ) {
-    InformativeTemplate(
+    InformativeComponent(
         middlePart = {
             Column(
                 modifier = Modifier.padding(GrapesTheme.dimensions.paddingSmall),
@@ -102,10 +103,12 @@ fun Preview() {
         }
     }
 
-    AskTemplate(
-        headerImageRes = R.drawable.ic_google_logo,
-        title = "Hello, i'm a great title",
-        description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-        callToAction = cta
-    )
+    GrapesTheme {
+        AskTemplate(
+            headerImageRes = R.drawable.ic_google_logo,
+            title = "Hello, i'm a great title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            callToAction = cta
+        )
+    }
 }

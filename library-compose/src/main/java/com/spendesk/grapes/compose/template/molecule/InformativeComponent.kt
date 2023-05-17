@@ -1,4 +1,4 @@
-package com.spendesk.grapes.compose.template
+package com.spendesk.grapes.compose.template.molecule
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 28/09/2022
  */
 @Composable
-internal fun InformativeTemplate(
+internal fun InformativeComponent(
     middlePart: @Composable () -> Unit,
     bottomPart: @Composable () -> Unit,
 ) {
