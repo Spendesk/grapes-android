@@ -2,7 +2,12 @@ package com.spendesk.grapes.compose.appbar
 
 import android.util.Log
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Icon
@@ -16,6 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -32,6 +38,7 @@ fun GrapesTopAppBar(
     modifier: Modifier = Modifier,
     navigationIcon: @Composable (() -> Unit)? = null,
     actions: @Composable RowScope.() -> Unit = {},
+    elevationDp: Dp = GrapesTheme.dimensions.elevationNormal
 ) {
     TopAppBar(
         modifier = modifier,
@@ -40,7 +47,7 @@ fun GrapesTopAppBar(
         backgroundColor = GrapesTheme.colors.mainWhite,
         navigationIcon = navigationIcon,
         actions = actions,
-        elevation = GrapesTheme.dimensions.elevationNormal
+        elevation = elevationDp
     )
 }
 
@@ -168,6 +175,28 @@ fun GrapesSimpleTopAppBarPreview() {
                         onClick = { Log.i("GrapesTopAppBar", "navigationIcon click") }
                     )
                 },
+            )
+
+            GrapesTopAppBar(
+                modifier = Modifier.fillMaxWidth(),
+                title = {
+                    GrapesTopAppBarTitle(
+                        title = "Top app bar with no elevation",
+                    )
+                },
+                navigationIcon = {
+                    GrapesTopAppBarIconButton(
+                        icon = { GrapesTopAppBarBackIcon() },
+                        onClick = { Log.i("GrapesTopAppBar", "navigationIcon click") }
+                    )
+                },
+                actions = {
+                    GrapesTopAppBarIconButton(
+                        icon = { GrapesTopAppBarMoreIcon() },
+                        onClick = { Log.i("GrapesTopAppBar", "action button click") }
+                    )
+                },
+                elevationDp = 0.dp
             )
 
             GrapesTopAppBar(
