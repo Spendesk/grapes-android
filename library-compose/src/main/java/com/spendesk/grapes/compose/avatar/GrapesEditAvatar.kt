@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -118,6 +119,7 @@ private fun EditAvatarLayout(
     }
 }
 
+@Immutable
 object EditAvatarDefaults {
     val badgeOffset = DpOffset(8.dp, 2.dp)
     val badgeSize = DpSize(24.dp, 24.dp)
