@@ -42,6 +42,7 @@ fun GrapesEditAvatar(
     badgeOffset: DpOffset = EditAvatarDefaults.badgeOffset,
     badgeSize: DpSize = EditAvatarDefaults.badgeSize,
     badgeTint: Color = GrapesTheme.colors.mainComplementary,
+    enabled: Boolean = true,
     onClick: () -> Unit = {},
 ) {
     EditAvatarLayout(
@@ -53,7 +54,7 @@ fun GrapesEditAvatar(
                 modifier = Modifier
                     .size(badgeSize)
                     .clip(CircleShape)
-                    .clickable(onClick = onClick),
+                    .clickable(enabled = enabled, onClick = onClick),
             )
         },
         avatar = {
@@ -61,7 +62,7 @@ fun GrapesEditAvatar(
                 Modifier
                     .clip(CircleShape)
                     .fillMaxSize()
-                    .clickable(onClick = onClick)
+                    .clickable(enabled = enabled, onClick = onClick)
             )
         },
         badgeOffset = badgeOffset,
