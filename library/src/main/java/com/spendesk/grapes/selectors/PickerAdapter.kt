@@ -3,14 +3,16 @@ package com.spendesk.grapes.selectors
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.spendesk.grapes.R
 import kotlin.properties.Delegates
 
 /**
  * @author danyboucanova
  * @since 08/06/2021
  */
-class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
+class PickerAdapter(
+    private val itemsWidth: Int = ViewGroup.LayoutParams.WRAP_CONTENT,
+    private val itemsHeight: Int = ViewGroup.LayoutParams.WRAP_CONTENT
+) : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
 
     sealed class PickerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         class Label(val view: PickerLabelTextView) : PickerViewHolder(view)
@@ -29,12 +31,12 @@ class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PickerViewHolder =
         when (PickerViewType.values()[viewType]) {
-            PickerViewType.LABEL -> PickerViewHolder.Label(PickerLabelTextView(parent.context))
             PickerViewType.BLOCK -> PickerViewHolder.Block(PickerBlockIconCardView(parent.context))
+            PickerViewType.LABEL -> PickerViewHolder.Label(PickerLabelTextView(parent.context))
         }.apply {
             this.itemView.layoutParams = when (this) {
-                is PickerViewHolder.Label -> RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
-                is PickerViewHolder.Block -> RecyclerView.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                is PickerViewHolder.Label,
+                is PickerViewHolder.Block -> RecyclerView.LayoutParams(itemsWidth, itemsHeight)
             }
         }
 
@@ -46,6 +48,7 @@ class PickerAdapter : RecyclerView.Adapter<PickerAdapter.PickerViewHolder>() {
                 holder.view.updateConfiguration(data.configuration.copy(isSelected = position == selectedPosition))
                 handleOnClickListener(holder.itemView, position, data.id)
             }
+
             is PickerViewHolder.Block -> {
                 val data = listItems[position] as PickerModel.Block
 

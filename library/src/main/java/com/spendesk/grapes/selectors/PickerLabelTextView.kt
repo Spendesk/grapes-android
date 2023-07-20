@@ -25,8 +25,6 @@ class PickerLabelTextView : SelectLabelTextView {
     //endregion constructors
 
     init {
-        with(resources.getDimensionPixelOffset(R.dimen.pickerLabelPadding)) { setPadding(this) }
-
         isClickable = true
         gravity = Gravity.CENTER
 
@@ -36,13 +34,15 @@ class PickerLabelTextView : SelectLabelTextView {
 
     data class Configuration(
         val isSelected: Boolean,
-        val text: CharSequence
+        val text: CharSequence,
+        val isPadded: Boolean
     )
 
     fun updateConfiguration(configuration: Configuration) {
         text = configuration.text
         isChecked = configuration.isSelected
 
+        if (configuration.isPadded) setPadding(resources.getDimensionPixelOffset(R.dimen.pickerLabelPadding))
         setTextColor(ContextCompat.getColor(context, if (configuration.isSelected) R.color.pickerLabelSelectedTextColor else R.color.pickerLabelUnselectedTextColor))
     }
 }
