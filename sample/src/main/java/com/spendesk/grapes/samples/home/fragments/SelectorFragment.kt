@@ -2,12 +2,21 @@ package com.spendesk.grapes.samples.home.fragments
 
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.spendesk.grapes.extensions.shortToaster
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeSelectorsBinding
-import com.spendesk.grapes.selectors.*
+import com.spendesk.grapes.selectors.DotsView
+import com.spendesk.grapes.selectors.HeaderStatusIndicator
+import com.spendesk.grapes.selectors.PickerAdapter
+import com.spendesk.grapes.selectors.PickerBlockIconCardView
+import com.spendesk.grapes.selectors.PickerLabelTextView
+import com.spendesk.grapes.selectors.PickerModel
+import com.spendesk.grapes.selectors.SelectorView
+import com.spendesk.grapes.selectors.SwitchCardView
+import com.spendesk.grapes.selectors.TabCardView
 import kotlin.random.Random
 
 /**
@@ -74,7 +83,7 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
             }
 
             // Picker Cards List
-            val pickerCardListViewAdapter = PickerAdapter()
+            val pickerCardListViewAdapter = PickerAdapter(itemsWidth = ViewGroup.LayoutParams.WRAP_CONTENT, itemsHeight = ViewGroup.LayoutParams.WRAP_CONTENT)
             val pickerCardListModel = listOf<PickerModel>(
                 PickerModel.Block(
                     id = "lel",
@@ -108,12 +117,12 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
 
 
             // Picker Texts List
-            val pickerTextListViewAdapter = PickerAdapter()
+            val pickerTextListViewAdapter = PickerAdapter(itemsWidth = ViewGroup.LayoutParams.WRAP_CONTENT, itemsHeight = ViewGroup.LayoutParams.WRAP_CONTENT)
             val pickerTextListModel = listOf<PickerModel>(
-                PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1")),
-                PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2")),
-                PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3")),
-                PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4"))
+                PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1", padding = R.dimen.normalMargin)),
+                PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2", padding = R.dimen.normalMargin)),
+                PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3", padding = R.dimen.normalMargin)),
+                PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4", padding = R.dimen.normalMargin))
             )
             homeSelectorsSectionPickerTextListView.adapter = pickerTextListViewAdapter
             pickerTextListViewAdapter.onItemSelected = { _, _ -> activity?.shortToaster("Picker Card Item List Checked !") }

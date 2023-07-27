@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
+import androidx.annotation.DimenRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.setPadding
@@ -25,8 +26,6 @@ class PickerLabelTextView : SelectLabelTextView {
     //endregion constructors
 
     init {
-        with(resources.getDimensionPixelOffset(R.dimen.pickerLabelPadding)) { setPadding(this) }
-
         isClickable = true
         gravity = Gravity.CENTER
 
@@ -36,13 +35,15 @@ class PickerLabelTextView : SelectLabelTextView {
 
     data class Configuration(
         val isSelected: Boolean,
-        val text: CharSequence
+        val text: CharSequence,
+        @DimenRes val padding: Int? = null,
     )
 
     fun updateConfiguration(configuration: Configuration) {
         text = configuration.text
         isChecked = configuration.isSelected
 
+        configuration.padding?.let { setPadding(resources.getDimensionPixelOffset(it)) }
         setTextColor(ContextCompat.getColor(context, if (configuration.isSelected) R.color.pickerLabelSelectedTextColor else R.color.pickerLabelUnselectedTextColor))
     }
 }
