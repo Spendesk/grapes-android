@@ -8,6 +8,7 @@ import android.view.Gravity
 import androidx.annotation.DimenRes
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
+import androidx.core.view.setPadding
 import com.spendesk.grapes.R
 
 /**
@@ -42,7 +43,7 @@ class PickerLabelTextView : SelectLabelTextView {
         text = configuration.text
         isChecked = configuration.isSelected
 
-        configuration.padding?.let { context.resources.getDimensionPixelOffset(it) }
+        configuration.padding?.let { setPadding(resources.getDimensionPixelOffset(it)) }
         setTextColor(ContextCompat.getColor(context, if (configuration.isSelected) R.color.pickerLabelSelectedTextColor else R.color.pickerLabelUnselectedTextColor))
     }
 }

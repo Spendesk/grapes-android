@@ -119,10 +119,10 @@ class SelectorFragment : Fragment(R.layout.fragment_home_selectors) {
             // Picker Texts List
             val pickerTextListViewAdapter = PickerAdapter(itemsWidth = ViewGroup.LayoutParams.WRAP_CONTENT, itemsHeight = ViewGroup.LayoutParams.WRAP_CONTENT)
             val pickerTextListModel = listOf<PickerModel>(
-                PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1", isPadded = true)),
-                PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2", isPadded = true)),
-                PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3", isPadded = true)),
-                PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4", isPadded = true))
+                PickerModel.Label(id = "hoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 1", padding = R.dimen.normalMargin)),
+                PickerModel.Label(id = "hey", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 2", padding = R.dimen.normalMargin)),
+                PickerModel.Label(id = "hoyjoy", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 3", padding = R.dimen.normalMargin)),
+                PickerModel.Label(id = "uesh", configuration = PickerLabelTextView.Configuration(isSelected = false, "level 4", padding = R.dimen.normalMargin))
             )
             homeSelectorsSectionPickerTextListView.adapter = pickerTextListViewAdapter
             pickerTextListViewAdapter.onItemSelected = { _, _ -> activity?.shortToaster("Picker Card Item List Checked !") }
