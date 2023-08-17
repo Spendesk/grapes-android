@@ -1,6 +1,14 @@
 package com.spendesk.grapes.compose.message
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,14 +27,15 @@ import com.spendesk.grapes.compose.theme.extensions.contentColorFor
  **/
 @Composable
 fun GrapesMessage(
-    modifier: Modifier = Modifier,
     configuration: GrapesConfigurationStatus,
     title: String,
+    modifier: Modifier = Modifier,
     description: String? = null,
-    showIcon: Boolean = false
+    showIcon: Boolean = false,
+    contentPadding: PaddingValues = PaddingValues(GrapesTheme.dimensions.paddingLarge),
 ) {
     GrapesSurface(modifier = modifier, configuration = configuration, shape = GrapesTheme.shapes.small) {
-        Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
+        Column(modifier = Modifier.padding(contentPadding)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
                     GrapesIcon(configuration = configuration)
@@ -47,6 +56,44 @@ fun GrapesMessage(
                     color = GrapesTheme.colors.mainComplementary
                 )
             }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun MessageInlineSmallContentPadding() {
+    val padding = PaddingValues(
+        horizontal = GrapesTheme.dimensions.paddingSmall,
+        vertical = GrapesTheme.dimensions.paddingXSmall,
+    )
+    GrapesTheme {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
+            GrapesMessage(
+                title = "Message Inline Information",
+                configuration = GrapesConfigurationStatus.INFORMATION,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Success",
+                configuration = GrapesConfigurationStatus.SUCCESS,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Neutral",
+                configuration = GrapesConfigurationStatus.NEUTRAL,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Alert",
+                configuration = GrapesConfigurationStatus.ALERT,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Warning",
+                configuration = GrapesConfigurationStatus.WARNING,
+                contentPadding = padding
+            )
         }
     }
 }
