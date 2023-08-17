@@ -31,10 +31,11 @@ fun GrapesMessage(
     title: String,
     modifier: Modifier = Modifier,
     description: String? = null,
-    showIcon: Boolean = false
+    showIcon: Boolean = false,
+    contentPadding: PaddingValues = PaddingValues(GrapesTheme.dimensions.paddingLarge),
 ) {
     GrapesSurface(modifier = modifier, configuration = configuration, shape = GrapesTheme.shapes.small) {
-        Column(modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge)) {
+        Column(modifier = Modifier.padding(contentPadding)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
                     GrapesIcon(configuration = configuration)
@@ -55,6 +56,44 @@ fun GrapesMessage(
                     color = GrapesTheme.colors.mainComplementary
                 )
             }
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun MessageInlineSmallContentPadding() {
+    val padding = PaddingValues(
+        horizontal = GrapesTheme.dimensions.paddingSmall,
+        vertical = GrapesTheme.dimensions.paddingXSmall,
+    )
+    GrapesTheme {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
+            GrapesMessage(
+                title = "Message Inline Information",
+                configuration = GrapesConfigurationStatus.INFORMATION,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Success",
+                configuration = GrapesConfigurationStatus.SUCCESS,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Neutral",
+                configuration = GrapesConfigurationStatus.NEUTRAL,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Alert",
+                configuration = GrapesConfigurationStatus.ALERT,
+                contentPadding = padding
+            )
+            GrapesMessage(
+                title = "Message Inline Warning",
+                configuration = GrapesConfigurationStatus.WARNING,
+                contentPadding = padding
+            )
         }
     }
 }
