@@ -2,6 +2,7 @@ package com.spendesk.grapes.compose.message
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -13,6 +14,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.icons.GrapesIcon
@@ -32,9 +34,15 @@ fun GrapesMessage(
     modifier: Modifier = Modifier,
     description: String? = null,
     showIcon: Boolean = false,
+    titleTextAlign: TextAlign? = null,
+    descriptionTextAlign: TextAlign? = null,
     contentPadding: PaddingValues = PaddingValues(GrapesTheme.dimensions.paddingLarge),
 ) {
-    GrapesSurface(modifier = modifier, configuration = configuration, shape = GrapesTheme.shapes.small) {
+    GrapesSurface(
+        modifier = modifier.width(IntrinsicSize.Max),
+        configuration = configuration,
+        shape = GrapesTheme.shapes.small,
+    ) {
         Column(modifier = Modifier.padding(contentPadding)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
@@ -44,7 +52,9 @@ fun GrapesMessage(
                 Text(
                     text = title,
                     style = GrapesTheme.typography.titleS,
-                    color = GrapesTheme.colors.contentColorFor(configuration)
+                    color = GrapesTheme.colors.contentColorFor(configuration),
+                    textAlign = titleTextAlign,
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
 
@@ -53,7 +63,9 @@ fun GrapesMessage(
                 Text(
                     text = description,
                     style = GrapesTheme.typography.bodyS,
-                    color = GrapesTheme.colors.mainComplementary
+                    color = GrapesTheme.colors.mainComplementary,
+                    textAlign = descriptionTextAlign,
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         }
@@ -171,6 +183,23 @@ private fun MessageInlineFillingMaxWidth() {
     GrapesTheme {
         Column(modifier = Modifier.width(400.dp)) {
             GrapesMessage(modifier = Modifier.fillMaxWidth(), title = "aaaa", configuration = GrapesConfigurationStatus.SUCCESS)
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun MessageInlineTextAligned() {
+    GrapesTheme {
+        Column(modifier = Modifier.width(400.dp)) {
+            GrapesMessage(
+                modifier = Modifier.fillMaxWidth(),
+                title = "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                titleTextAlign = TextAlign.Center,
+                description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+                descriptionTextAlign = TextAlign.Center,
+                configuration = GrapesConfigurationStatus.SUCCESS,
+            )
         }
     }
 }
