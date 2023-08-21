@@ -78,28 +78,29 @@ object GrapesInformationCardDefaults {
 @Preview
 @Composable
 private fun PreviewDescription(
-    @PreviewParameter(DescriptionPreview::class) description: String,
+    @PreviewParameter(DescriptionParameterProvider::class) texts: Pair<String, String>,
 ) {
     GrapesTheme {
         Surface(
             color = GrapesTheme.colors.mainBackground,
         ) {
             GrapesInformationCard(
-                title = "Description",
+                title = texts.first,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
             ) {
-                Text(description)
+                Text(texts.second)
             }
         }
     }
 }
 
-class DescriptionPreview : PreviewParameterProvider<String> {
+private class DescriptionParameterProvider : PreviewParameterProvider<Pair<String, String>> {
     override val values = sequenceOf(
-        "Lorem Ipsum is simply dummy text.",
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+        "This is a simple example of a very very very long title" to "Lorem Ipsum is simply dummy text.",
+        "Short title" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+        "This is a simple example of a very very very long title" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
     )
 }
 

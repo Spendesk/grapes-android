@@ -1,11 +1,15 @@
 package com.spendesk.grapes.compose.listitem
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
+import androidx.compose.ui.tooling.preview.PreviewParameterProvider
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -18,27 +22,46 @@ fun GrapesInlineInformationItem(
     value: String,
     modifier: Modifier = Modifier,
 ) {
-    Row(modifier = modifier) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
         Text(
             text = title,
             color = GrapesTheme.colors.mainNeutralDarker,
             style = GrapesTheme.typography.bodyRegular,
+            modifier = Modifier.weight(1f),
         )
-        Spacer(Modifier.weight(1f))
-        Text(
-            text = value,
-            style = GrapesTheme.typography.bodyRegular,
-        )
+        Box(
+            modifier = Modifier.weight(1f),
+            contentAlignment = Alignment.CenterEnd,
+        ) {
+            Text(
+                text = value,
+                style = GrapesTheme.typography.bodyRegular,
+            )
+        }
     }
 }
 
 @Composable
 @Preview(showBackground = true)
-private fun Preview() {
+private fun Preview(
+    @PreviewParameter(ItemParameterProvider::class) item: Pair<String, String>,
+) {
     GrapesTheme {
         GrapesInlineInformationItem(
-            title = "Subscription owner",
-            value = "Toto Tata",
+            title = item.first,
+            value = item.second,
         )
     }
+}
+
+private class ItemParameterProvider : PreviewParameterProvider<Pair<String, String>> {
+    override val values = sequenceOf(
+        "This is an example of a very long key" to "Short value",
+        "Short key" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+        "This is an example of a very long key" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    )
 }
