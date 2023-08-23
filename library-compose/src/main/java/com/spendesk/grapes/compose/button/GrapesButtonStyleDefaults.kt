@@ -148,6 +148,24 @@ object GrapesButtonStyleDefaults {
             isFillMaxWidthWithContent = true,
         )
 
+    val alertOutlined: GrapesButtonStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonStyle(
+            textStyle = GrapesTheme.typography.titleM,
+            minSize = Size(
+                width = GrapesButtonDefaults.MinWidth.value,
+                height = GrapesButtonDefaults.MinHeight.value
+            ),
+            iconSize = GrapesButtonDefaults.iconSize,
+            shape = GrapesTheme.shapes.small,
+            rippleColor = GrapesTheme.colors.mainAlertDark,
+            colors = ButtonColorDefaults.alertOutlined,
+            contentPadding = GrapesButtonDefaults.PaddingValues,
+            borderStroke = GrapesButtonDefaults.BorderStroke.alert,
+            isFillMaxWidthWithContent = true,
+        )
+
     val warning: GrapesButtonStyle
         @Composable
         @ReadOnlyComposable
