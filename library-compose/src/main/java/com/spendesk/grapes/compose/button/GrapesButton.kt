@@ -42,7 +42,7 @@ fun GrapesButton(
         iconSize = buttonStyle.iconSize,
         contentPaddingValues = buttonStyle.contentPadding,
         shape = buttonStyle.shape,
-        borderStroke = buttonStyle.borderStroke,
+        borderStroke = if (enabled) buttonStyle.borderStroke else null,
         style = buttonStyle.textStyle,
         showLoadingIndicator = showLoadingIndicator,
         onClick = onClick,
