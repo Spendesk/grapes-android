@@ -42,7 +42,7 @@ fun GrapesButton(
         iconSize = buttonStyle.iconSize,
         contentPaddingValues = buttonStyle.contentPadding,
         shape = buttonStyle.shape,
-        borderStroke = buttonStyle.borderStroke,
+        borderStroke = if (enabled) buttonStyle.borderStroke else null,
         style = buttonStyle.textStyle,
         showLoadingIndicator = showLoadingIndicator,
         onClick = onClick,
@@ -407,4 +407,41 @@ fun ButtonLinkSecondaryPreview() {
         }
     }
 }
+
+@Preview(
+    name = "Alert Outlined",
+    group = "Default",
+    widthDp = 372,
+    showBackground = true,
+)
+@Composable
+fun ButtonAlertOutlinedPreview() {
+    GrapesTheme {
+        Column(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            GrapesButton(
+                text = "Button Alert Enabled",
+                buttonStyle = GrapesButtonStyleDefaults.alertOutlined,
+            )
+
+            GrapesButton(
+                text = "Button Alert Disabled",
+                buttonStyle = GrapesButtonStyleDefaults.alertOutlined,
+                state = GrapesButtonState.Disabled
+            )
+
+            GrapesButton(
+                text = "Should not be visible",
+                buttonStyle = GrapesButtonStyleDefaults.alertOutlined,
+                state = GrapesButtonState.ShowCircularIndicator
+            )
+        }
+    }
+}
+
 //endregion Previews
