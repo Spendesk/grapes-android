@@ -2,6 +2,8 @@ package com.spendesk.grapes.internal.libs.glide
 
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.RequestBuilder
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.model.GlideUrl
@@ -37,7 +39,7 @@ internal fun ImageView.loadFromUrl(
     size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) =
-    loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
+    loadRequest(Glide.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
 internal fun ImageView.loadFromUrl(
     url: String?,
@@ -48,7 +50,7 @@ internal fun ImageView.loadFromUrl(
     size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) =
-    loadRequest(GlideApp.with(context).load(url), errorResId, shouldCircleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
+    loadRequest(Glide.with(context).load(url), errorResId, shouldCircleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
 internal fun ImageView.loadFromUrl(
     url: GlideUrl?,
@@ -59,7 +61,7 @@ internal fun ImageView.loadFromUrl(
     size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) =
-    loadRequest(GlideApp.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
+    loadRequest(Glide.with(context).load(url), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
 internal fun ImageView.loadFromFile(
     file: File?,
@@ -70,10 +72,10 @@ internal fun ImageView.loadFromFile(
     size: Pair<Int, Int>? = null,
     errorConsumer: (() -> Unit)? = null
 ) =
-    loadRequest(GlideApp.with(context).asDrawable().load(file), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
+    loadRequest(Glide.with(context).asDrawable().load(file), errorResId, circleCrop, roundedCorners, thumbnailSizeMultiplier, size, errorConsumer)
 
 private fun ImageView.loadRequest(
-    request: GlideRequest<Drawable>,
+    request: RequestBuilder<Drawable>,
     errorResId: Int? = 0,
     shouldCircleCrop: Boolean = false,
     roundedCorners: Int = 0,
@@ -91,7 +93,7 @@ private fun ImageView.loadRequest(
 )
 
 private fun ImageView.loadRequest(
-    request: GlideRequest<Drawable>,
+    request: RequestBuilder<Drawable>,
     errorResId: Int? = 0,
     circleCrop: Pair<Int, Int>? = null,
     roundedCorners: Int = 0,
@@ -110,7 +112,7 @@ private fun ImageView.loadRequest(
 )
 
 private fun ImageView.loadRequest(
-    request: GlideRequest<Drawable>,
+    request: RequestBuilder<Drawable>,
     errorResId: Int? = 0,
     shouldCircleCrop: Boolean = false,
     circleCrop: Pair<Int, Int>? = null,
@@ -142,11 +144,12 @@ private fun ImageView.loadRequest(
             transition(DrawableTransitionOptions.withCrossFade())
         }
         .addListener(object : RequestListener<Drawable> {
-            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+            override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>, isFirstResource: Boolean): Boolean {
                 errorConsumer?.let { it() }
                 return false
             }
 
-            override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean = false
+            override fun onResourceReady(resource: Drawable, model: Any, target: Target<Drawable>?, dataSource: DataSource, isFirstResource: Boolean): Boolean =
+                false
         })
         .into(this)
