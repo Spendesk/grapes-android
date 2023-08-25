@@ -54,15 +54,6 @@ dependencies {
     androidTestImplementation(libs.junit.android)
     androidTestImplementation(libs.espresso.core)
 
-    // https://stackoverflow.com/a/75298544
-    constraints {
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
-            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
-        }
-        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
-            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
-        }
-    }
 
     api(libs.androidx.lifecycle.ktx)
 
