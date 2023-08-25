@@ -1,20 +1,19 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id 'maven-publish'
+    id("maven-publish")
 }
 
 android {
-    namespace 'com.spendesk.grapes.compose'
+    namespace = "com.spendesk.grapes.compose"
 
-    compileSdk libs.versions.androidCompileSdk.get() as Integer
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
-        minSdkVersion libs.versions.androidMinSdk.get() as Integer
-        targetSdkVersion libs.versions.androidTargetSdk.get() as Integer
+        minSdk = libs.versions.androidMinSdk.get().toInt()
+        targetSdk = libs.versions.androidTargetSdk.get().toInt()
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles "consumer-rules.pro"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
@@ -26,8 +25,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
@@ -36,13 +35,17 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+                *(fileTree("./proguard") { include("*.pro") }).toList().toTypedArray()
+            )
         }
     }
 
     publishing {
-        singleVariant('release')
+        singleVariant("release")
     }
 }
 
@@ -74,12 +77,12 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-                group = 'com.github.Spendesk'
-                artifactId = 'grapes-android-compose'
+            register("release", MavenPublication::class) {
+                group = "com.github.Spendesk"
+                artifactId = "grapes-android-compose"
                 version = libs.versions.grapes.version.get()
 
-                from components.release
+                from(components["release"])
             }
         }
     }
