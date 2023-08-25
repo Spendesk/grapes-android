@@ -87,7 +87,6 @@ dependencies {
     implementation(project(":library"))
     implementation(project(":library-compose"))
 
-    implementation("org.jetbrains.kotlin:kotlin-stdlib:1.8.20")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.fragment.ktx)
 
