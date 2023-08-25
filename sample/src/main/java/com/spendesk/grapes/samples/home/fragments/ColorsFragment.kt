@@ -7,7 +7,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.extensions.collectOnCreated
-import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeColorsBinding
 import com.spendesk.grapes.samples.home.fragments.list.ColorsAdapter

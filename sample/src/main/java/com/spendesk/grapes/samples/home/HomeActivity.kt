@@ -11,7 +11,6 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.tabs.TabLayoutMediator
 import com.spendesk.grapes.samples.R
 import com.spendesk.grapes.samples.core.extensions.collectOnCreated
-import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.extensions.isDarkThemeOn
 import com.spendesk.grapes.samples.databinding.ActivityHomeBinding
 import com.spendesk.grapes.samples.model.HomeTabItem
