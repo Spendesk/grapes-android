@@ -7,6 +7,6 @@ pluginManagement {
 }
 
 
-include ':sample'
-include ':library'
-include ':library-compose'
+include(":sample")
+include(":library")
+include(":library-compose")
