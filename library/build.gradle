@@ -1,18 +1,18 @@
 plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
     id 'maven-publish'
 }
 
 android {
     namespace 'com.spendesk.grapes'
 
-    compileSdkVersion rootProject.ext.sdkVersion
+    compileSdkVersion libs.versions.androidCompileSdk.get() as Integer
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.sdkVersion
+        minSdkVersion libs.versions.androidMinSdk.get() as Integer
+        targetSdkVersion libs.versions.androidTargetSdk.get() as Integer
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -48,15 +48,14 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
-    implementation "androidx.appcompat:appcompat:$androidx_appcompat_version"
-    implementation "com.google.android.material:material:$android_material_version"
-    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraintlayout"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.20"
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
 
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    implementation(libs.glide)
+    kapt(libs.glide.compiler)
 }
 
 afterEvaluate {
@@ -65,7 +64,7 @@ afterEvaluate {
             release(MavenPublication) {
                 group = 'com.github.Spendesk'
                 artifactId = 'grapes-android'
-                version = grapes_version
+                version = libs.versions.grapes.version.get()
 
                 from components.release
             }

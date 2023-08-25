@@ -1,17 +1,17 @@
 plugins {
-    id 'com.android.library'
-    id 'org.jetbrains.kotlin.android'
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
     id 'maven-publish'
 }
 
 android {
     namespace 'com.spendesk.grapes.compose'
 
-    compileSdk rootProject.ext.sdkVersion
+    compileSdk libs.versions.androidCompileSdk.get() as Integer
 
     defaultConfig {
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.sdkVersion
+        minSdkVersion libs.versions.androidMinSdk.get() as Integer
+        targetSdkVersion libs.versions.androidTargetSdk.get() as Integer
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
@@ -22,7 +22,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "$compose_kotlin_compiler"
+        kotlinCompilerExtensionVersion = libs.versions.compose.kotlin.compiler.get()
     }
 
     compileOptions {
@@ -47,9 +47,9 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation(libs.junit4)
+    androidTestImplementation(libs.junit.android)
+    androidTestImplementation(libs.espresso.core)
 
     // https://stackoverflow.com/a/75298544
     constraints {
@@ -61,29 +61,14 @@ dependencies {
         }
     }
 
-    api("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    api(libs.androidx.lifecycle.ktx)
 
     // Compose
-    api platform("androidx.compose:compose-bom:$compose_bom_version")
-
-    api("androidx.compose.ui:ui")
-    api("androidx.compose.runtime:runtime")
-    // Tooling support (Previews, etc.)
-    api("androidx.compose.ui:ui-tooling")
-    // Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
-    api("androidx.compose.foundation:foundation")
-    // Material Design 2 & 3 while migration is pending.
-    api("androidx.compose.material:material")
-    api("androidx.compose.material3:material3:$compose_material_3_version")
-
-    // Material design icons
-    api("androidx.compose.material:material-icons-core")
-    api("androidx.compose.material:material-icons-extended")
-    // Integration with observables
-    api("androidx.compose.runtime:runtime-rxjava2")
+    api(platform(libs.compose.bom))
+    api(libs.bundles.compose)
 
     // UI Tests
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    androidTestImplementation(libs.compose.tests.ui)
 }
 
 afterEvaluate {
@@ -92,7 +77,7 @@ afterEvaluate {
             release(MavenPublication) {
                 group = 'com.github.Spendesk'
                 artifactId = 'grapes-android-compose'
-                version = grapes_version
+                version = libs.versions.grapes.version.get()
 
                 from components.release
             }
