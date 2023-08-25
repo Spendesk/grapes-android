@@ -34,6 +34,7 @@ android {
 
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
+        freeCompilerArgs = listOf("-Xcontext-receivers")
     }
 
     composeOptions {
@@ -96,11 +97,6 @@ dependencies {
     testImplementation(libs.junit4)
     androidTestImplementation(libs.junit.android)
     androidTestImplementation(libs.espresso.core)
-
-    // RX
-    implementation(libs.rxJava)
-    implementation(libs.rxJava.android)
-    implementation(libs.rxBinding)
 
     // HILT
     implementation(libs.hilt.android)

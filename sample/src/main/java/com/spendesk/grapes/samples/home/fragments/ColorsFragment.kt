@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.spendesk.grapes.samples.R
-import com.spendesk.grapes.samples.core.extensions.disposedBy
+import com.spendesk.grapes.samples.core.extensions.collectOnCreated
 import com.spendesk.grapes.samples.core.internal.viewBinding
 import com.spendesk.grapes.samples.databinding.FragmentHomeColorsBinding
 import com.spendesk.grapes.samples.home.fragments.list.ColorsAdapter
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import kotlinx.coroutines.launch
 
 /**
  * @author danyboucanova
@@ -25,8 +26,6 @@ class ColorsFragment : Fragment(R.layout.fragment_home_colors) {
 
     private val viewModel: ColorsViewModel by viewModels()
     private val binding by viewBinding(FragmentHomeColorsBinding::bind)
-
-    private val disposables = CompositeDisposable()
 
     private lateinit var adapter: ColorsAdapter
 
@@ -45,7 +44,6 @@ class ColorsFragment : Fragment(R.layout.fragment_home_colors) {
         super.onDestroyView()
 
         viewModel.onLifecycleStateChange(lifecycle.currentState)
-        disposables.clear()
     }
 
     private fun setupView() {
@@ -54,8 +52,10 @@ class ColorsFragment : Fragment(R.layout.fragment_home_colors) {
     }
 
     private fun bindViewModel() {
-        with(viewModel) {
-            updateColorsItem().subscribe { adapter.updateList(it) }.disposedBy(disposables)
+        lifecycleScope.launch {
+            viewModel.updateColorsItem.collectOnCreated {
+                adapter.updateList(it)
+            }
         }
     }
 }
