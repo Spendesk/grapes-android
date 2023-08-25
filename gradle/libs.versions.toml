@@ -1,8 +1,8 @@
 [versions]
 grapes-version = '1.13.0'
 androidMinSdk = "21"
-androidTargetSdk = "33"
-androidCompileSdk = "33"
+androidTargetSdk = "34"
+androidCompileSdk = "34"
 
 kotlin = "1.9.0"
 gradle = "8.0.2"
