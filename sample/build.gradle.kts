@@ -98,11 +98,6 @@ dependencies {
     androidTestImplementation(libs.junit.android)
     androidTestImplementation(libs.espresso.core)
 
-    // RX
-    implementation(libs.rxJava)
-    implementation(libs.rxJava.android)
-    implementation(libs.rxBinding)
-
     // HILT
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
