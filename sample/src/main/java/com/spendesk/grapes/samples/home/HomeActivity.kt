@@ -6,15 +6,17 @@ import android.view.Menu
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.tabs.TabLayoutMediator
 import com.spendesk.grapes.samples.R
+import com.spendesk.grapes.samples.core.extensions.collectOnCreated
 import com.spendesk.grapes.samples.core.extensions.disposedBy
 import com.spendesk.grapes.samples.core.extensions.isDarkThemeOn
 import com.spendesk.grapes.samples.databinding.ActivityHomeBinding
 import com.spendesk.grapes.samples.model.HomeTabItem
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import kotlinx.coroutines.launch
 
 /**
  * @author danyboucanova
@@ -29,7 +31,6 @@ class HomeActivity : AppCompatActivity() {
 
     private val viewModel: HomeViewModel by viewModels()
 
-    private val disposables = CompositeDisposable()
     private lateinit var homeAdapter: HomePagerAdapter
     private lateinit var binding: ActivityHomeBinding
 
@@ -65,12 +66,11 @@ class HomeActivity : AppCompatActivity() {
         super.onDestroy()
 
         viewModel.onLifecycleStateChange(lifecycle.currentState)
-        disposables.clear()
     }
 
     private fun bindViewModel() {
-        with(viewModel) {
-            updateHomeTabItem().subscribe { updateHomeTabs(it) }.disposedBy(disposables)
+        lifecycleScope.launch {
+            viewModel.updateHomeTabItem.collectOnCreated { updateHomeTabs(it) }
         }
     }
 
