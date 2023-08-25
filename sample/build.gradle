@@ -1,23 +1,23 @@
 plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'kotlin-parcelize'
-    id 'dagger.hilt.android.plugin'
-    id 'com.google.firebase.appdistribution'
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.firebase.appdistribution)
 }
 
 android {
     namespace 'com.spendesk.grapes.samples'
 
-    compileSdkVersion rootProject.ext.sdkVersion
+    compileSdkVersion libs.versions.androidCompileSdk.get() as Integer
 
     defaultConfig {
         applicationId "com.spendesk.grapes.samples"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.sdkVersion
+        minSdkVersion libs.versions.androidMinSdk.get() as Integer
+        targetSdkVersion libs.versions.androidTargetSdk.get() as Integer
         versionCode 1
-        versionName grapes_version
+        versionName libs.versions.grapes.version.get()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -37,7 +37,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion "$compose_kotlin_compiler"
+        kotlinCompilerExtensionVersion = libs.versions.compose.kotlin.compiler.get()
     }
 
     signingConfigs {
@@ -82,26 +82,26 @@ dependencies {
     implementation project(path: ':library')
     implementation project(path: ':library-compose')
 
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation "androidx.core:core-ktx:$androidx_core_ktx_version"
-    implementation "androidx.fragment:fragment-ktx:1.6.1"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.8.20"
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
 
-    implementation "com.google.android.material:material:$android_material_version"
+    implementation(libs.material)
 
     // JUNIT
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    testImplementation(libs.junit4)
+    androidTestImplementation(libs.junit.android)
+    androidTestImplementation(libs.espresso.core)
 
     // RX
-    implementation "io.reactivex.rxjava3:rxjava:3.0.9"
-    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
-    implementation "com.jakewharton.rxbinding4:rxbinding:4.0.0"
+    implementation(libs.rxJava)
+    implementation(libs.rxJava.android)
+    implementation(libs.rxBinding)
 
     // HILT
-    implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-compiler:$hilt_version"
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     // REFLECTION
-    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    implementation(libs.reflection)
 }
