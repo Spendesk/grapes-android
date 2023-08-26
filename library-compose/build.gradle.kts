@@ -49,6 +49,9 @@ android {
     publishing {
         singleVariant("release")
     }
+    ksp {
+        arg("skipPrivatePreviews", "true")
+    }
 }
 
 dependencies {
