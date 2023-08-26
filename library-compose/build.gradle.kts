@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
     id("maven-publish")
 }
 
@@ -59,6 +60,9 @@ dependencies {
     // Compose
     api(platform(libs.compose.bom))
     api(libs.bundles.compose)
+
+    implementation(libs.showkase)
+    ksp(libs.showkase.ksp)
 
     // UI Tests
     androidTestImplementation(libs.compose.tests.ui)
