@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.lifecycle.lifecycleScope
+import com.airbnb.android.showkase.models.Showkase
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.tabs.TabLayoutMediator
 import com.spendesk.grapes.samples.R
@@ -56,6 +57,13 @@ class HomeActivity : AppCompatActivity() {
             setOnCheckedChangeListener { buttonView, isChecked ->
                 AppCompatDelegate.setDefaultNightMode(if (isChecked) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO)
                 buttonView.isChecked = isChecked
+            }
+        }
+
+        with(menu.findItem(R.id.menuHomeShowCompose)) {
+            setOnMenuItemClickListener {
+                startActivity(Showkase.getBrowserIntent(this@HomeActivity))
+                true
             }
         }
         return true
