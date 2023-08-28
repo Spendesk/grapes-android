@@ -69,7 +69,7 @@ fun PasswordTextInput(
     )
 }
 
-@Preview
+@Preview(name = "Password text input", group = "EditText")
 @Composable
 private fun PasswordTextInputPreview() {
     var passwordContent by remember {
@@ -79,7 +79,6 @@ private fun PasswordTextInputPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
                 .padding(16.dp), Arrangement.spacedBy(16.dp)
         ) {
             PasswordTextInput(

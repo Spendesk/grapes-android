@@ -72,9 +72,9 @@ fun GrapesMessage(
     }
 }
 
-@Preview
+@Preview(name="MessageInlineSmallContentPadding", group = "Message")
 @Composable
-private fun MessageInlineSmallContentPadding() {
+internal fun MessageInlineSmallContentPadding() {
     val padding = PaddingValues(
         horizontal = GrapesTheme.dimensions.paddingSmall,
         vertical = GrapesTheme.dimensions.paddingXSmall,
@@ -110,9 +110,9 @@ private fun MessageInlineSmallContentPadding() {
     }
 }
 
-@Preview
+@Preview(name="MessageInline", group = "Message")
 @Composable
-private fun MessageInline() {
+internal fun MessageInline() {
     GrapesTheme {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesMessage(title = "Message Inline Success", configuration = GrapesConfigurationStatus.SUCCESS)
@@ -124,9 +124,9 @@ private fun MessageInline() {
     }
 }
 
-@Preview
+@Preview(name="MessageInlineIcon", group = "Message")
 @Composable
-private fun MessageInlineIcon() {
+internal fun MessageInlineIcon() {
     GrapesTheme {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesMessage(title = "Message Inline Success", configuration = GrapesConfigurationStatus.SUCCESS, showIcon = true)
@@ -138,9 +138,9 @@ private fun MessageInlineIcon() {
     }
 }
 
-@Preview
+@Preview(name="MessageInlineIconBlock", group = "Message")
 @Composable
-private fun MessageInlineIconBlock() {
+internal fun MessageInlineIconBlock() {
     GrapesTheme {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesMessage(
@@ -177,9 +177,9 @@ private fun MessageInlineIconBlock() {
     }
 }
 
-@Preview
+@Preview(name="MessageInlineFillingMaxWidth", group = "Message")
 @Composable
-private fun MessageInlineFillingMaxWidth() {
+internal fun MessageInlineFillingMaxWidth() {
     GrapesTheme {
         Column(modifier = Modifier.width(400.dp)) {
             GrapesMessage(modifier = Modifier.fillMaxWidth(), title = "aaaa", configuration = GrapesConfigurationStatus.SUCCESS)
@@ -187,9 +187,9 @@ private fun MessageInlineFillingMaxWidth() {
     }
 }
 
-@Preview
+@Preview(name="MessageInlineTextAligned", group = "Message")
 @Composable
-private fun MessageInlineTextAligned() {
+internal fun MessageInlineTextAligned() {
     GrapesTheme {
         Column(modifier = Modifier.width(400.dp)) {
             GrapesMessage(
@@ -204,9 +204,9 @@ private fun MessageInlineTextAligned() {
     }
 }
 
-@Preview
+@Preview(name="MessageInlineFillingLongTitleAndDescription", group = "Message")
 @Composable
-private fun MessageInlineFillingLongTitleAndDescription() {
+internal fun MessageInlineFillingLongTitleAndDescription() {
     GrapesTheme {
         Column(modifier = Modifier.width(100.dp)) {
             GrapesMessage(

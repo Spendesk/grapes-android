@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -135,13 +134,13 @@ fun GrapesTopAppBarMoreIcon(
 }
 
 //region previews
-@Preview
+@Preview("GrapesTopAppBars", group = "TopAppBar")
 @Composable
-fun GrapesSimpleTopAppBarPreview() {
+internal fun GrapesSimpleTopAppBarPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .background(GrapesTheme.colors.mainNeutralLighter)
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(8.dp)

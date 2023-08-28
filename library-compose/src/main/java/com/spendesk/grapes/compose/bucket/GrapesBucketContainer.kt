@@ -40,9 +40,9 @@ fun GrapesBucketContainer(
     }
 }
 
-@Preview
+@Preview(name = "Bucket container", group = "Bucket")
 @Composable
-private fun GrapesContainerPreview() {
+internal fun GrapesContainerPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier

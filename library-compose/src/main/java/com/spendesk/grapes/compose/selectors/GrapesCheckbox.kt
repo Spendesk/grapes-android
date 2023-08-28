@@ -44,8 +44,10 @@ fun GrapesCheckbox(
 @Preview(
     widthDp = 422,
     showBackground = true,
+    name = "Checkbox",
+    group = "Selectors"
 )
-private fun GrapesCheckboxPreview() {
+internal fun GrapesCheckboxPreview() {
     GrapesTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {

@@ -126,14 +126,13 @@ private fun sanitizeWindowedEditTextContent(text: String, maxLength: Int): Strin
     }
 }
 
-@Preview
+@Preview("windowedEditText", group = "EditText")
 @Composable
-fun WindowEditTextPreview() {
+internal fun WindowEditTextPreview() {
     GrapesTheme {
         var content by remember { mutableStateOf("") }
         Column(
             modifier = Modifier
-                .fillMaxSize()
                 .background(GrapesTheme.colors.mainPrimaryLight),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {

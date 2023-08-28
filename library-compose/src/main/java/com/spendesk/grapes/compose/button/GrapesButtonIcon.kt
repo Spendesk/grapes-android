@@ -141,10 +141,10 @@ internal fun ButtonIconPrimaryPreview() {
 @Composable
 internal fun ButtonIconPrimarySmallPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButtonIcon(
                 text = "Button with Icon",
@@ -223,10 +223,10 @@ internal fun ButtonIconSecondaryPreview() {
 @Composable
 internal fun ButtonIconSecondarySmallPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
 
             GrapesButtonIcon(
@@ -432,10 +432,10 @@ internal fun ButtonIconAlertPreview() {
 @Composable
 internal fun ButtonIconLinkPrimaryPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButtonIcon(
                 text = "Text with Icon",
@@ -472,10 +472,10 @@ internal fun ButtonIconLinkPrimaryPreview() {
 @Composable
 internal fun ButtonIconLinkSecondaryPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButtonIcon(
                 text = "Button with Icon",

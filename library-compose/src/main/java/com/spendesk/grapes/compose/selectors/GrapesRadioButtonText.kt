@@ -56,8 +56,10 @@ fun GrapesRadioButtonText(
 @Preview(
     widthDp = 422,
     showBackground = true,
+    name = "Radio button text",
+    group = "Selectors"
 )
-private fun GrapesRadioButtonTextPreview() {
+internal fun GrapesRadioButtonTextPreview() {
     GrapesTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             GrapesRadioButtonText(text = "Radio selected and enabled", isSelected = true, isEnabled = true, onClick = { Log.i("GrapesRadioButton", "action button click") })

@@ -37,13 +37,12 @@ fun TextDivider(
     }
 }
 
-@Preview
+@Preview(name = "Text divider", group = "List item")
 @Composable
-private fun TextDividerPreview() {
+internal fun TextDividerPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
                 .background(GrapesTheme.colors.mainBackground)
                 .padding(GrapesTheme.dimensions.paddingLarge),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)

@@ -73,10 +73,9 @@ fun StatusInformationIcon(
 
 // region Previews
 
-@Preview(group = "StatusInformationIcon")
-@Preview(group = "S")
+@Preview(group = "StatusInformationIcon", name = "Small icons")
 @Composable
-fun StatusInformationIconS() {
+internal fun StatusInformationIconS() {
     GrapesTheme {
         Row(horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             StatusInformationIcon(configuration = GrapesConfigurationStatus.SUCCESS, size = Size.S)
@@ -88,10 +87,9 @@ fun StatusInformationIconS() {
     }
 }
 
-@Preview(group = "StatusInformationIcon")
-@Preview(group = "M")
+@Preview(group = "StatusInformationIcon", name = "Medium icons")
 @Composable
-fun StatusInformationIconM() {
+internal fun StatusInformationIconM() {
     GrapesTheme {
         Row(horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             StatusInformationIcon(configuration = GrapesConfigurationStatus.SUCCESS, size = Size.M)
@@ -103,10 +101,9 @@ fun StatusInformationIconM() {
     }
 }
 
-@Preview(group = "StatusInformationIcon")
-@Preview(group = "L")
+@Preview(group = "StatusInformationIcon", name = "Large icons")
 @Composable
-fun StatusInformationIconL() {
+internal fun StatusInformationIconL() {
     GrapesTheme {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             StatusInformationIcon(configuration = GrapesConfigurationStatus.SUCCESS, size = Size.L)

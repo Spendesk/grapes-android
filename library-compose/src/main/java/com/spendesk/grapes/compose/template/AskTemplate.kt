@@ -86,9 +86,9 @@ fun AskTemplate(
     )
 }
 
-@Preview
+@Preview("Ask template", group = "Templates")
 @Composable
-fun Preview() {
+internal fun Preview() {
     val cta = @Composable {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingMedium)) {
             GrapesButton(

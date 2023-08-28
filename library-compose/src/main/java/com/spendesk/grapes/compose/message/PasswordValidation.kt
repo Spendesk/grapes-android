@@ -87,9 +87,9 @@ private fun PasswordValidationItem(
     }
 }
 
-@Preview
+@Preview(name = "Password validation", group = "Password validation")
 @Composable
-private fun PasswordValidationPreview() {
+internal fun PasswordValidationPreview() {
     var items by remember {
         mutableStateOf(
             listOf(
@@ -104,7 +104,6 @@ private fun PasswordValidationPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
                 .background(GrapesTheme.colors.mainBackground)
         ) {
             Column(

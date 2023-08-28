@@ -53,8 +53,8 @@ fun SectionItem(
 }
 
 @Composable
-@Preview(showBackground = true)
-private fun Preview() {
+@Preview(showBackground = true, name = "Section item", group = "List item")
+internal fun Preview() {
     GrapesTheme {
         SectionItem(
             title = "Frichti",

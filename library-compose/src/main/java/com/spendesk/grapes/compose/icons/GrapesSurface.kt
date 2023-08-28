@@ -45,7 +45,7 @@ fun GrapesSurface(
 
 @Preview(group = "Surface")
 @Composable
-fun grapesSurfacePreview() {
+internal fun grapesSurfacePreview() {
     GrapesTheme {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesSurface(modifier = Modifier.size(50.dp), configuration = GrapesConfigurationStatus.SUCCESS, content = {})

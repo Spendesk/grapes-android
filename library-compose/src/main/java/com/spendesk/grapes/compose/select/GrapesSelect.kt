@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -123,9 +124,9 @@ private fun GrapesSelectIcon(expanded: Boolean, tint: Color) {
     )
 }
 
-@Preview
+@Preview("Select", group = "Selectors")
 @Composable
-private fun GrapesSelectorPreview() {
+internal fun GrapesSelectorPreview() {
     val values = List(4) {
         SelectEntry("$it", "Item $it")
     }
@@ -134,7 +135,7 @@ private fun GrapesSelectorPreview() {
     }
 
     GrapesTheme {
-        Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
+        Column(modifier = Modifier.fillMaxWidth(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
             GrapesSelect(selectedValue, values, onItemSelected = { selectedValue = it }, placeHolder = "Select Value")
             GrapesSelect(selectedValue, values, onItemSelected = { selectedValue = it }, placeHolder = "Select Value", isEnabled = false)
         }

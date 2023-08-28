@@ -69,9 +69,9 @@ internal fun GrapesBucketCore(
 
 // endregion internal
 
-@Preview
+@Preview(name = "Bucket", group = "Bucket")
 @Composable
-private fun GrapesBucketPreview() {
+internal fun GrapesBucketPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier

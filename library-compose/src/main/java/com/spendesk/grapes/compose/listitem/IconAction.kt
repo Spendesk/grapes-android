@@ -58,9 +58,9 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
     }
 }
 
-@Preview
+@Preview(name = "Icon action", group = "List item")
 @Composable
-private fun IconActionPreview() {
+internal fun IconActionPreview() {
     val alertConfiguration = ListItemConfiguration.IconAction(
         title = "Title",
         icon = R.drawable.ic_success,
@@ -84,7 +84,6 @@ private fun IconActionPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {

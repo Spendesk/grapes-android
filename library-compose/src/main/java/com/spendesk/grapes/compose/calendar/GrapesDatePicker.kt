@@ -118,9 +118,9 @@ private fun GrapesDatePickerWithMinDatePreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Date picker with max date", group = "Calendar")
 @Composable
-private fun GrapesDatePickerWithMaxDatePreview() {
+internal fun GrapesDatePickerWithMaxDatePreview() {
     val maxDate = Calendar.getInstance().apply { add(Calendar.DAY_OF_WEEK, 2) }.time
 
     GrapesTheme {
@@ -131,9 +131,9 @@ private fun GrapesDatePickerWithMaxDatePreview() {
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Date picker", group = "Calendar")
 @Composable
-private fun GrapesDatePickerPreview() {
+internal fun GrapesDatePickerPreview() {
     GrapesTheme {
         GrapesDatePicker(
             onDateSelected = { date -> println("Selected date: $date") }
