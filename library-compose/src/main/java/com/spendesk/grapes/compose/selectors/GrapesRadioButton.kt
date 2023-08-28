@@ -43,8 +43,10 @@ fun GrapesRadioButton(
 @Preview(
     widthDp = 422,
     showBackground = true,
+    name = "Radio button",
+    group = "Selectors"
 )
-private fun GrapesRadioButtonPreview() {
+internal fun GrapesRadioButtonPreview() {
     GrapesTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically) {

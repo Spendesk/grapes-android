@@ -46,7 +46,7 @@ fun GrapesInlineInformationItem(
 }
 
 @Composable
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Inline information item", group = "List item")
 private fun Preview(
     @PreviewParameter(ItemParameterProvider::class) item: Pair<String, String>,
 ) {

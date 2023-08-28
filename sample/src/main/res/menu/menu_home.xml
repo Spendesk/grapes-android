@@ -8,4 +8,9 @@
         android:title="switch to dark theme"
         app:actionViewClass="com.google.android.material.switchmaterial.SwitchMaterial"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/menuHomeShowCompose"
+        android:icon="@drawable/ic_book"
+        android:title="Compose"
+        app:showAsAction="always" />
 </menu>

@@ -1,6 +1,9 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
     id("maven-publish")
 }
 
@@ -46,6 +49,9 @@ android {
     publishing {
         singleVariant("release")
     }
+    ksp {
+        arg("skipPrivatePreviews", "true")
+    }
 }
 
 dependencies {
@@ -59,6 +65,9 @@ dependencies {
     // Compose
     api(platform(libs.compose.bom))
     api(libs.bundles.compose)
+
+    implementation(libs.showkase)
+    ksp(libs.showkase.ksp)
 
     // UI Tests
     androidTestImplementation(libs.compose.tests.ui)
@@ -75,5 +84,12 @@ afterEvaluate {
                 from(components["release"])
             }
         }
+    }
+}
+
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions {
+        freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+        freeCompilerArgs += "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api"
     }
 }

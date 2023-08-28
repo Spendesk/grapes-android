@@ -5,7 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -101,13 +101,13 @@ private fun BrandLeadingIcon(style: GrapesButtonStyle, @DrawableRes iconRes: Int
     }
 }
 
-@Preview
+@Preview(name = "Brand button", group = "Button")
 @Composable
-private fun GrapesButtonBrandPreview() {
+internal fun GrapesButtonBrandPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .background(GrapesTheme.colors.mainBackground)
                 .padding(GrapesTheme.dimensions.paddingLarge),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)

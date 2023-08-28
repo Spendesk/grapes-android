@@ -126,9 +126,9 @@ object EditAvatarDefaults {
     val badgeSize = DpSize(24.dp, 24.dp)
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Avatar", group = "Avatar")
 @Composable
-private fun Preview() {
+internal fun Preview() {
     GrapesTheme {
         Column(
             verticalArrangement = Arrangement.spacedBy(12.dp),

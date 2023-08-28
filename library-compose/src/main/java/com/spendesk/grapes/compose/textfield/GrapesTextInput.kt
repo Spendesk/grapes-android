@@ -134,8 +134,8 @@ fun GrapesTextInput(
 
 @ExperimentalMaterial3Api
 @Composable
-@Preview
-fun PreviewGrapesTextField() {
+@Preview(name = "GrapesTextInput", group = "EditText")
+internal fun PreviewGrapesTextField() {
 
     var isEnabled by remember { mutableStateOf(true) }
     var isReadOnly by remember { mutableStateOf(false) }
@@ -174,7 +174,7 @@ fun PreviewGrapesTextField() {
         ) {
             Column(
                 modifier = Modifier
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .background(GrapesTheme.colors.mainBackground)
                     .verticalScroll(rememberScrollState())
                     .padding(it),

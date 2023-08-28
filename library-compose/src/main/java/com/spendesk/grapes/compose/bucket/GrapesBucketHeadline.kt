@@ -54,13 +54,13 @@ fun GrapesBucketHeadline(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Bucket headline", group = "Bucket")
 @Composable
-private fun GrapesBucketHeadlinePreview() {
+internal fun GrapesBucketHeadlinePreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .background(GrapesTheme.colors.mainNeutralLighter)
                 .verticalScroll(rememberScrollState()),
         ) {

@@ -120,9 +120,9 @@ private fun String.trimToMaxSize(maxStringSize: Int): String {
 }
 
 
-@Preview
+@Preview(name = "Pin text input", group = "EditText")
 @Composable
-fun PinTextInputPreview() {
+internal fun PinTextInputPreview() {
     var content by remember {
         mutableStateOf("")
     }

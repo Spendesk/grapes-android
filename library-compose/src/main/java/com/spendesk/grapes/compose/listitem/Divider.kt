@@ -28,10 +28,12 @@ fun GrapesDivider(
 
 @Preview(
     widthDp = 372,
-    showBackground = true
+    showBackground = true,
+    name = "Divider",
+    group = "List item"
 )
 @Composable
-fun GrapesDividerPreview() {
+internal fun GrapesDividerPreview() {
     GrapesTheme {
         LazyColumn {
             items(4) {

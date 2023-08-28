@@ -62,8 +62,10 @@ fun GrapesCheckboxText(
 @Preview(
     widthDp = 422,
     showBackground = true,
+    name = "Checkbox text",
+    group = "Selectors"
 )
-private fun GrapesCheckboxTextPreview() {
+internal fun GrapesCheckboxTextPreview() {
     GrapesTheme {
         Column(modifier = Modifier.padding(16.dp)) {
             GrapesCheckboxText(text = "Checkbox selected and enabled", isChecked = true, isEnabled = true, onChecked = { Log.i("GrapesCheckboxText", "action checkbox clicked: $it") })

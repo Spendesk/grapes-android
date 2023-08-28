@@ -66,9 +66,9 @@ fun GrapesTimePicker(
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Time picker", group = "Calendar")
 @Composable
-private fun GrapesTimePickerPreview() {
+internal fun GrapesTimePickerPreview() {
     var itemHour by remember { mutableStateOf(Calendar.getInstance().apply { time = Date() }.get(Calendar.HOUR_OF_DAY)) }
     var itemMinutes by remember { mutableStateOf(Calendar.getInstance().apply { time = Date() }.get(Calendar.MINUTE)) }
 

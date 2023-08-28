@@ -35,9 +35,9 @@ fun GrapesBadge(
     )
 }
 
-@Preview
+@Preview(name = "Badges", group = "Badges")
 @Composable
-fun GrapesBadgePreview() {
+internal fun GrapesBadgePreview() {
     GrapesTheme {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
             GrapesBadge(content = "Message Inline Success", configuration = GrapesConfigurationStatus.SUCCESS)

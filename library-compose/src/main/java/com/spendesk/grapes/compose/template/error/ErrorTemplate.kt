@@ -123,10 +123,9 @@ fun ErrorTemplate(
     }
 }
 
-@OptIn(ExperimentalAnimationApi::class)
-@Preview(showBackground = true)
+@Preview(showBackground = true, name = "Error template", group = "Templates")
 @Composable
-fun ErrorTemplatePreview() {
+internal fun ErrorTemplatePreview() {
     var isError by remember { mutableStateOf(false) }
     GrapesTheme {
         Column(

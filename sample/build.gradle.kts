@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.hilt)
     alias(libs.plugins.firebase.appdistribution)
@@ -104,4 +105,7 @@ dependencies {
 
     // REFLECTION
     implementation(libs.reflection)
+
+    implementation(libs.showkase)
+    ksp(libs.showkase.ksp)
 }
