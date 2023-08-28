@@ -47,7 +47,7 @@ fun GrapesInlineInformationItem(
 
 @Composable
 @Preview(showBackground = true, name = "Inline information item", group = "List item")
-internal fun Preview(
+private fun Preview(
     @PreviewParameter(ItemParameterProvider::class) item: Pair<String, String>,
 ) {
     GrapesTheme {

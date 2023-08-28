@@ -77,7 +77,7 @@ object GrapesInformationCardDefaults {
 
 @Preview(group = "Information card")
 @Composable
-internal fun PreviewDescription(
+private fun PreviewDescription(
     @PreviewParameter(DescriptionParameterProvider::class) texts: Pair<String, String>,
 ) {
     GrapesTheme {
