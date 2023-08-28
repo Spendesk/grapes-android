@@ -58,12 +58,12 @@ fun GrapesButton(
 //region Previews
 @Preview(
     name = "Primary",
-    group = "Default",
+    group = "Button",
     widthDp = 372,
     showBackground = true,
 )
 @Composable
-fun ButtonPrimaryPreview() {
+internal fun ButtonPrimaryPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -94,17 +94,17 @@ fun ButtonPrimaryPreview() {
 
 @Preview(
     name = "Primary Small",
-    group = "Small",
+    group = "Button",
     widthDp = 810,
     showBackground = true,
 )
 @Composable
-private fun ButtonPrimarySmallPreview() {
+internal fun ButtonPrimarySmallPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
                 text = "Primary Small Enabled",
@@ -128,12 +128,12 @@ private fun ButtonPrimarySmallPreview() {
 
 @Preview(
     name = "Secondary",
-    group = "Default",
+    group = "Button",
     widthDp = 372,
     showBackground = true,
 )
 @Composable
-fun ButtonSecondaryPreview() {
+internal fun ButtonSecondaryPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -164,17 +164,17 @@ fun ButtonSecondaryPreview() {
 
 @Preview(
     name = "Secondary Small",
-    group = "Small",
+    group = "Button",
     widthDp = 850,
     showBackground = true,
 )
 @Composable
-fun ButtonSecondarySmallPreview() {
+internal fun ButtonSecondarySmallPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
                 text = "Secondary Small Enabled",
@@ -198,13 +198,13 @@ fun ButtonSecondarySmallPreview() {
 
 @Preview(
     name = "Text",
-    group = "Default",
+    group = "Button",
     widthDp = 372,
     showBackground = true,
     backgroundColor = 0xFF421896 // Primary Dark
 )
 @Composable
-fun ButtonTextPreview() {
+internal fun ButtonTextPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -235,18 +235,18 @@ fun ButtonTextPreview() {
 
 @Preview(
     name = "Text Small",
-    group = "Small",
+    group = "Button",
     widthDp = 850,
     showBackground = true,
     backgroundColor = 0xFF421896 // Primary Dark
 )
 @Composable
-fun ButtonTextSmallPreview() {
+internal fun ButtonTextSmallPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
                 text = "Secondary Text Enabled",
@@ -270,12 +270,12 @@ fun ButtonTextSmallPreview() {
 
 @Preview(
     name = "Warning",
-    group = "Default",
+    group = "Button",
     widthDp = 372,
     showBackground = true,
 )
 @Composable
-fun ButtonWarningPreview() {
+internal fun ButtonWarningPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -306,12 +306,12 @@ fun ButtonWarningPreview() {
 
 @Preview(
     name = "Alert",
-    group = "Default",
+    group = "Button",
     widthDp = 372,
     showBackground = true,
 )
 @Composable
-fun ButtonAlertPreview() {
+internal fun ButtonAlertPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
@@ -342,17 +342,17 @@ fun ButtonAlertPreview() {
 
 @Preview(
     name = "Link Primary",
-    group = "Small",
+    group = "Button",
     widthDp = 850,
     showBackground = true,
 )
 @Composable
-fun ButtonLinkPrimaryPreview() {
+internal fun ButtonLinkPrimaryPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
                 text = "Link Primary Enabled",
@@ -376,17 +376,17 @@ fun ButtonLinkPrimaryPreview() {
 
 @Preview(
     name = "Link Secondary",
-    group = "Small",
+    group = "Button",
     widthDp = 1030,
     showBackground = true,
 )
 @Composable
-fun ButtonLinkSecondaryPreview() {
+internal fun ButtonLinkSecondaryPreview() {
     GrapesTheme {
-        Row(
+        Column(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceAround
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceAround
         ) {
             GrapesButton(
                 text = "Link Secondary Enabled",
@@ -410,12 +410,12 @@ fun ButtonLinkSecondaryPreview() {
 
 @Preview(
     name = "Alert Outlined",
-    group = "Default",
+    group = "Button",
     widthDp = 372,
     showBackground = true,
 )
 @Composable
-fun ButtonAlertOutlinedPreview() {
+internal fun ButtonAlertOutlinedPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier

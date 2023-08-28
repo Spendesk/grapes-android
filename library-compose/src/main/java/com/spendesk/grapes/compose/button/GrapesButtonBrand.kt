@@ -101,9 +101,9 @@ private fun BrandLeadingIcon(style: GrapesButtonStyle, @DrawableRes iconRes: Int
     }
 }
 
-@Preview
+@Preview(name = "Brand button", group = "Button")
 @Composable
-private fun GrapesButtonBrandPreview() {
+internal fun GrapesButtonBrandPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
