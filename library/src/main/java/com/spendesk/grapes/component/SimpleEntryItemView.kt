@@ -12,6 +12,7 @@ import com.spendesk.grapes.databinding.ComponentSimpleEntryItemBinding
 import com.spendesk.grapes.extensions.*
 import com.spendesk.grapes.internal.libs.glide.loadFromUrl
 import com.spendesk.grapes.messages.MessageInlineView
+import java.io.Serializable
 
 /**
  * @author danyboucanova
@@ -50,7 +51,7 @@ class SimpleEntryItemView : ConstraintLayout {
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
         val titleEndOptional: CharSequence? = null,
         val badgeNumber: Int? = null,
-    )
+    ) : Serializable
 
     private val primaryImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.simpleEntryItemBPrimaryImageCornerRadius)
     private val secondaryImageRoundedCornerRadius = resources.getDimensionPixelOffset(R.dimen.simpleEntryItemBSecondaryImageCornerRadius)
