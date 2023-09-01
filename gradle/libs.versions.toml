@@ -10,7 +10,7 @@ firebase-app-distrib = "3.0.3"
 ksp = "1.9.0-1.0.13"
 
 # Dagger
-hilt = "2.47"
+hilt = "2.48"
 
 # Androidx
 androidx-lifecycle-ktx = "2.6.1"
