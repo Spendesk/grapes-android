@@ -15,6 +15,7 @@ import com.google.android.material.textview.MaterialTextView
 import com.spendesk.grapes.R
 import com.spendesk.grapes.extensions.setDrawable
 import com.spendesk.grapes.extensions.setDrawableLeft
+import java.io.Serializable
 
 
 /**
@@ -47,7 +48,7 @@ class MessageInlineView : MaterialTextView {
         val style: Style,
         val title: CharSequence,
         @DrawableRes val drawableStartId: Int? = null
-    )
+    ) : Serializable
 
     enum class Style(val position: Int) {
         NEUTRAL(0), // gray

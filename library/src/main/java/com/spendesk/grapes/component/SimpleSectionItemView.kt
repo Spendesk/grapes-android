@@ -12,6 +12,7 @@ import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.ComponentSimpleSectionItemBinding
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import java.io.Serializable
 
 /**
  * @author danyboucanova
@@ -40,7 +41,7 @@ class SimpleSectionItemView : ConstraintLayout {
         val startText: CharSequence? = null,
         val endText: CharSequence? = null,
         val style: Style? = null
-    )
+    ) : Serializable
 
     enum class Style(val position: Int) {
         PRIMARY(0),
