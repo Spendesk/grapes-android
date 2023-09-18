@@ -1,0 +1,84 @@
+[versions]
+grapes-version = '1.14.0'
+androidMinSdk = "21"
+androidTargetSdk = "34"
+androidCompileSdk = "34"
+
+kotlin = "1.9.0"
+gradle = "8.1.1"
+firebase-app-distrib = "3.0.3"
+ksp = "1.9.0-1.0.13"
+
+# Dagger
+hilt = "2.48"
+
+# Androidx
+androidx-lifecycle-ktx = "2.6.2"
+androidx-fraghment-ktx = "1.6.1"
+androidx-core-ktx = "1.12.0"
+androidx-constraintlayout = "2.1.4"
+androidx-appcompat = "1.6.1"
+android-material-version = '1.9.0'
+
+# Compose
+compose-bom = "2023.09.00"
+compose-kotlin-compiler = "1.5.2"
+
+# Image
+glide = "4.16.0"
+
+# Tests
+junit4 = "4.13.2"
+junit-android = "1.1.5"
+espresso-core = "3.5.1"
+
+[libraries]
+# Androidx
+androidx-lifecycle-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-ktx" }
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "android-material-version" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidx-fraghment-ktx" }
+
+# Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+
+# Compose
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-ui = { group = "androidx.compose.ui", name = "ui" }
+compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+compose-runtime = { group = "androidx.compose.runtime", name = "runtime" }
+compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }
+compose-material = { group = "androidx.compose.material", name = "material" }
+compose-material-icons-core = { group = "androidx.compose.material", name = "material-icons-core" }
+compose-material-icons-extended = { group = "androidx.compose.material", name = "material-icons-extended" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+compose-tests-ui = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+
+# Image
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
+
+# Misc
+reflection = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+
+# Tests
+junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
+junit-android = { group = "androidx.test.ext", name = "junit", version.ref = "junit-android" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+
+[bundles]
+compose = ["compose-ui", "compose-ui-tooling", "compose-runtime", "compose-foundation", "compose-material", "compose-material-icons-core", "compose-material-icons-extended", "compose-material3"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "gradle" }
+android-library = { id = "com.android.library", version.ref = "gradle" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+firebase-appdistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebase-app-distrib" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
