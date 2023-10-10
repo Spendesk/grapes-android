@@ -47,7 +47,7 @@ fun GrapesMessage(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showIcon) {
                     GrapesIcon(configuration = configuration)
-                    Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingXSmall))
+                    Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingSmall))
                 }
                 Text(
                     text = title,
