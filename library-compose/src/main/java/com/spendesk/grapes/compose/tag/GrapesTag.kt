@@ -142,20 +142,20 @@ fun GrapesTag(
                 .padding(PaddingValues(horizontal = 8.dp, vertical = 4.dp)),
             horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall),
         ) {
+            if (icon != null) {
+                Box(
+                    modifier = Modifier
+                        .size(GrapesTagDefaults.iconSize)
+                        .align(Alignment.CenterVertically),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    icon()
+                }
+            }
+
             ProvideTextStyle(
                 GrapesTheme.typography.titleS.copy(color = LocalContentColor.current),
             ) {
-                if (icon != null) {
-                    Box(
-                        modifier = Modifier
-                            .size(GrapesTagDefaults.iconSize)
-                            .align(Alignment.CenterVertically),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        icon()
-                    }
-                }
-
                 Text(text = label)
             }
         }
