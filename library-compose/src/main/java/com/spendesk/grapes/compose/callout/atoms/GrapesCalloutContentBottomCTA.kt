@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.callout.atoms
 
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -29,10 +30,11 @@ fun GrapesCalloutContentBottomCTA(
         CalloutType.NEUTRAL -> GrapesButtonStyleDefaults.primary
     }
 
+    // Design require extra padding between the content and the buttons
+    Spacer(modifier = Modifier.padding(top = 8.dp))
+
     GrapesButton(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(top = 8.dp),
+        modifier = Modifier.fillMaxWidth(),
         text = primaryButtonText,
         buttonStyle = primaryButtonStyle,
         onClick = onPrimaryButtonClick

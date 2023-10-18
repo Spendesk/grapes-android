@@ -20,6 +20,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 object GrapesCalloutDefaults {
     val titleIconSize = 16.dp
     val borderThickness = 1.dp
+    val signatureImageSize = 32.dp
 }
 
 @Composable

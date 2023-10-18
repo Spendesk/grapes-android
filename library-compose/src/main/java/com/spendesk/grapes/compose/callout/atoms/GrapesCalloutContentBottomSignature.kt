@@ -16,6 +16,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
+import com.spendesk.grapes.compose.callout.GrapesCalloutDefaults
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -39,7 +40,7 @@ fun GrapesCalloutContentBottomSignature(
             contentDescription = contentDescription,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(32.dp)
+                .size(GrapesCalloutDefaults.signatureImageSize)
                 .clip(CircleShape)
         )
 
