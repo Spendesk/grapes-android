@@ -14,6 +14,8 @@ import androidx.compose.ui.unit.dp
  */
 @Immutable
 data class GrapesShapes(
+    val xSmall: CornerBasedShape = RoundedCornerShape(XSmallShapeCornerRadius),
+
     /**
      * Shape used by small components like [Button] or [Snackbar]. Components like
      * [FloatingActionButton], [ExtendedFloatingActionButton] use this shape, but override
@@ -31,6 +33,7 @@ data class GrapesShapes(
     val large: CornerBasedShape = RoundedCornerShape(LargeShapeCornerRadius)
 )
 
+private val XSmallShapeCornerRadius = 4.dp
 private val SmallShapeCornerRadius = 8.dp
 private val MediumShapeCornerRadius = 12.dp
 private val LargeShapeCornerRadius = 0.dp
