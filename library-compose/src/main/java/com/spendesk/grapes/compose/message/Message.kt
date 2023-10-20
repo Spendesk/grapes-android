@@ -27,6 +27,14 @@ import com.spendesk.grapes.compose.theme.extensions.contentColorFor
  * @author : danyboucanova
  * @since : 19/05/2022, Thu
  **/
+
+@Deprecated(
+    message = "Message component is deprecated, use GrapesCallout instead",
+    replaceWith = ReplaceWith(
+        expression = "GrapesNeutralCallout(title, content, modifier)",
+        imports = ["com.spendesk.grapes.compose.callout.GrapesCallout"]
+    )
+)
 @Composable
 fun GrapesMessage(
     configuration: GrapesConfigurationStatus,
