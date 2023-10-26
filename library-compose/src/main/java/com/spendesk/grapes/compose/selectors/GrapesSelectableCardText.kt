@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.bucket.GrapesBucketContainer
 import com.spendesk.grapes.compose.selectors.GrapesSelectableCardTextDefaultColors.selectedBorderColor
@@ -53,7 +52,7 @@ fun GrapesSelectableCardText(
     iconDescription: String? = null,
     modifier: Modifier = Modifier
 ) {
-    val iconSize = 32.dp
+    val iconSize = GrapesTheme.dimensions.iconLarge
 
     GrapesBucketContainer(
         modifier = modifier
@@ -61,7 +60,7 @@ fun GrapesSelectableCardText(
             .wrapContentHeight()
             .let { m ->
                 if (isSelected) {
-                    m.border(2.dp, selectedBorderColor, GrapesTheme.shapes.small)
+                    m.border(GrapesTheme.dimensions.borderLarge, selectedBorderColor, GrapesTheme.shapes.small)
                 } else {
                     m
                 }
@@ -73,7 +72,7 @@ fun GrapesSelectableCardText(
         ) {
             Icon(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp)
+                    .padding(start = GrapesTheme.dimensions.paddingLarge, end = GrapesTheme.dimensions.paddingLarge)
                     .size(iconSize),
                 painter = painterResource(id = icon),
                 contentDescription = iconDescription,
@@ -81,7 +80,7 @@ fun GrapesSelectableCardText(
             )
             Column(
                 modifier = Modifier
-                    .padding(top = 8.dp, bottom = 8.dp, end = 16.dp),
+                    .padding(top = GrapesTheme.dimensions.paddingSmall, bottom = GrapesTheme.dimensions.paddingSmall, end = GrapesTheme.dimensions.paddingLarge),
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
@@ -91,7 +90,7 @@ fun GrapesSelectableCardText(
                     style = GrapesTheme.typography.titleM,
                     text = title
                 )
-                Spacer(modifier = Modifier.padding(4.dp))
+                Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.paddingXSmall))
                 Text(
                     color = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedDescriptionColor else GrapesSelectableCardTextDefaultColors.unselectedDescriptionColor,
                     overflow = TextOverflow.Ellipsis,

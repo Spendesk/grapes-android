@@ -41,19 +41,13 @@ fun GrapesSelectBlock(
     iconDescription: String? = null,
     modifier: Modifier = Modifier
 ) {
-    val iconSize = 32.dp
+    val bucketSize = 104.dp
 
     GrapesBucketContainer(
         modifier = modifier
-            .size(104.dp)
+            .size(bucketSize)
             .fillMaxSize()
-            .let { m ->
-                if (isSelected) {
-                    m.border(2.dp, GrapesSelectBlockDefaultColors.selectedBorderColor, GrapesTheme.shapes.small)
-                } else {
-                    m
-                }
-            }
+            .let { m -> if (isSelected) m.border(GrapesTheme.dimensions.borderLarge, GrapesSelectBlockDefaultColors.selectedBorderColor, GrapesTheme.shapes.small) else m }
     ) {
         Box(
             modifier = Modifier
@@ -63,8 +57,8 @@ fun GrapesSelectBlock(
         ) {
             Icon(
                 modifier = Modifier
-                    .padding(start = 16.dp, end = 16.dp)
-                    .size(iconSize)
+                    .padding(start = GrapesTheme.dimensions.paddingLarge, end = GrapesTheme.dimensions.paddingLarge)
+                    .size(GrapesTheme.dimensions.iconLarge)
                     .fillMaxSize(),
                 painter = painterResource(id = icon),
                 contentDescription = iconDescription,
