@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -42,7 +41,7 @@ object GrapesSelectableCardTextDefaultColors {
     val selectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.mainComplementary
     val unselectedTitleColor: Color @Composable get() = GrapesTheme.colors.mainComplementary
-    val unselectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainNeutralDark
+    val unselectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainNeutralDarker
 }
 
 @Composable
@@ -58,7 +57,6 @@ fun GrapesSelectableCardText(
 
     GrapesBucketContainer(
         modifier = modifier
-            .defaultMinSize(minHeight = 100.dp)
             .fillMaxWidth()
             .wrapContentHeight()
             .let { m ->
@@ -70,7 +68,7 @@ fun GrapesSelectableCardText(
             }
     ) {
         Row(
-            modifier = Modifier.let { m -> if (isSelected) m.background(color = GrapesSelectableCardTextDefaultColors.selectedBackgroundColor) else m },
+            modifier = Modifier.fillMaxWidth().let { m -> if (isSelected) m.background(color = GrapesSelectableCardTextDefaultColors.selectedBackgroundColor) else m },
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
@@ -118,7 +116,6 @@ private fun GrapesSelectableCardTextPreview() {
                 "Title",
                 "description  description  description  description  description  description  description  description  description  "
             )
-            Spacer(modifier = Modifier.padding(10.dp))
             GrapesSelectableCardText(
                 icon = R.drawable.ic_information,
                 false,
