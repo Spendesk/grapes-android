@@ -1,5 +1,5 @@
 [versions]
-grapes-version = '1.15.0'
+grapes-version = '1.17.0'
 androidMinSdk = "21"
 androidTargetSdk = "34"
 androidCompileSdk = "34"
