@@ -155,6 +155,5 @@ private fun GrapesSelectableCardTextPreview() {
                 }
             }
         }
-
     }
 }
