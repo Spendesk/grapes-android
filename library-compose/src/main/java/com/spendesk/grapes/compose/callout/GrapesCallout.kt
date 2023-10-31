@@ -8,8 +8,10 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentBottomCTA
+import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContentBottomCTA
 import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentBottomSignature
+import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTAPrimary
+import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTASecondary
 import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContent
 import com.spendesk.grapes.compose.icons.GrapesIcon
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -190,12 +192,20 @@ private fun PreviewCalloutContent(callout: Callouts) {
     callout.description?.let {
         when (callout.contentType) {
             CalloutContentType.Simple -> GrapesCalloutContent(description = AnnotatedString(it))
-            CalloutContentType.Action -> GrapesCalloutContent(description = it) {
+            CalloutContentType.Action2CTA -> GrapesCalloutContent(description = it) {
                 GrapesCalloutContentBottomCTA(
-                    primaryButtonText = "Primary Action",
-                    secondaryButtonText = "Secondary Action",
-                    onPrimaryButtonClick = {},
-                    onSecondaryButtonClick = {},
+                    primaryButton = { GrapesCalloutContentCTAPrimary(buttonText = "Primary Action") {} },
+                    secondaryButton = { GrapesCalloutContentCTASecondary(buttonText = "Secondary Action") {} },
+                )
+            }
+            CalloutContentType.Action1PrimaryCTA -> GrapesCalloutContent(description = it) {
+                GrapesCalloutContentBottomCTA(
+                    primaryButton = { GrapesCalloutContentCTAPrimary(buttonText = "Primary Action") {} },
+                )
+            }
+            CalloutContentType.Action1SecondaryCTA -> GrapesCalloutContent(description = it) {
+                GrapesCalloutContentBottomCTA(
+                    secondaryButton = { GrapesCalloutContentCTASecondary(buttonText = "Secondary Action") {} },
                 )
             }
             CalloutContentType.Signature -> GrapesCalloutContent(description = it) {
