@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.callout
 
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -8,8 +9,10 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentBottomCTA
+import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContentBottomCTA
 import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentBottomSignature
+import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTAPrimary
+import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTASecondary
 import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContent
 import com.spendesk.grapes.compose.icons.GrapesIcon
 import com.spendesk.grapes.compose.theme.GrapesTheme
@@ -21,7 +24,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun GrapesErrorCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -49,7 +52,7 @@ fun GrapesErrorCallout(
 @Composable
 fun GrapesWarningCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -77,7 +80,7 @@ fun GrapesWarningCallout(
 @Composable
 fun GrapesInfoCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -105,7 +108,7 @@ fun GrapesInfoCallout(
 @Composable
 fun GrapesSuccessCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -135,7 +138,7 @@ fun GrapesSuccessCallout(
 @Composable
 fun GrapesNeutralCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -186,16 +189,24 @@ private fun CalloutPreview(
 }
 
 @Composable
-private fun PreviewCalloutContent(callout: Callouts) {
+private fun ColumnScope.PreviewCalloutContent(callout: Callouts) {
     callout.description?.let {
         when (callout.contentType) {
             CalloutContentType.Simple -> GrapesCalloutContent(description = AnnotatedString(it))
-            CalloutContentType.Action -> GrapesCalloutContent(description = it) {
+            CalloutContentType.Action2CTA -> GrapesCalloutContent(description = it) {
                 GrapesCalloutContentBottomCTA(
-                    primaryButtonText = "Primary Action",
-                    secondaryButtonText = "Secondary Action",
-                    onPrimaryButtonClick = {},
-                    onSecondaryButtonClick = {},
+                    primaryButton = { GrapesCalloutContentCTAPrimary(buttonText = "Primary Action") {} },
+                    secondaryButton = { GrapesCalloutContentCTASecondary(buttonText = "Secondary Action") {} },
+                )
+            }
+            CalloutContentType.Action1PrimaryCTA -> GrapesCalloutContent(description = it) {
+                GrapesCalloutContentBottomCTA(
+                    primaryButton = { GrapesCalloutContentCTAPrimary(buttonText = "Primary Action") {} },
+                )
+            }
+            CalloutContentType.Action1SecondaryCTA -> GrapesCalloutContent(description = it) {
+                GrapesCalloutContentBottomCTA(
+                    secondaryButton = { GrapesCalloutContentCTASecondary(buttonText = "Secondary Action") {} },
                 )
             }
             CalloutContentType.Signature -> GrapesCalloutContent(description = it) {

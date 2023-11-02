@@ -1,17 +1,13 @@
 package com.spendesk.grapes.compose.selectors
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Icon
 import androidx.compose.material3.Text
@@ -27,8 +23,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.bucket.GrapesBucketContainer
-import com.spendesk.grapes.compose.selectors.GrapesSelectableCardTextDefaultColors.selectedBorderColor
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -36,10 +30,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since : 24/10/2023, Tue
  **/
 @Immutable
-object GrapesSelectableCardTextDefaultColors {
-
-    val selectedBackgroundColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryLightest
-    val selectedBorderColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
+object GrapesSelectCardTextDefaultColors {
     val selectedIconColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val selectedTitleColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val selectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
@@ -49,7 +40,7 @@ object GrapesSelectableCardTextDefaultColors {
 }
 
 @Composable
-fun GrapesSelectableCardText(
+fun GrapesSelectCardText(
     @DrawableRes icon: Int,
     isSelected: Boolean,
     title: String,
@@ -59,68 +50,63 @@ fun GrapesSelectableCardText(
 ) {
     val iconSize = GrapesTheme.dimensions.iconLarge
 
-    GrapesBucketContainer(
-        modifier = modifier
-            .fillMaxWidth()
-            .wrapContentHeight()
-            .let { m ->
-                if (isSelected) {
-                    m.border(GrapesTheme.dimensions.borderLarge, selectedBorderColor, GrapesTheme.shapes.small)
-                } else {
-                    m
+    GrapesSelectBlockContainer(
+        modifier = modifier,
+        isSelected = isSelected,
+        content = {
+            Row(
+                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.paddingLarge),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Icon(
+                    modifier = Modifier.size(iconSize),
+                    painter = painterResource(id = icon),
+                    contentDescription = iconDescription,
+                    tint = if (isSelected) GrapesSelectCardTextDefaultColors.selectedIconColor else GrapesSelectCardTextDefaultColors.unselectedIconColor
+                )
+                Spacer(Modifier.size(GrapesTheme.dimensions.paddingLarge))
+                Column(
+                    modifier = Modifier
+                        .padding(
+                            top = GrapesTheme.dimensions.paddingXLarge,
+                            bottom = GrapesTheme.dimensions.paddingXLarge
+                        ),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedTitleColor else GrapesSelectCardTextDefaultColors.unselectedTitleColor,
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 1,
+                        style = GrapesTheme.typography.titleM,
+                        text = title
+                    )
+                    Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.paddingXSmall))
+                    Text(
+                        color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedDescriptionColor else GrapesSelectCardTextDefaultColors.unselectedDescriptionColor,
+                        overflow = TextOverflow.Ellipsis,
+                        maxLines = 2,
+                        style = GrapesTheme.typography.bodyS,
+                        text = description
+                    )
                 }
             }
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().let { m -> if (isSelected) m.background(color = GrapesSelectableCardTextDefaultColors.selectedBackgroundColor) else m },
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                modifier = Modifier
-                    .padding(start = GrapesTheme.dimensions.paddingLarge, end = GrapesTheme.dimensions.paddingLarge)
-                    .size(iconSize),
-                painter = painterResource(id = icon),
-                contentDescription = iconDescription,
-                tint = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedIconColor else GrapesSelectableCardTextDefaultColors.unselectedIconColor
-            )
-            Column(
-                modifier = Modifier
-                    .padding(top = GrapesTheme.dimensions.paddingSmall, bottom = GrapesTheme.dimensions.paddingSmall, end = GrapesTheme.dimensions.paddingLarge),
-                verticalArrangement = Arrangement.Center
-            ) {
-                Text(
-                    color = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedTitleColor else GrapesSelectableCardTextDefaultColors.unselectedTitleColor,
-                    overflow = TextOverflow.Ellipsis,
-                    maxLines = 1,
-                    style = GrapesTheme.typography.titleM,
-                    text = title
-                )
-                Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.paddingXSmall))
-                Text(
-                    color = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedDescriptionColor else GrapesSelectableCardTextDefaultColors.unselectedDescriptionColor,
-                    overflow = TextOverflow.Ellipsis,
-                    maxLines = 2,
-                    style = GrapesTheme.typography.bodyS,
-                    text = description
-                )
-            }
         }
-    }
+    )
 }
 
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-private fun GrapesSelectableCardTextPreview() {
+private fun GrapesSelectCardTextPreview() {
     GrapesTheme {
         Column {
-            GrapesSelectableCardText(
+            GrapesSelectCardText(
                 icon = R.drawable.ic_information,
                 true,
                 "Title",
                 "description  description  description  description  description  description  description  description  description  "
             )
-            GrapesSelectableCardText(
+            GrapesSelectCardText(
                 icon = R.drawable.ic_information,
                 false,
                 "Title",
@@ -136,7 +122,7 @@ private fun GrapesSelectableCardTextPreview() {
                 verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
             ) {
                 item {
-                    GrapesSelectableCardText(
+                    GrapesSelectCardText(
                         modifier = Modifier.clickable { isSelected.intValue = 0 },
                         title = "Title",
                         description = "This is the right description",
@@ -145,7 +131,7 @@ private fun GrapesSelectableCardTextPreview() {
                     )
                 }
                 item {
-                    GrapesSelectableCardText(
+                    GrapesSelectCardText(
                         modifier = Modifier.clickable { isSelected.intValue = 1 },
                         title = "Title 2",
                         description = "Second description",

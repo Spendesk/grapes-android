@@ -13,7 +13,17 @@ internal class CalloutProvider : PreviewParameterProvider<Callouts> {
         Callouts.Error(
             title = "Message Title",
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
-            contentType = CalloutContentType.Action
+            contentType = CalloutContentType.Action2CTA
+        ),
+        Callouts.Error(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1PrimaryCTA
+        ),
+        Callouts.Error(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1SecondaryCTA
         ),
         Callouts.Error(
             title = "Message Title",
@@ -35,7 +45,17 @@ internal class CalloutProvider : PreviewParameterProvider<Callouts> {
         Callouts.Warning(
             title = "Message Title",
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
-            contentType = CalloutContentType.Action
+            contentType = CalloutContentType.Action2CTA
+        ),
+        Callouts.Warning(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1PrimaryCTA
+        ),
+        Callouts.Warning(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1SecondaryCTA
         ),
         Callouts.Warning(
             title = "Message Title",
@@ -57,7 +77,17 @@ internal class CalloutProvider : PreviewParameterProvider<Callouts> {
         Callouts.Info(
             title = "Message Title",
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
-            contentType = CalloutContentType.Action
+            contentType = CalloutContentType.Action2CTA
+        ),
+        Callouts.Info(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1PrimaryCTA
+        ),
+        Callouts.Info(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1SecondaryCTA
         ),
         Callouts.Info(
             title = "Message Title",
@@ -79,7 +109,17 @@ internal class CalloutProvider : PreviewParameterProvider<Callouts> {
         Callouts.Success(
             title = "Message Title",
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
-            contentType = CalloutContentType.Action
+            contentType = CalloutContentType.Action2CTA
+        ),
+        Callouts.Success(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1PrimaryCTA
+        ),
+        Callouts.Success(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1SecondaryCTA
         ),
         Callouts.Success(
             title = "Message Title",
@@ -101,7 +141,17 @@ internal class CalloutProvider : PreviewParameterProvider<Callouts> {
         Callouts.Neutral(
             title = "Message Title",
             description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
-            contentType = CalloutContentType.Action
+            contentType = CalloutContentType.Action2CTA
+        ),
+        Callouts.Neutral(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1PrimaryCTA
+        ),
+        Callouts.Neutral(
+            title = "Message Title",
+            description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec lectus sed sem porttitor viverra. Vestibulum magna leo.",
+            contentType = CalloutContentType.Action1SecondaryCTA
         ),
         Callouts.Neutral(
             title = "Message Title",
@@ -133,4 +183,4 @@ internal sealed class Callouts {
     data class Neutral(override val title: String, override val description: String?, override val contentType: CalloutContentType?) : Callouts()
 }
 
-internal enum class CalloutContentType { Simple, Action, Signature }
+internal enum class CalloutContentType { Simple, Action2CTA, Action1PrimaryCTA, Action1SecondaryCTA, Signature }
