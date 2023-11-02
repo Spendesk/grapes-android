@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.callout
 
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -23,7 +24,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun GrapesErrorCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -51,7 +52,7 @@ fun GrapesErrorCallout(
 @Composable
 fun GrapesWarningCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -79,7 +80,7 @@ fun GrapesWarningCallout(
 @Composable
 fun GrapesInfoCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -107,7 +108,7 @@ fun GrapesInfoCallout(
 @Composable
 fun GrapesSuccessCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -137,7 +138,7 @@ fun GrapesSuccessCallout(
 @Composable
 fun GrapesNeutralCallout(
     title: String,
-    content: @Composable () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
 ) {
     CompositionLocalProvider(
@@ -188,7 +189,7 @@ private fun CalloutPreview(
 }
 
 @Composable
-private fun PreviewCalloutContent(callout: Callouts) {
+private fun ColumnScope.PreviewCalloutContent(callout: Callouts) {
     callout.description?.let {
         when (callout.contentType) {
             CalloutContentType.Simple -> GrapesCalloutContent(description = AnnotatedString(it))

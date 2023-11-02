@@ -1,5 +1,6 @@
 package com.spendesk.grapes.compose.callout.molecules
 
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,9 +13,9 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 17/10/2023, Tuesday
  **/
 @Composable
-fun GrapesCalloutContent(
+fun ColumnScope.GrapesCalloutContent(
     description: String,
-    bottomContent: (@Composable () -> Unit)? = null,
+    bottomContent: (@Composable ColumnScope.() -> Unit)? = null,
 ) {
     Text(
         modifier = Modifier.fillMaxWidth(),
@@ -22,13 +23,13 @@ fun GrapesCalloutContent(
         style = GrapesTheme.typography.bodyS,
     )
 
-    bottomContent?.invoke()
+    bottomContent?.invoke(this)
 }
 
 @Composable
-fun GrapesCalloutContent(
+fun ColumnScope.GrapesCalloutContent(
     description: AnnotatedString,
-    bottomContent: (@Composable () -> Unit)? = null,
+    bottomContent: (@Composable ColumnScope.() -> Unit)? = null,
 ) {
     Text(
         modifier = Modifier.fillMaxWidth(),
@@ -36,5 +37,5 @@ fun GrapesCalloutContent(
         style = GrapesTheme.typography.bodyS,
     )
 
-    bottomContent?.invoke()
+    bottomContent?.invoke(this)
 }
