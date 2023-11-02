@@ -1,11 +1,8 @@
 package com.spendesk.grapes.compose.callout.atoms
 
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.button.GrapesButton
 import com.spendesk.grapes.compose.button.GrapesButtonStyleDefaults
 import com.spendesk.grapes.compose.callout.CalloutType
@@ -13,14 +10,13 @@ import com.spendesk.grapes.compose.callout.LocalGrapesCalloutType
 
 /**
  * @author jean-philippe
- * @since 17/10/2023, Tuesday
+ * @since 30/10/2023, Monday
  **/
+
 @Composable
-fun GrapesCalloutContentBottomCTA(
-    primaryButtonText: String,
-    secondaryButtonText: String,
-    onPrimaryButtonClick: () -> Unit,
-    onSecondaryButtonClick: () -> Unit,
+fun GrapesCalloutContentCTAPrimary(
+    buttonText: String,
+    onButtonClick: () -> Unit,
 ) {
     val primaryButtonStyle = when (LocalGrapesCalloutType.current.type) {
         CalloutType.ERROR -> GrapesButtonStyleDefaults.alert
@@ -30,20 +26,10 @@ fun GrapesCalloutContentBottomCTA(
         CalloutType.NEUTRAL -> GrapesButtonStyleDefaults.primary
     }
 
-    // Design require extra padding between the content and the buttons
-    Spacer(modifier = Modifier.padding(top = 8.dp))
-
     GrapesButton(
         modifier = Modifier.fillMaxWidth(),
-        text = primaryButtonText,
+        text = buttonText,
         buttonStyle = primaryButtonStyle,
-        onClick = onPrimaryButtonClick
-    )
-
-    GrapesButton(
-        modifier = Modifier.fillMaxWidth(),
-        text = secondaryButtonText,
-        buttonStyle = GrapesButtonStyleDefaults.secondary,
-        onClick = onSecondaryButtonClick
+        onClick = onButtonClick,
     )
 }
