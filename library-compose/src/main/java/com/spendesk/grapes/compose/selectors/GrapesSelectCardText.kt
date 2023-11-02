@@ -30,7 +30,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since : 24/10/2023, Tue
  **/
 @Immutable
-object GrapesSelectableCardTextDefaultColors {
+object GrapesSelectCardTextDefaultColors {
     val selectedIconColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val selectedTitleColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val selectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
@@ -40,7 +40,7 @@ object GrapesSelectableCardTextDefaultColors {
 }
 
 @Composable
-fun GrapesSelectableCardText(
+fun GrapesSelectCardText(
     @DrawableRes icon: Int,
     isSelected: Boolean,
     title: String,
@@ -62,7 +62,7 @@ fun GrapesSelectableCardText(
                     modifier = Modifier.size(iconSize),
                     painter = painterResource(id = icon),
                     contentDescription = iconDescription,
-                    tint = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedIconColor else GrapesSelectableCardTextDefaultColors.unselectedIconColor
+                    tint = if (isSelected) GrapesSelectCardTextDefaultColors.selectedIconColor else GrapesSelectCardTextDefaultColors.unselectedIconColor
                 )
                 Spacer(Modifier.size(GrapesTheme.dimensions.paddingLarge))
                 Column(
@@ -74,7 +74,7 @@ fun GrapesSelectableCardText(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        color = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedTitleColor else GrapesSelectableCardTextDefaultColors.unselectedTitleColor,
+                        color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedTitleColor else GrapesSelectCardTextDefaultColors.unselectedTitleColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 1,
                         style = GrapesTheme.typography.titleM,
@@ -82,7 +82,7 @@ fun GrapesSelectableCardText(
                     )
                     Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.paddingXSmall))
                     Text(
-                        color = if (isSelected) GrapesSelectableCardTextDefaultColors.selectedDescriptionColor else GrapesSelectableCardTextDefaultColors.unselectedDescriptionColor,
+                        color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedDescriptionColor else GrapesSelectCardTextDefaultColors.unselectedDescriptionColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 2,
                         style = GrapesTheme.typography.bodyS,
@@ -97,16 +97,16 @@ fun GrapesSelectableCardText(
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
-private fun GrapesSelectableCardTextPreview() {
+private fun GrapesSelectCardTextPreview() {
     GrapesTheme {
         Column {
-            GrapesSelectableCardText(
+            GrapesSelectCardText(
                 icon = R.drawable.ic_information,
                 true,
                 "Title",
                 "description  description  description  description  description  description  description  description  description  "
             )
-            GrapesSelectableCardText(
+            GrapesSelectCardText(
                 icon = R.drawable.ic_information,
                 false,
                 "Title",
@@ -122,7 +122,7 @@ private fun GrapesSelectableCardTextPreview() {
                 verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
             ) {
                 item {
-                    GrapesSelectableCardText(
+                    GrapesSelectCardText(
                         modifier = Modifier.clickable { isSelected.intValue = 0 },
                         title = "Title",
                         description = "This is the right description",
@@ -131,7 +131,7 @@ private fun GrapesSelectableCardTextPreview() {
                     )
                 }
                 item {
-                    GrapesSelectableCardText(
+                    GrapesSelectCardText(
                         modifier = Modifier.clickable { isSelected.intValue = 1 },
                         title = "Title 2",
                         description = "Second description",
