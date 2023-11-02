@@ -1,8 +1,6 @@
 package com.spendesk.grapes.compose.selectors
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,7 +17,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.bucket.GrapesBucketContainer
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -28,8 +25,6 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Immutable
 object GrapesSelectBlockDefaultColors {
-
-    val selectedBorderColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val selectedIconColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
     val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.mainComplementary
 }
@@ -43,31 +38,23 @@ fun GrapesSelectBlock(
 ) {
     val bucketSize = 104.dp
 
-    GrapesBucketContainer(
-        modifier = modifier
-            .size(bucketSize)
-            .fillMaxSize()
-            .let { m -> if (isSelected) m.border(GrapesTheme.dimensions.borderLarge, GrapesSelectBlockDefaultColors.selectedBorderColor, GrapesTheme.shapes.small) else m }
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .let { m -> if (isSelected) m.background(color = GrapesSelectableCardTextDefaultColors.selectedBackgroundColor) else m },
-            contentAlignment = Alignment.Center
-        ) {
-            Icon(
-                modifier = Modifier
-                    .padding(start = GrapesTheme.dimensions.paddingLarge, end = GrapesTheme.dimensions.paddingLarge)
-                    .size(GrapesTheme.dimensions.iconLarge)
-                    .fillMaxSize(),
-                painter = painterResource(id = icon),
-                contentDescription = iconDescription,
-                tint = if (isSelected) GrapesSelectBlockDefaultColors.selectedIconColor else GrapesSelectBlockDefaultColors.unselectedIconColor
-            )
+    GrapesSelectBlockContainer(
+        modifier = modifier.size(bucketSize),
+        isSelected = isSelected,
+        content = {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Icon(
+                    modifier = Modifier
+                        .padding(start = GrapesTheme.dimensions.paddingLarge, end = GrapesTheme.dimensions.paddingLarge)
+                        .size(GrapesTheme.dimensions.iconLarge),
+                    painter = painterResource(id = icon),
+                    contentDescription = iconDescription,
+                    tint = if (isSelected) GrapesSelectBlockDefaultColors.selectedIconColor else GrapesSelectBlockDefaultColors.unselectedIconColor
+                )
+            }
         }
-    }
+    )
 }
-
 
 @Preview(showBackground = true, backgroundColor = 0xFFFFFFFF)
 @Composable
