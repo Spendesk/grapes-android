@@ -18,10 +18,12 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -271,6 +273,32 @@ private fun GrapesBasicTextFieldDecorationBox(
     leadingIcon: @Composable (() -> Unit)?,
     trailingIcon: @Composable (() -> Unit)?,
 ) {
+    val styledLeadingIcon: (@Composable () -> Unit)? = leadingIcon?.let {
+        @Composable {
+            val contentColor by colors.leadingIconColor(
+                enabled = enabled,
+                isError = isError,
+            )
+            CompositionLocalProvider(
+                LocalContentColor provides contentColor,
+                content = leadingIcon,
+            )
+        }
+    }
+
+    val styledTrailingIcon: (@Composable () -> Unit)? = trailingIcon?.let {
+        @Composable {
+            val contentColor by colors.trailingIconColor(
+                enabled = enabled,
+                isError = isError,
+            )
+            CompositionLocalProvider(
+                LocalContentColor provides contentColor,
+                content = trailingIcon,
+            )
+        }
+    }
+
     OutlinedTextFieldDefaults.DecorationBox(
         value = value.text,
         innerTextField = innerTextField,
@@ -285,8 +313,8 @@ private fun GrapesBasicTextFieldDecorationBox(
                 color = colors.placeholderColor(enabled = enabled).value,
             )
         },
-        leadingIcon = leadingIcon,
-        trailingIcon = trailingIcon,
+        leadingIcon = styledLeadingIcon,
+        trailingIcon = styledTrailingIcon,
         container = {
             GrapesTextFieldDefaults.BorderBox(
                 enabled = enabled,

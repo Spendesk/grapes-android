@@ -91,6 +91,7 @@ object GrapesTextFieldDefaults {
     }
 
     @Composable
+    @Suppress("LongParameterList")
     fun textFieldColors(
         textColor: Color = GrapesTheme.colors.mainNeutralDarkest,
         disabledTextColor: Color = GrapesTheme.colors.mainNeutralDarkest,
@@ -102,11 +103,11 @@ object GrapesTextFieldDefaults {
         unfocusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
         disabledBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
         errorBorderColor: Color = GrapesTheme.colors.mainAlertNormal,
-        leadingIconColor: Color = Color.Yellow, // Todo replace
-        disabledLeadingIconColor: Color = Color.Yellow, // Todo replace
+        leadingIconColor: Color = GrapesTheme.colors.mainNeutralDarker,
+        disabledLeadingIconColor: Color = leadingIconColor.copy(alpha = ContentAlpha.disabled),
         errorLeadingIconColor: Color = leadingIconColor, // Todo replace
-        trailingIconColor: Color = Color.Yellow, // Todo replace
-        disabledTrailingIconColor: Color = trailingIconColor.copy(alpha = ContentAlpha.disabled), // Todo replace
+        trailingIconColor: Color = GrapesTheme.colors.mainNeutralDarker,
+        disabledTrailingIconColor: Color = trailingIconColor.copy(alpha = ContentAlpha.disabled),
         errorTrailingIconColor: Color = Color.Yellow, // Todo replace
         focusedLabelColor: Color = Color.Yellow, // Todo replace
         unfocusedLabelColor: Color = Color.Yellow, // Todo replace
