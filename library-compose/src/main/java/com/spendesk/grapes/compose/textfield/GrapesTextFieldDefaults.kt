@@ -48,8 +48,8 @@ object GrapesTextFieldDefaults {
 
 
     fun textFieldPadding(
-        start: Dp = TextFieldPaddingVertical,
-        top: Dp = TextFieldPaddingHorizontal,
+        start: Dp = TextFieldPaddingHorizontal,
+        top: Dp = TextFieldPaddingVertical,
         end: Dp = TextFieldPaddingHorizontal,
         bottom: Dp = TextFieldPaddingVertical
     ): PaddingValues = PaddingValues(start, top, end, bottom)
