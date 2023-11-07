@@ -18,6 +18,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
@@ -41,8 +42,9 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 06/01/2023, Fri
  **/
 
-@ExperimentalMaterial3Api
 @Composable
+@ExperimentalMaterial3Api
+@Suppress("LongParameterList")
 internal fun GrapesBaseTextField(
     value: String,
     placeholderValue: String,
@@ -125,8 +127,9 @@ internal fun GrapesBaseTextField(
     )
 }
 
-@ExperimentalMaterial3Api
 @Composable
+@ExperimentalMaterial3Api
+@Suppress("LongParameterList")
 internal fun GrapesBaseTextField(
     value: TextFieldValue,
     placeholderValue: String,
@@ -164,26 +167,50 @@ internal fun GrapesBaseTextField(
     Column(
         modifier = modifier.width(IntrinsicSize.Min)
     ) {
-        GrapesCoreTextField(
-            value = value,
-            placeholderValue = placeholderValue,
-            modifier = Modifier,
-            onValueChange = onValueChange,
+        BasicTextField(
             enabled = enabled,
             readOnly = readOnly,
+            value = value,
+            onValueChange = onValueChange,
             textStyle = mergedTextStyle,
-            isError = isError,
-            keyboardActions = keyboardActions,
-            keyboardOptions = keyboardOptions,
-            singleLine = singleLine,
-            colors = colors,
+            cursorBrush = SolidColor(colors.cursorColor(isError).value),
             visualTransformation = visualTransformation,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
             interactionSource = interactionSource,
-            leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon
+            singleLine = singleLine,
+            decorationBox = @Composable { innerTextField ->
+                GrapesBasicTextFieldDecorationBox(
+                    value = value,
+                    innerTextField = innerTextField,
+                    enabled = enabled,
+                    singleLine = singleLine,
+                    visualTransformation = visualTransformation,
+                    interactionSource = interactionSource,
+                    placeholderValue = placeholderValue,
+                    leadingIcon = leadingIcon,
+                    trailingIcon = trailingIcon,
+                    isError = isError,
+                    colors = colors,
+                )
+            },
+            modifier = Modifier
+                .fillMaxWidth()
+                .defaultMinSize(
+                    minWidth = GrapesTextFieldDefaults.MinWidth,
+                    minHeight = GrapesTextFieldDefaults.MinHeight,
+                )
+                .shadow(
+                    elevation = GrapesTextFieldDefaults.Elevation,
+                    shape = GrapesTextFieldDefaults.TextFieldShape,
+                )
+                .background(
+                    color = colors.backgroundColor(enabled).value,
+                    shape = GrapesTextFieldDefaults.TextFieldShape
+                ),
         )
 
-        if (helperText != null && helperText.isNotEmpty()) {
+        if (!helperText.isNullOrEmpty()) {
             GrapesHelperText(
                 text = helperText,
                 modifier = Modifier.fillMaxWidth(),
@@ -195,6 +222,7 @@ internal fun GrapesBaseTextField(
 }
 
 @Composable
+@Suppress("LongParameterList")
 internal fun GrapesHelperText(
     text: String,
     modifier: Modifier = Modifier,
@@ -227,79 +255,45 @@ internal fun GrapesHelperText(
     }
 }
 
-@ExperimentalMaterial3Api
 @Composable
-private fun GrapesCoreTextField(
+@OptIn(ExperimentalMaterial3Api::class)
+@Suppress("LongParameterList")
+private fun GrapesBasicTextFieldDecorationBox(
     value: TextFieldValue,
     placeholderValue: String,
-    onValueChange: (TextFieldValue) -> Unit,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    readOnly: Boolean = false,
-    textStyle: TextStyle = TextStyle.Default,
-    isError: Boolean = false,
-    keyboardActions: KeyboardActions = KeyboardActions.Default,
-    keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    singleLine: Boolean = false,
-    colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
-    visualTransformation: VisualTransformation = VisualTransformation.None,
-    interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
+    enabled: Boolean,
+    isError: Boolean,
+    singleLine: Boolean,
+    colors: GrapesTextFieldColors,
+    visualTransformation: VisualTransformation,
+    interactionSource: MutableInteractionSource,
+    innerTextField: @Composable () -> Unit,
+    leadingIcon: @Composable (() -> Unit)?,
+    trailingIcon: @Composable (() -> Unit)?,
 ) {
-    BasicTextField(
-        modifier = modifier
-            .fillMaxWidth()
-            .defaultMinSize(
-                minWidth = GrapesTextFieldDefaults.MinWidth,
-                minHeight = GrapesTextFieldDefaults.MinHeight,
-            )
-            .shadow(
-                elevation = GrapesTextFieldDefaults.Elevation,
-                shape = GrapesTextFieldDefaults.TextFieldShape,
-            )
-            .background(
-                color = colors.backgroundColor(enabled).value,
-                shape = GrapesTextFieldDefaults.TextFieldShape
-            ),
+    OutlinedTextFieldDefaults.DecorationBox(
+        value = value.text,
+        innerTextField = innerTextField,
         enabled = enabled,
-        readOnly = readOnly,
-        value = value,
-        onValueChange = onValueChange,
-        textStyle = textStyle,
-        cursorBrush = SolidColor(colors.cursorColor(isError).value),
-        visualTransformation = visualTransformation,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        interactionSource = interactionSource,
         singleLine = singleLine,
-        decorationBox = @Composable { innerTextField ->
-            TextFieldDefaults.OutlinedTextFieldDecorationBox(
-                value = value.text,
-                innerTextField = innerTextField,
-                enabled = enabled,
-                singleLine = singleLine,
-                visualTransformation = visualTransformation,
-                interactionSource = interactionSource,
-                contentPadding = GrapesTextFieldDefaults.textFieldPadding(),
-                placeholder = {
-                    Text(
-                        text = placeholderValue,
-                        style = GrapesTheme.typography.bodyRegular,
-                        color = colors.placeholderColor(enabled = enabled).value,
-                    )
-                },
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
-                container = {
-                    GrapesTextFieldDefaults.BorderBox(
-                        enabled = enabled,
-                        isError = isError,
-                        interactionSource = interactionSource,
-                        colors = colors
-                    )
-                }
+        visualTransformation = visualTransformation,
+        interactionSource = interactionSource,
+        placeholder = {
+            Text(
+                text = placeholderValue,
+                style = GrapesTheme.typography.bodyRegular,
+                color = colors.placeholderColor(enabled = enabled).value,
             )
-        }
+        },
+        leadingIcon = leadingIcon,
+        trailingIcon = trailingIcon,
+        container = {
+            GrapesTextFieldDefaults.BorderBox(
+                enabled = enabled,
+                isError = isError,
+                interactionSource = interactionSource,
+                colors = colors
+            )
+        },
     )
 }
