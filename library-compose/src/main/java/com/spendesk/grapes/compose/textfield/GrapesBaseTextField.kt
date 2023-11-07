@@ -56,6 +56,7 @@ internal fun GrapesBaseTextField(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -116,6 +117,7 @@ internal fun GrapesBaseTextField(
         enabled = enabled,
         readOnly = readOnly,
         textStyle = textStyle,
+        textPadding = textPadding,
         isError = isError,
         onClick = onClick,
         keyboardActions = keyboardActions,
@@ -141,6 +143,7 @@ internal fun GrapesBaseTextField(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
@@ -194,6 +197,7 @@ internal fun GrapesBaseTextField(
                     trailingIcon = trailingIcon,
                     isError = isError,
                     colors = colors,
+                    contentPadding = textPadding,
                 )
             },
             modifier = Modifier
@@ -263,6 +267,7 @@ internal fun GrapesHelperText(
 private fun GrapesBasicTextFieldDecorationBox(
     value: TextFieldValue,
     placeholderValue: String,
+    contentPadding: PaddingValues,
     enabled: Boolean,
     isError: Boolean,
     singleLine: Boolean,
@@ -306,6 +311,7 @@ private fun GrapesBasicTextFieldDecorationBox(
         singleLine = singleLine,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
+        contentPadding = contentPadding,
         placeholder = {
             Text(
                 text = placeholderValue,
