@@ -37,7 +37,7 @@ object GrapesTextFieldDefaults {
     private val BorderThickness = 0.5.dp
 
     val MinWidth = 344.dp
-    val MinHeight = 48.dp
+    val MinHeight = 40.dp
 
     val Elevation = 1.dp
 
