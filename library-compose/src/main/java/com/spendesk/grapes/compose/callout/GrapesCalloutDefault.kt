@@ -28,7 +28,7 @@ internal fun ErrorGrapesCalloutColors(
     containerColor: Color = GrapesTheme.colors.mainAlertLightest,
     titleColor: Color = GrapesTheme.colors.mainAlertNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainAlertNormal,
+    borderStoreColor: Color = GrapesTheme.colors.mainAlertLighter,
 ) : GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
@@ -41,7 +41,7 @@ internal fun WarningGrapesCalloutColors(
     containerColor: Color = GrapesTheme.colors.mainWarningLightest,
     titleColor: Color = GrapesTheme.colors.mainWarningNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainWarningNormal,
+    borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter,
 ) : GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
@@ -54,7 +54,7 @@ internal fun InfoGrapesCalloutColors(
     containerColor: Color = GrapesTheme.colors.mainInfoLightest,
     titleColor: Color = GrapesTheme.colors.mainInfoNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainInfoNormal,
+    borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter,
 ) : GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
@@ -67,7 +67,7 @@ internal fun SuccessGrapesCalloutColors(
     containerColor: Color = GrapesTheme.colors.mainSuccessLightest,
     titleColor: Color = GrapesTheme.colors.mainSuccessNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainSuccessNormal,
+    borderStoreColor: Color = GrapesTheme.colors.mainSuccessLighter,
 ) : GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
@@ -80,7 +80,7 @@ internal fun NeutralGrapesCalloutColors(
     containerColor: Color = GrapesTheme.colors.mainNeutralLighter,
     titleColor: Color = GrapesTheme.colors.mainNeutralDarker,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainNeutralNormal,
+    borderStoreColor: Color = GrapesTheme.colors.mainNeutralLighter,
 ) : GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
