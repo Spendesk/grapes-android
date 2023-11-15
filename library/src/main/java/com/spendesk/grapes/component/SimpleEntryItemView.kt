@@ -49,6 +49,7 @@ class SimpleEntryItemView : ConstraintLayout {
         val isGrayedOut: Boolean = false,
         val isSelected: Boolean = false,
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
+        @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
         val titleEndOptional: CharSequence? = null,
         val badgeNumber: Int? = null,
     ) : Serializable
@@ -144,6 +145,13 @@ class SimpleEntryItemView : ConstraintLayout {
         when (configuration.titleStartDrawable != ResourcesCompat.ID_NULL) {
             true -> binding.simpleEntryItemTitleStart.setDrawableRight(configuration.titleStartDrawable)
             false -> binding.simpleEntryItemTitleStart.removeDrawables()
+        }
+
+        if (configuration.drawableEnd != ResourcesCompat.ID_NULL) {
+            binding.simpleEntryItemDrawableEnd.visible()
+            binding.simpleEntryItemDrawableEnd.setImageResource(configuration.drawableEnd)
+        } else {
+            binding.simpleEntryItemDrawableEnd.gone()
         }
 
         configuration.titleEndOptional

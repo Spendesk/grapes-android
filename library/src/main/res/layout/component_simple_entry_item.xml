@@ -116,7 +116,15 @@
         android:layout_height="wrap_content"
         app:barrierAllowsGoneWidgets="true"
         app:barrierDirection="start"
-        app:constraint_referenced_ids="simpleEntryItemBadge,simpleEntryItemMinEndGuideline" />
+        app:constraint_referenced_ids="simpleEntryItemBadge,simpleEntryItemDrawableEndBarrier" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/simpleEntryItemDrawableEndBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierAllowsGoneWidgets="true"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="simpleEntryItemDrawableEnd,simpleEntryItemMinEndGuideline" />
 
     <!-- endregion Barriers -->
 
@@ -265,10 +273,23 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/listEntryItemBadgeMarginEnd"
         app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemMinHeightGuideline"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/simpleEntryItemDrawableEndBarrier"
         app:layout_constraintStart_toEndOf="@id/simpleEntryItemBadgeBarrier"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="42"
         tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/simpleEntryItemDrawableEnd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/simpleEntryItemMinHeightGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/simpleEntryItemDrawableEndBarrier"
+        app:srcCompat="@drawable/ic_arrow_right"
+        android:padding="@dimen/smallMargin"
+        android:layout_height="@dimen/listEntryItemDrawableEndSize"
+        android:layout_width="@dimen/listEntryItemDrawableEndSize"
+        android:visibility="gone"
+        />
     <!-- endregion Views -->
 </merge>
