@@ -3,6 +3,7 @@ package com.spendesk.grapes.component
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -41,6 +42,8 @@ class SimpleEntryItemView : ConstraintLayout {
         val shouldCircleCropSecondaryImage: Boolean = false,
         @DrawableRes val placeholderSecondaryImage: Int = ResourcesCompat.ID_NULL,
         val imageAltText: CharSequence? = null,
+        @ColorRes val imageAltBackgroundColor: Int = R.color.mainInfoNormal,
+        @ColorRes val imageAltTextColor: Int = R.color.mainWhite,
         val titleStart: CharSequence,
         val descriptionStart: CharSequence? = null,
         val titleEnd: CharSequence? = null,
@@ -97,6 +100,11 @@ class SimpleEntryItemView : ConstraintLayout {
                     }
                     false -> {
                         binding.simpleEntryItemPrimaryImage.gone()
+                        binding.simpleEntryItemImageAltText.backgroundTintList =
+                            ContextCompat.getColorStateList(context, configuration.imageAltBackgroundColor)
+                        binding.simpleEntryItemImageAltText.setTextColor(
+                            ContextCompat.getColor(context, configuration.imageAltTextColor)
+                        )
                         binding.simpleEntryItemImageAltText.visibleWithTextOrGone(configuration.imageAltText)
                     }
                 }
