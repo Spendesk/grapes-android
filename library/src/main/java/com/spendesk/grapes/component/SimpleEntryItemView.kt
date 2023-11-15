@@ -53,6 +53,7 @@ class SimpleEntryItemView : ConstraintLayout {
         val isSelected: Boolean = false,
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
         @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
+        @ColorRes val drawableEndTint: Int = R.color.mainNeutralDark,
         val titleEndOptional: CharSequence? = null,
         val badgeNumber: Int? = null,
     ) : Serializable
@@ -158,6 +159,8 @@ class SimpleEntryItemView : ConstraintLayout {
         if (configuration.drawableEnd != ResourcesCompat.ID_NULL) {
             binding.simpleEntryItemDrawableEnd.visible()
             binding.simpleEntryItemDrawableEnd.setImageResource(configuration.drawableEnd)
+            binding.simpleEntryItemDrawableEnd.imageTintList =
+                ContextCompat.getColorStateList(context, configuration.drawableEndTint)
         } else {
             binding.simpleEntryItemDrawableEnd.gone()
         }
