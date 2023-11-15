@@ -21,7 +21,6 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
@@ -56,12 +55,14 @@ internal fun GrapesBaseTextField(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    singleLine: Boolean = false,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
     textPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    singleLine: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -118,11 +119,13 @@ internal fun GrapesBaseTextField(
         readOnly = readOnly,
         textStyle = textStyle,
         textPadding = textPadding,
+        singleLine = singleLine,
+        minLines = minLines,
+        maxLines = maxLines,
         isError = isError,
         onClick = onClick,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
-        singleLine = singleLine,
         colors = colors,
         visualTransformation = visualTransformation,
         interactionSource = interactionSource,
@@ -145,10 +148,12 @@ internal fun GrapesBaseTextField(
     textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
     textPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
     isError: Boolean = false,
+    singleLine: Boolean = false,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
     onClick: (() -> Unit)? = null,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
-    singleLine: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     visualTransformation: VisualTransformation = VisualTransformation.None,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
@@ -184,6 +189,8 @@ internal fun GrapesBaseTextField(
             keyboardActions = keyboardActions,
             interactionSource = interactionSource,
             singleLine = singleLine,
+            minLines = minLines,
+            maxLines = maxLines,
             decorationBox = @Composable { innerTextField ->
                 GrapesBasicTextFieldDecorationBox(
                     value = value,
@@ -200,7 +207,7 @@ internal fun GrapesBaseTextField(
                     contentPadding = textPadding,
                 )
             },
-            modifier = modifier
+            modifier = Modifier
                 .fillMaxWidth()
                 .defaultMinSize(
                     minWidth = GrapesTextFieldDefaults.MinWidth,
