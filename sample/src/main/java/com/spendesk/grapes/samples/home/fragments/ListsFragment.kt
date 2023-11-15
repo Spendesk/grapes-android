@@ -167,6 +167,22 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
             messageConfiguration = null
         )
 
+        val item16Configuration = SimpleEntryItemView.Configuration(
+            titleStart = "Some title",
+            descriptionStart = "Some long description to test drawable end padding",
+            imageAltText = "2",
+            drawableEnd = R.drawable.ic_arrow_right,
+        )
+
+        val item17Configuration = SimpleEntryItemView.Configuration(
+            titleStart = "Some title",
+            descriptionStart = "Some long description to test drawable end padding",
+            imageAltText = "2",
+            drawableEnd = R.drawable.ic_arrow_right,
+            imageAltBackgroundColor = R.color.mainAlertNormal,
+            imageAltTextColor = R.color.black,
+        )
+
         // Sections
         val section1Configuration = SimpleSectionItemView.Configuration(
             iconStart = R.drawable.ic_crop,
@@ -200,7 +216,9 @@ class ListsFragment : Fragment(R.layout.fragment_home_lists) {
                 SimpleListModel.Item(id = "12", configuration = item12Configuration),
                 SimpleListModel.Item(id = "13", configuration = item13Configuration),
                 SimpleListModel.Item(id = "14", configuration = item14Configuration),
-                SimpleListModel.Item(id = "15", configuration = item15Configuration)
+                SimpleListModel.Item(id = "15", configuration = item15Configuration),
+                SimpleListModel.Item(id = "16", configuration = item16Configuration),
+                SimpleListModel.Item(id = "17", configuration = item17Configuration),
             )
         )
     }
