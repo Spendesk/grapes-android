@@ -200,7 +200,7 @@ internal fun GrapesBaseTextField(
                     contentPadding = textPadding,
                 )
             },
-            modifier = Modifier
+            modifier = modifier
                 .fillMaxWidth()
                 .defaultMinSize(
                     minWidth = GrapesTextFieldDefaults.MinWidth,
