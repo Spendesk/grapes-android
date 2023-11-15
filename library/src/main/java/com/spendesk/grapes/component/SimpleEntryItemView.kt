@@ -3,6 +3,7 @@ package com.spendesk.grapes.component
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
@@ -41,6 +42,8 @@ class SimpleEntryItemView : ConstraintLayout {
         val shouldCircleCropSecondaryImage: Boolean = false,
         @DrawableRes val placeholderSecondaryImage: Int = ResourcesCompat.ID_NULL,
         val imageAltText: CharSequence? = null,
+        @ColorRes val imageAltBackgroundColor: Int = R.color.mainInfoNormal,
+        @ColorRes val imageAltTextColor: Int = R.color.mainWhite,
         val titleStart: CharSequence,
         val descriptionStart: CharSequence? = null,
         val titleEnd: CharSequence? = null,
@@ -49,6 +52,8 @@ class SimpleEntryItemView : ConstraintLayout {
         val isGrayedOut: Boolean = false,
         val isSelected: Boolean = false,
         @DrawableRes val titleStartDrawable: Int = ResourcesCompat.ID_NULL,
+        @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
+        @ColorRes val drawableEndTint: Int = R.color.mainNeutralDark,
         val titleEndOptional: CharSequence? = null,
         val badgeNumber: Int? = null,
     ) : Serializable
@@ -96,6 +101,11 @@ class SimpleEntryItemView : ConstraintLayout {
                     }
                     false -> {
                         binding.simpleEntryItemPrimaryImage.gone()
+                        binding.simpleEntryItemImageAltText.backgroundTintList =
+                            ContextCompat.getColorStateList(context, configuration.imageAltBackgroundColor)
+                        binding.simpleEntryItemImageAltText.setTextColor(
+                            ContextCompat.getColor(context, configuration.imageAltTextColor)
+                        )
                         binding.simpleEntryItemImageAltText.visibleWithTextOrGone(configuration.imageAltText)
                     }
                 }
@@ -144,6 +154,15 @@ class SimpleEntryItemView : ConstraintLayout {
         when (configuration.titleStartDrawable != ResourcesCompat.ID_NULL) {
             true -> binding.simpleEntryItemTitleStart.setDrawableRight(configuration.titleStartDrawable)
             false -> binding.simpleEntryItemTitleStart.removeDrawables()
+        }
+
+        if (configuration.drawableEnd != ResourcesCompat.ID_NULL) {
+            binding.simpleEntryItemDrawableEnd.visible()
+            binding.simpleEntryItemDrawableEnd.setImageResource(configuration.drawableEnd)
+            binding.simpleEntryItemDrawableEnd.imageTintList =
+                ContextCompat.getColorStateList(context, configuration.drawableEndTint)
+        } else {
+            binding.simpleEntryItemDrawableEnd.gone()
         }
 
         configuration.titleEndOptional
