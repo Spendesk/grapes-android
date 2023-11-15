@@ -48,6 +48,7 @@ import kotlinx.coroutines.launch
  * @author jean-philippe
  * @since 05/01/2023, Thu
  **/
+@SuppressWarnings("LongParameterList")
 @ExperimentalMaterial3Api
 @Composable
 fun GrapesTextInput(
@@ -62,6 +63,9 @@ fun GrapesTextInput(
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
+    singleLine: Boolean = true,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -82,13 +86,16 @@ fun GrapesTextInput(
         onClick = onClick,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
-        singleLine = true,
+        singleLine = singleLine,
+        minLines = minLines,
+        maxLines = maxLines,
         visualTransformation = visualTransformation,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon
     )
 }
 
+@SuppressWarnings("LongParameterList")
 @ExperimentalMaterial3Api
 @Composable
 fun GrapesTextInput(
@@ -103,6 +110,9 @@ fun GrapesTextInput(
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
+    singleLine: Boolean = true,
+    maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
+    minLines: Int = 1,
     keyboardActions: KeyboardActions = KeyboardActions.Default,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -121,9 +131,11 @@ fun GrapesTextInput(
         colors = colors,
         isError = isError,
         onClick = onClick,
+        singleLine = singleLine,
+        minLines = minLines,
+        maxLines = maxLines,
         keyboardActions = keyboardActions,
         keyboardOptions = keyboardOptions,
-        singleLine = true,
         visualTransformation = visualTransformation,
         leadingIcon = leadingIcon,
         trailingIcon = trailingIcon
@@ -138,6 +150,7 @@ fun GrapesTextInput(
 fun PreviewGrapesTextField() {
 
     var isEnabled by remember { mutableStateOf(true) }
+    var isSingleLine by remember { mutableStateOf(false) }
     var isReadOnly by remember { mutableStateOf(false) }
     var showLeadingIcon by remember { mutableStateOf(false) }
     var showTrailingIcon by remember { mutableStateOf(false) }
@@ -262,6 +275,12 @@ fun PreviewGrapesTextField() {
                                 isChecked = isReadOnly,
                                 onCheckedChange = { isChecked -> isReadOnly = isChecked }
                             )
+
+                            PreviewRowOptionSwitch(
+                                label = "SingleLIne",
+                                isChecked = isSingleLine,
+                                onCheckedChange = { isChecked -> isSingleLine = isChecked }
+                            )
                         }
                     )
                 }
@@ -273,6 +292,7 @@ fun PreviewGrapesTextField() {
                     placeholderValue = "This is a placeholder",
                     enabled = isEnabled,
                     readOnly = isReadOnly,
+                    singleLine = isSingleLine,
                     helperText = helperText,
                     isError = isError,
                     onValueChange = { textFieldValue = it },
