@@ -16,6 +16,9 @@ data class GrapesDimensions(
 
     val borderLarge: Dp = 2.0.dp,
 
+    val borderRadiusSmall: Dp = 2.dp,
+    val borderRadiusNormal: Dp = 4.dp,
+
     val paddingXSmall: Dp = 4.dp,
     val paddingSmall: Dp = 8.dp,
     val paddingMedium: Dp = 12.dp,
@@ -25,7 +28,10 @@ data class GrapesDimensions(
     val elevationNormal: Dp = 8.dp,
 
     val iconNormal: Dp = 16.dp,
-    val iconLarge: Dp = 32.dp
+    val iconLarge: Dp = 32.dp,
+
+    val gaugeHeight: Dp = 16.dp,
+    val gaugeDelimiterWidth: Dp = 2.dp
 )
 
 internal val LocalGrapesDimensions = staticCompositionLocalOf { GrapesDimensions() }
