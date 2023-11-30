@@ -57,10 +57,6 @@ fun ActionMenuSection(
                 title = title,
                 description = description,
                 illustration = illustration,
-                modifier = Modifier.padding(
-                    top = GrapesTheme.dimensions.paddingSmall,
-                    end = GrapesTheme.dimensions.paddingSmall,
-                )
             )
             content()
         }
@@ -81,6 +77,7 @@ private fun ActionMenuSectionHeader(
     ) {
         Box(
             content = { illustration() },
+            contentAlignment = Alignment.Center,
             modifier = Modifier.sizeIn(
                 maxWidth = iconMaxSize,
                 maxHeight = iconMaxSize,
@@ -88,6 +85,11 @@ private fun ActionMenuSectionHeader(
         )
         Column(
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall),
+            modifier = Modifier.padding(
+                bottom = GrapesTheme.dimensions.paddingSmall,
+                top = GrapesTheme.dimensions.paddingSmall,
+                end = GrapesTheme.dimensions.paddingSmall,
+            )
         ) {
             Text(
                 text = title,
