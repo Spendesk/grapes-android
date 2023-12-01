@@ -28,6 +28,7 @@ data class GrapesTypography constructor(
     val bodyL: TextStyle,
     val bodyXl: TextStyle,
     val bodyXxl: TextStyle,
+    val titleXs: TextStyle,
     val titleS: TextStyle,
     val titleM: TextStyle,
     val titleL: TextStyle,
@@ -63,6 +64,10 @@ data class GrapesTypography constructor(
             fontWeight = FontWeight.Normal,
             fontSize = 56.sp,
         ),
+        titleXs: TextStyle = TextStyle(
+            fontWeight = FontWeight.Medium,
+            fontSize = 12.sp,
+        ),
         titleS: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
             fontSize = 14.sp,
@@ -80,17 +85,18 @@ data class GrapesTypography constructor(
             fontSize = 32.sp,
         ),
     ) : this(
-        bodyXs.withDefaultFontFamily(defaultFontFamily),
-        bodyS.withDefaultFontFamily(defaultFontFamily),
-        bodyRegular.withDefaultFontFamily(defaultFontFamily),
-        bodyM.withDefaultFontFamily(defaultFontFamily),
-        bodyL.withDefaultFontFamily(defaultFontFamily),
-        bodyXl.withDefaultFontFamily(defaultFontFamily),
-        bodyXxl.withDefaultFontFamily(defaultFontFamily),
-        titleS.withDefaultFontFamily(defaultFontFamily),
-        titleM.withDefaultFontFamily(defaultFontFamily),
-        titleL.withDefaultFontFamily(defaultFontFamily),
-        titleXl.withDefaultFontFamily(defaultFontFamily),
+        bodyXs = bodyXs.withDefaultFontFamily(defaultFontFamily),
+        bodyS = bodyS.withDefaultFontFamily(defaultFontFamily),
+        bodyRegular = bodyRegular.withDefaultFontFamily(defaultFontFamily),
+        bodyM = bodyM.withDefaultFontFamily(defaultFontFamily),
+        bodyL = bodyL.withDefaultFontFamily(defaultFontFamily),
+        bodyXl = bodyXl.withDefaultFontFamily(defaultFontFamily),
+        bodyXxl = bodyXxl.withDefaultFontFamily(defaultFontFamily),
+        titleXs = titleXs.withDefaultFontFamily(defaultFontFamily),
+        titleS = titleS.withDefaultFontFamily(defaultFontFamily),
+        titleM = titleM.withDefaultFontFamily(defaultFontFamily),
+        titleL = titleL.withDefaultFontFamily(defaultFontFamily),
+        titleXl = titleXl.withDefaultFontFamily(defaultFontFamily),
     )
 }
 
