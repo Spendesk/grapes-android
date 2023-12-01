@@ -59,7 +59,7 @@ fun GrapesTopAppBarTitle(
     Text(
         modifier = modifier,
         text = title,
-        color = GrapesTheme.colors.mainComplementary,
+        color = GrapesTheme.colors.structureComplementary,
         maxLines = 2,
         overflow = TextOverflow.Ellipsis,
         style = GrapesTheme.typography.titleL,
@@ -106,7 +106,7 @@ fun GrapesTopAppBarBackIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_arrow_back),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_back_icon_description),
-        tint = GrapesTheme.colors.mainComplementary
+        tint = GrapesTheme.colors.structureComplementary,
     )
 }
 
@@ -118,7 +118,7 @@ fun GrapesTopAppBarCloseIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_close),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_close_icon_description),
-        tint = GrapesTheme.colors.mainComplementary
+        tint = GrapesTheme.colors.structureComplementary
     )
 }
 
@@ -130,7 +130,7 @@ fun GrapesTopAppBarMoreIcon(
         modifier = modifier.size(24.dp),
         imageVector = ImageVector.vectorResource(R.drawable.ic_more_vertical),
         contentDescription = stringResource(id = R.string.grapes_top_app_bar_more_icon_description),
-        tint = GrapesTheme.colors.mainComplementary
+        tint = GrapesTheme.colors.structureComplementary
     )
 }
 
@@ -142,7 +142,7 @@ fun GrapesSimpleTopAppBarPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainNeutralLighter)
+                .background(GrapesTheme.colors.structureBackground)
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(8.dp)
         ) {
