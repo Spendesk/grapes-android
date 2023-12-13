@@ -66,7 +66,7 @@ fun ActionMenuItem(
             top = verticalInnerPadding,
             bottom = verticalInnerPadding,
         ),
-        shape = GrapesTheme.shapes.small,
+        shape = GrapesTheme.shapes.shape2,
         modifier = modifier,
     ) {
         Row(

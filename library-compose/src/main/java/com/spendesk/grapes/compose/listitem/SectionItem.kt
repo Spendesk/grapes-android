@@ -61,7 +61,7 @@ private fun Preview() {
             icon = { modifier ->
                 Box(
                     modifier
-                        .clip(GrapesTheme.shapes.small)
+                        .clip(GrapesTheme.shapes.shape2)
                         .background(Color.Blue))
             },
             description = "85.99€ per month",

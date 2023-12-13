@@ -16,9 +16,6 @@ data class GrapesDimensions(
 
     val borderLarge: Dp = 2.0.dp,
 
-    val borderRadiusSmall: Dp = 2.dp,
-    val borderRadiusNormal: Dp = 4.dp,
-
     @Deprecated("Grapes dimension deprecated", ReplaceWith("spacing1"))
     val paddingXSmall: Dp = 4.dp,
     @Deprecated("Grapes dimension deprecated", ReplaceWith("spacing2"))
