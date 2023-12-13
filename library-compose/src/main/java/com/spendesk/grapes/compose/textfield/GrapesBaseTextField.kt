@@ -240,7 +240,7 @@ internal fun GrapesHelperText(
     text: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    textStyle: TextStyle = GrapesTheme.typography.bodyXs,
+    textStyle: TextStyle = GrapesTheme.typography.bodyS,
     isError: Boolean = false,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     contentPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
