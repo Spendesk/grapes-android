@@ -21,14 +21,11 @@ private val DefaultGrapesFontFamily = FontFamily(
 
 @Immutable
 data class GrapesTypography constructor(
-    val bodyXs: TextStyle,
     val bodyS: TextStyle,
-    val bodyRegular: TextStyle,
     val bodyM: TextStyle,
     val bodyL: TextStyle,
     val bodyXl: TextStyle,
     val bodyXxl: TextStyle,
-    val titleXs: TextStyle,
     val titleS: TextStyle,
     val titleM: TextStyle,
     val titleL: TextStyle,
@@ -36,63 +33,48 @@ data class GrapesTypography constructor(
 ) {
     constructor(
         defaultFontFamily: FontFamily = DefaultGrapesFontFamily,
-        bodyXs: TextStyle = TextStyle(
-            fontWeight = FontWeight.Normal,
-            fontSize = 12.sp,
-        ),
         bodyS: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
-            fontSize = 14.sp,
-        ),
-        bodyRegular: TextStyle = TextStyle(
-            fontWeight = FontWeight.Normal,
-            fontSize = 16.sp,
+            fontSize = 12.sp,
         ),
         bodyM: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
-            fontSize = 24.sp,
+            fontSize = 14.sp,
         ),
         bodyL: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
-            fontSize = 32.sp,
+            fontSize = 16.sp
         ),
         bodyXl: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
-            fontSize = 40.sp,
+            fontSize = 20.sp
         ),
         bodyXxl: TextStyle = TextStyle(
             fontWeight = FontWeight.Normal,
-            fontSize = 56.sp,
-        ),
-        titleXs: TextStyle = TextStyle(
-            fontWeight = FontWeight.Medium,
-            fontSize = 12.sp,
+            fontSize = 40.sp
         ),
         titleS: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
-            fontSize = 14.sp,
+            fontSize = 12.sp,
         ),
         titleM: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
-            fontSize = 16.sp,
+            fontSize = 14.sp,
         ),
         titleL: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
-            fontSize = 18.sp,
+            fontSize = 16.sp,
         ),
         titleXl: TextStyle = TextStyle(
             fontWeight = FontWeight.Medium,
-            fontSize = 32.sp,
+            fontSize = 20.sp,
         ),
     ) : this(
-        bodyXs = bodyXs.withDefaultFontFamily(defaultFontFamily),
         bodyS = bodyS.withDefaultFontFamily(defaultFontFamily),
-        bodyRegular = bodyRegular.withDefaultFontFamily(defaultFontFamily),
         bodyM = bodyM.withDefaultFontFamily(defaultFontFamily),
         bodyL = bodyL.withDefaultFontFamily(defaultFontFamily),
         bodyXl = bodyXl.withDefaultFontFamily(defaultFontFamily),
         bodyXxl = bodyXxl.withDefaultFontFamily(defaultFontFamily),
-        titleXs = titleXs.withDefaultFontFamily(defaultFontFamily),
         titleS = titleS.withDefaultFontFamily(defaultFontFamily),
         titleM = titleM.withDefaultFontFamily(defaultFontFamily),
         titleL = titleL.withDefaultFontFamily(defaultFontFamily),
