@@ -47,7 +47,7 @@ fun GrapesRadioButtonText(
         Text(
             text = text,
             color = GrapesTheme.colors.mainNeutralDarker,
-            style = GrapesTheme.typography.bodyRegular
+            style = GrapesTheme.typography.bodyL
         )
     }
 

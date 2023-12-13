@@ -72,7 +72,7 @@ fun AskTemplate(
         if (description != null) {
             Text(
                 text = description,
-                style = GrapesTheme.typography.bodyRegular,
+                style = GrapesTheme.typography.bodyL,
                 color = GrapesTheme.colors.mainWhite,
                 textAlign = TextAlign.Center
             )

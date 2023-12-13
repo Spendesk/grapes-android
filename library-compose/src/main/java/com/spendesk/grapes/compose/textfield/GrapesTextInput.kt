@@ -59,7 +59,7 @@ fun GrapesTextInput(
     helperText: String? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textStyle: TextStyle = GrapesTheme.typography.bodyL,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
@@ -106,7 +106,7 @@ fun GrapesTextInput(
     helperText: String? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textStyle: TextStyle = GrapesTheme.typography.bodyL,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(),
     isError: Boolean = false,
     onClick: (() -> Unit)? = null,
@@ -352,7 +352,7 @@ private fun PreviewRowOptionSwitch(
         Text(
             modifier = Modifier,
             text = label,
-            style = GrapesTheme.typography.bodyRegular,
+            style = GrapesTheme.typography.bodyL,
         )
         Switch(
             modifier = Modifier,

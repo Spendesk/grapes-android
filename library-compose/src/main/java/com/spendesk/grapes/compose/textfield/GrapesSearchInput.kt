@@ -40,7 +40,7 @@ fun GrapesSearchInputSecondary(
     enabled: Boolean = true,
     readOnly: Boolean = false,
     singleLine: Boolean = true,
-    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textStyle: TextStyle = GrapesTheme.typography.bodyL,
     colors: GrapesTextFieldColors = GrapesTextFieldDefaults.textFieldColors(
         backgroundColor = GrapesTheme.colors.mainNeutralLighter,
         leadingIconColor = GrapesTheme.colors.mainNeutralNormal,

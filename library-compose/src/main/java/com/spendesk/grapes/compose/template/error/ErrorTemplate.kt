@@ -52,7 +52,7 @@ fun ErrorTemplate(
             {
                 Text(
                     text = it,
-                    style = GrapesTheme.typography.bodyRegular,
+                    style = GrapesTheme.typography.bodyL,
                     textAlign = TextAlign.Center
                 )
             }

@@ -54,7 +54,7 @@ internal fun GrapesBaseTextField(
     helperText: String? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textStyle: TextStyle = GrapesTheme.typography.bodyL,
     singleLine: Boolean = false,
     maxLines: Int = if (singleLine) 1 else Int.MAX_VALUE,
     minLines: Int = 1,
@@ -145,7 +145,7 @@ internal fun GrapesBaseTextField(
     helperText: String? = null,
     enabled: Boolean = true,
     readOnly: Boolean = false,
-    textStyle: TextStyle = GrapesTheme.typography.bodyRegular,
+    textStyle: TextStyle = GrapesTheme.typography.bodyL,
     textPadding: PaddingValues = GrapesTextFieldDefaults.textFieldPadding(),
     isError: Boolean = false,
     singleLine: Boolean = false,
@@ -322,7 +322,7 @@ private fun GrapesBasicTextFieldDecorationBox(
         placeholder = {
             Text(
                 text = placeholderValue,
-                style = GrapesTheme.typography.bodyRegular,
+                style = GrapesTheme.typography.bodyL,
                 color = colors.placeholderColor(enabled = enabled).value,
             )
         },
