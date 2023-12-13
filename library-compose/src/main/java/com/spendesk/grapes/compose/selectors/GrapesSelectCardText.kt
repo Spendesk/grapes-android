@@ -85,7 +85,7 @@ fun GrapesSelectCardText(
                         color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedDescriptionColor else GrapesSelectCardTextDefaultColors.unselectedDescriptionColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 2,
-                        style = GrapesTheme.typography.bodyS,
+                        style = GrapesTheme.typography.bodyM,
                         text = description
                     )
                 }
