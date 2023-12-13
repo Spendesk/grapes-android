@@ -32,9 +32,9 @@ private fun AskTemplate(
     InformativeComponent(
         middlePart = {
             Column(
-                modifier = Modifier.padding(GrapesTheme.dimensions.paddingSmall),
+                modifier = Modifier.padding(GrapesTheme.dimensions.spacing2),
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
             ) {
                 header()
                 title()

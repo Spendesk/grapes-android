@@ -29,7 +29,7 @@ fun GrapesBadge(
         text = content,
         modifier = modifier
             .background(backgroundColor, RoundedCornerShape(100))
-            .padding(horizontal = GrapesTheme.dimensions.paddingLarge, vertical = GrapesTheme.dimensions.paddingXSmall),
+            .padding(horizontal = GrapesTheme.dimensions.spacing3, vertical = GrapesTheme.dimensions.spacing1),
         style = GrapesTheme.typography.titleM,
         color = GrapesTheme.colors.mainWhite
     )
@@ -39,7 +39,7 @@ fun GrapesBadge(
 @Composable
 fun GrapesBadgePreview() {
     GrapesTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1)) {
             GrapesBadge(content = "Message Inline Success", configuration = GrapesConfigurationStatus.SUCCESS)
             GrapesBadge(content = "Message Inline Information", configuration = GrapesConfigurationStatus.INFORMATION)
             GrapesBadge(content = "Message Inline Neutral", configuration = GrapesConfigurationStatus.NEUTRAL)

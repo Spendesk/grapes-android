@@ -223,7 +223,7 @@ private fun RowScope.BoxedIcon(
     iconSize: Dp,
     icon: @Composable () -> Unit,
 ) {
-    val paddingValues = PaddingValues(end = GrapesTheme.dimensions.paddingSmall)
+    val paddingValues = PaddingValues(end = GrapesTheme.dimensions.spacing2)
     val direction = LocalLayoutDirection.current
     Box(
         modifier = Modifier

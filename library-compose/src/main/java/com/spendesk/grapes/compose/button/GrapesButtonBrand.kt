@@ -109,8 +109,8 @@ private fun GrapesButtonBrandPreview() {
             modifier = Modifier
                 .fillMaxSize()
                 .background(GrapesTheme.colors.mainBackground)
-                .padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+                .padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
             GrapesGoogleButton(label = "Register to Google", onClick = { /*TODO*/ })
             GrapesMicrosoftButton(label = "Register to Microsoft", onClick = { /*TODO*/ })

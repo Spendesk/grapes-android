@@ -78,7 +78,7 @@ private fun PasswordValidationItem(
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing2)
     ) {
         Box(modifier = Modifier.size(PasswordValidationDefaults.ValidationBoxSize), contentAlignment = Alignment.Center) {
             Icon(painter = painterResource(id = itemIcon), contentDescription = null, tint = itemColor, modifier = Modifier.size(iconSize))

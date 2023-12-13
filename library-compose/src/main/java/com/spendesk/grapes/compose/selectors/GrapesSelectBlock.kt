@@ -45,7 +45,7 @@ fun GrapesSelectBlock(
             Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                 Icon(
                     modifier = Modifier
-                        .padding(start = GrapesTheme.dimensions.paddingLarge, end = GrapesTheme.dimensions.paddingLarge)
+                        .padding(start = GrapesTheme.dimensions.spacing3, end = GrapesTheme.dimensions.spacing3)
                         .size(GrapesTheme.dimensions.iconLarge),
                     painter = painterResource(id = icon),
                     contentDescription = iconDescription,
