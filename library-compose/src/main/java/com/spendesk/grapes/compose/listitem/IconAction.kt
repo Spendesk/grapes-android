@@ -50,7 +50,7 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
             modifier = Modifier.weight(1f),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1)
         ) {
-            Text(text = iconActionConfiguration.title, style = GrapesTheme.typography.titleM, color = titleColor)
+            Text(text = iconActionConfiguration.title, style = GrapesTheme.typography.titleL, color = titleColor)
             iconActionConfiguration.description?.let {
                 Text(text = it, style = GrapesTheme.typography.bodyS, color = GrapesTheme.colors.mainNeutralDarker)
             }

@@ -77,7 +77,7 @@ fun GrapesSelectCardText(
                         color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedTitleColor else GrapesSelectCardTextDefaultColors.unselectedTitleColor,
                         overflow = TextOverflow.Ellipsis,
                         maxLines = 1,
-                        style = GrapesTheme.typography.titleM,
+                        style = GrapesTheme.typography.titleL,
                         text = title
                     )
                     Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.spacing1))
