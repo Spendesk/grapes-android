@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.sp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.button.GrapesButton
 import com.spendesk.grapes.compose.button.GrapesButtonStyleDefaults
@@ -61,7 +62,7 @@ fun AskTemplate(
     val titleText = @Composable {
         Text(
             text = title,
-            style = GrapesTheme.typography.titleXl,
+            style = GrapesTheme.typography.titleXl.copy(fontSize = 32.sp),
             color = GrapesTheme.colors.mainWhite,
             textAlign = TextAlign.Center
         )
