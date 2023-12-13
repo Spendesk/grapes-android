@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 fun lightColorsPalette(
     legacyPrimaryDark: Color = mainPrimaryDark,
     legacyPrimaryLighter: Color = mainPrimaryLighter,
-    primaryDarker: Color = daisyBush,
+    primaryDark: Color = daisyBush,
     primaryNormal: Color = purpleHeart,
     primaryLight: Color = purpleHeartLight,
     primaryLighter: Color = moonRaker,
@@ -81,7 +81,7 @@ fun lightColorsPalette(
     mainAlertLighter = alertLighter,
     mainAlertLightest = alertLightest,
     google = google,
-    primaryDarker = primaryDarker,
+    primaryDark = primaryDark,
     primaryNormal = primaryNormal,
     primaryLight = primaryLight,
     primaryLighter = primaryLighter,
