@@ -31,7 +31,7 @@ internal fun InformativeComponent(
                     listOf(GrapesTheme.colors.mainPrimaryNormal, GrapesTheme.colors.mainPrimaryDark)
                 )
             )
-            .padding(GrapesTheme.dimensions.paddingLarge),
+            .padding(GrapesTheme.dimensions.spacing3),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.weight(1f))

@@ -134,8 +134,8 @@ fun PinTextInputPreview() {
                     GrapesTheme.colors.mainBackground
                 )
                 .fillMaxWidth()
-                .padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+                .padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
             GrapesPinTextField("", {})
             GrapesPinTextField("12", {})

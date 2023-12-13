@@ -49,7 +49,7 @@ fun GrapesCheckboxText(
             isEnabled = isEnabled,
             onCheckedChange = { onToggleCheck.invoke() },
         )
-        Spacer(Modifier.padding(end = GrapesTheme.dimensions.paddingSmall))
+        Spacer(Modifier.padding(end = GrapesTheme.dimensions.spacing2))
         Text(
             text = text,
             color = GrapesTheme.colors.mainComplementary,

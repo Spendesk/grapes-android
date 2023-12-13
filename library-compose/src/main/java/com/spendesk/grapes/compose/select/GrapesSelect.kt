@@ -99,11 +99,11 @@ private fun Select(
 
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge),
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
         modifier = modifier
             .background(itemColor, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
             .border(1.dp, GrapesTheme.colors.mainNeutralLight, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
-            .padding(horizontal = GrapesTheme.dimensions.paddingLarge, vertical = GrapesTheme.dimensions.paddingMedium)
+            .padding(horizontal = GrapesTheme.dimensions.spacing3, vertical = GrapesTheme.dimensions.paddingMedium)
     ) {
         Text(text = label, style = GrapesTheme.typography.titleS, color = contentColor)
 

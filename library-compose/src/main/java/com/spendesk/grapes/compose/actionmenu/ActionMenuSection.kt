@@ -50,8 +50,8 @@ fun ActionMenuSection(
         shape = sectionShape,
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall),
-            modifier = Modifier.padding(GrapesTheme.dimensions.paddingSmall),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing2),
+            modifier = Modifier.padding(GrapesTheme.dimensions.spacing2),
         ) {
             ActionMenuSectionHeader(
                 title = title,
@@ -71,7 +71,7 @@ private fun ActionMenuSectionHeader(
     modifier: Modifier = Modifier,
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall),
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing2),
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier,
     ) {
@@ -84,11 +84,11 @@ private fun ActionMenuSectionHeader(
             ),
         )
         Column(
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1),
             modifier = Modifier.padding(
-                bottom = GrapesTheme.dimensions.paddingSmall,
-                top = GrapesTheme.dimensions.paddingSmall,
-                end = GrapesTheme.dimensions.paddingSmall,
+                bottom = GrapesTheme.dimensions.spacing2,
+                top = GrapesTheme.dimensions.spacing2,
+                end = GrapesTheme.dimensions.spacing2,
             )
         ) {
             Text(

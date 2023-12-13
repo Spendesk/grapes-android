@@ -55,7 +55,7 @@ fun GrapesSelectCardText(
         isSelected = isSelected,
         content = {
             Row(
-                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.paddingLarge),
+                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.spacing3),
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
@@ -64,12 +64,12 @@ fun GrapesSelectCardText(
                     contentDescription = iconDescription,
                     tint = if (isSelected) GrapesSelectCardTextDefaultColors.selectedIconColor else GrapesSelectCardTextDefaultColors.unselectedIconColor
                 )
-                Spacer(Modifier.size(GrapesTheme.dimensions.paddingLarge))
+                Spacer(Modifier.size(GrapesTheme.dimensions.spacing3))
                 Column(
                     modifier = Modifier
                         .padding(
-                            top = GrapesTheme.dimensions.paddingXLarge,
-                            bottom = GrapesTheme.dimensions.paddingXLarge
+                            top = GrapesTheme.dimensions.spacing4,
+                            bottom = GrapesTheme.dimensions.spacing4
                         ),
                     verticalArrangement = Arrangement.Center
                 ) {
@@ -80,7 +80,7 @@ fun GrapesSelectCardText(
                         style = GrapesTheme.typography.titleM,
                         text = title
                     )
-                    Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.paddingXSmall))
+                    Spacer(modifier = Modifier.padding(GrapesTheme.dimensions.spacing1))
                     Text(
                         color = if (isSelected) GrapesSelectCardTextDefaultColors.selectedDescriptionColor else GrapesSelectCardTextDefaultColors.unselectedDescriptionColor,
                         overflow = TextOverflow.Ellipsis,
@@ -118,8 +118,8 @@ private fun GrapesSelectCardTextPreview() {
             var isSelected = remember { mutableIntStateOf(0) }
 
             LazyColumn(
-                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.paddingLarge),
-                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.spacing3),
+                verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
             ) {
                 item {
                     GrapesSelectCardText(

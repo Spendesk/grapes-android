@@ -32,10 +32,10 @@ fun SectionItem(
     icon: @Composable (Modifier) -> Unit = {},
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge),
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.padding(
-            horizontal = GrapesTheme.dimensions.paddingLarge,
+            horizontal = GrapesTheme.dimensions.spacing3,
             vertical = GrapesTheme.dimensions.paddingMedium,
         ),
     ) {

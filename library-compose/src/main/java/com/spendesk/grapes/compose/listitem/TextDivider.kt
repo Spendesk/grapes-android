@@ -28,7 +28,7 @@ fun TextDivider(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge),
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
         modifier = modifier.fillMaxWidth()
     ) {
         GrapesDivider(modifier = Modifier.weight(1f), color = color)
@@ -45,8 +45,8 @@ private fun TextDividerPreview() {
             modifier = Modifier
                 .fillMaxSize()
                 .background(GrapesTheme.colors.mainBackground)
-                .padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+                .padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
             TextDivider(text = "OR")
         }
