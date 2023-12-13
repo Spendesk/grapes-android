@@ -61,12 +61,12 @@ fun ActionMenuItem(
             disabledContentColor = GrapesTheme.colors.neutralNormal,
         ),
         contentPadding = PaddingValues(
-            start = GrapesTheme.dimensions.paddingXLarge,
-            end = GrapesTheme.dimensions.paddingLarge,
+            start = GrapesTheme.dimensions.spacing4,
+            end = GrapesTheme.dimensions.spacing3,
             top = verticalInnerPadding,
             bottom = verticalInnerPadding,
         ),
-        shape = GrapesTheme.shapes.small,
+        shape = GrapesTheme.shapes.shape2,
         modifier = modifier,
     ) {
         Row(
@@ -76,16 +76,16 @@ fun ActionMenuItem(
                 enabled = enabled,
                 icon = icon,
             )
-            Spacer(Modifier.width(GrapesTheme.dimensions.paddingXLarge))
+            Spacer(Modifier.width(GrapesTheme.dimensions.spacing4))
             Text(
                 text = text,
                 maxLines = ACTION_TEXT_MAX_LINES,
                 overflow = TextOverflow.Ellipsis,
-                style = GrapesTheme.typography.titleS,
+                style = GrapesTheme.typography.titleM,
                 modifier = Modifier.weight(1f),
             )
             if (enabled) {
-                Spacer(Modifier.width(GrapesTheme.dimensions.paddingLarge))
+                Spacer(Modifier.width(GrapesTheme.dimensions.spacing3))
                 Icon(
                     painter = painterResource(R.drawable.ic_chevron_right),
                     contentDescription = null,

@@ -40,19 +40,19 @@ fun GrapesInformationCard(
         border = border,
     ) {
         Column(
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge),
-            modifier = Modifier.padding(vertical = GrapesTheme.dimensions.paddingLarge),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
+            modifier = Modifier.padding(vertical = GrapesTheme.dimensions.spacing3),
         ) {
             Text(
                 text = title,
-                style = GrapesTheme.typography.titleS,
-                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.paddingLarge),
+                style = GrapesTheme.typography.titleM,
+                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.spacing3),
             )
             GrapesDivider()
             Column(
                 verticalArrangement = contentVerticalArrangement,
                 content = content,
-                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.paddingLarge),
+                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.spacing3),
             )
         }
     }
@@ -72,7 +72,7 @@ object GrapesInformationCardDefaults {
     )
 
     val contentVerticalArrangement: Arrangement.HorizontalOrVertical
-        @Composable get() = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+        @Composable get() = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
 }
 
 @Preview

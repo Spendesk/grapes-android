@@ -43,11 +43,11 @@ fun GrapesRadioButtonText(
             isEnabled = isEnabled,
             onClick = null
         )
-        Spacer(Modifier.padding(end = GrapesTheme.dimensions.paddingSmall))
+        Spacer(Modifier.padding(end = GrapesTheme.dimensions.spacing2))
         Text(
             text = text,
             color = GrapesTheme.colors.mainNeutralDarker,
-            style = GrapesTheme.typography.bodyRegular
+            style = GrapesTheme.typography.bodyL
         )
     }
 

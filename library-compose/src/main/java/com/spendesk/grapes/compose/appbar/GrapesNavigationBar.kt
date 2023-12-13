@@ -61,7 +61,7 @@ private fun RowScope.GrapesNavigationBarItem(
     tab: GrapesNavigationItem,
     onSelected: (GrapesNavigationItem) -> Unit,
 ) {
-    val textStyle = GrapesTheme.typography.titleXs
+    val textStyle = GrapesTheme.typography.titleS
     val colors = NavigationBarItemDefaults.colors(
         indicatorColor = GrapesTheme.colors.mainWhite,
         selectedIconColor = GrapesTheme.colors.mainPrimaryNormal,

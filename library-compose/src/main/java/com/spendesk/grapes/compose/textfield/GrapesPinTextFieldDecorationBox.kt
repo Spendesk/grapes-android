@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -44,7 +45,7 @@ fun GrapesPinTextFieldDecorationBox(
             }
 
             PinText(
-                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.paddingXSmall),
+                modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.spacing1),
                 char = char,
                 isError = isError,
                 isEnabled = isEnabled,
@@ -68,13 +69,13 @@ private fun PinText(
         modifier = modifier
             .width(GrapesPinTextFieldDefaults.PinCharWidth)
             .height(GrapesPinTextFieldDefaults.PinCharHeight)
-            .background(GrapesTheme.colors.mainWhite, shape = GrapesTheme.shapes.small)
+            .background(GrapesTheme.colors.mainWhite, shape = GrapesTheme.shapes.shape2)
             .border(
                 width = GrapesPinTextFieldDefaults.PinCharBorderWidth,
                 color = GrapesPinTextFieldDefaults
                     .pinFieldColors()
                     .borderColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
-                shape = GrapesTheme.shapes.small
+                shape = GrapesTheme.shapes.shape2
             )
             .pointerInput(Unit) {
                 detectTapGestures(
@@ -86,7 +87,7 @@ private fun PinText(
     ) {
         Text(
             text = char,
-            style = GrapesTheme.typography.bodyM,
+            style = GrapesTheme.typography.bodyXl.copy(fontSize = 24.sp),
             color = GrapesPinTextFieldDefaults.pinFieldColors().textColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
             textAlign = TextAlign.Center
         )

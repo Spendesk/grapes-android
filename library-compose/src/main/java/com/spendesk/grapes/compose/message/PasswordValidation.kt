@@ -78,12 +78,12 @@ private fun PasswordValidationItem(
     Row(
         modifier = Modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall)
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing2)
     ) {
         Box(modifier = Modifier.size(PasswordValidationDefaults.ValidationBoxSize), contentAlignment = Alignment.Center) {
             Icon(painter = painterResource(id = itemIcon), contentDescription = null, tint = itemColor, modifier = Modifier.size(iconSize))
         }
-        Text(text = label, style = GrapesTheme.typography.bodyS, color = itemColor)
+        Text(text = label, style = GrapesTheme.typography.bodyM, color = itemColor)
     }
 }
 
@@ -129,7 +129,7 @@ private fun PasswordValidationPreview() {
                                 }
                             }
                         )
-                        Text(text = "Change ${item.label} status", style = GrapesTheme.typography.bodyS)
+                        Text(text = "Change ${item.label} status", style = GrapesTheme.typography.bodyM)
                     }
                 }
             }

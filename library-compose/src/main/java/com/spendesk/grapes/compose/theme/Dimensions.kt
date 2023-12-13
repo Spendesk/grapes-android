@@ -16,14 +16,27 @@ data class GrapesDimensions(
 
     val borderLarge: Dp = 2.0.dp,
 
-    val borderRadiusSmall: Dp = 2.dp,
-    val borderRadiusNormal: Dp = 4.dp,
-
+    @Deprecated("Grapes dimension deprecated", ReplaceWith("spacing1"))
     val paddingXSmall: Dp = 4.dp,
+    @Deprecated("Grapes dimension deprecated", ReplaceWith("spacing2"))
     val paddingSmall: Dp = 8.dp,
+    @Deprecated("Grapes dimension deprecated, new design shouldn't use 12.dp anymore")
     val paddingMedium: Dp = 12.dp,
+    @Deprecated("Grapes dimension deprecated", ReplaceWith("spacing3"))
     val paddingLarge: Dp = 16.dp,
+    @Deprecated("Grapes dimension deprecated", ReplaceWith("spacing4"))
     val paddingXLarge: Dp = 24.dp,
+
+    val spacing0: Dp = 0.dp,
+    val spacing1: Dp = 4.dp,
+    val spacing2: Dp = 8.dp,
+    val spacing3: Dp = 16.dp,
+    val spacing4: Dp = 24.dp,
+    val spacing5: Dp = 32.dp,
+    val spacing6: Dp = 40.dp,
+    val spacing7: Dp = 48.dp,
+    val spacing8: Dp = 56.dp,
+    val spacing9: Dp = 64.dp,
 
     val elevationNormal: Dp = 8.dp,
 

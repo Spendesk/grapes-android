@@ -32,20 +32,20 @@ fun GrapesCoreCallout(
 ) {
     Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = GrapesTheme.shapes.small,
+        shape = GrapesTheme.shapes.shape2,
         color = colors.containerColor().value,
         contentColor = colors.contentColor().value,
         border = BorderStroke(GrapesCalloutDefaults.borderThickness, colors.borderStrokeColor().value),
     ) {
         Column(
-            modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall),
+            modifier = Modifier.padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing2),
         ) {
             Row(
-                horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingSmall),
+                horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing2),
             ) {
                 ProvideTextStyle(
-                    GrapesTheme.typography.titleS.copy(color = colors.titleColor().value),
+                    GrapesTheme.typography.titleM.copy(color = colors.titleColor().value),
                 ) {
                     if (leadingIcon != null) {
                         Box(

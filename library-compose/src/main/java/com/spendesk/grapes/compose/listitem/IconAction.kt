@@ -36,7 +36,7 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
     Row(
         modifier = modifier.fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
     ) {
 
         StatusInformationIcon(
@@ -48,11 +48,11 @@ internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconActio
 
         Column(
             modifier = Modifier.weight(1f),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1)
         ) {
-            Text(text = iconActionConfiguration.title, style = GrapesTheme.typography.titleM, color = titleColor)
+            Text(text = iconActionConfiguration.title, style = GrapesTheme.typography.titleL, color = titleColor)
             iconActionConfiguration.description?.let {
-                Text(text = it, style = GrapesTheme.typography.bodyS, color = GrapesTheme.colors.mainNeutralDarker)
+                Text(text = it, style = GrapesTheme.typography.bodyM, color = GrapesTheme.colors.mainNeutralDarker)
             }
         }
     }

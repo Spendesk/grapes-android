@@ -38,7 +38,7 @@ fun GrapesBucketHeadline(
             color = GrapesTheme.colors.mainComplementary,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
-            style = GrapesTheme.typography.titleS
+            style = GrapesTheme.typography.titleM
         )
         if (action != null && actionColor != null) {
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingMedium))
@@ -48,7 +48,7 @@ fun GrapesBucketHeadline(
                 color = actionColor,
                 overflow = TextOverflow.Ellipsis,
                 maxLines = 1,
-                style = GrapesTheme.typography.titleS
+                style = GrapesTheme.typography.titleM
             )
         }
     }
@@ -66,19 +66,19 @@ private fun GrapesBucketHeadlinePreview() {
         ) {
 
             GrapesBucketHeadline(title = "Bucket de Rick Astley")
-            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
             GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeed")
-            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
             GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeeeeeeed", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
-            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
             GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
-            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
             GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remooooooove with too many ooooooooooos", actionColor = GrapesTheme.colors.mainAlertNormal)
-            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.paddingLarge))
+            Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
         }
     }
 }

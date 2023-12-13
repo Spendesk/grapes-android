@@ -25,13 +25,13 @@ fun GrapesInlineInformationItem(
 ) {
     Row(
         modifier = modifier,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall),
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = title,
             color = GrapesTheme.colors.mainNeutralDarker,
-            style = GrapesTheme.typography.bodyRegular,
+            style = GrapesTheme.typography.bodyL,
             modifier = Modifier.weight(1f),
         )
         Box(
@@ -40,7 +40,7 @@ fun GrapesInlineInformationItem(
         ) {
             Text(
                 text = value,
-                style = GrapesTheme.typography.bodyRegular,
+                style = GrapesTheme.typography.bodyL,
                 textAlign = TextAlign.End
             )
         }

@@ -45,14 +45,14 @@ fun ErrorTemplate(
 ) {
     ErrorTemplate(
         title = {
-            Text(text = title, style = GrapesTheme.typography.titleM)
+            Text(text = title, style = GrapesTheme.typography.titleL)
         },
         icon = icon,
         description = description?.let {
             {
                 Text(
                     text = it,
-                    style = GrapesTheme.typography.bodyRegular,
+                    style = GrapesTheme.typography.bodyL,
                     textAlign = TextAlign.Center
                 )
             }
@@ -87,7 +87,7 @@ fun ErrorTemplate(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(GrapesTheme.dimensions.paddingLarge),
+            .padding(GrapesTheme.dimensions.spacing3),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Column(
@@ -101,7 +101,7 @@ fun ErrorTemplate(
                 icon()
             }
 
-            Spacer(modifier = Modifier.height(GrapesTheme.dimensions.paddingXLarge))
+            Spacer(modifier = Modifier.height(GrapesTheme.dimensions.spacing4))
 
             AnimatedVisibility(visible = isVisible, enter = configuration.titleEnterAnimation) {
                 title()
@@ -132,8 +132,8 @@ fun ErrorTemplatePreview() {
         Column(
             modifier = Modifier
                 .background(GrapesTheme.colors.mainWhite)
-                .padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+                .padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
             AnimatedContent(targetState = isError, label = "Preview animation") { animatedIsError ->
                 if (animatedIsError) {

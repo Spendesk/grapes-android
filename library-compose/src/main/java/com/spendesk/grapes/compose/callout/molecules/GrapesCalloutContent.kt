@@ -20,7 +20,7 @@ fun ColumnScope.GrapesCalloutContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = description,
-        style = GrapesTheme.typography.bodyS,
+        style = GrapesTheme.typography.bodyM,
     )
 
     bottomContent?.invoke(this)
@@ -34,7 +34,7 @@ fun ColumnScope.GrapesCalloutContent(
     Text(
         modifier = Modifier.fillMaxWidth(),
         text = description,
-        style = GrapesTheme.typography.bodyS,
+        style = GrapesTheme.typography.bodyM,
     )
 
     bottomContent?.invoke(this)

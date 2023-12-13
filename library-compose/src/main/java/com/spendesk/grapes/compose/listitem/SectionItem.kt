@@ -32,22 +32,22 @@ fun SectionItem(
     icon: @Composable (Modifier) -> Unit = {},
 ) {
     Row(
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge),
+        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier.padding(
-            horizontal = GrapesTheme.dimensions.paddingLarge,
+            horizontal = GrapesTheme.dimensions.spacing3,
             vertical = GrapesTheme.dimensions.paddingMedium,
         ),
     ) {
         icon(Modifier.size(iconSize))
         Text(
             text = title,
-            style = GrapesTheme.typography.bodyRegular,
+            style = GrapesTheme.typography.bodyL,
         )
         Spacer(modifier = Modifier.weight(1f))
         Text(
             text = description,
-            style = GrapesTheme.typography.bodyRegular,
+            style = GrapesTheme.typography.bodyL,
         )
     }
 }
@@ -61,7 +61,7 @@ private fun Preview() {
             icon = { modifier ->
                 Box(
                     modifier
-                        .clip(GrapesTheme.shapes.small)
+                        .clip(GrapesTheme.shapes.shape2)
                         .background(Color.Blue))
             },
             description = "85.99€ per month",

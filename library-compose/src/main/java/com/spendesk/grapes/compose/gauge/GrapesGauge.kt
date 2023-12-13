@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Modifier
@@ -65,7 +64,7 @@ fun GrapesGauge(
     backgroundColor: Color,
     gauges: List<Gauge>,
     modifier: Modifier = Modifier,
-    clipShape: Shape = RoundedCornerShape(GrapesTheme.dimensions.borderRadiusNormal),
+    clipShape: Shape = GrapesTheme.shapes.shape1,
 ) {
     GrapesGaugeContainer(
         modifier = modifier,
@@ -189,7 +188,7 @@ private fun createStripeGauge(
 @Preview(showBackground = true)
 private fun GaugePreview() {
     GrapesTheme {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingXSmall)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1)) {
             GrapesGauge(
                 modifier = Modifier.padding(16.dp),
                 backgroundColor = GrapesTheme.colors.mainNeutralLighter,

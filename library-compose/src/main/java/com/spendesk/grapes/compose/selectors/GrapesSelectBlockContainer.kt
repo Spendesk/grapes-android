@@ -26,15 +26,30 @@ fun GrapesSelectBlockContainer(
     content: @Composable () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val borderModifier = if (isSelected) Modifier.border(GrapesTheme.dimensions.borderLarge, GrapesSelectBlockContainerDefaultColors.selectedBorderColor, GrapesTheme.shapes.small) else Modifier
-    val backgroundModifier = if (isSelected) Modifier.background(color = GrapesSelectBlockContainerDefaultColors.selectedBackgroundColor, GrapesTheme.shapes.small) else Modifier
+    val borderModifier = if (isSelected) {
+        Modifier.border(
+            width = GrapesTheme.dimensions.borderLarge,
+            color = GrapesSelectBlockContainerDefaultColors.selectedBorderColor,
+            shape = GrapesTheme.shapes.shape2
+        )
+    } else {
+        Modifier
+    }
+    val backgroundModifier = if (isSelected) {
+        Modifier.background(
+            color = GrapesSelectBlockContainerDefaultColors.selectedBackgroundColor,
+            GrapesTheme.shapes.shape2
+        )
+    } else {
+        Modifier
+    }
 
     Box(
         modifier = modifier
             .fillMaxWidth()
             .then(borderModifier)
             .then(backgroundModifier)
-            .clip(GrapesTheme.shapes.small)
+            .clip(GrapesTheme.shapes.shape2)
     ) {
         content()
     }
