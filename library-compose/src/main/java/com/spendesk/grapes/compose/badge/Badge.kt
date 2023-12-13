@@ -30,7 +30,7 @@ fun GrapesBadge(
         modifier = modifier
             .background(backgroundColor, RoundedCornerShape(100))
             .padding(horizontal = GrapesTheme.dimensions.spacing3, vertical = GrapesTheme.dimensions.spacing1),
-        style = GrapesTheme.typography.titleM,
+        style = GrapesTheme.typography.titleL,
         color = GrapesTheme.colors.mainWhite
     )
 }

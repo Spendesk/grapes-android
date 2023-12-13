@@ -26,7 +26,7 @@ object GrapesButtonStyleDefaults {
         @ReadOnlyComposable
         get() =
             GrapesButtonStyle(
-                textStyle = GrapesTheme.typography.titleM,
+                textStyle = GrapesTheme.typography.titleL,
                 minSize = Size(
                     width = GrapesButtonDefaults.MinWidth.value,
                     height = GrapesButtonDefaults.MinHeight.value
@@ -44,7 +44,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
+            textStyle = GrapesTheme.typography.titleM,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -62,7 +62,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
@@ -80,7 +80,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
+            textStyle = GrapesTheme.typography.titleM,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -98,7 +98,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
@@ -116,7 +116,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
+            textStyle = GrapesTheme.typography.titleM,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -134,7 +134,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
@@ -152,7 +152,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
@@ -170,7 +170,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidth.value,
                 height = GrapesButtonDefaults.MinHeight.value
@@ -188,7 +188,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -206,7 +206,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -224,7 +224,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -242,7 +242,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -260,7 +260,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleM,
+            textStyle = GrapesTheme.typography.titleL,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value

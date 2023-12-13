@@ -44,7 +44,7 @@ class ComposeFragment : Fragment() {
                     ) {
                         GrapesButton(text = "First Compose component test")
                         Spacer(Modifier.height(GrapesTheme.dimensions.spacing3))
-                        Text(text = "Shapes", style = GrapesTheme.typography.titleM)
+                        Text(text = "Shapes", style = GrapesTheme.typography.titleL)
                         Box(
                             modifier = Modifier
                                 .height(100.dp)
@@ -54,7 +54,7 @@ class ComposeFragment : Fragment() {
                         ) {
                             Text(
                                 text = "shape0",
-                                style = GrapesTheme.typography.titleS.copy(color = GrapesTheme.colors.structureSurface),
+                                style = GrapesTheme.typography.titleM.copy(color = GrapesTheme.colors.structureSurface),
                             )
                         }
                         Box(
@@ -67,7 +67,7 @@ class ComposeFragment : Fragment() {
 
                             Text(
                                 text = "shape1",
-                                style = GrapesTheme.typography.titleS.copy(color = GrapesTheme.colors.structureSurface),
+                                style = GrapesTheme.typography.titleM.copy(color = GrapesTheme.colors.structureSurface),
                             )
                         }
                         Box(
@@ -80,7 +80,7 @@ class ComposeFragment : Fragment() {
 
                             Text(
                                 text = "shape2",
-                                style = GrapesTheme.typography.titleS.copy(color = GrapesTheme.colors.structureSurface),
+                                style = GrapesTheme.typography.titleM.copy(color = GrapesTheme.colors.structureSurface),
                             )
                         }
                         Box(
@@ -93,7 +93,7 @@ class ComposeFragment : Fragment() {
 
                             Text(
                                 text = "shape3",
-                                style = GrapesTheme.typography.titleS.copy(color = GrapesTheme.colors.structureSurface),
+                                style = GrapesTheme.typography.titleM.copy(color = GrapesTheme.colors.structureSurface),
                             )
                         }
                         Box(
@@ -106,7 +106,7 @@ class ComposeFragment : Fragment() {
 
                             Text(
                                 text = "shape4",
-                                style = GrapesTheme.typography.titleS.copy(color = GrapesTheme.colors.structureSurface),
+                                style = GrapesTheme.typography.titleM.copy(color = GrapesTheme.colors.structureSurface),
                             )
                         }
                     }

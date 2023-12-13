@@ -32,7 +32,7 @@ fun TextDivider(
         modifier = modifier.fillMaxWidth()
     ) {
         GrapesDivider(modifier = Modifier.weight(1f), color = color)
-        Text(text = text, maxLines = 1, overflow = TextOverflow.Ellipsis, style = GrapesTheme.typography.bodyRegular, color = color)
+        Text(text = text, maxLines = 1, overflow = TextOverflow.Ellipsis, style = GrapesTheme.typography.bodyL, color = color)
         GrapesDivider(modifier = Modifier.weight(1f), color = color)
     }
 }

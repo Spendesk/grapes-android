@@ -42,12 +42,12 @@ fun SectionItem(
         icon(Modifier.size(iconSize))
         Text(
             text = title,
-            style = GrapesTheme.typography.bodyRegular,
+            style = GrapesTheme.typography.bodyL,
         )
         Spacer(modifier = Modifier.weight(1f))
         Text(
             text = description,
-            style = GrapesTheme.typography.bodyRegular,
+            style = GrapesTheme.typography.bodyL,
         )
     }
 }

@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -86,7 +87,7 @@ private fun PinText(
     ) {
         Text(
             text = char,
-            style = GrapesTheme.typography.bodyM,
+            style = GrapesTheme.typography.bodyXl.copy(fontSize = 24.sp),
             color = GrapesPinTextFieldDefaults.pinFieldColors().textColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
             textAlign = TextAlign.Center
         )

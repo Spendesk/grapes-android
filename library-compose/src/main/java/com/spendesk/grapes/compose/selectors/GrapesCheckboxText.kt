@@ -53,7 +53,7 @@ fun GrapesCheckboxText(
         Text(
             text = text,
             color = GrapesTheme.colors.mainComplementary,
-            style = GrapesTheme.typography.bodyRegular
+            style = GrapesTheme.typography.bodyL
         )
     }
 }

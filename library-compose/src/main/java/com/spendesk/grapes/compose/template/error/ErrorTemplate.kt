@@ -45,14 +45,14 @@ fun ErrorTemplate(
 ) {
     ErrorTemplate(
         title = {
-            Text(text = title, style = GrapesTheme.typography.titleM)
+            Text(text = title, style = GrapesTheme.typography.titleL)
         },
         icon = icon,
         description = description?.let {
             {
                 Text(
                     text = it,
-                    style = GrapesTheme.typography.bodyRegular,
+                    style = GrapesTheme.typography.bodyL,
                     textAlign = TextAlign.Center
                 )
             }

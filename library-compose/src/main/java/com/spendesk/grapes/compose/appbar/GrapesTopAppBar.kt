@@ -79,8 +79,8 @@ fun GrapesTopAppBarTitleWithSubtitle(
 
         Text(
             text = subTitle,
-            lineHeight = GrapesTheme.typography.bodyS.fontSize,
-            style = GrapesTheme.typography.bodyS,
+            lineHeight = GrapesTheme.typography.bodyM.fontSize,
+            style = GrapesTheme.typography.bodyM,
         )
     }
 }
