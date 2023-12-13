@@ -32,7 +32,7 @@ object GrapesButtonStyleDefaults {
                     height = GrapesButtonDefaults.MinHeight.value
                 ),
                 iconSize = GrapesButtonDefaults.iconSize,
-                shape = GrapesTheme.shapes.small,
+                shape = GrapesTheme.shapes.shape2,
                 rippleColor = GrapesTheme.colors.mainPrimaryDark,
                 colors = ButtonColorDefaults.primary,
                 contentPadding = GrapesButtonDefaults.PaddingValues,
@@ -50,7 +50,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = GrapesButtonDefaults.iconSizeSmall,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainPrimaryDark,
             colors = ButtonColorDefaults.primary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
@@ -68,7 +68,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeight.value
             ),
             iconSize = GrapesButtonDefaults.iconSize,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralNormal,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValues,
@@ -86,7 +86,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = GrapesButtonDefaults.iconSizeSmall,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralNormal,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
@@ -104,7 +104,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeight.value
             ),
             iconSize = GrapesButtonDefaults.iconSize,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainPrimaryLight,
             colors = ButtonColorDefaults.text,
             contentPadding = GrapesButtonDefaults.PaddingValues,
@@ -122,7 +122,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = GrapesButtonDefaults.iconSizeSmall,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainPrimaryLight,
             colors = ButtonColorDefaults.text,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
@@ -140,7 +140,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeight.value
             ),
             iconSize = GrapesButtonDefaults.iconSize,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainAlertDark,
             colors = ButtonColorDefaults.alert,
             contentPadding = GrapesButtonDefaults.PaddingValues,
@@ -158,7 +158,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeight.value
             ),
             iconSize = GrapesButtonDefaults.iconSize,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainAlertDark,
             colors = ButtonColorDefaults.alertOutlined,
             contentPadding = GrapesButtonDefaults.PaddingValues,
@@ -176,7 +176,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeight.value
             ),
             iconSize = GrapesButtonDefaults.iconSize,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainWarningDark,
             colors = ButtonColorDefaults.warning,
             contentPadding = GrapesButtonDefaults.PaddingValues,
@@ -194,7 +194,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = GrapesButtonDefaults.iconSizeSmall,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralLight,
             colors = ButtonColorDefaults.linkPrimary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
@@ -212,7 +212,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = GrapesButtonDefaults.iconSizeSmall,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralLighter,
             colors = ButtonColorDefaults.linkSecondary,
             contentPadding = GrapesButtonDefaults.PaddingValuesSmall,
@@ -230,7 +230,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = 40.dp,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralLighter,
             colors = ButtonColorDefaults.google,
             contentPadding = GrapesButtonDefaults.PaddingValuesBrand,
@@ -248,7 +248,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = 40.dp,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralLighter,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValuesBrand,
@@ -266,7 +266,7 @@ object GrapesButtonStyleDefaults {
                 height = GrapesButtonDefaults.MinHeightSmall.value
             ),
             iconSize = 40.dp,
-            shape = GrapesTheme.shapes.small,
+            shape = GrapesTheme.shapes.shape2,
             rippleColor = GrapesTheme.colors.mainNeutralLighter,
             colors = ButtonColorDefaults.secondary,
             contentPadding = GrapesButtonDefaults.PaddingValuesBrand,

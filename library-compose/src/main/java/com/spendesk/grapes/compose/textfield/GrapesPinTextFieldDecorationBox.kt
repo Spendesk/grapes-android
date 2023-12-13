@@ -68,13 +68,13 @@ private fun PinText(
         modifier = modifier
             .width(GrapesPinTextFieldDefaults.PinCharWidth)
             .height(GrapesPinTextFieldDefaults.PinCharHeight)
-            .background(GrapesTheme.colors.mainWhite, shape = GrapesTheme.shapes.small)
+            .background(GrapesTheme.colors.mainWhite, shape = GrapesTheme.shapes.shape2)
             .border(
                 width = GrapesPinTextFieldDefaults.PinCharBorderWidth,
                 color = GrapesPinTextFieldDefaults
                     .pinFieldColors()
                     .borderColor(isEnabled = isEnabled, isError = isError, isSelected = isFocused),
-                shape = GrapesTheme.shapes.small
+                shape = GrapesTheme.shapes.shape2
             )
             .pointerInput(Unit) {
                 detectTapGestures(

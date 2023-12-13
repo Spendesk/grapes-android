@@ -49,7 +49,7 @@ fun GrapesMessage(
     GrapesSurface(
         modifier = modifier.width(IntrinsicSize.Max),
         configuration = configuration,
-        shape = GrapesTheme.shapes.small,
+        shape = GrapesTheme.shapes.shape2,
     ) {
         Column(modifier = Modifier.padding(contentPadding)) {
             Row(verticalAlignment = Alignment.CenterVertically) {
