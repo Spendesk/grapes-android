@@ -45,7 +45,7 @@ fun GrapesInformationCard(
         ) {
             Text(
                 text = title,
-                style = GrapesTheme.typography.titleS,
+                style = GrapesTheme.typography.titleM,
                 modifier = Modifier.padding(horizontal = GrapesTheme.dimensions.spacing3),
             )
             GrapesDivider()

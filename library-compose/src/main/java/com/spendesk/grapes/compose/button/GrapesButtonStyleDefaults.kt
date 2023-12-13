@@ -44,7 +44,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
+            textStyle = GrapesTheme.typography.titleM,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -80,7 +80,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
+            textStyle = GrapesTheme.typography.titleM,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value
@@ -116,7 +116,7 @@ object GrapesButtonStyleDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonStyle(
-            textStyle = GrapesTheme.typography.titleS,
+            textStyle = GrapesTheme.typography.titleM,
             minSize = Size(
                 width = GrapesButtonDefaults.MinWidthSmall.value,
                 height = GrapesButtonDefaults.MinHeightSmall.value

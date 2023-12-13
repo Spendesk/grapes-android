@@ -105,7 +105,7 @@ private fun Select(
             .border(1.dp, GrapesTheme.colors.mainNeutralLight, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
             .padding(horizontal = GrapesTheme.dimensions.spacing3, vertical = GrapesTheme.dimensions.paddingMedium)
     ) {
-        Text(text = label, style = GrapesTheme.typography.titleS, color = contentColor)
+        Text(text = label, style = GrapesTheme.typography.titleM, color = contentColor)
 
         GrapesSelectIcon(expanded = isExpanded, tint = contentColor)
     }

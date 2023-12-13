@@ -154,7 +154,7 @@ fun GrapesTag(
             }
 
             ProvideTextStyle(
-                GrapesTheme.typography.titleS.copy(color = LocalContentColor.current),
+                GrapesTheme.typography.titleM.copy(color = LocalContentColor.current),
             ) {
                 Text(text = label)
             }
