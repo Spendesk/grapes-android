@@ -77,7 +77,7 @@ data class GrapesColors(
 
     val google: Color,
 
-    val primaryDarker: Color,
+    val primaryDark: Color,
     val primaryNormal: Color,
     val primaryLight: Color,
     val primaryLighter: Color,
