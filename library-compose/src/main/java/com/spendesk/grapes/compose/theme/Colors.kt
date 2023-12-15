@@ -120,26 +120,27 @@ data class GrapesColors(
 // Legacy colors
 val mainPrimaryDark = Color(0xFF421896)
 val mainPrimaryLighter = Color(0xFFDBD1F4)
-val mainWhite = Color(0xFFFFFFFF)
 val mainBlack = Color(0xFF000000)
 val mainNeutralDarkest = Color(0xFF48465E)
 
 val google = Color(0xFF4285F4)
 
 // Colors
-val gunPowder = Color(0xFF434159)
-val stormGray = Color(0xFF706F81)
-val frenchGray = Color(0xFFB4B3BD)
-val ghost = Color(0xFFCFCFD5)
-val athensGray = Color(0xFFE6E6E9)
-val athensGrayLight = Color(0xFFF5F5F6)
-
 val purpleDarker = Color(0xFF17114E)
 val purpleDark = Color(0xFF4719A6)
 val purpleNormal = Color(0xFF5D21D2)
 val purpleLight = Color(0xFF7542D9)
 val purpleLighter = Color(0xFFDFD3F6)
 val purpleLightest = Color(0xFFF4EFFC)
+
+val grayDarker = Color(0xFF434159)
+val grayDark = Color(0xFF706F81)
+val grayNormal = Color(0xFFB4B3BD)
+val grayLight = Color(0xFFCFCFD5)
+val grayLighter = Color(0xFFE6E6E9)
+val grayLightest = Color(0xFFF5F5F6)
+val graySuperLightest = Color(0xFFF9F9FA)
+val grayWhite = Color(0xFFFFFFFF)
 
 val allports = Color(0xFF01799D)
 val powderBlue = Color(0xFFB3D7E2)
@@ -161,4 +162,3 @@ val punch = Color(0xFFD84D26)
 val mandysPink = Color(0xFFF1C0B3)
 val provincialPink = Color(0xFFFDEDE8)
 
-val gray = Color(0xFFF9F9FA)
