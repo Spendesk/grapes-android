@@ -11,16 +11,16 @@ import androidx.compose.ui.graphics.Color
 fun lightColorsPalette(
     legacyPrimaryDark: Color = mainPrimaryDark,
     legacyPrimaryLighter: Color = mainPrimaryLighter,
-    primaryDark: Color = daisyBush,
-    primaryNormal: Color = purpleHeart,
-    primaryLight: Color = purpleHeartLight,
-    primaryLighter: Color = moonRaker,
-    primaryLightest: Color = selago,
+    primaryDark: Color = purpleDark,
+    primaryNormal: Color = purpleNormal,
+    primaryLight: Color = purpleLight,
+    primaryLighter: Color = purpleLighter,
+    primaryLightest: Color = purpleLightest,
 
     white: Color = mainWhite,
     black: Color = mainBlack,
     surface: Color = white,
-    complementary: Color = bunting,
+    complementary: Color = purpleDarker,
     background: Color = gray,
 
     legacyNeutralDarkest: Color = mainNeutralDarkest,
