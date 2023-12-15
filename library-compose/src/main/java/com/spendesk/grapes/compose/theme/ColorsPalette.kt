@@ -39,11 +39,11 @@ fun lightColorsPalette(
     successLighter: Color = greenLight,
     successLightest: Color = greenLighter,
 
-    warningDark: Color = antiqueBronze,
-    warningNormal: Color = chelseaGem,
-    warningLight: Color = marigold,
-    warningLighter: Color = doubleSpanishWhite,
-    warningLightest: Color = serenade,
+    warningDark: Color = orangeDark,
+    warningNormal: Color = orangeNormal,
+    warningLight: Color = orangeLight,
+    warningLighter: Color = orangeLighter,
+    warningLightest: Color = orangeLightest,
 
     alertDark: Color = totemPole,
     alertNormal: Color = grenadier,
