@@ -146,9 +146,9 @@ val blueNormal = Color(0xFF01799D)
 val blueLighter = Color(0xFFB3D7E2)
 val blueLightest = Color(0xFFE8F8FD)
 
-val japaneseLaurel = Color(0xFF0B831B)
-val surf = Color(0xFFB6DABB)
-val scandal = Color(0xFFDEFCEE)
+val greenNormal = Color(0xFF0B831B)
+val greenLight = Color(0xFFB6DABB)
+val greenLighter = Color(0xFFDEFCEE)
 
 val antiqueBronze = Color(0xFF7F4608)
 val chelseaGem = Color(0xFFA85D00)

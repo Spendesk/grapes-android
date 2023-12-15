@@ -35,9 +35,9 @@ fun lightColorsPalette(
     infoLighter: Color = blueLighter,
     infoLightest: Color = blueLightest,
 
-    successNormal: Color = japaneseLaurel,
-    successLighter: Color = surf,
-    successLightest: Color = scandal,
+    successNormal: Color = greenNormal,
+    successLighter: Color = greenLight,
+    successLightest: Color = greenLighter,
 
     warningDark: Color = antiqueBronze,
     warningNormal: Color = chelseaGem,
