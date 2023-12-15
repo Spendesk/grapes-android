@@ -142,9 +142,9 @@ val grayLightest = Color(0xFFF5F5F6)
 val graySuperLightest = Color(0xFFF9F9FA)
 val grayWhite = Color(0xFFFFFFFF)
 
-val allports = Color(0xFF01799D)
-val powderBlue = Color(0xFFB3D7E2)
-val foam = Color(0xFFE8F8FD)
+val blueNormal = Color(0xFF01799D)
+val blueLighter = Color(0xFFB3D7E2)
+val blueLightest = Color(0xFFE8F8FD)
 
 val japaneseLaurel = Color(0xFF0B831B)
 val surf = Color(0xFFB6DABB)

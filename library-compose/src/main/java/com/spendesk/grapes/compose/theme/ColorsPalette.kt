@@ -31,9 +31,9 @@ fun lightColorsPalette(
     neutralLight: Color = grayLight,
     neutralLighter: Color = grayLighter,
 
-    infoNormal: Color = allports,
-    infoLighter: Color = powderBlue,
-    infoLightest: Color = foam,
+    infoNormal: Color = blueNormal,
+    infoLighter: Color = blueLighter,
+    infoLightest: Color = blueLightest,
 
     successNormal: Color = japaneseLaurel,
     successLighter: Color = surf,
