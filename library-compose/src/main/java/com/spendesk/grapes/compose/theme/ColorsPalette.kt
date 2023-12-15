@@ -45,11 +45,11 @@ fun lightColorsPalette(
     warningLighter: Color = orangeLighter,
     warningLightest: Color = orangeLightest,
 
-    alertDark: Color = totemPole,
-    alertNormal: Color = grenadier,
-    alertLight: Color = punch,
-    alertLighter: Color = mandysPink,
-    alertLightest: Color = provincialPink,
+    alertDark: Color = redDark,
+    alertNormal: Color = redNormal,
+    alertLight: Color = redLight,
+    alertLighter: Color = redLighter,
+    alertLightest: Color = redLightest,
 ): GrapesColors = GrapesColors(
     mainPrimaryDark = legacyPrimaryDark,
     mainPrimaryNormal = primaryNormal,
