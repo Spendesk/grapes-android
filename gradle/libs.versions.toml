@@ -9,6 +9,7 @@ gradle = "8.1.1"
 firebase-app-distrib = "3.0.3"
 ksp = "1.9.0-1.0.13"
 detekt = "1.23.4"
+detektFormatting = "1.23.4"
 
 # Dagger
 hilt = "2.48"
@@ -69,6 +70,9 @@ reflection = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 junit-android = { group = "androidx.test.ext", name = "junit", version.ref = "junit-android" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+
+# Detekt
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
 
 [bundles]
 compose = ["compose-ui", "compose-ui-tooling", "compose-runtime", "compose-foundation", "compose-material", "compose-material-icons-core", "compose-material-icons-extended", "compose-material3"]

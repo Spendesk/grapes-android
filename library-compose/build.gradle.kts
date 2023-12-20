@@ -1,3 +1,6 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -47,6 +50,33 @@ android {
     publishing {
         singleVariant("release")
     }
+}
+
+detekt {
+    buildUponDefaultConfig = true // preconfigure defaults
+    allRules = false // activate all available (even unstable) rules.
+    config.setFrom("$rootDir/config/detekt/detekt-configuration.yml")
+    baseline = file("$projectDir/config/baseline.xml")
+    toolVersion = libs.plugins.detekt.get().version.requiredVersion
+
+    dependencies {
+        detektPlugins(libs.detekt.formatting)
+    }
+}
+
+tasks.withType<Detekt>().configureEach {
+    jvmTarget = JavaVersion.VERSION_17.toString()
+    reports {
+        html.required.set(true)
+        xml.required.set(false)
+        txt.required.set(false)
+        sarif.required.set(false)
+        md.required.set(false)
+    }
+}
+
+tasks.withType<DetektCreateBaselineTask>().configureEach {
+    jvmTarget = JavaVersion.VERSION_17.toString()
 }
 
 dependencies {
