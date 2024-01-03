@@ -46,7 +46,7 @@ fun GrapesSelectBlock(
                 Icon(
                     modifier = Modifier
                         .padding(start = GrapesTheme.dimensions.spacing3, end = GrapesTheme.dimensions.spacing3)
-                        .size(GrapesTheme.dimensions.iconLarge),
+                        .size(GrapesTheme.dimensions.sizing5),
                     painter = painterResource(id = icon),
                     contentDescription = iconDescription,
                     tint = if (isSelected) GrapesSelectBlockDefaultColors.selectedIconColor else GrapesSelectBlockDefaultColors.unselectedIconColor
