@@ -32,7 +32,9 @@ fun GrapesSection(
             contentColor = GrapesTheme.colors.neutralDarker,
         ),
     ) {
-        Column {
+        Column(
+            modifier = Modifier.padding(vertical = GrapesTheme.dimensions.spacing2),
+        ) {
             Text(
                 text = title,
                 style = GrapesTheme.typography.titleM,
