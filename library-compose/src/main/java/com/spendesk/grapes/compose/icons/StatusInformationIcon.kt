@@ -55,9 +55,9 @@ fun StatusInformationIcon(
 
 @Deprecated(
     "Grapes deprecated, use one of GrapesHighlightIconPrimary," +
-            "GrapesHighlightIconAlert, GrapesHighlightIconWarning," +
-            "GrapesHighlightIconSuccess, GrapesHighlightIconNeutral" +
-            "or GrapesHighlightIconInfo"
+        "GrapesHighlightIconAlert, GrapesHighlightIconWarning," +
+        "GrapesHighlightIconSuccess, GrapesHighlightIconNeutral" +
+        "or GrapesHighlightIconInfo"
 )
 @Composable
 fun StatusInformationIcon(
