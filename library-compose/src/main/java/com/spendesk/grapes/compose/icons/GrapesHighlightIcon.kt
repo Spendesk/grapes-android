@@ -5,7 +5,6 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
@@ -152,7 +151,6 @@ private fun GrapesHighlightIcon(
             .clip(GrapesTheme.shapes.shape4)
             .background(containerColor)
             .border(1.dp, borderColor, GrapesTheme.shapes.shape4)
-            .padding(GrapesTheme.dimensions.spacing1),
     ) {
         Icon(
             painter = painter,

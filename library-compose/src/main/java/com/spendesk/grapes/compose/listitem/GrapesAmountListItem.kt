@@ -13,10 +13,12 @@ import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.icons.GrapesHighlightIconSize
@@ -49,6 +51,7 @@ fun GrapesAmountListItem(
 
     Row(
         horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
+        verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .clip(GrapesTheme.shapes.shape2)
             .then(clickableModifier)
@@ -73,11 +76,14 @@ fun GrapesAmountListItem(
                     style = GrapesTheme.typography.titleL,
                     color = colors.titleColor,
                     modifier = Modifier.weight(1f),
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
                 )
                 Text(
                     text = amount,
                     style = GrapesTheme.typography.titleL,
                     color = colors.amountColor,
+                    maxLines = 1,
                 )
             }
             Row {
@@ -86,11 +92,14 @@ fun GrapesAmountListItem(
                     style = GrapesTheme.typography.bodyM,
                     color = colors.subtitleColor,
                     modifier = Modifier.weight(1f),
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 1,
                 )
                 Text(
                     text = description,
                     style = GrapesTheme.typography.bodyM,
                     color = colors.descriptionColor,
+                    maxLines = 1,
                 )
             }
         }
@@ -123,6 +132,7 @@ object GrapesAmountListItemDefaults {
 
 @Composable
 @Preview(showBackground = true)
+@Preview(showBackground = true, fontScale = 1.5f)
 private fun GrapesAmountListItemPreview() {
     GrapesTheme {
         GrapesAmountListItem(
@@ -130,6 +140,39 @@ private fun GrapesAmountListItemPreview() {
             subtitle = "Subtitle",
             amount = "200€",
             description = "description",
+            colors = GrapesAmountListItemDefaults.colors(
+                descriptionColor = GrapesTheme.colors.successNormal,
+            ),
+            onClick = {},
+            logo = {
+                GrapesBadgedLogo(
+                    badge = {
+                        GrapesHighlightIconSuccess(
+                            size = GrapesHighlightIconSize.SMALL,
+                        )
+                    },
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .size(64.dp)
+                            .background(Color.Red)
+                    )
+                }
+            },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+@Preview(showBackground = true, fontScale = 1.5f)
+private fun GrapesAmountListItemTextOverflowPreview() {
+    GrapesTheme {
+        GrapesAmountListItem(
+            title = "Some very long title that will overflow the space available",
+            subtitle = "Some very long subtitle that will overflow the space available",
+            amount = "2 000 000.00€",
+            description = "Some very long description",
             colors = GrapesAmountListItemDefaults.colors(
                 descriptionColor = GrapesTheme.colors.successNormal,
             ),

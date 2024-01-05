@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,6 +27,8 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @author : RomainGF
  * @since : 03/01/2024
  **/
+private val supportedAlignments = arrayOf(Alignment.TopEnd, Alignment.BottomEnd)
+
 @Composable
 fun GrapesBadgedLogo(
     modifier: Modifier = Modifier,
@@ -35,8 +36,6 @@ fun GrapesBadgedLogo(
     badgeAlignment: Alignment = Alignment.TopEnd,
     logo: @Composable BoxScope.() -> Unit,
 ) {
-    val supportedAlignments = remember { arrayOf(Alignment.TopEnd, Alignment.BottomEnd) }
-
     Box(modifier) {
         GrapesLargeLogoContainer {
             logo()
