@@ -4,12 +4,10 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowDropDown
@@ -28,13 +26,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
  * @author Kélian CLERC
  * @since 02/03/2023
  */
+private const val RadiusFiftyPercent = 50
+
 data class SelectEntry(
     val id: String,
     val label: String,
@@ -69,7 +68,7 @@ fun GrapesSelect(
         ExposedDropdownMenu(
             expanded = isExpanded,
             onDismissRequest = { isExpanded = false },
-            modifier = Modifier.background(GrapesTheme.colors.mainBackground)
+            modifier = Modifier.background(GrapesTheme.colors.structureBackground)
         ) {
             entries.iterator().forEach {
                 DropdownMenuItem(
@@ -84,7 +83,6 @@ fun GrapesSelect(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun Select(
     isExpanded: Boolean,
@@ -92,33 +90,57 @@ private fun Select(
     modifier: Modifier = Modifier,
     isEnabled: Boolean = true
 ) {
-    val radiusSize by animateIntAsState(targetValue = if (isExpanded) 0 else 50, label = "Radius percentage animation")
+    val radiusSize by animateIntAsState(
+        targetValue = if (isExpanded) 0 else RadiusFiftyPercent,
+        label = "Radius percentage animation",
+    )
 
-    val itemColor = if (isEnabled) GrapesTheme.colors.mainWhite else GrapesTheme.colors.mainNeutralLighter
-    val contentColor = if (isEnabled) GrapesTheme.colors.mainComplementary else GrapesTheme.colors.mainNeutralDark
-
-    Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3),
-        modifier = modifier
-            .background(itemColor, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
-            .border(1.dp, GrapesTheme.colors.mainNeutralLight, shape = RoundedCornerShape(50, 50, radiusSize, radiusSize))
-            .padding(horizontal = GrapesTheme.dimensions.spacing3, vertical = GrapesTheme.dimensions.paddingMedium)
-    ) {
-        Text(text = label, style = GrapesTheme.typography.titleM, color = contentColor)
-
-        GrapesSelectIcon(expanded = isExpanded, tint = contentColor)
+    val itemColor = if (isEnabled) {
+        GrapesTheme.colors.structureSurface
+    } else {
+        GrapesTheme.colors.neutralLighter
     }
+
+    val contentColor = if (isEnabled) {
+        GrapesTheme.colors.structureComplementary
+    } else {
+        GrapesTheme.colors.neutralNormal
+    }
+
+    GrapesSelector(
+        label = label,
+        onClick = {},
+        modifier = modifier,
+        contentPadding = PaddingValues(
+            horizontal = GrapesTheme.dimensions.spacing3,
+            vertical = GrapesTheme.dimensions.paddingMedium,
+        ),
+        icon = {
+            GrapesSelectIcon(
+                expanded = isExpanded,
+                tint = contentColor,
+            )
+        },
+        colors = GrapesSelectorColors(
+            backgroundColor = itemColor,
+            contentColor = contentColor,
+            borderColor = contentColor,
+        ),
+        shape = RoundedCornerShape(RadiusFiftyPercent, RadiusFiftyPercent, radiusSize, radiusSize),
+    )
 }
 
 @Composable
 private fun GrapesSelectIcon(expanded: Boolean, tint: Color) {
-    val rotation by animateFloatAsState(targetValue = if (expanded) 180f else 0f, label = "Rotation angle animation")
+    val rotation by animateFloatAsState(
+        targetValue = if (expanded) 180f else 0f,
+        label = "Rotation angle animation",
+    )
 
     Icon(
-        Icons.Filled.ArrowDropDown,
-        null,
-        Modifier.rotate(rotation),
+        imageVector = Icons.Filled.ArrowDropDown,
+        contentDescription = null,
+        modifier = Modifier.rotate(rotation),
         tint = tint
     )
 }
