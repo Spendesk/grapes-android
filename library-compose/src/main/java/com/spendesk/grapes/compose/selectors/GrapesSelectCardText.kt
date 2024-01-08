@@ -48,7 +48,7 @@ fun GrapesSelectCardText(
     iconDescription: String? = null,
     modifier: Modifier = Modifier
 ) {
-    val iconSize = GrapesTheme.dimensions.iconLarge
+    val iconSize = GrapesTheme.dimensions.sizing5
 
     GrapesSelectBlockContainer(
         modifier = modifier,

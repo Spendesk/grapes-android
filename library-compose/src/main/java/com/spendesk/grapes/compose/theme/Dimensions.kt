@@ -40,8 +40,13 @@ data class GrapesDimensions(
 
     val elevationNormal: Dp = 8.dp,
 
-    val iconNormal: Dp = 16.dp,
-    val iconLarge: Dp = 32.dp,
+    val sizing1: Dp = 12.dp,
+    val sizing2: Dp = 16.dp,
+    val sizing3: Dp = 20.dp,
+    val sizing4: Dp = 24.dp,
+    val sizing5: Dp = 32.dp,
+    val sizing6: Dp = 40.dp,
+    val sizing7: Dp = 56.dp,
 
     val gaugeHeight: Dp = 16.dp,
     val gaugeDelimiterWidth: Dp = 2.dp

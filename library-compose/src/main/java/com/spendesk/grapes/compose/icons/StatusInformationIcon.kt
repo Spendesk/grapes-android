@@ -26,6 +26,12 @@ enum class Size(val surfaceSize: Dp, val iconSize: Dp) {
     L(surfaceSize = 80.dp, iconSize = 32.dp);
 }
 
+@Deprecated(
+    "Grapes deprecated, use one of GrapesHighlightIconPrimary," +
+        "GrapesHighlightIconAlert, GrapesHighlightIconWarning," +
+        "GrapesHighlightIconSuccess, GrapesHighlightIconNeutral" +
+        "or GrapesHighlightIconInfo"
+)
 @Composable
 fun StatusInformationIcon(
     configuration: GrapesConfigurationStatus,
@@ -47,6 +53,12 @@ fun StatusInformationIcon(
     }
 }
 
+@Deprecated(
+    "Grapes deprecated, use one of GrapesHighlightIconPrimary," +
+        "GrapesHighlightIconAlert, GrapesHighlightIconWarning," +
+        "GrapesHighlightIconSuccess, GrapesHighlightIconNeutral" +
+        "or GrapesHighlightIconInfo"
+)
 @Composable
 fun StatusInformationIcon(
     @DrawableRes icon: Int,
