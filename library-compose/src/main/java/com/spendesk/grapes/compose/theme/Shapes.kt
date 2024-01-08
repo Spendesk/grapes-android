@@ -19,7 +19,7 @@ data class GrapesShapes(
     val shape3: CornerBasedShape = RoundedCornerShape(cornerRadius3Dp),
     val shape4: CornerBasedShape = RoundedCornerShape(cornerRadiusRoundedPercent),
 
-    @Deprecated("Grapes shape deprecated", ReplaceWith("borderRadius1"))
+    @Deprecated("Grapes shape deprecated", ReplaceWith("shape1"))
     val xSmall: CornerBasedShape = RoundedCornerShape(XSmallShapeCornerRadius),
 
     /**
@@ -28,7 +28,7 @@ data class GrapesShapes(
      * the corner size to be 50%. [TextField] uses this shape with overriding the bottom corners
      * to zero.
      */
-    @Deprecated("Grapes shape deprecated", ReplaceWith("borderRadius2"))
+    @Deprecated("Grapes shape deprecated", ReplaceWith("shape2"))
     val small: CornerBasedShape = RoundedCornerShape(SmallShapeCornerRadius),
     /**
      * Shape used by medium components like [Card] or [AlertDialog].
@@ -38,7 +38,7 @@ data class GrapesShapes(
     /**
      * Shape used by large components like [ModalDrawer] or [ModalBottomSheetLayout].
      */
-    @Deprecated("Grapes shape deprecated", ReplaceWith("borderRadius0"))
+    @Deprecated("Grapes shape deprecated", ReplaceWith("shape0"))
     val large: CornerBasedShape = RoundedCornerShape(LargeShapeCornerRadius)
 )
 

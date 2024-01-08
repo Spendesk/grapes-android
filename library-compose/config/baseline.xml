@@ -1,0 +1,104 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ArgumentListWrapping:GrapesBucket.kt$( modifier = Modifier.background(Color.Yellow), title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)</ID>
+    <ID>ArgumentListWrapping:GrapesGauge.kt$( modifier = modifier, backgroundColor = backgroundColor, clipShape = clipShape, content = { gauges .sortedByDescending { it.progress } .forEachIndexed { index, gauge -&gt; when (gauge) { is Gauge.Solid -&gt; { GrapesGauge( progress = gauge.progress, color = gauge.color, addDelimiter = gauge.addDelimiter ) } is Gauge.Stripped -&gt; { GrapesGaugeStripped( progress = gauge.progress, stripeColor = gauge.stripeColor, stripeColorSecondary = gauge.stripeColorSecondary, addDelimiter = gauge.addDelimiter ) } } } })</ID>
+    <ID>ArgumentListWrapping:PasswordTextInput.kt$( modifier = Modifier .fillMaxSize() .padding(16.dp), Arrangement.spacedBy(16.dp) )</ID>
+    <ID>ArgumentListWrapping:SectionItem.kt$( modifier .clip(GrapesTheme.shapes.shape2) .background(Color.Blue))</ID>
+    <ID>ArgumentListWrapping:WindowEditText.kt$( horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier .padding(16.dp) .fillMaxWidth() )</ID>
+    <ID>ArgumentListWrapping:WindowEditText.kt$( text = content, onTextChange = { content = it } )</ID>
+    <ID>CommentSpacing:GrapesButtonDefaults.kt$GrapesButtonDefaults$//fixme DarkTheme not implemented yet</ID>
+    <ID>EmptyFunctionBlock:NoRippleInteractionSource.kt$NoRippleInteractionSource${}</ID>
+    <ID>Filename:GrapesButtonColors.kt$com.spendesk.grapes.compose.button.GrapesButtonColors.kt</ID>
+    <ID>FinalNewline:ColorsExtensions.kt$com.spendesk.grapes.compose.theme.extensions.ColorsExtensions.kt</ID>
+    <ID>FinalNewline:ExampleUnitTest.kt$com.spendesk.grapes.compose.ExampleUnitTest.kt</ID>
+    <ID>FinalNewline:GrapesConfigurationStatus.kt$com.spendesk.grapes.compose.model.GrapesConfigurationStatus.kt</ID>
+    <ID>FinalNewline:GrapesIcons.kt$com.spendesk.grapes.compose.extensions.GrapesIcons.kt</ID>
+    <ID>ForbiddenComment:GrapesTopAppBar.kt$// TODO: Create a parameter handling colors = GrapesTopAppBarDefaults.colors()</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesCalloutDefault.kt$@Composable internal fun ErrorGrapesCalloutColors( containerColor: Color = GrapesTheme.colors.mainAlertLightest, titleColor: Color = GrapesTheme.colors.mainAlertNormal, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainAlertLighter, ) : GrapesCalloutColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesCalloutDefault.kt$@Composable internal fun InfoGrapesCalloutColors( containerColor: Color = GrapesTheme.colors.mainInfoLightest, titleColor: Color = GrapesTheme.colors.mainInfoNormal, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter, ) : GrapesCalloutColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesCalloutDefault.kt$@Composable internal fun NeutralGrapesCalloutColors( containerColor: Color = GrapesTheme.colors.mainNeutralLighter, titleColor: Color = GrapesTheme.colors.mainNeutralDarker, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainNeutralLighter, ) : GrapesCalloutColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesCalloutDefault.kt$@Composable internal fun SuccessGrapesCalloutColors( containerColor: Color = GrapesTheme.colors.mainSuccessLightest, titleColor: Color = GrapesTheme.colors.mainSuccessNormal, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainSuccessLighter, ) : GrapesCalloutColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesCalloutDefault.kt$@Composable internal fun WarningGrapesCalloutColors( containerColor: Color = GrapesTheme.colors.mainWarningLightest, titleColor: Color = GrapesTheme.colors.mainWarningNormal, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter, ) : GrapesCalloutColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesTagDefaults.kt$@Composable internal fun ErrorGrapesTagColors( containerColor: Color = GrapesTheme.colors.mainAlertLightest, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainAlertLighter, ) : GrapesTagColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesTagDefaults.kt$@Composable internal fun InfoGrapesTagColors( containerColor: Color = GrapesTheme.colors.mainInfoLightest, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter, ) : GrapesTagColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesTagDefaults.kt$@Composable internal fun SuccessGrapesTagColors( containerColor: Color = GrapesTheme.colors.mainSuccessLightest, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainSuccessLighter, ) : GrapesTagColors</ID>
+    <ID>FunctionReturnTypeSpacing:GrapesTagDefaults.kt$@Composable internal fun WarningGrapesTagColors( containerColor: Color = GrapesTheme.colors.mainWarningLightest, contentColor: Color = LocalContentColor.current, borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter, ) : GrapesTagColors</ID>
+    <ID>Indentation:GrapesButtonColors.kt$GrapesButtonColors$ </ID>
+    <ID>LongParameterList:GrapesPinTextFieldDefaults.kt$DefaultsPinColor$( private val textColor: Color, private val disabledTextColor: Color, private val focusTextColor: Color, private val errorTextColor: Color, private val disabledBorderColor: Color, private val focusedErrorBorderColor: Color, private val errorBorderColor: Color, private val focusedEnabledBorderColor: Color, private val enabledBorderColor: Color )</ID>
+    <ID>MagicNumber:Badge.kt$100</ID>
+    <ID>MagicNumber:Divider.kt$4</ID>
+    <ID>MagicNumber:GrapesButtonDefaults.kt$GrapesButtonDefaults$0.5</ID>
+    <ID>MagicNumber:GrapesEditAvatar.kt$45.0</ID>
+    <ID>MagicNumber:GrapesSelect.kt$4</ID>
+    <ID>MagicNumber:GrapesSelect.kt$50</ID>
+    <ID>MatchingDeclarationName:Colors.kt$GrapesColors</ID>
+    <ID>MatchingDeclarationName:Dimensions.kt$GrapesDimensions</ID>
+    <ID>MatchingDeclarationName:GrapesButtonColors.kt$ButtonColorDefaults</ID>
+    <ID>MatchingDeclarationName:GrapesNavigationBar.kt$GrapesNavigationItem</ID>
+    <ID>MatchingDeclarationName:GrapesSelect.kt$SelectEntry</ID>
+    <ID>MatchingDeclarationName:GrapesSelectBlock.kt$GrapesSelectBlockDefaultColors</ID>
+    <ID>MatchingDeclarationName:GrapesSelectBlockContainer.kt$GrapesSelectBlockContainerDefaultColors</ID>
+    <ID>MatchingDeclarationName:GrapesSelectCardText.kt$GrapesSelectCardTextDefaultColors</ID>
+    <ID>MatchingDeclarationName:ListItem.kt$ListItemConfiguration</ID>
+    <ID>MatchingDeclarationName:PasswordValidation.kt$PasswordValidationEntry</ID>
+    <ID>MatchingDeclarationName:Shapes.kt$GrapesShapes</ID>
+    <ID>MatchingDeclarationName:StatusInformationIcon.kt$Size</ID>
+    <ID>MaxLineLength:GrapesInformationCard.kt$DescriptionParameterProvider$"This is a simple example of a very very very long title" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."</ID>
+    <ID>MaxLineLength:GrapesInlineInformationItem.kt$ItemParameterProvider$"This is an example of a very long key" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s."</ID>
+    <ID>MaximumLineLength:GrapesInformationCard.kt$DescriptionParameterProvider$ </ID>
+    <ID>MaximumLineLength:GrapesInlineInformationItem.kt$ItemParameterProvider$ </ID>
+    <ID>NewLineAtEndOfFile:ColorsExtensions.kt$com.spendesk.grapes.compose.theme.extensions.ColorsExtensions.kt</ID>
+    <ID>NewLineAtEndOfFile:ExampleUnitTest.kt$com.spendesk.grapes.compose.ExampleUnitTest.kt</ID>
+    <ID>NewLineAtEndOfFile:GrapesConfigurationStatus.kt$com.spendesk.grapes.compose.model.GrapesConfigurationStatus.kt</ID>
+    <ID>NewLineAtEndOfFile:GrapesIcons.kt$com.spendesk.grapes.compose.extensions.GrapesIcons.kt</ID>
+    <ID>NoBlankLineBeforeRbrace:ErrorTemplate.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:Colors.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:Divider.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:ErrorTemplate.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:ErrorTemplateDefaults.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:GrapesPinTextField.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:GrapesRadioButton.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:GrapesRadioButtonText.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:GrapesSelectCardText.kt$ </ID>
+    <ID>NoConsecutiveBlankLines:GrapesTextFieldDefaults.kt$GrapesTextFieldDefaults$ </ID>
+    <ID>NoConsecutiveBlankLines:GrapesTextInput.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:GrapesBaseTextField.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:GrapesBucket.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:GrapesBucketHeadline.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:GrapesButtonIcon.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:GrapesTextInput.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:IconAction.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:PasswordValidation.kt$ </ID>
+    <ID>NoEmptyFirstLineInMethodBlock:WindowEditText.kt$ </ID>
+    <ID>NoMultipleSpaces:GrapesTagDefaults.kt$GrapesTagColors$ </ID>
+    <ID>NoSemicolons:StatusInformationIcon.kt$Size.L$;</ID>
+    <ID>NoUnusedImports:GrapesCalloutContentBottomSignature.kt$com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentBottomSignature.kt</ID>
+    <ID>NoUnusedImports:GrapesCalloutContentCTASecondary.kt$com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTASecondary.kt</ID>
+    <ID>NoUnusedImports:GrapesNavigationBar.kt$com.spendesk.grapes.compose.appbar.GrapesNavigationBar.kt</ID>
+    <ID>NoUnusedImports:GrapesSearchInput.kt$com.spendesk.grapes.compose.textfield.GrapesSearchInput.kt</ID>
+    <ID>NoUnusedImports:InformativeComponent.kt$com.spendesk.grapes.compose.template.molecule.InformativeComponent.kt</ID>
+    <ID>NoUnusedImports:PasswordValidation.kt$com.spendesk.grapes.compose.message.PasswordValidation.kt</ID>
+    <ID>NoWildcardImports:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+    <ID>NoWildcardImports:Shapes.kt$import androidx.compose.material.*</ID>
+    <ID>SpacingAroundColon:ErrorTemplateDefaults.kt$ErrorTemplateDefaults.DefaultConfiguration$:</ID>
+    <ID>SpacingAroundColon:GrapesCalloutDefault.kt$:</ID>
+    <ID>SpacingAroundColon:GrapesNavigationBar.kt$&lt;no name provided&gt;$:</ID>
+    <ID>SpacingAroundColon:GrapesTagDefaults.kt$:</ID>
+    <ID>SpacingBetweenDeclarationsWithAnnotations:GrapesNavigationBar.kt$GrapesNavigationItem$@get:DrawableRes val icon: Int</ID>
+    <ID>SpacingBetweenDeclarationsWithAnnotations:PasswordValidationDefaults.kt$PasswordValidationDefaults$@DrawableRes val InvalidIcon: Int = R.drawable.ic_neutral_tick</ID>
+    <ID>TooManyFunctions:GrapesButton.kt$com.spendesk.grapes.compose.button.GrapesButton.kt</ID>
+    <ID>TooManyFunctions:GrapesButtonIcon.kt$com.spendesk.grapes.compose.button.GrapesButtonIcon.kt</ID>
+    <ID>TopLevelPropertyNaming:Shapes.kt$private const val cornerRadiusRoundedPercent = 50</ID>
+    <ID>UnusedParameter:GrapesButtonDefaults.kt$GrapesButtonDefaults$lightTheme: Boolean</ID>
+    <ID>UnusedParameter:GrapesTheme.kt$darkTheme: Boolean = isSystemInDarkTheme()</ID>
+    <ID>WildcardImport:ExampleUnitTest.kt$import org.junit.Assert.*</ID>
+    <ID>WildcardImport:Shapes.kt$import androidx.compose.material.*</ID>
+    <ID>Wrapping:GrapesBucket.kt$(</ID>
+    <ID>Wrapping:GrapesGauge.kt$(</ID>
+    <ID>Wrapping:PasswordTextInput.kt$( modifier = Modifier .fillMaxSize() .padding(16.dp), Arrangement.spacedBy(16.dp) )</ID>
+    <ID>Wrapping:SectionItem.kt$(</ID>
+    <ID>Wrapping:WindowEditText.kt$( horizontalAlignment = Alignment.CenterHorizontally, modifier = Modifier .padding(16.dp) .fillMaxWidth() )</ID>
+  </CurrentIssues>
+</SmellBaseline>
