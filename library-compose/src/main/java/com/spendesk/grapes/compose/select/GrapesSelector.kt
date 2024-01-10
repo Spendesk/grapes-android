@@ -83,11 +83,12 @@ internal fun GrapesSelector(
         color = colors.backgroundColor,
         shape = shape,
         onClick = onClick,
+        modifier = modifier,
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1),
-            modifier = modifier
+            modifier = Modifier
                 .border(1.dp, colors.borderColor, shape = shape)
                 .padding(contentPadding)
         ) {
