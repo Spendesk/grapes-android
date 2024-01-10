@@ -108,7 +108,7 @@ fun GrapesHighlightIconNeutral(
     GrapesHighlightIcon(
         painter = painter,
         contentDescription = contentDescription,
-        tint = GrapesTheme.colors.neutralNormal,
+        tint = GrapesTheme.colors.neutralDark,
         containerColor = GrapesTheme.colors.neutralLightest,
         borderColor = GrapesTheme.colors.neutralLighter,
         size = size,
