@@ -19,7 +19,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 15/01/2024
  */
 @Composable
-fun TextBlock(
+fun GrapesTextBlock(
     modifier: Modifier = Modifier,
     header: (@Composable () -> Unit)? = null,
     content: (@Composable () -> Unit)? = null,
@@ -38,7 +38,7 @@ fun TextBlock(
 @Composable
 private fun TextBlockPreview() {
     GrapesTheme {
-        TextBlock(
+        GrapesTextBlock(
             modifier = Modifier
                 .padding(16.dp)
                 .fillMaxWidth(),
