@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Composable
-fun PrimaryTextBlockAction(
+fun GrapesPrimaryTextBlockAction(
     label: String,
     onActionClicked: () -> Unit,
     modifier: Modifier = Modifier,
@@ -39,7 +39,7 @@ fun PrimaryTextBlockAction(
 }
 
 @Composable
-fun NeutralDarkTextBlockAction(
+fun GrapesNeutralDarkTextBlockAction(
     label: String,
     onActionClicked: () -> Unit,
     modifier: Modifier = Modifier,
@@ -84,10 +84,10 @@ fun PrimaryTextBlockActionPreview() {
             modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
         ) {
-            PrimaryTextBlockAction("Test", onActionClicked = {})
-            PrimaryTextBlockAction("Test disabled", isEnabled = false, onActionClicked = {})
-            NeutralDarkTextBlockAction("Test", onActionClicked = {})
-            NeutralDarkTextBlockAction("Test disabled", isEnabled = false, onActionClicked = {})
+            GrapesPrimaryTextBlockAction("Test", onActionClicked = {})
+            GrapesPrimaryTextBlockAction("Test disabled", isEnabled = false, onActionClicked = {})
+            GrapesNeutralDarkTextBlockAction("Test", onActionClicked = {})
+            GrapesNeutralDarkTextBlockAction("Test disabled", isEnabled = false, onActionClicked = {})
         }
     }
 }

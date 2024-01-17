@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Composable
-fun LoadingTextBlockAction(loadingLabel: String, modifier: Modifier = Modifier) {
+fun GrapesLoadingTextBlockAction(loadingLabel: String, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
@@ -37,7 +37,7 @@ fun LoadingTextBlockActionPreview() {
             modifier = Modifier.padding(GrapesTheme.dimensions.spacing3),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
-            LoadingTextBlockAction("Saving")
+            GrapesLoadingTextBlockAction("Saving")
         }
     }
 }

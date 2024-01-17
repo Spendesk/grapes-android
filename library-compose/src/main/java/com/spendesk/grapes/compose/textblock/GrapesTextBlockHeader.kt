@@ -14,7 +14,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.tooling.preview.PreviewParameterProvider
-import com.spendesk.grapes.compose.textblock.actions.RetryTextBlockAction
+import com.spendesk.grapes.compose.textblock.actions.GrapesRetryTextBlockAction
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -22,7 +22,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 16/01/2024
  */
 @Composable
-fun TextBlockHeader(
+fun GrapesTextBlockHeader(
     title: String,
     modifier: Modifier = Modifier,
     informativeLabel: (@Composable () -> Unit)? = null,
@@ -69,7 +69,7 @@ private fun TextBlockHeaderPreview(
 ) {
     val informativeLabel: (@Composable () -> Unit)? = item.second?.let {
         {
-            TextBlockInformativeLabel(
+            GrapesTextBlockInformativeLabel(
                 label = "• $it",
                 color = GrapesTheme.colors.warningDark,
             )
@@ -77,11 +77,11 @@ private fun TextBlockHeaderPreview(
     }
     val action: (@Composable () -> Unit)? = item.third?.let {
         {
-            RetryTextBlockAction(retryLabel = it, onRetryClicked = { /*TODO*/ })
+            GrapesRetryTextBlockAction(retryLabel = it, onRetryClicked = { /*TODO*/ })
         }
     }
 
-    TextBlockHeader(title = item.first, informativeLabel = informativeLabel, action = action, modifier = Modifier.padding(GrapesTheme.dimensions.spacing3))
+    GrapesTextBlockHeader(title = item.first, informativeLabel = informativeLabel, action = action, modifier = Modifier.padding(GrapesTheme.dimensions.spacing3))
 }
 
 private class TextBlockHeaderProvider : PreviewParameterProvider<Triple<String, String?, String?>> {

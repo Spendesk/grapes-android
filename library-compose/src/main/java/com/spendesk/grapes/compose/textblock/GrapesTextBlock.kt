@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.spendesk.grapes.compose.textblock.actions.RetryTextBlockAction
+import com.spendesk.grapes.compose.textblock.actions.GrapesRetryTextBlockAction
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -43,16 +43,16 @@ private fun TextBlockPreview() {
                 .padding(16.dp)
                 .fillMaxWidth(),
             header = {
-                TextBlockHeader(
+                GrapesTextBlockHeader(
                     title = "Title which is very long and need to be truncated",
                     informativeLabel = {
-                        TextBlockInformativeLabel(
+                        GrapesTextBlockInformativeLabel(
                             label = "• Missing",
                             color = GrapesTheme.colors.warningDark,
                         )
                     },
                     action = {
-                        RetryTextBlockAction(retryLabel = "Retry", onRetryClicked = { /*TODO*/ })
+                        GrapesRetryTextBlockAction(retryLabel = "Retry", onRetryClicked = { /*TODO*/ })
                     },
                     modifier = Modifier
                         .padding(horizontal = GrapesTheme.dimensions.spacing3)

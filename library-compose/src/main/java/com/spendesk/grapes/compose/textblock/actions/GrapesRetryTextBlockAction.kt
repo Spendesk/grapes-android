@@ -21,7 +21,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  * @since 15/01/2024
  */
 @Composable
-fun RetryTextBlockAction(retryLabel: String, onRetryClicked: () -> Unit, modifier: Modifier = Modifier) {
+fun GrapesRetryTextBlockAction(retryLabel: String, onRetryClicked: () -> Unit, modifier: Modifier = Modifier) {
     Row(
         modifier = modifier.clickable(onClickLabel = retryLabel, onClick = onRetryClicked, enabled = true, role = Role.Button),
         verticalAlignment = Alignment.CenterVertically,
@@ -40,7 +40,7 @@ fun TextBlockActionPreview() {
             modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
         ) {
-            RetryTextBlockAction("Tap to retry", onRetryClicked = {})
+            GrapesRetryTextBlockAction("Tap to retry", onRetryClicked = {})
         }
     }
 }

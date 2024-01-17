@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Composable
-fun TextBlockInformativeLabel(label: String, color: Color) {
+fun GrapesTextBlockInformativeLabel(label: String, color: Color) {
     Text(
         text = label,
         style = GrapesTheme.typography.bodyM,
@@ -32,8 +32,8 @@ private fun TextBlockOptionalTitlePreview() {
             modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
         ) {
-            TextBlockInformativeLabel("• Missing", color = GrapesTheme.colors.warningNormal)
-            TextBlockInformativeLabel("• Optional", color = GrapesTheme.colors.neutralNormal)
+            GrapesTextBlockInformativeLabel("• Missing", color = GrapesTheme.colors.warningNormal)
+            GrapesTextBlockInformativeLabel("• Optional", color = GrapesTheme.colors.neutralNormal)
         }
     }
 }
