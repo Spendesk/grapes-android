@@ -18,6 +18,7 @@ import com.spendesk.grapes.extensions.gone
 import com.spendesk.grapes.extensions.visible
 import com.spendesk.grapes.extensions.visibleOrGone
 import com.spendesk.grapes.extensions.visibleWithTextOrGone
+import com.google.android.material.R as MaterialR
 
 /**
  * @author danyboucanova
@@ -26,6 +27,7 @@ import com.spendesk.grapes.extensions.visibleWithTextOrGone
 open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     companion object {
+
         fun newInstance(): ActionMessageBottomSheetDialogFragment = ActionMessageBottomSheetDialogFragment()
 
         private const val SCREEN_HEIGHT_PERCENTAGE_THRESHOLD_TO_CROP_MESSAGE = 0.8f
@@ -58,7 +60,7 @@ open class ActionMessageBottomSheetDialogFragment : BottomSheetDialogFragment() 
         // This is required so when the keyboard pops up, it pushes up this dialog so everything is visible.
         with(dialog) {
             setOnShowListener { dialogInterface ->
-                (dialogInterface as BottomSheetDialog).findViewById<FrameLayout>(R.id.design_bottom_sheet)?.let { bottomSheet ->
+                (dialogInterface as BottomSheetDialog).findViewById<FrameLayout>(MaterialR.id.design_bottom_sheet)?.let { bottomSheet ->
                     val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
 
                     bottomSheetBehavior.saveFlags = BottomSheetBehavior.SAVE_SKIP_COLLAPSED
