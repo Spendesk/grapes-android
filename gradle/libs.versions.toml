@@ -4,8 +4,8 @@ androidMinSdk = "21"
 androidTargetSdk = "34"
 androidCompileSdk = "34"
 
-kotlin = "1.9.0"
-gradle = "8.2.1"
+kotlin = "1.9.21"
+gradle = "8.2.2"
 firebase-app-distrib = "4.0.1"
 ksp = "1.9.0-1.0.13"
 detekt = "1.23.4"
@@ -16,15 +16,15 @@ hilt = "2.50"
 
 # Androidx
 androidx-lifecycle-ktx = "2.6.2"
-androidx-fraghment-ktx = "1.6.1"
+androidx-fragment-ktx = "1.6.2"
 androidx-core-ktx = "1.12.0"
 androidx-constraintlayout = "2.1.4"
 androidx-appcompat = "1.6.1"
 android-material-version = '1.9.0'
 
 # Compose
-compose-bom = "2023.09.00"
-compose-kotlin-compiler = "1.5.2"
+compose-bom = "2023.10.01"
+compose-kotlin-compiler = "1.5.7"
 
 # Image
 glide = "4.16.0"
@@ -41,7 +41,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "android-material-version" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
-androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidx-fraghment-ktx" }
+androidx-fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "androidx-fragment-ktx" }
 
 # Hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
