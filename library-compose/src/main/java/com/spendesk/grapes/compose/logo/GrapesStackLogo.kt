@@ -16,6 +16,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
@@ -25,6 +26,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 
 private const val GrapesStackSurfaceMaxLines = 1
+private val grapesStackSurface: Dp = 36.dp
 
 @Composable
 fun GrapesStackLogo(
@@ -40,7 +42,7 @@ fun GrapesStackLogo(
             Box(
                 modifier = Modifier
                     .align(Alignment.TopStart)
-                    .size(GrapesTheme.dimensions.grapesStackSurface)
+                    .size(grapesStackSurface)
                     .offset(x = highlightIconOffset, y = highlightIconOffset),
             ) {
                 GrapesStackSurface(text = numberOfStack.toString())
@@ -56,7 +58,7 @@ fun GrapesStackSurface(
 ) {
     GrapesLargeLogoContainer(
         modifier = modifier
-            .size(GrapesTheme.dimensions.grapesStackSurface)
+            .size(grapesStackSurface)
             .border(1.dp, color = GrapesTheme.colors.neutralLighter, shape = GrapesTheme.shapes.shape2)
             .clip(GrapesTheme.shapes.shape2)
             .background(GrapesTheme.colors.neutralLightest)
