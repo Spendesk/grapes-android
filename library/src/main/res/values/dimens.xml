@@ -88,20 +88,6 @@
 
     <!-- endregion Chip -->
 
-    <!-- region Security Code Validation CardView -->
-
-    <dimen name="registrationCodeViewContainerHeight">56dp</dimen>
-    <dimen name="registrationCodeViewCardRadius">12dp</dimen>
-    <dimen name="registrationCodeViewCardElevation">0dp</dimen>
-    <dimen name="registrationCodeViewTextLetterSpacing">0.35</dimen>
-    <dimen name="registrationCodeViewTextSize">24sp</dimen>
-
-    <dimen name="registrationCodeSeparatorWidth">8dp</dimen>
-    <dimen name="registrationCodeSeparatorHeight">2dp</dimen>
-    <dimen name="registrationCodeMarginHorz">8dp</dimen>
-
-    <!-- endregion Security Code Validation CardView -->
-
     <!-- Verification Code View -->
 
     <dimen name="pinCodeDotViewItemSize">16dp</dimen>
