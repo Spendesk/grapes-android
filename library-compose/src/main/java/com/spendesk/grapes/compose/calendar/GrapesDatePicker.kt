@@ -2,12 +2,12 @@ package com.spendesk.grapes.compose.calendar
 
 import androidx.compose.material3.DatePicker
 import androidx.compose.material3.DatePickerDefaults
-import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.DisplayMode
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.SelectableDates
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.extensions.resetDateToMidnight
@@ -40,14 +40,22 @@ fun GrapesDatePicker(
     maxDate: Date? = null,
     onDateSelected: ((Date) -> Unit)? = null
 ) {
-    val selectedDate = remember(date, minDate, maxDate) {
-        DatePickerState(
-            initialSelectedDateMillis = date?.time,
-            initialDisplayedMonthMillis = date?.time,
-            yearRange = DatePickerDefaults.YearRange,
-            initialDisplayMode = DisplayMode.Picker
-        )
-    }
+    val selectedDate = rememberDatePickerState(
+        initialSelectedDateMillis = date?.time,
+        initialDisplayedMonthMillis = date?.time,
+        yearRange = DatePickerDefaults.YearRange,
+        initialDisplayMode = DisplayMode.Picker,
+        selectableDates = object : SelectableDates {
+            override fun isSelectableDate(utcTimeMillis: Long): Boolean {
+                val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC")).apply { timeInMillis = utcTimeMillis }
+
+                val isAfterMinDate = minDate?.let { calendar.time.after(it.resetDateToMidnight()) } ?: true
+                val isBeforeMaxDate = maxDate?.let { calendar.time.before(it.resetDateToTomorrowMidnight()) } ?: true
+
+                return isAfterMinDate && isBeforeMaxDate
+            }
+        }
+    )
 
     DatePicker(
         state = selectedDate,
@@ -71,14 +79,6 @@ fun GrapesDatePicker(
             todayContentColor = GrapesTheme.colors.mainPrimaryNormal,
             todayDateBorderColor = GrapesTheme.colors.mainPrimaryNormal
         ),
-        dateValidator = { utcDateInMills ->
-            val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC")).apply { timeInMillis = utcDateInMills }
-
-            val isAfterMinDate = minDate?.let { calendar.time.after(it.resetDateToMidnight()) } ?: true
-            val isBeforeMaxDate = maxDate?.let { calendar.time.before(it.resetDateToTomorrowMidnight()) } ?: true
-
-            isAfterMinDate && isBeforeMaxDate
-        }
     )
 
     LaunchedEffect(selectedDate.selectedDateMillis) {
