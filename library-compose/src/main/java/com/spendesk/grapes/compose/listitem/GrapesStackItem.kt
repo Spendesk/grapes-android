@@ -42,7 +42,7 @@ object GrapesStackItemDefaults {
     fun colors(
         titleColor: Color = GrapesTheme.colors.neutralDarker,
         descriptionColor: Color = GrapesTheme.colors.neutralDarker,
-        backgroundColor: Color = GrapesTheme.colors.neutralLightest
+        backgroundColor: Color = GrapesTheme.colors.structureBackground
     ): GrapesStackItemColors = GrapesStackItemColors(
         titleColor = titleColor,
         descriptionColor = descriptionColor,
@@ -73,7 +73,7 @@ fun GrapesStackItem(
             .then(clickableModifier)
             .background(colors.backgroundColor)
             .padding(
-                vertical = GrapesTheme.dimensions.spacing3,
+                vertical = GrapesTheme.dimensions.spacing2,
                 horizontal = GrapesTheme.dimensions.spacing2,
             ),
     ) {
