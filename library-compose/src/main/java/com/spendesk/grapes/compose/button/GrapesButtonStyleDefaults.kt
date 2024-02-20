@@ -94,6 +94,24 @@ object GrapesButtonStyleDefaults {
             isFillMaxWidthWithContent = false,
         )
 
+    val tertiary: GrapesButtonStyle
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonStyle(
+            textStyle = GrapesTheme.typography.titleL,
+            minSize = Size(
+                width = GrapesButtonDefaults.MinWidth.value,
+                height = GrapesButtonDefaults.MinHeight.value
+            ),
+            iconSize = GrapesButtonDefaults.iconSize,
+            shape = GrapesTheme.shapes.shape2,
+            rippleColor = GrapesTheme.colors.primaryLighter,
+            colors = ButtonColorDefaults.tertiary,
+            contentPadding = GrapesButtonDefaults.PaddingValues,
+            borderStroke = null,
+            isFillMaxWidthWithContent = true,
+        )
+
     val text: GrapesButtonStyle
         @Composable
         @ReadOnlyComposable
