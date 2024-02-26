@@ -9,6 +9,7 @@ import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.spendesk.grapes.compose.extensions.resetDateToMidnight
 import com.spendesk.grapes.compose.extensions.resetDateToTomorrowMidnight
@@ -64,20 +65,20 @@ fun GrapesDatePicker(
         title = null,
         headline = null,
         colors = DatePickerDefaults.colors(
-            containerColor = GrapesTheme.colors.mainBackground,
-            titleContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            headlineContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            weekdayContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            subheadContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            yearContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            currentYearContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            selectedYearContentColor = GrapesTheme.colors.mainWhite,
-            selectedYearContainerColor = GrapesTheme.colors.mainPrimaryNormal,
-            dayContentColor = GrapesTheme.colors.mainNeutralDarkest,
-            selectedDayContentColor = GrapesTheme.colors.mainWhite,
-            selectedDayContainerColor = GrapesTheme.colors.mainPrimaryNormal,
-            todayContentColor = GrapesTheme.colors.mainPrimaryNormal,
-            todayDateBorderColor = GrapesTheme.colors.mainPrimaryNormal
+            containerColor = GrapesTheme.colors.structureBackground,
+            titleContentColor = GrapesTheme.colors.neutralDarker,
+            headlineContentColor = GrapesTheme.colors.neutralDarker,
+            weekdayContentColor = GrapesTheme.colors.neutralDarker,
+            subheadContentColor = GrapesTheme.colors.neutralDarker,
+            yearContentColor = GrapesTheme.colors.neutralDarker,
+            currentYearContentColor = GrapesTheme.colors.neutralDarker,
+            selectedYearContentColor = Color.White,
+            selectedYearContainerColor = GrapesTheme.colors.primaryNormal,
+            dayContentColor = GrapesTheme.colors.neutralDarker,
+            selectedDayContentColor = Color.White,
+            selectedDayContainerColor = GrapesTheme.colors.primaryNormal,
+            todayContentColor = GrapesTheme.colors.primaryNormal,
+            todayDateBorderColor = GrapesTheme.colors.primaryNormal
         ),
     )
 
