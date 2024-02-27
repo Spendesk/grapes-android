@@ -89,7 +89,7 @@ fun GrapesStackItem(
                 )
                 Text(
                     text = description,
-                    style = GrapesTheme.typography.bodyS,
+                    style = GrapesTheme.typography.bodyM,
                     color = colors.descriptionColor,
                     maxLines = 1,
                 )
