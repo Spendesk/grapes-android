@@ -1,6 +1,6 @@
 [versions]
 grapes-version = '1.21.2'
-androidMinSdk = "21"
+androidMinSdk = "23"
 androidTargetSdk = "34"
 androidCompileSdk = "34"
 
