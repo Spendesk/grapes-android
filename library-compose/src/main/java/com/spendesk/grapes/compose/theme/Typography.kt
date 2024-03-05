@@ -20,7 +20,7 @@ private val DefaultGrapesFontFamily = FontFamily(
 )
 
 @Immutable
-data class GrapesTypography constructor(
+data class GrapesTypography(
     val bodyS: TextStyle,
     val bodyM: TextStyle,
     val bodyL: TextStyle,
@@ -30,6 +30,7 @@ data class GrapesTypography constructor(
     val titleM: TextStyle,
     val titleL: TextStyle,
     val titleXl: TextStyle,
+    val titleXxl: TextStyle
 ) {
     constructor(
         defaultFontFamily: FontFamily = DefaultGrapesFontFamily,
@@ -69,6 +70,10 @@ data class GrapesTypography constructor(
             fontWeight = FontWeight.Medium,
             fontSize = 20.sp,
         ),
+        titleXxl: TextStyle = TextStyle(
+            fontWeight = FontWeight.Medium,
+            fontSize = 32.sp,
+        )
     ) : this(
         bodyS = bodyS.withDefaultFontFamily(defaultFontFamily),
         bodyM = bodyM.withDefaultFontFamily(defaultFontFamily),
@@ -79,6 +84,7 @@ data class GrapesTypography constructor(
         titleM = titleM.withDefaultFontFamily(defaultFontFamily),
         titleL = titleL.withDefaultFontFamily(defaultFontFamily),
         titleXl = titleXl.withDefaultFontFamily(defaultFontFamily),
+        titleXxl = titleXxl.withDefaultFontFamily(defaultFontFamily)
     )
 }
 

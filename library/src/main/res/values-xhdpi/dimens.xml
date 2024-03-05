@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <dimen name="registrationCodeViewTextLetterSpacing">0.25</dimen>
-    <dimen name="registrationCodeViewTextSize">20sp</dimen>
-</resources>

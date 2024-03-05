@@ -35,6 +35,16 @@ object ButtonColorDefaults {
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 
+    val tertiary: ButtonColors
+        @Composable
+        @ReadOnlyComposable
+        get() = GrapesButtonColors(
+            backgroundColor = GrapesTheme.colors.structureSurface,
+            contentColor = GrapesTheme.colors.primaryNormal,
+            disabledBackgroundColor = GrapesTheme.colors.structureSurface,
+            disabledContentColor = GrapesTheme.colors.neutralNormal,
+        )
+
     val text: ButtonColors
         @Composable
         @ReadOnlyComposable

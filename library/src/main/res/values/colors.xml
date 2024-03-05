@@ -136,14 +136,6 @@
     <color name="toasterText">@color/mainWhite</color>
     <!-- endregion Toaster -->
 
-    <!-- region Security Code Validation CardView -->
-
-    <color name="registrationCodeViewBackground">@color/colorPrimaryDark</color>
-    <color name="registrationCodeViewTextColor">@color/mainWhite</color>
-    <color name="registrationCodeViewSeparatorViewBackground">@color/mainWhite</color>
-
-    <!-- endregion Security Code Validation CardView -->
-
     <!-- region NumberKeyboardText -->
 
     <color name="numberKeyboardTextColorLight">@color/mainWhite</color>

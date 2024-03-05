@@ -1,6 +1,6 @@
 [versions]
-grapes-version = '1.21.2'
-androidMinSdk = "21"
+grapes-version = '1.22.0'
+androidMinSdk = "23"
 androidTargetSdk = "34"
 androidCompileSdk = "34"
 
@@ -23,7 +23,7 @@ androidx-appcompat = "1.6.1"
 android-material-version = '1.9.0'
 
 # Compose
-compose-bom = "2023.10.01"
+compose-bom = "2024.02.00"
 compose-kotlin-compiler = "1.5.7"
 
 # Image
