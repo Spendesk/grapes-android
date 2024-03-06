@@ -5,7 +5,7 @@ androidTargetSdk = "34"
 androidCompileSdk = "34"
 
 kotlin = "1.9.21"
-gradle = "8.2.2"
+gradle = "8.3.0"
 firebase-app-distrib = "4.0.1"
 ksp = "1.9.0-1.0.13"
 detekt = "1.23.4"
