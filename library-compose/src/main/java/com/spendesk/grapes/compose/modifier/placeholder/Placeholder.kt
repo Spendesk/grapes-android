@@ -1,6 +1,8 @@
 package com.spendesk.grapes.compose.modifier.placeholder
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.FiniteAnimationSpec
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.spring
 import androidx.compose.runtime.Composable
@@ -67,13 +69,18 @@ fun PlaceholderDefaults.shimmerHighlightColor(
  * @param contentFadeTransitionSpec The transition spec to use when fading the content
  * on/off screen. The boolean parameter defined for the transition is [visible].
  */
+@SuppressLint("ModifierFactoryUnreferencedReceiver")
 fun Modifier.placeholder(
     visible: Boolean,
     color: Color = Color.Unspecified,
     shape: Shape? = null,
     highlight: PlaceholderHighlight? = null,
-    placeholderFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = { spring() },
-    contentFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = { spring() },
+    placeholderFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = {
+        spring(stiffness = Spring.StiffnessMediumLow)
+    },
+    contentFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = {
+        spring(stiffness = Spring.StiffnessMediumLow)
+    },
 ): Modifier = composed {
     Modifier.placeholder(
         visible = visible,

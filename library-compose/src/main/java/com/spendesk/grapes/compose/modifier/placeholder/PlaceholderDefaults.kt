@@ -41,6 +41,7 @@ private val ALPHA_RANGE = ALPHA_MIN_VALUE..ALPHA_MAX_VALUE
  * Contains default values used by [Modifier.placeholder] and [PlaceholderHighlight].
  */
 object PlaceholderDefaults {
+
     /**
      * The default [InfiniteRepeatableSpec] to use for [fade].
      */
