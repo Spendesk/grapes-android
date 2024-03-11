@@ -16,25 +16,25 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 /**
  * Returns the value used as the the `highlightColor` parameter value of [PlaceholderHighlight.Companion.fade].
  *
- * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.neutralDarker].
- * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.3f`.
+ * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.structureComplementary].
+ * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.16f`.
  */
 @Composable
 fun PlaceholderDefaults.fadeHighlightColor(
-    backgroundColor: Color = GrapesTheme.colors.neutralDarker,
-    alpha: Float = 0.3f,
+    backgroundColor: Color = GrapesTheme.colors.structureComplementary,
+    alpha: Float = 0.16f,
 ): Color = backgroundColor.copy(alpha = alpha)
 
 /**
  * Returns the value used as the the `highlightColor` parameter value of [PlaceholderHighlight.Companion.shimmer].
  *
- * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.neutralDark].
- * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.75f`.
+ * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.structureComplementary].
+ * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.16f`.
  */
 @Composable
 fun PlaceholderDefaults.shimmerHighlightColor(
-    backgroundColor: Color = GrapesTheme.colors.neutralDark,
-    alpha: Float = 0.75f,
+    backgroundColor: Color = GrapesTheme.colors.structureComplementary,
+    alpha: Float = 0.16f,
 ): Color {
     return backgroundColor.copy(alpha = alpha)
 }
@@ -77,7 +77,7 @@ fun Modifier.placeholder(
 ): Modifier = composed {
     Modifier.placeholder(
         visible = visible,
-        color = if (color.isSpecified) color else GrapesTheme.colors.neutralLighter,
+        color = if (color.isSpecified) color else GrapesTheme.colors.structureComplementary.copy(alpha = 0.08f),
         shape = shape ?: GrapesTheme.shapes.shape2,
         highlight = highlight,
         placeholderFadeTransitionSpec = placeholderFadeTransitionSpec,
