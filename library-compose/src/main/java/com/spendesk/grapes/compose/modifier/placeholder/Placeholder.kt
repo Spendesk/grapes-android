@@ -1,6 +1,8 @@
 package com.spendesk.grapes.compose.modifier.placeholder
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.core.FiniteAnimationSpec
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.Transition
 import androidx.compose.animation.core.spring
 import androidx.compose.runtime.Composable
@@ -16,25 +18,25 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 /**
  * Returns the value used as the the `highlightColor` parameter value of [PlaceholderHighlight.Companion.fade].
  *
- * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.neutralDarker].
- * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.3f`.
+ * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.structureComplementary].
+ * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.16f`.
  */
 @Composable
 fun PlaceholderDefaults.fadeHighlightColor(
-    backgroundColor: Color = GrapesTheme.colors.neutralDarker,
-    alpha: Float = 0.3f,
+    backgroundColor: Color = GrapesTheme.colors.structureComplementary,
+    alpha: Float = 0.16f,
 ): Color = backgroundColor.copy(alpha = alpha)
 
 /**
  * Returns the value used as the the `highlightColor` parameter value of [PlaceholderHighlight.Companion.shimmer].
  *
- * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.neutralDark].
- * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.75f`.
+ * @param backgroundColor The current background color of the layout. Defaults to [GrapesColors.structureComplementary].
+ * @param alpha The alpha component to set on [backgroundColor]. Defaults to `0.16f`.
  */
 @Composable
 fun PlaceholderDefaults.shimmerHighlightColor(
-    backgroundColor: Color = GrapesTheme.colors.neutralDark,
-    alpha: Float = 0.75f,
+    backgroundColor: Color = GrapesTheme.colors.structureComplementary,
+    alpha: Float = 0.16f,
 ): Color {
     return backgroundColor.copy(alpha = alpha)
 }
@@ -67,17 +69,22 @@ fun PlaceholderDefaults.shimmerHighlightColor(
  * @param contentFadeTransitionSpec The transition spec to use when fading the content
  * on/off screen. The boolean parameter defined for the transition is [visible].
  */
+@SuppressLint("ModifierFactoryUnreferencedReceiver")
 fun Modifier.placeholder(
     visible: Boolean,
     color: Color = Color.Unspecified,
     shape: Shape? = null,
     highlight: PlaceholderHighlight? = null,
-    placeholderFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = { spring() },
-    contentFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = { spring() },
+    placeholderFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = {
+        spring(stiffness = Spring.StiffnessMediumLow)
+    },
+    contentFadeTransitionSpec: @Composable Transition.Segment<Boolean>.() -> FiniteAnimationSpec<Float> = {
+        spring(stiffness = Spring.StiffnessMediumLow)
+    },
 ): Modifier = composed {
     Modifier.placeholder(
         visible = visible,
-        color = if (color.isSpecified) color else GrapesTheme.colors.neutralLighter,
+        color = if (color.isSpecified) color else GrapesTheme.colors.structureComplementary.copy(alpha = 0.08f),
         shape = shape ?: GrapesTheme.shapes.shape2,
         highlight = highlight,
         placeholderFadeTransitionSpec = placeholderFadeTransitionSpec,

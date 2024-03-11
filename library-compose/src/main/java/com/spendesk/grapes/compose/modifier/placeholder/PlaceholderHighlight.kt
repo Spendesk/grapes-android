@@ -3,6 +3,7 @@ package com.spendesk.grapes.compose.modifier.placeholder
 import androidx.annotation.FloatRange
 import androidx.compose.animation.core.AnimationSpec
 import androidx.compose.animation.core.InfiniteRepeatableSpec
+import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -17,6 +18,7 @@ import kotlin.math.max
  */
 @Stable
 interface PlaceholderHighlight {
+
     /**
      * The optional [AnimationSpec] to use when running the animation for this highlight.
      */
@@ -50,8 +52,9 @@ interface PlaceholderHighlight {
  * @param highlightColor the color of the highlight which is faded in/out.
  * @param animationSpec the [AnimationSpec] to configure the animation.
  */
+@Composable
 fun PlaceholderHighlight.Companion.fade(
-    highlightColor: Color,
+    highlightColor: Color = PlaceholderDefaults.fadeHighlightColor(),
     animationSpec: InfiniteRepeatableSpec<Float> = PlaceholderDefaults.fadeAnimationSpec,
 ): PlaceholderHighlight = Fade(
     highlightColor = highlightColor,
@@ -70,8 +73,9 @@ fun PlaceholderHighlight.Companion.fade(
  * @param progressForMaxAlpha The progress where the shimmer should be at it's peak opacity.
  * Defaults to 0.6f.
  */
+@Composable
 fun PlaceholderHighlight.Companion.shimmer(
-    highlightColor: Color,
+    highlightColor: Color = PlaceholderDefaults.shimmerHighlightColor(),
     animationSpec: InfiniteRepeatableSpec<Float> = PlaceholderDefaults.shimmerAnimationSpec,
     @FloatRange(from = 0.0, to = 1.0) progressForMaxAlpha: Float = 0.6f,
 ): PlaceholderHighlight = Shimmer(
@@ -84,6 +88,7 @@ private data class Fade(
     private val highlightColor: Color,
     override val animationSpec: InfiniteRepeatableSpec<Float>,
 ) : PlaceholderHighlight {
+
     private val brush = SolidColor(highlightColor)
 
     override fun brush(progress: Float, size: Size): Brush = brush
@@ -97,6 +102,7 @@ private data class Shimmer(
 ) : PlaceholderHighlight {
 
     companion object {
+
         private const val gradientRadiusMinimumValue = 0.01f
     }
 
