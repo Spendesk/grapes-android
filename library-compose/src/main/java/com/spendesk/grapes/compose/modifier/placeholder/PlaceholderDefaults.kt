@@ -47,7 +47,7 @@ object PlaceholderDefaults {
      */
     val fadeAnimationSpec: InfiniteRepeatableSpec<Float> by lazy {
         infiniteRepeatable(
-            animation = tween(delayMillis = 200, durationMillis = 600),
+            animation = tween(delayMillis = 0, durationMillis = 1000),
             repeatMode = RepeatMode.Reverse,
         )
     }
