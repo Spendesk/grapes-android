@@ -24,7 +24,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 fun PlaceholderDefaults.fadeHighlightColor(
     backgroundColor: Color = GrapesTheme.colors.structureComplementary,
-    alpha: Float = 0.16f,
+    alpha: Float = 0.12f,
 ): Color = backgroundColor.copy(alpha = alpha)
 
 /**
@@ -36,7 +36,7 @@ fun PlaceholderDefaults.fadeHighlightColor(
 @Composable
 fun PlaceholderDefaults.shimmerHighlightColor(
     backgroundColor: Color = GrapesTheme.colors.structureComplementary,
-    alpha: Float = 0.16f,
+    alpha: Float = 0.12f,
 ): Color {
     return backgroundColor.copy(alpha = alpha)
 }
