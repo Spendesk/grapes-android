@@ -144,6 +144,7 @@ internal operator fun Digit.compareTo(other: Digit): Int {
     return fullNumber.compareTo(other.fullNumber)
 }
 
+@Suppress("MagicNumber")
 @Preview(showBackground = true, backgroundColor = 0xFFFFFF)
 @Composable
 private fun GrapesBadgesPreview(@PreviewParameter(GrapesBadgeProvider::class) type: GrapesBadgeType) {
