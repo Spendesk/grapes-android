@@ -106,7 +106,6 @@ private fun GrapesBadge(
                     val digit by remember(countValue) { mutableStateOf(Digit(c, countValue, index)) }
 
                     AnimatedContent(
-                        modifier = modifier,
                         targetState = digit,
                         transitionSpec = {
                             if (targetState.fullNumber > initialState.fullNumber) {
