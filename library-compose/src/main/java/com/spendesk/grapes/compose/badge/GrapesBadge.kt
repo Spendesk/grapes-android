@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -101,13 +102,14 @@ private fun GrapesBadge(
                 .animateContentSize()
         ) {
             countValue.toString()
-                .mapIndexed { index, c -> Digit(c, countValue, index) }
-                .forEach { digit ->
+                .forEachIndexed { index, c ->
+                    val digit by remember(countValue) { mutableStateOf(Digit(c, countValue, index)) }
+
                     AnimatedContent(
                         modifier = modifier,
                         targetState = digit,
                         transitionSpec = {
-                            if (targetState > initialState) {
+                            if (targetState.fullNumber > initialState.fullNumber) {
                                 slideInVertically { -it } togetherWith slideOutVertically { it }
                             } else {
                                 slideInVertically { it } togetherWith slideOutVertically { -it }
@@ -116,8 +118,8 @@ private fun GrapesBadge(
                         label = "Animated Badge Content"
                     ) { animatedDigit ->
                         val textValue = when {
-                            animatedDigit.fullNumber > maxCount && animatedDigit.place == 0 -> "$moreIndicator$maxCount"
-                            animatedDigit.fullNumber > maxCount && animatedDigit.place > 0 -> ""
+                            animatedDigit.fullNumber > maxCount && index == 0 -> "$moreIndicator$maxCount"
+                            animatedDigit.fullNumber > maxCount && index > 0 -> ""
                             else -> animatedDigit.digitChar.toString()
                         }
                         Text(
@@ -138,10 +140,6 @@ internal data class Digit(val digitChar: Char, val fullNumber: Int, val place: I
             else -> super.equals(other)
         }
     }
-}
-
-internal operator fun Digit.compareTo(other: Digit): Int {
-    return fullNumber.compareTo(other.fullNumber)
 }
 
 @Suppress("MagicNumber")
