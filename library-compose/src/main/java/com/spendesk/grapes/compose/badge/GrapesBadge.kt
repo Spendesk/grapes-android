@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
@@ -88,7 +89,7 @@ private fun GrapesBadge(
     Box(
         modifier = modifier
             .widthIn(min = GrapesBadgeDefaults.MinWidth)
-            .height(GrapesBadgeDefaults.Height)
+            .heightIn(min = GrapesBadgeDefaults.MinHeight)
             .background(
                 color = colors.backgroundColor(),
                 shape = GrapesBadgeDefaults.backgroundShape(),
@@ -131,13 +132,20 @@ private fun GrapesBadge(
     }
 }
 
-internal data class Digit(val digitChar: Char, val fullNumber: Int, val place: Int) {
+private data class Digit(val digitChar: Char, val fullNumber: Int, val place: Int) {
 
     override fun equals(other: Any?): Boolean {
         return when (other) {
             is Digit -> digitChar == other.digitChar
             else -> super.equals(other)
         }
+    }
+
+    override fun hashCode(): Int {
+        var result = digitChar.hashCode()
+        result = 31 * result + fullNumber
+        result = 31 * result + place
+        return result
     }
 }
 

@@ -37,7 +37,7 @@ object GrapesBadgeDefaults {
     const val MORE_INDICATOR = "+"
 
     val MinWidth = 24.dp
-    val Height = 24.dp
+    val MinHeight = 24.dp
     val HorizontalPadding = 4.dp
 
     @Composable
