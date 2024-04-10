@@ -16,8 +16,8 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 
 object GrapesSelectBlockContainerDefaultColors {
-    val selectedBorderColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
-    val selectedBackgroundColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryLightest
+    val selectedBorderColor: Color @Composable get() = GrapesTheme.colors.primaryDark
+    val selectedBackgroundColor: Color @Composable get() = GrapesTheme.colors.primaryLightest
 }
 
 @Composable

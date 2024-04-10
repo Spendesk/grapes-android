@@ -20,15 +20,15 @@ object GrapesPinTextFieldDefaults {
 
     @Composable
     fun pinFieldColors(
-        textColor: Color = GrapesTheme.colors.mainPrimaryNormal,
-        disabledTextColor: Color = GrapesTheme.colors.mainPrimaryLighter,
-        focusTextColor: Color = GrapesTheme.colors.mainPrimaryDark,
+        textColor: Color = GrapesTheme.colors.primaryNormal,
+        disabledTextColor: Color = GrapesTheme.colors.primaryLighter,
+        focusTextColor: Color = GrapesTheme.colors.primaryDark,
         errorTextColor: Color = GrapesTheme.colors.alertNormal,
-        disabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLightest,
+        disabledBorderColor: Color = GrapesTheme.colors.primaryLightest,
         focusedErrorBorderColor: Color = GrapesTheme.colors.alertNormal,
         errorBorderColor: Color = GrapesTheme.colors.alertLightest,
-        focusedEnabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLight,
-        enabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLighter
+        focusedEnabledBorderColor: Color = GrapesTheme.colors.primaryLight,
+        enabledBorderColor: Color = GrapesTheme.colors.primaryLighter
     ): GrapesPinColors = DefaultsPinColor(
         textColor = textColor,
         disabledTextColor = disabledTextColor,

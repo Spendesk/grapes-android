@@ -29,7 +29,7 @@ fun GrapesSurface(
         GrapesConfigurationStatus.NEUTRAL -> Pair(GrapesTheme.colors.mainNeutralLighter, GrapesTheme.colors.mainNeutralNormal)
         GrapesConfigurationStatus.ALERT -> Pair(GrapesTheme.colors.alertLightest, GrapesTheme.colors.alertLighter)
         GrapesConfigurationStatus.WARNING -> Pair(GrapesTheme.colors.warningLightest, GrapesTheme.colors.warningLighter)
-        GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.mainPrimaryLightest, GrapesTheme.colors.mainPrimaryLighter)
+        GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.primaryLightest, GrapesTheme.colors.primaryLighter)
     }
 
     val border = BorderStroke(1.dp, borderColor).takeIf { hasBorder }

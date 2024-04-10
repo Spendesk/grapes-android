@@ -9,8 +9,6 @@ import androidx.compose.ui.graphics.Color
  **/
 @Suppress("LongParameterList", "LongMethod")
 fun lightColorsPalette(
-    legacyPrimaryDark: Color = mainPrimaryDark,
-    legacyPrimaryLighter: Color = mainPrimaryLighter,
     primaryDark: Color = purpleDark,
     primaryNormal: Color = purpleNormal,
     primaryLight: Color = purpleLight,
@@ -51,11 +49,6 @@ fun lightColorsPalette(
     alertLighter: Color = redLighter,
     alertLightest: Color = redLightest,
 ): GrapesColors = GrapesColors(
-    mainPrimaryDark = legacyPrimaryDark,
-    mainPrimaryNormal = primaryNormal,
-    mainPrimaryLight = primaryLight,
-    mainPrimaryLighter = legacyPrimaryLighter,
-    mainPrimaryLightest = primaryLightest,
     mainWhite = white,
     mainBlack = black,
     mainNeutralDarkest = legacyNeutralDarkest,

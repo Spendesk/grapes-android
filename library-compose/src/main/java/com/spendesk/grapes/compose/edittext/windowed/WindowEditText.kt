@@ -72,7 +72,7 @@ fun WindowEditText(
         modifier = modifier
             .padding(16.dp)
             .fillMaxWidth()
-            .background(GrapesTheme.colors.mainPrimaryDark, RoundedCornerShape(12.dp))
+            .background(GrapesTheme.colors.primaryDark, RoundedCornerShape(12.dp))
             .padding(vertical = 16.dp),
         windowLength = windowLength,
         maxLength = maxLength,
@@ -134,7 +134,7 @@ fun WindowEditTextPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainPrimaryLight),
+                .background(GrapesTheme.colors.primaryLight),
             verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Column(

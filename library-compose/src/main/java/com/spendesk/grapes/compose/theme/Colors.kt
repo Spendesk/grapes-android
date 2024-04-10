@@ -10,17 +10,6 @@ import androidx.compose.ui.graphics.Color
 
 @Immutable
 data class GrapesColors(
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryDark"))
-    val mainPrimaryDark: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryNormal"))
-    val mainPrimaryNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryLight"))
-    val mainPrimaryLight: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryLighter"))
-    val mainPrimaryLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryLightest"))
-    val mainPrimaryLightest: Color,
-
     @Deprecated("Use semantic color")
     val mainWhite: Color,
     @Deprecated("Use semantic color")
@@ -82,8 +71,6 @@ data class GrapesColors(
 )
 
 // Legacy colors
-val mainPrimaryDark = Color(0xFF421896)
-val mainPrimaryLighter = Color(0xFFDBD1F4)
 val mainBlack = Color(0xFF000000)
 val mainNeutralDarkest = Color(0xFF48465E)
 

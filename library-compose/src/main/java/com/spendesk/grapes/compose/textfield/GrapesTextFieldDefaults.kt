@@ -98,7 +98,7 @@ object GrapesTextFieldDefaults {
         disabledTextColor: Color = GrapesTheme.colors.mainNeutralDarkest,
         backgroundColor: Color = GrapesTheme.colors.mainWhite,
         disabledBackgroundColor: Color = GrapesTheme.colors.mainNeutralLighter,
-        cursorColor: Color = GrapesTheme.colors.mainPrimaryLight,
+        cursorColor: Color = GrapesTheme.colors.primaryLight,
         errorCursorColor: Color = GrapesTheme.colors.alertNormal,
         focusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
         unfocusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,

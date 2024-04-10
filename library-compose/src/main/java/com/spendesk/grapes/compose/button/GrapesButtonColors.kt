@@ -20,7 +20,7 @@ object ButtonColorDefaults {
         @Composable
         @ReadOnlyComposable
         get() = GrapesButtonColors(
-            backgroundColor = GrapesTheme.colors.mainPrimaryNormal,
+            backgroundColor = GrapesTheme.colors.primaryNormal,
             contentColor = GrapesTheme.colors.mainWhite,
             disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
             disabledContentColor = GrapesTheme.colors.mainWhite
