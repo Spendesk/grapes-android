@@ -39,10 +39,10 @@ internal fun ErrorGrapesCalloutColors(
 
 @Composable
 internal fun WarningGrapesCalloutColors(
-    containerColor: Color = GrapesTheme.colors.mainWarningLightest,
-    titleColor: Color = GrapesTheme.colors.mainWarningNormal,
+    containerColor: Color = GrapesTheme.colors.warningLightest,
+    titleColor: Color = GrapesTheme.colors.warningNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter,
+    borderStoreColor: Color = GrapesTheme.colors.warningLighter,
 ): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,

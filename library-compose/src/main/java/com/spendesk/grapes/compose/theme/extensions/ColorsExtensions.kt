@@ -14,7 +14,7 @@ fun GrapesColors.contentColorFor(configurationState: GrapesConfigurationStatus):
         GrapesConfigurationStatus.INFORMATION -> mainInfoNormal
         GrapesConfigurationStatus.NEUTRAL -> mainNeutralDarker
         GrapesConfigurationStatus.ALERT -> alertNormal
-        GrapesConfigurationStatus.WARNING -> mainWarningNormal
+        GrapesConfigurationStatus.WARNING -> warningNormal
         GrapesConfigurationStatus.BLOCKED -> mainPrimaryNormal
     }
 }

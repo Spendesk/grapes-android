@@ -36,9 +36,9 @@ internal fun ErrorGrapesTagColors(
 
 @Composable
 internal fun WarningGrapesTagColors(
-    containerColor: Color = GrapesTheme.colors.mainWarningLightest,
+    containerColor: Color = GrapesTheme.colors.warningLightest,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter,
+    borderStoreColor: Color = GrapesTheme.colors.warningLighter,
 ): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,

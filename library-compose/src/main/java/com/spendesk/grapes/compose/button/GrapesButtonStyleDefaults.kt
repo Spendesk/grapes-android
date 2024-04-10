@@ -195,7 +195,7 @@ object GrapesButtonStyleDefaults {
             ),
             iconSize = GrapesButtonDefaults.iconSize,
             shape = GrapesTheme.shapes.shape2,
-            rippleColor = GrapesTheme.colors.mainWarningDark,
+            rippleColor = GrapesTheme.colors.warningDark,
             colors = ButtonColorDefaults.warning,
             contentPadding = GrapesButtonDefaults.PaddingValues,
             borderStroke = null,

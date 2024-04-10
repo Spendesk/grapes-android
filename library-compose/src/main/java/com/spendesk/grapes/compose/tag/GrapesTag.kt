@@ -83,7 +83,7 @@ fun GrapesWarningTag(
     showIcon: Boolean = true,
 ) {
     CompositionLocalProvider(
-        LocalContentColor provides GrapesTheme.colors.mainWarningNormal,
+        LocalContentColor provides GrapesTheme.colors.warningNormal,
     ) {
         val icon: @Composable () -> Unit = @Composable {
             GrapesTagIcon(iconRes = R.drawable.ic_warning, contentDescription = "Warning tag icon")
