@@ -37,7 +37,7 @@ object GrapesSelectCardTextDefaultColors {
     val selectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.primaryDark
     val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.structureComplementary
     val unselectedTitleColor: Color @Composable get() = GrapesTheme.colors.structureComplementary
-    val unselectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainNeutralDarker
+    val unselectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.neutralDark
 }
 
 @Composable

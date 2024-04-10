@@ -26,7 +26,7 @@ fun GrapesSurface(
     val (backgroundColor: Color, borderColor: Color) = when (configuration) {
         GrapesConfigurationStatus.SUCCESS -> Pair(GrapesTheme.colors.successLightest, GrapesTheme.colors.successLighter)
         GrapesConfigurationStatus.INFORMATION -> Pair(GrapesTheme.colors.infoLightest, GrapesTheme.colors.infoLighter)
-        GrapesConfigurationStatus.NEUTRAL -> Pair(GrapesTheme.colors.mainNeutralLighter, GrapesTheme.colors.mainNeutralNormal)
+        GrapesConfigurationStatus.NEUTRAL -> Pair(GrapesTheme.colors.neutralLightest, GrapesTheme.colors.neutralLight)
         GrapesConfigurationStatus.ALERT -> Pair(GrapesTheme.colors.alertLightest, GrapesTheme.colors.alertLighter)
         GrapesConfigurationStatus.WARNING -> Pair(GrapesTheme.colors.warningLightest, GrapesTheme.colors.warningLighter)
         GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.primaryLightest, GrapesTheme.colors.primaryLighter)

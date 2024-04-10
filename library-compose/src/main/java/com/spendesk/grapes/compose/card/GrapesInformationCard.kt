@@ -70,7 +70,7 @@ object GrapesInformationCardDefaults {
     val border: BorderStroke
         @Composable get() = BorderStroke(
             width = borderThickness,
-            color = GrapesTheme.colors.mainNeutralNormal,
+            color = GrapesTheme.colors.neutralLight,
         )
 
     val contentVerticalArrangement: Arrangement.HorizontalOrVertical

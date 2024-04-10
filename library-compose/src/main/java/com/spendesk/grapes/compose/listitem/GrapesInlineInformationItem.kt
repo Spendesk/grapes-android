@@ -30,7 +30,7 @@ fun GrapesInlineInformationItem(
     ) {
         Text(
             text = title,
-            color = GrapesTheme.colors.mainNeutralDarker,
+            color = GrapesTheme.colors.neutralDark,
             style = GrapesTheme.typography.bodyL,
             modifier = Modifier.weight(1f),
         )

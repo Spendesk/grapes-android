@@ -51,11 +51,11 @@ fun GrapesTimePicker(
             periodSelectorSelectedContainerColor = GrapesTheme.colors.primaryLightest,
             periodSelectorUnselectedContainerColor = GrapesTheme.colors.mainWhite,
             periodSelectorSelectedContentColor = GrapesTheme.colors.primaryNormal,
-            periodSelectorUnselectedContentColor = GrapesTheme.colors.mainNeutralDarker,
+            periodSelectorUnselectedContentColor = GrapesTheme.colors.neutralDark,
             timeSelectorSelectedContainerColor = GrapesTheme.colors.mainWhite,
             timeSelectorUnselectedContainerColor = GrapesTheme.colors.mainWhite,
-            timeSelectorSelectedContentColor = GrapesTheme.colors.mainNeutralDarker,
-            timeSelectorUnselectedContentColor = GrapesTheme.colors.mainNeutralDarker
+            timeSelectorSelectedContentColor = GrapesTheme.colors.neutralDark,
+            timeSelectorUnselectedContentColor = GrapesTheme.colors.neutralDark
         )
     )
 

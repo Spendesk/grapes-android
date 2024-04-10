@@ -110,7 +110,7 @@ private fun PasswordValidationPreview() {
                     .padding(16.dp)
                     .fillMaxWidth()
                     .background(GrapesTheme.colors.mainWhite)
-                    .border(1.dp, GrapesTheme.colors.mainNeutralLight)
+                    .border(1.dp, GrapesTheme.colors.neutralLighter)
                     .padding(16.dp)
             ) {
                 items.forEachIndexed { checkIndex, item ->

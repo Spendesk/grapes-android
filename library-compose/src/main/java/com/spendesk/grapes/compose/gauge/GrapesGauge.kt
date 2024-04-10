@@ -192,7 +192,7 @@ private fun GaugePreview() {
         Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing1)) {
             GrapesGauge(
                 modifier = Modifier.padding(16.dp),
-                backgroundColor = GrapesTheme.colors.mainNeutralLighter,
+                backgroundColor = GrapesTheme.colors.neutralLightest,
                 gauges = listOf(
                     Gauge.Solid(progress = 0.2f, color = GrapesTheme.colors.primaryDark),
                     Gauge.Solid(progress = 0.5f, color = GrapesTheme.colors.warningNormal),
@@ -202,21 +202,21 @@ private fun GaugePreview() {
             )
             GrapesGauge(
                 modifier = Modifier.padding(16.dp),
-                backgroundColor = GrapesTheme.colors.mainNeutralLighter,
+                backgroundColor = GrapesTheme.colors.neutralLightest,
                 gauges = listOf(
                     Gauge.Solid(progress = 0.2f, color = GrapesTheme.colors.primaryDark)
                 )
             )
             GrapesGauge(
                 modifier = Modifier.padding(16.dp),
-                backgroundColor = GrapesTheme.colors.mainNeutralLighter,
+                backgroundColor = GrapesTheme.colors.neutralLightest,
                 gauges = listOf(
                     Gauge.Stripped(progress = 0.8f, stripeColor = GrapesTheme.colors.warningLighter, stripeColorSecondary = GrapesTheme.colors.warningNormal)
                 )
             )
             GrapesGauge(
                 modifier = Modifier.padding(16.dp),
-                backgroundColor = GrapesTheme.colors.mainNeutralLighter,
+                backgroundColor = GrapesTheme.colors.neutralLightest,
                 gauges = listOf(
                     Gauge.Solid(progress = 0.2f, color = GrapesTheme.colors.warningNormal),
                     Gauge.Stripped(progress = 0.5f, stripeColor = GrapesTheme.colors.warningLighter, stripeColorSecondary = GrapesTheme.colors.warningNormal)

@@ -22,7 +22,7 @@ object ButtonColorDefaults {
         get() = GrapesButtonColors(
             backgroundColor = GrapesTheme.colors.primaryNormal,
             contentColor = GrapesTheme.colors.mainWhite,
-            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledBackgroundColor = GrapesTheme.colors.neutralLight,
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 
@@ -31,8 +31,8 @@ object ButtonColorDefaults {
         @ReadOnlyComposable
         get() = GrapesButtonColors(
             backgroundColor = GrapesTheme.colors.mainWhite,
-            contentColor = GrapesTheme.colors.mainNeutralDarkest,
-            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            contentColor = GrapesTheme.colors.neutralDarker,
+            disabledBackgroundColor = GrapesTheme.colors.neutralLight,
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 
@@ -53,7 +53,7 @@ object ButtonColorDefaults {
             backgroundColor = Color.Transparent,
             contentColor = GrapesTheme.colors.mainWhite,
             disabledBackgroundColor = Color.Transparent,
-            disabledContentColor = GrapesTheme.colors.mainNeutralDark
+            disabledContentColor = GrapesTheme.colors.neutralNormal
         )
 
     val alert: ButtonColors
@@ -62,7 +62,7 @@ object ButtonColorDefaults {
         get() = GrapesButtonColors(
             backgroundColor = GrapesTheme.colors.alertNormal,
             contentColor = GrapesTheme.colors.mainWhite,
-            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledBackgroundColor = GrapesTheme.colors.neutralLight,
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 
@@ -72,7 +72,7 @@ object ButtonColorDefaults {
         get() = GrapesButtonColors(
             backgroundColor = GrapesTheme.colors.mainWhite,
             contentColor = GrapesTheme.colors.alertNormal,
-            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledBackgroundColor = GrapesTheme.colors.neutralLight,
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 
@@ -82,7 +82,7 @@ object ButtonColorDefaults {
         get() = GrapesButtonColors(
             backgroundColor = GrapesTheme.colors.warningNormal,
             contentColor = GrapesTheme.colors.mainWhite,
-            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledBackgroundColor = GrapesTheme.colors.neutralLight,
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 
@@ -93,7 +93,7 @@ object ButtonColorDefaults {
             backgroundColor = Color.Transparent,
             contentColor = GrapesTheme.colors.structureComplementary,
             disabledBackgroundColor = Color.Transparent,
-            disabledContentColor = GrapesTheme.colors.mainNeutralDark
+            disabledContentColor = GrapesTheme.colors.neutralNormal
         )
 
     val linkSecondary: ButtonColors
@@ -101,9 +101,9 @@ object ButtonColorDefaults {
         @ReadOnlyComposable
         get() = GrapesButtonColors(
             backgroundColor = Color.Transparent,
-            contentColor = GrapesTheme.colors.mainNeutralDarker,
+            contentColor = GrapesTheme.colors.neutralNormal,
             disabledBackgroundColor = Color.Transparent,
-            disabledContentColor = GrapesTheme.colors.mainNeutralDark
+            disabledContentColor = GrapesTheme.colors.neutralNormal
         )
 
     val google: ButtonColors
@@ -112,7 +112,7 @@ object ButtonColorDefaults {
         get() = GrapesButtonColors(
             backgroundColor = GrapesTheme.colors.google,
             contentColor = GrapesTheme.colors.mainWhite,
-            disabledBackgroundColor = GrapesTheme.colors.mainNeutralNormal,
+            disabledBackgroundColor = GrapesTheme.colors.neutralLight,
             disabledContentColor = GrapesTheme.colors.mainWhite
         )
 }

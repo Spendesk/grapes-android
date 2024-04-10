@@ -21,7 +21,6 @@ fun lightColorsPalette(
     complementary: Color = purpleDarker,
     background: Color = graySuperLightest,
 
-    legacyNeutralDarkest: Color = mainNeutralDarkest,
     neutralDarker: Color = grayDarker,
     neutralLightest: Color = grayLightest,
     neutralDark: Color = grayDark,
@@ -51,12 +50,6 @@ fun lightColorsPalette(
 ): GrapesColors = GrapesColors(
     mainWhite = white,
     mainBlack = black,
-    mainNeutralDarkest = legacyNeutralDarkest,
-    mainNeutralDarker = neutralDark,
-    mainNeutralDark = neutralNormal,
-    mainNeutralNormal = neutralLight,
-    mainNeutralLight = neutralLighter,
-    mainNeutralLighter = neutralLightest,
     google = google,
     primaryDark = primaryDark,
     primaryNormal = primaryNormal,

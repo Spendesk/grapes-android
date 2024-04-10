@@ -13,7 +13,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 object GrapesRadioButtonDefaultColors {
 
     val selectedColor: Color @Composable get() = GrapesTheme.colors.primaryNormal
-    val unselectedColor: Color @Composable get() = GrapesTheme.colors.mainNeutralDark
+    val unselectedColor: Color @Composable get() = GrapesTheme.colors.neutralNormal
     val disabledSelectedColor: Color @Composable get() = GrapesTheme.colors.primaryLighter
-    val disabledUnselectedColor: Color @Composable get() = GrapesTheme.colors.mainNeutralLight
+    val disabledUnselectedColor: Color @Composable get() = GrapesTheme.colors.neutralLighter
 }

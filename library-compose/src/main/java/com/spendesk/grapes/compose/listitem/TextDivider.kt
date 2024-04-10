@@ -24,7 +24,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 fun TextDivider(
     text: String,
     modifier: Modifier = Modifier,
-    color: Color = GrapesTheme.colors.mainNeutralNormal
+    color: Color = GrapesTheme.colors.neutralLight
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,

@@ -78,10 +78,10 @@ internal fun SuccessGrapesCalloutColors(
 
 @Composable
 internal fun NeutralGrapesCalloutColors(
-    containerColor: Color = GrapesTheme.colors.mainNeutralLighter,
-    titleColor: Color = GrapesTheme.colors.mainNeutralDarker,
+    titleColor: Color = GrapesTheme.colors.neutralDark,
+    containerColor: Color = GrapesTheme.colors.neutralLightest,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainNeutralLighter,
+    borderStoreColor: Color = GrapesTheme.colors.neutralLightest,
 ): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,

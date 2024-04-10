@@ -61,7 +61,7 @@ private fun GrapesBucketHeadlinePreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainNeutralLighter)
+                .background(GrapesTheme.colors.neutralLightest)
                 .verticalScroll(rememberScrollState()),
         ) {
 

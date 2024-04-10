@@ -12,7 +12,7 @@ fun GrapesColors.contentColorFor(configurationState: GrapesConfigurationStatus):
     return when (configurationState) {
         GrapesConfigurationStatus.SUCCESS -> successNormal
         GrapesConfigurationStatus.INFORMATION -> infoNormal
-        GrapesConfigurationStatus.NEUTRAL -> mainNeutralDarker
+        GrapesConfigurationStatus.NEUTRAL -> neutralDark
         GrapesConfigurationStatus.ALERT -> alertNormal
         GrapesConfigurationStatus.WARNING -> warningNormal
         GrapesConfigurationStatus.BLOCKED -> primaryNormal

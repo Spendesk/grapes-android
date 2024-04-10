@@ -199,7 +199,7 @@ fun PreviewGrapesTextField() {
                     modifier = Modifier
                         .padding(bottom = 12.dp)
                         .fillMaxWidth()
-                        .background(GrapesTheme.colors.mainNeutralLight)
+                        .background(GrapesTheme.colors.neutralLighter)
                         .padding(8.dp)
 
 

@@ -15,19 +15,6 @@ data class GrapesColors(
     @Deprecated("Use semantic color")
     val mainBlack: Color,
 
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralDarker"))
-    val mainNeutralDarkest: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralDark"))
-    val mainNeutralDarker: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralNormal"))
-    val mainNeutralDark: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralLight"))
-    val mainNeutralNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralLighter"))
-    val mainNeutralLight: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralLightest"))
-    val mainNeutralLighter: Color,
-
     val google: Color,
 
     val primaryDark: Color,
@@ -72,7 +59,6 @@ data class GrapesColors(
 
 // Legacy colors
 val mainBlack = Color(0xFF000000)
-val mainNeutralDarkest = Color(0xFF48465E)
 
 val google = Color(0xFF4285F4)
 

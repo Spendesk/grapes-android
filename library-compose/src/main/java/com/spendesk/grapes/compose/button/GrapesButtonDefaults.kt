@@ -91,7 +91,7 @@ object GrapesButtonDefaults {
             @ReadOnlyComposable
             get() = BorderStroke(
                 BorderThickness,
-                GrapesTheme.colors.mainNeutralNormal
+                GrapesTheme.colors.neutralLight
             )
 
         val alert: androidx.compose.foundation.BorderStroke
