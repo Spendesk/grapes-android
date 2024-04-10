@@ -12,8 +12,6 @@ import androidx.compose.ui.graphics.Color
 data class GrapesColors(
     @Deprecated("Use semantic color")
     val mainWhite: Color,
-    @Deprecated("Use semantic color")
-    val mainBlack: Color,
 
     val google: Color,
 
@@ -56,9 +54,6 @@ data class GrapesColors(
 
     val isLight: Boolean,
 )
-
-// Legacy colors
-val mainBlack = Color(0xFF000000)
 
 val google = Color(0xFF4285F4)
 

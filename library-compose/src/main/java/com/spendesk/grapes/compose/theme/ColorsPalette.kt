@@ -16,7 +16,6 @@ fun lightColorsPalette(
     primaryLightest: Color = purpleLightest,
 
     white: Color = grayWhite,
-    black: Color = mainBlack,
     surface: Color = white,
     complementary: Color = purpleDarker,
     background: Color = graySuperLightest,
@@ -49,7 +48,6 @@ fun lightColorsPalette(
     alertLightest: Color = redLightest,
 ): GrapesColors = GrapesColors(
     mainWhite = white,
-    mainBlack = black,
     google = google,
     primaryDark = primaryDark,
     primaryNormal = primaryNormal,
