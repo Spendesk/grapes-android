@@ -103,7 +103,7 @@ private fun PasswordValidationPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainBackground)
+                .background(GrapesTheme.colors.structureBackground)
         ) {
             Column(
                 modifier = Modifier

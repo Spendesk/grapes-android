@@ -27,8 +27,6 @@ data class GrapesColors(
     val mainBlack: Color,
     @Deprecated("Grapes color deprecated", ReplaceWith("structureComplementary"))
     val mainComplementary: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("structureBackground"))
-    val mainBackground: Color,
 
     @Deprecated("Grapes color deprecated", ReplaceWith("neutralDarker"))
     val mainNeutralDarkest: Color,
@@ -161,4 +159,3 @@ val redNormal = Color(0xFFD12D00)
 val redLight = Color(0xFFD84D26)
 val redLighter = Color(0xFFF1C0B3)
 val redLightest = Color(0xFFFDEDE8)
-

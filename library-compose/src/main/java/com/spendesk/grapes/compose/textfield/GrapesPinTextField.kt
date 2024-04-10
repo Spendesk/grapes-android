@@ -130,9 +130,7 @@ fun PinTextInputPreview() {
     GrapesTheme {
         Column(
             modifier = Modifier
-                .background(
-                    GrapesTheme.colors.mainBackground
-                )
+                .background(GrapesTheme.colors.structureBackground)
                 .fillMaxWidth()
                 .padding(GrapesTheme.dimensions.spacing3),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)

@@ -44,7 +44,7 @@ private fun TextDividerPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainBackground)
+                .background(GrapesTheme.colors.structureBackground)
                 .padding(GrapesTheme.dimensions.spacing3),
             verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
