@@ -47,9 +47,9 @@ internal fun WarningGrapesTagColors(
 
 @Composable
 internal fun InfoGrapesTagColors(
-    containerColor: Color = GrapesTheme.colors.mainInfoLightest,
+    containerColor: Color = GrapesTheme.colors.infoLightest,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter,
+    borderStoreColor: Color = GrapesTheme.colors.infoLighter,
 ): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,

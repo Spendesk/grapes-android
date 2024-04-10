@@ -11,7 +11,7 @@ import com.spendesk.grapes.compose.theme.GrapesColors
 fun GrapesColors.contentColorFor(configurationState: GrapesConfigurationStatus): Color {
     return when (configurationState) {
         GrapesConfigurationStatus.SUCCESS -> successNormal
-        GrapesConfigurationStatus.INFORMATION -> mainInfoNormal
+        GrapesConfigurationStatus.INFORMATION -> infoNormal
         GrapesConfigurationStatus.NEUTRAL -> mainNeutralDarker
         GrapesConfigurationStatus.ALERT -> alertNormal
         GrapesConfigurationStatus.WARNING -> warningNormal

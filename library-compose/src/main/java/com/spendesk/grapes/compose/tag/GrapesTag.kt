@@ -60,7 +60,7 @@ fun GrapesInfoTag(
     showIcon: Boolean = true,
 ) {
     CompositionLocalProvider(
-        LocalContentColor provides GrapesTheme.colors.mainInfoNormal,
+        LocalContentColor provides GrapesTheme.colors.infoNormal,
     ) {
         val icon: @Composable () -> Unit = @Composable {
             GrapesTagIcon(iconRes = R.drawable.ic_information, contentDescription = "Info tag icon")

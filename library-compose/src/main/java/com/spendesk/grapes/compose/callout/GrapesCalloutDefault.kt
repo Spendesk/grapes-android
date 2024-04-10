@@ -52,10 +52,10 @@ internal fun WarningGrapesCalloutColors(
 
 @Composable
 internal fun InfoGrapesCalloutColors(
-    containerColor: Color = GrapesTheme.colors.mainInfoLightest,
-    titleColor: Color = GrapesTheme.colors.mainInfoNormal,
+    containerColor: Color = GrapesTheme.colors.infoLightest,
+    titleColor: Color = GrapesTheme.colors.infoNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter,
+    borderStoreColor: Color = GrapesTheme.colors.infoLighter,
 ): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
