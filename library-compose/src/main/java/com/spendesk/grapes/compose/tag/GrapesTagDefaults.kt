@@ -58,9 +58,9 @@ internal fun InfoGrapesTagColors(
 
 @Composable
 internal fun SuccessGrapesTagColors(
-    containerColor: Color = GrapesTheme.colors.mainSuccessLightest,
+    containerColor: Color = GrapesTheme.colors.successLightest,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainSuccessLighter,
+    borderStoreColor: Color = GrapesTheme.colors.successLighter,
 ): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,

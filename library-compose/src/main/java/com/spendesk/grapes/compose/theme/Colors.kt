@@ -46,13 +46,6 @@ data class GrapesColors(
     @Deprecated("Grapes color deprecated", ReplaceWith("infoLightest"))
     val mainInfoLightest: Color,
 
-    @Deprecated("Grapes color deprecated", ReplaceWith("successNormal"))
-    val mainSuccessNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("successLighter"))
-    val mainSuccessLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("successLightest"))
-    val mainSuccessLightest: Color,
-
     val google: Color,
 
     val primaryDark: Color,

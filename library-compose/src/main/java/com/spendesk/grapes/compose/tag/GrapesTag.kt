@@ -37,7 +37,7 @@ fun GrapesSuccessTag(
     showIcon: Boolean = true,
 ) {
     CompositionLocalProvider(
-        LocalContentColor provides GrapesTheme.colors.mainSuccessNormal,
+        LocalContentColor provides GrapesTheme.colors.successNormal,
     ) {
         val icon: @Composable () -> Unit = @Composable {
             GrapesTagIcon(iconRes = R.drawable.ic_success, contentDescription = "Success tag icon")
