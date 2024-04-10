@@ -2,7 +2,6 @@ package com.spendesk.grapes.extensions
 
 import android.graphics.drawable.Drawable
 import android.os.Build
-import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.core.content.ContextCompat

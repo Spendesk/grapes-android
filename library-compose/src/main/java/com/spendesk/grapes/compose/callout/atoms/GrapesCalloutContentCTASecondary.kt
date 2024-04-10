@@ -5,8 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.spendesk.grapes.compose.button.GrapesButton
 import com.spendesk.grapes.compose.button.GrapesButtonStyleDefaults
-import com.spendesk.grapes.compose.callout.CalloutType
-import com.spendesk.grapes.compose.callout.LocalGrapesCalloutType
 
 /**
  * @author jean-philippe
