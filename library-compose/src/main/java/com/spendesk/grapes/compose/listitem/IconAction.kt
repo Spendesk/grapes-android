@@ -29,7 +29,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 @Composable
 internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconAction, modifier: Modifier = Modifier) {
     val titleColor = when (iconActionConfiguration.status) {
-        GrapesConfigurationStatus.ALERT -> GrapesTheme.colors.mainAlertNormal
+        GrapesConfigurationStatus.ALERT -> GrapesTheme.colors.alertNormal
         else -> GrapesTheme.colors.structureComplementary
     }
 

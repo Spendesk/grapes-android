@@ -18,6 +18,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Immutable
 object GrapesCalloutDefaults {
+
     val titleIconSize = 16.dp
     val borderThickness = 1.dp
     val signatureImageSize = 32.dp
@@ -25,11 +26,11 @@ object GrapesCalloutDefaults {
 
 @Composable
 internal fun ErrorGrapesCalloutColors(
-    containerColor: Color = GrapesTheme.colors.mainAlertLightest,
-    titleColor: Color = GrapesTheme.colors.mainAlertNormal,
+    containerColor: Color = GrapesTheme.colors.alertLightest,
+    titleColor: Color = GrapesTheme.colors.alertNormal,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainAlertLighter,
-) : GrapesCalloutColors = DefaultGrapesCalloutColors(
+    borderStoreColor: Color = GrapesTheme.colors.alertLighter,
+): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
     contentColor = contentColor,
@@ -42,7 +43,7 @@ internal fun WarningGrapesCalloutColors(
     titleColor: Color = GrapesTheme.colors.mainWarningNormal,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter,
-) : GrapesCalloutColors = DefaultGrapesCalloutColors(
+): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
     contentColor = contentColor,
@@ -55,7 +56,7 @@ internal fun InfoGrapesCalloutColors(
     titleColor: Color = GrapesTheme.colors.mainInfoNormal,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter,
-) : GrapesCalloutColors = DefaultGrapesCalloutColors(
+): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
     contentColor = contentColor,
@@ -68,7 +69,7 @@ internal fun SuccessGrapesCalloutColors(
     titleColor: Color = GrapesTheme.colors.mainSuccessNormal,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainSuccessLighter,
-) : GrapesCalloutColors = DefaultGrapesCalloutColors(
+): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
     contentColor = contentColor,
@@ -81,7 +82,7 @@ internal fun NeutralGrapesCalloutColors(
     titleColor: Color = GrapesTheme.colors.mainNeutralDarker,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainNeutralLighter,
-) : GrapesCalloutColors = DefaultGrapesCalloutColors(
+): GrapesCalloutColors = DefaultGrapesCalloutColors(
     containerColor = containerColor,
     titleColor = titleColor,
     contentColor = contentColor,
@@ -95,6 +96,7 @@ private class DefaultGrapesCalloutColors constructor(
     private val contentColor: Color,
     private val borderStoreColor: Color,
 ) : GrapesCalloutColors {
+
     @Composable
     override fun containerColor(): State<Color> {
         return rememberUpdatedState(containerColor)
@@ -118,6 +120,7 @@ private class DefaultGrapesCalloutColors constructor(
 
 @Stable
 interface GrapesCalloutColors {
+
     @Composable
     fun containerColor(): State<Color>
 

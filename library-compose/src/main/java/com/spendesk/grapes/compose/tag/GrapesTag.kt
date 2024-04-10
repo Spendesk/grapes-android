@@ -106,7 +106,7 @@ fun GrapesErrorTag(
     showIcon: Boolean = true,
 ) {
     CompositionLocalProvider(
-        LocalContentColor provides GrapesTheme.colors.mainAlertNormal,
+        LocalContentColor provides GrapesTheme.colors.alertNormal,
     ) {
         val icon: @Composable () -> Unit = @Composable {
             GrapesTagIcon(iconRes = R.drawable.ic_error, contentDescription = "Error tag icon")
@@ -178,6 +178,7 @@ private fun Preview(
 }
 
 internal class TagProvider : PreviewParameterProvider<Tags> {
+
     override val values: Sequence<Tags> = sequenceOf(
         Tags.Error("Label", true),
         Tags.Error("Label", false),
@@ -194,6 +195,7 @@ internal class TagProvider : PreviewParameterProvider<Tags> {
 }
 
 internal sealed class Tags {
+
     abstract val tag: String
     abstract val showIcon: Boolean
 

@@ -17,6 +17,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Immutable
 object GrapesButtonDefaults {
+
     private val PaddingHorizontal = 16.dp
     private val PaddingVertical = 16.dp
 
@@ -84,6 +85,7 @@ object GrapesButtonDefaults {
     //region BorderStroke
     @Immutable
     object BorderStroke {
+
         val secondary: androidx.compose.foundation.BorderStroke?
             @Composable
             @ReadOnlyComposable
@@ -97,7 +99,7 @@ object GrapesButtonDefaults {
             @ReadOnlyComposable
             get() = BorderStroke(
                 BorderThickness,
-                GrapesTheme.colors.mainAlertNormal
+                GrapesTheme.colors.alertNormal
             )
     }
     //endregion BorderStroke

@@ -27,7 +27,7 @@ fun GrapesSurface(
         GrapesConfigurationStatus.SUCCESS -> Pair(GrapesTheme.colors.mainSuccessLightest, GrapesTheme.colors.mainSuccessLighter)
         GrapesConfigurationStatus.INFORMATION -> Pair(GrapesTheme.colors.mainInfoLightest, GrapesTheme.colors.mainInfoLighter)
         GrapesConfigurationStatus.NEUTRAL -> Pair(GrapesTheme.colors.mainNeutralLighter, GrapesTheme.colors.mainNeutralNormal)
-        GrapesConfigurationStatus.ALERT -> Pair(GrapesTheme.colors.mainAlertLightest, GrapesTheme.colors.mainAlertLighter)
+        GrapesConfigurationStatus.ALERT -> Pair(GrapesTheme.colors.alertLightest, GrapesTheme.colors.alertLighter)
         GrapesConfigurationStatus.WARNING -> Pair(GrapesTheme.colors.mainWarningLightest, GrapesTheme.colors.mainWarningLighter)
         GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.mainPrimaryLightest, GrapesTheme.colors.mainPrimaryLighter)
     }

@@ -17,6 +17,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Immutable
 object GrapesTagDefaults {
+
     val iconSize = 12.dp
 
     val borderThickness = 1.dp
@@ -24,10 +25,10 @@ object GrapesTagDefaults {
 
 @Composable
 internal fun ErrorGrapesTagColors(
-    containerColor: Color = GrapesTheme.colors.mainAlertLightest,
+    containerColor: Color = GrapesTheme.colors.alertLightest,
     contentColor: Color = LocalContentColor.current,
-    borderStoreColor: Color = GrapesTheme.colors.mainAlertLighter,
-) : GrapesTagColors = DefaultGrapesTagColors(
+    borderStoreColor: Color = GrapesTheme.colors.alertLighter,
+): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,
     borderStoreColor = borderStoreColor,
@@ -38,7 +39,7 @@ internal fun WarningGrapesTagColors(
     containerColor: Color = GrapesTheme.colors.mainWarningLightest,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainWarningLighter,
-) : GrapesTagColors = DefaultGrapesTagColors(
+): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,
     borderStoreColor = borderStoreColor,
@@ -49,7 +50,7 @@ internal fun InfoGrapesTagColors(
     containerColor: Color = GrapesTheme.colors.mainInfoLightest,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainInfoLighter,
-) : GrapesTagColors = DefaultGrapesTagColors(
+): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,
     borderStoreColor = borderStoreColor,
@@ -60,7 +61,7 @@ internal fun SuccessGrapesTagColors(
     containerColor: Color = GrapesTheme.colors.mainSuccessLightest,
     contentColor: Color = LocalContentColor.current,
     borderStoreColor: Color = GrapesTheme.colors.mainSuccessLighter,
-) : GrapesTagColors = DefaultGrapesTagColors(
+): GrapesTagColors = DefaultGrapesTagColors(
     containerColor = containerColor,
     contentColor = contentColor,
     borderStoreColor = borderStoreColor,
@@ -71,6 +72,7 @@ private class DefaultGrapesTagColors constructor(
     private val contentColor: Color,
     private val borderStoreColor: Color,
 ) : GrapesTagColors {
+
     @Composable
     override fun containerColor(): State<Color> {
         return rememberUpdatedState(containerColor)
@@ -88,7 +90,8 @@ private class DefaultGrapesTagColors constructor(
 }
 
 @Stable
-interface  GrapesTagColors {
+interface GrapesTagColors {
+
     @Composable
     fun containerColor(): State<Color>
 

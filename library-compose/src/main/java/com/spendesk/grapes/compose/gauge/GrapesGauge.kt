@@ -32,6 +32,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 
 @Immutable
 object GrapesGaugeDefaults {
+
     const val GaugeAddDelimiter = true
     val GaugeStrippedWidth = 5.dp
 }
@@ -195,7 +196,7 @@ private fun GaugePreview() {
                 gauges = listOf(
                     Gauge.Solid(progress = 0.2f, color = GrapesTheme.colors.mainPrimaryDark),
                     Gauge.Solid(progress = 0.5f, color = GrapesTheme.colors.mainWarningNormal),
-                    Gauge.Solid(progress = 0.8f, color = GrapesTheme.colors.mainAlertDark)
+                    Gauge.Solid(progress = 0.8f, color = GrapesTheme.colors.alertDark)
                 )
 
             )

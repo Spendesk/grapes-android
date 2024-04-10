@@ -71,13 +71,13 @@ private fun GrapesBucketHeadlinePreview() {
             GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeed")
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
-            GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeeeeeeed", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
+            GrapesBucketHeadline(title = "Bucket de Rick Astley a bit longer than expecteeeeeeeeeeeeeeeeeeed", action = "Remove", actionColor = GrapesTheme.colors.alertNormal)
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
-            GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.mainAlertNormal)
+            GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remove", actionColor = GrapesTheme.colors.alertNormal)
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
 
-            GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remooooooove with too many ooooooooooos", actionColor = GrapesTheme.colors.mainAlertNormal)
+            GrapesBucketHeadline(title = "Bucket de Rick Astley", action = "Remooooooove with too many ooooooooooos", actionColor = GrapesTheme.colors.alertNormal)
             Spacer(modifier = Modifier.size(GrapesTheme.dimensions.spacing3))
         }
     }
