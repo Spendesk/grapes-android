@@ -14,7 +14,6 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.callout.GrapesCalloutDefaults
 import com.spendesk.grapes.compose.theme.GrapesTheme

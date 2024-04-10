@@ -3,13 +3,11 @@ package com.spendesk.grapes.component.content.summary.block
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.annotation.DrawableRes
 import androidx.annotation.FloatRange
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
-import com.spendesk.grapes.databinding.SummaryBlockContentMapBinding
 import com.spendesk.grapes.databinding.ViewResponsibilityCenterGaugeBinding
 import com.spendesk.grapes.extensions.setDrawable
 import com.spendesk.grapes.extensions.visible
@@ -27,6 +25,7 @@ class SummaryBlockContentResponsibilityCenterGaugeView : ConstraintLayout {
     //endregion constructors
 
     companion object Constants {
+
         const val MAX_GAUGES = 3
     }
 

@@ -1,11 +1,11 @@
+@file:Suppress("MatchingDeclarationName")
+
 package com.spendesk.grapes.compose.appbar
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
-import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarDefaults
@@ -17,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.sp
 import com.spendesk.grapes.compose.R
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
@@ -27,7 +26,9 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 
 interface GrapesNavigationItem {
+
     @get:StringRes val title: Int
+
     @get:DrawableRes val icon: Int
 }
 
@@ -40,8 +41,8 @@ fun GrapesNavigationBar(
     windowInsets: WindowInsets = NavigationBarDefaults.windowInsets,
 ) {
     NavigationBar(
-        containerColor = GrapesTheme.colors.mainWhite,
-        contentColor = GrapesTheme.colors.mainPrimaryNormal,
+        containerColor = GrapesTheme.colors.structureSurface,
+        contentColor = GrapesTheme.colors.primaryNormal,
         windowInsets = windowInsets,
         modifier = modifier,
     ) {
@@ -63,11 +64,11 @@ private fun RowScope.GrapesNavigationBarItem(
 ) {
     val textStyle = GrapesTheme.typography.titleS
     val colors = NavigationBarItemDefaults.colors(
-        indicatorColor = GrapesTheme.colors.mainWhite,
-        selectedIconColor = GrapesTheme.colors.mainPrimaryNormal,
-        selectedTextColor = GrapesTheme.colors.mainPrimaryNormal,
-        unselectedIconColor = GrapesTheme.colors.mainNeutralDarker,
-        unselectedTextColor = GrapesTheme.colors.mainNeutralDarker,
+        indicatorColor = GrapesTheme.colors.structureSurface,
+        selectedIconColor = GrapesTheme.colors.primaryNormal,
+        selectedTextColor = GrapesTheme.colors.primaryNormal,
+        unselectedIconColor = GrapesTheme.colors.neutralDark,
+        unselectedTextColor = GrapesTheme.colors.neutralDark,
     )
 
     NavigationBarItem(
@@ -95,15 +96,15 @@ private fun RowScope.GrapesNavigationBarItem(
 private fun Preview() {
     GrapesTheme {
         val tabs = listOf(
-            object: GrapesNavigationItem {
+            object : GrapesNavigationItem {
                 override val title: Int = R.string.grapes_top_app_bar_back_icon_description
                 override val icon: Int = R.drawable.ic_add
             },
-            object: GrapesNavigationItem {
+            object : GrapesNavigationItem {
                 override val title: Int = R.string.grapes_top_app_bar_close_icon_description
                 override val icon: Int = R.drawable.ic_arrow_back
             },
-            object: GrapesNavigationItem {
+            object : GrapesNavigationItem {
                 override val title: Int = R.string.grapes_top_app_bar_more_icon_description
                 override val icon: Int = R.drawable.ic_more_vertical
             }
