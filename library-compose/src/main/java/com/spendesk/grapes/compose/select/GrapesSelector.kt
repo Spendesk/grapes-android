@@ -1,16 +1,11 @@
 package com.spendesk.grapes.compose.select
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material3.Icon
@@ -24,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.badge.GrapesAlertBadge
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
@@ -34,7 +30,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 fun GrapesSelector(
     label: String,
     modifier: Modifier = Modifier,
-    badge: @Composable (BoxScope.() -> Unit)? = null,
+    badge: @Composable (() -> Unit)? = null,
     colors: GrapesSelectorColors = GrapesSelectorDefaults.defaultColors(),
     onClick: () -> Unit,
 ) {
@@ -63,7 +59,7 @@ fun GrapesSelector(
 internal fun GrapesSelector(
     label: String,
     modifier: Modifier = Modifier,
-    badge: @Composable (BoxScope.() -> Unit)? = null,
+    badge: @Composable (() -> Unit)? = null,
     shape: Shape = GrapesTheme.shapes.shape4,
     contentPadding: PaddingValues = PaddingValues(
         horizontal = GrapesTheme.dimensions.spacing3,
@@ -99,10 +95,7 @@ internal fun GrapesSelector(
             )
 
             if (badge != null) {
-                Box(
-                    content = badge,
-                    modifier = Modifier.size(GrapesTheme.dimensions.sizing4),
-                )
+                badge()
             }
 
             icon()
@@ -149,13 +142,10 @@ private fun GrapesSelectorPreview() {
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             GrapesSelector(
+                modifier = Modifier,
                 label = "Spendesk UK",
                 badge = {
-                    Box(
-                        modifier = Modifier
-                            .size(48.dp)
-                            .background(Color.Red, CircleShape),
-                    )
+                    GrapesAlertBadge(countValue = 24)
                 },
                 onClick = {},
             )
