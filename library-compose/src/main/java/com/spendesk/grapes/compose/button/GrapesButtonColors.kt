@@ -15,6 +15,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  */
 @Immutable
 object ButtonColorDefaults {
+
     val primary: ButtonColors
         @Composable
         @ReadOnlyComposable
@@ -90,7 +91,7 @@ object ButtonColorDefaults {
         @ReadOnlyComposable
         get() = GrapesButtonColors(
             backgroundColor = Color.Transparent,
-            contentColor = GrapesTheme.colors.mainComplementary,
+            contentColor = GrapesTheme.colors.structureComplementary,
             disabledBackgroundColor = Color.Transparent,
             disabledContentColor = GrapesTheme.colors.mainNeutralDark
         )
@@ -123,6 +124,7 @@ private data class GrapesButtonColors(
     private val disabledBackgroundColor: Color,
     private val disabledContentColor: Color
 ) : ButtonColors {
+
     @Composable
     override fun backgroundColor(enabled: Boolean): State<Color> {
         val computedColor = if (enabled) backgroundColor else disabledBackgroundColor
@@ -142,9 +144,9 @@ private data class GrapesButtonColors(
         other as GrapesButtonColors
 
         return backgroundColor == other.backgroundColor &&
-                contentColor == other.contentColor &&
-                disabledBackgroundColor == other.disabledBackgroundColor &&
-                disabledContentColor == other.disabledContentColor
+            contentColor == other.contentColor &&
+            disabledBackgroundColor == other.disabledBackgroundColor &&
+            disabledContentColor == other.disabledContentColor
     }
 
     override fun hashCode(): Int {

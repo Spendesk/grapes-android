@@ -3,8 +3,8 @@ package com.spendesk.grapes.compose.listitem
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -30,7 +30,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 internal fun IconAction(iconActionConfiguration: ListItemConfiguration.IconAction, modifier: Modifier = Modifier) {
     val titleColor = when (iconActionConfiguration.status) {
         GrapesConfigurationStatus.ALERT -> GrapesTheme.colors.mainAlertNormal
-        else -> GrapesTheme.colors.mainComplementary
+        else -> GrapesTheme.colors.structureComplementary
     }
 
     Row(

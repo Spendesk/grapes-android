@@ -35,7 +35,7 @@ fun GrapesBucketHeadline(
         Text(
             modifier = Modifier.weight(1f, fill = true),
             text = title,
-            color = GrapesTheme.colors.mainComplementary,
+            color = GrapesTheme.colors.structureComplementary,
             overflow = TextOverflow.Ellipsis,
             maxLines = 1,
             style = GrapesTheme.typography.titleM

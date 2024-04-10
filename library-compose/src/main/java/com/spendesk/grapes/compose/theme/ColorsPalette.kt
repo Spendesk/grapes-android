@@ -58,7 +58,6 @@ fun lightColorsPalette(
     mainPrimaryLightest = primaryLightest,
     mainWhite = white,
     mainBlack = black,
-    mainComplementary = complementary,
     mainNeutralDarkest = legacyNeutralDarkest,
     mainNeutralDarker = neutralDark,
     mainNeutralDark = neutralNormal,

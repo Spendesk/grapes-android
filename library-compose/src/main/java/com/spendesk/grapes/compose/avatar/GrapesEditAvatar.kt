@@ -41,7 +41,7 @@ fun GrapesEditAvatar(
     modifier: Modifier = Modifier,
     badgeOffset: DpOffset = EditAvatarDefaults.badgeOffset,
     badgeSize: DpSize = EditAvatarDefaults.badgeSize,
-    badgeTint: Color = GrapesTheme.colors.mainComplementary,
+    badgeTint: Color = GrapesTheme.colors.structureComplementary,
     enabled: Boolean = true,
     onClick: () -> Unit = {},
 ) {
@@ -122,6 +122,7 @@ private fun EditAvatarLayout(
 
 @Immutable
 object EditAvatarDefaults {
+
     val badgeOffset = DpOffset(8.dp, 2.dp)
     val badgeSize = DpSize(24.dp, 24.dp)
 }

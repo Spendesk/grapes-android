@@ -25,8 +25,6 @@ data class GrapesColors(
     val mainWhite: Color,
     @Deprecated("Use semantic color")
     val mainBlack: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("structureComplementary"))
-    val mainComplementary: Color,
 
     @Deprecated("Grapes color deprecated", ReplaceWith("neutralDarker"))
     val mainNeutralDarkest: Color,

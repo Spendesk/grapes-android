@@ -9,11 +9,11 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import com.spendesk.grapes.compose.R
-import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContentBottomCTA
 import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentBottomSignature
 import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTAPrimary
 import com.spendesk.grapes.compose.callout.atoms.GrapesCalloutContentCTASecondary
 import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContent
+import com.spendesk.grapes.compose.callout.molecules.GrapesCalloutContentBottomCTA
 import com.spendesk.grapes.compose.icons.GrapesIcon
 import com.spendesk.grapes.compose.theme.GrapesTheme
 
@@ -29,7 +29,7 @@ fun GrapesErrorCallout(
 ) {
     CompositionLocalProvider(
         LocalGrapesCalloutType provides GrapesCalloutType(CalloutType.ERROR),
-        LocalContentColor provides GrapesTheme.colors.mainComplementary,
+        LocalContentColor provides GrapesTheme.colors.structureComplementary,
     ) {
         val calloutColors = ErrorGrapesCalloutColors()
 
@@ -57,7 +57,7 @@ fun GrapesWarningCallout(
 ) {
     CompositionLocalProvider(
         LocalGrapesCalloutType provides GrapesCalloutType(CalloutType.WARNING),
-        LocalContentColor provides GrapesTheme.colors.mainComplementary,
+        LocalContentColor provides GrapesTheme.colors.structureComplementary,
     ) {
         val calloutColors = WarningGrapesCalloutColors()
 
@@ -85,7 +85,7 @@ fun GrapesInfoCallout(
 ) {
     CompositionLocalProvider(
         LocalGrapesCalloutType provides GrapesCalloutType(CalloutType.INFO),
-        LocalContentColor provides GrapesTheme.colors.mainComplementary,
+        LocalContentColor provides GrapesTheme.colors.structureComplementary,
     ) {
         val calloutColors = InfoGrapesCalloutColors()
 
@@ -113,7 +113,7 @@ fun GrapesSuccessCallout(
 ) {
     CompositionLocalProvider(
         LocalGrapesCalloutType provides GrapesCalloutType(CalloutType.SUCCESS),
-        LocalContentColor provides GrapesTheme.colors.mainComplementary,
+        LocalContentColor provides GrapesTheme.colors.structureComplementary,
     ) {
         val calloutColors = SuccessGrapesCalloutColors()
 
@@ -143,7 +143,7 @@ fun GrapesNeutralCallout(
 ) {
     CompositionLocalProvider(
         LocalGrapesCalloutType provides GrapesCalloutType(CalloutType.NEUTRAL),
-        LocalContentColor provides GrapesTheme.colors.mainComplementary,
+        LocalContentColor provides GrapesTheme.colors.structureComplementary,
     ) {
         val calloutColors = NeutralGrapesCalloutColors()
 
@@ -172,14 +172,17 @@ private fun CalloutPreview(
                 title = callout.title,
                 content = { PreviewCalloutContent(callout) },
             )
+
             is Callouts.Info -> GrapesInfoCallout(
                 title = callout.title,
                 content = { PreviewCalloutContent(callout) },
             )
+
             is Callouts.Success -> GrapesSuccessCallout(
                 title = callout.title,
                 content = { PreviewCalloutContent(callout) },
             )
+
             is Callouts.Neutral -> GrapesNeutralCallout(
                 title = callout.title,
                 content = { PreviewCalloutContent(callout) },
@@ -199,19 +202,23 @@ private fun ColumnScope.PreviewCalloutContent(callout: Callouts) {
                     secondaryButton = { GrapesCalloutContentCTASecondary(buttonText = "Secondary Action") {} },
                 )
             }
+
             CalloutContentType.Action1PrimaryCTA -> GrapesCalloutContent(description = it) {
                 GrapesCalloutContentBottomCTA(
                     primaryButton = { GrapesCalloutContentCTAPrimary(buttonText = "Primary Action") {} },
                 )
             }
+
             CalloutContentType.Action1SecondaryCTA -> GrapesCalloutContent(description = it) {
                 GrapesCalloutContentBottomCTA(
                     secondaryButton = { GrapesCalloutContentCTASecondary(buttonText = "Secondary Action") {} },
                 )
             }
+
             CalloutContentType.Signature -> GrapesCalloutContent(description = it) {
                 GrapesCalloutContentBottomSignature(fullName = "Signature")
             }
+
             null -> {
                 //
             }

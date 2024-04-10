@@ -25,8 +25,9 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Immutable
 object GrapesSelectBlockDefaultColors {
+
     val selectedIconColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
-    val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.mainComplementary
+    val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.structureComplementary
 }
 
 @Composable
