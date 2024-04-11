@@ -91,7 +91,7 @@ fun AskTemplate(
 @Composable
 fun Preview() {
     val cta = @Composable {
-        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingMedium)) {
+        Column(verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.sizing1)) {
             GrapesButton(
                 text = "Main button",
                 buttonStyle = GrapesButtonStyleDefaults.secondary

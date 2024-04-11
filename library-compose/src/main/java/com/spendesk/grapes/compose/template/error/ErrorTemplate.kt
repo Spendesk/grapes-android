@@ -108,7 +108,7 @@ fun ErrorTemplate(
             }
 
             description?.let {
-                Spacer(modifier = Modifier.height(GrapesTheme.dimensions.paddingMedium))
+                Spacer(modifier = Modifier.height(GrapesTheme.dimensions.sizing1))
                 AnimatedVisibility(visible = isVisible, enter = configuration.descriptionEnterAnimation) {
                     description()
                 }
