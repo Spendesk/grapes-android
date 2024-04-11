@@ -38,7 +38,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = grapesLibs.versions.compose.kotlin.compiler.get()
+        kotlinCompilerExtensionVersion = grapesLibs.versions.androidxComposeCompiler.get()
     }
 
     signingConfigs {
