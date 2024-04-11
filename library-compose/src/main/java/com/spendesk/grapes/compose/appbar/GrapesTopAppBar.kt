@@ -43,8 +43,8 @@ fun GrapesTopAppBar(
     TopAppBar(
         modifier = modifier,
         title = title,
-        contentColor = GrapesTheme.colors.mainBlack,
         backgroundColor = GrapesTheme.colors.mainWhite,
+        contentColor = GrapesTheme.colors.structureComplementary,
         navigationIcon = navigationIcon,
         actions = actions,
         elevation = elevationDp

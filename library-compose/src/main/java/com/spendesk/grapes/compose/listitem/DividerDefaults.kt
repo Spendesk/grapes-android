@@ -15,5 +15,5 @@ object DividerDefaults {
     val Thickness: Dp @Composable get() = GrapesTheme.dimensions.dividerThickness
 
     /** Default color of a divider. */
-    val color: Color @Composable get() = GrapesTheme.colors.mainNeutralLight
+    val color: Color @Composable get() = GrapesTheme.colors.neutralLighter
 }

@@ -33,7 +33,7 @@ fun GrapesBucketContainer(
     Box(
         modifier = modifier
             .background(GrapesTheme.colors.mainWhite, GrapesTheme.shapes.shape2)
-            .border(GrapesBucketBorderWidth, GrapesTheme.colors.mainNeutralNormal, GrapesTheme.shapes.shape2)
+            .border(GrapesBucketBorderWidth, GrapesTheme.colors.neutralLight, GrapesTheme.shapes.shape2)
             .clip(GrapesTheme.shapes.shape2)
     ) {
         content()
@@ -47,7 +47,7 @@ private fun GrapesContainerPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainNeutralLighter)
+                .background(GrapesTheme.colors.neutralLightest)
                 .verticalScroll(rememberScrollState()),
         ) {
             GrapesBucketContainer(

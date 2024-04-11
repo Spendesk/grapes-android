@@ -52,7 +52,7 @@ fun GrapesCheckboxText(
         Spacer(Modifier.padding(end = GrapesTheme.dimensions.spacing2))
         Text(
             text = text,
-            color = GrapesTheme.colors.mainComplementary,
+            color = GrapesTheme.colors.structureComplementary,
             style = GrapesTheme.typography.bodyL
         )
     }

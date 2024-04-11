@@ -62,14 +62,16 @@ object GrapesInformationCardDefaults {
 
     private val borderThickness = 0.5.dp
 
-    val colors: CardColors @Composable get() = CardDefaults.elevatedCardColors(
-        containerColor = GrapesTheme.colors.mainWhite,
-    )
+    val colors: CardColors
+        @Composable get() = CardDefaults.elevatedCardColors(
+            containerColor = GrapesTheme.colors.mainWhite,
+        )
 
-    val border: BorderStroke @Composable get() = BorderStroke(
-        width = borderThickness,
-        color = GrapesTheme.colors.mainNeutralNormal,
-    )
+    val border: BorderStroke
+        @Composable get() = BorderStroke(
+            width = borderThickness,
+            color = GrapesTheme.colors.neutralLight,
+        )
 
     val contentVerticalArrangement: Arrangement.HorizontalOrVertical
         @Composable get() = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
@@ -82,7 +84,7 @@ private fun PreviewDescription(
 ) {
     GrapesTheme {
         Surface(
-            color = GrapesTheme.colors.mainBackground,
+            color = GrapesTheme.colors.structureBackground,
         ) {
             GrapesInformationCard(
                 title = texts.first,
@@ -97,6 +99,7 @@ private fun PreviewDescription(
 }
 
 private class DescriptionParameterProvider : PreviewParameterProvider<Pair<String, String>> {
+
     override val values = sequenceOf(
         "This is a simple example of a very very very long title" to "Lorem Ipsum is simply dummy text.",
         "Short title" to "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
@@ -109,7 +112,7 @@ private class DescriptionParameterProvider : PreviewParameterProvider<Pair<Strin
 private fun PreviewDescriptionItems() {
     GrapesTheme {
         Surface(
-            color = GrapesTheme.colors.mainBackground,
+            color = GrapesTheme.colors.structureBackground,
         ) {
             GrapesInformationCard(
                 title = "Description",

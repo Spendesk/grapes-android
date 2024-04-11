@@ -76,7 +76,7 @@ private fun GrapesBucketPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainNeutralLighter)
+                .background(GrapesTheme.colors.neutralLightest)
                 .verticalScroll(rememberScrollState()),
         ) {
 
@@ -84,7 +84,7 @@ private fun GrapesBucketPreview() {
                 modifier = Modifier.padding(12.dp),
                 title = "Rick's bucket",
                 action = "Delete",
-                actionColor = GrapesTheme.colors.mainAlertNormal,
+                actionColor = GrapesTheme.colors.alertNormal,
                 onActionClicked = { println("Clicked") },
                 content = {
                     Column {
@@ -106,7 +106,8 @@ private fun GrapesBucketPreview() {
                         modifier = Modifier.background(Color.Yellow),
                         title = "Bucket de Rick Astley",
                         action = "Remove",
-                        actionColor = GrapesTheme.colors.mainAlertNormal)
+                        actionColor = GrapesTheme.colors.alertNormal
+                    )
                 }
             ) {
                 Column {

@@ -12,6 +12,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  */
 @Immutable
 object GrapesPinTextFieldDefaults {
+
     val PinCharWidth = 48.dp
     val PinCharHeight = 62.dp
     val PinCharBorderWidth = 1.dp
@@ -19,15 +20,15 @@ object GrapesPinTextFieldDefaults {
 
     @Composable
     fun pinFieldColors(
-        textColor: Color = GrapesTheme.colors.mainPrimaryNormal,
-        disabledTextColor: Color = GrapesTheme.colors.mainPrimaryLighter,
-        focusTextColor: Color = GrapesTheme.colors.mainPrimaryDark,
-        errorTextColor: Color = GrapesTheme.colors.mainAlertNormal,
-        disabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLightest,
-        focusedErrorBorderColor: Color = GrapesTheme.colors.mainAlertNormal,
-        errorBorderColor: Color = GrapesTheme.colors.mainAlertLightest,
-        focusedEnabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLight,
-        enabledBorderColor: Color = GrapesTheme.colors.mainPrimaryLighter
+        textColor: Color = GrapesTheme.colors.primaryNormal,
+        disabledTextColor: Color = GrapesTheme.colors.primaryLighter,
+        focusTextColor: Color = GrapesTheme.colors.primaryDark,
+        errorTextColor: Color = GrapesTheme.colors.alertNormal,
+        disabledBorderColor: Color = GrapesTheme.colors.primaryLightest,
+        focusedErrorBorderColor: Color = GrapesTheme.colors.alertNormal,
+        errorBorderColor: Color = GrapesTheme.colors.alertLightest,
+        focusedEnabledBorderColor: Color = GrapesTheme.colors.primaryLight,
+        enabledBorderColor: Color = GrapesTheme.colors.primaryLighter
     ): GrapesPinColors = DefaultsPinColor(
         textColor = textColor,
         disabledTextColor = disabledTextColor,
@@ -53,6 +54,7 @@ class DefaultsPinColor(
     private val focusedEnabledBorderColor: Color,
     private val enabledBorderColor: Color
 ) : GrapesPinColors {
+
     override fun textColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color =
         when {
             isEnabled.not() -> disabledTextColor
@@ -72,6 +74,7 @@ class DefaultsPinColor(
 }
 
 interface GrapesPinColors {
+
     fun textColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color
 
     fun borderColor(isEnabled: Boolean, isError: Boolean, isSelected: Boolean): Color

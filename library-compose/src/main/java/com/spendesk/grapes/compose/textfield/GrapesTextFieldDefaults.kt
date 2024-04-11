@@ -13,10 +13,10 @@ import androidx.compose.material.TextFieldColors
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
-import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.Stable
 import androidx.compose.runtime.State
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.Stable
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -31,6 +31,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Immutable
 object GrapesTextFieldDefaults {
+
     private val TextFieldPaddingVertical = 14.dp
     private val TextFieldPaddingHorizontal = 16.dp
 
@@ -93,30 +94,30 @@ object GrapesTextFieldDefaults {
     @Composable
     @Suppress("LongParameterList")
     fun textFieldColors(
-        textColor: Color = GrapesTheme.colors.mainNeutralDarkest,
-        disabledTextColor: Color = GrapesTheme.colors.mainNeutralDarkest,
+        textColor: Color = GrapesTheme.colors.neutralDarker,
+        disabledTextColor: Color = GrapesTheme.colors.neutralDarker,
         backgroundColor: Color = GrapesTheme.colors.mainWhite,
-        disabledBackgroundColor: Color = GrapesTheme.colors.mainNeutralLighter,
-        cursorColor: Color = GrapesTheme.colors.mainPrimaryLight,
-        errorCursorColor: Color = GrapesTheme.colors.mainAlertNormal,
-        focusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
-        unfocusedBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
-        disabledBorderColor: Color = GrapesTheme.colors.mainNeutralLight,
-        errorBorderColor: Color = GrapesTheme.colors.mainAlertNormal,
-        leadingIconColor: Color = GrapesTheme.colors.mainNeutralDarker,
+        disabledBackgroundColor: Color = GrapesTheme.colors.neutralLightest,
+        cursorColor: Color = GrapesTheme.colors.primaryLight,
+        errorCursorColor: Color = GrapesTheme.colors.alertNormal,
+        focusedBorderColor: Color = GrapesTheme.colors.neutralLighter,
+        unfocusedBorderColor: Color = GrapesTheme.colors.neutralLighter,
+        disabledBorderColor: Color = GrapesTheme.colors.neutralLighter,
+        errorBorderColor: Color = GrapesTheme.colors.alertNormal,
+        leadingIconColor: Color = GrapesTheme.colors.neutralDark,
         disabledLeadingIconColor: Color = leadingIconColor.copy(alpha = ContentAlpha.disabled),
         errorLeadingIconColor: Color = leadingIconColor, // Todo replace
-        trailingIconColor: Color = GrapesTheme.colors.mainNeutralDarker,
+        trailingIconColor: Color = GrapesTheme.colors.neutralDark,
         disabledTrailingIconColor: Color = trailingIconColor.copy(alpha = ContentAlpha.disabled),
         errorTrailingIconColor: Color = Color.Yellow, // Todo replace
         focusedLabelColor: Color = Color.Yellow, // Todo replace
         unfocusedLabelColor: Color = Color.Yellow, // Todo replace
         disabledLabelColor: Color = unfocusedLabelColor.copy(ContentAlpha.disabled), // Todo replace
-        errorLabelColor: Color = GrapesTheme.colors.mainAlertNormal,
-        placeholderColor: Color = GrapesTheme.colors.mainNeutralDark,
-        disabledPlaceholderColor: Color = GrapesTheme.colors.mainNeutralNormal,
-        helperTextColor: Color = GrapesTheme.colors.mainNeutralDark,
-        errorHelperTextColor: Color = GrapesTheme.colors.mainAlertNormal,
+        errorLabelColor: Color = GrapesTheme.colors.alertNormal,
+        placeholderColor: Color = GrapesTheme.colors.neutralNormal,
+        disabledPlaceholderColor: Color = GrapesTheme.colors.neutralLight,
+        helperTextColor: Color = GrapesTheme.colors.neutralNormal,
+        errorHelperTextColor: Color = GrapesTheme.colors.alertNormal,
         disabledHelperTextColor: Color = helperTextColor.copy(ContentAlpha.disabled),
     ): GrapesTextFieldColors = DefaultGrapesGrapesTextFieldColors(
         textColor = textColor,
@@ -177,6 +178,7 @@ private data class DefaultGrapesGrapesTextFieldColors(
 ) : GrapesTextFieldColors {
 
     companion object {
+
         private const val AnimationDuration = 150
     }
 

@@ -10,70 +10,8 @@ import androidx.compose.ui.graphics.Color
 
 @Immutable
 data class GrapesColors(
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryDark"))
-    val mainPrimaryDark: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryNormal"))
-    val mainPrimaryNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryLight"))
-    val mainPrimaryLight: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryLighter"))
-    val mainPrimaryLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("primaryLightest"))
-    val mainPrimaryLightest: Color,
-
     @Deprecated("Use semantic color")
     val mainWhite: Color,
-    @Deprecated("Use semantic color")
-    val mainBlack: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("structureComplementary"))
-    val mainComplementary: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("structureBackground"))
-    val mainBackground: Color,
-
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralDarker"))
-    val mainNeutralDarkest: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralDark"))
-    val mainNeutralDarker: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralNormal"))
-    val mainNeutralDark: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralLight"))
-    val mainNeutralNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralLighter"))
-    val mainNeutralLight: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("neutralLightest"))
-    val mainNeutralLighter: Color,
-
-    @Deprecated("Grapes color deprecated", ReplaceWith("infoNormal"))
-    val mainInfoNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("infoLighter"))
-    val mainInfoLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("infoLightest"))
-    val mainInfoLightest: Color,
-
-    @Deprecated("Grapes color deprecated", ReplaceWith("successNormal"))
-    val mainSuccessNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("successLighter"))
-    val mainSuccessLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("successLightest"))
-    val mainSuccessLightest: Color,
-
-    @Deprecated("Grapes color deprecated", ReplaceWith("warningDark"))
-    val mainWarningDark: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("warningNormal"))
-    val mainWarningNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("warningLighter"))
-    val mainWarningLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("warningLightest"))
-    val mainWarningLightest: Color,
-
-    @Deprecated("Grapes color deprecated", ReplaceWith("alertDark"))
-    val mainAlertDark: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("alertNormal"))
-    val mainAlertNormal: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("alertLighter"))
-    val mainAlertLighter: Color,
-    @Deprecated("Grapes color deprecated", ReplaceWith("alertLightest"))
-    val mainAlertLightest: Color,
 
     val google: Color,
 
@@ -117,12 +55,6 @@ data class GrapesColors(
     val isLight: Boolean,
 )
 
-// Legacy colors
-val mainPrimaryDark = Color(0xFF421896)
-val mainPrimaryLighter = Color(0xFFDBD1F4)
-val mainBlack = Color(0xFF000000)
-val mainNeutralDarkest = Color(0xFF48465E)
-
 val google = Color(0xFF4285F4)
 
 // Colors
@@ -161,4 +93,3 @@ val redNormal = Color(0xFFD12D00)
 val redLight = Color(0xFFD84D26)
 val redLighter = Color(0xFFF1C0B3)
 val redLightest = Color(0xFFFDEDE8)
-

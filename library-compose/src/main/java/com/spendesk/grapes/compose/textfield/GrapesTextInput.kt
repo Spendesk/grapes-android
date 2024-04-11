@@ -188,7 +188,7 @@ fun PreviewGrapesTextField() {
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(GrapesTheme.colors.mainBackground)
+                    .background(GrapesTheme.colors.structureBackground)
                     .verticalScroll(rememberScrollState())
                     .padding(it),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -199,7 +199,7 @@ fun PreviewGrapesTextField() {
                     modifier = Modifier
                         .padding(bottom = 12.dp)
                         .fillMaxWidth()
-                        .background(GrapesTheme.colors.mainNeutralLight)
+                        .background(GrapesTheme.colors.neutralLighter)
                         .padding(8.dp)
 
 

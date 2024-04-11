@@ -24,12 +24,12 @@ fun GrapesSurface(
     content: @Composable () -> Unit
 ) {
     val (backgroundColor: Color, borderColor: Color) = when (configuration) {
-        GrapesConfigurationStatus.SUCCESS -> Pair(GrapesTheme.colors.mainSuccessLightest, GrapesTheme.colors.mainSuccessLighter)
-        GrapesConfigurationStatus.INFORMATION -> Pair(GrapesTheme.colors.mainInfoLightest, GrapesTheme.colors.mainInfoLighter)
-        GrapesConfigurationStatus.NEUTRAL -> Pair(GrapesTheme.colors.mainNeutralLighter, GrapesTheme.colors.mainNeutralNormal)
-        GrapesConfigurationStatus.ALERT -> Pair(GrapesTheme.colors.mainAlertLightest, GrapesTheme.colors.mainAlertLighter)
-        GrapesConfigurationStatus.WARNING -> Pair(GrapesTheme.colors.mainWarningLightest, GrapesTheme.colors.mainWarningLighter)
-        GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.mainPrimaryLightest, GrapesTheme.colors.mainPrimaryLighter)
+        GrapesConfigurationStatus.SUCCESS -> Pair(GrapesTheme.colors.successLightest, GrapesTheme.colors.successLighter)
+        GrapesConfigurationStatus.INFORMATION -> Pair(GrapesTheme.colors.infoLightest, GrapesTheme.colors.infoLighter)
+        GrapesConfigurationStatus.NEUTRAL -> Pair(GrapesTheme.colors.neutralLightest, GrapesTheme.colors.neutralLight)
+        GrapesConfigurationStatus.ALERT -> Pair(GrapesTheme.colors.alertLightest, GrapesTheme.colors.alertLighter)
+        GrapesConfigurationStatus.WARNING -> Pair(GrapesTheme.colors.warningLightest, GrapesTheme.colors.warningLighter)
+        GrapesConfigurationStatus.BLOCKED -> Pair(GrapesTheme.colors.primaryLightest, GrapesTheme.colors.primaryLighter)
     }
 
     val border = BorderStroke(1.dp, borderColor).takeIf { hasBorder }

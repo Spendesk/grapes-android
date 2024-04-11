@@ -29,6 +29,7 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
 class ComposeFragment : Fragment() {
 
     companion object {
+
         fun newInstance() = ComposeFragment()
     }
 
@@ -49,7 +50,7 @@ class ComposeFragment : Fragment() {
                             modifier = Modifier
                                 .height(100.dp)
                                 .width(200.dp)
-                                .background(GrapesTheme.colors.mainPrimaryDark, shape = GrapesTheme.shapes.shape0),
+                                .background(GrapesTheme.colors.primaryDark, shape = GrapesTheme.shapes.shape0),
                             contentAlignment = Alignment.Center
                         ) {
                             Text(
@@ -61,7 +62,7 @@ class ComposeFragment : Fragment() {
                             modifier = Modifier
                                 .height(100.dp)
                                 .width(200.dp)
-                                .background(GrapesTheme.colors.mainPrimaryDark, shape = GrapesTheme.shapes.shape1),
+                                .background(GrapesTheme.colors.primaryDark, shape = GrapesTheme.shapes.shape1),
                             contentAlignment = Alignment.Center
                         ) {
 
@@ -74,7 +75,7 @@ class ComposeFragment : Fragment() {
                             modifier = Modifier
                                 .height(100.dp)
                                 .width(200.dp)
-                                .background(GrapesTheme.colors.mainPrimaryDark, shape = GrapesTheme.shapes.shape2),
+                                .background(GrapesTheme.colors.primaryDark, shape = GrapesTheme.shapes.shape2),
                             contentAlignment = Alignment.Center
                         ) {
 
@@ -87,7 +88,7 @@ class ComposeFragment : Fragment() {
                             modifier = Modifier
                                 .height(100.dp)
                                 .width(200.dp)
-                                .background(GrapesTheme.colors.mainPrimaryDark, shape = GrapesTheme.shapes.shape3),
+                                .background(GrapesTheme.colors.primaryDark, shape = GrapesTheme.shapes.shape3),
                             contentAlignment = Alignment.Center
                         ) {
 
@@ -100,7 +101,7 @@ class ComposeFragment : Fragment() {
                             modifier = Modifier
                                 .height(100.dp)
                                 .width(200.dp)
-                                .background(GrapesTheme.colors.mainPrimaryDark, shape = GrapesTheme.shapes.shape4),
+                                .background(GrapesTheme.colors.primaryDark, shape = GrapesTheme.shapes.shape4),
                             contentAlignment = Alignment.Center
                         ) {
 

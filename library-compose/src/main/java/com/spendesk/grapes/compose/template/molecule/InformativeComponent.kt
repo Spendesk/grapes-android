@@ -25,7 +25,7 @@ internal fun InformativeComponent(
             .fillMaxSize()
             .background(
                 Brush.linearGradient(
-                    listOf(GrapesTheme.colors.mainPrimaryNormal, GrapesTheme.colors.mainPrimaryDark)
+                    listOf(GrapesTheme.colors.primaryNormal, GrapesTheme.colors.primaryDark)
                 )
             )
             .padding(GrapesTheme.dimensions.spacing3),

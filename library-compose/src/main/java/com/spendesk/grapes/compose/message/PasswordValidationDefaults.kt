@@ -14,13 +14,17 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  */
 @Immutable
 object PasswordValidationDefaults {
+
     val ValidationItemSize = 6.dp
     val ValidationSuccessItemSize = 10.dp
     val ValidationBoxSize = 16.dp
 
-    val SuccessColor: Color @Composable get() = GrapesTheme.colors.mainSuccessNormal
-    val ErrorColor: Color @Composable get() = GrapesTheme.colors.mainAlertNormal
+    val SuccessColor: Color @Composable get() = GrapesTheme.colors.successNormal
+    val ErrorColor: Color @Composable get() = GrapesTheme.colors.alertNormal
 
-    @DrawableRes val ValidIcon: Int = R.drawable.ic_valid_tick
-    @DrawableRes val InvalidIcon: Int = R.drawable.ic_neutral_tick
+    @DrawableRes
+    val ValidIcon: Int = R.drawable.ic_valid_tick
+
+    @DrawableRes
+    val InvalidIcon: Int = R.drawable.ic_neutral_tick
 }

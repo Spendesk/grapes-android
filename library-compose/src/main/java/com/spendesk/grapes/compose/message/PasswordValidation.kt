@@ -103,14 +103,14 @@ private fun PasswordValidationPreview() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .background(GrapesTheme.colors.mainBackground)
+                .background(GrapesTheme.colors.structureBackground)
         ) {
             Column(
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth()
                     .background(GrapesTheme.colors.mainWhite)
-                    .border(1.dp, GrapesTheme.colors.mainNeutralLight)
+                    .border(1.dp, GrapesTheme.colors.neutralLighter)
                     .padding(16.dp)
             ) {
                 items.forEachIndexed { checkIndex, item ->

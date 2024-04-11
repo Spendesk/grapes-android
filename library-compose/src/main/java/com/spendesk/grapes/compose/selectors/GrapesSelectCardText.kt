@@ -31,12 +31,13 @@ import com.spendesk.grapes.compose.theme.GrapesTheme
  **/
 @Immutable
 object GrapesSelectCardTextDefaultColors {
-    val selectedIconColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
-    val selectedTitleColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
-    val selectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainPrimaryDark
-    val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.mainComplementary
-    val unselectedTitleColor: Color @Composable get() = GrapesTheme.colors.mainComplementary
-    val unselectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.mainNeutralDarker
+
+    val selectedIconColor: Color @Composable get() = GrapesTheme.colors.primaryDark
+    val selectedTitleColor: Color @Composable get() = GrapesTheme.colors.primaryDark
+    val selectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.primaryDark
+    val unselectedIconColor: Color @Composable get() = GrapesTheme.colors.structureComplementary
+    val unselectedTitleColor: Color @Composable get() = GrapesTheme.colors.structureComplementary
+    val unselectedDescriptionColor: Color @Composable get() = GrapesTheme.colors.neutralDark
 }
 
 @Composable
