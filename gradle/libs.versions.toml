@@ -14,6 +14,7 @@ firebaseAppdistributionPlugin = "4.0.1"
 
 # [LIBRARIES]
 detekt = "1.23.6"
+detektFormatting = "1.23.6"
 glide = "4.16.0"
 
 ## AndroidX
@@ -24,25 +25,21 @@ androidxConstraintlayout = "2.1.4"
 androidxCore = "1.12.0"
 androidxEspresso = "3.5.1"
 androidxFragment = "1.6.2"
-androidxLifecycle = "2.6.2"
+androidxLifecycle = "2.7.0"
 androidxTestJunit = "1.1.5"
 
 ## Google
 hilt = "2.50"
 ksp = "1.9.21-1.0.16"
-material = '1.9.0'
+material = '1.11.0'
 
 ## Jetbrains
-detektFormatting = "1.23.6"
 kotlin = "1.9.21"
 
 ## Tests
 junit4 = "4.13.2"
 
 [libraries]
-
-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
 
 # [ANDROIDX]
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidxAppcompat" }
@@ -73,10 +70,12 @@ hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.r
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
 
 # [TOOLS]
-kotlinx-reflection = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
+kotlinx-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", version.ref = "kotlin" }
 
 # [OTHERS]
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
 
 [bundles]
 androidxcompose = ["androidx-compose-ui", "androidx-compose-ui-tooling", "androidx-compose-ui-util", "androidx-compose-runtime", "androidx-compose-foundation", "androidx-compose-material", "androidx-compose-material-icons-core", "androidx-compose-material-icons-extended", "androidx-compose-material3"]

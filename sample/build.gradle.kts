@@ -103,5 +103,5 @@ dependencies {
     ksp(grapesLibs.hilt.compiler)
 
     // REFLECTION
-    implementation(grapesLibs.kotlinx.reflection)
+    implementation(grapesLibs.kotlinx.reflect)
 }
