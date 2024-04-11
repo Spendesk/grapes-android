@@ -36,9 +36,6 @@ data class GrapesDimensions(
     val sizing5: Dp = 32.dp,
     val sizing6: Dp = 40.dp,
     val sizing7: Dp = 56.dp,
-
-    val gaugeHeight: Dp = 16.dp,
-    val gaugeDelimiterWidth: Dp = 2.dp
 )
 
 internal val LocalGrapesDimensions = staticCompositionLocalOf { GrapesDimensions() }
