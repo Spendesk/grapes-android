@@ -91,17 +91,17 @@ dependencies {
     implementation(grapesLibs.androidx.core.ktx)
     implementation(grapesLibs.androidx.fragment.ktx)
 
-    implementation(grapesLibs.material)
+    implementation(grapesLibs.google.material)
 
     // JUNIT
     testImplementation(grapesLibs.junit4)
-    androidTestImplementation(grapesLibs.junit.android)
-    androidTestImplementation(grapesLibs.espresso.core)
+    androidTestImplementation(grapesLibs.androidx.test.junit)
+    androidTestImplementation(grapesLibs.androidx.espresso.core)
 
     // HILT
     implementation(grapesLibs.hilt.android)
     ksp(grapesLibs.hilt.compiler)
 
     // REFLECTION
-    implementation(grapesLibs.reflection)
+    implementation(grapesLibs.kotlinx.reflection)
 }
