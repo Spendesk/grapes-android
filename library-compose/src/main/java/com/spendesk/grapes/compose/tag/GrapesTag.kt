@@ -133,7 +133,7 @@ fun GrapesTag(
 ) {
     Surface(
         modifier = modifier.wrapContentSize(),
-        shape = LocalGrapesShapes.current.xSmall,
+        shape = LocalGrapesShapes.current.shape1,
         color = backgroundColor,
         border = BorderStroke(GrapesTagDefaults.borderThickness, borderColor),
     ) {

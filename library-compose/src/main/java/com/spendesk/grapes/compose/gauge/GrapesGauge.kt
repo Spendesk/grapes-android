@@ -35,6 +35,8 @@ object GrapesGaugeDefaults {
 
     const val GaugeAddDelimiter = true
     val GaugeStrippedWidth = 5.dp
+    val gaugeHeight: Dp = 16.dp
+    val gaugeDelimiterWidth: Dp = 2.dp
 }
 
 sealed class Gauge(open val progress: Float) {
@@ -109,7 +111,7 @@ private fun GrapesGaugeContainer(
             .clip(clipShape)
             .background(backgroundColor)
             .fillMaxWidth()
-            .height(GrapesTheme.dimensions.gaugeHeight)
+            .height(GrapesGaugeDefaults.gaugeHeight)
     ) {
         content()
     }
@@ -161,7 +163,7 @@ private fun GrapesGaugeDelimiter() {
     Box(
         modifier = Modifier
             .fillMaxHeight()
-            .width(GrapesTheme.dimensions.gaugeDelimiterWidth)
+            .width(GrapesGaugeDefaults.gaugeDelimiterWidth)
             .background(GrapesTheme.colors.mainWhite)
     )
 }

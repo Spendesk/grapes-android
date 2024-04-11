@@ -37,8 +37,8 @@ fun GrapesRetryTextBlockAction(retryLabel: String, onRetryClicked: () -> Unit, m
 fun TextBlockActionPreview() {
     GrapesTheme {
         Column(
-            modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+            modifier = Modifier.padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
             GrapesRetryTextBlockAction("Tap to retry", onRetryClicked = {})
         }

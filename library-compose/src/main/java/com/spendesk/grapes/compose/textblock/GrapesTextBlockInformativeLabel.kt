@@ -50,8 +50,8 @@ fun GrapesTextBlockInformativeLabel(
 private fun TextBlockOptionalTitlePreview() {
     GrapesTheme {
         Column(
-            modifier = Modifier.padding(GrapesTheme.dimensions.paddingLarge),
-            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.paddingLarge)
+            modifier = Modifier.padding(GrapesTheme.dimensions.spacing3),
+            verticalArrangement = Arrangement.spacedBy(GrapesTheme.dimensions.spacing3)
         ) {
             GrapesTextBlockInformativeLabel("Missing", color = GrapesTheme.colors.warningNormal)
             GrapesTextBlockInformativeLabel("Optional", color = GrapesTheme.colors.neutralNormal)
