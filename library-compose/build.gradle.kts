@@ -24,7 +24,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = grapesLibs.versions.compose.kotlin.compiler.get()
+        kotlinCompilerExtensionVersion = grapesLibs.versions.androidxComposeCompiler.get()
     }
 
     compileOptions {
@@ -81,17 +81,17 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
 
 dependencies {
     testImplementation(grapesLibs.junit4)
-    androidTestImplementation(grapesLibs.junit.android)
-    androidTestImplementation(grapesLibs.espresso.core)
+    androidTestImplementation(grapesLibs.androidx.test.junit)
+    androidTestImplementation(grapesLibs.androidx.espresso.core)
 
     api(grapesLibs.androidx.lifecycle.ktx)
 
     // Compose
-    api(platform(grapesLibs.compose.bom))
-    api(grapesLibs.bundles.compose)
+    api(platform(grapesLibs.androidx.compose.bom))
+    api(grapesLibs.bundles.androidxcompose)
 
     // UI Tests
-    androidTestImplementation(grapesLibs.compose.tests.ui)
+    androidTestImplementation(grapesLibs.androidx.compose.ui.test)
 }
 
 afterEvaluate {

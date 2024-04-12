@@ -53,7 +53,7 @@ dependencies {
 
     implementation(grapesLibs.androidx.core.ktx)
     implementation(grapesLibs.androidx.appcompat)
-    implementation(grapesLibs.material)
+    implementation(grapesLibs.google.material)
     implementation(grapesLibs.androidx.constraintlayout)
 
     implementation(grapesLibs.glide)
