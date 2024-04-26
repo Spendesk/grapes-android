@@ -64,7 +64,7 @@ androidx-test-junit = { group = "androidx.test.ext", name = "junit", version.ref
 # [GOOGLE]
 google-material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
+hilt-ksp = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
 
 # [TESTS]
 junit4 = { group = "junit", name = "junit", version.ref = "junit4" }
@@ -75,7 +75,8 @@ kotlinx-reflect = { group = "org.jetbrains.kotlin", name = "kotlin-reflect", ver
 # [OTHERS]
 detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektFormatting" }
 glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
-glide-compiler = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
+glide-compiler = { group = "com.github.bumptech.glide", name = "compil", version.ref = "glide" }
+glide-ksp = { group = "com.github.bumptech.glide", name = "ksp", version.ref = "glide" }
 
 [bundles]
 androidxcompose = ["androidx-compose-ui", "androidx-compose-ui-tooling", "androidx-compose-ui-util", "androidx-compose-runtime", "androidx-compose-foundation", "androidx-compose-material", "androidx-compose-material-icons-core", "androidx-compose-material-icons-extended", "androidx-compose-material3"]
