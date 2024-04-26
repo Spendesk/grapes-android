@@ -2,19 +2,19 @@ import io.gitlab.arturbosch.detekt.Detekt
 import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
 
 plugins {
-    alias(grapesLibs.plugins.android.library)
-    alias(grapesLibs.plugins.kotlin.android)
-    alias(grapesLibs.plugins.detekt)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.detekt)
     id("maven-publish")
 }
 
 android {
     namespace = "com.spendesk.grapes.compose"
 
-    compileSdk = grapesLibs.versions.androidCompileSdk.get().toInt()
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = grapesLibs.versions.androidMinSdk.get().toInt()
+        minSdk = libs.versions.androidMinSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -24,7 +24,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = grapesLibs.versions.androidxComposeCompiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
     }
 
     compileOptions {
@@ -57,10 +57,10 @@ detekt {
     allRules = false // activate all available (even unstable) rules.
     config.setFrom("$rootDir/config/detekt/detekt-configuration.yml")
     baseline = file("$projectDir/config/baseline.xml")
-    toolVersion = grapesLibs.plugins.detekt.get().version.requiredVersion
+    toolVersion = libs.plugins.detekt.get().version.requiredVersion
 
     dependencies {
-        detektPlugins(grapesLibs.detekt.formatting)
+        detektPlugins(libs.detekt.formatting)
     }
 }
 
@@ -80,18 +80,18 @@ tasks.withType<DetektCreateBaselineTask>().configureEach {
 }
 
 dependencies {
-    testImplementation(grapesLibs.junit4)
-    androidTestImplementation(grapesLibs.androidx.test.junit)
-    androidTestImplementation(grapesLibs.androidx.espresso.core)
+    testImplementation(libs.junit4)
+    androidTestImplementation(libs.androidx.test.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
-    api(grapesLibs.androidx.lifecycle.ktx)
+    api(libs.androidx.lifecycle.ktx)
 
     // Compose
-    api(platform(grapesLibs.androidx.compose.bom))
-    api(grapesLibs.bundles.androidxcompose)
+    api(platform(libs.androidx.compose.bom))
+    api(libs.bundles.androidxcompose)
 
     // UI Tests
-    androidTestImplementation(grapesLibs.androidx.compose.ui.test)
+    androidTestImplementation(libs.androidx.compose.ui.test)
 }
 
 afterEvaluate {
@@ -100,7 +100,7 @@ afterEvaluate {
             register("release", MavenPublication::class) {
                 group = "com.github.Spendesk"
                 artifactId = "grapes-android-compose"
-                version = grapesLibs.versions.grapes.version.get()
+                version = libs.versions.grapes.version.get()
 
                 from(components["release"])
             }

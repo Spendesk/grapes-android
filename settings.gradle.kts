@@ -11,12 +11,6 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
     }
-
-    versionCatalogs {
-        create("grapesLibs") {
-            from(files("./gradle/libs.versions.toml"))
-        }
-    }
 }
 
 include(":sample")

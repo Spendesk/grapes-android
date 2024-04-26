@@ -1,23 +1,23 @@
 plugins {
-    alias(grapesLibs.plugins.android.application)
-    alias(grapesLibs.plugins.kotlin.android)
-    alias(grapesLibs.plugins.ksp)
-    alias(grapesLibs.plugins.kotlin.parcelize)
-    alias(grapesLibs.plugins.hilt)
-    alias(grapesLibs.plugins.firebase.appdistribution)
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.firebase.appdistribution)
 }
 
 android {
     namespace = "com.spendesk.grapes.samples"
 
-    compileSdk = grapesLibs.versions.androidCompileSdk.get().toInt()
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.spendesk.grapes.samples"
-        minSdk = grapesLibs.versions.androidMinSdk.get().toInt()
-        targetSdk = grapesLibs.versions.androidTargetSdk.get().toInt()
+        minSdk = libs.versions.androidMinSdk.get().toInt()
+        targetSdk = libs.versions.androidTargetSdk.get().toInt()
         versionCode = 1
-        versionName = grapesLibs.versions.grapes.version.get()
+        versionName = libs.versions.grapes.version.get()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,7 +38,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = grapesLibs.versions.androidxComposeCompiler.get()
+        kotlinCompilerExtensionVersion = libs.versions.androidxComposeCompiler.get()
     }
 
     signingConfigs {
@@ -88,20 +88,20 @@ dependencies {
     implementation(project(":library"))
     implementation(project(":library-compose"))
 
-    implementation(grapesLibs.androidx.core.ktx)
-    implementation(grapesLibs.androidx.fragment.ktx)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.fragment.ktx)
 
-    implementation(grapesLibs.google.material)
+    implementation(libs.google.material)
 
     // JUNIT
-    testImplementation(grapesLibs.junit4)
-    androidTestImplementation(grapesLibs.androidx.test.junit)
-    androidTestImplementation(grapesLibs.androidx.espresso.core)
+    testImplementation(libs.junit4)
+    androidTestImplementation(libs.androidx.test.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
 
     // HILT
-    implementation(grapesLibs.hilt.android)
-    ksp(grapesLibs.hilt.compiler)
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
 
     // REFLECTION
-    implementation(grapesLibs.kotlinx.reflect)
+    implementation(libs.kotlinx.reflect)
 }

@@ -1,18 +1,18 @@
 plugins {
-    alias(grapesLibs.plugins.android.library)
-    alias(grapesLibs.plugins.kotlin.android)
-    alias(grapesLibs.plugins.ksp)
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.ksp)
     id("maven-publish")
 }
 
 android {
     namespace = "com.spendesk.grapes"
 
-    compileSdk = grapesLibs.versions.androidCompileSdk.get().toInt()
+    compileSdk = libs.versions.androidCompileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = grapesLibs.versions.androidMinSdk.get().toInt()
-        targetSdk = grapesLibs.versions.androidTargetSdk.get().toInt()
+        minSdk = libs.versions.androidMinSdk.get().toInt()
+        targetSdk = libs.versions.androidTargetSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
 
@@ -51,13 +51,13 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
 
-    implementation(grapesLibs.androidx.core.ktx)
-    implementation(grapesLibs.androidx.appcompat)
-    implementation(grapesLibs.google.material)
-    implementation(grapesLibs.androidx.constraintlayout)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.google.material)
+    implementation(libs.androidx.constraintlayout)
 
-    implementation(grapesLibs.glide)
-    ksp(grapesLibs.glide.compiler)
+    implementation(libs.glide)
+    ksp(libs.glide.compiler)
 }
 
 afterEvaluate {
@@ -66,7 +66,7 @@ afterEvaluate {
             register("release", MavenPublication::class) {
                 group = "com.github.Spendesk"
                 artifactId = "grapes-android"
-                version = grapesLibs.versions.grapes.version.get()
+                version = libs.versions.grapes.version.get()
 
                 from(components["release"])
             }
