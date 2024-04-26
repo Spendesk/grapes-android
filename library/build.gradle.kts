@@ -57,7 +57,7 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
 
     implementation(libs.glide)
-    ksp(libs.glide.compiler)
+    ksp(libs.glide.ksp)
 }
 
 afterEvaluate {
