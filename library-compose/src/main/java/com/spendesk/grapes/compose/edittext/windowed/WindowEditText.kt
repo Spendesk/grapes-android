@@ -4,11 +4,13 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
@@ -99,6 +101,7 @@ internal fun WindowEditTextBase(
 
     Box(modifier = modifier, contentAlignment = Alignment.Center) {
         BasicTextField(
+            modifier = Modifier.width(IntrinsicSize.Min),
             value = formattedText,
             onValueChange = { newValue ->
                 onTextChange(sanitizeWindowedEditTextContent(newValue, maxLength))
@@ -149,6 +152,12 @@ fun WindowEditTextPreview() {
             }
             WindowEditText(
                 text = content, onTextChange = { content = it }
+            )
+            WindowEditText(
+                text = content,
+                onTextChange = { content = it },
+                windowLength = 3,
+                maxLength = 6,
             )
         }
     }
