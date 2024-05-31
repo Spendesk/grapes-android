@@ -5,6 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -43,11 +44,32 @@ fun GrapesTopAppBar(
     TopAppBar(
         modifier = modifier,
         title = title,
-        backgroundColor = GrapesTheme.colors.mainWhite,
+        backgroundColor = GrapesTheme.colors.structureSurface,
         contentColor = GrapesTheme.colors.structureComplementary,
         navigationIcon = navigationIcon,
         actions = actions,
-        elevation = elevationDp
+        elevation = elevationDp,
+    )
+}
+
+@Composable
+fun GrapesTopAppBar(
+    title: @Composable () -> Unit,
+    windowInsets: WindowInsets,
+    modifier: Modifier = Modifier,
+    navigationIcon: @Composable (() -> Unit)? = null,
+    actions: @Composable RowScope.() -> Unit = {},
+    elevationDp: Dp = GrapesTheme.dimensions.elevationNormal,
+) {
+    TopAppBar(
+        modifier = modifier,
+        title = title,
+        backgroundColor = GrapesTheme.colors.structureSurface,
+        contentColor = GrapesTheme.colors.structureComplementary,
+        navigationIcon = navigationIcon,
+        actions = actions,
+        elevation = elevationDp,
+        windowInsets = windowInsets,
     )
 }
 
