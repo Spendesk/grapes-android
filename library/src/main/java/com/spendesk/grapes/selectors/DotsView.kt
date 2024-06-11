@@ -39,6 +39,7 @@ class DotsView : LinearLayout {
 
     fun updateConfiguration(configuration: Configuration) {
         maxCodeLength = configuration.pinCodeLength
+        removeAllViews()
         repeat(configuration.pinCodeLength) { addView(addOvalShapeWith(R.color.colorPrimaryDark)) }
 
         configuration.code?.let { updateViewFromString(it) }
