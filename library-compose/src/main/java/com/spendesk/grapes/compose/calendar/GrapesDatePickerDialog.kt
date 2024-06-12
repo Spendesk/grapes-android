@@ -3,6 +3,7 @@ package com.spendesk.grapes.compose.calendar
 import androidx.compose.material3.DatePickerColors
 import androidx.compose.material3.DatePickerDialog
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.SelectableDates
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
@@ -22,6 +23,7 @@ fun GrapesDatePickerDialog(
     dismissOnBack: Boolean = true,
     dismissOnClickOutside: Boolean = true,
     yearRange: IntRange? = null,
+    dateEdges: SelectableDates? = null,
     confirmButton: @Composable () -> Unit = { },
     dismissButton: (@Composable () -> Unit)? = null,
     onDismissRequest: (() -> Unit)? = null,
@@ -40,6 +42,7 @@ fun GrapesDatePickerDialog(
         content = {
             GrapesDatePicker(
                 yearRange = yearRange ?: GrapesDatePickerDefaults.YearRange,
+                dateEdges = dateEdges ?: GrapesDatePickerDefaults.selectableDatesEdges(),
                 initialDisplayedDate = initialDisplayedDate,
                 onDateSelected = { date -> onDateSelected(date) }
             )
