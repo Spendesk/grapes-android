@@ -21,6 +21,7 @@ fun GrapesDatePickerDialog(
     shape: Shape = GrapesTheme.shapes.shape2,
     dismissOnBack: Boolean = true,
     dismissOnClickOutside: Boolean = true,
+    yearRange: IntRange = GrapesDatePickerDefaults.YearRange,
     confirmButton: @Composable () -> Unit = { },
     dismissButton: (@Composable () -> Unit)? = null,
     onDismissRequest: (() -> Unit)? = null,
@@ -38,6 +39,7 @@ fun GrapesDatePickerDialog(
         ),
         content = {
             GrapesDatePicker(
+                yearRange = yearRange,
                 initialDisplayedDate = initialDisplayedDate,
                 onDateSelected = { date -> onDateSelected(date) }
             )
