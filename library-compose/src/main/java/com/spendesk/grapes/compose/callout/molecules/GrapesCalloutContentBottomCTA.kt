@@ -5,7 +5,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.theme.GrapesTheme
 
 /**
  * @author jean-philippe
@@ -15,13 +15,16 @@ import androidx.compose.ui.unit.dp
 fun ColumnScope.GrapesCalloutContentBottomCTA(
     primaryButton: (@Composable ColumnScope.() -> Unit)? = null,
     secondaryButton: (@Composable ColumnScope.() -> Unit)? = null,
+    addExtraPaddingTop: Boolean = true,
 ) {
     require(primaryButton != null || secondaryButton != null) {
         "At least one button must be provided"
     }
 
     // Design require extra padding between the content and the buttons
-    Spacer(modifier = Modifier.padding(top = 8.dp))
+    if (addExtraPaddingTop) {
+        Spacer(modifier = Modifier.padding(top = GrapesTheme.dimensions.spacing2))
+    }
 
     primaryButton?.invoke(this)
     secondaryButton?.invoke(this)
