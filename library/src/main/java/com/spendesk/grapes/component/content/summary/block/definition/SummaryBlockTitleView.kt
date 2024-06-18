@@ -3,8 +3,10 @@ package com.spendesk.grapes.component.content.summary.block.definition
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
 import com.spendesk.grapes.databinding.SummaryBlockContentTitleBinding
@@ -33,6 +35,7 @@ class SummaryBlockTitleView : ConstraintLayout {
     data class Configuration(
         val startTitle: CharSequence,
         val middleTitle: CharSequence? = null,
+        @ColorRes val middleTitleColor: Int = R.color.mainNeutralDarker,
         val endTitle: CharSequence? = null,
         @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
         val isActivated: Boolean = false,
@@ -70,7 +73,7 @@ class SummaryBlockTitleView : ConstraintLayout {
 
     fun updateConfiguration(configuration: Configuration) {
         setTitleStartText(configuration.startTitle)
-        setTitleMiddleText(configuration.middleTitle)
+        setTitleMiddleText(configuration.middleTitle, configuration.middleTitleColor)
         setTitleEndText(configuration.endTitle)
         setTitleEndDrawable(configuration.drawableEnd)
         setProgressBarVisibility(configuration.showProgressBar)
@@ -83,9 +86,10 @@ class SummaryBlockTitleView : ConstraintLayout {
         binding.summaryBlockContentTitleStartText.text = text ?: String.empty()
     }
 
-    fun setTitleMiddleText(text: CharSequence?) {
+    fun setTitleMiddleText(text: CharSequence?, @ColorRes color: Int) {
         binding.summaryBlockContentTitleMiddleText.visibleOrInvisible(text != null)
         binding.summaryBlockContentTitleMiddleText.text = text
+        binding.summaryBlockContentTitleMiddleText.setTextColor(ContextCompat.getColor(context, color))
     }
 
     fun setTitleEndText(text: CharSequence?) {
@@ -119,7 +123,7 @@ class SummaryBlockTitleView : ConstraintLayout {
                 recycle()
 
                 setTitleStartText(titleStartText)
-                setTitleMiddleText(titleMiddleText)
+                setTitleMiddleText(titleMiddleText, configuration.middleTitleColor)
                 setTitleEndText(titleEndText)
                 setTitleEndDrawable(titleEndDrawable)
             }

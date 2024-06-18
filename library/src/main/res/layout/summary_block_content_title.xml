@@ -33,6 +33,7 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="• Optional"
+        tools:textColor="@color/mainNeutralDarker"
         tools:visibility="visible" />
 
     <TextView
