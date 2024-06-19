@@ -6,6 +6,7 @@
         <attr name="titleMiddleText" format="string" />
         <attr name="titleEndText" format="string" />
         <attr name="titleEndDrawable" format="reference" />
+        <attr name="titleMiddleTextColor" format="reference" />
     </declare-styleable>
 
 </resources>

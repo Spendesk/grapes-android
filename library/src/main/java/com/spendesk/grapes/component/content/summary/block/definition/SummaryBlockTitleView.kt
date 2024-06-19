@@ -3,12 +3,20 @@ package com.spendesk.grapes.component.content.summary.block.definition
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import com.spendesk.grapes.R
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView.Constant.DRAWABLE_END_DEFAULT
+import com.spendesk.grapes.component.content.summary.block.definition.SummaryBlockTitleView.Constant.MIDDLE_TITLE_COLOR_DEFAULT
 import com.spendesk.grapes.databinding.SummaryBlockContentTitleBinding
-import com.spendesk.grapes.extensions.*
+import com.spendesk.grapes.extensions.empty
+import com.spendesk.grapes.extensions.gone
+import com.spendesk.grapes.extensions.visible
+import com.spendesk.grapes.extensions.visibleOrGone
+import com.spendesk.grapes.extensions.visibleOrInvisible
 
 /**
  * @author Vivien Mahe
@@ -30,11 +38,18 @@ class SummaryBlockTitleView : ConstraintLayout {
     }
     //endregion constructors
 
+    object Constant {
+
+        val MIDDLE_TITLE_COLOR_DEFAULT = R.color.mainNeutralDarker
+        val DRAWABLE_END_DEFAULT = ResourcesCompat.ID_NULL
+    }
+
     data class Configuration(
         val startTitle: CharSequence,
         val middleTitle: CharSequence? = null,
+        @ColorRes val middleTitleColor: Int = MIDDLE_TITLE_COLOR_DEFAULT,
         val endTitle: CharSequence? = null,
-        @DrawableRes val drawableEnd: Int = ResourcesCompat.ID_NULL,
+        @DrawableRes val drawableEnd: Int = DRAWABLE_END_DEFAULT,
         val isActivated: Boolean = false,
         val isEnabled: Boolean = true,
         val isSelected: Boolean = false,
@@ -70,7 +85,7 @@ class SummaryBlockTitleView : ConstraintLayout {
 
     fun updateConfiguration(configuration: Configuration) {
         setTitleStartText(configuration.startTitle)
-        setTitleMiddleText(configuration.middleTitle)
+        setTitleMiddleText(configuration.middleTitle, configuration.middleTitleColor)
         setTitleEndText(configuration.endTitle)
         setTitleEndDrawable(configuration.drawableEnd)
         setProgressBarVisibility(configuration.showProgressBar)
@@ -83,9 +98,10 @@ class SummaryBlockTitleView : ConstraintLayout {
         binding.summaryBlockContentTitleStartText.text = text ?: String.empty()
     }
 
-    fun setTitleMiddleText(text: CharSequence?) {
+    fun setTitleMiddleText(text: CharSequence?, @ColorRes color: Int) {
         binding.summaryBlockContentTitleMiddleText.visibleOrInvisible(text != null)
         binding.summaryBlockContentTitleMiddleText.text = text
+        binding.summaryBlockContentTitleMiddleText.setTextColor(ContextCompat.getColor(context, color))
     }
 
     fun setTitleEndText(text: CharSequence?) {
@@ -114,12 +130,13 @@ class SummaryBlockTitleView : ConstraintLayout {
             with(context.obtainStyledAttributes(it, R.styleable.SummaryBlockTitleView)) {
                 val titleStartText = getString(R.styleable.SummaryBlockTitleView_titleStartText)
                 val titleMiddleText = getString(R.styleable.SummaryBlockTitleView_titleMiddleText)
+                val titleMiddleTextColor = getResourceId(R.styleable.SummaryBlockTitleView_titleMiddleTextColor, MIDDLE_TITLE_COLOR_DEFAULT)
                 val titleEndText = getString(R.styleable.SummaryBlockTitleView_titleEndText)
-                val titleEndDrawable = getResourceId(R.styleable.SummaryBlockTitleView_titleEndDrawable, ResourcesCompat.ID_NULL)
+                val titleEndDrawable = getResourceId(R.styleable.SummaryBlockTitleView_titleEndDrawable, DRAWABLE_END_DEFAULT)
                 recycle()
 
                 setTitleStartText(titleStartText)
-                setTitleMiddleText(titleMiddleText)
+                setTitleMiddleText(titleMiddleText, titleMiddleTextColor)
                 setTitleEndText(titleEndText)
                 setTitleEndDrawable(titleEndDrawable)
             }
