@@ -18,7 +18,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.spendesk.grapes.compose.icons.GrapesHighlightIconSize
@@ -37,6 +40,33 @@ fun GrapesAmountListItem(
     title: String,
     subtitle: String,
     amount: String,
+    description: String,
+    logo: @Composable BoxScope.() -> Unit,
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
+    colors: GrapesAmountListItemColors = GrapesAmountListItemDefaults.colors(),
+) {
+    GrapesAmountListItem(
+        title = title,
+        subtitle = subtitle,
+        amount = AnnotatedString(amount),
+        description = description,
+        logo = logo,
+        modifier = modifier,
+        onClick = onClick,
+        colors = colors,
+    )
+}
+
+/**
+ * Component to display an item with a logo, a title, a subtitle, an amount and a description.
+ * The amount is an [AnnotatedString] to allow different styles for the amount.
+ */
+@Composable
+fun GrapesAmountListItem(
+    title: String,
+    subtitle: String,
+    amount: AnnotatedString,
     description: String,
     logo: @Composable BoxScope.() -> Unit,
     modifier: Modifier = Modifier,
@@ -133,7 +163,7 @@ object GrapesAmountListItemDefaults {
 @Composable
 @Preview(showBackground = true)
 @Preview(showBackground = true, fontScale = 1.5f)
-private fun GrapesAmountListItemPreview() {
+private fun PreviewGrapesAmountListItemSmallAmount() {
     GrapesTheme {
         GrapesAmountListItem(
             title = "Title",
@@ -144,21 +174,7 @@ private fun GrapesAmountListItemPreview() {
                 descriptionColor = GrapesTheme.colors.successNormal,
             ),
             onClick = {},
-            logo = {
-                GrapesBadgedLogo(
-                    badge = {
-                        GrapesHighlightIconSuccess(
-                            size = GrapesHighlightIconSize.SMALL,
-                        )
-                    },
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .size(64.dp)
-                            .background(Color.Red)
-                    )
-                }
-            },
+            logo = { PreviewLogo() },
         )
     }
 }
@@ -166,7 +182,7 @@ private fun GrapesAmountListItemPreview() {
 @Composable
 @Preview(showBackground = true)
 @Preview(showBackground = true, fontScale = 1.5f)
-private fun GrapesAmountListItemTextOverflowPreview() {
+private fun PreviewGrapesAmountListItemTextOverflow() {
     GrapesTheme {
         GrapesAmountListItem(
             title = "Some very long title that will overflow the space available",
@@ -177,21 +193,53 @@ private fun GrapesAmountListItemTextOverflowPreview() {
                 descriptionColor = GrapesTheme.colors.successNormal,
             ),
             onClick = {},
-            logo = {
-                GrapesBadgedLogo(
-                    badge = {
-                        GrapesHighlightIconSuccess(
-                            size = GrapesHighlightIconSize.SMALL,
-                        )
-                    },
+            logo = { PreviewLogo() },
+        )
+    }
+}
+
+@Composable
+@Preview(showBackground = true)
+@Preview(showBackground = true, fontScale = 1.5f)
+private fun PreviewGrapesAmountListItemAnnotatedAmount() {
+    GrapesTheme {
+        GrapesAmountListItem(
+            title = "Title",
+            subtitle = "Subtitle",
+            amount = buildAnnotatedString {
+                withStyle(
+                    GrapesTheme.typography.bodyL.toSpanStyle()
+                        .copy(color = GrapesTheme.colors.neutralDark)
                 ) {
-                    Box(
-                        modifier = Modifier
-                            .size(64.dp)
-                            .background(Color.Red)
-                    )
+                    append("100€ • ")
+                }
+                withStyle(GrapesTheme.typography.titleL.toSpanStyle()) {
+                    append("100€")
                 }
             },
+            description = "description",
+            colors = GrapesAmountListItemDefaults.colors(
+                descriptionColor = GrapesTheme.colors.successNormal,
+            ),
+            onClick = {},
+            logo = { PreviewLogo() },
+        )
+    }
+}
+
+@Composable
+private fun PreviewLogo() {
+    GrapesBadgedLogo(
+        badge = {
+            GrapesHighlightIconSuccess(
+                size = GrapesHighlightIconSize.SMALL,
+            )
+        },
+    ) {
+        Box(
+            modifier = Modifier
+                .size(64.dp)
+                .background(Color.Red)
         )
     }
 }
