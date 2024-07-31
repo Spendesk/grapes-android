@@ -10,7 +10,7 @@ object GrapesTopAppBarDefaults {
 
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
-    fun colors(
+    fun mediumTopAppBarColors(
         containerColor: Color = GrapesTheme.colors.structureBackground,
         scrolledContainerColor: Color = GrapesTheme.colors.structureBackground,
         navigationIconContentColor: Color = GrapesTheme.colors.structureComplementary,
