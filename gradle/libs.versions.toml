@@ -20,7 +20,7 @@ glide = "4.16.0"
 ## AndroidX
 androidxAppcompat = "1.6.1"
 androidxComposeBom = "2024.02.00"
-androidxComposeCompiler = "1.5.7"
+androidxComposeCompiler = "1.5.14"
 androidxConstraintlayout = "2.1.4"
 androidxCore = "1.12.0"
 androidxEspresso = "3.5.1"
@@ -30,11 +30,11 @@ androidxTestJunit = "1.1.5"
 
 ## Google
 hilt = "2.50"
-ksp = "1.9.21-1.0.16"
+ksp = "1.9.24-1.0.20"
 material = '1.11.0'
 
 ## Jetbrains
-kotlin = "1.9.21"
+kotlin = "1.9.24"
 
 ## Tests
 junit4 = "4.13.2"
