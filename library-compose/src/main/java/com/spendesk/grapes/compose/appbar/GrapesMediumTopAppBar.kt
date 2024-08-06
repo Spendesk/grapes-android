@@ -12,7 +12,9 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.text.style.TextOverflow
@@ -41,7 +43,11 @@ fun GrapesMediumTopAppBar(
     windowInsets: WindowInsets = TopAppBarDefaults.windowInsets,
 ) {
     val topBarState = scrollBehavior?.state
-    val collapsed = topBarState != null && topBarState.collapsedFraction > CollapsedThreshold
+    val collapsed by remember {
+        derivedStateOf {
+            topBarState != null && topBarState.collapsedFraction > CollapsedThreshold
+        }
+    }
     val elevation by animateDpAsState(
         targetValue = if (collapsed) collapsedShadowElevation else expandedShadowElevation,
         label = "TopAppBar elevation"
