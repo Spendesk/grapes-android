@@ -10,13 +10,29 @@ object GrapesTopAppBarDefaults {
 
     @Composable
     @OptIn(ExperimentalMaterial3Api::class)
-    fun colors(
+    fun mediumTopAppBarColors(
         containerColor: Color = GrapesTheme.colors.structureBackground,
         scrolledContainerColor: Color = GrapesTheme.colors.structureBackground,
         navigationIconContentColor: Color = GrapesTheme.colors.structureComplementary,
         titleContentColor: Color = GrapesTheme.colors.structureComplementary,
         actionIconContentColor: Color = GrapesTheme.colors.structureComplementary,
     ) = TopAppBarDefaults.mediumTopAppBarColors(
+        containerColor = containerColor,
+        scrolledContainerColor = scrolledContainerColor,
+        navigationIconContentColor = navigationIconContentColor,
+        titleContentColor = titleContentColor,
+        actionIconContentColor = actionIconContentColor,
+    )
+
+    @Composable
+    @OptIn(ExperimentalMaterial3Api::class)
+    fun topAppBarColors(
+        containerColor: Color = GrapesTheme.colors.structureSurface,
+        scrolledContainerColor: Color = GrapesTheme.colors.structureSurface,
+        navigationIconContentColor: Color = GrapesTheme.colors.structureComplementary,
+        titleContentColor: Color = GrapesTheme.colors.structureComplementary,
+        actionIconContentColor: Color = GrapesTheme.colors.structureComplementary,
+    ) = TopAppBarDefaults.topAppBarColors(
         containerColor = containerColor,
         scrolledContainerColor = scrolledContainerColor,
         navigationIconContentColor = navigationIconContentColor,
