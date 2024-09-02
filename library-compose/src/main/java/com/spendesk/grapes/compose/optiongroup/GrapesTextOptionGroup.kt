@@ -93,10 +93,10 @@ private fun PreviewGrapesTextOptionGroup() {
         var items by remember {
             mutableStateOf(
                 persistentListOf(
-                    GrapesTextOptionGroupUiModel("< 50cc", false),
-                    GrapesTextOptionGroupUiModel("1-2cv", false),
-                    GrapesTextOptionGroupUiModel("3-5cv", true),
-                    GrapesTextOptionGroupUiModel("> 5cv", false)
+                    GrapesTextOptionGroupUiModel("", "< 50cc", false),
+                    GrapesTextOptionGroupUiModel("", "1-2cv", false),
+                    GrapesTextOptionGroupUiModel("", "3-5cv", true),
+                    GrapesTextOptionGroupUiModel("", "> 5cv", false)
                 )
             )
         }

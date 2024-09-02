@@ -83,6 +83,7 @@ private fun PreviewGrapesIconOptionGroupItem() {
         ) {
             GrapesBlockOptionGroupItem(
                 model = GrapesBlockOptionGroupUiModel(
+                    id = "",
                     imageRes = R.drawable.ic_block,
                     title = "A short title",
                     description = "Some description here to fill the space",
@@ -93,6 +94,7 @@ private fun PreviewGrapesIconOptionGroupItem() {
             )
             GrapesBlockOptionGroupItem(
                 model = GrapesBlockOptionGroupUiModel(
+                    id = "",
                     imageRes = R.drawable.ic_block,
                     title = "A short title",
                     description = "Some description here to fill the space",

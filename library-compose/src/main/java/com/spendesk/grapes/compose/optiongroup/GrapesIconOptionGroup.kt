@@ -45,9 +45,9 @@ private fun PreviewGrapesIconOptionGroup() {
     GrapesTheme {
         GrapesIconOptionGroup(
             items = persistentListOf(
-                GrapesIconOptionGroupUiModel(imageRes = R.drawable.ic_block, isSelected = true),
-                GrapesIconOptionGroupUiModel(imageRes = R.drawable.ic_block, isSelected = false),
-                GrapesIconOptionGroupUiModel(imageRes = R.drawable.ic_block, isSelected = false),
+                GrapesIconOptionGroupUiModel(id = "", imageRes = R.drawable.ic_block, isSelected = true),
+                GrapesIconOptionGroupUiModel(id = "", imageRes = R.drawable.ic_block, isSelected = false),
+                GrapesIconOptionGroupUiModel(id = "", imageRes = R.drawable.ic_block, isSelected = false),
             ),
             onItemSelected = {},
             modifier = Modifier.fillMaxWidth()

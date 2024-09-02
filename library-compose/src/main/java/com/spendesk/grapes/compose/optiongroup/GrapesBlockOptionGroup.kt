@@ -45,12 +45,14 @@ private fun PreviewGrapesBlockOptionGroupItem() {
         GrapesBlockOptionGroup(
             items = persistentListOf(
                 GrapesBlockOptionGroupUiModel(
+                    id = "",
                     imageRes = R.drawable.ic_block,
                     title = "A short title",
                     description = "Some description here to fill the space",
                     isSelected = false,
                 ),
                 GrapesBlockOptionGroupUiModel(
+                    id = "",
                     imageRes = R.drawable.ic_block,
                     title = "A short title",
                     description = "Some description here to fill the space",
