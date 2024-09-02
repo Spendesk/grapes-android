@@ -89,6 +89,7 @@ dependencies {
     // Compose
     api(platform(libs.androidx.compose.bom))
     api(libs.bundles.androidxcompose)
+    api(libs.kotlinx.collections.immutable)
 
     // UI Tests
     androidTestImplementation(libs.androidx.compose.ui.test)
