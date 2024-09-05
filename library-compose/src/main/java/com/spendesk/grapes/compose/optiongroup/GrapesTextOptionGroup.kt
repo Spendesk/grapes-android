@@ -4,13 +4,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
+import androidx.compose.material3.CardDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.spendesk.grapes.compose.optiongroup.internal.GrapesOptionGroupItemDefaults
 import com.spendesk.grapes.compose.optiongroup.model.GrapesTextOptionGroupUiModel
 import com.spendesk.grapes.compose.theme.GrapesTheme
 import kotlinx.collections.immutable.ImmutableList
@@ -50,36 +49,28 @@ fun GrapesTextOptionGroup(
             modifier = Modifier.fillMaxWidth(),
         ) {
             items.forEachIndexed { index, item ->
-                if (item.isSelected) {
-                    GrapesTextOptionGroupItem(
-                        text = item.text,
-                        isSelected = true,
-                        onClick = { /* item already selected, do nothing */ },
-                        modifier = Modifier
-                            .weight(1f)
-                    )
+                val elevation = if (item.isSelected) {
+                    GrapesOptionGroupItemDefaults.elevation()
                 } else {
-                    TextButton(
-                        onClick = { onItemSelected(item) },
-                        shape = GrapesTheme.shapes.shape2,
-                        modifier = modifier
-                            .fillMaxHeight()
-                            .weight(1f)
-                    ) {
-                        Text(
-                            text = item.text,
-                            color = GrapesTheme.colors.neutralDark,
-                            style = GrapesTheme.typography.bodyM,
-                        )
-                    }
-                    if (index < items.lastIndex && !items[index + 1].isSelected) {
-                        Box(
-                            modifier = Modifier
-                                .width(1.dp)
-                                .height(16.dp)
-                                .background(GrapesTheme.colors.neutralLighter)
-                        )
-                    }
+                    CardDefaults.cardElevation()
+                }
+                GrapesTextOptionGroupItem(
+                    text = item.text,
+                    isSelected = item.isSelected,
+                    onClick = { onItemSelected(item) },
+                    elevation = elevation,
+                    border = GrapesOptionGroupItemDefaults.border(
+                        unselectedBorder = null,
+                    ),
+                    modifier = Modifier.weight(1f)
+                )
+                if (index < items.lastIndex && !items[index + 1].isSelected) {
+                    Box(
+                        modifier = Modifier
+                            .width(1.dp)
+                            .height(16.dp)
+                            .background(GrapesTheme.colors.neutralLighter)
+                    )
                 }
             }
         }

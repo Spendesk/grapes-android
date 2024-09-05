@@ -18,6 +18,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CardElevation
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -43,24 +44,24 @@ internal fun GrapesOptionGroupItem(
     modifier: Modifier = Modifier,
     alignment: Alignment = Alignment.Center,
     elevation: CardElevation = GrapesOptionGroupItemDefaults.elevation(),
-    colors: CardColors = if (isSelected) {
-        GrapesOptionGroupItemDefaults.selectedColors()
-    } else {
-        GrapesOptionGroupItemDefaults.unselectedColors()
-    },
-    border: BorderStroke = if (isSelected) {
-        GrapesOptionGroupItemDefaults.selectedBorder()
-    } else {
-        GrapesOptionGroupItemDefaults.unselectedBorder()
-    },
+    colors: GrapesOptionGroupItemColors = GrapesOptionGroupItemDefaults.colors(),
+    border: GrapesOptionGroupItemBorder? = GrapesOptionGroupItemDefaults.border(),
     content: @Composable () -> Unit,
 ) {
     Card(
-        colors = colors,
-        border = border,
         elevation = elevation,
         shape = GrapesTheme.shapes.shape2,
         onClick = onClick,
+        border = if (isSelected) {
+            border?.selectedBorder
+        } else {
+            border?.unselectedBorder
+        },
+        colors = if (isSelected) {
+            colors.selectedColors
+        } else {
+            colors.unselectedColors
+        },
         modifier = modifier
             .width(IntrinsicSize.Max)
             .height(IntrinsicSize.Max)
@@ -75,36 +76,44 @@ internal fun GrapesOptionGroupItem(
     }
 }
 
+@Immutable
+data class GrapesOptionGroupItemColors(
+    val selectedColors: CardColors,
+    val unselectedColors: CardColors,
+)
+
+@Immutable
+data class GrapesOptionGroupItemBorder(
+    val selectedBorder: BorderStroke?,
+    val unselectedBorder: BorderStroke?,
+)
+
 internal object GrapesOptionGroupItemDefaults {
 
     @Composable
-    fun selectedColors(
-        containerColor: Color = GrapesTheme.colors.primaryLightest,
-        contentColor: Color = GrapesTheme.colors.primaryNormal,
-    ): CardColors = CardDefaults.cardColors(
-        containerColor = containerColor,
-        contentColor = contentColor,
+    fun colors(
+        selectedContainerColor: Color = GrapesTheme.colors.primaryLightest,
+        selectedContentColor: Color = GrapesTheme.colors.primaryNormal,
+        unselectedContainerColor: Color = GrapesTheme.colors.structureSurface,
+        unselectedContentColor: Color = GrapesTheme.colors.structureComplementary,
+    ): GrapesOptionGroupItemColors = GrapesOptionGroupItemColors(
+        selectedColors = CardDefaults.cardColors(
+            containerColor = selectedContainerColor,
+            contentColor = selectedContentColor,
+        ),
+        unselectedColors = CardDefaults.cardColors(
+            containerColor = unselectedContainerColor,
+            contentColor = unselectedContentColor,
+        ),
     )
 
     @Composable
-    fun selectedBorder(): BorderStroke = BorderStroke(
-        width = 2.dp,
-        color = GrapesTheme.colors.primaryNormal,
-    )
-
-    @Composable
-    fun unselectedColors(
-        containerColor: Color = GrapesTheme.colors.structureSurface,
-        contentColor: Color = GrapesTheme.colors.structureComplementary,
-    ): CardColors = CardDefaults.cardColors(
-        containerColor = containerColor,
-        contentColor = contentColor,
-    )
-
-    @Composable
-    fun unselectedBorder(): BorderStroke = BorderStroke(
-        width = 1.dp,
-        color = GrapesTheme.colors.neutralLighter,
+    fun border(
+        selectedBorder: BorderStroke? = BorderStroke(2.dp, GrapesTheme.colors.primaryNormal),
+        unselectedBorder: BorderStroke? = BorderStroke(1.dp, GrapesTheme.colors.neutralLighter),
+    ): GrapesOptionGroupItemBorder = GrapesOptionGroupItemBorder(
+        selectedBorder = selectedBorder,
+        unselectedBorder = unselectedBorder,
     )
 
     @Composable
@@ -131,16 +140,14 @@ private fun PreviewGrapesOptionGroupItem() {
                 isSelected = isSelected,
                 onClick = { isSelected = !isSelected },
                 contentDescription = null,
-            ) {
-                icon()
-            }
+                content = { icon() }
+            )
             GrapesOptionGroupItem(
                 isSelected = !isSelected,
                 onClick = { isSelected = !isSelected },
                 contentDescription = null,
-            ) {
-                icon()
-            }
+                content = { icon() }
+            )
         }
     }
 }
