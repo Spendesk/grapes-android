@@ -2,13 +2,14 @@ package com.spendesk.grapes.compose.theme
 
 import androidx.compose.foundation.LocalIndication
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
-import androidx.compose.material.ripple.LocalRippleTheme
-import androidx.compose.material.ripple.RippleTheme
-import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.material3.LocalRippleConfiguration
+import androidx.compose.material3.RippleConfiguration
+import androidx.compose.material3.RippleDefaults.RippleAlpha
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.ReadOnlyComposable
 
 /**
@@ -35,12 +36,13 @@ object GrapesTheme {
         get() = LocalGrapesShapes.current
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GrapesTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val rippleIndication = rememberRipple()
+    val rippleIndication = ripple()
 
     CompositionLocalProvider(
         LocalGrapesColors provides lightColorsPalette(),
@@ -48,22 +50,14 @@ fun GrapesTheme(
         LocalGrapesDimensions provides GrapesDimensions(),
         LocalGrapesShapes provides GrapesShapes(),
         LocalIndication provides rippleIndication,
-        LocalRippleTheme provides GrapesRippleTheme,
+        LocalRippleConfiguration provides grapesRippleConfiguration(),
         content = content
     )
 }
 
-@Immutable
-private object GrapesRippleTheme : RippleTheme {
-    @Composable
-    override fun defaultColor() = RippleTheme.defaultRippleColor(
-        contentColor = LocalContentColor.current,
-        lightTheme = GrapesTheme.colors.isLight
-    )
-
-    @Composable
-    override fun rippleAlpha() = RippleTheme.defaultRippleAlpha(
-        contentColor = LocalContentColor.current,
-        lightTheme = GrapesTheme.colors.isLight
-    )
-}
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun grapesRippleConfiguration() = RippleConfiguration(
+    color = LocalContentColor.current,
+    rippleAlpha = RippleAlpha
+)
