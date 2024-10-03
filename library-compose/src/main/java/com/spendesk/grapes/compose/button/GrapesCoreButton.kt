@@ -19,8 +19,9 @@ import androidx.compose.material.Button
 import androidx.compose.material.ButtonColors
 import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ProvideTextStyle
-import androidx.compose.material.ripple.LocalRippleTheme
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.LocalRippleConfiguration
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
@@ -257,12 +258,13 @@ private fun Decoration(
 /**
  * Default ripple theme use [LocalContentColor] as Ripple color but we require different
  * colors depending on button.
- * We need to provide [LocalRippleTheme] with specific color.
+ * We need to provide [LocalRippleConfiguration] with specific color.
  */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun ProvideButtonRippleColor(rippleColor: Color, content: @Composable () -> Unit) {
     CompositionLocalProvider(
-        LocalRippleTheme provides GrapesButtonRippleTheme(rippleColor = rippleColor),
+        LocalRippleConfiguration provides grapesButtonRippleConfiguration(rippleColor = rippleColor),
         content = content
     )
 }
