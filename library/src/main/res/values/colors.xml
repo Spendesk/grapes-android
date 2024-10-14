@@ -147,4 +147,113 @@
     <color name="actionMessageBottomSheetTitleTextColor">@color/mainComplementary</color>
     <color name="actionMessageBottomSheetDescriptionTextColor">@color/mainNeutralDarker</color>
     <!-- endregion Action Message Bottom Sheet -->
+
+    <!-- region UI-Revamp primitive tokens -->
+    <color name="apricot_10">#F8EEE9</color>
+    <color name="apricot_20">#FACFB8</color>
+    <color name="apricot_30">#F0B494</color>
+    <color name="apricot_40">#ECA179</color>
+    <color name="apricot_50">#E78855</color>
+    <color name="apricot_60">#DB611F</color>
+    <color name="apricot_70">#B54509</color>
+    <color name="apricot_80">#9C3B08</color>
+    <color name="apricot_90">#833206</color>
+    <color name="apricot_100">#412301</color>
+
+    <color name="blue_10">#EFF1FE</color>
+    <color name="blue_20">#DAE0FF</color>
+    <color name="blue_30">#C1CAFB</color>
+    <color name="blue_40">#B3BFFA</color>
+    <color name="blue_50">#9696EE</color>
+    <color name="blue_60">#7D7DDE</color>
+    <color name="blue_70">#5D5DC2</color>
+    <color name="blue_80">#4A4ABA</color>
+    <color name="blue_90">#4040AA</color>
+    <color name="blue_100">#222263</color>
+
+    <color name="carbon_3">#F8F8F8</color>
+    <color name="carbon_5">#F3F4F4</color>
+    <color name="carbon_7">#EFEFEF</color>
+    <color name="carbon_10">#E8E8E8</color>
+    <color name="carbon_15">#DDDDDD</color>
+    <color name="carbon_20">#D1D1D1</color>
+    <color name="carbon_30">#BABBBB</color>
+    <color name="carbon_40">#A3A4A4</color>
+    <color name="carbon_50">#8C8D8D</color>
+    <color name="carbon_60">#757676</color>
+    <color name="carbon_70">#5E5F5F</color>
+    <color name="carbon_80">#474949</color>
+    <color name="carbon_90">#303232</color>
+    <color name="carbon_100">#191B1B</color>
+
+    <color name="emerald_10">#E9F6EC</color>
+    <color name="emerald_20">#C7EACE</color>
+    <color name="emerald_30">#9BDAA7</color>
+    <color name="emerald_40">#91D69F</color>
+    <color name="emerald_50">#56B369</color>
+    <color name="emerald_60">#3A984C</color>
+    <color name="emerald_70">#2D763C</color>
+    <color name="emerald_80">#266432</color>
+    <color name="emerald_90">#1F5129</color>
+    <color name="emerald_100">#073310</color>
+
+    <color name="light_forest">#F0F5E6</color>
+    <color name="bright_forest">#D7E8B2</color>
+    <color name="mid_forest">#B9D67A</color>
+    <color name="deep_forest">#576E26</color>
+    <color name="dark_forest">#213000</color>
+
+    <color name="light_grolive">#F3F4EF</color>
+    <color name="bright_grolive">#E0E2D7</color>
+    <color name="mid_grolive">#CACEB9</color>
+    <color name="deep_grolive">#626555</color>
+    <color name="dark_grolive">#2B2C26</color>
+
+    <color name="light_lemon">#F5F5E6</color>
+    <color name="bright_lemon">#E6E8AB</color>
+    <color name="soft_lemon">#CED25D</color>
+    <color name="deep_lemon">#686427</color>
+    <color name="dark_lemon">#2E2C00</color>
+
+    <color name="light_ocean">#E5F5F5</color>
+    <color name="bright_ocean">#C0ECEC</color>
+    <color name="soft_ocean">#7DD5D5</color>
+    <color name="deep_ocean">#176E6E</color>
+    <color name="dark_ocean">#003333</color>
+
+    <color name="light_peach">#FAF2F1</color>
+    <color name="bright_peach">#FFD4CA</color>
+    <color name="soft_peach">#F4AB9B</color>
+    <color name="deep_peach">#A4422D</color>
+    <color name="dark_peach">#551507</color>
+
+    <color name="light_pink">#845AED</color>
+    <color name="bright_pink">#7136ED</color>
+    <color name="mid_pink">#601DD3</color>
+    <color name="deep_pink">#4F03BA</color>
+    <color name="dark_pink">#331E61</color>
+
+    <color name="purple_10">#F3F0FF</color>
+    <color name="purple_20">#E4DDFF</color>
+    <color name="purple_30">#DAD1FF</color>
+    <color name="purple_40">#C5B6FF</color>
+    <color name="purple_50">#9276F0</color>
+    <color name="purple_60">#845AED</color>
+    <color name="purple_70">#7136ED</color>
+    <color name="purple_80">#601DD3</color>
+    <color name="purple_90">#4F03BA</color>
+    <color name="purple_100">#331E61</color>
+
+    <color name="raspberry_10">#FAF0F3</color>
+    <color name="raspberry_20">#F9D7DF</color>
+    <color name="raspberry_30">#FBBCCB</color>
+    <color name="raspberry_40">#FAABBF</color>
+    <color name="raspberry_50">#F07F9B</color>
+    <color name="raspberry_60">#E05779</color>
+    <color name="raspberry_70">#BF3255</color>
+    <color name="raspberry_80">#AA2C4B</color>
+    <color name="raspberry_90">#962742</color>
+    <color name="raspberry_100">#5C051B</color>
+
+    <color name="white">#FFFFFF</color>
 </resources>
