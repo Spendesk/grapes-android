@@ -256,4 +256,80 @@
     <color name="raspberry_100">#5C051B</color>
 
     <color name="white">#FFFFFF</color>
+    <!-- endregion UI-Revamp primitive tokens -->
+
+    <!-- region UI-Revamp design tokens -->
+    <color name="backgroundPrimary">@color/white</color>
+    <color name="backgroundSecondary">@color/carbon_3</color>
+    <color name="backgroundTertiary">@color/carbon_10</color>
+    <color name="backgroundHover">@color/carbon_3</color>
+    <color name="backgroundPressed">@color/carbon_10</color>
+    <color name="backgroundSelected">@color/purple_10</color>
+    <color name="backgroundDisabled">@color/carbon_5</color>
+    <color name="backgroundReadOnly">@color/carbon_3</color>
+
+    <color name="backgroundPrimaryBrandDefault">@color/purple_70</color>
+    <color name="backgroundPrimaryBrandHover">@color/purple_80</color>
+    <color name="backgroundPrimaryBrandPressed">@color/purple_90</color>
+
+    <color name="backgroundPrimaryInfoDefault">@color/purple_70</color>
+    <color name="backgroundPrimaryInfoHover">@color/purple_80</color>
+    <color name="backgroundPrimaryInfoPressed">@color/purple_90</color>
+
+    <color name="backgroundPrimarySuccessDefault">@color/emerald_70</color>
+    <color name="backgroundPrimarySuccessHover">@color/emerald_80</color>
+    <color name="backgroundPrimarySuccessPressed">@color/emerald_90</color>
+
+    <color name="backgroundPrimaryWarningDefault">@color/apricot_70</color>
+    <color name="backgroundPrimaryWarningHover">@color/apricot_80</color>
+    <color name="backgroundPrimaryWarningPressed">@color/apricot_90</color>
+
+    <color name="backgroundPrimaryAlertDefault">@color/raspberry_70</color>
+    <color name="backgroundPrimaryAlertHover">@color/raspberry_80</color>
+    <color name="backgroundPrimaryAlertPressed">@color/raspberry_90</color>
+
+    <color name="backgroundSecondaryBrandDefault">@color/purple_10</color>
+    <color name="backgroundSecondaryBrandHover">@color/purple_10</color>
+    <color name="backgroundSecondaryBrandPressed">@color/purple_20</color>
+
+    <color name="backgroundSecondaryInfoDefault">@color/blue_10</color>
+    <color name="backgroundSecondaryInfoHover">@color/blue_10</color>
+    <color name="backgroundSecondaryInfoPressed">@color/blue_20</color>
+
+    <color name="backgroundSecondarySuccessDefault">@color/emerald_10</color>
+    <color name="backgroundSecondarySuccessHover">@color/emerald_10</color>
+    <color name="backgroundSecondarySuccessPressed">@color/emerald_20</color>
+
+    <color name="backgroundSecondaryWarningDefault">@color/apricot_10</color>
+    <color name="backgroundSecondaryWarningHover">@color/apricot_10</color>
+    <color name="backgroundSecondaryWarningPressed">@color/apricot_20</color>
+
+    <color name="backgroundSecondaryAlertDefault">@color/raspberry_10</color>
+    <color name="backgroundSecondaryAlertHover">@color/raspberry_10</color>
+    <color name="backgroundSecondaryAlertPressed">@color/raspberry_20</color>
+
+    <color name="contentPrimary">@color/carbon_100</color>
+    <color name="contentSecondary">@color/carbon_70</color>
+    <color name="contentTertiary">@color/carbon_60</color>
+    <color name="contentComplementary">@color/white</color>
+    <color name="contentSelected">@color/purple_70</color>
+    <color name="contentDisable">@color/carbon_20</color>
+
+    <color name="contentBrandDefault">@color/purple_70</color>
+    <color name="contentBrandHover">@color/purple_90</color>
+    <color name="contentBrandPressed">@color/purple_90</color>
+
+    <color name="contentInfoDefault">@color/blue_70</color>
+    <color name="contentSuccessDefault">@color/emerald_70</color>
+    <color name="contentWarningDefault">@color/apricot_70</color>
+    <color name="contentAlertDefault">@color/raspberry_70</color>
+
+    <color name="borderDefault">@color/carbon_10</color>
+    <color name="borderHover">@color/purple_90</color>
+    <color name="borderSelected">@color/purple_70</color>
+    <color name="borderInfo">@color/blue_70</color>
+    <color name="borderSuccess">@color/emerald_70</color>
+    <color name="borderWarning">@color/apricot_70</color>
+    <color name="borderAlert">@color/raspberry_70</color>
+    <!-- endregion UI-Revamp design tokens -->
 </resources>
