@@ -15,41 +15,71 @@ data class GrapesColors(
 
     val google: Color,
 
+    @Deprecated("Use the following design token according to the context: borderHover, backgroundPrimaryBrandPressed or contentBrandPressed")
     val primaryDark: Color,
+    @Deprecated("No longer used for now")
     val primaryNormal: Color,
+    @Deprecated("No longer used for now")
     val primaryLight: Color,
+    @Deprecated("No longer used for now")
     val primaryLighter: Color,
+    @Deprecated("Use the following design token according to the context: backgroundSecondaryBrandDefault, backgroundSecondaryHoverDefault")
     val primaryLightest: Color,
 
+    @Deprecated("No longer used for now")
     val neutralDarker: Color,
-    val neutralDark: Color,
+    @Deprecated("Use the following design token according to the context: contentSecondary, contentTertiary")
     val neutralNormal: Color,
+    @Deprecated("No longer used")
+    val neutralDark: Color,
+    @Deprecated("Use the following design token: contentDisabled")
     val neutralLight: Color,
+    @Deprecated("Use the following design token according to the context: borderDefault, backgroundPressed")
     val neutralLighter: Color,
+    @Deprecated("Use the following design token: backgroundDisabled")
     val neutralLightest: Color,
 
+    @Deprecated("Use the following design token according to the context: borderInfo, backgroundPrimaryInfoDefault or contentInfoDefault")
     val infoNormal: Color,
+    @Deprecated("This token is no longer used")
     val infoLighter: Color,
+    @Deprecated("Use the following design token: backgroundSecondaryInfoPressed")
     val infoLightest: Color,
 
+    @Deprecated("Use the following design token according to the context: borderSuccess, backgroundPrimarySuccessDefault, backgroundPrimarySuccessHover or contentSuccessDefault")
     val successNormal: Color,
+    @Deprecated("Use the following design token: borderSecondarySuccessPressed")
     val successLighter: Color,
+    @Deprecated("Use the following design token according to the context: backgroundSecondarySuccessDefault or backgroundSecondarySuccessHover")
     val successLightest: Color,
 
+    @Deprecated("Use the following design token: backgroundPrimaryWarningPressed")
     val warningDark: Color,
+    @Deprecated("Use the following design token according to the context: borderWarning, backgroundPrimaryWarningDefault or contentWarningDefault")
     val warningNormal: Color,
+    @Deprecated("No longer used")
     val warningLight: Color,
+    @Deprecated("Use one of the following new design token instead: backgroundSecondaryWarningDefault or Hover")
     val warningLighter: Color,
+    @Deprecated("Use the following design token: backgroundSecondaryWarningPressed")
     val warningLightest: Color,
 
+    @Deprecated("Use the following design token: backgroundPrimaryAlertPressed")
     val alertDark: Color,
+    @Deprecated("Use the following design token according to the context: borderAlert, backgroundPrimaryAlertDefault or contentAlertDefault")
     val alertNormal: Color,
+    @Deprecated("No longer used")
     val alertLight: Color,
+    @Deprecated("Use the following design token: backgroundSecondaryAlertPressed")
     val alertLighter: Color,
+    @Deprecated("Use the following design token according to the context: backgroundSecondaryAlertDefault, backgroundSecondaryAlertHover")
     val alertLightest: Color,
 
+    @Deprecated("Use the following design token according to the context: backgroundPrimary, contentComplementary")
     val structureSurface: Color,
+    @Deprecated("Use the following design token instead: contentPrimary")
     val structureComplementary: Color,
+    @Deprecated("Use the following design token according to the context: borderSecondary, backgroundHover or backgroundReadOnly")
     val structureBackground: Color,
 
     val isLight: Boolean,
