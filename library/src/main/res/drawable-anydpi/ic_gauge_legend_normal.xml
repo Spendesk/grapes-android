@@ -14,7 +14,7 @@
             android:pathData="M12.084,0L2.82083,11"
             android:strokeWidth="1.6"
             android:strokeAlpha="0.5"
-            android:strokeColor="#5D21D2" />
+            android:strokeColor="@color/mainPrimaryNormal" />
 
         <path
             android:fillAlpha="0.5"
@@ -22,12 +22,12 @@
             android:pathData="M3.24158,0L-6.02158,11"
             android:strokeWidth="1.6"
             android:strokeAlpha="0.5"
-            android:strokeColor="#5D21D2" />
+            android:strokeColor="@color/mainPrimaryNormal" />
 
         <path
             android:fillColor="#00000000"
             android:pathData="M7.66272,0L-1.60044,11"
             android:strokeWidth="1.6"
-            android:strokeColor="#5D21D2" />
+            android:strokeColor="@color/mainPrimaryNormal" />
     </group>
 </vector>

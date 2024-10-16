@@ -6,7 +6,7 @@
     <group>
         <clip-path android:pathData="M4,0L36,0A4,4 0,0 1,40 4L40,36A4,4 0,0 1,36 40L4,40A4,4 0,0 1,0 36L0,4A4,4 0,0 1,4 0z" />
         <path
-            android:fillColor="#CFCFD5"
+            android:fillColor="@color/mainNeutralLight"
             android:pathData="M0,0h40v40h-40z" />
         <path
             android:fillColor="#ffffff"

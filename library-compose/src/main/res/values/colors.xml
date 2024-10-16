@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="carbon_100">#191B1B</color>
+    <color name="carbon_70">#5E5F5F</color>
+    <color name="carbon_80">#474949</color>
+    <color name="carbon_20">#D1D1D1</color>
+    <color name="carbon_10">#E8E8E8</color>
+    <color name="purple_90">#4F03BA</color>
+    <color name="purple_80">#601DD3</color>
+    <color name="blue_70">#5D5DC2</color>
+    <color name="blue_100">#222263</color>
+    <color name="raspberry_70">#BF3255</color>
+    <color name="emerald_70">#2D763C</color>
+    <color name="apricot_70">#9C3B08</color>
+</resources>
