@@ -5,18 +5,18 @@
     <color name="infoTipViewBrandText">@color/mainPrimaryNormal</color>
     <color name="infoTipViewBrandBackground">@color/mainPrimaryNormalAlpha26</color>
     <color name="infoTipViewSuccessText">@color/mainSuccessNormal</color>
-    <color name="infoTipViewSuccessBackground">#DEFFE7</color>
+    <color name="infoTipViewSuccessBackground">@color/mainSuccessLightest</color>
     <color name="infoTipViewWarningText">@color/mainWarningNormal</color>
-    <color name="infoTipViewWarningBackground">#1AA85D00</color>
+    <color name="infoTipViewWarningBackground">@color/mainWarningLightest</color>
     <color name="infoTipViewWarningOpaqueText">@color/mainWarningNormal</color>
     <color name="infoTipViewWarningOpaqueBackground">@color/mainWarningLightest</color>
     <color name="infoTipViewInfoText">@color/mainInfoNormal</color>
-    <color name="infoTipViewInfoBackground">#1A54BEFF</color>
+    <color name="infoTipViewInfoBackground">@color/blue_10</color>
     <color name="infoTipViewInfoOpaqueBackground">@color/mainInfoLightest</color>
     <color name="infoTipViewInfoNeutralOpaqueText">@color/mainNeutralDarkest</color>
     <color name="infoTipViewInfoNeutralOpaqueBackground">@color/mainNeutralLight</color>
     <color name="infoTipViewErrorText">@color/mainAlertNormal</color>
-    <color name="infoTipViewErrorBackground">#F9E9EB</color>
+    <color name="infoTipViewErrorBackground">@color/mainAlertLightest</color>
     <color name="infoTipViewErrorOpaqueText">@color/mainAlertNormal</color>
     <color name="infoTipViewErrorOpaqueBackground">@color/mainAlertLightest</color>
 </resources>

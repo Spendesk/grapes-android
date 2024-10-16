@@ -7,42 +7,42 @@
 
     <!-- region Default -->
 
-    <color name="mainPrimaryDark">#421896</color>
-    <color name="mainPrimaryNormal">#5D21D2</color>
-    <color name="mainPrimaryNormalAlpha26">#385D21D2</color>
+    <color name="mainPrimaryDark">@color/purple_90</color>
+    <color name="mainPrimaryNormal">@color/purple_80</color>
+    <color name="mainPrimaryNormalAlpha26">@color/mainPrimaryDark</color>
 
-    <color name="mainPrimaryLight">#7542D9</color>
-    <color name="mainPrimaryLighter">#DBD1F4</color>
-    <color name="mainPrimaryLightest">#F4EFFC</color>
+    <color name="mainPrimaryLight">@color/purple_70</color>
+    <color name="mainPrimaryLighter">@color/purple_30</color>
+    <color name="mainPrimaryLightest">@color/purple_10</color>
 
     <color name="mainWhite">#FFF</color>
     <color name="mainBlack">#FF000000</color>
-    <color name="mainComplementary">#17114E</color>
-    <color name="mainNeutralDarkest">#48465E</color>
-    <color name="mainNeutralDarker">#706F81</color>
-    <color name="mainNeutralDark">#B4B3BD</color>
-    <color name="mainNeutralNormal">#CFCFD5</color>
-    <color name="mainNeutralLight">#E6E6E9</color>
-    <color name="mainNeutralLighter">#F5F5F6</color>
-    <color name="mainBackground">#F7F7F8</color>
+    <color name="mainComplementary">@color/carbon_100</color>
+    <color name="mainNeutralDarkest">@color/carbon_80</color>
+    <color name="mainNeutralDarker">@color/carbon_70</color>
+    <color name="mainNeutralDark">@color/carbon_40</color>
+    <color name="mainNeutralNormal">@color/carbon_20</color>
+    <color name="mainNeutralLight">@color/carbon_10</color>
+    <color name="mainNeutralLighter">@color/carbon_5</color>
+    <color name="mainBackground">@color/carbon_3</color>
 
-    <color name="mainInfoNormal">#01799D</color>
-    <color name="mainInfoLighter">#B3D7E2</color>
-    <color name="mainInfoLightest">#E8F8FD</color>
+    <color name="mainInfoNormal">@color/blue_70</color>
+    <color name="mainInfoLighter">@color/blue_30</color>
+    <color name="mainInfoLightest">@color/blue_20</color>
 
-    <color name="mainSuccessNormal">#0B831B</color>
-    <color name="mainSuccessLighter">#B6DABB</color>
-    <color name="mainSuccessLightest">#DEFCEE</color>
+    <color name="mainSuccessNormal">@color/emerald_70</color>
+    <color name="mainSuccessLighter">@color/emerald_20</color>
+    <color name="mainSuccessLightest">@color/emerald_10</color>
 
-    <color name="mainWarningDark">#7F4608</color>
-    <color name="mainWarningNormal">#A85D00</color>
-    <color name="mainWarningLighter">#E5CEB3</color>
-    <color name="mainWarningLightest">#FFF3E5</color>
+    <color name="mainWarningDark">@color/apricot_90</color>
+    <color name="mainWarningNormal">@color/apricot_60</color>
+    <color name="mainWarningLighter">@color/apricot_20</color>
+    <color name="mainWarningLightest">@color/apricot_10</color>
 
-    <color name="mainAlertDark">#9E2208</color>
-    <color name="mainAlertNormal">#D12D00</color>
-    <color name="mainAlertLighter">#F1C0B3</color>
-    <color name="mainAlertLightest">#FDEDE8</color>
+    <color name="mainAlertDark">@color/raspberry_90</color>
+    <color name="mainAlertNormal">@color/raspberry_70</color>
+    <color name="mainAlertLighter">@color/raspberry_20</color>
+    <color name="mainAlertLightest">@color/raspberry_10</color>
 
     <!-- Alpha colors -->
     <color name="mainAlertNormalAlpha20">#33D12D00</color>
