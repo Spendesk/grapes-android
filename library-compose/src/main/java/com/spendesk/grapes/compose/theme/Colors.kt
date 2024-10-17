@@ -53,6 +53,80 @@ data class GrapesColors(
     val structureBackground: Color,
 
     val isLight: Boolean,
+
+    // UI-Revamp new design tokens:
+    val backgroundPrimary: Color,
+    val backgroundSecondary: Color,
+    val backgroundTertiary: Color,
+    val backgroundHover: Color,
+    val backgroundPressed: Color,
+    val backgroundSelected: Color,
+    val backgroundDisabled: Color,
+    val backgroundReadOnly: Color,
+
+    val backgroundPrimaryBrandDefault: Color,
+    val backgroundPrimaryBrandHover: Color,
+    val backgroundPrimaryBrandPressed: Color,
+
+    val backgroundPrimaryInfoDefault: Color,
+    val backgroundPrimaryInfoHover: Color,
+    val backgroundPrimaryInfoPressed: Color,
+
+    val backgroundPrimarySuccessDefault: Color,
+    val backgroundPrimarySuccessHover: Color,
+    val backgroundPrimarySuccessPressed: Color,
+
+    val backgroundPrimaryWarningDefault: Color,
+    val backgroundPrimaryWarningHover: Color,
+    val backgroundPrimaryWarningPressed: Color,
+
+    val backgroundPrimaryAlertDefault: Color,
+    val backgroundPrimaryAlertHover: Color,
+    val backgroundPrimaryAlertPressed: Color,
+
+    val backgroundSecondaryBrandDefault: Color,
+    val backgroundSecondaryBrandHover: Color,
+    val backgroundSecondaryBrandPressed: Color,
+
+    val backgroundSecondaryInfoDefault: Color,
+    val backgroundSecondaryInfoHover: Color,
+    val backgroundSecondaryInfoPressed: Color,
+
+    val backgroundSecondarySuccessDefault: Color,
+    val backgroundSecondarySuccessHover: Color,
+    val backgroundSecondarySuccessPressed: Color,
+
+    val backgroundSecondaryWarningDefault: Color,
+    val backgroundSecondaryWarningHover: Color,
+    val backgroundSecondaryWarningPressed: Color,
+
+    val backgroundSecondaryAlertDefault: Color,
+    val backgroundSecondaryAlertHover: Color,
+    val backgroundSecondaryAlertPressed: Color,
+
+    val contentPrimary: Color,
+    val contentSecondary: Color,
+    val contentTertiary: Color,
+    val contentComplementary: Color,
+    val contentSelected: Color,
+    val contentDisable: Color,
+
+    val contentBrandDefault: Color,
+    val contentBrandHover: Color,
+    val contentBrandPressed: Color,
+
+    val contentInfoDefault: Color,
+    val contentSuccessDefault: Color,
+    val contentWarningDefault: Color,
+    val contentAlertDefault: Color,
+
+    val borderDefault: Color,
+    val borderHover: Color,
+    val borderSelected: Color,
+    val borderInfo: Color,
+    val borderSuccess: Color,
+    val borderWarning: Color,
+    val borderAlert: Color,
 )
 
 val google = Color(0xFF4285F4)
